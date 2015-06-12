@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Siva</title>
-    <link>http://sivalabs.github.io/</link>
-    <description>Recent content on Siva</description>
+    <title>Development on Siva</title>
+    <link>http://sivalabs.github.io/categories/development/</link>
+    <description>Recent content in Development on Siva</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 12 Jun 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://sivalabs.github.io/categories/development/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Welcome to my new blog</title>
@@ -38,18 +38,6 @@ This is my new blog created using Hugo and hosted on GitHub Pages.&lt;/p&gt;
 &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>http://sivalabs.github.io/pages/about/</link>
-      <pubDate>Tue, 02 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sivalabs.github.io/pages/about/</guid>
-      <description>&lt;p&gt;I am Siva, working as a Software Developer.&lt;/p&gt;
-
-&lt;p&gt;You can reach me at sivaprasadreddy.k@gmail.com&lt;/p&gt;
 </description>
     </item>
     
