@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on Siva</title>
+    <title>Hugo on SivaLabs</title>
     <link>http://sivalabs.github.io/tags/hugo/</link>
-    <description>Recent content in Hugo on Siva</description>
+    <description>Recent content in Hugo on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 12 Jun 2015 00:00:00 +0000</lastBuildDate>
@@ -18,7 +18,7 @@
       <description>&lt;p&gt;Hey
 This is my new blog created using Hugo and hosted on GitHub Pages.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;class&lt;/span&gt; HelloWorld
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;class&lt;/span&gt; HelloWorld
 {
 	&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;void&lt;/span&gt; main(String[] args)
 	{
@@ -26,7 +26,7 @@ This is my new blog created using Hugo and hosted on GitHub Pages.&lt;/p&gt;
 	}
 }
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     
