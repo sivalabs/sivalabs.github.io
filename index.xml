@@ -60,5 +60,45 @@ This is my new blog created using Hugo and hosted on GitHub Pages.&lt;/p&gt;
 </description>
     </item>
     
+    <item>
+      <title>Java</title>
+      <link>http://sivalabs.github.io/page/java/</link>
+      <pubDate>Tue, 01 Dec 2015 10:02:52 +0530</pubDate>
+      
+      <guid>http://sivalabs.github.io/page/java/</guid>
+      <description>&lt;p&gt;Java Trainings&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JavaEE</title>
+      <link>http://sivalabs.github.io/page/javaee/</link>
+      <pubDate>Tue, 01 Dec 2015 10:02:52 +0530</pubDate>
+      
+      <guid>http://sivalabs.github.io/page/javaee/</guid>
+      <description>&lt;p&gt;JavaEE Trainings&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>http://sivalabs.github.io/page/spring/</link>
+      <pubDate>Tue, 01 Dec 2015 10:02:52 +0530</pubDate>
+      
+      <guid>http://sivalabs.github.io/page/spring/</guid>
+      <description>&lt;p&gt;Spring Trainings&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Trainings</title>
+      <link>http://sivalabs.github.io/page/trainings/</link>
+      <pubDate>Tue, 01 Dec 2015 10:02:52 +0530</pubDate>
+      
+      <guid>http://sivalabs.github.io/page/trainings/</guid>
+      <description>&lt;p&gt;Trainings&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

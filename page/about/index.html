@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="http://sivalabs.github.io/css/blog.css">
+	<link rel="stylesheet" href="http://sivalabs.github.io/css/twentythirteen.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	
@@ -34,41 +34,70 @@
 
 	<body class="">
 		
+<header id="masthead" class="site-header" role="banner">
+	<a class="home-link" href="http://sivalabs.github.io/"
+		title="SivaLabs" rel="home">
+		<h1 class="site-title">SivaLabs</h1>
+		<h2 class="site-description">My Experiments on Technology</h2>
+	</a>
 
-<div class="blog-masthead">
-  <div class="container">
-    <nav class="blog-nav">
-      <a class="blog-nav-item" href="http://sivalabs.github.io/">Home</a>
-      <a class="blog-nav-item" href="http://sivalabs.github.io/page/contact">Contact</a>
-      <a class="blog-nav-item" href="http://sivalabs.github.io/page/about">About</a>
-    </nav>
-  </div>
-</div>
+	<div id="navbar" class="navbar">
+		<nav id="site-navigation" class="navigation main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="screen-reader-text skip-link" href="#content"
+				title="Skip to content">Skip to content</a>
+			<div id="primary-menu" class="nav-menu">
+				<ul>
+					<li class="page_item"><a href="http://sivalabs.github.io/">Home</a></li>
+					<li class="page_item page_item_has_children">
+						<a href="#">Services</a>
+						<ul class="children">
+							<li class="page_item"><a href="#">Trainings</a></li>
+							<li class="page_item"><a href="#">Freelance</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+		</nav>
+		
+	</div>
+	
+</header>
 
 		<div class="content container">
 		<div class="row">
 		    <div class="col-md-8">
 				<div class="post">
-				 	<h1>About</h1>
-				 	<p id="tags">
-				  	Tags: 
-					  
-					    <a href="http://sivalabs.github.io//tags/hugo">
-					    	<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>Hugo
-					    </a> &nbsp;
-					  
-					    <a href="http://sivalabs.github.io//tags/welcome">
-					    	<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>Welcome
-					    </a> &nbsp;
-					  
-					</p>
-				  <span class="post-date">Tue, Dec 1, 2015</span>
-				      <p>I am Siva, working as a Software Developer.</p>
+				 	
+				  	<article id="post-1" class="post-1 post type-post status-publish format-standard hentry category-uncategorized">
+						<header class="entry-header">
+							
+							<h1 class="entry-title">
+								<a href="http://sivalabs.github.io/" rel="bookmark">About</a>
+							</h1>
+							
+							<div class="entry-meta">
+								<span class="date">
+									<time class="entry-date" datetime="2008-06-04T22:40:06+00:00">Tue, Dec 1, 2015</time>
+								</span>
+								<span class="categories-links">
+									Tags: 
+									  
+								</span>
+							</div>
+							
+							</header>
+					
+							<div class="entry-content">
+								<p><p>I am Siva, working as a Software Developer.</p>
 
 <p>You can reach me at sivaprasadreddy.k@gmail.com</p>
-
-				      
-					  <div class="social">
+</p>
+							</div>
+						
+							<footer class="entry-meta">
+								<p><div class="social">
 	<a href="https://twitter.com/intent/tweet?status=About-http%3a%2f%2fsivalabs.github.io%2fpage%2fabout%2f" target="_blank"
 		   title="Share on Twitter" class="twitter"><i class="fa fa-twitter-square fa-2x"></i></a>
 		   
@@ -83,8 +112,8 @@
 		   
 	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpage%2fabout%2f" target="_blank" title="Share on Reddit" class="reddit">
 		<i class="fa fa-reddit-square fa-2x"></i></a>
-</div>
-	    			  <aside id=comments>
+</div></p>
+								<aside id=comments>
     <div><h2> Comments </h2></div>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -102,68 +131,154 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </aside>
+							</footer>
+					</article>
+				      
 				</div>
 			</div>
 			<div class="col-md-4">
 				
 
 
-   <div class="well text-center">
-       <p class="lead">
-           Don't want to miss updates? Please click the below button!
-       </p>
-       <button class="btn btn-primary btn-lg">Subscribe to my feed</button>
-   </div>
-   
-   <div class="panel panel-default">
-    <div class="panel-heading">
-        <h4>Latest Posts</h4>
-    </div>
-    <ul class="list-group">
-	            
-    </ul>
-</div>
+<div>
+<aside id="subscription" class="widget widget_subscription">
+	<h3 class="widget-title">Don't want to miss updates?</h3>
+	<div class="subscription">
+		 <input type="email" name="subscriberEmail" placeholder="Email Address"/>
+		<button>Subscribe</button>		 		
+	</div>
+</aside>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h4>Categories</h4>
-    </div>
-    <ul class="list-group">
-	  
-	    <li class="list-group-item"><a href="http://sivalabs.github.io/categories/blog">Blog</a></li>
-	  
-	    <li class="list-group-item"><a href="http://sivalabs.github.io/categories/java">Java</a></li>
-	  
+<aside id="recent-posts" class="widget widget_recent_entries">		
+	<h3 class="widget-title">Recent Posts</h3>		
+	<ul>
+		
+	    <li>
+	    	<a href="http://sivalabs.github.io/page/about/">About</a>
+	    </li>
+		
+	    <li>
+	    	<a href="http://sivalabs.github.io/page/contact/">Contact</a>
+	    </li>
+		
+	    <li>
+	    	<a href="http://sivalabs.github.io/page/java/">Java</a>
+	    </li>
+		
+	    <li>
+	    	<a href="http://sivalabs.github.io/page/javaee/">JavaEE</a>
+	    </li>
+		
+	    <li>
+	    	<a href="http://sivalabs.github.io/page/spring/">Spring</a>
+	    </li>
+		
+			
 	</ul>
-   
-</div>
+</aside>
+
+
+<aside id="categories" class="widget widget_categories">
+	<h3 class="widget-title">Categories</h3>		
+	<ul>
+		
+		    <li class="cat-item">
+				<a href="http://sivalabs.github.io/categories/blog">Blog</a>
+			</li>
+		  
+		    <li class="cat-item">
+				<a href="http://sivalabs.github.io/categories/java">Java</a>
+			</li>
+		  
+		  
+	</ul>
+</aside>
+
+<aside id="tag_cloud" class="widget widget_tag_cloud">
+	<h3 class="widget-title">Tags</h3>
+	<div class="tagcloud">
+		
+		    	<a class="tag-link" href="http://sivalabs.github.io/tags/hugo">
+		    		<span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Hugo &nbsp;
+		    	</a>
+		  
+		    	<a class="tag-link" href="http://sivalabs.github.io/tags/welcome">
+		    		<span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Welcome &nbsp;
+		    	</a>
+		  
+		
+	</div>
+</aside>
  
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h4>Tags</h4>
-    </div>
-    <div class="panel-body">
-    	
-    	<ul class="list-inline">
-		  
-		    <li><a href="http://sivalabs.github.io/tags/hugo">Hugo</a></li>
-		  
-		    <li><a href="http://sivalabs.github.io/tags/welcome">Welcome</a></li>
-		  
-		</ul>
-        
-    </div>
 </div>
 
 			</div>
 			
 		</div>
 	</div>
-	<footer>
-    <div class="container">
-        <hr />
-        <p class="text-center"> Copyright &copy; 2015. SivaLabs. All rights reserved. </p>
-    </div>
+	<footer id="colophon" class="site-footer" role="contentinfo">
+	<div id="secondary" class="sidebar-container" role="complementary">
+		<div class="widget-area masonry"
+			style="position: relative; height: 350px;">
+			<aside id="categories-3"
+				class="widget widget_categories masonry-brick"
+				style="position: absolute; left: 0px; top: 0px;">
+				
+				<h3 class="widget-title">Categories</h3>
+				<ul>
+					
+				    <li class="cat-item">
+						<a href="http://sivalabs.github.io/categories/blog">Blog</a>
+					</li>
+				  
+				    <li class="cat-item">
+						<a href="http://sivalabs.github.io/categories/java">Java</a>
+					</li>
+				  
+					
+				</ul>
+			</aside>
+			
+			<aside id="recent-posts-3"
+				class="widget widget_recent_entries masonry-brick"
+				style="position: absolute; left: 530px; top: 0px;">
+				<h3 class="widget-title">Recent Posts</h3>
+				<ul>
+					
+				    <li>
+				    	<a href="http://sivalabs.github.io/page/about/">About</a>
+				    </li>
+					
+				    <li>
+				    	<a href="http://sivalabs.github.io/page/contact/">Contact</a>
+				    </li>
+					
+				    <li>
+				    	<a href="http://sivalabs.github.io/page/java/">Java</a>
+				    </li>
+					
+				    <li>
+				    	<a href="http://sivalabs.github.io/page/javaee/">JavaEE</a>
+				    </li>
+					
+				    <li>
+				    	<a href="http://sivalabs.github.io/page/spring/">Spring</a>
+				    </li>
+					
+				</ul>
+			</aside>
+						
+			
+		</div>
+		
+	</div>
+	
+
+	<div class="site-info">
+		Copyright  SivaLabs &copy; 2015. All rights reserved. 
+		
+	</div>
+	
 </footer>
   </body>
 
