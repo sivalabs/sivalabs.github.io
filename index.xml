@@ -49,6 +49,14 @@ This is my new blog created using Hugo and hosted on GitHub Pages.&lt;/p&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
+
+&lt;p&gt;XML Example&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;&amp;lt;hello&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;Wordl&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;&amp;lt;/hello&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     
