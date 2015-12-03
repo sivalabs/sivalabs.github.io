@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on SivaLabs</title>
+    <link>http://sivalabs.github.io/tags/spring/</link>
+    <description>Recent content in Spring on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://sivalabs.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>This is my second post</title>
+      <link>http://sivalabs.github.io/post/my-second-post</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/my-second-post</guid>
+      <description>&lt;p&gt;Hey
+Sample Code Snippet&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;class&lt;/span&gt; HelloWorld
+{
+	&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;void&lt;/span&gt; main(String[] args)
+	{
+		System.&lt;span style=&#34;color: #FF0000&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color: #FF0000&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color: #0000FF&#34;&gt;&amp;quot;Testing.....&amp;quot;&lt;/span&gt;);
+	}
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>
