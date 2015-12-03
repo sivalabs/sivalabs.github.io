@@ -32,6 +32,27 @@
     </item>
     
     <item>
+      <title>This is my second post</title>
+      <link>http://sivalabs.github.io/post/my-second-post</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/my-second-post</guid>
+      <description>&lt;p&gt;Hey
+Sample Code Snippet&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;class&lt;/span&gt; HelloWorld
+{
+	&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;void&lt;/span&gt; main(String[] args)
+	{
+		System.&lt;span style=&#34;color: #FF0000&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color: #FF0000&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color: #0000FF&#34;&gt;&amp;quot;Testing.....&amp;quot;&lt;/span&gt;);
+	}
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>Welcome to my new blog</title>
       <link>http://sivalabs.github.io/post/welcome-to-my-new-blog</link>
       <pubDate>Fri, 12 Jun 2015 00:00:00 +0000</pubDate>
@@ -57,27 +78,6 @@ This is my new blog created using Hugo and hosted on GitHub Pages.&lt;/p&gt;
 &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;&amp;lt;/hello&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>This is my second post</title>
-      <link>http://sivalabs.github.io/post/my-second-post</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://sivalabs.github.io/post/my-second-post</guid>
-      <description>&lt;p&gt;Hey
-Sample Code Snippet&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;class&lt;/span&gt; HelloWorld
-{
-	&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;void&lt;/span&gt; main(String[] args)
-	{
-		System.&lt;span style=&#34;color: #FF0000&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color: #FF0000&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color: #0000FF&#34;&gt;&amp;quot;Testing.....&amp;quot;&lt;/span&gt;);
-	}
-}
-&lt;/pre&gt;&lt;/div&gt;
-
 </description>
     </item>
     
