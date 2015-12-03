@@ -6,29 +6,8 @@
     <description>Recent content in Posts on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Dec 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Dec 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://sivalabs.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>This is my second post</title>
-      <link>http://sivalabs.github.io/post/my-second-post</link>
-      <pubDate>Thu, 03 Dec 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sivalabs.github.io/post/my-second-post</guid>
-      <description>&lt;p&gt;Hey
-Sample Code Snippet&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;class&lt;/span&gt; HelloWorld
-{
-	&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;void&lt;/span&gt; main(String[] args)
-	{
-		System.&lt;span style=&#34;color: #FF0000&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color: #FF0000&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color: #0000FF&#34;&gt;&amp;quot;Testing.....&amp;quot;&lt;/span&gt;);
-	}
-}
-&lt;/pre&gt;&lt;/div&gt;
-
-</description>
-    </item>
     
     <item>
       <title>Welcome to my new blog</title>
