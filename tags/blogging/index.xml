@@ -6,20 +6,20 @@
     <description>Recent content in Blogging on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Dec 2015 19:20:04 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2015 19:20:04 -0700</lastBuildDate>
     <atom:link href="http://sivalabs.github.io/tags/blogging/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Welcome to my new blog</title>
       <link>http://sivalabs.github.io/welcome-to-my-new-blog</link>
-      <pubDate>Wed, 02 Dec 2015 19:20:04 -0700</pubDate>
+      <pubDate>Mon, 02 Nov 2015 19:20:04 -0700</pubDate>
       
       <guid>http://sivalabs.github.io/welcome-to-my-new-blog</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;Hi,&lt;br&gt;
 My name is Siva and by profession I am a Software Developer primarily working on Java platform.
 I used to blog about the technology stuff that I learned at &lt;strong&gt;www.sivalabs.in&lt;/strong&gt;.
-I wanted to move to WordPress blogging platform because of its rich features,
+I wanted to move to Hugo blogging platform because of its rich features,
 and here I am with my new blog &lt;a href=&#34;http://sivalabs.github.io&#34; class=&#34;bare&#34;&gt;http://sivalabs.github.io&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;

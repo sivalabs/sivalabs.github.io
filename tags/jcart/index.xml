@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jcart on SivaLabs</title>
+    <link>http://sivalabs.github.io/tags/jcart/</link>
+    <description>Recent content in Jcart on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Nov 2015 02:28:23 +0000</lastBuildDate>
+    <atom:link href="http://sivalabs.github.io/tags/jcart/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introducing the application JCart</title>
+      <link>http://sivalabs.github.io/introducing-the-application-jcart</link>
+      <pubDate>Sat, 21 Nov 2015 02:28:23 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/introducing-the-application-jcart</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;As I promised in my article &lt;a href=&#34;http://sivalabs.github.io/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/&#34;&gt;Developing a simple e-commerce application from scratch to production using SpringBoot&lt;/a&gt;, I am starting first post by introducing the application &lt;strong&gt;JCart&lt;/strong&gt; that we are going to build.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;One of my friend makes quilling toys and she sell them by advertising on Facebook or through word of mouth. Now she is getting more and more customers and she wants to expand her business by going online. So, she asked me to help in setting up a simple e-commerce website. After having some conversations on whether to leverage any existing e-commerce platforms or building a new application, we decided to build a new one with the features we just needed for our need.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;ATTENTION:&lt;/strong&gt; There are so many well established open source e-commerce platforms such as BroadleafCommerce, OpenCart, Drupal Commerce etc. But these systems provide so many features that you may probably don&amp;#8217;t need and hence looks a bit overwhelming. But think twice before building your own. Don&amp;#8217;t Repeat Yourself.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;For those of you who are not familiar with what Quilling Art is, have a loot at the following pictures. These toys are made of some kind of colour paper and other stuff.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/images/quilling/1.jpg&#34; alt=&#34;1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;image&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/images/quilling/2.jpg&#34; alt=&#34;2&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;image&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/images/quilling/3.jpg&#34; alt=&#34;3&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Note: These sample images are downloaded from internet and all rights belongs to their respective owners.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect1&#34;&gt;
+&lt;h2 id=&#34;_high_level_requirements&#34;&gt;High Level Requirements&lt;/h2&gt;
+&lt;div class=&#34;sectionbody&#34;&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;After having a brief discussion with our client, following are the high level requirements:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;olist arabic&#34;&gt;
+&lt;ol class=&#34;arabic&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;A public facing Shopping Cart website with features:&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Customers can browse through products by category or by searching&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Customers can place orders using CreditCard or Cash On Delivery&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Customers can login and view order history&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Customers will receive confirmation emails when order is placed or order status changed&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;An Administration website which has the following features:&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Ability to manage Categories and Products&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ability to create one or more users for Administration website&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ability to restrict access to certain features based on roles&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ability to view customer orders and update the status&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A mobile (Android/iOS) application for ShoppinngCart&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Not an immediate requirement, but in future we may need it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_overview_of_system_architecture&#34;&gt;Overview of System Architecture&lt;/h3&gt;
+&lt;div class=&#34;imageblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;img src=&#34;http://sivalabs.github.io/images/jcart-architecture.png&#34; alt=&#34;jcart architecture&#34;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;These are very high-level requirements and design only. In our next post we will go through all these requirement in detail.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>http://sivalabs.github.io/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;But once the &#34;Junior Developer&#34; stage is crossed, many developers would like to learn more about how to design an application, how to modularize the code, what security aspects should be considered, what measures we should take while deploying into production and how to handle the production issues etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We can find articles on these topics in bits and pieces but not in an organized manner. So, I thought of starting a series of articles covering &#34;&lt;strong&gt;How to develop an application from scratch to production?&lt;/strong&gt;&#34;. What I am going to do is I will start developing an application (neither a simple HelloWorld app nor a NextGenerationAwesome product, but a decent size application) and write a series of articles explaining how we can develop the application in a step by step manner.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect1&#34;&gt;
+&lt;h2 id=&#34;_why_i_am_writing_these_article_series&#34;&gt;Why I am writing these article series?&lt;/h2&gt;
+&lt;div class=&#34;sectionbody&#34;&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;To help junior developers:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Every week I receive at least couple of emails from software developers with 1 to 3 years of experiencing for a suggestion.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Those emails goes like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;literalblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre&gt;I joined in XYZ company as a fresher and I have been there for the last 2+ years. They put me in a maintenance project where I mostly work on defect fixes and I never really worked on anything from scratch. Now I am not at all confident about my technical skills as I have not implemented anything on my own apart from fixing defects here and there. Here we don&#39;t see any new projects in near future. So I want to move to a different company, but I am having a very hard time in clearing the interviews.  So, could you please advise me how to learn Java the way people use it in real projects, not basic HelloWorld kind of samples? Could you suggest any books, blogs? Should I learn Spring, Hibernate to get a Job?&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I feel very sad to see the people in this kind of situation because I know how painful it is. But also simply blaming the company for not giving an opportunity to build something from scratch won&amp;#8217;t help. Teaching you latest and greatest technologies may not be your organizations top priority.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Some people told they even joined some training institutes to learn Java while working as Java developers!!. But again they are disappointed because they got basic HelloWorld kind of training only, not the way projects are developed in organizations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;So, I thought of helping them by writing a series of articles explaining how the project development from scratch looks like.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Material for my trainings&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I do give trainings on Core Java, Spring and JavaEE. I hope the projects that will be developed for this series may also be helpful for my Java trainings as well.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;I want to learn more&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Teaching is the best way to learn.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect1&#34;&gt;
+&lt;h2 id=&#34;_what_we_are_going_to_do&#34;&gt;What we are going to do?&lt;/h2&gt;
+&lt;div class=&#34;sectionbody&#34;&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We will develop an e-commerce application using Java technologies. We will start from the very beginning of Requirements Gathering and go through all the phases of Analysis, Design, Implementation and Deployment in a step by step manner.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect1&#34;&gt;
+&lt;h2 id=&#34;_table_of_contents&#34;&gt;Table of contents:&lt;/h2&gt;
+&lt;div class=&#34;sectionbody&#34;&gt;
+&lt;div class=&#34;olist arabic&#34;&gt;
+&lt;ol class=&#34;arabic&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.github.io/introducing-the-application-jcart/&#34;&gt;Introducing the application JCart&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;High Level Requirements&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Overview of System Architecture&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.github.io/jcart-requirements-analysis/&#34;&gt;Requirements Analysis&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.github.io/selecting-the-technology-stack-for-jcart/&#34;&gt;Selecting The Technology Stack&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Platform, Frameworks&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Application Server, Database&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IDE, Build Tool, Version Control System (VCS)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continuous Integration, Code Quality Checking&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.github.io/jcart-release-planning/&#34;&gt;Release Planning&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Plan Iterations &amp;amp; UseCases&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Estimations &amp;amp; Release Schedules&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.github.io/setting-up-the-development-environment-for-jcart/&#34;&gt;Setting up the Development Environment&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Building Administration/ShoppingCart WebApps&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.github.io/jcart-iteration-1&#34;&gt;Iteration - 1&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Iteration - 2&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Iteration - 3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Iteration - 4&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Iteration - 5&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Iteration - 6&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Iteration - 7&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Iteration - 8&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deploying to Production&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Clustering and Load balancing&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Setting up Monitoring Tools&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;For this whole exercise we will build a ShoppingCart application &#34;JCart&#34; using SpringBoot, SpringMVC, Thymeleaf, JPA(Hibernate).
+I too have this habit of prefixing with J for everything I built with Java :-).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Stay tuned :-)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
