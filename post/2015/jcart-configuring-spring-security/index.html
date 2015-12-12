@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; JCart: Configuring Spring Security</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>JCart: Configuring Spring Security</h2>
+                                    <p>
+
+<p>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.</p>
+
+<p>Let us add the following spring-security dependencies to <strong>jcart-admin/pom.xml</strong>.</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupid&gt;org.springframework.boot&lt;/groupid&gt;
+    &lt;artifactid&gt;spring-boot-starter-security&lt;/artifactid&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupid&gt;org.thymeleaf.extras&lt;/groupid&gt;
+    &lt;artifactid&gt;thymeleaf-extras-springsecurity4&lt;/artifactid&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:</p>
+
+<pre><code> http
+    .authorizeRequests()
+        .antMatchers(&quot;/login&quot;,&quot;/login/form**&quot;,&quot;/register&quot;,&quot;/logout&quot;).permitAll()
+        .antMatchers(&quot;/admin&quot;,&quot;/admin/**&quot;).hasRole(&quot;ADMIN&quot;)
+        .anyRequest().authenticated()
+        .and()
+</code></pre>
+
+<p>But we need provision to dynamically create new roles as well, hence we can&rsquo;t statically define constraints using role names.</p>
+
+<p>But in our JCart application, we have fixed list of permissions and then grouped them as Roles. So we can configure SpringSecurity to use Method Level Security by checking the permissions.</p>
+
+<p>SpringSecurity don&rsquo;t have the support for Permissions. So we will follow suggestion given here <a href="http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions">http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions</a> where we consider the Permissions as Roles.</p>
+
+<h3 id="userrepository-to-get-user-by-email:afc7497faace39c8bef8d0ce46ccb7d1">UserRepository to get User by Email</h3>
+
+<pre><code>public interface UserRepository extends JpaRepository&lt;User, Integer&gt;
+{
+    User findByEmail(String email);
+}
+</code></pre>
+
+<h3 id="securityservice-facade-to-all-security-related-methods:afc7497faace39c8bef8d0ce46ccb7d1">SecurityService - Facade to all Security Related Methods</h3>
+
+<pre><code>@Service
+@Transactional
+public class SecurityService
+{
+    @Autowired UserRepository userRepository;
+
+    public User findUserByEmail(String email)
+    {
+         return userRepository.findByEmail(email);
+    }
+}
+</code></pre>
+
+<h3 id="wrapper-for-springsecurity-user:afc7497faace39c8bef8d0ce46ccb7d1">Wrapper for SpringSecurity User</h3>
+
+<pre><code>public class AuthenticatedUser extends org.springframework.security.core.userdetails.User
+{
+
+    private static final long serialVersionUID = 1L;
+    private User user;
+
+    public AuthenticatedUser(User user)
+    {
+        super(user.getEmail(), user.getPassword(), getAuthorities(user));
+        this.user = user;
+    }
+
+    public User getUser()
+    {
+        return user;
+    }
+
+    private static Collection&lt;? extends GrantedAuthority&gt; getAuthorities(User user)
+    {
+    Set&lt;String&gt; roleAndPermissions = new HashSet&lt;&gt;();
+    List&lt;Role&gt; roles = user.getRoles();
+
+    for (Role role : roles)
+    {
+    roleAndPermissions.add(role.getName());
+    List&lt;Permission&gt; permissions = role.getPermissions();
+    for (Permission permission : permissions)
+    {
+    roleAndPermissions.add(&quot;ROLE_&quot;+permission.getName());
+    }
+    }
+    String[] roleNames = new String[roleAndPermissions.size()];
+    Collection&lt;GrantedAuthority&gt; authorities = AuthorityUtils.createAuthorityList(roleAndPermissions.toArray(roleNames));
+    return authorities;
+    }
+}
+</code></pre>
+
+<h3 id="custom-userdetailsservice-implementation:afc7497faace39c8bef8d0ce46ccb7d1">Custom UserDetailsService Implementation</h3>
+
+<pre><code>@Service
+@Transactional
+public class CustomUserDetailsService implements UserDetailsService
+{
+    @Autowired
+    private SecurityService securityService;
+
+    @Override
+    public UserDetails loadUserByUsername(String userName)
+    throws UsernameNotFoundException {
+    User user = securityService.findUserByEmail(userName);
+    if(user == null){
+    throw new UsernameNotFoundException(&quot;Email &quot;+userName+&quot; not found&quot;);
+    }
+    return new AuthenticatedUser(user);
+    }
+
+}
+</code></pre>
+
+<h3 id="springsecurity-configuration:afc7497faace39c8bef8d0ce46ccb7d1">SpringSecurity Configuration</h3>
+
+<pre><code>@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true, proxyTargetClass = true)
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UserDetailsService customUserDetailsService;
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .userDetailsService(customUserDetailsService)
+            .passwordEncoder(passwordEncoder());
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .csrf().disable()
+            .authorizeRequests()
+                .antMatchers(&quot;/resources/**&quot;, &quot;/webjars/**&quot;,&quot;/assets/**&quot;).permitAll()
+                .antMatchers(&quot;/&quot;, &quot;/forgotPwd&quot;,&quot;/resetPwd&quot;).permitAll()
+                .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .loginPage(&quot;/login&quot;)
+                .defaultSuccessUrl(&quot;/home&quot;)
+                .failureUrl(&quot;/login?error&quot;)
+                .permitAll()
+                .and()
+            .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher(&quot;/logout&quot;))
+                .permitAll()
+                .and()
+            .exceptionHandling().accessDeniedPage(&quot;/403&quot;);
+    }    
+}
+</code></pre>
+
+<h3 id="access-denied-exception-handler:afc7497faace39c8bef8d0ce46ccb7d1">Access Denied Exception Handler</h3>
+
+<pre><code>@Controller
+public class ErrorController
+{   
+    @RequestMapping(&quot;/403&quot;)
+    public String accessDenied()
+    {
+    return &quot;error/accessDenied&quot;;
+    }
+
+}
+</code></pre>
+
+<h3 id="abstract-controller-with-common-methods:afc7497faace39c8bef8d0ce46ccb7d1">Abstract Controller with Common Methods</h3>
+
+<p>Let us create a base Abstract Controller to have the common methods by all controllers.</p>
+
+<pre><code>public abstract class JCartAdminBaseController
+{   
+    @Autowired protected MessageSource messageSource;
+
+    public String getMessage(String code)
+    {
+        return messageSource.getMessage(code, null, null);
+    }
+
+    public String getMessage(String code, String defaultMsg)
+    {
+        return messageSource.getMessage(code, null, defaultMsg, null);
+    }
+
+    @ModelAttribute(&quot;authenticatedUser&quot;)
+    public AuthenticatedUser authenticatedUser(@AuthenticationPrincipal AuthenticatedUser authenticatedUser)
+    {
+        return authenticatedUser;
+    }
+
+    public static AuthenticatedUser getCurrentUser() {
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof AuthenticatedUser) {
+            return ((AuthenticatedUser) principal);
+        }
+        // principal object is either null or represents anonymous user -
+        // neither of which our domain User object can represent - so return null
+        return null;
+    }
+
+    public static boolean isLoggedIn() {
+        return getCurrentUser() != null;
+    }
+}
+</code></pre>
+
+<p>Observe how we injected Authenticated User object using <strong>@AuthenticationPrincipal</strong> and exposed as a ModelAttribute so that we can reference it in any of our templates. Also we have another method which return the AuthenticatedUser so that we can use it in any of our Controllers to access currently logged in user object, say to set CreatedBy/UpdatedBy objects on our JPA Entities.</p>
+
+<p>Now our Controllers can extend the JCartAdminBaseController class as follows:</p>
+
+<pre><code>@Controller
+public class HomeController extends JCartAdminBaseController
+{
+    ...
+}
+</code></pre>
+
+<h3 id="registering-springsecuritydialect-with-thymeleaf:afc7497faace39c8bef8d0ce46ccb7d1">Registering SpringSecurityDialect with Thymeleaf</h3>
+
+<p>In order to use SpringSecurity dialects features in Thymeleaf templates we need to register SpringSecurityDialect as an additional dialect. We can do this simply by registering a SpringSecurityDialect bean.</p>
+
+<pre><code>@Configuration
+public class WebConfig extends WebMvcConfigurerAdapter
+{   
+    ...
+
+    @Bean
+    public SpringSecurityDialect securityDialect() {
+        return new SpringSecurityDialect();
+    }
+}
+</code></pre>
+
+<p>For more info read <a href="http://www.thymeleaf.org/doc/articles/springsecurity.html">http://www.thymeleaf.org/doc/articles/springsecurity.html</a></p>
+
+<h3 id="using-springsecurity-in-thymeleaf-templates:afc7497faace39c8bef8d0ce46ccb7d1">Using SpringSecurity in Thymeleaf Templates</h3>
+
+<p>Now we can show the Left Nav Menu options by checking whether the logged in user has the Permission or not.</p>
+
+<pre><code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; 
+      xmlns:th=&quot;http://www.thymeleaf.org&quot;
+      xmlns:sec=&quot;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&quot;&gt;
+
+&lt;body&gt;
+    &lt;span sec:authentication=&quot;principal.user.name&quot;&gt;User&lt;/span&gt;
+    &lt;p&gt;Welcome &lt;span th:text=&quot;${authenticatedUser.user.name}&quot;&gt;User&lt;/span&gt;!&lt;/p&gt;
+
+    &lt;li sec:authorize=&quot;hasRole('ROLE_MANAGE_CATEGORIES')&quot;&gt;
+    &lt;a th:href=&quot;@{'/categories'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-folder-open&quot;&gt;&lt;/i&gt; &lt;span&gt;Categories&lt;/span&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li sec:authorize=&quot;hasRole('ROLE_MANAGE_PRODUCTS')&quot;&gt;
+    &lt;a th:href=&quot;@{'/products'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-file&quot;&gt;&lt;/i&gt; &lt;span&gt;Products&lt;/span&gt;&lt;/a&gt;
+    &lt;/li&gt;
+
+   &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>In our Controllers we can check for Permissions as follows:</p>
+
+<pre><code>@Controller
+@Secured(&quot;ROLE_MANAGE_CATEGORIES&quot;)
+public class CategoryController extends JCartAdminBaseController
+{
+    ...
+}
+</code></pre>
+
+<h3 id="registering-a-filter-after-springsecurity-filter:afc7497faace39c8bef8d0ce46ccb7d1">Registering a Filter After SpringSecurity Filter</h3>
+
+<p>I would like to show the currently selected Left Nav Menu link as Active. For that I thought of keep tracking the clicked URL and store the ACTIVE_MENU value in model and then conditionally apply Active style in Thymeleaf template.</p>
+
+<p>For this I thought of registering a Filter filter after SpringSecurityFilter. But SpringSecurity Filter is registered with LOWEST_PRIORITY order automatically. So we need to get it done using the hack explained here <a href="http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot">http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot</a></p>
+
+<pre><code>@Configuration
+public class WebConfig extends WebMvcConfigurerAdapter
+{  
+    ...
+    ...
+
+    @Autowired 
+    private PostAuthorizationFilter postAuthorizationFilter;
+
+    @Bean
+    public FilterRegistrationBean securityFilterChain(@Qualifier(AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME) Filter securityFilter) {
+        FilterRegistrationBean registration = new FilterRegistrationBean(securityFilter);
+        registration.setOrder(Integer.MAX_VALUE - 1);
+        registration.setName(AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME);
+        return registration;
+    }
+
+    @Bean
+    public FilterRegistrationBean PostAuthorizationFilterRegistrationBean() {
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        registrationBean.setFilter(postAuthorizationFilter);
+        registrationBean.setOrder(Integer.MAX_VALUE);
+        return registrationBean;
+    }
+}
+
+
+
+
+
+
+
+
+@Component
+public class PostAuthorizationFilter extends OncePerRequestFilter
+{   
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+    throws ServletException, IOException
+    {
+    String uri = request.getRequestURI();   
+    String menu = ...;
+    request.setAttribute(&quot;CURRENT_MENU&quot;, menu);
+
+    chain.doFilter(request, response);
+    }
+
+}
+</code></pre>
+
+<p>For complete PostAuthorizationFilter code, please check in github repository <a href="https://github.com/sivaprasadreddy/jcart">https://github.com/sivaprasadreddy/jcart</a>.</p>
+
+<p>Now we have Spring Security  configured for our application. In our next posts we will see how to protect Controller methods at class/method level.</p>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/jcart" rel="category">
+										    	Jcart &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/springboot" rel="category">
+										    	SpringBoot &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=JCart%3a%20Configuring%20Spring%20Security-http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-configuring-spring-security%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-configuring-spring-security%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-configuring-spring-security%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-configuring-spring-security%2f&title=JCart%3a%20Configuring%20Spring%20Security&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-configuring-spring-security%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2015\/jcart-configuring-spring-security\/';
+    var disqus_title = 'JCart: Configuring Spring Security';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2015\/jcart-configuring-spring-security\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

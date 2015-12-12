@@ -1,0 +1,709 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; AngularJS: Different ways of using Array Filters</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>AngularJS: Different ways of using Array Filters</h2>
+                                    <p><p><strong>AngularJS</strong> provides filter feature which can be used to format input value or to filter an Array with the given matching input criteria. For example you can use &lsquo;date&rsquo; filter to format a Date value into human readable Date representation like <strong>MM-DD-YYYY</strong> as <strong>{{dob | date}}</strong>.</p>
+
+<p>On the other hand there are Array filtering feature which is very useful while filtering data from an Array of JavaScript objects. The Array filtering is very commonly used with a Table along with <strong>ng-repeat</strong> directive.</p>
+
+<p>For example, we can have a list of Todos which we can display in a Table using <strong>ng-repeat</strong> tag. And we can have a text field to search todos which matches any one of the data properties of Todo object as follows:</p>
+
+<pre><code>$scope.todos = [
+    {id: 1,title: 'Learn AngularJS', description: 'Learn AngularJS', done: true, date: new Date()}  ,
+    {id: 2,title: 'Explore ui-router', description: 'Explore and use ui-router instead of ngRoute', done: true, date: new Date()}  ,
+    {id: 3,title: 'Play with Restangular', description: 'Restangular seems better than $resource, have a look', done: false, date: new Date()}  ,
+    {id: 4,title: 'Try yeoman', description: 'No more labour work..use Yeoman', done: false, date: new Date()}  ,
+    {id: 5,title: 'Try MEANJS', description: 'Aah..MEANJS stack seems cool..why dont u try once', done: false, date: new Date()}                
+            ];
+
+
+
+
+
+
+
+
+
+&lt;input type=&quot;text&quot; ng-model=&quot;searchTodos&quot;&gt;
+ &lt;table class=&quot;table table-striped table-bordered&quot;&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th&gt;#&lt;/th&gt;
+   &lt;th&gt;Title&lt;/th&gt;
+   &lt;th&gt;Description&lt;/th&gt;
+   &lt;th&gt;Done?&lt;/th&gt;
+   &lt;th&gt;Date&lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+  &lt;tr ng-repeat=&quot;todo in todos| filter: searchTodos&quot;&gt;
+   &lt;td&gt;{{$index + 1}}&lt;/td&gt;
+   &lt;td&gt;{{todo.title}}&lt;/td&gt;
+   &lt;td&gt;{{todo.description}}&lt;/td&gt; 
+   &lt;td&gt;{{todo.done}}&lt;/td&gt;
+   &lt;td&gt;{{todo.date | date}}&lt;/td&gt; 
+  &lt;/tr&gt;
+
+ &lt;/tbody&gt;
+
+&lt;/table&gt;
+</code></pre>
+
+<p>Observe that our search input field&rsquo;s <strong>ng-model</strong> attribute is set to &lsquo;<strong>searchTodos</strong>&rsquo; which we have used to filter on <strong>ng-repeat</strong> attribute. As you type in the search input field, the <strong>$scope.todos</strong> array will be filtered and only matching records will be shown up. This is a &ldquo;<strong>match anything</strong>&rdquo; type filter, means the search criteria will be checked against all properties(<strong>id, title, description, date</strong>) of Todo object.</p>
+
+<p>If you want to search only on one field, say &lsquo;<strong>description</strong>&rsquo;, you can apply filter as follows:</p>
+
+<pre><code>&lt;tr ng-repeat=&quot;todo in todos| filter: {description: searchTodos}&quot;&gt;
+</code></pre>
+
+<p>If you want to display only Todos which aren&rsquo;t <strong>done</strong> yet then you can do it as follows:</p>
+
+<pre><code>&lt;tr ng-repeat=&quot;todo in todos| filter: {description: searchTodos, done: false}&quot;&gt;
+</code></pre>
+
+<p><strong>Note that here the 2 conditions will be applied using AND conditions. </strong></p>
+
+<p>If you want to display only Todos which aren&rsquo;t done yet and you want to search on all fields not just on &lsquo;<strong>description</strong>&rsquo; then you can do it as follows:</p>
+
+<pre><code>&lt;tr ng-repeat=&quot;todo in todos| filter: {$: searchTodos, done: false}&quot;&gt;
+</code></pre>
+
+<p>Here <strong>$</strong> means all fields. So far so good as it is a simple and straight forward case.</p>
+
+<p>How about having nested objects in our Array objects and we want to search based on a nested object property?</p>
+
+<p>Let&rsquo;s look at such a type of scenario. In order to explain these scenarios I am using some code examples from my ebuddy application.</p>
+
+<p>In my ebuddy application I have an ExpenseManager module where I will keep track of my expenses as follows:</p>
+
+<ul>
+<li><p>I will have a list of Accounts such as Cash, savings Bank Account, CreditCard etc with the current balance details.</p></li>
+
+<li><p>I will have a list of Payees such as HouseRent, PowerBill, Salary etc which fall into INCOME or EXPENDITURE categories.</p></li>
+
+<li><p>I will record all my transactions by picking one of the account and a Payee and the amount.</p></li>
+</ul>
+
+<p>This application is just to record my financial transactions so that I can see monthly reports by Account or Payee wise. I hope you get an idea about the domain model.</p>
+
+<p>Now let us create a simple AngularJS application and set some sample data.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+ &lt;html ng-app=&quot;myApp&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;title&gt;My AngularJS App&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;link href=&quot;//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+  &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script&gt;
+      var myApp = angular.module('myApp',[]);
+      myApp.controller('SampleController', function($scope){
+            $scope.accounts = [ 
+                    {id: 1, name: 'Cash'}, 
+                    {id: 2, name: 'Bank Savings'} 
+                  ];
+            $scope.payees = [
+                    {id:'1',name:'HouseRent', txnType:'EXPENDITURE'},
+                    {id: '2', name:'InternetBill', txnType:'EXPENDITURE'}, 
+                    {id:'3', name: 'PowerBill', txnType:'EXPENDITURE'}, 
+                    {id:'4', name: 'Salary', txnType:'INCOME'}
+                  ];
+            $scope.transactions = [
+                {id:'1', txnType:'EXPENDITURE', amount: 1000, account: $scope.accounts[0], payee: $scope.payees[0]},
+                {id:'2', txnType:'EXPENDITURE', amount: 500, account: $scope.accounts[1], payee: $scope.payees[1]},
+                {id:'3', txnType:'EXPENDITURE', amount: 1200, account: $scope.accounts[0], payee: $scope.payees[1]},
+                {id:'4', txnType:'INCOME', amount: 5000, account: $scope.accounts[1], payee: $scope.payees[3]},
+                {id:'5', txnType:'EXPENDITURE', amount:200, account: $scope.accounts[0], payee: $scope.payees[2]}
+            ];
+
+      });
+
+  &lt;/script&gt;  
+&lt;/head&gt;
+&lt;body ng-controller=&quot;SampleController&quot;&gt;
+&lt;br/&gt;
+ &lt;div class=&quot;col-md-8 col-md-offset-2&quot;&gt;
+
+    &lt;h3&gt;Transaction Details&lt;/h3&gt;
+    &lt;table class=&quot;table table-striped table-bordered&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;#&lt;/th&gt;
+                &lt;th&gt;Account&lt;/th&gt;
+                &lt;th&gt;Type&lt;/th&gt;
+                &lt;th&gt;Payee&lt;/th&gt;
+                &lt;th&gt;Amount&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr ng-repeat=&quot;txn in transactions&quot;&gt;
+                &lt;td&gt;{{$index + 1}}&lt;/td&gt;
+                &lt;td&gt;{{txn.account.name}}&lt;/td&gt;
+                &lt;td&gt;{{txn.txnType}}&lt;/td&gt; 
+                &lt;td&gt;{{txn.payee.name}}&lt;/td&gt; 
+                &lt;td&gt;{{txn.amount}}&lt;/td&gt; 
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>This is a very simple AngularJS page which is displaying list of transactions in a table. Observe that the transactions contains nested objects (<strong>account</strong>, <strong>payee</strong>) and we are displaying nested properties (<strong>txn.account.name</strong>, <strong>txn.payee.name</strong>) in our table.</p>
+
+<p>Now we want to filter the transactions in a variety of ways, so lets look at them case by case.</p>
+
+<p><strong>Case#1: Search by Payee Name </strong>
+In our transaction object we have a nested payee object which contains name property on which we want to perform search.</p>
+
+<p>Let us create form which will contain all our filters before transactions table.
+The first thought that came to my mind to perform a search on a nested property is use the nested property path in filter as follows:</p>
+
+<pre><code>&lt;input type=&quot;text&quot; ng-model=&quot;payeeName&quot;&gt;
+...
+&lt;tr ng-repeat=&quot;txn in transactions| filter: {payee.name : payeeName}&quot;&gt;
+</code></pre>
+
+<p><strong>But THIS WON&rdquo;T WORK. </strong></p>
+
+<p>To search on a nested property we can name our input field <strong>ng-model</strong> to match the target property path and use the root object name as filter as follows:</p>
+
+<pre><code>&lt;div class=&quot;col-md-8 col-md-offset-2&quot;&gt;
+     &lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+          &lt;label for=&quot;input1&quot; class=&quot;col-sm-4 control-label&quot;&gt;Search by Payee&lt;/label&gt;
+          &lt;div class=&quot;col-sm-6&quot;&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;input1&quot; placeholder=&quot;Payee Name&quot; ng-model=&quot;filterTxn.payee.name&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+  &lt;!-- additional filters will come here --&gt;
+ &lt;/form&gt;
+ &lt;h3&gt;Transaction Details&lt;/h3&gt;
+ &lt;table class=&quot;table table-striped table-bordered&quot;&gt;
+  ...
+  &lt;tbody&gt;
+            &lt;tr ng-repeat=&quot;txn in transactions| filter: filterTxn&quot;&gt;
+                ...
+    ...
+            &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Observe that we have bind the input field ng-model to &ldquo;<strong>filterTxn.payee.name</strong>&rdquo; and used filter: <strong>filterTxn</strong> as filter. So <strong>txn.payee.name</strong> will be matched against <strong>filterTxn.payee.name</strong>.</p>
+
+<p><strong>Case#2: Filter by Accounts Dropdown </strong>
+We would like to filter the transactions by using Accounts Select dropdown. First we need to populate a select dropdown using <strong>$scope.accounts</strong> and use it as a filter.</p>
+
+<p>Add the following filter after our first filter.</p>
+
+<pre><code>&lt;div class=&quot;form-group&quot;&gt;
+  &lt;label for=&quot;input2&quot; class=&quot;col-sm-4 control-label&quot;&gt;Search By Account&lt;/label&gt;
+  &lt;div class=&quot;col-sm-6&quot;&gt;
+  &lt;select id=&quot;input2&quot; class=&quot;form-control&quot; ng-model=&quot;filterTxn.account&quot;&gt;
+   &lt;option value=&quot;&quot;&gt;All Accounts&lt;/option&gt;
+   &lt;option ng-repeat=&quot;item in accounts&quot; value=&quot;{{item.id}}&quot;&gt;{{item.name}}&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Here we are populating a <select> field with <strong>$scope.accounts</strong> array by displaying Account Name and using id as value.</p>
+
+<p>The key part here is we have bind <strong>ng-model</strong> to <strong>filterTxn.account</strong>. When we select an account, the selected account object reference will be stored in <strong>filterTxn.account</strong>. As we already have <strong>filterTxn</strong> as filter, the account filter will also be applied along with payee name filter.</p>
+
+<p>Also note that the first option <strong>&ldquo;All Accounts&rdquo;</strong> value is empty (<strong>&rdquo;&rdquo;</strong>) which will be treated as <strong>null</strong> by AngularJS, so when the &ldquo;All Accounts&rdquo; is option is selected no account filter will be applied.</p>
+
+<p><strong>Case#3: Search By Transaction Type </strong>
+We want to filter the transaction by transaction type (<strong>INCOME</strong> or <strong>EXPENDITURE</strong>):</p>
+
+<p>Add the following filter after the second filter:</p>
+
+<pre><code>&lt;div class=&quot;form-group&quot;&gt;
+  &lt;label for=&quot;input3&quot; class=&quot;col-sm-4 control-label&quot;&gt;Search By Type&lt;/label&gt;
+  &lt;div class=&quot;col-sm-6&quot;&gt;
+  &lt;select id=&quot;input3&quot; class=&quot;form-control&quot; ng-model=&quot;filterTxn.txnType&quot;&gt;
+   &lt;option value=&quot;&quot;&gt;All Types&lt;/option&gt;
+   &lt;option value=&quot;EXPENDITURE&quot;&gt;EXPENDITURE&lt;/option&gt;
+   &lt;option value=&quot;INCOME&quot;&gt;INCOME&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>I hope no further explanation is need for this :-)</p>
+
+<p><strong>Case#4: Search by Payees of Expenditure type </strong>
+Aaah..this is interesting!!. We want to search by Payee names but only in <strong>EXPENDITURE</strong> type payees.</p>
+
+<p>We can&rsquo;t simply apply filter like <strong>&ldquo;filter: expPayeeFilter | filter: {txnType: &lsquo;EXPENDITURE&rsquo;}&rdquo;</strong> because it will always filter by <strong>EXPENDITURE</strong>.</p>
+
+<p>So we will create a custom filter to perform &ldquo;<strong><em>search by payee name in EXPENDITURE type payees only when some filter text entered</em></strong>&rdquo; as follows:</p>
+
+<pre><code>myApp.filter('expenditurePayeeFilter', [function($filter) {
+ return function(inputArray, searchCriteria, txnType){         
+  if(!angular.isDefined(searchCriteria) || searchCriteria == ''){
+   return inputArray;
+  }         
+  var data=[];
+  angular.forEach(inputArray, function(item){             
+   if(item.txnType == txnType){
+    if(item.payee.name.toLowerCase().indexOf(searchCriteria.toLowerCase()) != -1){
+     data.push(item);
+    }
+   }
+  });      
+  return data;
+ };
+}]);
+</code></pre>
+
+<p>We have created a custom filter using <strong>myApp.filter()</strong> and inside it we have used <strong>angular.forEach()</strong> to iterate over the input array, rest is plain javascript..no magic.</p>
+
+<p>Now we will apply this custom filter as follows:</p>
+
+<pre><code>&lt;tr ng-repeat=&quot;txn in transactions| filter: filterTxn | expenditurePayeeFilter:searchCriteria:'EXPENDITURE'&quot;&gt;
+ &lt;td&gt;{{$index + 1}}&lt;/td&gt;
+ &lt;td&gt;{{txn.account.name}}&lt;/td&gt;
+ &lt;td&gt;{{txn.txnType}}&lt;/td&gt; 
+ &lt;td&gt;{{txn.payee.name}}&lt;/td&gt; 
+ &lt;td&gt;{{txn.amount}}&lt;/td&gt; 
+&lt;/tr&gt;
+</code></pre>
+
+<p>Observer the syntax: <strong>customFilterName:param1:param2:..:paramN</strong>.
+These parameters will be passed as arguments to the function inside our custom directive.</p>
+
+<p>We have seen few interesting options on how to use AngularJS array filtering features.</p>
+
+<p>You can find the complete page at <a href="https://gist.github.com/sivaprasadreddy/fbee047803d14631fafd">https://gist.github.com/sivaprasadreddy/fbee047803d14631fafd</a></p>
+
+<p>Hope it helps. :-)</p>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/angularjs" rel="category">
+										    	AngularJS &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=AngularJS%3a%20Different%20ways%20of%20using%20Array%20Filters-http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fangularjs-different-ways-of-using-array-filters%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fangularjs-different-ways-of-using-array-filters%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fangularjs-different-ways-of-using-array-filters%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fangularjs-different-ways-of-using-array-filters%2f&title=AngularJS%3a%20Different%20ways%20of%20using%20Array%20Filters&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fangularjs-different-ways-of-using-array-filters%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2014\/angularjs-different-ways-of-using-array-filters\/';
+    var disqus_title = 'AngularJS: Different ways of using Array Filters';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2014\/angularjs-different-ways-of-using-array-filters\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

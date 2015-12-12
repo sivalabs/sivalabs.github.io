@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; Java Coding Best Practices: Better Search Implementation</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>Java Coding Best Practices: Better Search Implementation</h2>
+                                    <p><p>In web applications searching for information based on the selected criteria and displaying the results is a very common requirement.<br />
+Suppose we need to search users based on their name.  The end user will enter the username in the textbox and hit the search button and the user results will be fetched from database and display in a grid.<br />
+In the first look it looks simple and we start to implement it as follows:</p>
+
+<pre><code>public class UserSearchAction extends Action&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public ActionForward execute(...)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  SearchForm sf = (SearchForm)form;&lt;br&gt;&lt;/br&gt;  String searchName = sf.getSearchName();&lt;br&gt;&lt;/br&gt;  UserService userService = new UserService();&lt;br&gt;&lt;/br&gt;  List&lt;User&gt; searchResults = userService.search(searchName);&lt;br&gt;&lt;/br&gt;  //put search results in request and dsplay in JSP&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+
+public class UserService&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public List&lt;User&gt; search(String username)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  // query the DB and get the results by applying filter on USERNAME column&lt;br&gt;&lt;/br&gt;  List&lt;User&gt; users = UserDAO.search(username);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>The above implementation works fine for the current requirement.</p>
+
+<p>Later client wants to display only 10 rows per page and display a message like &ldquo;Displaying 1-10 of 35 Users&rdquo;.</p>
+
+<p>Now we need to change the above code for the change request.</p>
+
+<pre><code>public class UserSearchAction extends Action&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public ActionForward execute(...)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  SearchForm sf = (SearchForm)form;&lt;br&gt;&lt;/br&gt;  String searchName = sf.getSearchName();&lt;br&gt;&lt;/br&gt;  UserService userService = new UserService();&lt;br&gt;&lt;/br&gt;  Map&lt;String, Object&gt; searchResultsMap = userService.search(searchName, start, pageSize);&lt;br&gt;&lt;/br&gt;  List&lt;User&gt; users = (List&lt;User&gt;)searchResultsMap.get(&quot;DATA&quot;);&lt;br&gt;&lt;/br&gt;  Integer count = (Integer)searchResultsMap.get(&quot;COUNT&quot;);&lt;br&gt;&lt;/br&gt;  //put search results in request and dsplay in JSP&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+
+public class UserService&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public Map&lt;String, Object&gt; search(String username, int start, int pageSize)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  //Get the total number of results for this criteria&lt;br&gt;&lt;/br&gt;  int count = UserDAO.searchResultsCount(username);&lt;br&gt;&lt;/br&gt;  // query the DB and get the start to start+pageSize results by applying filter on USERNAME column&lt;br&gt;&lt;/br&gt;  List&lt;User&gt; users = UserDAO.search(username, start, pageSize);&lt;br&gt;&lt;/br&gt;  Map&lt;String, Object&gt; RESULTS_MAP = new HashMap&lt;String, Object&gt;();&lt;br&gt;&lt;/br&gt;  RESULTS_MAP.put(&quot;DATA&quot;,users);&lt;br&gt;&lt;/br&gt;  RESULTS_MAP.put(&quot;COUNT&quot;,count);&lt;br&gt;&lt;/br&gt;  return RESULTS_MAP;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Later Client again wants to give an option to the end user to choose the search type either by UserID or by Username and show the paginated results.<br />
+Now we need to change the above code for the change request.</p>
+
+<pre><code>public class UserSearchAction extends Action&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public ActionForward execute(...)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  SearchForm sf = (SearchForm)form;&lt;br&gt;&lt;/br&gt;  String searchName = sf.getSearchName();&lt;br&gt;&lt;/br&gt;  String searchId = sf.getSearchId();&lt;br&gt;&lt;/br&gt;  UserService userService = new UserService();&lt;br&gt;&lt;/br&gt;  Map&lt;String, Object&gt; searchCriteriaMap = new HashMap&lt;String, Object&gt;();&lt;br&gt;&lt;/br&gt;  //searchCriteriaMap.put(&quot;SEARCH_BY&quot;,&quot;NAME&quot;);&lt;br&gt;&lt;/br&gt;  searchCriteriaMap.put(&quot;SEARCH_BY&quot;,&quot;ID&quot;);&lt;br&gt;&lt;/br&gt;  searchCriteriaMap.put(&quot;ID&quot;,searchId);&lt;br&gt;&lt;/br&gt;  searchCriteriaMap.put(&quot;START&quot;,start);&lt;br&gt;&lt;/br&gt;  searchCriteriaMap.put(&quot;PAGESIZE&quot;,pageSize);&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;  Map&lt;String, Object&gt; searchResultsMap = userService.search(searchCriteriaMap);&lt;br&gt;&lt;/br&gt;  List&lt;User&gt; users = (List&lt;User&gt;)searchResultsMap.get(&quot;DATA&quot;);&lt;br&gt;&lt;/br&gt;  Integer count = (Integer)searchResultsMap.get(&quot;COUNT&quot;);&lt;br&gt;&lt;/br&gt;  //put search results in request and dsplay in JSP&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+
+public class UserService&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public Map&lt;String, Object&gt; search(Map&lt;String, Object&gt; searchCriteriaMap)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return UserDAO.search(searchCriteriaMap);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+
+public class UserDAO&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public Map&lt;String, Object&gt; search(Map&lt;String, Object&gt; searchCriteriaMap)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  String SEARCH_BY = (String)searchCriteriaMap.get(&quot;SEARCH_BY&quot;); &lt;br&gt;&lt;/br&gt;  int start = (Integer)searchCriteriaMap.get(&quot;START&quot;); &lt;br&gt;&lt;/br&gt;  int pageSize = (Integer)searchCriteriaMap.get(&quot;PAGESIZE&quot;);&lt;br&gt;&lt;/br&gt;  if(&quot;ID&quot;.equals(SEARCH_BY))&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   int id = (Integer)searchCriteriaMap.get(&quot;ID&quot;); &lt;br&gt;&lt;/br&gt;   //Get the total number of results for this criteria&lt;br&gt;&lt;/br&gt;   int count = UserDAO.searchResultsCount(id);&lt;br&gt;&lt;/br&gt;   // query the DB and get the start to start+pageSize results &lt;br&gt;&lt;/br&gt;   //by applying filter on USER_ID column&lt;br&gt;&lt;/br&gt;   List&lt;User&gt; users = search(id, start, pageSize);&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  else&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   String username = (String)searchCriteriaMap.get(&quot;USERNAME&quot;); &lt;br&gt;&lt;/br&gt;   //Get the total number of results for this criteria&lt;br&gt;&lt;/br&gt;   int count = UserDAO.searchResultsCount(username);&lt;br&gt;&lt;/br&gt;   // query the DB and get the start to start+pageSize results &lt;br&gt;&lt;/br&gt;   //by applying filter on USERNAME column&lt;br&gt;&lt;/br&gt;   List&lt;User&gt; users = search(username, start, pageSize);&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  Map&lt;String, Object&gt; RESULTS_MAP = new HashMap&lt;String, Object&gt;();&lt;br&gt;&lt;/br&gt;  RESULTS_MAP.put(&quot;DATA&quot;,users);&lt;br&gt;&lt;/br&gt;  RESULTS_MAP.put(&quot;COUNT&quot;,count);&lt;br&gt;&lt;/br&gt;  return RESULTS_MAP;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Finally the code became a big mess and completely violating the object oriented principles. There are lot of problems with the above code.<br />
+1. For each change request the method signatures are changing<br />
+2. Code needs to be changed for each enhancement like adding more search criteria</p>
+
+<p>We can design a better object model for this kind of search functionality which is Object Oriented and enhancable as follws.</p>
+
+<p>A generic SearchCriteria which holds common search criteria like pagination, sorting details.</p>
+
+<pre><code>package com.sivalabs.javabp;&lt;br&gt;&lt;/br&gt;public abstract class SearchCriteria&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; private boolean pagination = false;&lt;br&gt;&lt;/br&gt; private int pageSize = 25;&lt;br&gt;&lt;/br&gt; private String sortOrder = &quot;ASC&quot;;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public boolean isPagination()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return pagination;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public void setPagination(boolean pagination)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.pagination = pagination;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public String getSortOrder()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return sortOrder;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public void setSortOrder(String sortOrder)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.sortOrder = sortOrder;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public int getPageSize()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return pageSize;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public void setPageSize(int pageSize)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.pageSize = pageSize;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>A generic SearchResults object which holds the actual results and other detials like total available results count, page wise results provider etc.</p>
+
+<pre><code>package com.sivalabs.javabp;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import java.util.ArrayList;&lt;br&gt;&lt;/br&gt;import java.util.List;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;public abstract class SearchResults&lt;T&gt;&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; private int totalResults = 0;&lt;br&gt;&lt;/br&gt; private int pageSize = 25;&lt;br&gt;&lt;/br&gt; private List&lt;T&gt; results = null;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public int getPageSize()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return pageSize;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public void setPageSize(int pageSize)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.pageSize = pageSize;&lt;br&gt;&lt;/br&gt; } &lt;br&gt;&lt;/br&gt; public int getTotalResults()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return totalResults;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; private void setTotalResults(int totalResults)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.totalResults = totalResults;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public List&lt;T&gt; getResults()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return results;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public List&lt;T&gt; getResults(int page)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  if(page &lt;= 0 || page &gt; this.getNumberOfPages())&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   throw new RuntimeException&lt;br&gt;&lt;/br&gt;   (&quot;Page number is zero or there are no that many page results.&quot;);&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  List&lt;T&gt; subList = new ArrayList&lt;T&gt;();&lt;br&gt;&lt;/br&gt;  int start = (page -1)*this.getPageSize();&lt;br&gt;&lt;/br&gt;  int end = start + this.getPageSize();&lt;br&gt;&lt;/br&gt;  if(end &gt; this.results.size())&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   end = this.results.size();&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  for (int i = start; i &lt; end; i++)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   subList.add(this.results.get(i));&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  return subList;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public int getNumberOfPages()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  if(this.results == null || this.results.size() == 0)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   return 0;&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  return (this.totalResults/this.pageSize)+(this.totalResults%this.pageSize &gt; 0 ? 1: 0);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public void setResults(List&lt;T&gt; aRresults)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  if(aRresults == null)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   aRresults = new ArrayList&lt;T&gt;();&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  this.results = aRresults;&lt;br&gt;&lt;/br&gt;  this.setTotalResults(this.results.size());&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>A SearchCriteria class specific to User Search.</p>
+
+<pre><code>package com.sivalabs.javabp;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;public class UserSearchCriteria extends SearchCriteria&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public enum UserSearchType &lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  BY_ID, BY_NAME&lt;br&gt;&lt;/br&gt; };&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; private UserSearchType searchType = UserSearchType.BY_NAME;&lt;br&gt;&lt;/br&gt; private int id;&lt;br&gt;&lt;/br&gt; private String username;&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt; public UserSearchType getSearchType()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return searchType;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public void setSearchType(UserSearchType searchType)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.searchType = searchType;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public int getId()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return id;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public void setId(int id)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.id = id;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public String getUsername()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return username;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public void setUsername(String username)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.username = username;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>A SearchResults class specific to User Search.</p>
+
+<pre><code>package com.sivalabs.javabp;&lt;br&gt;&lt;/br&gt;import java.text.MessageFormat;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;public class UserSearchResults&lt;T&gt; extends SearchResults&lt;user&gt;&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public static String getDataGridMessage(int start, int end, int total)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return MessageFormat.format(&quot;Displaying {0} to {1} Users of {2}&quot;, start, end, total);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>UserService takes the SearchCriteria, invokes the DAO and get the results, prepares the UserSearchResults and return it back.</p>
+
+<pre><code>package com.sivalabs.javabp;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import java.util.ArrayList;&lt;br&gt;&lt;/br&gt;import java.util.List;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import com.sivalabs.javabp.UserSearchCriteria.UserSearchType;&lt;br&gt;&lt;/br&gt;public class UserService&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public SearchResults&lt;user&gt; search(UserSearchCriteria searchCriteria)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  UserSearchType searchType = searchCriteria.getSearchType();&lt;br&gt;&lt;/br&gt;  String sortOrder = searchCriteria.getSortOrder();&lt;br&gt;&lt;/br&gt;  System.out.println(searchType+&quot;:&quot;+sortOrder);&lt;br&gt;&lt;/br&gt;  List&lt;User&gt; results = null;&lt;br&gt;&lt;/br&gt;  if(searchType == UserSearchType.BY_NAME)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;  //Use hibernate Criteria API to get and sort results &lt;br&gt;&lt;/br&gt;  //based on USERNAME field in sortOrder&lt;br&gt;&lt;/br&gt;   results = userDAO.searchUsers(...); &lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  else if(searchType == UserSearchType.BY_ID)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;  //Use hibernate Criteria API to get and sort results &lt;br&gt;&lt;/br&gt;  //based on USER_ID field in sortOrder&lt;br&gt;&lt;/br&gt;   results = userDAO.searchUsers(...);&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  UserSearchResults&lt;user&gt; searchResults = new UserSearchResults&lt;user&gt;();&lt;br&gt;&lt;/br&gt;  searchResults.setPageSize(searchCriteria.getPageSize());&lt;br&gt;&lt;/br&gt;  searchResults.setResults(results);&lt;br&gt;&lt;/br&gt;  return searchResults;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+
+package com.sivalabs.javabp;&lt;br&gt;&lt;/br&gt;import com.sivalabs.javabp.UserSearchCriteria.UserSearchType;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;public class TestClient&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public static void main(String[] args)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  UserSearchCriteria criteria = new UserSearchCriteria();&lt;br&gt;&lt;/br&gt;  criteria.setPageSize(3);&lt;br&gt;&lt;/br&gt;  //criteria.setSearchType(UserSearchType.BY_ID);&lt;br&gt;&lt;/br&gt;  //criteria.setId(2);&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  criteria.setSearchType(UserSearchType.BY_NAME);&lt;br&gt;&lt;/br&gt;  criteria.setUsername(&quot;s&quot;);  &lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  UserService userService = new UserService();&lt;br&gt;&lt;/br&gt;  SearchResults&lt;user&gt; searchResults = userService.search(criteria);&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  System.out.println(searchResults.getTotalResults());&lt;br&gt;&lt;/br&gt;  System.out.println(searchResults.getResults().size()+&quot;:&quot;+searchResults.getResults());&lt;br&gt;&lt;/br&gt;  System.out.println(searchResults.getResults(1).size()+&quot;:&quot;+searchResults.getResults(1));&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>With this approach if we want to add a new criteria like search by EMAIL we can do it as follows:<br />
+1. Add BY_EMAIL criteria type to UserSearchType enum<br />
+2. Add new property &ldquo;email&rdquo; to UserSearchCriteria<br />
+3. criteria.setSearchType(UserSearchType.BY_EMAIL);<br />
+criteria.setEmail(&ldquo;gmail&rdquo;);<br />
+4. In UserService prepare the HibernateCriteria with email filter.</p>
+
+<p>Thats it :-)</p>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/best-practices" rel="category">
+										    	Best Practices &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/java" rel="category">
+										    	Java &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=Java%20Coding%20Best%20Practices%3a%20Better%20Search%20Implementation-http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fjava-coding-best-practices-better-search-implementation%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fjava-coding-best-practices-better-search-implementation%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fjava-coding-best-practices-better-search-implementation%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fjava-coding-best-practices-better-search-implementation%2f&title=Java%20Coding%20Best%20Practices%3a%20Better%20Search%20Implementation&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fjava-coding-best-practices-better-search-implementation%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2011\/java-coding-best-practices-better-search-implementation\/';
+    var disqus_title = 'Java Coding Best Practices: Better Search Implementation';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2011\/java-coding-best-practices-better-search-implementation\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

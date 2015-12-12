@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; SpringMVC3 Hibernate CRUD Sample Application</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>SpringMVC3 Hibernate CRUD Sample Application</h2>
+                                    <p><p>To learn any web framework starting with a HelloWorld application is a good idea. Once we get familiarity with the framework configuration it would be better to do a CRUD(Create,Read,Update,Delete) application which covers various aspects of a web framework like Validations, Request URL Mappings, Request Parameter Binding,<br />
+Pre-populating forms etc.</p>
+
+<p>Now I am going to explain how to write a Simple CRUD application using SpringMVC3, Hibernate and MySQL.<br />
+Our Application is ContactsManagements where you can view or search contacts, create new contacts, edit or delete existing contacts.</p>
+
+<p>Step#1: Create the CONTACTS Table</p>
+
+<pre><code>CREATE TABLE  CONTACTS &lt;br&gt;&lt;/br&gt;(&lt;br&gt;&lt;/br&gt;  id int(10) unsigned NOT NULL AUTO_INCREMENT,&lt;br&gt;&lt;/br&gt;  name varchar(45) NOT NULL,&lt;br&gt;&lt;/br&gt;  address varchar(45) DEFAULT NULL,&lt;br&gt;&lt;/br&gt;  gender char(1) DEFAULT 'M',&lt;br&gt;&lt;/br&gt;  dob datetime DEFAULT NULL,&lt;br&gt;&lt;/br&gt;  email varchar(45) DEFAULT NULL,&lt;br&gt;&lt;/br&gt;  mobile varchar(15) DEFAULT NULL,&lt;br&gt;&lt;/br&gt;  phone varchar(15) DEFAULT NULL,&lt;br&gt;&lt;/br&gt;  PRIMARY KEY (id)&lt;br&gt;&lt;/br&gt;);&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#2: Copy the SpringMVC, Hibernate and their dependent jars into WEB-INF/lib folder.<br />
+If you are using Maven you can mention the following dependencies.</p>
+
+<pre><code>&lt;dependencies&gt;&lt;br&gt;&lt;/br&gt;  &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;group&gt;junit&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;    &lt;artifact&gt;junit&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;    &lt;version&gt;4.8.1&lt;/version&gt;&lt;br&gt;&lt;/br&gt;    &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;    &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;   &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;   &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.springframework&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;spring-web&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.0.5.RELEASE&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.springframework&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;spring-core&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.0.5.RELEASE&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;     &lt;exclusions&gt;&lt;br&gt;&lt;/br&gt;      &lt;exclusion&gt;&lt;br&gt;&lt;/br&gt;       &lt;artifact&gt;commons-logging&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;       &lt;group&gt;commons-logging&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;      &lt;/exclusion&gt;&lt;br&gt;&lt;/br&gt;     &lt;/exclusions&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;log4j&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;log4j&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;1.2.14&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.springframework&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;spring-tx&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.0.5.RELEASE&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;jstl&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;jstl&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;1.1.2&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;taglibs&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;standard&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;1.1.2&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.springframework&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;spring-webmvc&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.0.5.RELEASE&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.springframework&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;spring-aop&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.0.5.RELEASE&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;commons-digester&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;commons-digester&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;2.1&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;commons-collections&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;commons-collections&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.2.1&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.hibernate&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;hibernate-core&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.3.2.GA&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;javax.persistence&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;persistence-api&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;1.0&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;c3p0&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;c3p0&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;0.9.1.2&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.springframework&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;spring-orm&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.0.5.RELEASE&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.slf4j&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;slf4j-api&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;1.6.1&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.slf4j&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;slf4j-log4j12&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;1.6.1&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;cglib&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;cglib-nodep&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;2.2&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;org.hibernate&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;hibernate-annotations&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.4.0.GA&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;jboss&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;javassist&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;3.7.ga&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;    &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;     &lt;group&gt;mysql&lt;/groupid&gt;&lt;br&gt;&lt;/br&gt;     &lt;artifact&gt;mysql-connector-java&lt;/artifactid&gt;&lt;br&gt;&lt;/br&gt;     &lt;version&gt;5.1.14&lt;/version&gt;&lt;br&gt;&lt;/br&gt;     &lt;type&gt;jar&lt;/type&gt;&lt;br&gt;&lt;/br&gt;     &lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;    &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;  &lt;/dependencies&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#3: Configure SpringMVC</p>
+
+<p>a) Configure DispatcherServlet in web.xml</p>
+
+<pre><code>&lt;servlet&gt;&lt;br&gt;&lt;/br&gt;  &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;&lt;br&gt;&lt;/br&gt;  &lt;servlet-&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;&lt;br&gt;&lt;/br&gt;  &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;&lt;br&gt;&lt;/br&gt; &lt;/servlet&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; &lt;servlet-mapping&gt;&lt;br&gt;&lt;/br&gt;  &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;&lt;br&gt;&lt;/br&gt;  &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;&lt;br&gt;&lt;/br&gt; &lt;/servlet-mapping&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; &lt;listener&gt;&lt;br&gt;&lt;/br&gt;  &lt;listener-&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;&lt;br&gt;&lt;/br&gt; &lt;/listener&gt;&lt;br&gt;&lt;/br&gt; &lt;context-param&gt;&lt;br&gt;&lt;/br&gt;     &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;&lt;/context-param&gt;&lt;br&gt;&lt;/br&gt;  
+</code></pre>
+
+<p>b) Configure View Resolver in WEB-INF/dispatcher-servlet.xml</p>
+
+<pre><code>&lt;bean p:suffix=&quot;.jsp&quot; p:prefix=&quot;/jsp/&quot;&gt;&lt;br&gt;&lt;/br&gt; &lt;/bean&gt;&lt;br&gt;&lt;/br&gt; 
+</code></pre>
+
+<p>c) Configure Annotation support, PropertyPlaceHolderConfigurer, ResourceBundleMessageSource in WEB-INF/classes/applicationContext.xml</p>
+
+<pre><code>&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; &lt;context:component-scan base-package=&quot;com.sivalabs&quot;&gt;&lt;/context:component-scan&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; &lt;mvc:annotation-driven&gt; &lt;/mvc:annotation-driven&gt; &lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; &lt;context:property-placeholder location=&quot;classpath:config.properties&quot;&gt;&lt;/context:property-placeholder&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;    &lt;bean p:basename=&quot;Messages&quot;&gt;&lt;br&gt;&lt;/br&gt; &lt;/bean&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#4: Configure JDBC connection parameters and Hibernate properties in config.properties</p>
+
+<pre><code>################### JDBC Configuration ##########################&lt;br&gt;&lt;/br&gt;jdbc.driverClassName=com.mysql.jdbc.Driver&lt;br&gt;&lt;/br&gt;jdbc.url=jdbc:mysql://localhost:3306/sivalabs&lt;br&gt;&lt;/br&gt;jdbc.username=root&lt;br&gt;&lt;/br&gt;jdbc.password=admin&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;################### Hibernate Configuration ##########################&lt;br&gt;&lt;/br&gt;hibernate.dialect=org.hibernate.dialect.MySQLDialect&lt;br&gt;&lt;/br&gt;hibernate.show_sql=true&lt;br&gt;&lt;/br&gt;#hibernate.hbm2ddl.auto=update&lt;br&gt;&lt;/br&gt;hibernate.generate_statistics=true&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#5: Configure DataSource, SessionFactory, TransactionManagement support in WEB-INF/classes/applicationContext.xml</p>
+
+<pre><code>&lt;bean p:driverclassname=&quot;${jdbc.driverClassName}&quot; p:url=&quot;${jdbc.url}&quot; p:password=&quot;${jdbc.password}&quot; p:username=&quot;${jdbc.username}&quot;&gt;&lt;br&gt;&lt;/br&gt; &lt;/bean&gt;  &lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; &lt;bean&gt;&lt;br&gt;&lt;/br&gt;     &lt;property ref=&quot;dataSource&quot; name=&quot;dataSource&quot;&gt;&lt;/property&gt;&lt;br&gt;&lt;/br&gt;     &lt;property name=&quot;hibernateProperties&quot;&gt;&lt;br&gt;&lt;/br&gt;       &lt;props&gt;        &lt;br&gt;&lt;/br&gt;             &lt;prop key=&quot;hibernate.dialect&quot;&gt;${hibernate.dialect}&lt;/prop&gt;          &lt;br&gt;&lt;/br&gt;             &lt;prop key=&quot;hibernate.show_sql&quot;&gt;${hibernate.show_sql}&lt;/prop&gt;&lt;br&gt;&lt;/br&gt;        &lt;/props&gt;&lt;br&gt;&lt;/br&gt;     &lt;/property&gt;&lt;br&gt;&lt;/br&gt;  &lt;property name=&quot;packagesToScan&quot; value=&quot;com.sivalabs&quot;&gt;&lt;/property&gt;&lt;br&gt;&lt;/br&gt; &lt;/bean&gt;&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;    &lt;bean p:sessionfactory-ref=&quot;sessionFactory&quot;&gt;&lt;br&gt;&lt;/br&gt; &lt;/bean&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;&gt;&lt;/tx:annotation-driven&gt;&lt;br&gt;&lt;/br&gt;    
+</code></pre>
+
+<p>Step#6: Configure the Labels, error messages in WEB-INF/classes/Messages.properties</p>
+
+<pre><code>App.Title=SivaLabs&lt;br&gt;&lt;/br&gt;typeMismatch.java.util.Date={0} is Invalid Date.&lt;br&gt;&lt;/br&gt;dob=DOB&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#7: Create the Entity class Contact.java</p>
+
+<pre><code>package com.sivalabs.contacts;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import java.util.Date;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import javax.persistence.Column;&lt;br&gt;&lt;/br&gt;import javax.persistence.Entity;&lt;br&gt;&lt;/br&gt;import javax.persistence.GeneratedValue;&lt;br&gt;&lt;/br&gt;import javax.persistence.GenerationType;&lt;br&gt;&lt;/br&gt;import javax.persistence.Id;&lt;br&gt;&lt;/br&gt;import javax.persistence.Table;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import org.apache.commons.lang.builder.ToStringBuilder;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;@Entity&lt;br&gt;&lt;/br&gt;@Table(name=&quot;CONTACTS&quot;)&lt;br&gt;&lt;/br&gt;public class Contact&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; @Id&lt;br&gt;&lt;/br&gt; @GeneratedValue(strategy = GenerationType.AUTO)&lt;br&gt;&lt;/br&gt; private int id;&lt;br&gt;&lt;/br&gt; @Column private String name;&lt;br&gt;&lt;/br&gt; @Column private String address; &lt;br&gt;&lt;/br&gt; @Column private String gender; &lt;br&gt;&lt;/br&gt; @Column private Date dob; &lt;br&gt;&lt;/br&gt; @Column private String email;&lt;br&gt;&lt;/br&gt; @Column private String mobile; &lt;br&gt;&lt;/br&gt; @Column private String phone;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @Override&lt;br&gt;&lt;/br&gt; public String toString()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return ToStringBuilder.reflectionToString(this);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; //setters &amp; getters &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#8: Create the ContactsDAO.java which performs CRUD operations on CONTACTS table.</p>
+
+<pre><code>package com.sivalabs.contacts;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import java.util.List;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import org.hibernate.Criteria;&lt;br&gt;&lt;/br&gt;import org.hibernate.SessionFactory;&lt;br&gt;&lt;/br&gt;import org.hibernate.criterion.Restrictions;&lt;br&gt;&lt;/br&gt;import org.springframework.beans.factory.annotation.Autowired;&lt;br&gt;&lt;/br&gt;import org.springframework.stereotype.Repository;&lt;br&gt;&lt;/br&gt;import org.springframework.transaction.annotation.Transactional;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;@Repository&lt;br&gt;&lt;/br&gt;@Transactional&lt;br&gt;&lt;/br&gt;public class ContactsDAO&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; @Autowired&lt;br&gt;&lt;/br&gt; private SessionFactory sessionFactory;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public Contact getById(int id)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return (Contact) sessionFactory.getCurrentSession().get(Contact.class, id);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @SuppressWarnings(&quot;unchecked&quot;)&lt;br&gt;&lt;/br&gt; public List&lt;Contact&gt; searchContacts(String name)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Contact.class);&lt;br&gt;&lt;/br&gt;  criteria.add(Restrictions.ilike(&quot;name&quot;, name+&quot;%&quot;));&lt;br&gt;&lt;/br&gt;  return criteria.list();&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @SuppressWarnings(&quot;unchecked&quot;)&lt;br&gt;&lt;/br&gt; public List&lt;Contact&gt; getAllContacts()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Contact.class);&lt;br&gt;&lt;/br&gt;  return criteria.list();&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public int save(Contact contact)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return (Integer) sessionFactory.getCurrentSession().save(contact);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public void update(Contact contact)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  sessionFactory.getCurrentSession().merge(contact);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public void delete(int id)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  Contact c = getById(id);&lt;br&gt;&lt;/br&gt;  sessionFactory.getCurrentSession().delete(c);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#9: Create ContactFormValidator.java which performs the validations on saving/updating a contact.</p>
+
+<pre><code>package com.sivalabs.contacts;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import org.springframework.stereotype.Component;&lt;br&gt;&lt;/br&gt;import org.springframework.validation.Errors;&lt;br&gt;&lt;/br&gt;import org.springframework.validation.ValidationUtils;&lt;br&gt;&lt;/br&gt;import org.springframework.validation.Validator;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;@Component(&quot;contactFormValidator&quot;)&lt;br&gt;&lt;/br&gt;public class ContactFormValidator implements Validator&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; @SuppressWarnings(&quot;unchecked&quot;)&lt;br&gt;&lt;/br&gt; @Override&lt;br&gt;&lt;/br&gt; public boolean supports(Class clazz)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return Contact.class.isAssignableFrom(clazz);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; @Override&lt;br&gt;&lt;/br&gt; public void validate(Object model, Errors errors)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  ValidationUtils.rejectIfEmptyOrWhitespace(errors, &quot;name&quot;,&quot;required.name&quot;, &quot;Name is required.&quot;);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#10: Create ContactsControllers.java which processes all the CRUD requests.</p>
+
+<pre><code>package com.sivalabs.contacts;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import java.text.SimpleDateFormat;&lt;br&gt;&lt;/br&gt;import java.util.Date;&lt;br&gt;&lt;/br&gt;import java.util.List;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import org.springframework.beans.factory.annotation.Autowired;&lt;br&gt;&lt;/br&gt;import org.springframework.beans.propertyeditors.CustomDateEditor;&lt;br&gt;&lt;/br&gt;import org.springframework.stereotype.Controller;&lt;br&gt;&lt;/br&gt;import org.springframework.validation.BindingResult;&lt;br&gt;&lt;/br&gt;import org.springframework.web.bind.WebDataBinder;&lt;br&gt;&lt;/br&gt;import org.springframework.web.bind.annotation.InitBinder;&lt;br&gt;&lt;/br&gt;import org.springframework.web.bind.annotation.ModelAttribute;&lt;br&gt;&lt;/br&gt;import org.springframework.web.bind.annotation.RequestMapping;&lt;br&gt;&lt;/br&gt;import org.springframework.web.bind.annotation.RequestMethod;&lt;br&gt;&lt;/br&gt;import org.springframework.web.bind.annotation.RequestParam;&lt;br&gt;&lt;/br&gt;import org.springframework.web.bind.support.SessionStatus;&lt;br&gt;&lt;/br&gt;import org.springframework.web.servlet.ModelAndView;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;@Controller&lt;br&gt;&lt;/br&gt;public class ContactsControllers&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; @Autowired&lt;br&gt;&lt;/br&gt; private ContactsDAO contactsDAO;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @Autowired&lt;br&gt;&lt;/br&gt; private ContactFormValidator validator;&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt; @InitBinder&lt;br&gt;&lt;/br&gt; public void initBinder(WebDataBinder binder) &lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  SimpleDateFormat dateFormat = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;);&lt;br&gt;&lt;/br&gt;  dateFormat.setLenient(false);&lt;br&gt;&lt;/br&gt;  binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt; @RequestMapping(&quot;/searchContacts&quot;)&lt;br&gt;&lt;/br&gt; public ModelAndView searchContacts(@RequestParam(required= false, defaultValue=&quot;&quot;) String name)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  ModelAndView mav = new ModelAndView(&quot;showContacts&quot;);&lt;br&gt;&lt;/br&gt;  List&lt;Contact&gt; contacts = contactsDAO.searchContacts(name.trim());&lt;br&gt;&lt;/br&gt;  mav.addObject(&quot;SEARCH_CONTACTS_RESULTS_KEY&quot;, contacts);&lt;br&gt;&lt;/br&gt;  return mav;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @RequestMapping(&quot;/viewAllContacts&quot;)&lt;br&gt;&lt;/br&gt; public ModelAndView getAllContacts()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  ModelAndView mav = new ModelAndView(&quot;showContacts&quot;);&lt;br&gt;&lt;/br&gt;  List&lt;Contact&gt; contacts = contactsDAO.getAllContacts();&lt;br&gt;&lt;/br&gt;  mav.addObject(&quot;SEARCH_CONTACTS_RESULTS_KEY&quot;, contacts);&lt;br&gt;&lt;/br&gt;  return mav;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @RequestMapping(value=&quot;/saveContact&quot;, method=RequestMethod.GET)&lt;br&gt;&lt;/br&gt; public ModelAndView newuserForm()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  ModelAndView mav = new ModelAndView(&quot;newContact&quot;);&lt;br&gt;&lt;/br&gt;  Contact contact = new Contact();&lt;br&gt;&lt;/br&gt;  mav.getModelMap().put(&quot;newContact&quot;, contact);&lt;br&gt;&lt;/br&gt;  return mav;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @RequestMapping(value=&quot;/saveContact&quot;, method=RequestMethod.POST)&lt;br&gt;&lt;/br&gt; public String create(@ModelAttribute(&quot;newContact&quot;)Contact contact, BindingResult result, SessionStatus status)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  validator.validate(contact, result);&lt;br&gt;&lt;/br&gt;  if (result.hasErrors()) &lt;br&gt;&lt;/br&gt;  {    &lt;br&gt;&lt;/br&gt;   return &quot;newContact&quot;;&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  contactsDAO.save(contact);&lt;br&gt;&lt;/br&gt;  status.setComplete();&lt;br&gt;&lt;/br&gt;  return &quot;redirect:viewAllContacts.do&quot;;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @RequestMapping(value=&quot;/updateContact&quot;, method=RequestMethod.GET)&lt;br&gt;&lt;/br&gt; public ModelAndView edit(@RequestParam(&quot;id&quot;)Integer id)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  ModelAndView mav = new ModelAndView(&quot;editContact&quot;);&lt;br&gt;&lt;/br&gt;  Contact contact = contactsDAO.getById(id);&lt;br&gt;&lt;/br&gt;  mav.addObject(&quot;editContact&quot;, contact);&lt;br&gt;&lt;/br&gt;  return mav;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @RequestMapping(value=&quot;/updateContact&quot;, method=RequestMethod.POST)&lt;br&gt;&lt;/br&gt; public String update(@ModelAttribute(&quot;editContact&quot;) Contact contact, BindingResult result, SessionStatus status)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  validator.validate(contact, result);&lt;br&gt;&lt;/br&gt;  if (result.hasErrors()) {&lt;br&gt;&lt;/br&gt;   return &quot;editContact&quot;;&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  contactsDAO.update(contact);&lt;br&gt;&lt;/br&gt;  status.setComplete();&lt;br&gt;&lt;/br&gt;  return &quot;redirect:viewAllContacts.do&quot;;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt; @RequestMapping(&quot;deleteContact&quot;)&lt;br&gt;&lt;/br&gt; public ModelAndView delete(@RequestParam(&quot;id&quot;)Integer id)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  ModelAndView mav = new ModelAndView(&quot;redirect:viewAllContacts.do&quot;);&lt;br&gt;&lt;/br&gt;  contactsDAO.delete(id);&lt;br&gt;&lt;/br&gt;  return mav;&lt;br&gt;&lt;/br&gt; } &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#11: Instead of writing the JSTL tag library declerations in all the JSPs, declare them in one JSP and include that JSP in other JSPs.<br />
+taglib_includes.jsp</p>
+
+<pre><code>&lt;%@taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot;%&gt;&lt;br&gt;&lt;/br&gt;&lt;%@taglib uri=&quot;http://java.sun.com/jsp/jstl/fmt&quot; prefix=&quot;fmt&quot;%&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;%@taglib uri=&quot;http://www.springframework.org/tags/form&quot; prefix=&quot;form&quot;%&gt;&lt;br&gt;&lt;/br&gt;&lt;%@taglib uri=&quot;http://www.springframework.org/tags&quot; prefix=&quot;spring&quot;%&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#12: Create the JSPs.</p>
+
+<p>a)showContacts.jsp</p>
+
+<pre><code>&lt;%@include file=&quot;taglib_includes.jsp&quot; %&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;html&gt;&lt;br&gt;&lt;/br&gt;&lt;head&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;title&gt;&lt;spring:message code=&quot;App.Title&quot;&gt;&lt;/spring:message&gt; &lt;/title&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/head&gt;&lt;br&gt;&lt;/br&gt;&lt;body style=&quot;font-family: Arial; font-size:smaller;&quot;&gt;&lt;br&gt;&lt;/br&gt; &lt;center&gt;&lt;br&gt;&lt;/br&gt; &lt;table bordercolor=&quot;#006699&quot; style=&quot;border-collapse: collapse; width: 500px;&quot; border=&quot;0&quot;&gt;&lt;tbody&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;     &lt;td&gt;Enter Contact Name&lt;/td&gt;      &lt;td&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;  &lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;table bordercolor=&quot;#006699&quot; style=&quot;border-collapse: collapse; width: 500px;&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;br&gt;&lt;/br&gt;&lt;tr bgcolor=&quot;lightblue&quot;&gt;    &lt;th&gt;Id&lt;/th&gt;    &lt;th&gt;Name&lt;/th&gt;       &lt;th&gt;Address&lt;/th&gt;     &lt;th&gt;Mobile&lt;/th&gt;    &lt;th&gt;&lt;/th&gt;   &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;c:if test=&quot;${empty SEARCH_CONTACTS_RESULTS_KEY}&quot;&gt; &lt;/c:if&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;    &lt;td colspan=&quot;4&quot;&gt;No Results found&lt;/td&gt;   &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;c:if test=&quot;${! empty SEARCH_CONTACTS_RESULTS_KEY}&quot;&gt;    &lt;c:foreach var=&quot;contact&quot; items=&quot;${SEARCH_CONTACTS_RESULTS_KEY}&quot;&gt; &lt;/c:foreach&gt;&lt;/c:if&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;     &lt;td&gt;&lt;c:out value=&quot;${contact.id}&quot;&gt;&lt;/c:out&gt;&lt;/td&gt;     &lt;td&gt;&lt;c:out value=&quot;${contact.name}&quot;&gt;&lt;/c:out&gt;&lt;/td&gt;     &lt;td&gt;&lt;c:out value=&quot;${contact.address}&quot;&gt;&lt;/c:out&gt; &lt;/td&gt;     &lt;td&gt;&lt;c:out value=&quot;${contact.mobile}&quot;&gt;&lt;/c:out&gt;&lt;/td&gt;     &lt;td&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; &lt;a href=&quot;http://www.blogger.com/updateContact.do?id=$%7Bcontact.id%7D&quot;&gt;Edit&lt;/a&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;  &lt;a href=&quot;javascript:deleteContact('deleteContact.do?id=$%7Bcontact.id%7D');&quot;&gt;Delete&lt;/a&gt;&lt;/td&gt;    &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/center&gt;&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;&lt;/body&gt;&lt;br&gt;&lt;/br&gt;&lt;/html&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>b)newContact.jsp</p>
+
+<pre><code>&lt;%@include file=&quot;taglib_includes.jsp&quot; %&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;html&gt;&lt;br&gt;&lt;/br&gt;&lt;head&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; &lt;title&gt;&lt;spring:message code=&quot;App.Title&quot;&gt;&lt;/spring:message&gt; &lt;/title&gt;&lt;br&gt;&lt;/br&gt;&lt;/head&gt;&lt;br&gt;&lt;/br&gt;&lt;body style=&quot;font-family: Arial; font-size:smaller;&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;table bordercolor=&quot;#006699&quot; style=&quot;border-collapse: collapse; width: 750px;&quot; align=&quot;center&quot; height=&quot;500&quot; bgcolor=&quot;lightblue&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;   &lt;td align=&quot;center&quot;&gt;&lt;h3&gt;Edit Contact Form&lt;/h3&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr align=&quot;center&quot; valign=&quot;top&quot;&gt;     &lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:form action=&quot;saveContact.do&quot; commandname=&quot;newContact&quot; method=&quot;post&quot;&gt;&lt;/form:form&gt;&lt;table bordercolor=&quot;#006699&quot; cellpadding=&quot;2&quot; style=&quot;border-collapse: collapse; width: 500px;&quot; cellspacing=&quot;2&quot; border=&quot;0&quot;&gt;&lt;tbody&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Name&lt;/td&gt;       &lt;td width=&quot;150&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:input path=&quot;name&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;name&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;DOB&lt;/td&gt;       &lt;td&gt;&lt;form:input path=&quot;dob&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;dob&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Gender&lt;/td&gt;       &lt;td&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:select path=&quot;gender&quot;&gt;&lt;form:option value=&quot;M&quot; label=&quot;Male&quot;&gt;&lt;form:option value=&quot;F&quot; label=&quot;Female&quot;&gt;&lt;/form:option&gt;&lt;/form:option&gt;&lt;/form:select&gt;&lt;/td&gt;       &lt;td&gt; &lt;/td&gt;            &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Address&lt;/td&gt;       &lt;td&gt;&lt;form:input path=&quot;address&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;address&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Email&lt;/td&gt;       &lt;td&gt;&lt;form:input path=&quot;email&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;email&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Mobile&lt;/td&gt;       &lt;td&gt;&lt;form:input path=&quot;mobile&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;mobile&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td colspan=&quot;3&quot; align=&quot;center&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;       &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/body&gt;&lt;br&gt;&lt;/br&gt;&lt;/html&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>a)editContact.jsp</p>
+
+<pre><code>&lt;%@include file=&quot;taglib_includes.jsp&quot; %&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;html&gt;&lt;br&gt;&lt;/br&gt;&lt;head&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; &lt;title&gt;&lt;spring:message code=&quot;App.Title&quot;&gt;&lt;/spring:message&gt; &lt;/title&gt;&lt;br&gt;&lt;/br&gt;&lt;/head&gt;&lt;br&gt;&lt;/br&gt;&lt;body style=&quot;font-family: Arial; font-size:smaller;&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;table bordercolor=&quot;#006699&quot; style=&quot;border-collapse: collapse; width: 750px;&quot; align=&quot;center&quot; height=&quot;500&quot; bgcolor=&quot;lightblue&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;   &lt;td align=&quot;center&quot;&gt;&lt;h3&gt;Edit Contact Form&lt;/h3&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr align=&quot;center&quot; valign=&quot;top&quot;&gt;     &lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:form action=&quot;updateContact.do&quot; commandname=&quot;editContact&quot; method=&quot;post&quot;&gt;&lt;/form:form&gt;&lt;table bordercolor=&quot;#006699&quot; cellpadding=&quot;2&quot; style=&quot;border-collapse: collapse; width: 500px;&quot; cellspacing=&quot;2&quot; border=&quot;0&quot;&gt;&lt;tbody&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Id&lt;/td&gt;       &lt;td width=&quot;150&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:input path=&quot;id&quot; readonly=&quot;true&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;id&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Name&lt;/td&gt;       &lt;td&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:input path=&quot;name&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;name&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;DOB&lt;/td&gt;       &lt;td&gt;&lt;form:input path=&quot;dob&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;dob&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Gender&lt;/td&gt;       &lt;td&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:select path=&quot;gender&quot;&gt;&lt;form:option value=&quot;M&quot; label=&quot;Male&quot;&gt;&lt;form:option value=&quot;F&quot; label=&quot;Female&quot;&gt;&lt;/form:option&gt;&lt;/form:option&gt;&lt;/form:select&gt;&lt;/td&gt;       &lt;td&gt; &lt;/td&gt;            &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Address&lt;/td&gt;       &lt;td&gt;&lt;form:input path=&quot;address&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;address&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Email&lt;/td&gt;       &lt;td&gt;&lt;form:input path=&quot;email&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;email&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr&gt;       &lt;td width=&quot;100&quot; align=&quot;right&quot;&gt;Mobile&lt;/td&gt;       &lt;td&gt;&lt;form:input path=&quot;mobile&quot;&gt;&lt;/form:input&gt;&lt;/td&gt;       &lt;td align=&quot;left&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;form:errors cssstyle=&quot;color:red&quot; path=&quot;mobile&quot;&gt;&lt;/form:errors&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;tr valign=&quot;bottom&quot;&gt;       &lt;td colspan=&quot;3&quot; align=&quot;center&quot;&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;      &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/td&gt;       &lt;/tr&gt;&lt;br&gt;&lt;/br&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/body&gt;&lt;br&gt;&lt;/br&gt;&lt;/html&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#13: Write the javascript file js/contacts.js containing the utility methods</p>
+
+<pre><code>function go(url)&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; window.location = url;&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;function deleteContact(url)&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; var isOK = confirm(&quot;Are you sure to delete?&quot;);&lt;br&gt;&lt;/br&gt; if(isOK)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  go(url);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#14: The welcome file index.jsp</p>
+
+<pre><code>&lt;%&lt;br&gt;&lt;/br&gt;response.sendRedirect(&quot;viewAllContacts.do&quot;);&lt;br&gt;&lt;/br&gt;%&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Step#15: Start the server and point your browser URL to <a href="http://localhost:8080/SpringMVCHibernate">http://localhost:8080/SpringMVCHibernate</a></p>
+
+<p>You can download the source code at<br />
+<a href="https://sites.google.com/site/sivalabworks/sampleappdownloads/SpringMVCHibernate.zip?attredirects=0&amp;d=1">SpringMVCHibernate.zip</a></p>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/hibernate" rel="category">
+										    	Hibernate &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/java" rel="category">
+										    	Java &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/springmvc" rel="category">
+										    	SpringMVC &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=SpringMVC3%20Hibernate%20CRUD%20Sample%20Application-http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fspringmvc3-hibernate-crud-sample-application%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fspringmvc3-hibernate-crud-sample-application%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fspringmvc3-hibernate-crud-sample-application%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fspringmvc3-hibernate-crud-sample-application%2f&title=SpringMVC3%20Hibernate%20CRUD%20Sample%20Application&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fspringmvc3-hibernate-crud-sample-application%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2011\/springmvc3-hibernate-crud-sample-application\/';
+    var disqus_title = 'SpringMVC3 Hibernate CRUD Sample Application';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2011\/springmvc3-hibernate-crud-sample-application\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

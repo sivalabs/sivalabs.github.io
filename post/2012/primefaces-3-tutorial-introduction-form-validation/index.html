@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; PrimeFaces 3 Tutorial : Introduction &amp; Form Validation</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>PrimeFaces 3 Tutorial : Introduction &amp; Form Validation</h2>
+                                    <p><p>PrimeFaces is a component library for JSF and has huge component support.<br />
+Working with PrimeFaces is very much easy because there is a single jar, no mandatory other dependencies, no mandatory configuration is required.</p>
+
+<p>Ok, in this tutorial I am going to explain how to create a Maven based PrimeFaces project and create a simple registration for and validate the form.<br />
+I am using JDK1.6.26 and Tomcat 7.0.32.</p>
+
+<p><strong>Step#1</strong><br />
+Create Maven Project and add the following repositories, dependencies in pom.xml</p>
+
+<pre><code>&lt;dependencies&gt;  &lt;br&gt;&lt;/br&gt;  &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;   &lt;groupId&gt;com.sun.faces&lt;/groupId&gt;&lt;br&gt;&lt;/br&gt;   &lt;artifactId&gt;jsf-api&lt;/artifactId&gt;&lt;br&gt;&lt;/br&gt;   &lt;version&gt;2.1.6&lt;/version&gt;&lt;br&gt;&lt;/br&gt;   &lt;scope&gt;runtime&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;  &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;  &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;   &lt;groupId&gt;com.sun.faces&lt;/groupId&gt;&lt;br&gt;&lt;/br&gt;   &lt;artifactId&gt;jsf-impl&lt;/artifactId&gt;&lt;br&gt;&lt;/br&gt;   &lt;version&gt;2.1.6&lt;/version&gt;&lt;br&gt;&lt;/br&gt;   &lt;scope&gt;runtime&lt;/scope&gt;&lt;br&gt;&lt;/br&gt;  &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;  &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;   &lt;groupId&gt;org.primefaces&lt;/groupId&gt;&lt;br&gt;&lt;/br&gt;   &lt;artifactId&gt;primefaces&lt;/artifactId&gt;&lt;br&gt;&lt;/br&gt;   &lt;version&gt;3.0&lt;/version&gt;&lt;br&gt;&lt;/br&gt;  &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt;  &lt;dependency&gt;&lt;br&gt;&lt;/br&gt;   &lt;groupId&gt;org.primefaces.themes&lt;/groupId&gt;&lt;br&gt;&lt;/br&gt;   &lt;artifactId&gt;bluesky&lt;/artifactId&gt;&lt;br&gt;&lt;/br&gt;   &lt;version&gt;1.0.2&lt;/version&gt;&lt;br&gt;&lt;/br&gt;  &lt;/dependency&gt;&lt;br&gt;&lt;/br&gt; &lt;/dependencies&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; &lt;repositories&gt;&lt;br&gt;&lt;/br&gt;  &lt;repository&gt;&lt;br&gt;&lt;/br&gt;   &lt;id&gt;maven2-repository.dev.java.net&lt;/id&gt;&lt;br&gt;&lt;/br&gt;   &lt;name&gt;Java.net Repository for Maven&lt;/name&gt;&lt;br&gt;&lt;/br&gt;   &lt;url&gt;http://download.java.net/maven/2&lt;/url&gt;&lt;br&gt;&lt;/br&gt;  &lt;/repository&gt;&lt;br&gt;&lt;/br&gt;  &lt;repository&gt;&lt;br&gt;&lt;/br&gt;   &lt;id&gt;prime-repo&lt;/id&gt;&lt;br&gt;&lt;/br&gt;   &lt;name&gt;Prime Repo&lt;/name&gt;&lt;br&gt;&lt;/br&gt;   &lt;url&gt;http://repository.primefaces.org&lt;/url&gt;&lt;br&gt;&lt;/br&gt;  &lt;/repository&gt;&lt;br&gt;&lt;/br&gt; &lt;/repositories&gt;&lt;br&gt;&lt;/br&gt; &lt;build&gt;&lt;br&gt;&lt;/br&gt;  &lt;finalName&gt;primefaces-demo&lt;/finalName&gt;&lt;br&gt;&lt;/br&gt; &lt;/build&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p><strong>Step#2</strong></p>
+
+<p>Configure JSF2&rsquo;s FacesServlet configurtion in web.xml</p>
+
+<pre><code>&lt;servlet&gt;&lt;br&gt;&lt;/br&gt;    &lt;servlet-name&gt;FacesServlet&lt;/servlet-name&gt;&lt;br&gt;&lt;/br&gt;    &lt;servlet-class&gt;javax.faces.webapp.FacesServlet&lt;/servlet-class&gt;&lt;br&gt;&lt;/br&gt;    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;&lt;br&gt;&lt;/br&gt;  &lt;/servlet&gt;&lt;br&gt;&lt;/br&gt;  &lt;servlet-mapping&gt;&lt;br&gt;&lt;/br&gt;    &lt;servlet-name&gt;FacesServlet&lt;/servlet-name&gt;&lt;br&gt;&lt;/br&gt;    &lt;url-pattern&gt;/faces/*&lt;/url-pattern&gt;&lt;br&gt;&lt;/br&gt;  &lt;/servlet-mapping&gt;&lt;br&gt;&lt;/br&gt;  &lt;servlet-mapping&gt;&lt;br&gt;&lt;/br&gt;    &lt;servlet-name&gt;FacesServlet&lt;/servlet-name&gt;&lt;br&gt;&lt;/br&gt;    &lt;url-pattern&gt;*.xhtml&lt;/url-pattern&gt;&lt;br&gt;&lt;/br&gt;  &lt;/servlet-mapping&gt;&lt;br&gt;&lt;/br&gt;  &lt;context-param&gt;&lt;br&gt;&lt;/br&gt;    &lt;param-name&gt;javax.faces.STATE_SAVING_METHOD&lt;/param-name&gt;&lt;br&gt;&lt;/br&gt;    &lt;param-value&gt;client&lt;/param-value&gt;&lt;br&gt;&lt;/br&gt;  &lt;/context-param&gt;&lt;br&gt;&lt;/br&gt;  &lt;!--Blusky theme for PrimeFaces --&gt;&lt;br&gt;&lt;/br&gt;  &lt;context-param&gt;&lt;br&gt;&lt;/br&gt; &lt;param-name&gt;primefaces.THEME&lt;/param-name&gt;&lt;br&gt;&lt;/br&gt; &lt;param-value&gt;bluesky&lt;/param-value&gt;&lt;br&gt;&lt;/br&gt;  &lt;/context-param&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p><strong>Step#3</strong></p>
+
+<p>Create RegistrationForm bean.</p>
+
+<pre><code>package com.sivalabs.pfdemo.mb.ui;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import java.util.ArrayList;&lt;br&gt;&lt;/br&gt;import java.util.Date;&lt;br&gt;&lt;/br&gt;import java.util.List;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;public class RegistrationForm&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; private Integer userId;&lt;br&gt;&lt;/br&gt; private String userName;&lt;br&gt;&lt;/br&gt; private String password;&lt;br&gt;&lt;/br&gt; private String firstName;&lt;br&gt;&lt;/br&gt; private String lastName;&lt;br&gt;&lt;/br&gt; private String email;&lt;br&gt;&lt;/br&gt; private String phone;&lt;br&gt;&lt;/br&gt; private Date dob;&lt;br&gt;&lt;/br&gt; private String gender;&lt;br&gt;&lt;/br&gt; private List&lt;String&gt; interests = new ArrayList&lt;String&gt;();&lt;br&gt;&lt;/br&gt; private boolean subscribeToNewsLetter;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; //setters/getters&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Create RegistrationBean which is a Managed Bean.</p>
+
+<pre><code>package com.sivalabs.pfdemo.mb;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import java.util.ArrayList;&lt;br&gt;&lt;/br&gt;import java.util.List;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import javax.faces.bean.ManagedBean;&lt;br&gt;&lt;/br&gt;import javax.faces.bean.RequestScoped;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import com.sivalabs.pfdemo.mb.ui.RegistrationForm;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;@ManagedBean&lt;br&gt;&lt;/br&gt;@RequestScoped&lt;br&gt;&lt;/br&gt;public class RegistrationBean&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; private RegistrationForm registrationForm = null;&lt;br&gt;&lt;/br&gt; private List&lt;String&gt; interests = null;&lt;br&gt;&lt;/br&gt; private List&lt;String&gt; genders = null;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public RegistrationBean()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.interests = new ArrayList&lt;String&gt;();&lt;br&gt;&lt;/br&gt;  this.interests.add(&quot;Sports&quot;);&lt;br&gt;&lt;/br&gt;  this.interests.add(&quot;Gadgets&quot;);&lt;br&gt;&lt;/br&gt;  this.interests.add(&quot;Politics&quot;);&lt;br&gt;&lt;/br&gt;  this.interests.add(&quot;Technology&quot;);&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  this.genders = new ArrayList&lt;String&gt;();&lt;br&gt;&lt;/br&gt;  this.genders.add(&quot;Male&quot;);&lt;br&gt;&lt;/br&gt;  this.genders.add(&quot;Female&quot;);&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public String register()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  System.out.println(&quot;register.....&quot;);&lt;br&gt;&lt;/br&gt;  //store data in DB&lt;br&gt;&lt;/br&gt;  System.out.println(this.registrationForm);&lt;br&gt;&lt;/br&gt;  return &quot;welcome&quot;;//go to welcome.xhtml&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; public RegistrationForm getRegistrationForm()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  if(this.registrationForm == null){&lt;br&gt;&lt;/br&gt;   this.registrationForm = new RegistrationForm();&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  return registrationForm;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; public void setRegistrationForm(RegistrationForm registrationForm)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.registrationForm = registrationForm;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; public List&lt;String&gt; getInterests()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return interests;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; public void setInterests(List&lt;String&gt; interests)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.interests = interests;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; public List&lt;String&gt; getGenders()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  return genders;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; public void setGenders(List&lt;String&gt; genders)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  this.genders = genders;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p><strong>Step#4:</strong> Create registration.xhtml JSF page.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; &lt;br&gt;&lt;/br&gt;&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&lt;br&gt;&lt;/br&gt;      xmlns:h=&quot;http://java.sun.com/jsf/html&quot;&lt;br&gt;&lt;/br&gt;      xmlns:f=&quot;http://java.sun.com/jsf/core&quot;&lt;br&gt;&lt;/br&gt;      xmlns:ui=&quot;http://java.sun.com/jsf/facelets&quot;&lt;br&gt;&lt;/br&gt;      xmlns:p=&quot;http://primefaces.org/ui&quot;&gt; &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;h:head&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/h:head&gt; &lt;br&gt;&lt;/br&gt;&lt;h:body&gt; &lt;br&gt;&lt;/br&gt; &lt;h2&gt;Registration Form&lt;/h2&gt;&lt;br&gt;&lt;/br&gt; &lt;h:form&gt;&lt;br&gt;&lt;/br&gt;  &lt;p:fieldset legend=&quot;Registration Form&quot; widgetVar=&quot;regWidget&quot; style=&quot;width: 600px;&quot;&gt;&lt;br&gt;&lt;/br&gt;   &lt;h:panelGrid columns=&quot;3&quot; width=&quot;550&quot; border=&quot;0&quot;&gt;&lt;br&gt;&lt;/br&gt;    &lt;h:outputLabel value=&quot;UserName&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:inputText value=&quot;#{registrationBean.registrationForm.userName}&quot; &lt;br&gt;&lt;/br&gt;       id=&quot;userName&quot;&lt;br&gt;&lt;/br&gt;        required=&quot;true&quot; &lt;br&gt;&lt;/br&gt;        requiredMessage=&quot;UserName is required&quot;&lt;br&gt;&lt;/br&gt;        validatorMessage=&quot;UsesrName should be of length from 5 to 15 chars&quot;&lt;br&gt;&lt;/br&gt;        &gt;&lt;br&gt;&lt;/br&gt;     &lt;f:validateLength minimum=&quot;5&quot; maximum=&quot;15&quot; for=&quot;userName&quot;&gt;&lt;/f:validateLength&gt;&lt;br&gt;&lt;/br&gt;    &lt;/p:inputText&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:message for=&quot;userName&quot;/&gt;&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;h:outputLabel value=&quot;Password&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:password value=&quot;#{registrationBean.registrationForm.password}&quot;&lt;br&gt;&lt;/br&gt;       id=&quot;password&quot;&lt;br&gt;&lt;/br&gt;       required=&quot;true&quot; &lt;br&gt;&lt;/br&gt;       requiredMessage=&quot;Password is required&quot;&lt;br&gt;&lt;/br&gt;       validatorMessage=&quot;Password should be of length from 5 to 15 chars&quot;&lt;br&gt;&lt;/br&gt;       &gt;&lt;br&gt;&lt;/br&gt;      &lt;f:validateLength minimum=&quot;5&quot; maximum=&quot;15&quot; for=&quot;password&quot;&gt;&lt;/f:validateLength&gt;&lt;br&gt;&lt;/br&gt;    &lt;/p:password&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:message for=&quot;password&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;h:outputLabel value=&quot;FirstName&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:inputText value=&quot;#{registrationBean.registrationForm.firstName}&quot;&lt;br&gt;&lt;/br&gt;       id=&quot;firstName&quot;&lt;br&gt;&lt;/br&gt;       required=&quot;true&quot; &lt;br&gt;&lt;/br&gt;       requiredMessage=&quot;FirstName is required&quot;&lt;br&gt;&lt;/br&gt;       validatorMessage=&quot;FirstName should be of length from 5 to 15 chars&quot;&lt;br&gt;&lt;/br&gt;       &gt;&lt;br&gt;&lt;/br&gt;      &lt;f:validateLength minimum=&quot;5&quot; maximum=&quot;15&quot; for=&quot;firstName&quot;&gt;&lt;/f:validateLength&gt;&lt;br&gt;&lt;/br&gt;    &lt;/p:inputText&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:message for=&quot;firstName&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;h:outputLabel value=&quot;LastName&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:inputText value=&quot;#{registrationBean.registrationForm.lastName}&quot;&lt;br&gt;&lt;/br&gt;       id=&quot;lastName&quot;&gt;&lt;/p:inputText&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:message for=&quot;lastName&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;h:outputLabel value=&quot;Email&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:inputText value=&quot;#{registrationBean.registrationForm.email}&quot;&lt;br&gt;&lt;/br&gt;       id=&quot;email&quot;&lt;br&gt;&lt;/br&gt;       validatorMessage=&quot;Invalid Email&quot;&gt;&lt;br&gt;&lt;/br&gt;     &lt;f:validateRegex pattern=&quot;[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]{2,3}&quot;&gt;&lt;/f:validateRegex&gt;   &lt;br&gt;&lt;/br&gt;    &lt;/p:inputText&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:message for=&quot;email&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;h:outputLabel value=&quot;Phone&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:inputText value=&quot;#{registrationBean.registrationForm.phone}&quot;&lt;br&gt;&lt;/br&gt;       id=&quot;phone&quot;&gt;&lt;/p:inputText&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:message for=&quot;phone&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;h:outputLabel value=&quot;DOB&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:calendar value=&quot;#{registrationBean.registrationForm.dob}&quot;&lt;br&gt;&lt;/br&gt;       id=&quot;dob&quot;&lt;br&gt;&lt;/br&gt;       converterMessage=&quot;Invalid Date&quot;&lt;br&gt;&lt;/br&gt;       pattern=&quot;dd-MM-yyyy&quot;&gt;&lt;br&gt;&lt;/br&gt;     &lt;br&gt;&lt;/br&gt;    &lt;/p:calendar&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:message for=&quot;dob&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;h:outputLabel value=&quot;Gender&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;h:selectOneRadio id=&quot;gender&quot; &lt;br&gt;&lt;/br&gt;          value=&quot;#{registrationBean.registrationForm.gender}&quot; &gt;&lt;br&gt;&lt;/br&gt;     &lt;f:selectItems value=&quot;#{registrationBean.genders}&quot; &lt;br&gt;&lt;/br&gt;         var=&quot;gOp&quot;&lt;br&gt;&lt;/br&gt;         itemLabel=&quot;#{gOp}&quot;&lt;br&gt;&lt;/br&gt;         itemValue=&quot;#{gOp}&quot;/&gt;&lt;br&gt;&lt;/br&gt;    &lt;/h:selectOneRadio&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:message for=&quot;gender&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;h:outputLabel value=&quot;Interests&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:selectManyCheckbox id=&quot;interests&quot;&lt;br&gt;&lt;/br&gt;           value=&quot;#{registrationBean.registrationForm.interests}&quot;&lt;br&gt;&lt;/br&gt;           layout=&quot;pageDirection&quot;&gt;&lt;br&gt;&lt;/br&gt;     &lt;f:selectItems value=&quot;#{registrationBean.interests}&quot; var=&quot;intrOp&quot;&gt;&lt;/f:selectItems&gt;&lt;br&gt;&lt;/br&gt;    &lt;/p:selectManyCheckbox&gt;&lt;br&gt;&lt;/br&gt;    &lt;p:message for=&quot;interests&quot; /&gt;&lt;br&gt;&lt;/br&gt;    &lt;br&gt;&lt;/br&gt;    &lt;p:commandButton value=&quot;Register&quot; action=&quot;#{registrationBean.register}&quot; ajax=&quot;false&quot;&gt;&lt;/p:commandButton&gt;&lt;br&gt;&lt;/br&gt;   &lt;/h:panelGrid&gt;&lt;br&gt;&lt;/br&gt;  &lt;/p:fieldset&gt;&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; &lt;/h:form&gt;&lt;br&gt;&lt;/br&gt;&lt;/h:body&gt; &lt;br&gt;&lt;/br&gt;&lt;/html&gt;&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p><strong>Step#5:</strong><br />
+Now go to <a href="http://localhost:8080/primfaces-demo/registration.xhtml">http://localhost:8080/primfaces-demo/registration.xhtml</a></p>
+
+<p><strong>Here key things to note are:</strong><br />
+1. We need to add primefaces taglib using xmlns:p=&ldquo;<a href="http://primefaces.org/ui&quot;">http://primefaces.org/ui&quot;</a><br />
+2. PrimeFaces Command Button/Links bydefault use Ajax submit. So to do non-ajax submit we should use ajax=&ldquo;false&rdquo;.<br />
+3. To enable autocompletion for <p:> tags, right click on project &ndash;&gt; Properties &ndash;&gt; ProjectFacests &ndash;&gt; Select Java Server Faces 2.0 checkbox and Apply.</p>
+
+<p>In the next article <a href="http://sivalabs.blogspot.in/2012/02/primefaces3-tutorial-form-validation.html">PrimeFaces3 Tutorial : Form Validation Using BeanValidation API(JSR-303)</a>I have explained how to validate the forms using JSR-303 Bean Validation API.</p>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/jsf" rel="category">
+										    	JSF &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/primefaces" rel="category">
+										    	PrimeFaces &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=PrimeFaces%203%20Tutorial%20%3a%20Introduction%20%26%20Form%20Validation-http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fprimefaces-3-tutorial-introduction-form-validation%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fprimefaces-3-tutorial-introduction-form-validation%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fprimefaces-3-tutorial-introduction-form-validation%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fprimefaces-3-tutorial-introduction-form-validation%2f&title=PrimeFaces%203%20Tutorial%20%3a%20Introduction%20%26%20Form%20Validation&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fprimefaces-3-tutorial-introduction-form-validation%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2012\/primefaces-3-tutorial-introduction-form-validation\/';
+    var disqus_title = 'PrimeFaces 3 Tutorial : Introduction \x26 Form Validation';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2012\/primefaces-3-tutorial-introduction-form-validation\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

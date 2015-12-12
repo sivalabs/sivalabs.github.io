@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; NetBeansIDE and IntellijIDEA From The Eyes of a Long Time Eclipse User</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>NetBeansIDE and IntellijIDEA From The Eyes of a Long Time Eclipse User</h2>
+                                    <p><p>I have been using Eclipse IDE since 2006 and I liked it so much for various reasons. First it is open source and free to use. Eclipse looks pretty neat on Windows OS on which I work most of the time. Occasionally I tried to use NetBeansIDE (before 6.x version) and I didn&rsquo;t like it because it&rsquo;s too slow. And I never tried IntellijIDEA because it&rsquo;s a commercial product and I am 100% sure that my employer is not going to pay $$$ for an IDE.</p>
+
+<p>So over the years I have been using JavaEE based Eclipse version and once I found SpringSource Tool Suite it became my default Java IDE for everything. I like Spring framework very much and I use Spring technologies everyday, both on personal and official projects. STS provides lot of additional features for Spring related technologies like auto-completion in spring xml files, beans graph etc etc. I should mention SpringBoot support in STS specifically. You can create SpringBoot applications with lot of customization options(which modules to use, java version, maven/gradle, java/groovy etc) right from the IDE itself. As of now no other IDE has this much of good support for SpringBoot.</p>
+
+<p>But as everyone knows working with Eclipse isn&rsquo;t fun all the times. It has it&rsquo;s own set of problems. I get used to see the NullPointerException or  IllegalArgumentException error alerts all the times. When you press Ctrl + Space you may get auto completion suggestion or get an error alert. If you type too fast and press Ctrl+Space many times then Eclipse might disappear and shows a big alert box with very useful details. If you have many open projects in your workspace and if it contains JPA/JSF/JAX-WS/JAX-RS modules then as soon as you opened your Eclipse it may stuck in Building Workspace state forever. The only way to solve it is End Process via Task Manager.</p>
+
+<p>Till this point its bearable. If you install any plugin which contain any conflicting XML libraries then the real problems start. As soon as you open pom.xml you will get to see error alerts repeatedly, you can&rsquo;t even close it..it keeps popping up the error alerts. If you are lucky then restarting eclipse might solve the issue or you have to try uninstalling the newly installed plugin(which never solved the problem for me) or start with a new Eclipse altogether.</p>
+
+<p>Even after all these pains I stick to Eclipse because I get used to it. As I said I have been using STS and till STS-3.5.1 version it&rsquo;s fine and I am OK to live with all the previously mentioned pain points.</p>
+
+<p>But once I downloaded STS-3.6.0 and started using it, things get even worse. First, Gradle plugin didn&rsquo;t work. After googling for a while there is already a bug filed regarding the same issue. I thought this may be resolved in STS-3.6.1 release but it is not. Then I upgraded Gradle plugin with nightly build and it started working fine. I am very happy. Then I started my SpringBoot application and it worked fine. Great!!. Then I opened another Java class and made some changes and tried to click on Relaunch button. As soon as mouse cursor is on Relaunch button it is showing error alert. Navigate to any other file and put cursor on Relaunch button then again it will show error alert. What the hell!! For almost 4 days I was struggling with these kind of issues only. I Haven&rsquo;t ever started writing code at all.</p>
+
+<p>I told myself &ldquo;Enough!! Shut this f***king eclipse and start using some better IDE, come out of you Eclipse comfort zone&rdquo;.</p>
+
+<p>I have been playing with NetBeansIDE every now and then, and I am aware that NetBeansIDE got lot better than its previous versions, especially from 7.x onwards its very fast and feature rich. A year ago I tried IntellijIDEA Ultimate edition with trial version and it&rsquo;s totally confusing to me because of my prior Eclipse experience.</p>
+
+<p>When I google for &ldquo;Eclipse vs NetBeansIDE vs IntellijIDEA&rdquo; there are lots of articles comparing them and almost every article ends with a conclusion that &ldquo;IntellijIDEA &gt; NetBeansIDE &gt; Eclipse&rdquo;. But I though of trying NetBeansIDE and IntellijIDEA myself. So I installed NetBeansIDE 8.0.1 and IntellijIDEA Ultimate Edition 13.</p>
+
+<p><strong>How I feel about NetBeansIDE:</strong>
+First thing I noticed is NetBeansIDE totally improved over its previous versions. It is fast and feature rich.
+<strong>Pros:</strong></p>
+
+<ul>
+<li><p>You will get most the Java stuff that you need out-of-the-box. You don&rsquo;t need to hunt for plugins.</p></li>
+
+<li><p>If your project is based on JavaEE technologies like CDI/EJB/JPA/JSF/JAX-RS then you will love NetBeansIDE. It has awesome code generators for JPA Entities from Database, JSF views from Entities, JAX-RS resource from Entities etc.</p></li>
+
+<li><p>Its Maven support is fantastic. Looking up and adding dependencies works out-of-the-box. No need to check &ldquo;Download Indexes at startup&rdquo; and perform Rebuild Indexes..You know what I mean :-)</p></li>
+
+<li><p>Great support for HTML5 technologies, especially AngularJS. Auto completion for AngularJS directives is amazing.</p></li>
+
+<li><p>You can download and install many of the popular Javascript libraries right from the IDE itself.</p></li>
+
+<li><p>It has very good Java8 support. It even shows code recommendations to turn for-loops into Java8 streams and lambdas.</p></li>
+
+<li><p>Recently I am learning Mobile App development using PhoneGap/Cordova. Getting started with Cordova in NetBeans is a piece of cake.</p></li>
+</ul>
+
+<p><strong>Cons:</strong></p>
+
+<ul>
+<li><p>No workspace concept. For some people it could be an advantage, but for me its a disadvantage. Usually I maintain multiple workspaces for different projects and at times I would like to open them in parallel.</p></li>
+
+<li><p>Opening multiple NetBeans IDEs is possible, but it should not be that difficult.</p></li>
+
+<li><p>At home I installed NB 8.0.1 and Wildlfy 8.0.0.FINAL and worked well. The very same day Wildlfy 8.1.0.FINAL got released and at office I tried to run an app using NB 8.0.1 and Wildlfy 8.1.0.FINAL and it&rsquo;s not working at all. After pulling off my hair for few hours I figured it out that NB 8.0.1 doesn&rsquo;t work with Wildlfy 8.1.0 version yet. That&rsquo;s a little bit odd!! Wildlfy changed that much from 8.0.0 to 8.1.0????</p></li>
+
+<li><p>I just created a web application and tried to deploy on Tomcat, what should go wrong!! But while deployment its failing. After struggling for few minutes and found answer in StackOverflow that it might be because of Proxy issue. After configuring my corporate proxy details in NetBeans its working fine.</p></li>
+
+<li><p>But this is not cool. Deploying an app on my local tomcat should not worry about Proxy..right??!!??</p></li>
+
+<li><p>There is no shortcut for block comment!!! Come on&hellip;</p></li>
+</ul>
+
+<p>Overall I liked NetBeans IDE very much. Being an open source and Free IDE NetBeans is awesome.</p>
+
+<p><strong>How I feel about IntellijIDEA:</strong>
+Whenever I read about IntellijIDEA user experience, I always here &ldquo;wow&rdquo;, &ldquo;amazing&rdquo;,&ldquo;can&rsquo;t go back to Eclipse/NB&rdquo; and &ldquo;I don&rsquo;t mind paying $$$ for such a wonderful tool&rdquo;!!. But I struggled a bit to get used to its Project/Module style of code organization because of my previous Eclipse Workspace/Project style experience. Still I am not very comfortable with it but it&rsquo;s not a blocker.</p>
+
+<p><strong>Pros:</strong></p>
+
+<ul>
+<li><p>No random NullPointerException/IllegalArgumentException exception alerts.</p></li>
+
+<li><p>Everything can be done from IDE itself. Be it Working with Database, tinkering from Command Prompt, Maven/Gradle tasks execution, RestClient etc etc.</p></li>
+
+<li><p>AutoCompletion support is just mind blowing. Type sort and Ctrl+Space twice showing sort methods from all Java classes. Wonderful.</p></li>
+
+<li><p>Interaction with many Version Control Systems works smoothly.</p></li>
+
+<li><p>Support for other IDE&rsquo;s key bindings.</p></li>
+</ul>
+
+<p><strong>Cons: </strong></p>
+
+<ul>
+<li><p>Well, following may not be really Cons, but from an Eclipse user perspective following are confusing and difficult to get use to it:</p></li>
+
+<li><p>Project/Module style code organization is very different from other IDEs.</p></li>
+
+<li><p>I terribly miss right clicking on a web project and choosing Run on Server. It took me 30 mins to figure out how to run a web application on IntellijIDEA. Please provide an option &ldquo;Run on Server&rdquo; and open Edit Configuration window to choose the Server and other stuff.</p></li>
+</ul>
+
+<p>Actually, it is too early for me to say whether IntellijIDEA is best or not because still I am learning to do things in Intellij way. But I can clearly sense that IntellijIDEA is very addictive because of its Editing capabilities and &ldquo;Everything from IDE&rdquo; experience. But the major issue is it is very costly and I am 100% sure that my employer won&rsquo;t pay for IDE though its great productivity booster.</p>
+
+<p>I am actually considering to use IntellijIDEA Community Edition also because it has Java/Groovy/Maven/Gradle support. And SpringBoot can be run as a standalone Java program and no need of Server support.</p>
+
+<p>Overall I feel it is powerful and feature rich IDE and I just need to understand the IntellijIDEA way of doing things.</p>
+
+<p><strong>What Eclipse features I missed from NetbeansIDE/IntellijIDEA:</strong></p>
+
+<p>After playing with NetBeansIDE and IntellijIDEA, I feel Eclipse is better in the following aspects:</p>
+
+<ul>
+<li><p>Support for multiple workspaces and multiple instances</p></li>
+
+<li><p>Eclipse color scheme for Java editor is pleasant than NetBeans glassy look and IntellijIDEA&rsquo;s dull grey look.</p></li>
+
+<li><p>Sensible Eclipse shortcut key bindings. Many of the key bindings don&rsquo;t include crazy combination of Ctrl+Shift+Alt as in IntellijIDEA.</p></li>
+
+<li><p>Maven pom editor&rsquo;s Dependency Hierarchy Tab view which provides a neat view of &ldquo;from where this jar dependency came&rdquo;. Simple tree structure looks better than fancy graphs to me.</p></li>
+</ul>
+
+<p><strong>Conclusion:</strong>
+All in all, what I came to know is most of the things that you do in one IDE can also be done in other IDEs as well. It is just a matter of getting use to the selected IDEs way of doing things. But if you are spending lot of time fighting with IDE itself then it&rsquo;s a red flag. You should consider moving to a better IDE.</p>
+
+<p>After playing with NetBeans and IntellijIDEA I came to the conclusion that:</p>
+
+<blockquote>If you have to work with JavaEE projects heavily go with NetBeans. If you can get a license for IntellijIDEA that's great, if not choose a stable version of STS and live with it. Don't just upgrade your Eclipse/STS because there is a newer version released. Newer not always means better.</blockquote>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/ide" rel="category">
+										    	IDE &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=NetBeansIDE%20and%20IntellijIDEA%20From%20The%20Eyes%20of%20a%20Long%20Time%20Eclipse%20User-http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fnetbeanside-and-intellijidea-from-eyes%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fnetbeanside-and-intellijidea-from-eyes%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fnetbeanside-and-intellijidea-from-eyes%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fnetbeanside-and-intellijidea-from-eyes%2f&title=NetBeansIDE%20and%20IntellijIDEA%20From%20The%20Eyes%20of%20a%20Long%20Time%20Eclipse%20User&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2014%2fnetbeanside-and-intellijidea-from-eyes%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2014\/netbeanside-and-intellijidea-from-eyes\/';
+    var disqus_title = 'NetBeansIDE and IntellijIDEA From The Eyes of a Long Time Eclipse User';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2014\/netbeanside-and-intellijidea-from-eyes\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

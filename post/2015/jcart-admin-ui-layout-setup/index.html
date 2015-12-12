@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; JCart: Admin UI Layout SetUp</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>JCart: Admin UI Layout SetUp</h2>
+                                    <p>
+
+<p>As I am not really a good UI designer I searched for a free good looking UI website Admin templates and I found this fantastic template <a href="https://almsaeedstudio.com/preview">https://almsaeedstudio.com/preview</a>. We will be using this template for our Administration web application.</p>
+
+<p>We are going to use Thymeleaf templates for our View layer. Thymeleaf offers facelets style templating mechanism. Basically we need 2 layout templates, one for unauthorized views like Login/ForgotPassword etc and another for authorized users.</p>
+
+<h2 id="setup-adminlte-theme-resources:770d75f6b1f469d800caf574b82d048f">Setup AdminLTE Theme Resources</h2>
+
+<p>We are going to start with basic template and include what is necessary instead of dumping everything that comes with the theme.</p>
+
+<ul>
+<li><p>Copy AdminLTE-2.3.0/bootstrap into jcart-admin/src/main/resources/static/assets folder.</p></li>
+
+<li><p>Copy AdminLTE-2.3.0/dist into jcart-admin/src/main/resources/static/assets folder. You can keep dist/js/app.min.js and delete rest of the files from js directory.</p></li>
+
+<li><p>Copy AdminLTE-2.3.0/plugins/jQuery into jcart-admin/src/main/resources/static/assets/plugins folder.</p></li>
+</ul>
+
+<blockquote>Note: I don't want to dump all the HTML content along with CSS styles on this post itself. Instead I will put only the key parts of the HTML content and give a link to the complete file on GitHub repository [https://github.com/sivaprasadreddy/jcart](https://github.com/sivaprasadreddy/jcart).</blockquote>
+
+<h2 id="guestlayout-template:770d75f6b1f469d800caf574b82d048f">GuestLayout Template</h2>
+
+<p>Create the guest layout thymeleaf template jcart-admin/src/main/resources/templates/layout/guestLayout.html as follows:</p>
+
+<pre><code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; 
+      xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;&lt;/meta&gt;
+    &lt;meta content=&quot;IE=edge&quot; http-equiv=&quot;X-UA-Compatible&quot;&gt;&lt;/meta&gt;
+    &lt;title layout:title-pattern=&quot;$DECORATOR_TITLE - $CONTENT_TITLE&quot;&gt;JCart Admin&lt;/title&gt;
+    &lt;meta content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&quot; name=&quot;viewport&quot;&gt;&lt;/meta&gt;
+    &lt;link th:href=&quot;@{/assets/bootstrap/css/bootstrap.min.css}&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+    &lt;link th:href=&quot;@{https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css}&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+    &lt;link th:href=&quot;@{https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css}&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+    &lt;link th:href=&quot;@{/assets/dist/css/AdminLTE.min.css}&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+        &lt;div layout:fragment=&quot;content&quot;&gt;
+
+    &lt;/div&gt;
+
+    &lt;script th:src=&quot;@{'/assets/plugins/jQuery/jQuery-2.1.4.min.js'}&quot;&gt;&lt;/script&gt;
+    &lt;script th:src=&quot;@{'/assets/bootstrap/js/bootstrap.min.js'}&quot;&gt;&lt;/script&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>This is guest layout skeleton page. Observe the place holder <div layout:fragment="content"> &hellip; </div> for the content to be dynamically included at runtime.</p>
+
+<h2 id="login-page:770d75f6b1f469d800caf574b82d048f">Login Page</h2>
+
+<p>Create login view page <strong>jcart-admin/src/main/resources/templates/public/login.html</strong></p>
+
+<pre><code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; 
+      xmlns:th=&quot;http://www.thymeleaf.org&quot;
+      layout:decorator=&quot;layout/guestLayout&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Log in&lt;/title&gt;    
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div layout:fragment=&quot;content&quot;&gt;
+
+        &lt;form action=&quot;home&quot; th:action=&quot;@{/login}&quot; method=&quot;post&quot;&gt;
+    &lt;p&gt;&lt;input placeholder=&quot;Email&quot; type=&quot;email&quot; class=&quot;form-control&quot; name=&quot;username&quot;&gt;&lt;/input&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;input placeholder=&quot;Password&quot; type=&quot;password&quot; class=&quot;form-control&quot; name=&quot;password&quot;&gt;&lt;/input&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;button th:text=&quot;#{label.login}&quot; type=&quot;submit&quot; class=&quot;btn btn-primary btn-block btn-flat&quot;&gt;LogIn&lt;/button&gt;&lt;/p&gt;
+
+    &lt;div th:if=&quot;${param.error}&quot;&gt;
+    &lt;p&gt;&lt;span th:text=&quot;#{error.login_failed}&quot;&gt;Invalid Email and Password.&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div th:if=&quot;${param.logout}&quot;&gt;
+    &lt;p&gt;&lt;span th:text=&quot;#{info.logout_success}&quot;&gt;You have been logged out.&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;            
+    &lt;div th:if=&quot;${msg!=null}&quot;&gt;
+    &lt;p&gt;&lt;span th:text=&quot;${msg}&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;            
+        &lt;/form&gt;        
+        &lt;a th:href=&quot;@{/forgotPwd}&quot; href=&quot;forgotPwd&quot; th:text=&quot;#{label.forgot_password}&quot;&gt;I forgot my password&lt;/a&gt;&lt;br&gt;&lt;/br&gt;   
+
+      &lt;/div&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3 id="things-to-observe-here:770d75f6b1f469d800caf574b82d048f">Things to observe here:</h3>
+
+<ul>
+<li><p>We are specifying to use guestlayout template for this Login page by using layout:decorator=&ldquo;layout/guestLayout&rdquo;</p></li>
+
+<li><p>We are using various Thymeleaf attributes like th:action, th:if, th:text to provide the dynamic content</p></li>
+
+<li><p>We are using th:text=&ldquo;#{some_message_key}&rdquo; to provide all the labels dynamically from ResourceBundles jcart-admin/src/main/resources/messages.properties so that we can provide I18N feature easily.</p></li>
+
+<li><p>We are using ${param.someKey} to access HttpServletRequest parameters.</p></li>
+
+<li><p>We are using ${someKey} to access HttpServletRequest attributes.</p></li>
+
+<li><p>We are using th:action=&ldquo;@{/login}&rdquo; and th:href=&ldquo;@{/forgotPwd}&rdquo; for URLs so that we don&rsquo;t have to worry about Context Relative URL problems.</p></li>
+</ul>
+
+<p>For more information on using Thymeleaf Layouts refer <a href="http://www.thymeleaf.org/doc/articles/layouts.html">http://www.thymeleaf.org/doc/articles/layouts.html</a></p>
+
+<h2 id="using-resourcebundles-for-internationalization-i18n:770d75f6b1f469d800caf574b82d048f">Using ResourceBundles for Internationalization (I18N)</h2>
+
+<p>Create the default ResourceBundle <strong>jcart-admin/src/main/resources/messages.properties</strong>.
+For now we are supporting only English Locale.</p>
+
+<pre><code>label.jcart_admin=JCart Admin
+label.email=Email
+label.password=Password
+label.login=Login
+label.submit=Submit
+label.forgot_password=I forgot my password
+info.logout_success=You have been logged out
+error.login_failed=Invalid Email and Password
+</code></pre>
+
+<p>Now create <strong>JCartAdminApplication.java</strong> which is starting point for our Administration application.</p>
+
+<pre><code>package com.sivalabs.jcart;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class JCartAdminApplication
+{
+    public static void main(String[] args)
+    {
+    SpringApplication.run(JCartAdminApplication.class, args);
+    }
+}
+</code></pre>
+
+<h2 id="webmvc-configuration:770d75f6b1f469d800caf574b82d048f">WebMVC Configuration</h2>
+
+<p>Create a Spring WebMVC Configuration class to configure things like ViewControllers, Interceptors etc.</p>
+
+<pre><code>@Configuration
+public class WebConfig extends WebMvcConfigurerAdapter
+{   
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry)
+    {
+    super.addViewControllers(registry);
+        registry.addViewController(&quot;/login&quot;).setViewName(&quot;public/login&quot;);
+    registry.addRedirectViewController(&quot;/&quot;, &quot;/home&quot;);
+
+    }
+
+}
+</code></pre>
+
+<p>Now we can run JCartAdminApplication as a Java Application and point your browser to <a href="http://localhost:8080/login">http://localhost:8080/login</a></p>
+
+<h2 id="authorized-users-layout:770d75f6b1f469d800caf574b82d048f">Authorized Users Layout</h2>
+
+<p>Create the main layout thymeleaf template <strong>jcart-admin/src/main/resources/templates/layout/mainLayout.html</strong> as follows:</p>
+
+<pre><code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; 
+      xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;&lt;/meta&gt;
+    &lt;meta content=&quot;IE=edge&quot; http-equiv=&quot;X-UA-Compatible&quot;&gt;&lt;/meta&gt;
+    &lt;title layout:title-pattern=&quot;$DECORATOR_TITLE - $CONTENT_TITLE&quot;&gt;JCart Admin&lt;/title&gt;
+    &lt;meta content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&quot; name=&quot;viewport&quot;&gt;&lt;/meta&gt;
+    &lt;link th:href=&quot;@{/assets/bootstrap/css/bootstrap.min.css}&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+    &lt;link th:href=&quot;@{https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css}&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+    &lt;link th:href=&quot;@{https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css}&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+    &lt;link th:href=&quot;@{/assets/dist/css/AdminLTE.min.css}&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+    &lt;link th:href=&quot;@{/assets/dist/css/skins/skin-blue.min.css}&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;wrapper&quot;&gt;
+
+
+      &lt;header class=&quot;main-header&quot;&gt;
+
+
+        &lt;a th:href=&quot;@{/home}&quot; href=&quot;#&quot; class=&quot;logo&quot;&gt;
+          ...
+        &lt;/a&gt;
+
+
+        &lt;nav role=&quot;navigation&quot; class=&quot;navbar navbar-static-top&quot;&gt;
+          ...
+        &lt;/nav&gt;
+      &lt;/header&gt;
+
+      &lt;aside class=&quot;main-sidebar&quot;&gt;
+
+        &lt;section class=&quot;sidebar&quot;&gt;
+
+
+          &lt;div class=&quot;user-panel&quot;&gt;
+            ...
+          &lt;/div&gt;
+
+
+          &lt;ul class=&quot;sidebar-menu&quot;&gt;
+            &lt;li&gt;&lt;a th:href=&quot;@{'/home'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-home&quot;&gt;&lt;/i&gt; &lt;span&gt;Home&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a th:href=&quot;@{'/categories'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-folder-open&quot;&gt;&lt;/i&gt; &lt;span&gt;Categories&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a th:href=&quot;@{'/products'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-file&quot;&gt;&lt;/i&gt; &lt;span&gt;Products&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a th:href=&quot;@{'/orders'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-cart-arrow-down&quot;&gt;&lt;/i&gt; &lt;span&gt;Orders&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a th:href=&quot;@{'/customers'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-smile-o&quot;&gt;&lt;/i&gt; &lt;span&gt;Customers&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a th:href=&quot;@{'/users'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-users&quot;&gt;&lt;/i&gt; Users&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a th:href=&quot;@{'/roles'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt; Roles&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a th:href=&quot;@{'/permissions'}&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-shield&quot;&gt;&lt;/i&gt; Permissions&lt;/a&gt;&lt;/li&gt;            
+          &lt;/ul&gt;
+        &lt;/section&gt;        
+      &lt;/aside&gt;
+
+
+      &lt;div class=&quot;content-wrapper&quot;&gt;
+
+        &lt;div layout:fragment=&quot;pageHeader&quot;&gt;
+            &lt;section class=&quot;content-header&quot;&gt;
+                &lt;h1&gt;Header Title&lt;/h1&gt;               
+            &lt;/section&gt;
+        &lt;/div&gt;
+
+
+        &lt;section class=&quot;content&quot;&gt;
+          &lt;div layout:fragment=&quot;content&quot;&gt;
+
+      &lt;/div&gt;
+
+        &lt;/section&gt;
+      &lt;/div&gt;
+
+
+      &lt;footer class=&quot;main-footer&quot;&gt;
+        ...
+      &lt;/footer&gt;      
+    &lt;/div&gt;
+
+    &lt;script th:src=&quot;@{'/assets/plugins/jQuery/jQuery-2.1.4.min.js'}&quot;&gt;&lt;/script&gt;
+    &lt;script th:src=&quot;@{'/assets/bootstrap/js/bootstrap.min.js'}&quot;&gt;&lt;/script&gt;
+    &lt;script th:src=&quot;@{'/assets/dist/js/app.min.js'}&quot;&gt;&lt;/script&gt;
+
+   &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Create Home page thymeleaf view <strong>jcart-admin/src/main/resources/templates/home.html</strong> as follows:</p>
+
+<pre><code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; 
+      xmlns:th=&quot;http://www.thymeleaf.org&quot;
+      layout:decorator=&quot;layout/mainLayout&quot;&gt;
+
+      &lt;head&gt;
+        &lt;title&gt;Home&lt;/title&gt;
+    &lt;/head&gt;
+  &lt;body&gt;
+        &lt;div layout:fragment=&quot;pageHeader&quot;&gt;
+        &lt;section class=&quot;content-header&quot;&gt;
+            &lt;h1&gt;
+                JCart Administration
+                &lt;small&gt;Manage JCart Site Content&lt;/small&gt;
+            &lt;/h1&gt;
+        &lt;/section&gt;
+        &lt;/div&gt;
+        &lt;div layout:fragment=&quot;content&quot;&gt;
+            &lt;p&gt;Welcome User!&lt;/p&gt;
+        &lt;/div&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Create a simple controller to display Home page.</p>
+
+<pre><code>@Controller
+public class HomeController 
+{   
+    @RequestMapping(&quot;/home&quot;)
+    public String home(Model model)
+    {
+    return &quot;home&quot;;
+    }
+}
+</code></pre>
+
+<p>Now you can run JCartAdminApplication as a Java Application and point your browser to <a href="http://localhost:8080/home">http://localhost:8080/home</a>.</p>
+
+<h2 id="resourcebundle-for-hibernate-validation-errors:770d75f6b1f469d800caf574b82d048f">ResourceBundle for Hibernate Validation Errors</h2>
+
+<p>If you observe the JPA entities, we are using Hibernate Validation annotations for some of our Entity fields. SpringMVC has support for JSR-303 Bean Validation API. But by default Hibernate Validation looks for <strong>ValidationMessages.properties</strong> file in root classpath for failure message keys.
+If you want to use <strong>messages.properties</strong> for both I18N and Hibernate Validation error messages you can register the Validator Bean as follows:</p>
+
+<pre><code>@Configuration
+public class WebConfig extends WebMvcConfigurerAdapter
+{  
+    ...
+    ...
+
+    @Autowired
+    private MessageSource messageSource;
+
+    @Override
+    public Validator getValidator() {
+        LocalValidatorFactoryBean factory = new LocalValidatorFactoryBean();
+        factory.setValidationMessageSource(messageSource);
+        return factory;
+    }
+
+}
+</code></pre>
+
+<p>Now we have the layout templates ready and basic MVC configuration is in place. Next we will look into how to configure Spring Security.</p>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/jcart" rel="category">
+										    	Jcart &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/springboot" rel="category">
+										    	SpringBoot &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=JCart%3a%20Admin%20UI%20Layout%20SetUp-http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-admin-ui-layout-setup%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-admin-ui-layout-setup%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-admin-ui-layout-setup%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-admin-ui-layout-setup%2f&title=JCart%3a%20Admin%20UI%20Layout%20SetUp&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2015%2fjcart-admin-ui-layout-setup%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2015\/jcart-admin-ui-layout-setup\/';
+    var disqus_title = 'JCart: Admin UI Layout SetUp';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2015\/jcart-admin-ui-layout-setup\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

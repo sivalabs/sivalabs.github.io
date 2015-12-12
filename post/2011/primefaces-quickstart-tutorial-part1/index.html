@@ -1,0 +1,865 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; PrimeFaces QuickStart Tutorial-Part1</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>PrimeFaces QuickStart Tutorial-Part1</h2>
+                                    <p><p>PrimeFaces is an open source component library for JSF 2.0 with morethan 100 rich components. PrimeFaces is far better than many other JSF component libraries because of the following reasons:</p>
+
+<ol>
+<li>Rich set of UI components (DataTable, AutoComplete, HtmlEditor, Charts etc).<br /></li>
+<li>No extra xml configuration is required and there is no required dependencies.<br /></li>
+<li>Built-in Ajax based on standard JSF 2.0 Ajax APIs.<br /></li>
+<li>Skinning Framework with 25+ built-in themes.<br /></li>
+<li>Awesome documentation with code examples.<br /></li>
+</ol>
+
+<p>Let us build a sample application using PrimeFaces with the following features:<br />
+1. A Login screen which accepts username and password and authenticate the user.<br />
+2. Upon successful login user will be shown a User Search screen. Users can search for users by their name.The search results will be displayed in a DataTable with pagination, sorting and filtering support.<br />
+3. Upon clicking on a row the user details will be displayed in a form.</p>
+
+<p>First download JSF 2 jars from <a href="http://javaserverfaces.java.net/download.html">http://javaserverfaces.java.net/download.html</a><br />
+Place the jsf-api-2.0.3.jar, jsf-impl-2.0.3.jar and jstl-1.0.2.jar jars in WEB-INF/lib folder.<br />
+Download PrimeFaces from <a href="http://www.primefaces.org/downloads.html">http://www.primefaces.org/downloads.html</a>.<br />
+Place primefaces-2.2.RC2.jar in WEB-INF/lib folder.</p>
+
+<p>Configure FacesServlet in web.xml</p>
+
+<pre><code>&lt;web-app version=&quot;2.5&quot;&gt;
+&lt;br&gt;&lt;/br&gt;    xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
+&lt;br&gt;&lt;/br&gt;    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+&lt;br&gt;&lt;/br&gt;    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot; &gt;
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    &lt;welcome-file-list&gt;
+&lt;br&gt;&lt;/br&gt;        &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+&lt;br&gt;&lt;/br&gt;    &lt;/welcome-file-list&gt;
+&lt;br&gt;&lt;/br&gt;        
+&lt;br&gt;&lt;/br&gt;    &lt;servlet&gt;
+&lt;br&gt;&lt;/br&gt;        &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
+&lt;br&gt;&lt;/br&gt;        &lt;servlet-&gt;javax.faces.webapp.FacesServlet&lt;/servlet-class&gt;
+&lt;br&gt;&lt;/br&gt;        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;br&gt;&lt;/br&gt;    &lt;/servlet&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;    &lt;servlet-mapping&gt;
+&lt;br&gt;&lt;/br&gt;        &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
+&lt;br&gt;&lt;/br&gt;        &lt;url-pattern&gt;*.jsf&lt;/url-pattern&gt;
+&lt;br&gt;&lt;/br&gt;    &lt;/servlet-mapping&gt;
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;&lt;/web-app&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Create faces-config.xml in WEB-INF folder.</p>
+
+<pre><code>&lt;faces-config xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;&gt;
+&lt;br&gt;&lt;/br&gt;    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+&lt;br&gt;&lt;/br&gt;    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd&quot;
+&lt;br&gt;&lt;/br&gt;    version=&quot;2.0&quot;&gt;
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    &lt;/faces-config&gt;
+&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Welcome page index.jsp just forwards to login screen.</p>
+
+<pre><code>&lt;jsp:forward page=&quot;login.jsf&quot;&gt;&lt;/jsp:forward&gt;
+&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Create login.xhtml page.</p>
+
+<pre><code>&lt;br&gt;&lt;/br&gt;&lt;html xmlns=&quot;http://www.w3c.org/1999/xhtml&quot;
+&lt;br&gt;&lt;/br&gt;xmlns:f=&quot;http://java.sun.com/jsf/core&quot;
+&lt;br&gt;&lt;/br&gt;    xmlns:h=&quot;http://java.sun.com/jsf/html&quot;
+&lt;br&gt;&lt;/br&gt;    xmlns:p=&quot;http://primefaces.prime.com.tr/ui&quot;&gt;
+&lt;br&gt;&lt;/br&gt;&lt;h:head&gt;
+&lt;br&gt;&lt;/br&gt;    &lt;link href=&quot;themes/bluesky/skin.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;&lt;/h:head&gt;
+&lt;br&gt;&lt;/br&gt;&lt;h:body&gt;
+&lt;br&gt;&lt;/br&gt;    &lt;/h:body&gt;
+&lt;br&gt;&lt;/br&gt;&lt;center&gt;
+&lt;br&gt;&lt;/br&gt;    &lt;p:panel header=&quot;Login Form&quot;&gt;        &lt;h:form&gt;
+&lt;br&gt;&lt;/br&gt;            &lt;h:panelgr cellpadding=&quot;2&quot; columns=&quot;2&quot;&gt;
+&lt;br&gt;&lt;/br&gt;                &lt;h:outputlabel value=&quot;UserName&quot; for=&quot;#{userManagedBean.username}&quot;&gt;
+&lt;br&gt;&lt;/br&gt;                &lt;h:inputtext value=&quot;#{userManagedBean.username}&quot; label=&quot;UserName&quot;&gt;&lt;/h:inputtext&gt;
+&lt;br&gt;&lt;/br&gt;                &lt;h:outputlabel value=&quot;Password&quot; for=&quot;#{userManagedBean.password}&quot;&gt;
+&lt;br&gt;&lt;/br&gt;                &lt;h:inputsecret value=&quot;#{userManagedBean.password}&quot;&gt;&lt;/h:inputsecret&gt;
+&lt;br&gt;&lt;/br&gt;                &lt;h:commandbutton action=&quot;#{userManagedBean.login}&quot; type=&quot;submit&quot; value=&quot;Login&quot;&gt;&lt;/h:commandbutton&gt;
+&lt;br&gt;&lt;/br&gt;            &lt;/h:outputlabel&gt;
+&lt;br&gt;&lt;/br&gt;        &lt;/h:outputlabel&gt;
+&lt;br&gt;&lt;/br&gt;    &lt;/h:panelgrid&gt;
+&lt;br&gt;&lt;/br&gt;    &lt;div&gt;&lt;h:messages&gt;&lt;/h:messages&gt;&lt;/div&gt;    &lt;/h:form&gt;&lt;/p:panel&gt;&lt;/center&gt;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;&lt;/html&gt;
+&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>You can get the blusky theme from PrimeFaces bundle.</p>
+
+<p>Create home.xhtml which contains UserSearchForm, Results dataTable and UserDetails Panel.</p>
+
+<pre><code>&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;  
+&lt;br&gt;&lt;/br&gt;&lt;html xmlns=&quot;http://www.w3c.org/1999/xhtml&quot;
+&lt;br&gt;&lt;/br&gt;   xmlns:f=&quot;http://java.sun.com/jsf/core&quot;
+&lt;br&gt;&lt;/br&gt;   xmlns:h=&quot;http://java.sun.com/jsf/html&quot;
+&lt;br&gt;&lt;/br&gt;   xmlns:p=&quot;http://primefaces.prime.com.tr/ui&quot;&gt;
+&lt;br&gt;&lt;/br&gt;&lt;h:head&gt;
+&lt;br&gt;&lt;/br&gt;       &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;themes/bluesky/skin.css&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;&lt;/h:head&gt;
+&lt;br&gt;&lt;/br&gt;&lt;h:body&gt;
+&lt;br&gt;&lt;/br&gt;&lt;center&gt;
+&lt;br&gt;&lt;/br&gt;   &lt;h:form&gt;
+&lt;br&gt;&lt;/br&gt;       &lt;p:panel header=&quot;Users Search Form&quot; style=&quot;width: 700;&quot;&gt;
+&lt;br&gt;&lt;/br&gt;       &lt;h:form&gt;
+&lt;br&gt;&lt;/br&gt;           &lt;h:panelGrid columns=&quot;3&quot; cellpadding=&quot;2&quot;&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputLabel for=&quot;#{userManagedBean.searchUser}&quot; value=&quot;UserName&quot;/&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:inputText value=&quot;#{userManagedBean.searchUser}&quot; label=&quot;UserName&quot;&gt;&lt;/h:inputText&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:commandButton type=&quot;submit&quot; value=&quot;Search&quot; action=&quot;#{userManagedBean.searchUser}&quot;&gt;&lt;/h:commandButton&gt;
+&lt;br&gt;&lt;/br&gt;           &lt;/h:panelGrid&gt;
+&lt;br&gt;&lt;/br&gt;       &lt;/h:form&gt;
+&lt;br&gt;&lt;/br&gt;       &lt;/p:panel&gt;
+&lt;br&gt;&lt;/br&gt;   
+&lt;br&gt;&lt;/br&gt;   
+&lt;br&gt;&lt;/br&gt;   &lt;p:dataTable var=&quot;user&quot; value=&quot;#{userManagedBean.searchUsersResults}&quot; 
+&lt;br&gt;&lt;/br&gt;           selection=&quot;#{userManagedBean.selectedUser}&quot; selectionMode=&quot;single&quot; 
+&lt;br&gt;&lt;/br&gt;           dynamic=&quot;true&quot;
+&lt;br&gt;&lt;/br&gt;           onRowSelectUpdate=&quot;userUpdateForm&quot;
+&lt;br&gt;&lt;/br&gt;           onRowUnselectUpdate=&quot;userUpdateForm&quot;
+&lt;br&gt;&lt;/br&gt;           rowSelectListener=&quot;#{userManagedBean.onUserSelect}&quot;
+&lt;br&gt;&lt;/br&gt;            rowUnselectListener=&quot;#{userManagedBean.onUserUnselect}&quot;
+&lt;br&gt;&lt;/br&gt;           paginator=&quot;true&quot; rows=&quot;5&quot; style=&quot;width: 700&quot;&gt;
+&lt;br&gt;&lt;/br&gt;           &lt;p:column sortBy=&quot;#{user.userId}&quot; filterBy=&quot;#{user.userId}&quot;&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;f:facet name=&quot;header&quot;&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputText value=&quot;Id&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;/f:facet&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputText value=&quot;#{user.userId}&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;/p:column&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;p:column sortBy=&quot;#{user.username}&quot; filterBy=&quot;#{user.username}&quot;&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;f:facet name=&quot;header&quot;&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputText value=&quot;Name&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;/f:facet&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputText value=&quot;#{user.username}&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;/p:column&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;p:column sortBy=&quot;#{user.emailId}&quot; filterBy=&quot;#{user.emailId}&quot;&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;f:facet name=&quot;header&quot;&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputText value=&quot;Email&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;/f:facet&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputText value=&quot;#{user.emailId}&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;/p:column&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;p:column parser=&quot;date&quot; sortBy=&quot;#{user.dob}&quot; filterBy=&quot;#{user.dob}&quot;&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;f:facet name=&quot;header&quot;&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputText value=&quot;DOB&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;/f:facet&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputText value=&quot;#{user.dob}&quot; &gt;
+&lt;br&gt;&lt;/br&gt;                   &lt;f:convertDateTime pattern=&quot;MM/dd/yyyy&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;/h:outputText&gt;
+&lt;br&gt;&lt;/br&gt;           &lt;/p:column&gt;
+&lt;br&gt;&lt;/br&gt;       &lt;/p:dataTable&gt;
+&lt;br&gt;&lt;/br&gt;       &lt;p:panel id=&quot;userDetailsPanelId&quot; header=&quot;Users Details&quot; style=&quot;width: 700;&quot;&gt;
+&lt;br&gt;&lt;/br&gt;       &lt;h:panelGrid columns=&quot;2&quot; cellpadding=&quot;2&quot; id=&quot;userUpdateForm&quot; border=&quot;0&quot; &gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputLabel for=&quot;#{userManagedBean.selectedUser.userId}&quot; value=&quot;UserId&quot;/&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:inputText value=&quot;#{userManagedBean.selectedUser.userId}&quot; style=&quot;width: 100;&quot; readonly=&quot;true&quot;&gt;&lt;/h:inputText&gt;
+&lt;br&gt;&lt;/br&gt;               
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputLabel for=&quot;#{userManagedBean.selectedUser.username}&quot; value=&quot;Username&quot;/&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:inputText value=&quot;#{userManagedBean.selectedUser.username}&quot; readonly=&quot;true&quot;&gt;&lt;/h:inputText&gt;
+&lt;br&gt;&lt;/br&gt;               
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputLabel for=&quot;#{userManagedBean.selectedUser.emailId}&quot; value=&quot;EmailId&quot;/&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:inputText value=&quot;#{userManagedBean.selectedUser.emailId}&quot; readonly=&quot;true&quot;&gt;&lt;/h:inputText&gt;
+&lt;br&gt;&lt;/br&gt;               
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputLabel for=&quot;#{userManagedBean.selectedUser.gender}&quot; value=&quot;Gender&quot;/&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:inputText value=&quot;#{userManagedBean.selectedUser.gender}&quot; readonly=&quot;true&quot;&gt;&lt;/h:inputText&gt;
+&lt;br&gt;&lt;/br&gt;               
+&lt;br&gt;&lt;/br&gt;               &lt;h:outputLabel for=&quot;#{userManagedBean.selectedUser.dob}&quot; value=&quot;DOB&quot;/&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;h:inputText value=&quot;#{userManagedBean.selectedUser.dob}&quot; readonly=&quot;true&quot;&gt;
+&lt;br&gt;&lt;/br&gt;                   &lt;f:convertDateTime pattern=&quot;MM/dd/yyyy&quot; /&gt;
+&lt;br&gt;&lt;/br&gt;               &lt;/h:inputText&gt;
+&lt;br&gt;&lt;/br&gt;               
+&lt;br&gt;&lt;/br&gt;           &lt;/h:panelGrid&gt;
+&lt;br&gt;&lt;/br&gt;           &lt;/p:panel&gt;
+&lt;br&gt;&lt;/br&gt;       &lt;/h:form&gt;       
+&lt;br&gt;&lt;/br&gt;       &lt;/center&gt;
+&lt;br&gt;&lt;/br&gt;&lt;/h:body&gt;
+&lt;br&gt;&lt;/br&gt;&lt;/html&gt;
+&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Create User.java domain class.</p>
+
+<pre><code>package com.primefaces.sample;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;import java.util.Date;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;public class User
+&lt;br&gt;&lt;/br&gt;{
+&lt;br&gt;&lt;/br&gt;    private Integer userId;
+&lt;br&gt;&lt;/br&gt;    private String username;
+&lt;br&gt;&lt;/br&gt;    private String emailId;
+&lt;br&gt;&lt;/br&gt;    private String phone;
+&lt;br&gt;&lt;/br&gt;    private Date dob;
+&lt;br&gt;&lt;/br&gt;    private String gender;
+&lt;br&gt;&lt;/br&gt;    private String address;
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    public User()
+&lt;br&gt;&lt;/br&gt;    {}
+&lt;br&gt;&lt;/br&gt;    public User(Integer userId, String username, String emailId, String phone,
+&lt;br&gt;&lt;/br&gt;            Date dob, String gender, String address)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        this.userId = userId;
+&lt;br&gt;&lt;/br&gt;        this.username = username;
+&lt;br&gt;&lt;/br&gt;        this.emailId = emailId;
+&lt;br&gt;&lt;/br&gt;        this.phone = phone;
+&lt;br&gt;&lt;/br&gt;        this.dob = dob;
+&lt;br&gt;&lt;/br&gt;        this.gender = gender;
+&lt;br&gt;&lt;/br&gt;        this.address = address;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    //setter and getters    
+&lt;br&gt;&lt;/br&gt;}
+&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Create UserService.java which acts as a mock database table.</p>
+
+<pre><code>package com.primefaces.sample;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;import java.util.ArrayList;
+&lt;br&gt;&lt;/br&gt;import java.util.Collection;
+&lt;br&gt;&lt;/br&gt;import java.util.Date;
+&lt;br&gt;&lt;/br&gt;import java.util.HashMap;
+&lt;br&gt;&lt;/br&gt;import java.util.Map;
+&lt;br&gt;&lt;/br&gt;import java.util.Set;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;public class UserService
+&lt;br&gt;&lt;/br&gt;{
+&lt;br&gt;&lt;/br&gt;    private static final Map&lt;Integer, User&gt; USERS_TABLE = new HashMap&lt;Integer, User&gt;();
+&lt;br&gt;&lt;/br&gt;    static
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(1, new User(1, &quot;Administrator&quot;, &quot;admin@gmail.com&quot;, &quot;9000510456&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(2, new User(2, &quot;Guest&quot;, &quot;guest@gmail.com&quot;, &quot;9247469543&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(3, new User(3, &quot;John&quot;, &quot;John@gmail.com&quot;, &quot;9000510456&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(4, new User(4, &quot;Paul&quot;, &quot;Paul@gmail.com&quot;, &quot;9247469543&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(5, new User(5, &quot;raju&quot;, &quot;raju@gmail.com&quot;, &quot;9000510456&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(6, new User(6, &quot;raghav&quot;, &quot;raghav@gmail.com&quot;, &quot;9247469543&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(7, new User(7, &quot;caren&quot;, &quot;caren@gmail.com&quot;, &quot;9000510456&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(8, new User(8, &quot;Mike&quot;, &quot;Mike@gmail.com&quot;, &quot;9247469543&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(9, new User(9, &quot;Steve&quot;, &quot;Steve@gmail.com&quot;, &quot;9000510456&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(10, new User(10, &quot;Polhman&quot;, &quot;Polhman@gmail.com&quot;, &quot;9247469543&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(11, new User(11, &quot;Rogermoor&quot;, &quot;Rogermoor@gmail.com&quot;, &quot;9000510456&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(12, new User(12, &quot;Robinhood&quot;, &quot;Robinhood@gmail.com&quot;, &quot;9247469543&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(13, new User(13, &quot;Sean&quot;, &quot;Sean@gmail.com&quot;, &quot;9000510456&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(14, new User(14, &quot;Gabriel&quot;, &quot;Gabriel@gmail.com&quot;, &quot;9247469543&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(15, new User(15, &quot;raman&quot;, &quot;raman@gmail.com&quot;, &quot;9000510456&quot;, new Date(), &quot;M&quot;, &quot;Hyderabad&quot;));
+&lt;br&gt;&lt;/br&gt;        
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    public Integer create(User user)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        if(user == null)
+&lt;br&gt;&lt;/br&gt;        {
+&lt;br&gt;&lt;/br&gt;            throw new RuntimeException(&quot;Unable to create User. User object is null.&quot;);
+&lt;br&gt;&lt;/br&gt;        }
+&lt;br&gt;&lt;/br&gt;        Integer userId = this.getMaxUserId();
+&lt;br&gt;&lt;/br&gt;        user.setUserId(userId);
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(userId, user);
+&lt;br&gt;&lt;/br&gt;        return userId;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;    public void delete(User user)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        if(user == null)
+&lt;br&gt;&lt;/br&gt;        {
+&lt;br&gt;&lt;/br&gt;            throw new RuntimeException(&quot;Unable to delete User. User object is null.&quot;);
+&lt;br&gt;&lt;/br&gt;        }
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.remove(user.getUserId());
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;    public Collection&lt;User&gt; getAllUsers()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        return USERS_TABLE.values();
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;    public User getUser(Integer userId)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        return USERS_TABLE.get(userId);
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;    public Collection&lt;User&gt; searchUsers(String username)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        String searchCriteria = (username == null)? &quot;&quot;:username.toLowerCase().trim();
+&lt;br&gt;&lt;/br&gt;        Collection&lt;User&gt; users = USERS_TABLE.values();
+&lt;br&gt;&lt;/br&gt;        Collection&lt;User&gt; searchResults = new ArrayList&lt;User&gt;();
+&lt;br&gt;&lt;/br&gt;        for (User user : users)
+&lt;br&gt;&lt;/br&gt;        {
+&lt;br&gt;&lt;/br&gt;            if(user.getUsername() != null &amp;&amp; user.getUsername().toLowerCase().trim().startsWith(searchCriteria))
+&lt;br&gt;&lt;/br&gt;            {
+&lt;br&gt;&lt;/br&gt;                searchResults.add(user);
+&lt;br&gt;&lt;/br&gt;            }
+&lt;br&gt;&lt;/br&gt;        }
+&lt;br&gt;&lt;/br&gt;        return searchResults;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;    public void update(User user)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        if(user == null || !USERS_TABLE.containsKey(user.getUserId()))
+&lt;br&gt;&lt;/br&gt;        {
+&lt;br&gt;&lt;/br&gt;            throw new RuntimeException(&quot;Unable to update User. User object is null or User Id [&quot;+user.getUserId()+&quot;] is invalid.&quot; );
+&lt;br&gt;&lt;/br&gt;        }
+&lt;br&gt;&lt;/br&gt;        USERS_TABLE.put(user.getUserId(), user);
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    protected Integer getMaxUserId()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        Set&lt;Integer&gt; keys = USERS_TABLE.keySet();
+&lt;br&gt;&lt;/br&gt;        Integer maxId = 1;
+&lt;br&gt;&lt;/br&gt;        for (Integer key : keys)
+&lt;br&gt;&lt;/br&gt;        {
+&lt;br&gt;&lt;/br&gt;            if(key &gt; maxId)
+&lt;br&gt;&lt;/br&gt;            {
+&lt;br&gt;&lt;/br&gt;                maxId = key;
+&lt;br&gt;&lt;/br&gt;            }
+&lt;br&gt;&lt;/br&gt;        }
+&lt;br&gt;&lt;/br&gt;        return maxId;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;}
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Create UserManagedBean.java</p>
+
+<pre><code>package com.primefaces.sample;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;import java.util.Collection;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;import javax.faces.application.FacesMessage;
+&lt;br&gt;&lt;/br&gt;import javax.faces.bean.ApplicationScoped;
+&lt;br&gt;&lt;/br&gt;import javax.faces.bean.ManagedBean;
+&lt;br&gt;&lt;/br&gt;import javax.faces.context.FacesContext;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;import org.primefaces.event.SelectEvent;
+&lt;br&gt;&lt;/br&gt;import org.primefaces.event.UnselectEvent;
+&lt;br&gt;&lt;/br&gt;
+&lt;br&gt;&lt;/br&gt;@ManagedBean
+&lt;br&gt;&lt;/br&gt;@ApplicationScoped
+&lt;br&gt;&lt;/br&gt;public class UserManagedBean
+&lt;br&gt;&lt;/br&gt;{
+&lt;br&gt;&lt;/br&gt;    UserService userService = new UserService();
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    private String username;
+&lt;br&gt;&lt;/br&gt;    private String password;
+&lt;br&gt;&lt;/br&gt;    private String searchUser;
+&lt;br&gt;&lt;/br&gt;    private Collection&lt;User&gt; searchUsersResults;
+&lt;br&gt;&lt;/br&gt;    private User selectedUser;
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    public String getUsername()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        return username;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    public void setUsername(String username)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        this.username = username;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    public String getPassword()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        return password;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    public void setPassword(String password)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        this.password = password;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    public User getSelectedUser()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        if(selectedUser == null){
+&lt;br&gt;&lt;/br&gt;            selectedUser = new User();
+&lt;br&gt;&lt;/br&gt;        }
+&lt;br&gt;&lt;/br&gt;        return selectedUser;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    public void setSelectedUser(User selectedUser)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        this.selectedUser = selectedUser;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    public Collection&lt;User&gt; getSearchUsersResults()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        return searchUsersResults;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    public void setSearchUsersResults(Collection&lt;User&gt; searchUsersResults)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        this.searchUsersResults = searchUsersResults;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    public String getSearchUser()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        return searchUser;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    public void setSearchUser(String searchUser)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        this.searchUser = searchUser;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    public String login()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        if(&quot;test&quot;.equalsIgnoreCase(getUsername()) &amp;&amp; &quot;test&quot;.equals(getPassword()))
+&lt;br&gt;&lt;/br&gt;        {
+&lt;br&gt;&lt;/br&gt;            return &quot;home&quot;;
+&lt;br&gt;&lt;/br&gt;        }
+&lt;br&gt;&lt;/br&gt;        else
+&lt;br&gt;&lt;/br&gt;        {
+&lt;br&gt;&lt;/br&gt;            FacesContext context = FacesContext.getCurrentInstance();
+&lt;br&gt;&lt;/br&gt;            context.addMessage(&quot;username&quot;, new FacesMessage(&quot;Invalid UserName and Password&quot;));
+&lt;br&gt;&lt;/br&gt;            return &quot;login&quot;;
+&lt;br&gt;&lt;/br&gt;        }
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    public String searchUser()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        String username = (this.searchUser == null)? &quot;&quot;:this.searchUser.trim();        
+&lt;br&gt;&lt;/br&gt;        this.searchUsersResults = userService.searchUsers(username);
+&lt;br&gt;&lt;/br&gt;        System.out.println(searchUsersResults);
+&lt;br&gt;&lt;/br&gt;        return &quot;home&quot;;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    public String updateUser()
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;        userService.update(this.selectedUser);
+&lt;br&gt;&lt;/br&gt;        return &quot;home&quot;;
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    
+&lt;br&gt;&lt;/br&gt;    public void onUserSelect(SelectEvent event)
+&lt;br&gt;&lt;/br&gt;    {        
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;    public void onUserUnselect(UnselectEvent event)
+&lt;br&gt;&lt;/br&gt;    {
+&lt;br&gt;&lt;/br&gt;    }
+&lt;br&gt;&lt;/br&gt;}
+&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>That all we need to do. You can run the application and see the rich user interface with blusky theme.</p>
+
+<p>By default we don&rsquo;t get automcomplete for PrimeFaces tag  in Eclipse. To enable AutoComplete,<br />
+Go to Window&ndash;&gt;Preferences&ndash;&gt;General&ndash;&gt;ContentTypes<br />
+Select JSP and add .xhtml as file association.</p>
+
+<p>You can download the sample as an Eclipse project <a href="https://sites.google.com/site/sivalabworks/sampleappdownloads/PrimeFaces.zip?attredirects=0&amp;d=1">Here</a></p>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/jsf" rel="category">
+										    	JSF &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/primefaces" rel="category">
+										    	PrimeFaces &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=PrimeFaces%20QuickStart%20Tutorial-Part1-http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fprimefaces-quickstart-tutorial-part1%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fprimefaces-quickstart-tutorial-part1%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fprimefaces-quickstart-tutorial-part1%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fprimefaces-quickstart-tutorial-part1%2f&title=PrimeFaces%20QuickStart%20Tutorial-Part1&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fprimefaces-quickstart-tutorial-part1%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2011\/primefaces-quickstart-tutorial-part1\/';
+    var disqus_title = 'PrimeFaces QuickStart Tutorial-Part1';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2011\/primefaces-quickstart-tutorial-part1\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

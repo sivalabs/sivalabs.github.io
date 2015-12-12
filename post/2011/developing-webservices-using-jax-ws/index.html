@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; Developing WebServices using JAX-WS</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>Developing WebServices using JAX-WS</h2>
+                                    <p><p>Let us assume an enterprise is maintaining user authentication details in a centralized system. We need to create an AuthenticationService which will take credentials, validate them and return the status. The rest of the applications will use the AuthenticationService to authenticate the Users.</p>
+
+<p><strong>Create AuthenticationService interface as follows:</strong></p>
+
+<pre><code>package com.sivalabs.caas.services;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import javax.jws.WebService;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.domain.AuthenticationStatus;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.domain.Credentials;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.exceptions.AuthenticationServiceException;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;@WebService&lt;br&gt;&lt;/br&gt;public interface AuthenticationService&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt;public AuthenticationStatus authenticate(Credentials credentials) throws AuthenticationServiceException;&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+
+
+
+
+
+
+package com.sivalabs.caas.domain;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;/**&lt;br&gt;&lt;/br&gt; * @author siva&lt;br&gt;&lt;/br&gt; *&lt;br&gt;&lt;/br&gt; */&lt;br&gt;&lt;/br&gt;public class Credentials &lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; private String userName;&lt;br&gt;&lt;/br&gt; private String password;&lt;br&gt;&lt;/br&gt; public Credentials() &lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public Credentials(String userName, String password) {&lt;br&gt;&lt;/br&gt;  super();&lt;br&gt;&lt;/br&gt;  this.userName = userName;&lt;br&gt;&lt;/br&gt;  this.password = password;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; //setters and getters&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+
+
+
+
+
+package com.sivalabs.caas.domain;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;/**&lt;br&gt;&lt;/br&gt; * @author siva&lt;br&gt;&lt;/br&gt; *&lt;br&gt;&lt;/br&gt; */&lt;br&gt;&lt;/br&gt;public class AuthenticationStatus&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; private String statusMessage;&lt;br&gt;&lt;/br&gt; private boolean success;&lt;br&gt;&lt;/br&gt; //setters and getters&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+
+
+
+
+
+package com.sivalabs.caas.exceptions;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;/**&lt;br&gt;&lt;/br&gt; * @author siva&lt;br&gt;&lt;/br&gt; *&lt;br&gt;&lt;/br&gt; */&lt;br&gt;&lt;/br&gt;public class AuthenticationServiceException extends RuntimeException&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; private static final long serialVersionUID = 1L;&lt;br&gt;&lt;/br&gt; public AuthenticationServiceException()&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; public AuthenticationServiceException(String msg)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  super(msg);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}
+</code></pre>
+
+<p><strong>Now let us implement the AuthenticationService.</strong></p>
+
+<pre><code>package com.sivalabs.caas.services;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import java.util.HashMap;&lt;br&gt;&lt;/br&gt;import java.util.Map;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import javax.jws.WebService;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.domain.AuthenticationStatus;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.domain.Credentials;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.exceptions.AuthenticationServiceException;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;/**&lt;br&gt;&lt;/br&gt; * @author siva&lt;br&gt;&lt;/br&gt; *&lt;br&gt;&lt;/br&gt; */&lt;br&gt;&lt;/br&gt;@WebService(endpointInterface=&quot;com.sivalabs.caas.services.AuthenticationService&quot;,&lt;br&gt;&lt;/br&gt;   serviceName=&quot;AuthenticationService&quot;, &lt;br&gt;&lt;/br&gt;   targetNamespace=&quot;http://sivalabs.blogspot.com/services/AuthenticationService&quot;)&lt;br&gt;&lt;/br&gt;public class AuthenticationServiceImpl implements AuthenticationService&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; private static final Map&lt;string, string&gt; CREDENTIALS = new HashMap&lt;string, string&gt;();&lt;br&gt;&lt;/br&gt; static&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  CREDENTIALS.put(&quot;admin&quot;, &quot;admin&quot;);&lt;br&gt;&lt;/br&gt;  CREDENTIALS.put(&quot;test&quot;, &quot;test&quot;);  &lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; @Override&lt;br&gt;&lt;/br&gt; public AuthenticationStatus authenticate(Credentials credentials) throws AuthenticationServiceException&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  if(credentials == null)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   throw new AuthenticationServiceException(&quot;Credentials is null&quot;);&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  AuthenticationStatus authenticationStatus = new AuthenticationStatus();&lt;br&gt;&lt;/br&gt;  String userName = credentials.getUserName();&lt;br&gt;&lt;/br&gt;  String password = credentials.getPassword();&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  if(userName==null || userName.trim().length()==0 || password==null || password.trim().length()==0)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   authenticationStatus.setStatusMessage(&quot;UserName and Password should not be blank&quot;);&lt;br&gt;&lt;/br&gt;   authenticationStatus.setSuccess(false);&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  else&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   if(CREDENTIALS.containsKey(userName) &amp;&amp; password.equals(CREDENTIALS.get(userName)))&lt;br&gt;&lt;/br&gt;   {&lt;br&gt;&lt;/br&gt;    authenticationStatus.setStatusMessage(&quot;Valid UserName and Password&quot;);&lt;br&gt;&lt;/br&gt;    authenticationStatus.setSuccess(true);&lt;br&gt;&lt;/br&gt;   }&lt;br&gt;&lt;/br&gt;   else&lt;br&gt;&lt;/br&gt;   {&lt;br&gt;&lt;/br&gt;    authenticationStatus.setStatusMessage(&quot;Invalid UserName and Password&quot;);&lt;br&gt;&lt;/br&gt;    authenticationStatus.setSuccess(false);&lt;br&gt;&lt;/br&gt;   }&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  return authenticationStatus;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Here for simplicity we are checking the credentials against the static data stored in HashMap. In real applications this check will be done against database.</p>
+
+<p><strong>Now we are going to publish the WebService.</strong></p>
+
+<pre><code>package com.sivalabs.caas.publisher;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import javax.xml.ws.Endpoint;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.services.AuthenticationServiceImpl;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;public class EndpointPublisher&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt; public static void main(String[] args)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  Endpoint.publish(&quot;http://localhost:8080/CAAS/services/AuthenticationService&quot;, new AuthenticationServiceImpl());&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>Run this standalone class to publish the AuthenticationService.</p>
+
+<p>To check whether the Service published successfully point the browser to URL <a href="http://localhost:8080/CAAS/services/AuthenticationService?wsdl">http://localhost:8080/CAAS/services/AuthenticationService?wsdl</a>. If the service published successfully you will see the WSDL content.</p>
+
+<p><strong>Now let us create a Standalone test client to test the webservice.</strong></p>
+
+<pre><code>package com.sivalabs.caas.client;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import java.net.URL;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import javax.xml.namespace.QName;&lt;br&gt;&lt;/br&gt;import javax.xml.ws.Service;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.domain.AuthenticationStatus;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.domain.Credentials;&lt;br&gt;&lt;/br&gt;import com.sivalabs.caas.services.AuthenticationService;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;/**&lt;br&gt;&lt;/br&gt; * @author siva&lt;br&gt;&lt;/br&gt; *&lt;br&gt;&lt;/br&gt; */&lt;br&gt;&lt;/br&gt;public class StandaloneClient&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; public static void main(String[] args) throws Exception&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  URL wsdlUrl = new URL(&quot;http://localhost:8080/CAAS/services/AuthenticationService?wsdl&quot;);&lt;br&gt;&lt;/br&gt;  QName qName = new QName(&quot;http://sivalabs.blogspot.com/services/AuthenticationService&quot;, &quot;AuthenticationService&quot;);&lt;br&gt;&lt;/br&gt;  Service service = Service.create(wsdlUrl,qName);&lt;br&gt;&lt;/br&gt;  AuthenticationService port = service.getPort(AuthenticationService.class);&lt;br&gt;&lt;/br&gt;  Credentials credentials=new Credentials();&lt;br&gt;&lt;/br&gt;  credentials.setUserName(&quot;admin1&quot;);&lt;br&gt;&lt;/br&gt;  credentials.setPassword(&quot;admin&quot;);&lt;br&gt;&lt;/br&gt;  AuthenticationStatus authenticationStatus = port.authenticate(credentials);&lt;br&gt;&lt;/br&gt;  System.out.println(authenticationStatus.getStatusMessage());&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  credentials.setUserName(&quot;admin&quot;);&lt;br&gt;&lt;/br&gt;  credentials.setPassword(&quot;admin&quot;);&lt;br&gt;&lt;/br&gt;  authenticationStatus = port.authenticate(credentials);&lt;br&gt;&lt;/br&gt;  System.out.println(authenticationStatus.getStatusMessage());&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;}
+</code></pre>
+
+<p><strong>Instead of writing StandaloneClient by our-self we can generate the Client using wsimport commandline tool.</strong><br />
+wsimport tool is there in JDK/bin directory.<br />
+Go to your project src directory and execute the following command.<br />
+<strong>wsimport -keep -p com.sivalabs.caas.client <a href="http://localhost:8080/CAAS/services/AuthenticationService?wsdl">http://localhost:8080/CAAS/services/AuthenticationService?wsdl</a></strong></p>
+
+<p>It will generate the following java and class files in com.sivalabs.caas.client package.</p>
+
+<p>Authenticate.java<br />
+AuthenticateResponse.java<br />
+AuthenticationService_Service.java<br />
+AuthenticationService.java<br />
+AuthenticationServiceException_Exception.java<br />
+AuthenticationServiceException.java<br />
+AuthenticationStatus.java<br />
+Credentials.java<br />
+ObjectFactory.java<br />
+package-info.java</p>
+
+<p><strong>Now you can use the generated Java files to test the Service.</strong></p>
+
+<pre><code>public static void main(String[] args) throws Exception&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt;  AuthenticationService_Service service = new AuthenticationService_Service();&lt;br&gt;&lt;/br&gt;  com.sivalabs.caas.client.AuthenticationService authenticationServiceImplPort = service.getAuthenticationServiceImplPort();&lt;br&gt;&lt;/br&gt;  com.sivalabs.caas.client.Credentials credentials = new com.sivalabs.caas.client.Credentials();&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  credentials.setUserName(&quot;admin1&quot;);&lt;br&gt;&lt;/br&gt;  credentials.setPassword(&quot;admin&quot;);&lt;br&gt;&lt;/br&gt;  com.sivalabs.caas.client.AuthenticationStatus authenticationStatus = authenticationServiceImplPort.authenticate(credentials);&lt;br&gt;&lt;/br&gt;  System.out.println(authenticationStatus.getStatusMessage());&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  credentials.setUserName(&quot;admin&quot;);&lt;br&gt;&lt;/br&gt;  credentials.setPassword(&quot;admin&quot;);&lt;br&gt;&lt;/br&gt;  authenticationStatus = authenticationServiceImplPort.authenticate(credentials);&lt;br&gt;&lt;/br&gt;  System.out.println(authenticationStatus.getStatusMessage());&lt;br&gt;&lt;/br&gt;}
+</code></pre>
+
+<p>In next article I will show how to deploy this AuthenticationService in Tomcat.</p>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/webservices" rel="category">
+										    	WebServices &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=Developing%20WebServices%20using%20JAX-WS-http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fdeveloping-webservices-using-jax-ws%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fdeveloping-webservices-using-jax-ws%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fdeveloping-webservices-using-jax-ws%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fdeveloping-webservices-using-jax-ws%2f&title=Developing%20WebServices%20using%20JAX-WS&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2011%2fdeveloping-webservices-using-jax-ws%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2011\/developing-webservices-using-jax-ws\/';
+    var disqus_title = 'Developing WebServices using JAX-WS';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2011\/developing-webservices-using-jax-ws\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

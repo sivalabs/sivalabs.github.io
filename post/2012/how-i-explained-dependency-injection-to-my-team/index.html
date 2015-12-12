@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; How I explained Dependency Injection to My Team</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+           
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://sivalabs.github.io/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://sivalabs.github.io/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://sivalabs.github.io/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://sivalabs.github.io/images/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li><a href="http://sivalabs.github.io/page/aboutus">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/page/trainings">Trainings</a></li>
+                            <li><a href="http://sivalabs.github.io/page/freelancing">Freelancing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/page/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date">07  NOV</span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 blog-content">
+                                    <h2>How I explained Dependency Injection to My Team</h2>
+                                    <p><p>Recently our company started developing a new java based web application and after some evaluation process we decided to use Spring.</p>
+
+<p>But many of the team members are not aware of Spring and Dependency Injection principles.<br />
+So I was asked to give a crash course on what is Dependency Injection and basics on Spring.</p>
+
+<p>Instead of telling all the theory about IOC/DI I thought of explaining with an example.</p>
+
+<p><strong>Requirement:</strong> We will get some Customer Address and we need to validate the address.<br />
+After some evaluation we thought of using Google Address Validation Service.</p>
+
+<p><strong>Legacy(Bad) Approach:</strong></p>
+
+<p>Just create an AddressVerificationService class and implement the logic.</p>
+
+<p>Assume GoogleAddressVerificationService is a service provided by Google which takes Address as a String and Return longitude/latitude.</p>
+
+<pre><code>class AddressVerificationService &lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt;   public String validateAddress(String address)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt; GoogleAddressVerificationService gavs = new GoogleAddressVerificationService();&lt;br&gt;&lt;/br&gt;  String result = gavs.validateAddress(address);  &lt;br&gt;&lt;/br&gt;  return result;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>**Issues with this approach: **<br />
+1. If you want to change your Address Verification Service Provider you need to change the logic.<br />
+2. You can&rsquo;t Unit Test with some Dummy AddressVerificationService (Using Mock Objects)</p>
+
+<p>Due to some reason Client ask us to support multiple AddressVerificationService Providers and we need to determine which service to use at runtime.</p>
+
+<p>To accomidate this you may thought of changing the above class as below:</p>
+
+<pre><code>class AddressVerificationService&lt;br&gt;&lt;/br&gt;{&lt;br&gt;&lt;/br&gt;//This method validates the given address and return longitude/latitude details.&lt;br&gt;&lt;/br&gt; public String validateAddress(String address)&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  String result = null;&lt;br&gt;&lt;/br&gt;  int serviceCode = 2; // read this code value from a config file&lt;br&gt;&lt;/br&gt;  if(serviceCode == 1)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   GoogleAddressVerificationService googleAVS = new GoogleAddressVerificationService();&lt;br&gt;&lt;/br&gt;   result = googleAVS.validateAddress(address);&lt;br&gt;&lt;/br&gt;  } else if(serviceCode == 2)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   YahooAddressVerificationService yahooAVS = new YahooAddressVerificationService();&lt;br&gt;&lt;/br&gt;   result = yahooAVS.validateAddress(address);&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  return result;&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;}&lt;br&gt;&lt;/br&gt;
+</code></pre>
+
+<p>**Issues with this approach: **<br />
+**<br />
+**<br />
+1. Whenever you need to support a new Service Provider you need to add/change logic using if-else-if.<br />
+2. You can&rsquo;t Unit Test with some Dummy AddressVerificationService (Using Mock Objects)</p>
+
+<p>** IOC/DI Approach: **</p>
+
+<p>In the above approaches AddressVerificationService is taking the control of creating its dependencies.<br />
+So whenever there is a change in its dependencies the AddressVerificationService will change.</p>
+
+<p>Now let us rewrite the AddressVerificationService using IOC/DI pattern.</p>
+
+<pre><code> class AddressVerificationService&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  private AddressVerificationServiceProvider serviceProvider;&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  public AddressVerificationService(AddressVerificationServiceProvider serviceProvider) {&lt;br&gt;&lt;/br&gt;   this.serviceProvider = serviceProvider;&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt;  &lt;br&gt;&lt;/br&gt;  public String validateAddress(String address)&lt;br&gt;&lt;/br&gt;  {&lt;br&gt;&lt;/br&gt;   return this.serviceProvider.validateAddress(address);&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; interface AddressVerificationServiceProvider&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  public String validateAddress(String address);&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; 
+</code></pre>
+
+<p>Here we are injecting the AddressVerificationService dependency AddressVerificationServiceProvider.</p>
+
+<p>Now let us implement the AddressVerificationServiceProvider with multiple provider services.</p>
+
+<pre><code> class YahooAVS implements AddressVerificationServiceProvider&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  @Override&lt;br&gt;&lt;/br&gt;  public String validateAddress(String address) {&lt;br&gt;&lt;/br&gt;   System.out.println(&quot;Verifying address using YAHOO AddressVerificationService&quot;);&lt;br&gt;&lt;/br&gt;   return yahooAVSAPI.validate(address);&lt;br&gt;&lt;/br&gt;  }  &lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; class GoogleAVS implements AddressVerificationServiceProvider&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  @Override&lt;br&gt;&lt;/br&gt;  public String validateAddress(String address) {&lt;br&gt;&lt;/br&gt;   System.out.println(&quot;Verifying address using Google AddressVerificationService&quot;);&lt;br&gt;&lt;/br&gt;   return googleAVSAPI.validate(address);&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; 
+</code></pre>
+
+<p>Now the Client can choose which Service Provider&rsquo;s service to use as follows:</p>
+
+<pre><code> AddressVerificationService verificationService = null;&lt;br&gt;&lt;/br&gt; AddressVerificationServiceProvider provider = null;&lt;br&gt;&lt;/br&gt; provider = new YahooAVS();//to use YAHOO AVS&lt;br&gt;&lt;/br&gt; provider = new GoogleAVS();//to use Google AVS&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; verificationService = new AddressVerificationService(provider);&lt;br&gt;&lt;/br&gt; String lnl = verificationService.validateAddress(&quot;HitechCity, Hyderabad&quot;);&lt;br&gt;&lt;/br&gt; System.out.println(lnl);&lt;br&gt;&lt;/br&gt; 
+</code></pre>
+
+<p>For Unit Testing we can implement a Mock AddressVerificationServiceProvider.</p>
+
+<pre><code> class MockAVS implements AddressVerificationServiceProvider&lt;br&gt;&lt;/br&gt; {&lt;br&gt;&lt;/br&gt;  @Override&lt;br&gt;&lt;/br&gt;  public String validateAddress(String address) {&lt;br&gt;&lt;/br&gt;   System.out.println(&quot;Verifying address using MOCK AddressVerificationService&quot;);&lt;br&gt;&lt;/br&gt;   return &quot;&lt;response&gt;&lt;longitude&gt;123&lt;/longitude&gt;&lt;latitude&gt;4567&lt;/latitude&gt;&quot;;&lt;br&gt;&lt;/br&gt;  }&lt;br&gt;&lt;/br&gt; }&lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; AddressVerificationServiceProvider provider = null;&lt;br&gt;&lt;/br&gt; provider = new MockAVS();//to use MOCK AVS  &lt;br&gt;&lt;/br&gt; AddressVerificationServiceIOC verificationService = new AddressVerificationServiceIOC(provider);&lt;br&gt;&lt;/br&gt; String lnl = verificationService.validateAddress(&quot;Somajiguda, Hyderabad&quot;);&lt;br&gt;&lt;/br&gt; System.out.println(lnl);&lt;br&gt;&lt;/br&gt; 
+</code></pre>
+
+<p>With this approach we elemenated the issues with above Non-IOC/DI based approaches.<br />
+1. We can provide support for as many Provides as we wish. Just implement AddressVerificationServiceProvider and inject it.<br />
+2. We can unit test using Dummy Data using Mock Implementation.</p>
+
+<p><strong><em>So by following Dependency Injection principle we can create interface-based loosely-coupled and easily testable services.</em></strong><br />
+<strong>_<br />
+_</strong></p>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a href="http://sivalabs.github.io/tags/best-practices" rel="category">
+										    	Best Practices &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/design-patterns" rel="category">
+										    	Design Patterns &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/java" rel="category">
+										    	Java &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a href="http://sivalabs.github.io/tags/spring" rel="category">
+										    	Spring &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=How%20I%20explained%20Dependency%20Injection%20to%20My%20Team-http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fhow-i-explained-dependency-injection-to-my-team%2f" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fhow-i-explained-dependency-injection-to-my-team%2f" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fhow-i-explained-dependency-injection-to-my-team%2f" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fhow-i-explained-dependency-injection-to-my-team%2f&title=How%20I%20explained%20Dependency%20Injection%20to%20My%20Team&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fpost%2f2012%2fhow-i-explained-dependency-injection-to-my-team%2f" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/blog/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/post\/2012\/how-i-explained-dependency-injection-to-my-team\/';
+    var disqus_title = 'How I explained Dependency Injection to My Team';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/post\/2012\/how-i-explained-dependency-injection-to-my-team\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+
+<div class="widget search">
+     <form role="form">
+             <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
+     </form>
+</div>
+
+<div class="widget categories">
+    <h3>Latest Posts</h3>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-configuring-https-ssltls/">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-reset-password/">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-admin-forgot-password/">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/post/2015/jcart-email-service-setup/">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><a href="http://sivalabs.github.io/welcome-to-my-new-blog">Welcome to my new blog</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+  
+
+ <div class="widget tags">
+     <h3>Tag Cloud</h3>
+     <ul class="tag-cloud">
+     	 
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/angularjs">Angularjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/best-practices">Best-Practices</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/books">Books</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/design-patterns">Design-Patterns</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/extjs">Extjs</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/hibernate">Hibernate</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ibatis">Ibatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/ide">Ide</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/interviews">Interviews</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/it">It</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/java">Java</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javaee">Javaee</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javamail">Javamail</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/javascript">Javascript</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jboss">Jboss</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jcart">Jcart</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jpa">Jpa</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/jsf">Jsf</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/maven">Maven</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/miscellaneous">Miscellaneous</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/mybatis">Mybatis</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/news">News</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/primefaces">Primefaces</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/quartz">Quartz</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/rest">Rest</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/resteasy">Resteasy</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/servlets-jsp">Servlets-Jsp</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/spring">Spring</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springboot">Springboot</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springmvc">Springmvc</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/springsecurity">Springsecurity</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tips">Tips</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/tomcat">Tomcat</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+		  
+		    <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/webservices">Webservices</a></li>
+		           
+     </ul>
+ </div>
+   
+
+ <div class="widget categories">
+     <h3>Categories</h3>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/angularjs">Angularjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/best-practices">Best-Practices</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/books">Books</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/design-patterns">Design-Patterns</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/extjs">Extjs</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/hibernate">Hibernate</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ibatis">Ibatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/ide">Ide</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/interviews">Interviews</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/it">It</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javaee">Javaee</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javamail">Javamail</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/javascript">Javascript</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jboss">Jboss</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jpa">Jpa</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jsf">Jsf</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/maven">Maven</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/miscellaneous">Miscellaneous</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/mybatis">Mybatis</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/news">News</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/primefaces">Primefaces</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/quartz">Quartz</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/rest">Rest</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/resteasy">Resteasy</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/servlets-jsp">Servlets-Jsp</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springmvc">Springmvc</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springsecurity">Springsecurity</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tips">Tips</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/tomcat">Tomcat</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/webservices">Webservices</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+ 
+</body>
+</html>
+

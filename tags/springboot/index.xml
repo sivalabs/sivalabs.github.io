@@ -6,8 +6,157 @@
     <description>Recent content in Springboot on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Nov 2015 02:28:23 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2015 04:28:23 +0000</lastBuildDate>
     <atom:link href="http://sivalabs.github.io/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>JCart Requirements Analysis</title>
+      <link>http://sivalabs.github.io/jcart-requirements-analysis</link>
+      <pubDate>Sat, 21 Nov 2015 04:28:23 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/jcart-requirements-analysis</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_shoppingcart_site_requirements&#34;&gt;ShoppingCart Site Requirements&lt;/h3&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Home Page:&lt;/strong&gt; This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Category Page:&lt;/strong&gt; This page displays all the products in the selected category with pagination. Each product will be displayed along with a Add To Cart button.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Product Page:&lt;/strong&gt; This page displays detailed information of the product along with one or more images of the product and shows Add To Cart button.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Search Results Page:&lt;/strong&gt; In the header section we will provide a search box where customers can search for products. The search results will be displayed with pagination. Each product will be displayed along with a Add To Cart button.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Login/Registration Pages:&lt;/strong&gt; Customers should be able to login/register with our system so that they can view their profile and order history.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Cart:&lt;/strong&gt; In header section there will be Cart Icon showing the no. of items currently added to cart. When Cart icon is clicked we need to show the cart page with all the Items details. Customers should be able to update product quantities or remove products and the cart totals should be updated automatically.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Billing &amp;amp; Delivery Page:&lt;/strong&gt; This page will be displayed once the customer clicked Checkout button in Cart page. If the customer is already registered with our system he should login otherwise a registration form will be displayed. Customer should register by providing Email and Password. After successfully login, customer should provide Delivery Address, Payment details like CreditCard number, CVV, Expiry Date etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Order Confirmation:&lt;/strong&gt; Once the customer provided all the valid details and clicked on Submit button an Order should be placed and should display the Order Confirmation page with details including the Products, Delivery Address etc. An order confirmation email should be sent to customer with estimated delivery time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;My Account Page:&lt;/strong&gt; Customer should be able to login into the system and see his profile details, order history, outstanding order details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_administration_site_requirements&#34;&gt;Administration Site Requirements&lt;/h3&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Security:&lt;/strong&gt; We should provide Roles and Permission based security for our Administration website.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Privilege Management:&lt;/strong&gt; Ability to configure and manage all the privileges within the system. Each privilege represent the ability to perform an action.&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;For ex: &lt;em&gt;MANAGE_CATEGORIES&lt;/em&gt; represents the ability to create new Categories, update existing categories.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Role Management:&lt;/strong&gt; Ability to create various roles with one or more assigned privileges.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;For ex:&lt;br&gt;
+&lt;em&gt;ROLE_SUPER_ADMIN&lt;/em&gt; - Users with this role can do anything within the system.&lt;br&gt;
+&lt;em&gt;ROLE_ADMIN&lt;/em&gt; - Users with this role can create other users (except other SUPER_ADMIN or ADMIN), and can do Category Management, Product Management etc.&lt;br&gt;
+&lt;em&gt;ROLE_CMS_ADMIN&lt;/em&gt;: Users with this role can manage Categories, Products etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Category Management:&lt;/strong&gt; A category represent a logical grouping of related products.&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Category management includes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create new categories&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update existing categories&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Disable/enable categories&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Product Management:&lt;/strong&gt; In our system product is a quilling toy.&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Product management includes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create new products&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update existing products&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Delete products&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Order Management:&lt;/strong&gt; Authorised users can see the list of order, update status or cancel orders.
+If an order is cancelled then refund should be triggered and a cancellation email should be sent to customer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Customer Management:&lt;/strong&gt; Admin users should be able to view the customer details like their addresses, email ids etc for contacting them.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;List all the customers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search customers by email or name&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;View customer profile&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Customer order history&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Site Settings:&lt;/strong&gt; We need to have some site level configurations like Currency and Locale.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Locale &amp;amp; Currency:&lt;/strong&gt; We should be able to use different locale and currencies for our e-commerce system. So the implementation should consider the I18N and dynamic currency change using live currency converter or using some conversion ratio.&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;admonitionblock important&#34;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&#34;icon&#34;&gt;
+&lt;i class=&#34;fa icon-important&#34; title=&#34;Important&#34;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&#34;content&#34;&gt;
+By looking at the above mentioned features you might be thinking these are all very basic features of any e-commerce system and lot of features like Promotions/Offers Management, Fulfilment Systems, Inventory management etc are not being considered. YES, you are right. We are not considering many aspects of a typical e-commerce system because &lt;strong&gt;WE DON&amp;#8217;T NEED THEM FOR OUR APPLICATION&lt;/strong&gt;.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&amp;#160;&lt;br&gt;
+As I mentioned in the project requirement, we are enabling customers to place orders through online and the items will be delivered manually by the person who makes those quilling toys and the administrator will mark that order as fulfilled.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;If our application become famous and we are being flooded with orders then we can think of automating these manual tasks as well. As simple as that :-).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Introducing the application JCart</title>

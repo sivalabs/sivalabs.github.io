@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on SivaLabs</title>
+    <link>http://sivalabs.github.io/categories/books/</link>
+    <description>Recent content in Books on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jun 2015 11:31:00 +0000</lastBuildDate>
+    <atom:link href="http://sivalabs.github.io/categories/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Packt Publishers Initiative FREE eBook every day</title>
+      <link>http://sivalabs.github.io/post/2015/packt-publishers-initiative-free-ebook-every-day/</link>
+      <pubDate>Tue, 02 Jun 2015 11:31:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/2015/packt-publishers-initiative-free-ebook-every-day/</guid>
+      <description>&lt;p&gt;Software Development is a field where learning new things continuously is very much important to keep up with the pace of technology evolution. &lt;strong&gt;Packt Publishers&lt;/strong&gt; not only publishing new books everyday, now they are offering one ebook &lt;strong&gt;EVERYDAY&lt;/strong&gt; for &lt;strong&gt;FREE&lt;/strong&gt; &lt;a href=&#34;http://bit.ly/1JdHmgx&#34;&gt;http://bit.ly/1JdHmgx&lt;/a&gt;. This is really AWESOME!!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/06/FreeLearning.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/06/FreeLearning-300x51.jpg&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;What are you waiting for??!!. Rush to &lt;a href=&#34;http://bit.ly/1JdHmgx&#34;&gt;http://bit.ly/1JdHmgx&lt;/a&gt; and Claim your today&amp;rsquo;s free book right now :-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Book Review: PrimeFaces Blueprints</title>
+      <link>http://sivalabs.github.io/post/2015/book-review-primefaces-blueprints/</link>
+      <pubDate>Mon, 26 Jan 2015 07:39:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/2015/book-review-primefaces-blueprints/</guid>
+      <description>&lt;p&gt;PrimeFaces Blueprints is a recent publication from Packpub on PrimeFaces framework authored by Sudheer Jonna and Ramkumar Pillai. Sudheer Jonna is a well known member in the PrimeFaces community forum and is very knowledgeable on PrimeFaces and PrimeFaces Extensions.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.packtpub.com/application-development/primefaces-blueprints&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/01/3223OS_PrimeFaces-20Blueprints_cov-243x300.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;PrimeFaces Blueprint book followed the approach of explaining the features with appropriate example applications. PrimeFaces provides more than 100 rich UI components with lot of customization options.&lt;/p&gt;
+
+&lt;p&gt;Instead of explaining all these components individually, the book authors explained how to use various PrimeFaces components together by developing 9 different small applications.&lt;/p&gt;
+
+&lt;p&gt;This book covers usage of components such as basic form field components and advanced components like DataTables, Data Exporting features, PrimeFaces Push etc with plenty of code snippets.&lt;/p&gt;
+
+&lt;p&gt;Also authors covered how to effectively use the Eclipse and NetBeans IDEs to get AutoCompletion for JSF/PrimeFaces and also touched upon using NetBeans PrimeFaces CRUD generator plugin.&lt;/p&gt;
+
+&lt;p&gt;I find this book very useful for beginners to intermediate level developers and even advanced PrimeFaces users can also learn few advanced things like how to customize PrimeFaces css styles, using Push technology etc.&lt;/p&gt;
+
+&lt;p&gt;I would recommend the PrimeFaces Blueprints book to anyone who wants to get started with PrimeFaces.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Book Review: Enterprise Application Development with Ext JS and Spring</title>
+      <link>http://sivalabs.github.io/post/2014/book-review-enterprise-application-development-with-ext-js-and-spring/</link>
+      <pubDate>Tue, 11 Feb 2014 05:53:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/2014/book-review-enterprise-application-development-with-ext-js-and-spring/</guid>
+      <description>&lt;p&gt;I was asked to review &amp;ldquo;&lt;strong&gt;Enterprise Application Development with Ext JS and Spring&lt;/strong&gt;&amp;rdquo; book by Packtpub guys and here is my review on the book. Actually now I am working on a project which is being developed using ExtJS and I thought of buying this book. But surprisingly on the very next day I was asked to review this book and gave me the ebook :-).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.packtpub.com/enterprise-application-development-with-extjs-and-spring/book&#34;&gt;&lt;img src=&#34;http://www.packtpub.com/sites/default/files/5457OS_cov.jpg&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Book WebSite URL: &lt;a href=&#34;http://www.packtpub.com/enterprise-application-development-with-extjs-and-spring/book&#34;&gt;http://www.packtpub.com/enterprise-application-development-with-extjs-and-spring/book&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Personally I like the books which explains any technology/framework/library by taking a sample application and building the application progressively chapter by chapter. &lt;strong&gt;Enterprise Application Development with Ext JS and Spring&lt;/strong&gt; book followed the same pattern and covered all levels of project development using Spring and ExtJS completely starting from Development environment setup with NetBeansIDE, Maven and Glassfish server to writing unit testing and building production ready ExtJS code using SenchaCmd.&lt;/p&gt;
+
+&lt;p&gt;We can find plenty of examples on Spring and ExtJS on the web, but the real challenge is stitching them together and building a real application. With this book you can build the bits and pieces (core services, UI components etc) and integrate them by following the step by step instructions as described in the book and finally create a working application.&lt;/p&gt;
+
+&lt;p&gt;The sample application &amp;ldquo;Task Time Tracker&amp;rdquo; is developed using Spring, JPA/EclipseLink and ExtJS. Each of these technologies are themselves huge topics and one can&amp;rsquo;t cover all these topics indetail .&lt;br /&gt;
+But the author did a fantastic job of explaining all the concepts using to build the application as much as possible.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Highlights:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Clear development environments steps for setting up JDK, NetbeansIDE, Maven and Glassfish, even novice users can get it done by simply following the steps.&lt;/li&gt;
+&lt;li&gt;You can build the application progressively chapter by chapter with proper flow, there no jumps or deviations from sequence.&lt;/li&gt;
+&lt;li&gt;Very detailed explanation on creating RESTful services using SpringMVC with JSON support.&lt;/li&gt;
+&lt;li&gt;Author explained writing JUnit tests for repositories and services with complete code examples encouraging to follow TDD.&lt;/li&gt;
+&lt;li&gt;Explained ExtJS MVC philosophy and build the Task Time Tracker application UI following MVC pattern.&lt;/li&gt;
+&lt;li&gt;Demonstrated how to use SenchaCmd to make the application production ready.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Overall I find it as a wonderful book to have if you are developing web applications using Spring/ExtJS. I would give 5 out of 5 star rating for this book.&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Packt’s $5 eBook Bonanza is back!</title>
+      <link>http://sivalabs.github.io/post/2013/packts-5-ebook-bonanza-is-back/</link>
+      <pubDate>Fri, 20 Dec 2013 15:29:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/2013/packts-5-ebook-bonanza-is-back/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Packt Publishing&lt;/strong&gt; provides IT related books, ebooks and videos on various cutting edge technologies with high quality and affordable price!&lt;/p&gt;
+
+&lt;p&gt;Following on from the success of last year’s festive offer, the publisher will be celebrating the holiday season with an even bigger &lt;strong&gt;$5&lt;/strong&gt; Bonanza.  From &lt;strong&gt;December 19th&lt;/strong&gt;, customers will be able to get any eBook or Video from Packt for just &lt;strong&gt;$5&lt;/strong&gt;. This sale covers every title in the &lt;strong&gt;1700+&lt;/strong&gt; range and customers can grab as many as they like until &lt;strong&gt;January 3rd 2014&lt;/strong&gt; – more information is available at &lt;a href=&#34;http://bit.ly/1jdCr2W&#34;&gt;http://bit.ly/1jdCr2W&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://1.bp.blogspot.com/-AgC4MAKEKtc/UrRbFJFU14I/AAAAAAAAA2o/KiFLqeG2Dk0/s1600/$5+ebook+Bonanza1.jpg&#34;&gt;&lt;img src=&#34;http://1.bp.blogspot.com/-AgC4MAKEKtc/UrRbFJFU14I/AAAAAAAAA2o/KiFLqeG2Dk0/s320/$5+ebook+Bonanza1.jpg&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://1.bp.blogspot.com/-YcDAFEa2-Qc/UrRbFPZqRLI/AAAAAAAAA2s/LE_0RU7z2rE/s1600/$5+ebook+Bonanza2.jpg&#34;&gt;&lt;img src=&#34;http://1.bp.blogspot.com/-YcDAFEa2-Qc/UrRbFPZqRLI/AAAAAAAAA2s/LE_0RU7z2rE/s320/$5+ebook+Bonanza2.jpg&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Enjoy the offer!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces Cookbook Review</title>
+      <link>http://sivalabs.github.io/post/2013/primefaces-cookbook-review/</link>
+      <pubDate>Mon, 18 Mar 2013 08:32:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/2013/primefaces-cookbook-review/</guid>
+      <description>&lt;p&gt;PrimeFaces is the Best Rich UI component library for JSF based applications. Also PrimeFaces has a wonderful showcase (&lt;a href=&#34;http://www.primefaces.org/showcase/ui/home.jsf&#34;&gt;http://www.primefaces.org/showcase/ui/home.jsf&lt;/a&gt;) and documentation (&lt;a href=&#34;http://www.primefaces.org/documentation.html&#34;&gt;http://www.primefaces.org/documentation.html&lt;/a&gt;) on their website.&lt;/p&gt;
+
+&lt;p&gt;When I first heard about &amp;ldquo;PrimeFaces Cookbook” I was very excited because this is the first book on PrimeFaces and usually cookbooks contain lot of tips for commonly faced issues and recipes for common use cases.&lt;/p&gt;
+
+&lt;table cellpadding=&#34;0&#34; align=&#34;center&#34; cellspacing=&#34;0&#34; style=&#34;margin-left: auto; margin-right: auto; text-align: center;&#34; &gt;&lt;tbody &gt;&lt;tr &gt;
+&lt;td style=&#34;text-align: center;&#34; &gt;![](http://2.bp.blogspot.com/-bcVjwVOJnio/UUbruq5YRhI/AAAAAAAAAug/hNQ71cJ_clI/s1600/9281OS_cov.jpg)
+&lt;/td&gt;&lt;/tr&gt;&lt;tr &gt;
+&lt;td style=&#34;text-align: center;&#34; &gt;PrimeFaces Cookbook
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;  
+
+&lt;p&gt;&lt;a href=&#34;http://www.packtpub.com/primefaces-leading-jsf-component-suite-cookbook/book&#34;&gt;http://www.packtpub.com/primefaces-leading-jsf-component-suite-cookbook/book&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I read the &amp;ldquo;PrimeFaces Cookbook&amp;rdquo; and I find it very useful for the developers using PrimeFaces.&lt;/p&gt;
+
+&lt;p&gt;Following is detailed opinion on this book:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chapter-1&lt;/strong&gt; starts with a quick introduction on how to install/configure PrimeFaces libraries followed by some important recipes on common use cases like partial form processing, I18N, resource ordering etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chapter-2&lt;/strong&gt; focused on theming support and how to make the applications to support multiple themes using Theme Switcher. Also author gave very useful info on look and feel issues with IE browser and how to fix them. This will be greatly helpful to those who have to support their application on IE browser.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chapter-3&lt;/strong&gt; focused on various PrimeFaces input components with plenty of examples.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chapter-4&lt;/strong&gt;explained how to use various types of panels like Panel, PanelGrid, Accordian, TabbedPanels etc. In this chapter we can also learn how to create complex layouts as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chapter-5&lt;/strong&gt; is on my favorite topic DataTables. You can learn a lot about DataTables, how to use Pagination, Sorting, LazyLoading etc with lot of examples.&lt;/p&gt;
+
+&lt;p&gt;_But I wish there is more information on the PrimeFaces DataTable Component classes like __DataModel, &lt;strong&gt;LazyDataModel, DualListModel etc in the book itself.&lt;/strong&gt; But good news is you can find all those details on the primefaces-cookbook project source code on GitHub._&lt;/p&gt;
+
+&lt;p&gt;_&lt;br /&gt;
+_&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chapter-6&lt;/strong&gt; Sophisticated Navigation system is a key for any Rich User Interfaces applications. Authors did a wonderful job in explaining about various Menu options that PrimeFaces provides.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chapter-7, 8 and 9&lt;/strong&gt;focused on advanced UI components and use cases like CroppingImages, Uploading Files, Drag&amp;amp;Drop features and drawing charts. Depending on the type of application these chapters comes handy.&lt;/p&gt;
+
+&lt;p&gt;**Chapter-10 **this is the chapter that you are going to love the most,no wonders if  you loudly say that if this book was already there I wouldn&amp;rsquo;t have spend so many hours working on some tricky things. If you are struck up with some tricky PrimeFaces issue then first thing I suggest is do refer this chapter.&lt;/p&gt;
+
+&lt;p&gt;Overall, the &amp;ldquo;PrimeFaces Cookbook&amp;rdquo; is a wonderful book to refer if you are doing JSF development (I didn&amp;rsquo;t mention PrimeFaces here because you will obviously use PrimeFaces as it is the Best UI Component Library available :-))&lt;/p&gt;
+
+&lt;p&gt;Just get the &amp;ldquo;PrimeFaces Cookbook&amp;rdquo; book and Clone &lt;a href=&#34;https://github.com/ova2/primefaces-cookbook&#34;&gt;https://github.com/ova2/primefaces-cookbook&lt;/a&gt; and Rock!!!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resteasy on SivaLabs</title>
+    <link>http://sivalabs.github.io/tags/resteasy/</link>
+    <description>Recent content in Resteasy on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Jun 2012 10:54:00 +0000</lastBuildDate>
+    <atom:link href="http://sivalabs.github.io/tags/resteasy/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>RESTEasy Tutorial Part 3 - Exception Handling</title>
+      <link>http://sivalabs.github.io/post/2012/resteasy-tutorial-part-3-exception-handling/</link>
+      <pubDate>Tue, 12 Jun 2012 10:54:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/2012/resteasy-tutorial-part-3-exception-handling/</guid>
+      <description>&lt;p&gt;RESTEasy Tutorial Series&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sivalabs.in/2012/06/resteasy-tutorial-part-1-basics.html&#34;&gt;RESTEasy Tutorial Part-1: Basics&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sivalabs.in/2012/06/resteasy-tutorial-part-2-spring.html&#34;&gt;RESTEasy Tutorial Part-2: Spring Integration&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sivalabs.in/2012/06/resteasy-tutorial-part-3-exception.html&#34;&gt;RESTEasy Tutorial Part 3 - Exception Handling&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Exception Handling is an obvious requirement while developing software application. If any error occured while processing user request we should show the user an error page with details like brief exception message, error code(optional), hints to correct the input and retry(optional) and actual root cause(optional). This is applicable to RESTful web services also.&lt;/p&gt;
+
+&lt;p&gt;But putting try-catch-finally blocks all around the code is not a good practice. We should design/code in such a way that if there is any unrecoverable error occured then the code should throw that exception and there should an exception handler to catch those exceptions and extract the error details and give a proper error response to the client with all the error details.&lt;/p&gt;
+
+&lt;p&gt;RESTEasy provides such ExceptionHandler mechanism which simplifies the ExceptionHandling process.&lt;/p&gt;
+
+&lt;p&gt;In this part I will show you how we can use RESTEasy&amp;rsquo;s ExceptionHandlers to handle Exceptions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#1: Create Application Specific Exceptions.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2916667&#34;&gt;https://gist.github.com/sivaprasadreddy/2916667&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#2: Create ExceptionHandlers by implementing ExceptionMapper interface.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2916671&#34;&gt;https://gist.github.com/sivaprasadreddy/2916671&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#3: Update UserResource.getUserXMLById() method to validate user input and throw respective exceptions&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2916676&#34;&gt;https://gist.github.com/sivaprasadreddy/2916676&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;**Step#4: Test the UserResource.getUserXMLById() service method by issueing following requests. **&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2916687&#34;&gt;https://gist.github.com/sivaprasadreddy/2916687&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;**
+**&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Important things to note:&lt;/strong&gt;
+As Spring is creating the necessary objects we should let Spring know about @Provider classes to get them registered with RESTEasy. We can do this in two ways.&lt;/p&gt;
+
+&lt;p&gt;a)Annotate Provider classes with @Component&lt;/p&gt;
+
+&lt;p&gt;b)Using component-scan&amp;rsquo;s include-filter.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;context:component-scan base-package=&#34;com.sivalabs.springdemo&#34;&gt;&lt;/strong&gt;
+&lt;strong&gt;         &lt;context:include-filter expression=&#34;javax.ws.rs.ext.Provider&#34; type=&#34;annotation&#34;/&gt;&lt;/strong&gt;
+&lt;strong&gt;&lt;a href=&#34;http://sivalabs.github.io/context:component-scan&#34;&gt;/context:component-scan&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RESTEasy Tutorial Part-2: Spring Integration</title>
+      <link>http://sivalabs.github.io/post/2012/resteasy-tutorial-part-2-spring-integration/</link>
+      <pubDate>Wed, 06 Jun 2012 17:19:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/2012/resteasy-tutorial-part-2-spring-integration/</guid>
+      <description>&lt;p&gt;RESTEasy Tutorial Series&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sivalabs.in/2012/06/resteasy-tutorial-part-1-basics.html&#34;&gt;RESTEasy Tutorial Part-1: Basics&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sivalabs.in/2012/06/resteasy-tutorial-part-2-spring.html&#34;&gt;RESTEasy Tutorial Part-2: Spring Integration&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sivalabs.in/2012/06/resteasy-tutorial-part-3-exception.html&#34;&gt;RESTEasy Tutorial Part 3 - Exception Handling&lt;/a&gt;
+RESTEasy provides support for Spring integration which enables us to expose Spring beans as RESTful WebServices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#1: Configure RESTEasy+Spring dependencies using Maven.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2915901&#34;&gt;https://gist.github.com/sivaprasadreddy/2915901&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#2: Configure RESTEasy+Spring in web.xml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;web-app xmlns=&amp;quot;http://java.sun.com/xml/ns/javaee&amp;quot; version=&amp;quot;3.0&amp;quot; xmlns:web=&amp;quot;http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemalocation=&amp;quot;http://java.sun.com/xml/ns/javaee 
+        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&amp;quot; id=&amp;quot;WebApp_ID&amp;quot;&amp;gt;
+
+   &amp;lt;listener&amp;gt;
+    &amp;lt;listener-class&amp;gt;org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap&amp;lt;/listener-class&amp;gt;
+  &amp;lt;/listener&amp;gt;
+  &amp;lt;listener&amp;gt;
+    &amp;lt;listener-class&amp;gt;org.jboss.resteasy.plugins.spring.SpringContextLoaderListener&amp;lt;/listener-class&amp;gt;
+  &amp;lt;/listener&amp;gt;
+  &amp;lt;servlet&amp;gt;
+    &amp;lt;servlet-name&amp;gt;Resteasy&amp;lt;/servlet-name&amp;gt;
+    &amp;lt;servlet-class&amp;gt;org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher&amp;lt;/servlet-class&amp;gt;
+  &amp;lt;/servlet&amp;gt;
+  &amp;lt;servlet-mapping&amp;gt;
+    &amp;lt;servlet-name&amp;gt;Resteasy&amp;lt;/servlet-name&amp;gt;
+    &amp;lt;url-pattern&amp;gt;/rest/*&amp;lt;/url-pattern&amp;gt;
+  &amp;lt;/servlet-mapping&amp;gt;
+  &amp;lt;context-param&amp;gt;
+    &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;
+    &amp;lt;param-value&amp;gt;classpath:applicationContext.xml&amp;lt;/param-value&amp;gt;
+  &amp;lt;/context-param&amp;gt;
+  &amp;lt;context-param&amp;gt;
+    &amp;lt;param-name&amp;gt;resteasy.servlet.mapping.prefix&amp;lt;/param-name&amp;gt;
+    &amp;lt;param-value&amp;gt;/rest&amp;lt;/param-value&amp;gt;
+  &amp;lt;/context-param&amp;gt;
+
+  &amp;lt;context-param&amp;gt;
+        &amp;lt;param-name&amp;gt;resteasy.scan&amp;lt;/param-name&amp;gt;
+        &amp;lt;param-value&amp;gt;false&amp;lt;/param-value&amp;gt;
+    &amp;lt;/context-param&amp;gt;
+&amp;lt;/web-app&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#3: Create a Spring Service class UserService and update UserResource to use UserService bean.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2915642&#34;&gt;https://gist.github.com/sivaprasadreddy/2915642&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#4: Same JUnit TestCase to test the REST Webservice described in Part-1.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2882422&#34;&gt;https://gist.github.com/sivaprasadreddy/2882422&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Important Things to Keep in mind:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap Listener should be registered before any other listener.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;You should configure resteasy.servlet.mapping.prefix &lt;context-param&gt; if the HttpServletDispatcher servlet url-pattern is anything other than /*&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;3. While using Spring integration set &lt;strong&gt;resteasy.scan&lt;/strong&gt; to &lt;strong&gt;_false _&lt;/strong&gt;or don&amp;rsquo;t configure &lt;strong&gt;resteasy.scan&lt;/strong&gt; parameter at all.
+Otherwise you may get REST Resource instances(UserResource) from RestEasy instead of Spring container. While running JUnit Tests I observed this random behavior.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;You should register REST Resource as Spring bean by annotating with @Component or @Service.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RESTEasy Tutorial Part-1: Basics</title>
+      <link>http://sivalabs.github.io/post/2012/resteasy-tutorial-part-1-basics/</link>
+      <pubDate>Wed, 06 Jun 2012 15:37:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/post/2012/resteasy-tutorial-part-1-basics/</guid>
+      <description>&lt;p&gt;RESTEasy Tutorial Series&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sivalabs.in/2012/06/resteasy-tutorial-part-1-basics.html&#34;&gt;RESTEasy Tutorial Part-1: Basics&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sivalabs.in/2012/06/resteasy-tutorial-part-2-spring.html&#34;&gt;RESTEasy Tutorial Part-2: Spring Integration&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sivalabs.in/2012/06/resteasy-tutorial-part-3-exception.html&#34;&gt;RESTEasy Tutorial Part 3 - Exception Handling&lt;/a&gt;
+RESTEasy is a JAX-RS implementation from JBoss/RedHat and is in-built in JBoss 6 onwards.
+Here I am going to show you how to develop a Simple RESTful Web Services application using RESTEasy and JBossAS7.1.1.FINAL.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#1: Configure RESTEasy dependencies using Maven.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2882384&#34;&gt;https://gist.github.com/sivaprasadreddy/2882384&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#2: Configure RESTEasy in web.xml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2882393&#34;&gt;https://gist.github.com/sivaprasadreddy/2882393&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#3: Create User domain class, MockUserTable class to store User objects in-memory for testing purpose and UserResource class to expose CRUD operations on User as RESTful webservices.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2882408&#34;&gt;https://gist.github.com/sivaprasadreddy/2882408&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#6: JUnit TestCase to test the REST Webservice.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;[gist &lt;a href=&#34;https://gist.github.com/sivaprasadreddy/2882422&#34;&gt;https://gist.github.com/sivaprasadreddy/2882422&lt;/a&gt; /]&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step#7: To test the REST service we can use the REST Client Tool. &lt;/strong&gt;
+You can download REST Client Tool at &lt;a href=&#34;http://code.google.com/a/eclipselabs.org/p/restclient-tool/&#34;&gt;http://code.google.com/a/eclipselabs.org/p/restclient-tool/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Important Things to Keep in mind:&lt;/strong&gt;
+1. org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap Listener should be registered before any other listener.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;You should configure &lt;strong&gt;resteasy.servlet.mapping.prefix&lt;/strong&gt; &lt;context-param&gt; if the HttpServletDispatcher servlet url-pattern is anything other than &lt;strong&gt;/&lt;/strong&gt;*
+**
+**&lt;/li&gt;
+&lt;li&gt;Keep visiting my blog :-)&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
