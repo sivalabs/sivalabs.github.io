@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; JCart: Admin Forgot Password</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/asciidoctor-default.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+    
+    
+           
+    
+    <link rel="shortcut icon" href="http://sivalabs.github.io/favicon.png" type="image/x-icon">
+    
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trainings <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/core-java">Core Java</a></li>
+                            <li><a href="http://sivalabs.github.io/spring">Spring</a></li>
+                            <li><a href="http://sivalabs.github.io/java-ee">JavaEE</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/freelancing">Freelancing</a></li>
+                    <li><a href="http://sivalabs.github.io/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container page-container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+		                	
+                            <div class="row">  
+                                
+                                <div class="col-xs-12 col-sm-12 blog-content">
+                                	<div>
+				                		<p><a href="http://sivalabs.github.io/">Home</a> <i class="fa fa-angle-double-right"></i> <span>JCart: Admin Forgot Password</span></p>
+				                	</div>
+                                    <h2>JCart: Admin Forgot Password</h2>
+                                    <div class="">
+	                                    <span><i class="fa fa-user"></i> Siva</span>&nbsp;&nbsp;
+                                        <span><i class="fa fa-calendar"></i> Dec 6, 2015</span>
+                                    </div>
+                                    <p><div class="paragraph">
+<p>We will provide a link to Forgot Password in Login page and
+create <strong>jcart-admin/src/main/resources/templates/public/forgotPwd.html</strong> template as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="html"><table class="pyhltable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</div></td><td class="code"><span style="color: #BC7A00">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;html</span> <span style="color: #7D9029">xmlns=</span><span style="color: #BA2121">&quot;http://www.w3.org/1999/xhtml&quot;</span>
+	  <span style="color: #7D9029">xmlns:th=</span><span style="color: #BA2121">&quot;http://www.thymeleaf.org&quot;</span>
+      <span style="color: #7D9029">layout:decorator=</span><span style="color: #BA2121">&quot;layout/guestLayout&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;head&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;title&gt;</span>Forgot Password<span style="color: #008000; font-weight: bold">&lt;/title&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;/head&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;body</span> <span style="color: #008000; font-weight: bold">&gt;</span>
+  	<span style="color: #008000; font-weight: bold">&lt;div</span> <span style="color: #7D9029">layout:fragment=</span><span style="color: #BA2121">&quot;content&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+
+        <span style="color: #008000; font-weight: bold">&lt;form</span> <span style="color: #7D9029">action=</span><span style="color: #BA2121">&quot;forgotPwd&quot;</span>  <span style="color: #7D9029">th:action=</span><span style="color: #BA2121">&quot;@{/forgotPwd}&quot;</span> <span style="color: #7D9029">method=</span><span style="color: #BA2121">&quot;post&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+          <span style="color: #008000; font-weight: bold">&lt;input</span> <span style="color: #7D9029">type=</span><span style="color: #BA2121">&quot;email&quot;</span> <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;form-control&quot;</span>
+          		 <span style="color: #7D9029">name=</span><span style="color: #BA2121">&quot;email&quot;</span> <span style="color: #7D9029">placeholder=</span><span style="color: #BA2121">&quot;Email&quot;</span><span style="color: #008000; font-weight: bold">/&gt;</span>
+          <span style="color: #008000; font-weight: bold">&lt;button</span> <span style="color: #7D9029">type=</span><span style="color: #BA2121">&quot;submit&quot;</span>
+          		  <span style="color: #7D9029">class=</span><span style="color: #BA2121">&quot;btn btn-primary btn-block btn-flat&quot;</span>
+          		  <span style="color: #7D9029">th:text=</span><span style="color: #BA2121">&quot;#{label.submit}&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>Submit<span style="color: #008000; font-weight: bold">&lt;/button&gt;</span>
+        <span style="color: #008000; font-weight: bold">&lt;/form&gt;</span>
+	<span style="color: #008000; font-weight: bold">&lt;/div&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;/body&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/html&gt;</span>
+</td></tr></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When Admin user enters the email address and submit we will generate a token, store it in our DB
+and generates a Reset Password Link and send it to their email. When user click on the link
+we will validate the token and if it is valid we will ask user to enter New Password.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><table class="pyhltable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</div></td><td class="code"><span style="color: #AA22FF">@Controller</span>
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">UserAuthController</span> <span style="color: #008000; font-weight: bold">extends</span> JCartAdminBaseController
+<span style="color: #666666">{</span>
+	<span style="color: #666666">...</span>
+
+	<span style="color: #AA22FF">@RequestMapping</span><span style="color: #666666">(</span>value<span style="color: #666666">=</span><span style="color: #BA2121">&quot;/forgotPwd&quot;</span><span style="color: #666666">,</span> method<span style="color: #666666">=</span>RequestMethod<span style="color: #666666">.</span><span style="color: #7D9029">POST</span><span style="color: #666666">)</span>
+	<span style="color: #008000; font-weight: bold">public</span> String <span style="color: #0000FF">handleForgotPwd</span><span style="color: #666666">(</span>HttpServletRequest request<span style="color: #666666">,</span>
+					RedirectAttributes redirectAttributes<span style="color: #666666">)</span>
+	<span style="color: #666666">{</span>
+		String email <span style="color: #666666">=</span> request<span style="color: #666666">.</span><span style="color: #7D9029">getParameter</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;email&quot;</span><span style="color: #666666">);</span>
+		<span style="color: #008000; font-weight: bold">try</span>
+		<span style="color: #666666">{</span>
+			<span style="color: #408080; font-style: italic">//generates a token (UUID.randomUUID().toString())</span>
+			<span style="color: #408080; font-style: italic">//and store it in USERS.PASSWORD_RESET_TOKEN column.</span>
+			String token <span style="color: #666666">=</span> securityService<span style="color: #666666">.</span><span style="color: #7D9029">resetPassword</span><span style="color: #666666">(</span>email<span style="color: #666666">);</span>
+			String resetPwdURL <span style="color: #666666">=</span> WebUtils<span style="color: #666666">.</span><span style="color: #7D9029">getURLWithContextPath</span><span style="color: #666666">(</span>request<span style="color: #666666">)</span>
+									<span style="color: #666666">+</span><span style="color: #BA2121">&quot;/resetPwd?email=&quot;</span><span style="color: #666666">+</span>email
+									<span style="color: #666666">+</span><span style="color: #BA2121">&quot;&amp;token;=&quot;</span><span style="color: #666666">+</span>token<span style="color: #666666">;</span>
+			<span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #7D9029">sendForgotPasswordEmail</span><span style="color: #666666">(</span>email<span style="color: #666666">,</span> resetPwdURL<span style="color: #666666">);</span>
+			redirectAttributes<span style="color: #666666">.</span><span style="color: #7D9029">addFlashAttribute</span>
+				<span style="color: #666666">(</span><span style="color: #BA2121">&quot;msg&quot;</span><span style="color: #666666">,</span> getMessage<span style="color: #666666">(</span>INFO_PASSWORD_RESET_LINK_SENT<span style="color: #666666">));</span>
+		<span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span> <span style="color: #666666">(</span>JCartException e<span style="color: #666666">)</span>
+		<span style="color: #666666">{</span>
+			logger<span style="color: #666666">.</span><span style="color: #7D9029">error</span><span style="color: #666666">(</span>e<span style="color: #666666">);</span>
+			redirectAttributes<span style="color: #666666">.</span><span style="color: #7D9029">addFlashAttribute</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;msg&quot;</span><span style="color: #666666">,</span> e<span style="color: #666666">.</span><span style="color: #7D9029">getMessage</span><span style="color: #666666">());</span>
+		<span style="color: #666666">}</span>
+		<span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;redirect:/forgotPwd&quot;</span><span style="color: #666666">;</span>
+	<span style="color: #666666">}</span>
+	<span style="color: #666666">...</span>
+	<span style="color: #666666">...</span>
+	<span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">sendForgorPasswordEmail</span><span style="color: #666666">(</span>String email<span style="color: #666666">,</span> String resetPwdURL<span style="color: #666666">)</span>
+	<span style="color: #666666">{</span>
+		String htmlContent <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Please click below link to reset your password: &lt;br/&gt;&quot;</span>
+							 <span style="color: #666666">+</span>resetPwdURL<span style="color: #666666">;</span>
+		emailService<span style="color: #666666">.</span><span style="color: #7D9029">sendEmail</span><span style="color: #666666">(</span>email<span style="color: #666666">,</span>
+					getMessage<span style="color: #666666">(</span>LABEL_PASSWORD_RESET_EMAIL_SUBJECT<span style="color: #666666">),</span>
+					htmlContent<span style="color: #666666">);</span>
+	<span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</td></tr></table></code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sending_emails_using_thymeleaf_templates">Sending Emails using Thymeleaf Templates</h3>
+<div class="paragraph">
+<p>Instead of preparing the email content by appending Strings, we can use Thymeleaf templates with place-holders
+and pass the values dynamically.</p>
+</div>
+<div class="paragraph">
+<p>When we added thymeleaf-starter SpringBoot already registers <strong>ServletContextTemplateResolver</strong> bean automatically.
+In order to register emailTemplateResolver let us configure the <strong>ClassLoaderTemplateResolver</strong> bean in
+ <strong>jcart-admin/src/main/java/com/sivalabs/jcart/admin/config/WebConfig.java</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><table class="pyhltable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</div></td><td class="code"><span style="color: #AA22FF">@Bean</span>
+<span style="color: #008000; font-weight: bold">public</span> ClassLoaderTemplateResolver <span style="color: #0000FF">emailTemplateResolver</span><span style="color: #666666">(){</span>
+    ClassLoaderTemplateResolver emailTemplateResolver
+	 <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #0000FF">ClassLoaderTemplateResolver</span><span style="color: #666666">();</span>
+    emailTemplateResolver<span style="color: #666666">.</span><span style="color: #7D9029">setPrefix</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;email-templates/&quot;</span><span style="color: #666666">);</span>
+    emailTemplateResolver<span style="color: #666666">.</span><span style="color: #7D9029">setSuffix</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;.html&quot;</span><span style="color: #666666">);</span>
+    emailTemplateResolver<span style="color: #666666">.</span><span style="color: #7D9029">setTemplateMode</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;HTML5&quot;</span><span style="color: #666666">);</span>
+    emailTemplateResolver<span style="color: #666666">.</span><span style="color: #7D9029">setCharacterEncoding</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;UTF-8&quot;</span><span style="color: #666666">);</span>
+    emailTemplateResolver<span style="color: #666666">.</span><span style="color: #7D9029">setOrder</span><span style="color: #666666">(2);</span>
+
+    <span style="color: #008000; font-weight: bold">return</span> emailTemplateResolver<span style="color: #666666">;</span>
+<span style="color: #666666">}</span>
+</td></tr></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create forgot password thymeleaf template <strong>jcart-admin/src/main/resources/email-templates/forgot-password-email.html</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="html"><table class="pyhltable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</div></td><td class="code"><span style="color: #BC7A00">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;html</span> <span style="color: #7D9029">xmlns:th=</span><span style="color: #BA2121">&quot;http://www.thymeleaf.org&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;head&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;title</span> <span style="color: #7D9029">th:remove=</span><span style="color: #BA2121">&quot;all&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>Template for HTML email<span style="color: #008000; font-weight: bold">&lt;/title&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;meta</span> <span style="color: #7D9029">http-equiv=</span><span style="color: #BA2121">&quot;Content-Type&quot;</span> <span style="color: #7D9029">content=</span><span style="color: #BA2121">&quot;text/html; charset=UTF-8&quot;</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;/head&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;body&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;p&gt;</span>
+      Hello,
+    <span style="color: #008000; font-weight: bold">&lt;/p&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;p&gt;</span>
+       Please click the below link to reset your password.<span style="color: #008000; font-weight: bold">&lt;br/&gt;</span>
+       <span style="color: #008000; font-weight: bold">&lt;a</span> <span style="color: #7D9029">th:href=</span><span style="color: #BA2121">&quot;${resetPwdURL}&quot;</span><span style="color: #008000; font-weight: bold">&gt;</span>Reset Password<span style="color: #008000; font-weight: bold">&lt;/a&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;/p&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;p&gt;</span>
+      Regards, <span style="color: #008000; font-weight: bold">&lt;br</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+      <span style="color: #008000; font-weight: bold">&lt;em&gt;</span>The QuilCart Team<span style="color: #008000; font-weight: bold">&lt;/em&gt;</span>
+    <span style="color: #008000; font-weight: bold">&lt;/p&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;/body&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/html&gt;</span>
+</td></tr></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Update the logic to use Email template as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><table class="pyhltable"><tr><td><div class="linenodiv" style="background-color: #f0f0f0; padding-right: 10px"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</div></td><td class="code"><span style="color: #AA22FF">@Autowired</span> <span style="color: #008000; font-weight: bold">protected</span> TemplateEngine templateEngine<span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">protected</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">sendForgorPasswordEmail</span><span style="color: #666666">(</span>String email<span style="color: #666666">,</span> String resetPwdURL<span style="color: #666666">)</span>
+<span style="color: #666666">{</span>
+	<span style="color: #008000; font-weight: bold">try</span> <span style="color: #666666">{</span>
+		<span style="color: #408080; font-style: italic">// Prepare the evaluation context</span>
+		<span style="color: #008000; font-weight: bold">final</span> Context ctx <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #0000FF">Context</span><span style="color: #666666">();</span>
+		ctx<span style="color: #666666">.</span><span style="color: #7D9029">setVariable</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;resetPwdURL&quot;</span><span style="color: #666666">,</span> resetPwdURL<span style="color: #666666">);</span>
+
+		<span style="color: #408080; font-style: italic">// Create the HTML body using Thymeleaf</span>
+		<span style="color: #008000; font-weight: bold">final</span> String htmlContent <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #7D9029">templateEngine</span>
+					<span style="color: #666666">.</span><span style="color: #7D9029">process</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;forgot-password-email&quot;</span><span style="color: #666666">,</span> ctx<span style="color: #666666">);</span>
+
+		emailService<span style="color: #666666">.</span><span style="color: #7D9029">sendEmail</span><span style="color: #666666">(</span>email<span style="color: #666666">,</span>
+			getMessage<span style="color: #666666">(</span>LABEL_PASSWORD_RESET_EMAIL_SUBJECT<span style="color: #666666">),</span>
+			htmlContent<span style="color: #666666">);</span>
+	<span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span> <span style="color: #666666">(</span>JCartException e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+		logger<span style="color: #666666">.</span><span style="color: #7D9029">error</span><span style="color: #666666">(</span>e<span style="color: #666666">);</span>
+	<span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</td></tr></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information on sending emails using Thymeleaf templates see
+<a href="http://www.thymeleaf.org/doc/articles/springmail.html" class="bare">http://www.thymeleaf.org/doc/articles/springmail.html</a>.</p>
+</div>
+</div>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/e-commerce" rel="category">
+										    	E-Commerce &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/java" rel="category">
+										    	Java &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/jcart" rel="category">
+										    	JCart &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/spring" rel="category">
+										    	Spring &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/springboot" rel="category">
+										    	SpringBoot &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=JCart%3a%20Admin%20Forgot%20Password-http%3a%2f%2fsivalabs.github.io%2fjcart-admin-forgot-password" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fjcart-admin-forgot-password" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fjcart-admin-forgot-password" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fjcart-admin-forgot-password&title=JCart%3a%20Admin%20Forgot%20Password&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fjcart-admin-forgot-password" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/jcart-admin-forgot-password';
+    var disqus_title = 'JCart: Admin Forgot Password';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/jcart-admin-forgot-password';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+<div id="sidebar">
+
+<div class="widget">
+	<h2>K. Siva Prasad Reddy</h2>
+	<img class="authorpic" src="http://sivalabs.github.io/images/Siva-1.jpg" alt="Siva"/>
+	
+</div>				
+
+
+
+<div class="widget">
+
+	<aside id="subscription">
+		<strong>Want to receive new post notifications?</strong>
+		<form action="//sivalabs.us9.list-manage.com/subscribe/post?u=a244435ef0378fac204b5a2d4&amp;id=bdded8d3db" 
+			  method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" 
+			  class="validate" target="_blank" novalidate>
+			<p><input type="email" value="" name="EMAIL" class="required email form-control" 
+						placeholder="Email" id="mce-EMAIL"></p>
+			<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" 
+			class="btn btn-xs btn-primary">
+			
+		    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+				<input type="text" name="b_a244435ef0378fac204b5a2d4_bdded8d3db" tabindex="-1" value="">
+			</div>
+		    <div class="clear"></div>
+		</form>
+		
+	</aside>
+
+</div>
+<div class="widget categories">
+    <h2>Latest Posts</h2>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-configuring-https-ssltls">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-admin-reset-password">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-admin-forgot-password">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-email-service-setup">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-configuring-spring-security">JCart: Configuring Spring Security</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+ 
+
+ <div class="widget tags">
+     <h2>Tag Cloud</h2>
+     <div class="tag-cloud">
+     	 
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/blogging">Blogging</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/java">Java</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/jcart">Jcart</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/spring">Spring</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/springboot">Springboot</a></span>
+		           
+     </div>
+ </div>
+   
+
+ <div class="widget categories">
+     <h2>Categories</h2>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jcart">Jcart</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+</div>       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-71296890-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+ 
+</body>
+</html>
+

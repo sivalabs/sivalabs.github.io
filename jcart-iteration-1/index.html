@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; JCart : Iteration-1</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/asciidoctor-default.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/prettyPhoto.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/animate.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/main.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/responsive.css" rel="stylesheet">
+    
+    
+    
+           
+    
+    <link rel="shortcut icon" href="http://sivalabs.github.io/favicon.png" type="image/x-icon">
+    
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header id="header">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+            </div>
+            
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://sivalabs.github.io/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trainings <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://sivalabs.github.io/core-java">Core Java</a></li>
+                            <li><a href="http://sivalabs.github.io/spring">Spring</a></li>
+                            <li><a href="http://sivalabs.github.io/java-ee">JavaEE</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li><a href="http://sivalabs.github.io/freelancing">Freelancing</a></li>
+                    <li><a href="http://sivalabs.github.io/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>
+
+		<section id="blog" class="container page-container">
+        
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="blog-item">
+		                	
+                            <div class="row">  
+                                
+                                <div class="col-xs-12 col-sm-12 blog-content">
+                                	<div>
+				                		<p><a href="http://sivalabs.github.io/">Home</a> <i class="fa fa-angle-double-right"></i> <span>JCart : Iteration-1</span></p>
+				                	</div>
+                                    <h2>JCart : Iteration-1</h2>
+                                    <div class="">
+	                                    <span><i class="fa fa-user"></i> Siva</span>&nbsp;&nbsp;
+                                        <span><i class="fa fa-calendar"></i> Dec 1, 2015</span>
+                                    </div>
+                                    <p><div class="paragraph">
+<p>Now that we have completed the most difficult part (writing Introduction to technical article series is much
+harder than you think!!), so let&#8217;s start the fun part. <strong>Coding</strong>!!!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is going to be a fast paced tutorial. Obviously we can&#8217;t cover every little bit of all
+the technologies used in our application. So I would suggest to explore more on individual technologies like Spring,
+Thymeleaf on your own. I would strongly suggest to checkout the code from <a href="https://github.com/sivaprasadreddy/jcart.git" class="bare">https://github.com/sivaprasadreddy/jcart.git</a>
+if you want to see the complete code as we are going to trim the code snippets for brevity.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>&#160;</p>
+</div>
+<div class="paragraph">
+<p>We will start with Iteration-1 UseCases implementation, progressively building the JCart application.</p>
+</div>
+<div class="paragraph">
+<p>As part of Iteration-1, we will be implementing the following UseCases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://sivalabs.in/2015/12/jcart-initial-code-setup.html">Initial Code Setup</a></p>
+</li>
+<li>
+<p><a href="http://sivalabs.in/2015/12/jcart-domain-modelling-and-database-designing.html">Domain Modelling and Database Designing</a></p>
+</li>
+<li>
+<p><a href="http://sivalabs.in/2015/12/jcart-create-jpa-entities.html">Creating JPA Entities</a></p>
+</li>
+<li>
+<p><a href="http://sivalabs.in/2015/12/jcart-admin-ui-layout-setup.html">Admin UI Layout SetUp</a></p>
+</li>
+<li>
+<p><a href="http://sivalabs.in/2015/12/jcart-configuring-spring-security.html">Configuring Spring Security</a></p>
+</li>
+<li>
+<p><a href="http://sivalabs.in/2015/12/jcart-email-service-setup.html">Email Service Setup</a></p>
+</li>
+<li>
+<p><a href="http://sivalabs.in/2015/12/jcart-admin-forgot-password.html">Admin Forgot Password</a></p>
+</li>
+<li>
+<p><a href="http://sivalabs.in/2015/12/jcart-admin-reset-password.html">Admin Reset Password</a></p>
+</li>
+<li>
+<p><a href="http://sivalabs.in/2015/12/jcart-configuring-https-ssltls.html">Configuring HTTPS SSL/TLS</a></p>
+</li>
+<li>
+<p>Setting up Jenkins/SonarQube</p>
+</li>
+</ul>
+</div>
+</p>
+
+                                    <div class="post-tags">
+                                        <strong>Tags: </strong> 
+                                        
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/e-commerce" rel="category">
+										    	E-Commerce &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/java" rel="category">
+										    	Java &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/jcart" rel="category">
+										    	JCart &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/spring" rel="category">
+										    	Spring &nbsp;&nbsp;
+										    </a>
+									  	
+                                        	<a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/springboot" rel="category">
+										    	SpringBoot &nbsp;&nbsp;
+										    </a>
+									  	
+                                        
+                                    </div>
+                                    <div>
+                                    	<p><div class="social">
+	<a href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Iteration-1-http%3a%2f%2fsivalabs.github.io%2fjcart-iteration-1" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fjcart-iteration-1" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fjcart-iteration-1" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fjcart-iteration-1&title=JCart%20%3a%20Iteration-1&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fjcart-iteration-1" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                                    	
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="media reply_section">
+                            <div class="pull-left post_reply text-center">
+                                <a href="#"><img src="http://sivalabs.github.io/images/siva.jpg" class="img-circle" alt="" /></a>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
+                                </ul>
+                            </div>
+                            <div class="media-body post_reply_content">
+                                <h3>K. Siva Prasad Reddy</h3>
+                                <p class="lead">A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                <p><strong>Web:</strong> <a href="http://www.sivalabs.in">www.sivalabs.in</a></p>
+                            </div>
+                        </div> 
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/jcart-iteration-1';
+    var disqus_title = 'JCart : Iteration-1';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/jcart-iteration-1';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                        
+
+                    </div>
+
+                <aside class="col-md-3">
+                    
+
+<div id="sidebar">
+
+<div class="widget">
+	<h2>K. Siva Prasad Reddy</h2>
+	<img class="authorpic" src="http://sivalabs.github.io/images/Siva-1.jpg" alt="Siva"/>
+	
+</div>				
+
+
+
+<div class="widget">
+
+	<aside id="subscription">
+		<strong>Want to receive new post notifications?</strong>
+		<form action="//sivalabs.us9.list-manage.com/subscribe/post?u=a244435ef0378fac204b5a2d4&amp;id=bdded8d3db" 
+			  method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" 
+			  class="validate" target="_blank" novalidate>
+			<p><input type="email" value="" name="EMAIL" class="required email form-control" 
+						placeholder="Email" id="mce-EMAIL"></p>
+			<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" 
+			class="btn btn-xs btn-primary">
+			
+		    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+				<input type="text" name="b_a244435ef0378fac204b5a2d4_bdded8d3db" tabindex="-1" value="">
+			</div>
+		    <div class="clear"></div>
+		</form>
+		
+	</aside>
+
+</div>
+<div class="widget categories">
+    <h2>Latest Posts</h2>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-configuring-https-ssltls">JCart: Configuring HTTPS SSL/TLS</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-admin-reset-password">JCart: Admin Reset Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-admin-forgot-password">JCart: Admin Forgot Password</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-email-service-setup">JCart: Email Service SetUp</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="single_comments">                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/jcart-configuring-spring-security">JCart: Configuring Spring Security</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+ 
+
+ <div class="widget tags">
+     <h2>Tag Cloud</h2>
+     <div class="tag-cloud">
+     	 
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/blogging">Blogging</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/java">Java</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/jcart">Jcart</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/spring">Spring</a></span>
+		  
+		    <span><a class="btn btn-primary btn-xs readmore" href="http://sivalabs.github.io/tags/springboot">Springboot</a></span>
+		           
+     </div>
+ </div>
+   
+
+ <div class="widget categories">
+     <h2>Categories</h2>
+     <div class="row">
+         <div class="col-sm-6">
+             <ul class="blog_archieve">
+             	
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/e-commerce">E-Commerce</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/java">Java</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/jcart">Jcart</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/spring">Spring</a></li>
+	  			
+             	 	<li><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/categories/springboot">Springboot</a></li>
+	  			
+             </ul>
+         </div>
+     </div>                     
+ </div>
+
+</div>       				
+                </aside>     
+
+            </div>
+
+         </div>
+
+    </section>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.prettyPhoto.js"></script>
+<script src="http://sivalabs.github.io/js/jquery.isotope.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+<script src="http://sivalabs.github.io/js/wow.min.js"></script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-71296890-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+ 
+</body>
+</html>
+
