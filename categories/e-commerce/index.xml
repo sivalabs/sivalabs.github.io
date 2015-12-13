@@ -30,7 +30,7 @@ from &lt;strong&gt;&lt;a href=&#34;http://host:9090&#34; class=&#34;bare&#34;&gt
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;With SpringBoot it is really very simple.
-See &lt;a href=&#34;http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-configure-ssl&#34; class=&#34;bare&#34;&gt;http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-configure-ssl&lt;/a&gt;&lt;/p&gt;
+See &lt;a href=&#34;http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-configure-ssl&#34; target=&#34;_blank&#34;&gt;http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-configure-ssl&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;admonitionblock tip&#34;&gt;
 &lt;table&gt;
@@ -39,7 +39,7 @@ See &lt;a href=&#34;http://docs.spring.io/spring-boot/docs/current/reference/htm
 &lt;i class=&#34;fa icon-tip&#34; title=&#34;Tip&#34;&gt;&lt;/i&gt;
 &lt;/td&gt;
 &lt;td class=&#34;content&#34;&gt;
-You can simply follow this article &lt;a href=&#34;https://www.drissamri.be/blog/java/enable-https-in-spring-boot/&#34; class=&#34;bare&#34;&gt;https://www.drissamri.be/blog/java/enable-https-in-spring-boot/&lt;/a&gt;
+You can simply follow this article &lt;a href=&#34;https://www.drissamri.be/blog/java/enable-https-in-spring-boot/&#34; target=&#34;_blank&#34;&gt;https://www.drissamri.be/blog/java/enable-https-in-spring-boot/&lt;/a&gt;
  which describes what exactly we are trying to do. Thanks to Driss Amri. &lt;strong&gt;Give credit where credit is due :-)&lt;/strong&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
