@@ -6,8 +6,590 @@
     <description>Recent content in Posts on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Jan 2016 19:20:04 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 07 Jan 2016 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://sivalabs.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My Development Environment Setup on Linux</title>
+      <link>http://sivalabs.github.io/my-development-environment-setup-on-linux</link>
+      <pubDate>Thu, 07 Jan 2016 10:00:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/my-development-environment-setup-on-linux</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;As I mentioned in my previous post &lt;a href=&#34;http://sivalabs.github.io/thinking-of-moving-from-windows-to-linux/&#34;&gt;Thinking of moving from Windows to Linux?&lt;/a&gt;
+I am moving from Windows to Linux. Setting up my development environment is a bit tedious because I have to hunt down the applications
+and execute various commands to setup. So I thought of make a note of them in a post so that it will be easier for me next time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I am using &lt;strong&gt;Ubuntu/LinuxMint&lt;/strong&gt; system so I am using &lt;strong&gt;apt-get&lt;/strong&gt; to install, if you are using &lt;strong&gt;Fedora/CentOS&lt;/strong&gt; you can use &lt;strong&gt;yum/dnf&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;The very first thing I do after installing Linux is updating the system and in case I am working on VirtualBox VM installing VirtualBox Guest Additions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get update&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo apt-get install virtualbox-guest-dkms virtualbox-guest-x11&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Setting up Java Development Environment&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Some Linux distros come with OpenJDK by default. You may want to remove &lt;strong&gt;OpenJDK&lt;/strong&gt; first and install &lt;strong&gt;Oracle JDK&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get purge openjdk-*&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo add-apt-repository ppa:webupd8team/java&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo apt-get update&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;To install Java 7 &lt;code&gt;sudo apt-get install oracle-java7-installer&lt;/code&gt;&lt;br&gt;
+To install Java 8 &lt;code&gt;sudo apt-get install oracle-java8-installer&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;If you want to set &lt;strong&gt;JAVA_HOME&lt;/strong&gt; environment variable for a particular user then you can add JAVA_HOME in &lt;strong&gt;~/.bash_profile&lt;/strong&gt;
+or if you want to setup for all the users globally then you can add it to &lt;strong&gt;/etc/profile&lt;/strong&gt; file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; vi ~/.bash_profile&lt;/code&gt; or &lt;code&gt;vi /etc/profile&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Append the following to the file:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;export JAVA_HOME=/usr/lib/jvm/java-8-oracle&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;export PATH=$PATH:$JAVA_HOME/bin&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Reload the configuration updates&lt;br&gt;
+&lt;code&gt;&amp;gt; source ~/.bash_profile&lt;/code&gt; or &lt;code&gt;source /etc/profile&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;After installing JDK you may want to download your favorite IDE from the following locations:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Eclipse &lt;a href=&#34;http://www.eclipse.org/downloads/&#34; class=&#34;bare&#34;&gt;http://www.eclipse.org/downloads/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;STS &lt;a href=&#34;https://spring.io/tools/sts/all&#34; class=&#34;bare&#34;&gt;https://spring.io/tools/sts/all&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JBoss Developer Studio &lt;a href=&#34;http://tools.jboss.org/downloads/devstudio/index.html&#34; class=&#34;bare&#34;&gt;http://tools.jboss.org/downloads/devstudio/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NetbeansIDE &lt;a href=&#34;https://netbeans.org/downloads/&#34; class=&#34;bare&#34;&gt;https://netbeans.org/downloads/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Intellij IDEA &lt;a href=&#34;https://www.jetbrains.com/idea/download/&#34; class=&#34;bare&#34;&gt;https://www.jetbrains.com/idea/download/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Most of the times I work with either &lt;strong&gt;Tomcat&lt;/strong&gt; or &lt;strong&gt;JBoss/Wildfly&lt;/strong&gt; servers.&lt;br&gt;
+You cand ownload them from the following locations:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Tomcat &lt;a href=&#34;https://tomcat.apache.org/download-80.cgi&#34; class=&#34;bare&#34;&gt;https://tomcat.apache.org/download-80.cgi&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wildfly &lt;a href=&#34;http://wildfly.org/downloads/&#34; class=&#34;bare&#34;&gt;http://wildfly.org/downloads/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;To install build tools like &lt;strong&gt;Ant&lt;/strong&gt; or &lt;strong&gt;Maven&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get install ant&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sudo apt-get install maven&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We can install various softwares like &lt;strong&gt;Groovy&lt;/strong&gt;, &lt;strong&gt;Grails&lt;/strong&gt;, &lt;strong&gt;Gradle&lt;/strong&gt; etc you can use  &lt;a href=&#34;http://sdkman.io/&#34;&gt;&lt;strong&gt;SDKMan&lt;/strong&gt;&lt;/a&gt;
+which was previously known as &lt;strong&gt;GVM&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; curl -s &lt;a href=&#34;http://get.sdkman.io&#34; class=&#34;bare&#34;&gt;http://get.sdkman.io&lt;/a&gt; | bash&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; source &#34;$HOME/.sdkman/bin/sdkman-init.sh&#34;&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sdk version&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sdk install groovy&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sdk install grails&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sdk install gradle&lt;/code&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Install MySQL server&lt;/strong&gt;
+You can install MySQL server and MySQL Workbench from Ubuntu Software Center.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;But if you prefer commandline installation&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get install mysql-server&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sudo apt-get install mysql-workbench&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Installing NodeJS&lt;/strong&gt;
+Installing NodeJS become a little bit complicated because it is going through some changes(nodejs, nodejs-legacy, io.js etc).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;You can install latest NodeJS using following commands:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get install curl&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; curl -sL &lt;a href=&#34;https://deb.nodesource.com/setup_0.12&#34; class=&#34;bare&#34;&gt;https://deb.nodesource.com/setup_0.12&lt;/a&gt; | sudo bash -&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sudo apt-get install nodejs&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;For further details refer &lt;a href=&#34;https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager&#34; class=&#34;bare&#34;&gt;https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Install yeoman and generators&lt;/strong&gt;
+ &lt;a href=&#34;http://yeoman.io/&#34;&gt;Yeoman&lt;/a&gt; makes it easy to develop front-end applications by automating various tasks using bower, grunt or gulp.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Install yeoman&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;sudo npm install -g yo bower grunt-cli gulp&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Install various generators&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo npm install -g generator-webapp&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sudo npm install -g generator-angular&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sudo npm install -g generator-jhipster&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sudo npm install -g generator-meanjs&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sudo npm install -g cordova ionic&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Installing Ruby and RubyOnRails&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;You may be using &lt;strong&gt;Ruby&lt;/strong&gt; or tools that depends on Ruby like &lt;strong&gt;OpenShift&lt;/strong&gt; commandline tools, &lt;strong&gt;Jekyll&lt;/strong&gt; etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;You can find the very detailed instructions on how to install Ruby/RubyOnRails at &lt;a href=&#34;https://gorails.com/setup/ubuntu/15.04&#34; class=&#34;bare&#34;&gt;https://gorails.com/setup/ubuntu/15.04&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Just for the sake of quick reference I am repeating the steps here:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get update&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; cd&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; git clone git://github.com/sstephenson/rbenv.git .rbenv&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; echo &#39;export PATH=&#34;$HOME/.rbenv/bin:$PATH&#34;&#39; &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; echo &#39;eval &#34;$(rbenv init -)&#34;&#39; &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; exec $SHELL&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; echo &#39;export PATH=&#34;$HOME/.rbenv/plugins/ruby-build/bin:$PATH&#34;&#39; &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; exec $SHELL&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; git clone &lt;a href=&#34;https://github.com/sstephenson/rbenv-gem-rehash.git&#34; class=&#34;bare&#34;&gt;https://github.com/sstephenson/rbenv-gem-rehash.git&lt;/a&gt; ~/.rbenv/plugins/rbenv-gem-rehash&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; rbenv install 2.2.3&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; rbenv global 2.2.3&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; ruby -v&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; echo &#34;gem: --no-ri --no-rdoc&#34; &amp;gt; ~/.gemrc&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; gem install bundler&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; gem install rails -v 4.2.4&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Installing Jekyll&lt;/strong&gt;
+&lt;a href=&#34;https://jekyllrb.com&#34;&gt;Jekyll&lt;/a&gt; is a static site generator which you can use to generate your site and host it on github.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; gem install jekyll&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Test drive Jekyll&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt; jekyll new myblog&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; cd myblog&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;gt; jekyll serve&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Hope these installation instructions helps!!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Note: All the images belong to their respective owners.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CentOS 7 Installation on Oracle Virtualbox</title>
+      <link>http://sivalabs.github.io/centos-7-installation-on-oracle-virtualbox</link>
+      <pubDate>Thu, 07 Jan 2016 09:00:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/centos-7-installation-on-oracle-virtualbox</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I wanted to explore CentOS 7 Linux, so I installed it on my Oracle VirtualBox.
+Installation went smoothly ,but I had a hard time to install Virtualbox Guest Additions to get full screen.
+I thought of sharing the steps I performed so that it may be helpful for others.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;After installing CentOS 7, before installing Virtualbox Guest Additions first thing we need to do is update system.
+&lt;strong&gt;sudo yum update&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;When I run this command I got the error &#34;&lt;strong&gt;cannot find a valid baseurl for repo&lt;/strong&gt;&#34;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;After googling for sometime I figured that &lt;strong&gt;the network card is not enabled by default&lt;/strong&gt; and I need to enable
+the baseUrl in some configuration file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;1) Edit &lt;strong&gt;&lt;em&gt;/etc/sysconfig/network-scripts/ifcfg-eth0&lt;/em&gt;&lt;/strong&gt; file and change &lt;strong&gt;ONBOOT=no&lt;/strong&gt; to &lt;strong&gt;ONBOOT=yes&lt;/strong&gt;&lt;br&gt;
+Instead of &lt;strong&gt;eth0&lt;/strong&gt; you may have a different file name. To know the right one, run the command &lt;strong&gt;ifconfig -a&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;2) Edited the file &lt;strong&gt;&lt;em&gt;/etc/yum.repos.d/CentOS-Base.repo&lt;/em&gt;&lt;/strong&gt; and uncomment &lt;strong&gt;baseurl&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;[base]&lt;br&gt;
+name=CentOS-$releasever - Base&lt;br&gt;
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;amp;arch=$basearch&amp;amp;repo=os &lt;br&gt;
+&lt;strong&gt;&lt;em&gt;baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/&lt;/em&gt;&lt;/strong&gt; &lt;br&gt;
+gpgcheck=1 &lt;br&gt;
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Source: &lt;a href=&#34;http://unix.stackexchange.com/questions/22924/how-can-i-fix-cannot-find-a-valid-baseurl-for-repo-errors-on-centos&#34; class=&#34;bare&#34;&gt;http://unix.stackexchange.com/questions/22924/how-can-i-fix-cannot-find-a-valid-baseurl-for-repo-errors-on-centos&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;3) Install VirtualBox Guest Additions&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;sudo yum update&lt;/code&gt; &lt;br&gt;
+&lt;code&gt;sudo yum groupinstall &#34;Development Tools&#34;&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;sudo yum install kernel-devel&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;In Oracle Virtual Box menu, &lt;strong&gt;Devices &amp;#8594; Insert Guest Additions CD Image &amp;#8594; Run&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Source: &lt;a href=&#34;http://itekblog.com/centos-7-virtualbox-guest-additions-installation-centos-minimal/&#34; class=&#34;bare&#34;&gt;http://itekblog.com/centos-7-virtualbox-guest-additions-installation-centos-minimal/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to SSH into VirtualBox Linux OS?</title>
+      <link>http://sivalabs.github.io/how-to-ssh-into-virtualbox-linux-os</link>
+      <pubDate>Thu, 07 Jan 2016 09:00:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/how-to-ssh-into-virtualbox-linux-os</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;While learning some of the Linux commands we may want to use SSH commands to login into a remote Linux system
+and we may not have a dedicated Linux system to play with.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;In this post I will explain how I am using my Linux OS installed on VirtualBox to SSH from Windows OS.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Install &lt;strong&gt;openssh-server&lt;/strong&gt; on Linux OS in VirtualBox&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install openssh-server&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;On some Linux distros (ex: Fedora) the openssh server won&amp;#8217;t start automatically.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;You can enable it to start automatically using the following command:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;systemctl enable sshd.service&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Now you can restart the VM or start the service in the current session itself using&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;systemctl start sshd.service&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; Shutdown your Linux VM if it is already running.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Select Linux VM in Virtualbox and go to &lt;strong&gt;Settings&lt;/strong&gt; &amp;#8594; &lt;strong&gt;Network&lt;/strong&gt;.&lt;br&gt;
+In &lt;strong&gt;Adapter 1&lt;/strong&gt; tab &lt;strong&gt;Enable Network Adapter&lt;/strong&gt; is selected.&lt;br&gt;
+Go to &lt;strong&gt;Adapter 2&lt;/strong&gt; tab and check &lt;strong&gt;Enable Network Adapter&lt;/strong&gt;.&lt;br&gt;
+For &lt;strong&gt;Attached To&lt;/strong&gt; option select &lt;strong&gt;Host-only Adapter&lt;/strong&gt; and click OK.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Start your VirtualBox Linux VM
+Open Terminal and run &lt;strong&gt;ifconfig&lt;/strong&gt; command&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;eth1 Link encap:Ethernet HWaddr 08:00:27:7e:ea:89&lt;br&gt;
+inet addr:&lt;strong&gt;192.168.56.101&lt;/strong&gt; Bcast:192.168.56.255 Mask:255.255.255.0&lt;br&gt;
+inet6 addr: fe80::a00:27ff:fe7e:ea89/64 Scope:Link&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Now from you Windows OS you can use Putty to connect to your Linux OS usinng SSH as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;code&gt;ssh username@192.168.56.101&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Enjoy :-)&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Linux Journey Begins</title>
+      <link>http://sivalabs.github.io/my-linux-journey-begins</link>
+      <pubDate>Thu, 07 Jan 2016 08:00:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/my-linux-journey-begins</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Like many people I started working with computers on Windows XP operating system. Even after starting my career as a
+Java developer I have been working on Windows for all my development activities.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Initially I didn&amp;#8217;t get a chance(need) to work on Unix/Linux because we didn&amp;#8217;t have access to any of production systems
+which are using Linux. After few years we got a new client for whom we need to do deployment also in QA/UAT environments
+which are all Linux based. Then one guy who was doing all these deployment activities shared few documents, shell scripts
+with all the instructions regarding how to deploy the apps, stop/start the containers etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;My very first expressions is &#34;Whaaaat?? you do all these deployment activities using these cryptic commands running in this
+black terminal??? No GUI??&#34;. They smiled and said &#34;No, in Linux you have to do all these using these commands only.&#34;
+Ok, fine, no problem. I get familiar with few commands like copy, rm, ps, kill, chmod etc which are just enough
+to get the things done. I never bothered to learn Linux really.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;But recently I got to work on Linux more and more, so I thought it is good to get some good hands on experience with Linux.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;After little bit of googling I found Ubuntu and LinuxMint are good desktop linux distros for Linux newbies like me.
+But before settling with one Linux distro I tried the following Linux distros on Oracle Virtualbox.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Ubuntu&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LinuxMint&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fedora&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CentOS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OpenSUSE&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bodhi&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ElementaryOS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PeachOSI&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pinguy&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Zorin&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I am sure there are plenty of other linux desktop distros to explore. But among the above mentioned distros I settled with
+LinuxMint. You can find lot of blogs to show how to install Linux distro in Virtualbox and also how to install in
+dual boot mode.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Following links were very helpful for me:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://itsfoss.com/guide-install-linux-mint-16-dual-boot-windows/&#34; class=&#34;bare&#34;&gt;http://itsfoss.com/guide-install-linux-mint-16-dual-boot-windows/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/&#34; class=&#34;bare&#34;&gt;http://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Now, I would like to note down my learning about Linux here for quick reference.
+Expect some small Linux tips on this blog going forward :-)&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Thinking of moving from Windows to Linux?</title>
+      <link>http://sivalabs.github.io/thinking-of-moving-from-windows-to-linux</link>
+      <pubDate>Thu, 07 Jan 2016 07:00:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/thinking-of-moving-from-windows-to-linux</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I have been using Windows operating system from the beginning. When I first started using computer Windows XP was
+the latest operating system and it was amazing. After few years I started my career as a Java developer
+and in my office also I have been using Windows only.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;After few years Windows Vista got released and I suffered with it for few months and then Microsoft released Windows 7
+which is the best Windows operating system IMO. And then they released Windows 8 which I don&amp;#8217;t like much.
+Recently they released Windows 10 and I have upgraded from Windows 8.1 to Windows 10.
+Windows 10 is certainly better than Windows 8 but it still sucks compared to Windows 7.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I think the main reason for the popularity of Windows operating systems is the familiarity of the same look
+and feel of their all operating systems and they changed it (in a horrible way).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Few years ago I got to learn a bit about Linux in order to deploy my application on remote deployment servers
+and I used to get it done using few comments and I never really bothered to learn Linux.
+A year ago one of my friend suggested to look at Ubuntu which is a Linux OS with a nice Desktop Environment (DE).
+I installed Ubuntu on VirtualBox and played with it couple of days and left it because it was too slow on my VirtualBox.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_why_i_want_to_learn_and_use_linux_as_my_desktop_os&#34;&gt;Why I want to learn and use Linux as my desktop OS?&lt;/h3&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;These days I am spending good amount of time deploying apps on remote Linux servers, so I need to learn more about Linux.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I don&amp;#8217;t like Windows 8/8.1/10 OS mobile style desktop UI. I want my good old familiar Windows 7 style GUI.
+I came to know there are some Linux distros which looks like Windows 7.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I am really bored working on same Java technologies like Spring, JPA, JavaEE etc for almost 8 years
+and I wanted to tinker with something new and interesting.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It is free, no viruses and customizability etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Once I decided to use Linux as my desktop OS, I started looking for the better Desktop Linux distros for beginners like me
+and I found that following are better among the hundreds of Linux distros.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.ubuntu.com&#34;&gt;Ubuntu&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.linuxmint.com&#34;&gt;Linux Mint&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://getfedora.org&#34;&gt;Fedora&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.centos.org&#34;&gt;CentOS&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://elementary.io&#34;&gt;ElementaryOS&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://pinguyos.com&#34;&gt;PinguyOS&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.opensuse.org&#34;&gt;OpenSUSE&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://zorinos.com&#34;&gt;Zorin&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;and many more..&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I have installed all of them on my VirtualBox to see which one is best. After trying all of them I settled on Linux Mint.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Ubuntu&lt;/strong&gt; is the most popular desktop Linux distro but I didn&amp;#8217;t like its Unity Desktop Environment very much.
+But there are various other variation of Desktop Environments like GNOME, MATE which looks better, IMHO.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Fedora&lt;/strong&gt; is Redhat&amp;#8217;s play ground for Redhat Enterprise Linux (RHEL) and &lt;strong&gt;CentOS&lt;/strong&gt; is a kind of open source version of RHEL
+built by community. Both Fedora and CentOS looks good but they are ass friendly as Ubuntu based distros for beginners.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;ElementaryOS&lt;/strong&gt; is the most beautiful OS among all the distros I have tried. It is a very light weight distro
+with fantastic look and minimal applications installed. If you are a casual user who uses your computer just for
+internet browsing, watching videos, play music, write some documentation then it is the best choice.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;PinguyOS&lt;/strong&gt;, which is a Ubuntu derivative, is a perfect distor for those who want everything to be pre-installed.
+It has most of the commonly used applications installed already. But it is too heavy and slow also.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I have tried &lt;strong&gt;OpenSUSE&lt;/strong&gt;, &lt;strong&gt;Zorin&lt;/strong&gt;, &lt;strong&gt;Deepin&lt;/strong&gt;, &lt;strong&gt;Bodhi&lt;/strong&gt;, &lt;strong&gt;Manjaro&lt;/strong&gt; etc also and they are good.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;And finally, my favorite is &lt;strong&gt;Linux Mint&lt;/strong&gt;. Linux Mint is a Ubuntu derivative but with its own Desktop Environment
+called Cinnamon. Linux Mint also comes with other Desktop Environments like MATE, XFCE etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Linux Mint Cinnamon GUI looks almost like Windows 7 and the kind of customizations it provides is awesome.
+I liked Linux Mint very much among all the distros I tried and finally installed it on my laptop using it as my primary OS.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_don_t_i_need_windows_os_anymore&#34;&gt;Don&amp;#8217;t I need Windows OS anymore?&lt;/h3&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Even though there are plenty of Linux Desktop Environments with different GUI styles with good looks,
+I feel they are not even close to Windows 7 GUI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Linux distros comes with lot of free applications and you can find thousands of free apps on the app stores,
+but there are few applications that runs only on Windows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Microsoft Office&lt;/strong&gt;: I know about LibreOffice and it is good, but honestly I feel it is not going to be a replacement
+for MS Office.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No official &lt;strong&gt;OneDrive&lt;/strong&gt; client, no &lt;strong&gt;RSA Secure Token ID&lt;/strong&gt; support, no &lt;strong&gt;Photoshop&lt;/strong&gt;, gaming support is not as good as
+Windows and few more things like that.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;I am not a Photoshop user, I am not a gaming person and I am not really heavy user of MS Office.
+So I can live with some limitations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;By using Linux OS I don&amp;#8217;t have to worry too much about viruses (I know Linux also can get viruses but not as much as Windows),
+thousands of free apps and it is free :-)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&lt;strong&gt;The best part of using Linux OS is I am understanding little bit more about how operating systems work.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Welcome to my new blog</title>

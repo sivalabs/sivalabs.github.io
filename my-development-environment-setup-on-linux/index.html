@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  	<meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SivaLabs &middot; My Development Environment Setup on Linux</title>
+    
+    
+    <link href="http://sivalabs.github.io/css/asciidoctor-default.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/flatly-bootstrap.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://sivalabs.github.io/css/custom.css" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="http://sivalabs.github.io/favicon.png" type="image/x-icon">
+    
+    
+    
+  <link href="" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+</head>
+
+	<body>
+		<header class="navbar navbar-default navbar-fixed-top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://sivalabs.github.io/">SivaLabs</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trainings <i class="icon-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://sivalabs.github.io/core-java">Core Java</a></li>
+                        <li><a href="http://sivalabs.github.io/spring">Spring</a></li>
+                        <li><a href="http://sivalabs.github.io/java-ee">JavaEE</a></li>
+                        
+                    </ul>
+                </li>
+                
+                <li><a href="http://sivalabs.github.io/contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+
+		<section id="blog" class="container page-container">
+			<div class="row">
+	        	<aside class="col-sm-3 col-sm-push-9">
+	                
+
+<div id="sidebar">
+
+<div class="widget">
+	<h3>K. Siva Prasad Reddy</h3>
+	<img class="authorpic" src="http://sivalabs.github.io/images/Siva-1.jpg" alt="Siva"/>
+	
+</div>	
+			
+
+
+                
+<div class="widget">
+    <h2>Latest Posts</h2>
+    <div class="row">
+        
+        <div class="col-sm-12">
+            <div>                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/my-development-environment-setup-on-linux">My Development Environment Setup on Linux</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div>                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/how-to-ssh-into-virtualbox-linux-os">How to SSH into VirtualBox Linux OS?</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div>                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/centos-7-installation-on-oracle-virtualbox">CentOS 7 Installation on Oracle Virtualbox</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div>                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/my-linux-journey-begins">My Linux Journey Begins</a></p>                
+            </div>            
+        </div>
+        
+        <div class="col-sm-12">
+            <div>                
+                <p><i class="fa fa-angle-double-right"></i> <a href="http://sivalabs.github.io/thinking-of-moving-from-windows-to-linux">Thinking of moving from Windows to Linux?</a></p>                
+            </div>            
+        </div>
+        
+    </div> 
+</div>
+ 
+
+<div class="widget tags">
+    <h3>Tag Cloud</h3>
+    <ul class="tag-cloud">
+    	
+        <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/blogging">Blogging</a></li>
+        
+        <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/linux">Linux</a></li>
+        
+        <li><a class="btn btn-xs btn-primary" href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a></li>
+            
+    </ul>
+</div>
+
+<div class="widget categories">
+    <h3>Blog Categories</h3>
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="arrow">
+                
+             	 	<li><a href="http://sivalabs.github.io/categories/blogging">Blogging</a></li>
+	  			
+             	 	<li><a href="http://sivalabs.github.io/categories/linux">Linux</a></li>
+	  			
+            </ul>
+        </div>
+        
+    </div>                     
+</div>
+
+</div>       	
+	            </aside>        
+	            <div class="col-sm-9 col-sm-pull-3">
+	            	<div>
+                		<h4><a href="http://sivalabs.github.io/">Home</a> <i class="fa fa-angle-double-right"></i> <span>My Development Environment Setup on Linux</span></h4>
+                	</div>
+	            	<div class="panel panel-default">
+                    <div class="panel-body">
+                        
+                        <div class="blog-content">
+                            <h2>My Development Environment Setup on Linux</h2>
+                            <div class="entry-meta">
+                                <span><i class="fa fa-user"></i> Siva</span>
+                                <span><i class="fa fa-calendar"></i> Jan 7, 2016</span>
+                            </div>
+                            <div class="tags">
+                                <i class="icon-tags"></i> Tags 
+                                
+                                        	<a class="btn btn-primary btn-xs" href="http://sivalabs.github.io/tags/linux" rel="category">
+										    	Linux &nbsp;&nbsp;
+										    </a>
+									  	
+                            </div>
+                            <p><div class="paragraph">
+<p>As I mentioned in my previous post <a href="http://sivalabs.github.io/thinking-of-moving-from-windows-to-linux/">Thinking of moving from Windows to Linux?</a>
+I am moving from Windows to Linux. Setting up my development environment is a bit tedious because I have to hunt down the applications
+and execute various commands to setup. So I thought of make a note of them in a post so that it will be easier for me next time.</p>
+</div>
+<div class="paragraph">
+<p>I am using <strong>Ubuntu/LinuxMint</strong> system so I am using <strong>apt-get</strong> to install, if you are using <strong>Fedora/CentOS</strong> you can use <strong>yum/dnf</strong>.</p>
+</div>
+<div class="paragraph">
+<p>The very first thing I do after installing Linux is updating the system and in case I am working on VirtualBox VM installing VirtualBox Guest Additions.</p>
+</div>
+<div class="paragraph">
+<p><code>sudo apt-get update</code><br>
+<code>sudo apt-get install virtualbox-guest-dkms virtualbox-guest-x11</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Setting up Java Development Environment</strong></p>
+</div>
+<div class="paragraph">
+<p>Some Linux distros come with OpenJDK by default. You may want to remove <strong>OpenJDK</strong> first and install <strong>Oracle JDK</strong>.</p>
+</div>
+<div class="paragraph">
+<p><code>sudo apt-get purge openjdk-*</code><br>
+<code>sudo add-apt-repository ppa:webupd8team/java</code><br>
+<code>sudo apt-get update</code></p>
+</div>
+<div class="paragraph">
+<p>To install Java 7 <code>sudo apt-get install oracle-java7-installer</code><br>
+To install Java 8 <code>sudo apt-get install oracle-java8-installer</code></p>
+</div>
+<div class="paragraph">
+<p>If you want to set <strong>JAVA_HOME</strong> environment variable for a particular user then you can add JAVA_HOME in <strong>~/.bash_profile</strong>
+or if you want to setup for all the users globally then you can add it to <strong>/etc/profile</strong> file.</p>
+</div>
+<div class="paragraph">
+<p><code>&gt; vi ~/.bash_profile</code> or <code>vi /etc/profile</code></p>
+</div>
+<div class="paragraph">
+<p>Append the following to the file:</p>
+</div>
+<div class="paragraph">
+<p><code>export JAVA_HOME=/usr/lib/jvm/java-8-oracle</code><br>
+<code>export PATH=$PATH:$JAVA_HOME/bin</code></p>
+</div>
+<div class="paragraph">
+<p>Reload the configuration updates<br>
+<code>&gt; source ~/.bash_profile</code> or <code>source /etc/profile</code></p>
+</div>
+<div class="paragraph">
+<p>After installing JDK you may want to download your favorite IDE from the following locations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Eclipse <a href="http://www.eclipse.org/downloads/" class="bare">http://www.eclipse.org/downloads/</a></p>
+</li>
+<li>
+<p>STS <a href="https://spring.io/tools/sts/all" class="bare">https://spring.io/tools/sts/all</a></p>
+</li>
+<li>
+<p>JBoss Developer Studio <a href="http://tools.jboss.org/downloads/devstudio/index.html" class="bare">http://tools.jboss.org/downloads/devstudio/index.html</a></p>
+</li>
+<li>
+<p>NetbeansIDE <a href="https://netbeans.org/downloads/" class="bare">https://netbeans.org/downloads/</a></p>
+</li>
+<li>
+<p>Intellij IDEA <a href="https://www.jetbrains.com/idea/download/" class="bare">https://www.jetbrains.com/idea/download/</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Most of the times I work with either <strong>Tomcat</strong> or <strong>JBoss/Wildfly</strong> servers.<br>
+You cand ownload them from the following locations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Tomcat <a href="https://tomcat.apache.org/download-80.cgi" class="bare">https://tomcat.apache.org/download-80.cgi</a></p>
+</li>
+<li>
+<p>Wildfly <a href="http://wildfly.org/downloads/" class="bare">http://wildfly.org/downloads/</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To install build tools like <strong>Ant</strong> or <strong>Maven</strong></p>
+</div>
+<div class="paragraph">
+<p><code>&gt; sudo apt-get install ant</code><br>
+<code>&gt; sudo apt-get install maven</code></p>
+</div>
+<div class="paragraph">
+<p>We can install various softwares like <strong>Groovy</strong>, <strong>Grails</strong>, <strong>Gradle</strong> etc you can use  <a href="http://sdkman.io/"><strong>SDKMan</strong></a>
+which was previously known as <strong>GVM</strong>.</p>
+</div>
+<div class="paragraph">
+<p><code>&gt; curl -s <a href="http://get.sdkman.io" class="bare">http://get.sdkman.io</a> | bash</code><br>
+<code>&gt; source "$HOME/.sdkman/bin/sdkman-init.sh"</code><br>
+<code>&gt; sdk version</code><br>
+<code>&gt; sdk install groovy</code><br>
+<code>&gt; sdk install grails</code><br>
+<code>&gt; sdk install gradle</code><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Install MySQL server</strong>
+You can install MySQL server and MySQL Workbench from Ubuntu Software Center.</p>
+</div>
+<div class="paragraph">
+<p>But if you prefer commandline installation</p>
+</div>
+<div class="paragraph">
+<p><code>&gt; sudo apt-get install mysql-server</code><br>
+<code>&gt; sudo apt-get install mysql-workbench</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Installing NodeJS</strong>
+Installing NodeJS become a little bit complicated because it is going through some changes(nodejs, nodejs-legacy, io.js etc).</p>
+</div>
+<div class="paragraph">
+<p>You can install latest NodeJS using following commands:</p>
+</div>
+<div class="paragraph">
+<p><code>&gt; sudo apt-get install curl</code><br>
+<code>&gt; curl -sL <a href="https://deb.nodesource.com/setup_0.12" class="bare">https://deb.nodesource.com/setup_0.12</a> | sudo bash -</code><br>
+<code>&gt; sudo apt-get install nodejs</code></p>
+</div>
+<div class="paragraph">
+<p>For further details refer <a href="https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager" class="bare">https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Install yeoman and generators</strong>
+ <a href="http://yeoman.io/">Yeoman</a> makes it easy to develop front-end applications by automating various tasks using bower, grunt or gulp.</p>
+</div>
+<div class="paragraph">
+<p>Install yeoman</p>
+</div>
+<div class="paragraph">
+<p><code>sudo npm install -g yo bower grunt-cli gulp</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Install various generators</strong></p>
+</div>
+<div class="paragraph">
+<p><code>&gt; sudo npm install -g generator-webapp</code><br>
+<code>&gt; sudo npm install -g generator-angular</code><br>
+<code>&gt; sudo npm install -g generator-jhipster</code><br>
+<code>&gt; sudo npm install -g generator-meanjs</code><br>
+<code>&gt; sudo npm install -g cordova ionic</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Installing Ruby and RubyOnRails</strong></p>
+</div>
+<div class="paragraph">
+<p>You may be using <strong>Ruby</strong> or tools that depends on Ruby like <strong>OpenShift</strong> commandline tools, <strong>Jekyll</strong> etc.</p>
+</div>
+<div class="paragraph">
+<p>You can find the very detailed instructions on how to install Ruby/RubyOnRails at <a href="https://gorails.com/setup/ubuntu/15.04" class="bare">https://gorails.com/setup/ubuntu/15.04</a></p>
+</div>
+<div class="paragraph">
+<p>Just for the sake of quick reference I am repeating the steps here:</p>
+</div>
+<div class="paragraph">
+<p><code>&gt; sudo apt-get update</code><br>
+<code>&gt; sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev</code></p>
+</div>
+<div class="paragraph">
+<p><code>&gt; cd</code><br>
+<code>&gt; git clone git://github.com/sstephenson/rbenv.git .rbenv</code><br>
+<code>&gt; echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc</code><br>
+<code>&gt; echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc</code><br>
+<code>&gt; exec $SHELL</code></p>
+</div>
+<div class="paragraph">
+<p><code>&gt; git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build</code><br>
+<code>&gt; echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' &gt;&gt; ~/.bashrc</code><br>
+<code>&gt; exec $SHELL</code></p>
+</div>
+<div class="paragraph">
+<p><code>&gt; git clone <a href="https://github.com/sstephenson/rbenv-gem-rehash.git" class="bare">https://github.com/sstephenson/rbenv-gem-rehash.git</a> ~/.rbenv/plugins/rbenv-gem-rehash</code></p>
+</div>
+<div class="paragraph">
+<p><code>&gt; rbenv install 2.2.3</code><br>
+<code>&gt; rbenv global 2.2.3</code><br>
+<code>&gt; ruby -v</code></p>
+</div>
+<div class="paragraph">
+<p><code>&gt; echo "gem: --no-ri --no-rdoc" &gt; ~/.gemrc</code><br>
+<code>&gt; gem install bundler</code></p>
+</div>
+<div class="paragraph">
+<p><code>&gt; gem install rails -v 4.2.4</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Installing Jekyll</strong>
+<a href="https://jekyllrb.com">Jekyll</a> is a static site generator which you can use to generate your site and host it on github.</p>
+</div>
+<div class="paragraph">
+<p><code>&gt; gem install jekyll</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Test drive Jekyll</strong></p>
+</div>
+<div class="paragraph">
+<p><code>&gt; jekyll new myblog</code><br>
+<code>&gt; cd myblog</code><br>
+<code>&gt; jekyll serve</code></p>
+</div>
+<div class="paragraph">
+<p>Hope these installation instructions helps!!</p>
+</div>
+<div class="paragraph">
+<p><strong>Note: All the images belong to their respective owners.</strong></p>
+</div>
+</p>
+
+                            <hr>
+
+                            <p>&nbsp;</p>
+
+                            <div class="author well">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img class="avatar img-rounded authorpic-thumbnail" src="http://sivalabs.github.io/images/siva.jpg" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <strong>K. Siva Prasad Reddy</strong>
+                                        </div>
+                                        <p>A software developer with 10 years of experience in developing Enterprise application using Java platform.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                        <div>
+                        	<p><div class="">
+	<a href="https://twitter.com/intent/tweet?status=My%20Development%20Environment%20Setup%20on%20Linux-http%3a%2f%2fsivalabs.github.io%2fmy-development-environment-setup-on-linux" target="_blank"
+		   title="Share on Twitter" class="twitter">
+		   
+		<span class="fa-stack fa-lg icon-twitter">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fsivalabs.github.io%2fmy-development-environment-setup-on-linux" target="_blank" title="Share on Facebook"
+		   class="facebook">		   
+		<span class="fa-stack fa-lg icon-facebook">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>	   
+	</a>
+		   
+	<a href="https://plus.google.com/share?url=http%3a%2f%2fsivalabs.github.io%2fmy-development-environment-setup-on-linux" target="_blank" title="Share on Google+" class="googleplus">		
+		<span class="fa-stack fa-lg icon-gplus">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-google-plus fa-stack-1x"></i>
+        </span>	   	
+	</a>
+		
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fsivalabs.github.io%2fmy-development-environment-setup-on-linux&title=My%20Development%20Environment%20Setup%20on%20Linux&source=spf13"
+		   target="_blank" title="Share on LinkedIn" class="linkedin">		  
+		<span class="fa-stack fa-lg icon-linkedin">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x"></i>
+        </span>
+	</a>
+		   
+	<a href="http://www.reddit.com/submit?url=http%3a%2f%2fsivalabs.github.io%2fmy-development-environment-setup-on-linux" target="_blank" title="Share on Reddit" class="reddit">		
+		<span class="fa-stack fa-lg icon-reddit">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-reddit-alien fa-stack-1x"></i>
+        </span>	
+	</a>
+</div></p>
+                        </div>
+                        <aside id=comments>
+    <div><h2> Comments </h2></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sivalabs';
+    var disqus_identifier = 'http:\/\/sivalabs.github.io\/my-development-environment-setup-on-linux';
+    var disqus_title = 'My Development Environment Setup on Linux';
+    var disqus_url = 'http:\/\/sivalabs.github.io\/my-development-environment-setup-on-linux';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+                    </div>
+                </div>
+                
+                <ul class="pager">
+				  
+				    
+				  
+			      
+			      
+					  <li class="next">
+				    	<a href="http://sivalabs.github.io/centos-7-installation-on-oracle-virtualbox">CentOS 7 Installation on Oracle Virtualbox &rarr; </a>
+				    	</li>
+				  
+			     
+				</ul>
+				
+	            </div>
+            </div>
+            
+
+    </section>
+    	
+    
+    
+     
+     
+
+<footer id="footer" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>&copy; 2015 <a target="_blank" href="http://www.sivalabs.in">www.sivalabs.in</a>. All Rights Reserved.</center>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<script src="http://sivalabs.github.io/js/jquery-1.10.2.min.js"></script>
+<script src="http://sivalabs.github.io/js/bootstrap.min.js"></script>
+<script src="http://sivalabs.github.io/js/main.js"></script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-71296890-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+ 
+</body>
+</html>
+
