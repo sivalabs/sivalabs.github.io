@@ -6,13 +6,13 @@
     <description>Recent content in Virtualbox on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Jan 2016 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Jan 2016 09:00:00 +0530</lastBuildDate>
     <atom:link href="http://sivalabs.github.io/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>CentOS 7 Installation on Oracle Virtualbox</title>
       <link>http://sivalabs.github.io/centos-7-installation-on-oracle-virtualbox</link>
-      <pubDate>Thu, 07 Jan 2016 09:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Jan 2016 09:00:00 +0530</pubDate>
       
       <guid>http://sivalabs.github.io/centos-7-installation-on-oracle-virtualbox</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
@@ -69,7 +69,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6&lt;/p&gt;
     <item>
       <title>How to SSH into VirtualBox Linux OS?</title>
       <link>http://sivalabs.github.io/how-to-ssh-into-virtualbox-linux-os</link>
-      <pubDate>Thu, 07 Jan 2016 09:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Jan 2016 09:00:00 +0530</pubDate>
       
       <guid>http://sivalabs.github.io/how-to-ssh-into-virtualbox-linux-os</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;

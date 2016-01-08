@@ -6,13 +6,13 @@
     <description>Recent content on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Jan 2016 10:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Jan 2016 10:00:00 +0530</lastBuildDate>
     <atom:link href="http://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>My Development Environment Setup on Linux</title>
       <link>http://sivalabs.github.io/my-development-environment-setup-on-linux</link>
-      <pubDate>Thu, 07 Jan 2016 10:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Jan 2016 10:00:00 +0530</pubDate>
       
       <guid>http://sivalabs.github.io/my-development-environment-setup-on-linux</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
@@ -234,7 +234,7 @@ Installing NodeJS become a little bit complicated because it is going through so
     <item>
       <title>CentOS 7 Installation on Oracle Virtualbox</title>
       <link>http://sivalabs.github.io/centos-7-installation-on-oracle-virtualbox</link>
-      <pubDate>Thu, 07 Jan 2016 09:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Jan 2016 09:00:00 +0530</pubDate>
       
       <guid>http://sivalabs.github.io/centos-7-installation-on-oracle-virtualbox</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
@@ -291,7 +291,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6&lt;/p&gt;
     <item>
       <title>How to SSH into VirtualBox Linux OS?</title>
       <link>http://sivalabs.github.io/how-to-ssh-into-virtualbox-linux-os</link>
-      <pubDate>Thu, 07 Jan 2016 09:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Jan 2016 09:00:00 +0530</pubDate>
       
       <guid>http://sivalabs.github.io/how-to-ssh-into-virtualbox-linux-os</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
@@ -355,7 +355,7 @@ inet6 addr: fe80::a00:27ff:fe7e:ea89/64 Scope:Link&lt;/code&gt;&lt;/p&gt;
     <item>
       <title>My Linux Journey Begins</title>
       <link>http://sivalabs.github.io/my-linux-journey-begins</link>
-      <pubDate>Thu, 07 Jan 2016 08:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Jan 2016 08:00:00 +0530</pubDate>
       
       <guid>http://sivalabs.github.io/my-linux-journey-begins</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
@@ -443,7 +443,7 @@ Expect some small Linux tips on this blog going forward :-)&lt;/p&gt;
     <item>
       <title>Thinking of moving from Windows to Linux?</title>
       <link>http://sivalabs.github.io/thinking-of-moving-from-windows-to-linux</link>
-      <pubDate>Thu, 07 Jan 2016 07:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Jan 2016 07:00:00 +0530</pubDate>
       
       <guid>http://sivalabs.github.io/thinking-of-moving-from-windows-to-linux</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
@@ -594,7 +594,7 @@ thousands of free apps and it is free :-)&lt;/p&gt;
     <item>
       <title>Welcome to my new blog</title>
       <link>http://sivalabs.github.io/welcome-to-my-new-blog</link>
-      <pubDate>Wed, 06 Jan 2016 19:20:04 -0700</pubDate>
+      <pubDate>Wed, 06 Jan 2016 19:20:04 +0530</pubDate>
       
       <guid>http://sivalabs.github.io/welcome-to-my-new-blog</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
@@ -1186,6 +1186,32 @@ I am a Software developer working on Java platform since 2005.&lt;/p&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;Please reach me at &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt; for further details.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Books</title>
+      <link>http://sivalabs.github.io/mybooks</link>
+      <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
+      
+      <guid>http://sivalabs.github.io/mybooks</guid>
+      <description>&lt;div class=&#34;sect3&#34;&gt;
+&lt;h4 id=&#34;_i_am_the_author_of_the_following_books&#34;&gt;I am the author of the following books.&lt;/h4&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;&lt;strong&gt;Java Persistence with MyBatis 3&lt;/strong&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/application-development/java-persistence-mybatis-3&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/images/books/MyBatis.jpg&#34; alt=&#34;MyBatis&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&amp;#160;&amp;#160;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;&lt;strong&gt;PrimeFaces Beginners Guide&lt;/strong&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/web-development/primefaces-beginners-guide&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/images/books/PFBG.jpg&#34; alt=&#34;PrimeFaces&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
