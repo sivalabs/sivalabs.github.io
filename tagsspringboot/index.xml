@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Springboot on SivaLabs</title>
+    <link>http://sivalabs.github.io/tags/springboot/</link>
+    <description>Recent content in Springboot on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Feb 2016 07:00:00 +0530</lastBuildDate>
+    <atom:link href="http://sivalabs.github.io/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Creating Custom SpringBoot Starter for Twitter4j</title>
+      <link>http://sivalabs.github.io/creating-custom-springboot-starter-twitter4j</link>
+      <pubDate>Mon, 15 Feb 2016 07:00:00 +0530</pubDate>
+      
+      <guid>http://sivalabs.github.io/creating-custom-springboot-starter-twitter4j</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;SpringBoot provides lot of starter modules to get up and running quickly.
+SpringBoot&amp;#8217;s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.
+In this post we will look into how to create a custom SpringBoot starter.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;To demonstrate it we are going to create &lt;strong&gt;twitter4j-spring-boot-starter&lt;/strong&gt; which will auto-configure Twitter4J beans.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;To accomplish this, we are going to create:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;olist arabic&#34;&gt;
+&lt;ol class=&#34;arabic&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;twitter4j-spring-boot-autoconfigure&lt;/strong&gt; module which contains Twitter4J AutoConfiguration bean definitions&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;twitter4j-spring-boot-starter&lt;/strong&gt; module which pulls in &lt;strong&gt;twitter4j-spring-boot-autoconfigure&lt;/strong&gt; and &lt;strong&gt;twitter4j-core&lt;/strong&gt; dependencies&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sample application which uses &lt;strong&gt;twitter4j-spring-boot-starter&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_create_parent_module_spring_boot_starter_twitter4j&#34;&gt;Create Parent Module spring-boot-starter-twitter4j&lt;/h3&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;First we are going to create a parent pom type module to define dependency versions and sub-modules.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color: #BC7A00&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;project&lt;/span&gt; &lt;span style=&#34;color: #7D9029&#34;&gt;xmlns=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #7D9029&#34;&gt;xmlns:xsi=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #7D9029&#34;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0&lt;/span&gt;
+&lt;span style=&#34;color: #BA2121&#34;&gt;						http://maven.apache.org/maven-v4_0_0.xsd&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.sivalabs&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-twitter4j&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;pom&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;spring-boot-starter-twitter4j&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;project.build.sourceEncoding&amp;gt;&lt;/span&gt;UTF-8&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;twitter4j.version&amp;gt;&lt;/span&gt;4.0.3&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/twitter4j.version&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;spring-boot.version&amp;gt;&lt;/span&gt;1.3.2.RELEASE&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/spring-boot.version&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;modules&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;twitter4j-spring-boot-autoconfigure&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;twitter4j-spring-boot-starter&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;twitter4j-spring-boot-sample&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/modules&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependencyManagement&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-dependencies&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${spring-boot.version}&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;type&amp;gt;&lt;/span&gt;pom&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/type&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;import&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.twitter4j&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;twitter4j-core&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${twitter4j.version}&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependencyManagement&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;In this &lt;strong&gt;pom.xml&lt;/strong&gt; we are defining the SpringBoot and Twitter4j versions in &lt;strong&gt;&amp;lt;dependencyManagement&amp;gt;&lt;/strong&gt; section so that we don&amp;#8217;t need to specify versions all over the places.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_create_twitter4j_spring_boot_autoconfigure_module&#34;&gt;Create twitter4j-spring-boot-autoconfigure module&lt;/h3&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Create a child module with name &lt;strong&gt;twitter4j-spring-boot-autoconfigure&lt;/strong&gt; in our parent maven module &lt;strong&gt;spring-boot-starter-twitter4j&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Add the maven dependencies such as spring-boot, spring-boot-autoconfigure, twitter4j-core and junit as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color: #BC7A00&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;project&lt;/span&gt; &lt;span style=&#34;color: #7D9029&#34;&gt;xmlns=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #7D9029&#34;&gt;xmlns:xsi=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #7D9029&#34;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0&lt;/span&gt;
+&lt;span style=&#34;color: #BA2121&#34;&gt;						http://maven.apache.org/maven-v4_0_0.xsd&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.sivalabs&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;twitter4j-spring-boot-autoconfigure&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;jar&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;parent&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.sivalabs&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-twitter4j&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/parent&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;project.build.sourceEncoding&amp;gt;&lt;/span&gt;UTF-8&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-autoconfigure&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-configuration-processor&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;optional&amp;gt;&lt;/span&gt;true&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/optional&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;junit&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;junit&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;test&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.twitter4j&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;twitter4j-core&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;optional&amp;gt;&lt;/span&gt;true&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/optional&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Note that we have specified &lt;strong&gt;twitter4j-core&lt;/strong&gt; as optional dependency because &lt;strong&gt;twitter4j-core&lt;/strong&gt; should be added to the project
+ only when &lt;strong&gt;twitter4j-spring-boot-starter&lt;/strong&gt; is added to the project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect3&#34;&gt;
+&lt;h4 id=&#34;_create_twitter4jproperties_to_hold_the_twitter4j_config_parameters&#34;&gt;Create Twitter4jProperties to hold the Twitter4J config parameters&lt;/h4&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Create &lt;strong&gt;Twitter4jProperties.java&lt;/strong&gt; to hold the Twitter4J OAuth config parameters&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;package&lt;/span&gt; com&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;sivalabs&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;spring&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;autoconfigure&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.boot.context.properties.ConfigurationProperties&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.boot.context.properties.NestedConfigurationProperty&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #AA22FF&#34;&gt;@ConfigurationProperties&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;prefix&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; Twitter4jProperties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;TWITTER4J_PREFIX&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;Twitter4jProperties&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;final&lt;/span&gt; String TWITTER4J_PREFIX &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;twitter4j&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; Boolean debug &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #AA22FF&#34;&gt;@NestedConfigurationProperty&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; OAuth oauth &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;OAuth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; Boolean &lt;span style=&#34;color: #0000FF&#34;&gt;getDebug&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; debug&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;setDebug&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;Boolean debug&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;debug&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; debug&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; OAuth &lt;span style=&#34;color: #0000FF&#34;&gt;getOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; oauth&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;setOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;OAuth oauth&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;oauth&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; oauth&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;OAuth&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; String consumerKey&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; String consumerSecret&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; String accessToken&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; String accessTokenSecret&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0000FF&#34;&gt;getConsumerKey&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; consumerKey&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;setConsumerKey&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String consumerKey&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;consumerKey&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumerKey&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0000FF&#34;&gt;getConsumerSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; consumerSecret&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;setConsumerSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String consumerSecret&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;consumerSecret&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumerSecret&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0000FF&#34;&gt;getAccessToken&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; accessToken&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;setAccessToken&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String accessToken&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;accessToken&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; accessToken&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color: #0000FF&#34;&gt;getAccessTokenSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; accessTokenSecret&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;setAccessTokenSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String accessTokenSecret&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;accessTokenSecret&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; accessTokenSecret&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;With this configuration object we can configure the twitter4j properties in &lt;strong&gt;application.properties&lt;/strong&gt; as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;properties&#34;&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;twitter4j.debug&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;true&lt;/span&gt;
+&lt;span style=&#34;color: #7D9029&#34;&gt;twitter4j.oauth.consumer-key&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;your-consumer-key-here&lt;/span&gt;
+&lt;span style=&#34;color: #7D9029&#34;&gt;twitter4j.oauth.consumer-secret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;your-consumer-secret-here&lt;/span&gt;
+&lt;span style=&#34;color: #7D9029&#34;&gt;twitter4j.oauth.access-token&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;your-access-token-here&lt;/span&gt;
+&lt;span style=&#34;color: #7D9029&#34;&gt;twitter4j.oauth.access-token-secret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;your-access-token-secret-here&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect3&#34;&gt;
+&lt;h4 id=&#34;_create_twitter4jautoconfiguration_to_auto_configure_twitter4j&#34;&gt;Create Twitter4jAutoConfiguration to auto-configure Twitter4J&lt;/h4&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Here comes the key part of our starter. &lt;strong&gt;Twitter4jAutoConfiguration&lt;/strong&gt; configuration class contains the bean definitions that will be automatically configured based on some criteria.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;What is that criteria?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;olist arabic&#34;&gt;
+&lt;ol class=&#34;arabic&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;If &lt;strong&gt;twitter4j.TwitterFactory.class&lt;/strong&gt; is on classpath&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If &lt;strong&gt;TwitterFactory&lt;/strong&gt; bean is not already defined explicitly&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;So, the &lt;strong&gt;Twitter4jAutoConfiguration&lt;/strong&gt; goes like this.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;package&lt;/span&gt; com&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;sivalabs&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;spring&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;autoconfigure&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.apache.commons.logging.Log&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.apache.commons.logging.LogFactory&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.beans.factory.annotation.Autowired&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.boot.autoconfigure.condition.ConditionalOnClass&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.boot.context.properties.EnableConfigurationProperties&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.context.annotation.Bean&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.context.annotation.Configuration&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;twitter4j.Twitter&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;twitter4j.TwitterFactory&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;twitter4j.conf.ConfigurationBuilder&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #AA22FF&#34;&gt;@Configuration&lt;/span&gt;
+&lt;span style=&#34;color: #AA22FF&#34;&gt;@ConditionalOnClass&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;({&lt;/span&gt; TwitterFactory&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; Twitter&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;})&lt;/span&gt;
+&lt;span style=&#34;color: #AA22FF&#34;&gt;@EnableConfigurationProperties&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;Twitter4jProperties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;Twitter4jAutoConfiguration&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; Log log &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; LogFactory&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getLog&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;Twitter4jAutoConfiguration&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+
+	&lt;span style=&#34;color: #AA22FF&#34;&gt;@Autowired&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; Twitter4jProperties properties&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #AA22FF&#34;&gt;@Bean&lt;/span&gt;
+	&lt;span style=&#34;color: #AA22FF&#34;&gt;@ConditionalOnMissingBean&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; TwitterFactory &lt;span style=&#34;color: #0000FF&#34;&gt;twitterFactory&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(){&lt;/span&gt;
+
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;properties&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getConsumerKey&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;null&lt;/span&gt;
+			&lt;span style=&#34;color: #666666&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;properties&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getConsumerSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;null&lt;/span&gt;
+			&lt;span style=&#34;color: #666666&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;properties&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getAccessToken&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;null&lt;/span&gt;
+			&lt;span style=&#34;color: #666666&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;properties&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getAccessTokenSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			log&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;error&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Twitter4j properties not configured properly. Please check twitter4j.* properties settings in configuration file.&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;RuntimeException&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Twitter4j properties not configured properly. Please check twitter4j.* properties settings in configuration file.&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+		ConfigurationBuilder cb &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;ConfigurationBuilder&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
+		cb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;setDebugEnabled&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getDebug&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;())&lt;/span&gt;
+		  &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;setOAuthConsumerKey&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getConsumerKey&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;())&lt;/span&gt;
+		  &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;setOAuthConsumerSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getConsumerSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;())&lt;/span&gt;
+		  &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;setOAuthAccessToken&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getAccessToken&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;())&lt;/span&gt;
+		  &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;setOAuthAccessTokenSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getOauth&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getAccessTokenSecret&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+		TwitterFactory tf &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;TwitterFactory&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;cb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; tf&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+	&lt;span style=&#34;color: #AA22FF&#34;&gt;@Bean&lt;/span&gt;
+	&lt;span style=&#34;color: #AA22FF&#34;&gt;@ConditionalOnMissingBean&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; Twitter &lt;span style=&#34;color: #0000FF&#34;&gt;twitter&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;TwitterFactory twitterFactory&lt;span style=&#34;color: #666666&#34;&gt;){&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; twitterFactory&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getInstance&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We have used &lt;strong&gt;@ConditionalOnClass({ TwitterFactory.class, Twitter.class })&lt;/strong&gt; to specify
+that this auto configuration should take place only when &lt;strong&gt;TwitterFactory.class, Twitter.class&lt;/strong&gt; classes are present.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We have also used &lt;strong&gt;@ConditionalOnMissingBean&lt;/strong&gt; on bean definition methods to specify consider this bean definition only
+if &lt;strong&gt;TwitterFactory/Twitter&lt;/strong&gt; beans are not already defined explicitly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Also note that we have annotated with &lt;strong&gt;@EnableConfigurationProperties(Twitter4jProperties.class)&lt;/strong&gt; to enable support for ConfigurationProperties and injected &lt;strong&gt;Twitter4jProperties&lt;/strong&gt; bean.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Now we need to configure our custom &lt;strong&gt;Twitter4jAutoConfiguration&lt;/strong&gt; in &lt;strong&gt;src/main/resources/META-INF/spring.factories&lt;/strong&gt; file as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;java&#34;&gt;org&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;springframework&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;autoconfigure&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;EnableAutoConfiguration&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;com&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;sivalabs&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;spring&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;boot&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;autoconfigure&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;Twitter4jAutoConfiguration&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_create_twitter4j_spring_boot_starter_module&#34;&gt;Create twitter4j-spring-boot-starter module&lt;/h3&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Create a child module with name &lt;strong&gt;twitter4j-spring-boot-starter&lt;/strong&gt; in our parent maven module &lt;strong&gt;spring-boot-starter-twitter4j&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color: #BC7A00&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;project&lt;/span&gt; &lt;span style=&#34;color: #7D9029&#34;&gt;xmlns=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #7D9029&#34;&gt;xmlns:xsi=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #7D9029&#34;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0&lt;/span&gt;
+&lt;span style=&#34;color: #BA2121&#34;&gt;						http://maven.apache.org/maven-v4_0_0.xsd&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.sivalabs&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;twitter4j-spring-boot-starter&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;jar&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;parent&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.sivalabs&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-twitter4j&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/parent&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;project.build.sourceEncoding&amp;gt;&lt;/span&gt;UTF-8&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.sivalabs&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;twitter4j-spring-boot-autoconfigure&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${project.version}&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.twitter4j&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;twitter4j-core&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Note that in this maven module we are actually pulling in &lt;strong&gt;twitter4j-core&lt;/strong&gt; dependency.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;We don&amp;#8217;t need to add any code in this module, but optionally we can specify what are the dependencies we are going to provide through this starter in
+&lt;strong&gt;src/main/resources/META-INF/spring.provides&lt;/strong&gt; file as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;xml&#34;&gt;provides: twitter4j-core&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;That&amp;#8217;s all for our starter. Let us create a sample using our brand new starter &lt;strong&gt;twitter4j-spring-boot-starter&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_create_twitter4j_spring_boot_sample_sample_application&#34;&gt;Create twitter4j-spring-boot-sample sample application&lt;/h3&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Let us create a simple SpringBoot application and add our &lt;strong&gt;twitter4j-spring-boot-starter&lt;/strong&gt; dependency.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color: #BC7A00&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;project&lt;/span&gt; &lt;span style=&#34;color: #7D9029&#34;&gt;xmlns=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #7D9029&#34;&gt;xmlns:xsi=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #7D9029&#34;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0&lt;/span&gt;
+&lt;span style=&#34;color: #BA2121&#34;&gt;						http://maven.apache.org/maven-v4_0_0.xsd&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.sivalabs&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;twitter4j-spring-boot-sample&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;jar&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;parent&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-parent&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.3.2.RELEASE&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/parent&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;project.build.sourceEncoding&amp;gt;&lt;/span&gt;UTF-8&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;java.version&amp;gt;&lt;/span&gt;1.8&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/java.version&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+				&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
+
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.sivalabs&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;twitter4j-spring-boot-starter&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-test&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;test&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Create the entry-point class &lt;strong&gt;SpringbootTwitter4jDemoApplication&lt;/strong&gt; as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;package&lt;/span&gt; com&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;sivalabs&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;demo&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.boot.SpringApplication&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.boot.autoconfigure.SpringBootApplication&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #AA22FF&#34;&gt;@SpringBootApplication&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;SpringbootTwitter4jDemoApplication&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+		SpringApplication&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;SpringbootTwitter4jDemoApplication&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Create &lt;strong&gt;TweetService&lt;/strong&gt; as follows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;package&lt;/span&gt; com&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;sivalabs&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;demo&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;java.util.ArrayList&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;java.util.List&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.beans.factory.annotation.Autowired&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.stereotype.Service&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;twitter4j.ResponseList&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;twitter4j.Status&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;twitter4j.Twitter&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;twitter4j.TwitterException&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #AA22FF&#34;&gt;@Service&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;TweetService&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+
+	&lt;span style=&#34;color: #AA22FF&#34;&gt;@Autowired&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; Twitter twitter&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; List&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;getLatestTweets&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(){&lt;/span&gt;
+		List&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; tweets &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			ResponseList&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;Status&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; homeTimeline &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; twitter&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getHomeTimeline&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;Status status &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; homeTimeline&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+				tweets&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;status&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getText&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+			&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;TwitterException e&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;RuntimeException&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;e&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; tweets&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Now create a Test to verify our Twitter4j AutoConfigutation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Before that make sure you have set your twitter4j oauth configuration parameter to your actual values.
+You can get them from &lt;a href=&#34;https://apps.twitter.com/&#34; class=&#34;bare&#34;&gt;https://apps.twitter.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;package&lt;/span&gt; com&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;sivalabs&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;demo&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;java.util.List&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.junit.Test&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.junit.runner.RunWith&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.beans.factory.annotation.Autowired&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.boot.test.SpringApplicationConfiguration&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;org.springframework.test.context.junit4.SpringJUnit4ClassRunner&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;twitter4j.TwitterException&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #AA22FF&#34;&gt;@RunWith&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;SpringJUnit4ClassRunner&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #AA22FF&#34;&gt;@SpringApplicationConfiguration&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;SpringbootTwitter4jDemoApplication&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;SpringbootTwitter4jDemoApplicationTest&lt;/span&gt;  &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+
+
+	&lt;span style=&#34;color: #AA22FF&#34;&gt;@Autowired&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; TweetService tweetService&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #AA22FF&#34;&gt;@Test&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;testGetTweets&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;throws&lt;/span&gt; TwitterException &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+		List&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; tweets &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; tweetService&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getLatestTweets&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
+		&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String tweet &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; tweets&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+			System&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;err&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;tweet&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Now you should be able to see the latest tweets on your console output.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
