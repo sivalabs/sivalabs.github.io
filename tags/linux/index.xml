@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on SivaLabs</title>
+    <link>http://sivalabs.github.io/tags/linux/</link>
+    <description>Recent content in Linux on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Oct 2015 02:07:05 +0000</lastBuildDate>
+    <atom:link href="http://sivalabs.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My Development Environment Setup on Linux</title>
+      <link>http://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</link>
+      <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</guid>
+      <description>&lt;p&gt;As I mentioned in my previous post &lt;a href=&#34;http://sivalabs.in/thinking-of-moving-from-windows-to-linux/&#34;&gt;Thinking of moving from Windows to Linux?&lt;/a&gt; I am moving from Windows to Linux. Setting up my development environment is a bit tedious because I have to hunt down the applications and execute various commands to setup. So I thought of make a note of them in a post so that it will be easier for me next time.&lt;/p&gt;
+
+&lt;p&gt;I am using &lt;strong&gt;Ubuntu/LinuxMint&lt;/strong&gt; system so I am using &lt;strong&gt;apt-get&lt;/strong&gt; to install, if you are using &lt;strong&gt;Fedora/CentOS&lt;/strong&gt; you can use &lt;strong&gt;yum/dnf&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The very first thing I do after installing Linux is updating the system and in case I am working on VirtualBox VM installing VirtualBox Guest Additions.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install virtualbox-guest-dkms virtualbox-guest-x11&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Setting up Java Development Environment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/java.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/java-300x225.jpg&#34; alt=&#34;java&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Some Linux distros come with OpenJDK by default. You may want to remove OpenJDK first and install Oracle JDK.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt-get purge openjdk-*&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To install Java 7 &lt;code&gt;sudo apt-get install oracle-java7-installer&lt;/code&gt;
+To install Java 8 &lt;code&gt;sudo apt-get install oracle-java8-installer&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to set &lt;strong&gt;JAVA_HOME&lt;/strong&gt; environment variable for a particular user then you can add JAVA_HOME in &lt;strong&gt;~/.bash_profile&lt;/strong&gt; or if you want to setup for all the users globally then you can add it to &lt;strong&gt;/etc/profile&lt;/strong&gt; file.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; vi ~/.bash_profile&lt;/code&gt; or &lt;code&gt;vi /etc/profile&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Append the following to the file:&lt;/p&gt;
+
+&lt;blockquote&gt;export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export PATH=$PATH:$JAVA_HOME/bin&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; source ~/.bash_profile&lt;/code&gt; or &lt;code&gt;source /etc/profile&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;After installing JDK you may want to download your favorite IDE from the following locations:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/eclipse-800x188.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/eclipse-800x188-300x71.png&#34; alt=&#34;eclipse-800x188&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/STS.png&#34;&gt; &lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/STS.png&#34; alt=&#34;STS&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/netbeans0.png&#34;&gt;   &lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/netbeans0.png&#34; alt=&#34;netbeans0&#34; /&gt;  &lt;/a&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/intellijidea.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/intellijidea.png&#34; alt=&#34;intellijidea&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.eclipse.org/downloads/&#34;&gt;http://www.eclipse.org/downloads/&lt;/a&gt;
+&lt;a href=&#34;https://spring.io/tools/sts/all&#34;&gt;https://spring.io/tools/sts/all&lt;/a&gt;
+&lt;a href=&#34;http://tools.jboss.org/downloads/devstudio/index.html&#34;&gt;http://tools.jboss.org/downloads/devstudio/index.html&lt;/a&gt;
+&lt;a href=&#34;https://netbeans.org/downloads/&#34;&gt;https://netbeans.org/downloads/&lt;/a&gt;
+&lt;a href=&#34;https://www.jetbrains.com/idea/download/&#34;&gt;https://www.jetbrains.com/idea/download/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Most of the times I work with either &lt;strong&gt;Tomcat&lt;/strong&gt; or &lt;strong&gt;JBoss/Wildfly&lt;/strong&gt; servers. You cand ownload them from the following locations:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/Tomcat-logo.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/Tomcat-logo-300x200.png&#34; alt=&#34;Tomcat-logo&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/Wildfly_logo.png&#34;&gt;  &lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/Wildfly_logo-300x93.png&#34; alt=&#34;Wildfly_logo&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://tomcat.apache.org/download-80.cgi&#34;&gt;https://tomcat.apache.org/download-80.cgi&lt;/a&gt;
+&lt;a href=&#34;http://wildfly.org/downloads/&#34;&gt;http://wildfly.org/downloads/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To install build tools like &lt;strong&gt;Ant&lt;/strong&gt; or &lt;strong&gt;Maven&lt;/strong&gt;
+&lt;code&gt;&amp;gt; sudo apt-get install ant
+&amp;gt; sudo apt-get install maven&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We can install various softwares like &lt;strong&gt;Groovy&lt;/strong&gt;, &lt;strong&gt;Grails&lt;/strong&gt;, &lt;strong&gt;Gradle&lt;/strong&gt; etc you can use &lt;strong&gt;SDKMan&lt;/strong&gt; (&lt;a href=&#34;http://sdkman.io/&#34;&gt;http://sdkman.io/&lt;/a&gt;) which was previously known as &lt;strong&gt;GVM&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/sdkman.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/sdkman.png&#34; alt=&#34;sdkman&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; curl -s http://get.sdkman.io | bash
+&amp;gt; source &amp;quot;$HOME/.sdkman/bin/sdkman-init.sh&amp;quot;
+&amp;gt; sdk version
+&amp;gt; sdk install groovy
+&amp;gt; sdk install grails
+&amp;gt; sdk install gradle&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install MySQL server&lt;/strong&gt;
+You can install MySQL server and MySQL Workbench from Ubuntu Software Center.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/mysql.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/mysql-300x110.jpg&#34; alt=&#34;mysql&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;But if you prefer commandline installation&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get install mysql-server
+&amp;gt; sudo apt-get install mysql-workbench&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Installing NodeJS&lt;/strong&gt;
+Installing NodeJS become a little bit complicated because it is going through some changes(nodejs, nodejs-legacy, io.js etc).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/nodejs-dark1.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/nodejs-dark1-300x128.jpg&#34; alt=&#34;Basic RGB&#34; /&gt;&lt;/a&gt;
+You can install latest NodeJS using following commands:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get install curl
+&amp;gt; curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+&amp;gt; sudo apt-get install nodejs&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For further details refer &lt;code&gt;https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install yeoman and generators&lt;/strong&gt;
+Yeoman (&lt;a href=&#34;http://yeoman.io/&#34;&gt;http://yeoman.io/&lt;/a&gt;) makes it easy to develop front-end applications by automating various tasks using bower, grunt or gulp.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/yeoman-logo.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/yeoman-logo-300x260.png&#34; alt=&#34;yeoman-logo&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Install yeoman &lt;code&gt;sudo npm install -g yo bower grunt-cli gulp&lt;/code&gt;
+&lt;strong&gt;Install various generators&lt;/strong&gt;
+&lt;code&gt;&amp;gt; sudo npm install -g generator-webapp
+&amp;gt; sudo npm install -g generator-angular
+&amp;gt; sudo npm install -g generator-jhipster
+&amp;gt; sudo npm install -g generator-meanjs
+&amp;gt; sudo npm install -g cordova ionic&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Installing Ruby and RubyOnRails&lt;/strong&gt;
+You may be using &lt;strong&gt;Ruby&lt;/strong&gt; or tools that depends on Ruby like &lt;strong&gt;OpenShift&lt;/strong&gt; commandline tools, &lt;strong&gt;Jekyll&lt;/strong&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/ruby-on-rails.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/ruby-on-rails-300x300.jpg&#34; alt=&#34;ruby-on-rails&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can find the very detailed instructions on how to install Ruby/RubyOnRails at &lt;a href=&#34;https://gorails.com/setup/ubuntu/15.04&#34;&gt;https://gorails.com/setup/ubuntu/15.04&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Just for the sake of quick reference I am repeating the steps here:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get update
+&amp;gt; sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; cd
+&amp;gt; git clone git://github.com/sstephenson/rbenv.git .rbenv
+&amp;gt; echo &#39;export PATH=&amp;quot;$HOME/.rbenv/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc
+&amp;gt; echo &#39;eval &amp;quot;$(rbenv init -)&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc
+&amp;gt; exec $SHELL&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+&amp;gt; echo &#39;export PATH=&amp;quot;$HOME/.rbenv/plugins/ruby-build/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc
+&amp;gt; exec $SHELL&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; rbenv install 2.2.3
+&amp;gt; rbenv global 2.2.3
+&amp;gt; ruby -v&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; echo &amp;quot;gem: --no-ri --no-rdoc&amp;quot; &amp;gt; ~/.gemrc
+&amp;gt; gem install bundler&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; gem install rails -v 4.2.4&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Installing Jekyll&lt;/strong&gt;
+Jekyll (&lt;a href=&#34;https://jekyllrb.com&#34;&gt;https://jekyllrb.com&lt;/a&gt;) is a static site generator which you can use to generate your site and host it on github.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/jekyll.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/jekyll-300x169.jpg&#34; alt=&#34;jekyll&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; gem install jekyll&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Test drive Jekyll&lt;/strong&gt;
+&lt;code&gt;&amp;gt; jekyll new myblog
+&amp;gt; cd myblog
+&amp;gt; jekyll serve&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Hope these installation instructions helps!!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: All the images belong to their respective owners.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

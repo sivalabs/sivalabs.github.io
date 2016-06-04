@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://sivalabs.github.io/</loc>
+    <lastmod>2016-06-01T08:36:54-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/2016/06/hello-world/</loc>
+    <lastmod>2016-06-01T08:36:54-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/contact</loc>
+    <lastmod>2016-01-01T19:20:04-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/core-java</loc>
+    <lastmod>2016-01-01T19:20:04-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/java-ee</loc>
+    <lastmod>2016-01-01T19:20:04-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/mybooks</loc>
+    <lastmod>2016-01-01T19:20:04-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/spring</loc>
+    <lastmod>2016-01-01T19:20:04-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/trainings</loc>
+    <lastmod>2016-01-01T19:20:04-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</loc>
+    <lastmod>2015-11-24T04:34:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</loc>
+    <lastmod>2015-10-13T02:07:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/2015/07/my-life-as-a-software-developer-in-india/</loc>
+    <lastmod>2015-07-06T16:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</loc>
+    <lastmod>2015-06-15T13:04:00+00:00</lastmod>
+  </url>
+  
+</urlset>

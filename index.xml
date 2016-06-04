@@ -1,0 +1,1374 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SivaLabs</title>
+    <link>http://sivalabs.github.io/</link>
+    <description>Recent content on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jun 2016 08:36:54 -0700</lastBuildDate>
+    <atom:link href="http://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://sivalabs.github.io/2016/06/hello-world/</link>
+      <pubDate>Wed, 01 Jun 2016 08:36:54 -0700</pubDate>
+      
+      <guid>http://sivalabs.github.io/2016/06/hello-world/</guid>
+      <description>&lt;p&gt;Hi,&lt;/p&gt;
+
+&lt;p&gt;My name is Siva and by profession I am a Software Developer primarily working on Java platform.
+I used to blog about the technology stuff that I learned at &lt;em&gt;www.sivalabs.in&lt;/em&gt;.
+I wanted to move to Hugo blogging platform because of its rich features,
+and here I am with my new blog &lt;a href=&#34;http://sivalabs.github.io&#34;&gt;http://sivalabs.github.io&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Going forward you can find various Java related things, my thoughts on technology/life and simple tips also.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned :-)&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;1 &lt;/span&gt;&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;class&lt;/span&gt; HelloWorld
+&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;2 &lt;/span&gt;{
+&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;3 &lt;/span&gt;    &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;void&lt;/span&gt; main(String[] args)
+&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;4 &lt;/span&gt;    {
+&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;5 &lt;/span&gt;&lt;span style=&#34;background-color: #ffffcc&#34;&gt;      System.&lt;span style=&#34;color: #FF0000&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color: #FF0000&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color: #0000FF&#34;&gt;&amp;quot;Welcome to my new blog&amp;quot;&lt;/span&gt;);
+&lt;/span&gt;&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;6 &lt;/span&gt;    }
+&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;7 &lt;/span&gt;}
+&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://sivalabs.github.io/contact</link>
+      <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
+      
+      <guid>http://sivalabs.github.io/contact</guid>
+      <description>&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_k_siva_prasad_reddy&#34;&gt;K. Siva Prasad Reddy&lt;/h3&gt;
+&lt;div class=&#34;imageblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;img src=&#34;http://sivalabs.github.io/images/Siva-1.jpg&#34; alt=&#34;Siva&#34; width=&#34;180&#34; height=&#34;220&#34;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Hi,
+I am a Software developer working on Java platform since 2005.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;My primary skills include:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Java&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JavaEE 7&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MyBatis&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JSF/PrimeFaces&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AngularJS&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;If you are looking for Freelancing Java developers please contact me at &lt;strong&gt;sivaprasadreddy.k@gmail.com&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;You can also reach me at&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Gmail: &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Twitter: &lt;a href=&#34;https://twitter.com/sivalabs&#34; class=&#34;bare&#34;&gt;https://twitter.com/sivalabs&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;GitHub: &lt;a href=&#34;https://github.com/sivaprasadreddy&#34; class=&#34;bare&#34;&gt;https://github.com/sivaprasadreddy&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Core Java Training</title>
+      <link>http://sivalabs.github.io/core-java</link>
+      <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
+      
+      <guid>http://sivalabs.github.io/core-java</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;This Core Java training aims at the beginners who want to learn Java programming starting from scratch.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Please reach me at &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt; for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect2&#34;&gt;
+&lt;h3 id=&#34;_core_java_course_topics&#34;&gt;Core Java Course Topics:&lt;/h3&gt;
+&lt;div class=&#34;olist arabic&#34;&gt;
+&lt;ol class=&#34;arabic&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Java Programming Fundamentals&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to Java Programming&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OOPS concepts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What are JDK, JVM, JRE?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Java Basics&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;DataTypes, Operators, Statements&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Classes, Interfaces, Objects&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Abstract, Static, final etc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;public, private, protected modifiers, Access specifiers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Inheritance&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;package, import&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enum, Annotations&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Control Structures&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;if-else, while, for, switch etc&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Exception Handling&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;try-catch-finally&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;checked-vs-unchecked exceptions&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Java Collections framework&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;List, Set, Map etc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sorting, Filtering&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Searching&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Java Generics&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Parameterized Collections&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Java lang/util packages, File I/O&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;String, StringTokenizer, Date&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Regular Expressions&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;File Reader/Writer, Input/Output Streams etc&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Multi Threading&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Thread, Runnable&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Synchronization&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Database Programming with JDBC&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Connecting to MySQL Database&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Performing Read, Write, Update, Delete operations&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Transaction Management&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Introduction to Java 8 features&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Lambdas&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Streams&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DateTime API&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Servlets&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to Web application development and Servlets&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Servlet Life Cycle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HttpServlet Request, Response, Session, ServletContext&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deployment descriptor web.xml&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Servlet Listeners and Filters&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;JSP&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to MVC and JSP&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JSP implicit Objects&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Scriptlets&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JSTL&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Custom Tags&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Please reach me at &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt; for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JavaEE Training</title>
+      <link>http://sivalabs.github.io/java-ee</link>
+      <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
+      
+      <guid>http://sivalabs.github.io/java-ee</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Please reach me at &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt; for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect1&#34;&gt;
+&lt;h2 id=&#34;_java_ee7_training_course_topics&#34;&gt;Java EE7 Training Course Topics:&lt;/h2&gt;
+&lt;div class=&#34;sectionbody&#34;&gt;
+&lt;div class=&#34;olist arabic&#34;&gt;
+&lt;ol class=&#34;arabic&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Overview of JavaEE&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to JavaEE Platform&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Overview on Key Specifications&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;JPA&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to ORM concepts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Entity modeling&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Entity Relationships&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;EntityManagerFactory, EntityManager, PersistenceContext&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Criteria Queries, JPQL, Named Queries, Native Queries&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Transaction Management&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;EJB&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to EJB&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Types of EJBs: Stateless, Stateful, MessageDriven, Singleton&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Life Cycle of EJBs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Timers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Transaction Management&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CDI&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Dependency Injection&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bean Discovery Modes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Injection Points, Qualifiers, Alternatives&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Producer, Disposer, LifeCycle callbacks&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Interceptors, Decorators&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bean Scopes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stereotypes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Events&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bean Validation&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to Bean Validation API&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Built-in Constraints&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Creating Custom Constraints&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Validation Groups&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;JSF&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to Component Oriented UI development using JSF&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JSF Request Life Cycle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Standard UI components, JSF Ajax features&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Converters, Validations&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ManagedBeans, Scopes, Navigation&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;RESTful WebServices(JAX-RS)&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to REST concepts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mapping REST operations to HTTP methods&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Client API&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Filters and Interceptors&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mapping Exceptions&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;SOAP WebServices(JAX-WS)&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to JAX-WS, WSDL&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Developing SOAP web services&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generating WebServices Client&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;JMS&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction Asynchronous processing using JMS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Queues, Topics&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Types of JMS Messages&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sending and receiving messages&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;JSON Processing&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Object Model API to convert Object to JSON and vice-versa&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Streaming API&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Concurrency Utils&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Managed Threads&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Asynchronous Tasks&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Schedule Tasks&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;WebSockets&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Overview of WebSockets&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Server Endpoint&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Client Endpoint&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JavaScript WebSocket Client&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Batch Processing&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Chunk-Oriented Processing&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Batchlet Processing&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Listeners&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Job Sequence&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Please reach me at &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt; for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Books</title>
+      <link>http://sivalabs.github.io/mybooks</link>
+      <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
+      
+      <guid>http://sivalabs.github.io/mybooks</guid>
+      <description>&lt;div class=&#34;sect3&#34;&gt;
+&lt;h4 id=&#34;_i_am_the_author_of_the_following_books&#34;&gt;I am the author of the following books.&lt;/h4&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;&lt;strong&gt;Java Persistence with MyBatis 3&lt;/strong&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/application-development/java-persistence-mybatis-3&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/images/books/MyBatis.jpg&#34; alt=&#34;MyBatis&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;&amp;#160;&amp;#160;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;&lt;strong&gt;PrimeFaces Beginners Guide&lt;/strong&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/web-development/primefaces-beginners-guide&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/images/books/PFBG.jpg&#34; alt=&#34;PrimeFaces&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Spring Training</title>
+      <link>http://sivalabs.github.io/spring</link>
+      <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
+      
+      <guid>http://sivalabs.github.io/spring</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Please reach me at &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt; for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;sect1&#34;&gt;
+&lt;h2 id=&#34;_spring_training_course_topics&#34;&gt;Spring Training Course Topics:&lt;/h2&gt;
+&lt;div class=&#34;sectionbody&#34;&gt;
+&lt;div class=&#34;olist arabic&#34;&gt;
+&lt;ol class=&#34;arabic&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Introduction to Spring Framework&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Framework Overview&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introducing Inversion Of Control (IOC)/Dependency Injection(DI)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Why do we need Spring framework?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Vs JavaEE7&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Portfolio Projects (Spring Security, Spring Data, Spring Integration, Spring Batch etc)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Getting Started with Spring&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Crash course on Maven&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Creating HelloWorld Spring application using Eclipse/Netbean &amp;amp; Maven&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Testing HelloWorld Spring application using JUnit&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Dependency Injection using Spring&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Configuring beans using XML&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Using Setter, Constructor injection&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Injecting Primitives, Enums, Collections, Properties&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AutoWiring Dependencies&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bean Scopes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Life Cycle of Spring Bean&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configuring Beans using Annotations&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Classpath Scanning for Spring Beans&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configuring Beans using JavaConfig&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Advanced Dependency Injection&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Defining beans using multiple XMLs/JavaConfig Classes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Loading Properties using PropertyPlaceholderConfigurer, PropertyOverrideConfigurer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Internationalization using MessageSource&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Customizing beans using a BeanPostProcessor&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Customizing configuration metadata with a BeanFactoryPostProcessor&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Environment and Profiles&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Expression Language (SpEL)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Event Handling using Spring&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Introducing Spring AOP&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What is AOP?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Practical usages of AOP&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introducing AOP terms: Pointcut, JoinPoint, Aspect, Advice, Weaving&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Types of Advices&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configuring Spring Aspects using XML/Annotations&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Data Access using Spring JDBC&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Data Access using JDBC&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pain points of using JDBC directly&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring JDBC Template&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Performing CRUD operations using JdbcTemplate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Batch operations&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Embedded Database Support&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Transaction Management&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Programmatic Transaction Management&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Declarative Transaction Management using XML and Annotation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Transaction propagation types&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Data Access using Spring ORM using JPA/Hibernate&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introducing ORMs and JPA/Hibernate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How Spring ORM simplifies working with ORMs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configuring JPA/Hibernate beans using XML and Annotations&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Performing CRUD operations&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Transaction Management&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introducing Spring Data JPA&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Developing Web applications using SpringMVC&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introducing SpringMVC features&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configuring DispatcherServlet using web.xml and Java based configuration&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Web Request Life Cycle&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Creating Controllers using Annotations&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RequestMapping and Parameter Binding&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Customizing WebDataBinder initialization&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Assisting Controllers with the @ControllerAdvice annotation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Multipart FileUploading&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Intercepting requests with a HandlerInterceptor&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Handling exceptions HandlerExceptionResolver, @ExceptionHandler&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Creating JSP views using Spring Form Taglibs&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Building RESTful Web Services using SpringMVC&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introducing RESTful WebServices&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SpringMVC support for building RESTful WebServices&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mapping the request body with the @RequestBody annotation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mapping the response body with the @ResponseBody annotation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Creating REST Controllers with the @RestController annotation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Using HttpEntity&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Consuming RESTful services using RestTemplate&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Spring Security&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;ulist&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to Spring Security features&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configuring SpringSecurity using XML and JavaConfig&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Custom Login form and Logout&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Jdbc based Authentication Provider&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Role based View rendering using Spring Security Taglib&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Please reach me at &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt; for further details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Trainings</title>
+      <link>http://sivalabs.github.io/trainings</link>
+      <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
+      
+      <guid>http://sivalabs.github.io/trainings</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Trainings&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setting up the Development Environment for JCart</title>
+      <link>http://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</link>
+      <pubDate>Tue, 24 Nov 2015 04:34:03 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</guid>
+      <description>&lt;p&gt;For our JCart application development we will be using the following Softwares/Tools.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt; &lt;a href=&#34;http://www.oracle.com/technetwork/java/javase/downloads/index.html&#34;&gt;JDK 8&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://spring.io/tools/sts/all&#34;&gt;SpringSource Tool Suite (STS) &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.mysql.com/downloads/&#34;&gt;MySQL&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://git-scm.com/download/win&#34;&gt;Git &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://maven.apache.org/download.cgi&#34;&gt;Maven &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://jenkins-ci.org/&#34;&gt;Jenkins &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.sonarqube.org/&#34;&gt;SonarQube &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://httpd.apache.org/&#34;&gt;Apache&lt;/a&gt;/&lt;a href=&#34;https://www.nginx.com/&#34;&gt;Nginx &lt;/a&gt;WebServer&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I am not going to explain how to install JDK or MySQL because there are plenty of articles you can find on internet.&lt;/p&gt;
+
+&lt;p&gt;If you are using Ubuntu based Linux Operating System then you can refer my article &lt;a href=&#34;http://sivalabs.in/my-development-environment-setup-on-linux/&#34;&gt;My Development Environment Setup on Linux&lt;/a&gt; to setup Java development tool chain.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Development Environment Setup on Linux</title>
+      <link>http://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</link>
+      <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</guid>
+      <description>&lt;p&gt;As I mentioned in my previous post &lt;a href=&#34;http://sivalabs.in/thinking-of-moving-from-windows-to-linux/&#34;&gt;Thinking of moving from Windows to Linux?&lt;/a&gt; I am moving from Windows to Linux. Setting up my development environment is a bit tedious because I have to hunt down the applications and execute various commands to setup. So I thought of make a note of them in a post so that it will be easier for me next time.&lt;/p&gt;
+
+&lt;p&gt;I am using &lt;strong&gt;Ubuntu/LinuxMint&lt;/strong&gt; system so I am using &lt;strong&gt;apt-get&lt;/strong&gt; to install, if you are using &lt;strong&gt;Fedora/CentOS&lt;/strong&gt; you can use &lt;strong&gt;yum/dnf&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The very first thing I do after installing Linux is updating the system and in case I am working on VirtualBox VM installing VirtualBox Guest Additions.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install virtualbox-guest-dkms virtualbox-guest-x11&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Setting up Java Development Environment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/java.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/java-300x225.jpg&#34; alt=&#34;java&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Some Linux distros come with OpenJDK by default. You may want to remove OpenJDK first and install Oracle JDK.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt-get purge openjdk-*&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To install Java 7 &lt;code&gt;sudo apt-get install oracle-java7-installer&lt;/code&gt;
+To install Java 8 &lt;code&gt;sudo apt-get install oracle-java8-installer&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to set &lt;strong&gt;JAVA_HOME&lt;/strong&gt; environment variable for a particular user then you can add JAVA_HOME in &lt;strong&gt;~/.bash_profile&lt;/strong&gt; or if you want to setup for all the users globally then you can add it to &lt;strong&gt;/etc/profile&lt;/strong&gt; file.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; vi ~/.bash_profile&lt;/code&gt; or &lt;code&gt;vi /etc/profile&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Append the following to the file:&lt;/p&gt;
+
+&lt;blockquote&gt;export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export PATH=$PATH:$JAVA_HOME/bin&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; source ~/.bash_profile&lt;/code&gt; or &lt;code&gt;source /etc/profile&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;After installing JDK you may want to download your favorite IDE from the following locations:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/eclipse-800x188.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/eclipse-800x188-300x71.png&#34; alt=&#34;eclipse-800x188&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/STS.png&#34;&gt; &lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/STS.png&#34; alt=&#34;STS&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/netbeans0.png&#34;&gt;   &lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/netbeans0.png&#34; alt=&#34;netbeans0&#34; /&gt;  &lt;/a&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/intellijidea.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/intellijidea.png&#34; alt=&#34;intellijidea&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.eclipse.org/downloads/&#34;&gt;http://www.eclipse.org/downloads/&lt;/a&gt;
+&lt;a href=&#34;https://spring.io/tools/sts/all&#34;&gt;https://spring.io/tools/sts/all&lt;/a&gt;
+&lt;a href=&#34;http://tools.jboss.org/downloads/devstudio/index.html&#34;&gt;http://tools.jboss.org/downloads/devstudio/index.html&lt;/a&gt;
+&lt;a href=&#34;https://netbeans.org/downloads/&#34;&gt;https://netbeans.org/downloads/&lt;/a&gt;
+&lt;a href=&#34;https://www.jetbrains.com/idea/download/&#34;&gt;https://www.jetbrains.com/idea/download/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Most of the times I work with either &lt;strong&gt;Tomcat&lt;/strong&gt; or &lt;strong&gt;JBoss/Wildfly&lt;/strong&gt; servers. You cand ownload them from the following locations:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/Tomcat-logo.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/Tomcat-logo-300x200.png&#34; alt=&#34;Tomcat-logo&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/Wildfly_logo.png&#34;&gt;  &lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/Wildfly_logo-300x93.png&#34; alt=&#34;Wildfly_logo&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://tomcat.apache.org/download-80.cgi&#34;&gt;https://tomcat.apache.org/download-80.cgi&lt;/a&gt;
+&lt;a href=&#34;http://wildfly.org/downloads/&#34;&gt;http://wildfly.org/downloads/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To install build tools like &lt;strong&gt;Ant&lt;/strong&gt; or &lt;strong&gt;Maven&lt;/strong&gt;
+&lt;code&gt;&amp;gt; sudo apt-get install ant
+&amp;gt; sudo apt-get install maven&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We can install various softwares like &lt;strong&gt;Groovy&lt;/strong&gt;, &lt;strong&gt;Grails&lt;/strong&gt;, &lt;strong&gt;Gradle&lt;/strong&gt; etc you can use &lt;strong&gt;SDKMan&lt;/strong&gt; (&lt;a href=&#34;http://sdkman.io/&#34;&gt;http://sdkman.io/&lt;/a&gt;) which was previously known as &lt;strong&gt;GVM&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/sdkman.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/sdkman.png&#34; alt=&#34;sdkman&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; curl -s http://get.sdkman.io | bash
+&amp;gt; source &amp;quot;$HOME/.sdkman/bin/sdkman-init.sh&amp;quot;
+&amp;gt; sdk version
+&amp;gt; sdk install groovy
+&amp;gt; sdk install grails
+&amp;gt; sdk install gradle&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install MySQL server&lt;/strong&gt;
+You can install MySQL server and MySQL Workbench from Ubuntu Software Center.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/mysql.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/mysql-300x110.jpg&#34; alt=&#34;mysql&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;But if you prefer commandline installation&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get install mysql-server
+&amp;gt; sudo apt-get install mysql-workbench&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Installing NodeJS&lt;/strong&gt;
+Installing NodeJS become a little bit complicated because it is going through some changes(nodejs, nodejs-legacy, io.js etc).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/nodejs-dark1.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/nodejs-dark1-300x128.jpg&#34; alt=&#34;Basic RGB&#34; /&gt;&lt;/a&gt;
+You can install latest NodeJS using following commands:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get install curl
+&amp;gt; curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+&amp;gt; sudo apt-get install nodejs&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For further details refer &lt;code&gt;https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install yeoman and generators&lt;/strong&gt;
+Yeoman (&lt;a href=&#34;http://yeoman.io/&#34;&gt;http://yeoman.io/&lt;/a&gt;) makes it easy to develop front-end applications by automating various tasks using bower, grunt or gulp.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/yeoman-logo.png&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/yeoman-logo-300x260.png&#34; alt=&#34;yeoman-logo&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Install yeoman &lt;code&gt;sudo npm install -g yo bower grunt-cli gulp&lt;/code&gt;
+&lt;strong&gt;Install various generators&lt;/strong&gt;
+&lt;code&gt;&amp;gt; sudo npm install -g generator-webapp
+&amp;gt; sudo npm install -g generator-angular
+&amp;gt; sudo npm install -g generator-jhipster
+&amp;gt; sudo npm install -g generator-meanjs
+&amp;gt; sudo npm install -g cordova ionic&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Installing Ruby and RubyOnRails&lt;/strong&gt;
+You may be using &lt;strong&gt;Ruby&lt;/strong&gt; or tools that depends on Ruby like &lt;strong&gt;OpenShift&lt;/strong&gt; commandline tools, &lt;strong&gt;Jekyll&lt;/strong&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/ruby-on-rails.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/ruby-on-rails-300x300.jpg&#34; alt=&#34;ruby-on-rails&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can find the very detailed instructions on how to install Ruby/RubyOnRails at &lt;a href=&#34;https://gorails.com/setup/ubuntu/15.04&#34;&gt;https://gorails.com/setup/ubuntu/15.04&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Just for the sake of quick reference I am repeating the steps here:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; sudo apt-get update
+&amp;gt; sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; cd
+&amp;gt; git clone git://github.com/sstephenson/rbenv.git .rbenv
+&amp;gt; echo &#39;export PATH=&amp;quot;$HOME/.rbenv/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc
+&amp;gt; echo &#39;eval &amp;quot;$(rbenv init -)&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc
+&amp;gt; exec $SHELL&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+&amp;gt; echo &#39;export PATH=&amp;quot;$HOME/.rbenv/plugins/ruby-build/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; ~/.bashrc
+&amp;gt; exec $SHELL&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; rbenv install 2.2.3
+&amp;gt; rbenv global 2.2.3
+&amp;gt; ruby -v&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; echo &amp;quot;gem: --no-ri --no-rdoc&amp;quot; &amp;gt; ~/.gemrc
+&amp;gt; gem install bundler&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; gem install rails -v 4.2.4&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Installing Jekyll&lt;/strong&gt;
+Jekyll (&lt;a href=&#34;https://jekyllrb.com&#34;&gt;https://jekyllrb.com&lt;/a&gt;) is a static site generator which you can use to generate your site and host it on github.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sivalabs.in/wp-content/uploads/2015/10/jekyll.jpg&#34;&gt;&lt;img src=&#34;http://sivalabs.in/wp-content/uploads/2015/10/jekyll-300x169.jpg&#34; alt=&#34;jekyll&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;gt; gem install jekyll&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Test drive Jekyll&lt;/strong&gt;
+&lt;code&gt;&amp;gt; jekyll new myblog
+&amp;gt; cd myblog
+&amp;gt; jekyll serve&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Hope these installation instructions helps!!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: All the images belong to their respective owners.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Life as a Software Developer in India</title>
+      <link>http://sivalabs.github.io/2015/07/my-life-as-a-software-developer-in-india/</link>
+      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/2015/07/my-life-as-a-software-developer-in-india/</guid>
+      <description>
+
+&lt;p&gt;I am Siva, working as a Software Developer in Hyderabad, India. Working as a Software Developer is very exciting as you see new things coming in everyday. If there are no new things at least we put a new fancy name to some old concept and celebrate (#microservices) :-). But in my opinion working as a Software Developer in India is little bit different and hard too. Few things are good, and few things are bad.&lt;/p&gt;
+
+&lt;p&gt;The opinions of Software Developers from other countries on Indian Software Developers surprised me a lot.&lt;/p&gt;
+
+&lt;p&gt;Here I would like to share How I feel as a Software Developer in Indian IT Industry.&lt;/p&gt;
+
+&lt;p&gt;**Note: **These are all purely my opinions, you may agree or may not agree. If you feel I am generalizing something I mean MAJORITY not ALL.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;My First Job&lt;/strong&gt;&lt;br /&gt;
+I got a job in a small organization as a Java developer. Along with me couple of my close friends also joined in the same organization. I am fortunate that I got a chance to work with very talented people in the very beginning of my career.&lt;/p&gt;
+
+&lt;p&gt;My first manager used to force us to use only Notepad++/EditPlus for coding for the first 2 to 3 months so that we get familiar with how to compile, run programs and be familiar with compile time and runtime classpath etc. On the other hand our Architect thinks other way. One day he saw me coding in EditPlus and came to me and asked &amp;ldquo;Do you go to war without any weapons?&amp;rdquo;. I have no idea what he is talking about and he understood that based on my blank face expression. He pulled keyboard from me and downloaded Lomboz Eclipse (one variant of Eclipse, not active any more) and explained how to use it. Also every now and then he taught me some interesting keyboard short-cuts and I am amazed how quickly we can code in an IDE instead of Notepad/EditPlus.&lt;/p&gt;
+
+&lt;p&gt;I learned very important things from my manager and architect like how important it is to understand how things work and how to effectively use tools to speed up the work.&lt;/p&gt;
+
+&lt;p&gt;On the other hand my team lead was very hands-on experienced developer. He literally remember most of the core Java API methods and have good grasp of design patterns. He is a kind of perfectionist. He never let us commit the code even if the code indentation is not correct. One day we were working late night (12:00 PM) and we got to deliver some urgent deliverable. At that time also he insisted to correct the indentation, cleanup imports, unused variables, strictly following TABs or spaces consistently etc.&lt;/p&gt;
+
+&lt;p&gt;But later we realized how important it is while merging all the code changes from different developers. He always says &amp;ldquo;If you are going to do something, do it well. Otherwise don&amp;rsquo;t do it&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;As my other team members were also my close friends we didn&amp;rsquo;t have any conflicts and no politics at all between us. We used to have Friday night parties from 9 PM to 2AM, cracking jokes on all the people in office. So everything was wonderful.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Real Journey Starts&lt;/strong&gt;&lt;br /&gt;
+After  3 years at my first company I resigned and joined a BIG company assuming &amp;ldquo;&lt;strong&gt;Big company means better work, better pay and better work culture&lt;/strong&gt;&amp;rdquo;. I quickly realized that it is not at all the case!. There I was working on a legacy application which has horrible codebase that I have ever worked till then.&lt;/p&gt;
+
+&lt;p&gt;In addition to that I ended up working with developers who stick with that company for a long time, stopped learning anything new, have no interest to make the application better and want to do things in the same familiar way even though it is painful.&lt;/p&gt;
+
+&lt;p&gt;As Indian IT industry is mostly based on offshore development model, most of the times we end up maintaining the legacy code bases. Rarely we got chance to work on greenfield projects. Even for those greenfield projects the key architecture/design aspects will be done by onsite team.&lt;/p&gt;
+
+&lt;p&gt;Fortunately I got chance to work on few greenfield projects and involved in designing the application from scratch.&lt;/p&gt;
+
+&lt;p&gt;In many of the organizations there is no clear career path for those who want to continue in Technology Stream and don&amp;rsquo;t want to go to People Management. Even worse some companies force developers to step into people management after some years of experience.&lt;/p&gt;
+
+&lt;p&gt;Different people will have different interests in their life and not all developers must be passionate about the technology, and that&amp;rsquo;s fine. Some people are 9 AM to 6 PM types, and some are just get it done by whatever means and don&amp;rsquo;t care about code quality or maintainability etc. It is very difficult to find the passionate developers in India because most of the people start programming as part of the Job only, not for fun or habit.&lt;/p&gt;
+
+&lt;p&gt;At times when I learn something new or did some cool stuff then I look around to share my wow moment and I find no one who can understand my excitement.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The New Blogger On The Floor&lt;/strong&gt;&lt;br /&gt;
+I was working in a project using Struts 1.x framework and I got into some tricky issue. I couldn&amp;rsquo;t find any solution after struggling for 3 days also. I kept on debugging and searching all over the books and forums. Finally someone wrote an article on the exact problem and provided a solution. I followed his solution and it worked. I told million thanks to the blog author. But the thought that some unknown developer&amp;rsquo;s blog helped me a lot stuck in my mind. I too wanted to start a blog. May be I too can give something back to the community. So I started my blog &lt;strong&gt;www.sivalabs.in&lt;/strong&gt; writing about the things that I learn.&lt;/p&gt;
+
+&lt;p&gt;Soon my articles got published on community websites like DZone and JavaCodeGeeks. Though my English writing skills are not good enough I keep on writing articles and I hope now I am getting it little bit better.&lt;/p&gt;
+
+&lt;p&gt;When someone post a comment saying &amp;ldquo;Your article helped me to learn something&amp;rdquo;, I feel very happy. I take lot of help from community like StackOverflow, blogs, forums etc. If possible I try giving something back to the community, my 2 cents :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Becoming A Book Author&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After I started blogging and my articles got published on DZone and JavaCodeGeeks, my blog started getting more and more visitors. One day I received an email from Packt Publishers asking me whether I am interested to write a book on &lt;strong&gt;MyBatis&lt;/strong&gt; and I was very excited about it.&lt;/p&gt;
+
+&lt;p&gt;Once I agreed to write the book, they explained the writing process and the payment details. They might not know that I would have written the book even without any pay. I agreed to write book because of my passion for technology, not to earn money.&lt;/p&gt;
+
+&lt;p&gt;When I almost completed writing my first book I was asked to write another book on &lt;strong&gt;PrimeFaces&lt;/strong&gt; and I agreed. Approximately it took 18 months to write those two books. During all these 18 months I didn&amp;rsquo;t have any breaks, no week-ends, no outings, nothing. Whenever I find time I keep on writing or reading what I have already written to see if I can make it better.&lt;/p&gt;
+
+&lt;p&gt;That was the time I realized how important it is to have some free time in life. Writing book is incredibly time consuming. If you are planning to write a book with the motivation of earning money, I would suggest to look for other options!!&lt;/p&gt;
+
+&lt;p&gt;Finally one day I got a courier and I see the printed copies of my MyBatis book. It feels great to hold the book in your hand that you wrote. I got very emotional that day.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Challenges for passionate developers in India&lt;/strong&gt;&lt;br /&gt;
+There are many issues that Indian Software Developers face.&lt;/p&gt;
+
+&lt;h3 id=&#34;good-developers-are-like-war-heroes:c1b8c8a1a036b83faff332da70da14d3&#34;&gt;Good developers are like war heroes&lt;/h3&gt;
+
+&lt;p&gt;As most of the projects we got are legacy projects or may be in maintenance mode, the management likes those people who are loyal and stick with the company (even though you don&amp;rsquo;t pay well or treat them like one type of RESOURCE) rather than strong technical people.&lt;/p&gt;
+
+&lt;p&gt;Good developers are like war heroes, they are required while starting a new project or creating some core design. Once the core design is ready other developers can follow the design and add methods to the flow. Just like once the war is over no one cares where are those heroes, once the core design of the system is ready many companies won&amp;rsquo;t care about those good developers.&lt;/p&gt;
+
+&lt;h3 id=&#34;many-non-indian-techies-hate-indian-developers:c1b8c8a1a036b83faff332da70da14d3&#34;&gt;Many Non-Indian Techies hate Indian developers&lt;/h3&gt;
+
+&lt;p&gt;Every now and then I read articles about Indian Software Developers by someone bashing all the Indian software developers concluding the whole Indian IT is crap. Well, that is one individual&amp;rsquo;s opinion and different people have different opinions, and that&amp;rsquo;s perfectly OK.&lt;/p&gt;
+
+&lt;p&gt;See this article &lt;a href=&#34;https://avinashsingh.wordpress.com/2007/04/05/a-myth-called-the-indian-programmer/&#34;&gt;https://avinashsingh.wordpress.com/2007/04/05/a-myth-called-the-indian-programmer/&lt;/a&gt; and read the comments. Even someone wants sponsor Pakistan to bomb India. Very matured people!!.&lt;/p&gt;
+
+&lt;p&gt;The main problem with Indian IT companies is in order to get the project they convince the client that they can deliver the project in almost impossible timelines. To meet these crazy timelines they push managers to get it done and managers force team leads to get it done and the team leads put deadlines to developers. And here is is the biggest problem with Indian developers. Many of the Indian Developers don&amp;rsquo;t know how to say &amp;ldquo;NO&amp;rdquo;. They simply accept the crazy timelines and try to finish it. And the outcome of this whole process is &amp;ldquo;Unmaintainable crappy code&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;But I always have few questions in my mind. How the on-site Non-Indian client believes &amp;ldquo;Indian off-shore team can build it in 6 months when on-site team estimated 18 months for the same project&amp;rdquo;? Why don&amp;rsquo;t they ask for End-To-End Test Suite? Why don&amp;rsquo;t they ask for Code Quality reports?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Greediness to get it done for cheapest possible cost!!  You get what you paid for!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Those who generalizes and say &amp;ldquo;The whole Indian Software Developers are bad&amp;rdquo; should think before saying things like this. I don&amp;rsquo;t think all the people living in one geographical location will automatically become good or bad. There will be good developers as well as bad developer everywhere. I worked with some onsite developers who are very arrogant. So is it correct to say all the on-site developers are arrogant. That will be ABSOLUTELY WRONG.&lt;/p&gt;
+
+&lt;p&gt;I strongly believe that there are great developers and architects also In India and I worked with some of them.&lt;/p&gt;
+
+&lt;p&gt;There are people like me who want to learn something everyday and become a better developer than yesterday. Over the years I learned &amp;ldquo;How to learn new things quickly?&amp;rdquo;. So I learn as many things as possible and be ready to work on anything. You want me to work on **Spring **or &lt;strong&gt;JavaEE&lt;/strong&gt;, I am fine. You want me to work on **Python **or **RoR **I am ready. You want me to use **Eclipse **or &lt;strong&gt;NetBeans&lt;/strong&gt;, no problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Following the Community&lt;/strong&gt;&lt;br /&gt;
+As I said it is very difficult to find passionate developers in India, I try to make contacts with the passionate developers around the world using Social Networks like Twitter.&lt;/p&gt;
+
+&lt;p&gt;I like to attend technical conferences and meet other great developers. But unfortunately there are very less conferences happens in India compared to USA. So I try to watch those conference talks on InfoQ, Parleys or Youtube and I enjoy it a lot.&lt;/p&gt;
+
+&lt;p&gt;I love the talks by &lt;strong&gt;Venkat Subramaniam&lt;/strong&gt; (@venkat_s) which are very informative and funny. I can&amp;rsquo;t stop laughing after reading few jokes in his book  Programming Groovy 2: Dynamic Productivity for the Java Developer &lt;a href=&#34;https://pragprog.com/book/vslg2/programming-groovy-2&#34;&gt;https://pragprog.com/book/vslg2/programming-groovy-2&lt;/a&gt;. He is really an amazing man.&lt;/p&gt;
+
+&lt;p&gt;Talks by Venkat Subramaniam on Parleys &lt;a href=&#34;https://www.parleys.com/author/venkat-subramaniam&#34;&gt;https://www.parleys.com/author/venkat-subramaniam&lt;/a&gt;&lt;br /&gt;
+How To Approach Refactoring by Venkat Subramaniam &lt;a href=&#34;https://www.youtube.com/watch?v=iGsPeR-SYYo&#34;&gt;https://www.youtube.com/watch?v=iGsPeR-SYYo&lt;/a&gt;&lt;br /&gt;
+Ten Cool Things We Can Do with Popular JVM Languages &lt;a href=&#34;https://www.youtube.com/watch?v=Ulcl2TjHktA&#34;&gt;https://www.youtube.com/watch?v=Ulcl2TjHktA&lt;/a&gt;&lt;br /&gt;
+33rd Degree 2012 - Pointy haired bosses and pragmatic programmers - Venkat Subramaniam &lt;a href=&#34;https://www.youtube.com/watch?v=lfmKvRaNnUs&#34;&gt;https://www.youtube.com/watch?v=lfmKvRaNnUs&lt;/a&gt;&lt;br /&gt;
+Scala for the Intrigued &lt;a href=&#34;https://www.youtube.com/watch?v=grvvKURwGNg&#34;&gt;https://www.youtube.com/watch?v=grvvKURwGNg&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I am a big fan of &lt;strong&gt;Rod Johnson&lt;/strong&gt; and I love his talks on **Entrepreneurialism &lt;strong&gt;&lt;a href=&#34;http://www.infoq.com/interviews/rod-johnson-entrepreneurialism&#34;&gt;http://www.infoq.com/interviews/rod-johnson-entrepreneurialism&lt;/a&gt; and the &amp;ldquo;&lt;/strong&gt;Things I wish I&amp;rsquo;d known**&amp;rdquo;  &lt;a href=&#34;http://www.infoq.com/presentations/Things-I-Wish-I-d-Known&#34;&gt;http://www.infoq.com/presentations/Things-I-Wish-I-d-Known&lt;/a&gt; in which he shared his journey of building Spring framework and creating an ecosystem around it. What a great presentation.&lt;/p&gt;
+
+&lt;p&gt;I also watched his &amp;ldquo;&lt;strong&gt;Scala in 2018&lt;/strong&gt;&amp;rdquo; talk &lt;a href=&#34;https://www.youtube.com/watch?v=DBu6zmrZ_50&#34;&gt;https://www.youtube.com/watch?v=DBu6zmrZ_50&lt;/a&gt; and a discussion regarding the same Scala talk on youtube &lt;a href=&#34;https://www.youtube.com/watch?v=hZlxBRnxzDc&#34;&gt;https://www.youtube.com/watch?v=hZlxBRnxzDc&lt;/a&gt;. His way of taking the constructive criticism amazed me. He is awesome man.&lt;/p&gt;
+
+&lt;p&gt;I also love the talks by &lt;strong&gt;Uncle Bob&lt;/strong&gt; &lt;a href=&#34;https://blog.8thlight.com/uncle-bob/archive.html&#34;&gt;https://blog.8thlight.com/uncle-bob/archive.html&lt;/a&gt;, &lt;strong&gt;Martin Fowler&lt;/strong&gt; &lt;a href=&#34;http://martinfowler.com/&#34;&gt;http://martinfowler.com/&lt;/a&gt;, &lt;strong&gt;David Heinemeier Hansson (DHH)&lt;/strong&gt;. We can learn lot of things from their decades of experience.&lt;/p&gt;
+
+&lt;p&gt;I follow the talks and blogs of the awesome Java community leaders like&lt;br /&gt;
+&lt;strong&gt;Antonio Goncalves&lt;/strong&gt; @agoncal &lt;a href=&#34;http://antoniogoncalves.org/&#34;&gt;http://antoniogoncalves.org/&lt;/a&gt;&lt;br /&gt;
+**Adam Bien **@AdamBien &lt;a href=&#34;http://www.adam-bien.com/roller/abien/&#34;&gt;http://www.adam-bien.com/roller/abien/&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Reza Rahman&lt;/strong&gt; @reza_rahman &lt;a href=&#34;https://blogs.oracle.com/reza/&#34;&gt;https://blogs.oracle.com/reza/&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Arun Gupta&lt;/strong&gt; @arungupta &lt;a href=&#34;http://blog.arungupta.me/&#34;&gt;http://blog.arungupta.me/&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Josh Long&lt;/strong&gt; @starbuxman&lt;br /&gt;
+&lt;strong&gt;Phil Webb&lt;/strong&gt; @phillip_webb&lt;br /&gt;
+&lt;strong&gt;Cagatay Civici&lt;/strong&gt; @cagataycivici &lt;a href=&#34;http://www.primefaces.org/&#34;&gt;http://www.primefaces.org/&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Oliver Gierke&lt;/strong&gt; @olivergierke &lt;a href=&#34;http://olivergierke.de/&#34;&gt;http://olivergierke.de/&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;David Blevins&lt;/strong&gt; @dblevins &lt;a href=&#34;http://www.tomitribe.com/blog/&#34;&gt;http://www.tomitribe.com/blog/&lt;/a&gt;&lt;br /&gt;
+and many more.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t miss even a single blog post or tweet from the rock star bloggers like&lt;br /&gt;
+&lt;strong&gt;Baeldung&lt;/strong&gt; @baeldung &lt;a href=&#34;http://www.baeldung.com/&#34;&gt;http://www.baeldung.com/&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Petri Kainulainen&lt;/strong&gt; @petrikainulaine &lt;a href=&#34;http://www.petrikainulainen.net/&#34;&gt;http://www.petrikainulainen.net/&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Vlad Mihalcea&lt;/strong&gt; @vlad_mihalcea &lt;a href=&#34;http://vladmihalcea.com/&#34;&gt;http://vladmihalcea.com/&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Abhishek Gupta&lt;/strong&gt; @abhi_tweeter &lt;a href=&#34;https://abhirockzz.wordpress.com/&#34;&gt;https://abhirockzz.wordpress.com/&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Manuel Jordan&lt;/strong&gt; @dr_pompeii &lt;a href=&#34;http://manueljordanelera.blogspot.in/2014/06/manuel-jordan.html&#34;&gt;http://manueljordanelera.blogspot.in/2014/06/manuel-jordan.html&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Lukas Eder&lt;/strong&gt; @lukaseder &lt;a href=&#34;http://blog.jooq.org/&#34;&gt;http://blog.jooq.org&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Trisha Gee&lt;/strong&gt; @trisha_gee &lt;a href=&#34;http://trishagee.github.io/&#34;&gt;http://trishagee.github.io&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Thorben Janssen&lt;/strong&gt; @thjanssen123  &lt;a href=&#34;http://www.thoughts-on-java.org/&#34;&gt;http://www.thoughts-on-java.org&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Nicolas Frankel&lt;/strong&gt; @nicolas_frankel &lt;a href=&#34;http://blog.frankel.ch/&#34;&gt;http://blog.frankel.ch&lt;/a&gt;&lt;br /&gt;
+and many more.&lt;/p&gt;
+
+&lt;p&gt;I love this whole awesome Java community!!&lt;/p&gt;
+
+&lt;h2 id=&#34;looking-towards-better-future:c1b8c8a1a036b83faff332da70da14d3&#34;&gt;Looking towards better future&lt;/h2&gt;
+
+&lt;p&gt;In recent years things are getting changed. Now Indian IT industry is not completely depending upon USA based projects. There is a lot of growth in technology adoption in Indian businesses. But again unless the thought process changed nothing is going to get better. Companies should stop expecting &lt;strong&gt;&amp;ldquo;9 developers to deliver a baby in 1 month&amp;rdquo;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Developer should become more professional and have guts to say &amp;ldquo;&lt;strong&gt;NO&lt;/strong&gt;&amp;rdquo; when they asked to code which they can&amp;rsquo;t implement with good quality.&lt;/p&gt;
+
+&lt;p&gt;Anyway, over the years I learned Software Development is not all about technology. The key part is understanding the business domain and communicating with the other people.&lt;/p&gt;
+
+&lt;p&gt;Hoping things will get better :-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Developers Perspective on Spring vs JavaEE</title>
+      <link>http://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
+      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
+      <description>&lt;p&gt;In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?&lt;/p&gt;
+
+&lt;p&gt;I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club. Here I would like to share my own thoughts on this epic Spring vs JavaEE debate.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Business(sometimes political) Aspects&lt;/strong&gt;&lt;br /&gt;
+In many organizations technology selection may not completely depends on developers choice. More specifically if you are working in so called giant enterprise organizations there are high chances that there is an Architecture Team who will decide what platform/language/framework/libraries to use in the projects.&lt;/p&gt;
+
+&lt;p&gt;In addition to that, large enterprises also considers the following aspects while choosing the technology platform:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Maturity of the platform/language/framework/libraries&lt;/li&gt;
+&lt;li&gt;Commercial support&lt;/li&gt;
+&lt;li&gt;Licensing cost etc etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As a developer I can hardly influence the decision making process for any of the above aspects, especially when I am a developer in offshore development center. So I don&amp;rsquo;t worry too much about these things.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. If you are really good at Spring/JavaEE then learning the other one shouldn&amp;rsquo;t be difficult&lt;/strong&gt;&lt;br /&gt;
+I am always surprised when someone says I am JavaEE expert but I can&amp;rsquo;t understand Spring or vice-versa. Both JavaEE and Spring work on the same core APIs (Servlet, JPA, JMS, BeanValidation etc), the difference is who is gluing the things together, Spring or AppServer.&lt;/p&gt;
+
+&lt;p&gt;Even though there are some different APIs for things like dependency injection (Spring DI, CDI), REST (JAX-RS, SpringMVC) etc they look and behave pretty similar to each other.&lt;/p&gt;
+
+&lt;p&gt;May be someone can say CDI is more typesafe than Spring DI. Doesn&amp;rsquo;t Spring and CDI behaves similarly when:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Injection using @Autowired or @Inject works fine if there is only one Spring/CDI Bean&lt;/li&gt;
+&lt;li&gt;Injection fails when there are more than one Spring or CDI bean implementations by throwing errors saying &amp;ldquo;Found more than one eligible beans that can be inject&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Use @Produces or @Bean annotated method to provide custom made objects as bean providers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As long as they are behaving similarly I don&amp;rsquo;t care whether they are implemented in more typesafe manner or used String based mappings in their internal implementations.&lt;/p&gt;
+
+&lt;p&gt;How can one be expert in Spring and can&amp;rsquo;t understand JavaEE and vice-versa?? How much time it can take for a Spring expert to learn JavaEE??!!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Which is more &amp;ldquo;Average Joe developer&amp;rdquo; friendly&lt;/strong&gt;&lt;br /&gt;
+I think by now many people should have realized that success of a technology may not be completely depends on its merits, but also based on developers adoption. The most important thing to realize is &amp;ldquo;Not every software developer is a rock star developer. There are more average joe developers than passionate, tech ninjas&amp;rdquo;. So in order to people adapt any framework it should be &amp;ldquo;Average Joe Developer&amp;rdquo; friendly.&lt;/p&gt;
+
+&lt;p&gt;I think Spring is doing pretty good job at it by providing more tools like SpringBoot, User Guides etc. Spring Security, Spring Integration, Spring XD, Spring Social addresses the modern business needs very well. Also think about various templates provided by Spring which makes easy to do things without worrying about boilerplate coding.&lt;/p&gt;
+
+&lt;p&gt;JavaEE is also doing very well by introducing JBossForge, Wildfly Swarm etc to quickly get started. I came across few JavaEE based frameworks like Picketlink which addresses Security requirements, but I felt it is much more complex than it should be.&lt;/p&gt;
+
+&lt;p&gt;The point I am trying to convey is &amp;ldquo;You can do pretty much everything in JavaEE that you can do with Spring&amp;rdquo;. The difference is which is giving more out-of-the-box to average joe developer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Lame arguments without context&lt;/strong&gt;&lt;br /&gt;
+Whenever Spring vs JavaEE debate arises people form two groups and debate endlessly.  Unfortunately the debates focus on some useless or outdated points.&lt;/p&gt;
+
+&lt;p&gt;**XML heavy: **&lt;br /&gt;
+JavaEE fans first start saying Spring is XML heavy and I hate XML blah blah blah. If you are still using Spring older than version 2.5 and assuming it is still same XML based then my friend you should wake up and head to &lt;a href=&#34;http://spring.io&#34;&gt;http://spring.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EJBs are bad (or) JSF is bad&lt;/strong&gt;&lt;br /&gt;
+Spring fans jump on to bashing EJB and JSF as if they are same as EJB 2.x or JSF 1.x. If they really look at EJB 3.x and JSF 2.x then they wouldn&amp;rsquo;t argue on this at all. Don&amp;rsquo;t judge EJB 3.x with your 6 years back EJB2.x experience.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Heavy weight or light weight&lt;/strong&gt;&lt;br /&gt;
+My interpretation of this &amp;lsquo;weight&amp;rsquo; thing is based on runtime foot print. To my knowledge, when you deploy your managed beans into JavaEE container then container will proxy it and inject all enterprise services (Transactions, Security etc) and in case of Spring it will be done by Spring AOP.&lt;br /&gt;
+I don&amp;rsquo;t have any metrics to say which is more heavy weight Container Proxy or SpringAOP Proxy, but I guess there may not be significant difference.&lt;/p&gt;
+
+&lt;p&gt;Some people consider the size of war file as its &amp;lsquo;weight&amp;rsquo;. In that case compare (JavaEE AppServer + war) size with (SpringApp with 126 jars) and see which is light weight :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;JavaEE is standards based&lt;/strong&gt;&lt;br /&gt;
+Come on guys!!!!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Vendor lock-in&lt;/strong&gt;&lt;br /&gt;
+I think choosing a platform which doesn&amp;rsquo;t make you stick with one particular vendor is good. But going with an option purely based on the ability to move to a different implementation is not correct. How many times in an year you switch from one server to another? Choosing a platform which doesn&amp;rsquo;t lock you with a vendor is a &amp;lsquo;nice to have&amp;rsquo; but it should not be major factor to choose your platform.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;We don&amp;rsquo;t need external libraries&lt;/strong&gt;&lt;br /&gt;
+This is called &amp;ldquo;Arguing for the sake of arguing&amp;rdquo;. Show me any real application without having any dependencies. If you say I will develop my own logging library, I will write my own HTTP client, I will develop my own common-utilities then you need to look for a little bit more lazy architect/developers who doesn&amp;rsquo;t have &amp;ldquo;Re-invent all the wheels&amp;rdquo; sickness.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. Don&amp;rsquo;t look at the crowd and say &amp;ldquo;You are all idiots because you are using X, you should migrate to Y&amp;rdquo;.&lt;/strong&gt;&lt;br /&gt;
+This is a common pattern that I observe on many community sites, especially on Reddit. Just post anything related to JavaEE vs Spring thing and there will be two groups who bash the other group like anything because other group are not using their favorite platform.&lt;/p&gt;
+
+&lt;p&gt;Think for a minute. If Spring is not any good why so many people use it and love it. If JavaEE is not good why so many people switch from Spring to JavaEE. There is so many good things in each platform. Respect others for choosing whatever option they choose. If possible ask them the reasons why they went with one over the other and learn if you miss anything.&lt;/p&gt;
+
+&lt;p&gt;Just saying &amp;ldquo;You all are idiots for not using my favorite option&amp;rdquo; doesn&amp;rsquo;t make them use your favorite technology. In fact it triggers the thought to come up with list of points why your favorite platform sucks.&lt;/p&gt;
+
+&lt;p&gt;If you really want them to switch to your favorite platform then show the reasons with code examples. Show them how easy it is to develop applications using your favorite platform with sample applications. Write more articles on commonly facing issues and how to resolve them. Get the &amp;ldquo;Average Joe Developer&amp;rdquo; on-board onto your favorite platform.&lt;/p&gt;
+
+&lt;p&gt;As an enthusiastic Java developer I read the Spring vs JavaEE discussions hoping there might be few things which I don&amp;rsquo;t know such as &amp;ldquo;in which areas one is better than the other&amp;rdquo;. But I find 70% of discussions goes on lame arguments which is not very interesting to me.&lt;/p&gt;
+
+&lt;p&gt;I wish Spring and JavaEE camps to fight more and more and made their platform superior than the other. End of the day, no matter who win the debate ultimately developers will have more powerful platforms.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
