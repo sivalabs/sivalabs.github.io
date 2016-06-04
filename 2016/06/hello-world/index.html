@@ -15,7 +15,9 @@
 <link rel='stylesheet' href='http://sivalabs.github.io/css/bootstrap.min.css' />
 <link rel='stylesheet' href='http://sivalabs.github.io/font-awesome-4.6.3/css/font-awesome.min.css' />	
 <link rel='stylesheet' href='http://sivalabs.github.io/css/bootstrap-social.css' />	
-<link rel='stylesheet' href='http://sivalabs.github.io/css/style.css?ver=4.4.2'/>
+<link rel='stylesheet' href='http://sivalabs.github.io/css/style.css'/>
+<link rel='stylesheet' href='http://sivalabs.github.io/css/asciidoctor-default.css'/>
+
 <script type='text/javascript' src='http://sivalabs.github.io/js/jquery.js'></script>
 <script type='text/javascript' src='http://sivalabs.github.io/js/newsted.js'></script>
 
@@ -90,29 +92,97 @@
 			<div id="main-holder" class="col-md-12">
 				
 <article class="post type-post status-publish format-standard hentry">
-	<p class="date-author">Jun 1, 2016 By Siva</p>	
+	<p class="date-author">Jun 4, 2016 By Siva</p>	
 	<div id="post-content">			
 		<h1 id="post-title">Hello World</h1>			
-		<p>Hi,</p>
-
+		<div class="paragraph">
+<p>Hi,</p>
+</div>
+<div class="paragraph">
 <p>My name is Siva and by profession I am a Software Developer primarily working on Java platform.
-I used to blog about the technology stuff that I learned at <em>www.sivalabs.in</em>.
+I used to blog about the technology stuff that I learned at <strong>www.sivalabs.in</strong>.
 I wanted to move to Hugo blogging platform because of its rich features,
-and here I am with my new blog <a href="http://sivalabs.github.io">http://sivalabs.github.io</a>.</p>
-
+and here I am with my new blog <a href="http://sivalabs.github.io" class="bare">http://sivalabs.github.io</a>.</p>
+</div>
+<div class="paragraph">
 <p>Going forward you can find various Java related things, my thoughts on technology/life and simple tips also.</p>
-
+</div>
+<div class="paragraph">
 <p>Stay tuned :-)</p>
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="background-color: #f0f0f0; padding: 0 5px 0 5px">1 </span><span style="color: #000080; font-weight: bold">public</span> <span style="color: #000080; font-weight: bold">class</span> HelloWorld
-<span style="background-color: #f0f0f0; padding: 0 5px 0 5px">2 </span>{
-<span style="background-color: #f0f0f0; padding: 0 5px 0 5px">3 </span>    <span style="color: #000080; font-weight: bold">public</span> <span style="color: #000080; font-weight: bold">static</span> <span style="color: #000080; font-weight: bold">void</span> main(String[] args)
-<span style="background-color: #f0f0f0; padding: 0 5px 0 5px">4 </span>    {
-<span style="background-color: #f0f0f0; padding: 0 5px 0 5px">5 </span><span style="background-color: #ffffcc">      System.<span style="color: #FF0000">out</span>.<span style="color: #FF0000">println</span>(<span style="color: #0000FF">&quot;Welcome to my new blog&quot;</span>);
-</span><span style="background-color: #f0f0f0; padding: 0 5px 0 5px">6 </span>    }
-<span style="background-color: #f0f0f0; padding: 0 5px 0 5px">7 </span>}
-</pre></div>
-
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HelloWorld</span>
+<span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span>
+    <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Welcome to my new blog!!&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="html"><span style="color: #008000; font-weight: bold">&lt;html&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;body&gt;</span>
+	<span style="color: #008000; font-weight: bold">&lt;h2&gt;</span>Welcome<span style="color: #008000; font-weight: bold">&lt;/h2&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/body&gt;</span>
+<span style="color: #008000; font-weight: bold">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="ProTip&#8482;"></i>
+</td>
+<td class="content">
+<div class="title">How to show TIP?</div>
+This is a TIP.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a NOTE.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Some Important Announcement</div>
+<div class="paragraph">
+<p>This is to inform you that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Asciidoctor is AWESOME.</p>
+</li>
+<li>
+<p>HUGO rocks.</p>
+</li>
+<li>
+<p>Thanks you GitHub.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
 
 				
 		
@@ -138,16 +208,6 @@ and here I am with my new blog <a href="http://sivalabs.github.io">http://sivala
     </ul>
 </div>	
 	<div id="post-footer" class="clearfix">			
-		
-		<div id="post-nav">
-				
-				
-				
-				<a class="pull-right" rel="next" href="http://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/" title="Setting up the Development Environment for JCart">
-					Setting up the Development Environment for JCart <i class="fa fa-chevron-right"></i>
-				</a>
-		    	
-		</div>
 			
 	</div>	
 </article>
@@ -187,26 +247,6 @@ and here I am with my new blog <a href="http://sivalabs.github.io">http://sivala
 						<a href="http://sivalabs.github.io/categories/blogging">Blogging</a>
 					</li>
 					
-					<li class="cat-item">
-						<a href="http://sivalabs.github.io/categories/it">It</a>
-					</li>
-					
-					<li class="cat-item">
-						<a href="http://sivalabs.github.io/categories/java">Java</a>
-					</li>
-					
-					<li class="cat-item">
-						<a href="http://sivalabs.github.io/categories/javaee">Javaee</a>
-					</li>
-					
-					<li class="cat-item">
-						<a href="http://sivalabs.github.io/categories/linux">Linux</a>
-					</li>
-					
-					<li class="cat-item">
-						<a href="http://sivalabs.github.io/categories/spring">Spring</a>
-					</li>
-					
 				
 					
 				</ul>
@@ -218,20 +258,6 @@ and here I am with my new blog <a href="http://sivalabs.github.io">http://sivala
 				<div class="tagcloud">
 					
 			        <a style='font-size: 12.375pt;' href="http://sivalabs.github.io/tags/blogging">Blogging</a>
-			        
-			        <a style='font-size: 12.375pt;' href="http://sivalabs.github.io/tags/e-commerce">E-Commerce</a>
-			        
-			        <a style='font-size: 12.375pt;' href="http://sivalabs.github.io/tags/it">It</a>
-			        
-			        <a style='font-size: 12.375pt;' href="http://sivalabs.github.io/tags/javaee">Javaee</a>
-			        
-			        <a style='font-size: 12.375pt;' href="http://sivalabs.github.io/tags/jcart">Jcart</a>
-			        
-			        <a style='font-size: 12.375pt;' href="http://sivalabs.github.io/tags/linux">Linux</a>
-			        
-			        <a style='font-size: 12.375pt;' href="http://sivalabs.github.io/tags/spring">Spring</a>
-			        
-			        <a style='font-size: 12.375pt;' href="http://sivalabs.github.io/tags/virtualbox">Virtualbox</a>
 			          
 				</div>
 		
@@ -243,14 +269,6 @@ and here I am with my new blog <a href="http://sivalabs.github.io">http://sivala
 				<ul>
 					
 					<li><a href="http://sivalabs.github.io/2016/06/hello-world/">Hello World</a></li>
-					
-					<li><a href="http://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/">Setting up the Development Environment for JCart</a></li>
-					
-					<li><a href="http://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/">My Development Environment Setup on Linux</a></li>
-					
-					<li><a href="http://sivalabs.github.io/2015/07/my-life-as-a-software-developer-in-india/">My Life as a Software Developer in India</a></li>
-					
-					<li><a href="http://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/">A Developers Perspective on Spring vs JavaEE</a></li>
 					
 				</ul>
 			</aside>

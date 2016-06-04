@@ -6,35 +6,103 @@
     <description>Recent content in Blogging on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jun 2016 08:36:54 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jun 2016 19:20:04 -0700</lastBuildDate>
     <atom:link href="http://sivalabs.github.io/categories/blogging/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hello World</title>
       <link>http://sivalabs.github.io/2016/06/hello-world/</link>
-      <pubDate>Wed, 01 Jun 2016 08:36:54 -0700</pubDate>
+      <pubDate>Sat, 04 Jun 2016 19:20:04 -0700</pubDate>
       
       <guid>http://sivalabs.github.io/2016/06/hello-world/</guid>
-      <description>&lt;p&gt;Hi,&lt;/p&gt;
-
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Hi,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;My name is Siva and by profession I am a Software Developer primarily working on Java platform.
-I used to blog about the technology stuff that I learned at &lt;em&gt;www.sivalabs.in&lt;/em&gt;.
+I used to blog about the technology stuff that I learned at &lt;strong&gt;www.sivalabs.in&lt;/strong&gt;.
 I wanted to move to Hugo blogging platform because of its rich features,
-and here I am with my new blog &lt;a href=&#34;http://sivalabs.github.io&#34;&gt;http://sivalabs.github.io&lt;/a&gt;.&lt;/p&gt;
-
+and here I am with my new blog &lt;a href=&#34;http://sivalabs.github.io&#34; class=&#34;bare&#34;&gt;http://sivalabs.github.io&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;Going forward you can find various Java related things, my thoughts on technology/life and simple tips also.&lt;/p&gt;
-
+&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;Stay tuned :-)&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;1 &lt;/span&gt;&lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;class&lt;/span&gt; HelloWorld
-&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;2 &lt;/span&gt;{
-&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;3 &lt;/span&gt;    &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #000080; font-weight: bold&#34;&gt;void&lt;/span&gt; main(String[] args)
-&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;4 &lt;/span&gt;    {
-&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;5 &lt;/span&gt;&lt;span style=&#34;background-color: #ffffcc&#34;&gt;      System.&lt;span style=&#34;color: #FF0000&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color: #FF0000&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color: #0000FF&#34;&gt;&amp;quot;Welcome to my new blog&amp;quot;&lt;/span&gt;);
-&lt;/span&gt;&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;6 &lt;/span&gt;    }
-&lt;span style=&#34;background-color: #f0f0f0; padding: 0 5px 0 5px&#34;&gt;7 &lt;/span&gt;}
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;HelloWorld&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+        System&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Welcome to my new blog!!&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;listingblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;html&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;Welcome&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;admonitionblock tip&#34;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&#34;icon&#34;&gt;
+&lt;i class=&#34;fa icon-tip&#34; title=&#34;ProTip&amp;#8482;&#34;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&#34;content&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;How to show TIP?&lt;/div&gt;
+This is a TIP.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&#34;admonitionblock note&#34;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&#34;icon&#34;&gt;
+&lt;i class=&#34;fa icon-note&#34; title=&#34;Note&#34;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&#34;content&#34;&gt;
+This is a NOTE.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&#34;admonitionblock important&#34;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&#34;icon&#34;&gt;
+&lt;i class=&#34;fa icon-important&#34; title=&#34;Important&#34;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&#34;content&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;Some Important Announcement&lt;/div&gt;
+&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;This is to inform you that:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;olist arabic&#34;&gt;
+&lt;ol class=&#34;arabic&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Asciidoctor is AWESOME.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HUGO rocks.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thanks you GitHub.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
 </description>
     </item>
     
