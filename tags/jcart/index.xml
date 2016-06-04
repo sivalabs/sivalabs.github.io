@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jcart on SivaLabs</title>
+    <link>http://sivalabs.github.io/tags/jcart/</link>
+    <description>Recent content in Jcart on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 Nov 2015 04:34:03 +0000</lastBuildDate>
+    <atom:link href="http://sivalabs.github.io/tags/jcart/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Setting up the Development Environment for JCart</title>
+      <link>http://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</link>
+      <pubDate>Tue, 24 Nov 2015 04:34:03 +0000</pubDate>
+      
+      <guid>http://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</guid>
+      <description>&lt;p&gt;For our JCart application development we will be using the following Softwares/Tools.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt; &lt;a href=&#34;http://www.oracle.com/technetwork/java/javase/downloads/index.html&#34;&gt;JDK 8&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://spring.io/tools/sts/all&#34;&gt;SpringSource Tool Suite (STS) &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.mysql.com/downloads/&#34;&gt;MySQL&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://git-scm.com/download/win&#34;&gt;Git &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://maven.apache.org/download.cgi&#34;&gt;Maven &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://jenkins-ci.org/&#34;&gt;Jenkins &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.sonarqube.org/&#34;&gt;SonarQube &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://httpd.apache.org/&#34;&gt;Apache&lt;/a&gt;/&lt;a href=&#34;https://www.nginx.com/&#34;&gt;Nginx &lt;/a&gt;WebServer&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I am not going to explain how to install JDK or MySQL because there are plenty of articles you can find on internet.&lt;/p&gt;
+
+&lt;p&gt;If you are using Ubuntu based Linux Operating System then you can refer my article &lt;a href=&#34;http://sivalabs.in/my-development-environment-setup-on-linux/&#34;&gt;My Development Environment Setup on Linux&lt;/a&gt; to setup Java development tool chain.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
