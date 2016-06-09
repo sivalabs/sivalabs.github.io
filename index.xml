@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SivaLabs</title>
-    <link>http://sivalabs.github.io/</link>
+    <link>https://sivalabs.github.io/</link>
     <description>Recent content on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Jun 2016 19:20:04 -0700</lastBuildDate>
-    <atom:link href="http://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hello World</title>
-      <link>http://sivalabs.github.io/2016/06/hello-world/</link>
+      <link>https://sivalabs.github.io/2016/06/hello-world/</link>
       <pubDate>Sat, 04 Jun 2016 19:20:04 -0700</pubDate>
       
-      <guid>http://sivalabs.github.io/2016/06/hello-world/</guid>
+      <guid>https://sivalabs.github.io/2016/06/hello-world/</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;Hi,&lt;/p&gt;
 &lt;/div&gt;
@@ -108,15 +108,15 @@ This is a NOTE.
     
     <item>
       <title>Contact</title>
-      <link>http://sivalabs.github.io/contact</link>
+      <link>https://sivalabs.github.io/contact</link>
       <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
       
-      <guid>http://sivalabs.github.io/contact</guid>
+      <guid>https://sivalabs.github.io/contact</guid>
       <description>&lt;div class=&#34;sect2&#34;&gt;
 &lt;h3 id=&#34;_k_siva_prasad_reddy&#34;&gt;K. Siva Prasad Reddy&lt;/h3&gt;
 &lt;div class=&#34;imageblock&#34;&gt;
 &lt;div class=&#34;content&#34;&gt;
-&lt;img src=&#34;http://sivalabs.github.io/images/Siva-1.jpg&#34; alt=&#34;Siva&#34; width=&#34;180&#34; height=&#34;220&#34;&gt;
+&lt;img src=&#34;https://sivalabs.github.io/images/Siva-1.jpg&#34; alt=&#34;Siva&#34; width=&#34;180&#34; height=&#34;220&#34;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
@@ -173,10 +173,10 @@ I am a Software developer working on Java platform since 2005.&lt;/p&gt;
     
     <item>
       <title>Core Java Training</title>
-      <link>http://sivalabs.github.io/core-java</link>
+      <link>https://sivalabs.github.io/core-java</link>
       <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
       
-      <guid>http://sivalabs.github.io/core-java</guid>
+      <guid>https://sivalabs.github.io/core-java</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;This Core Java training aims at the beginners who want to learn Java programming starting from scratch.&lt;/p&gt;
 &lt;/div&gt;
@@ -396,10 +396,10 @@ I am a Software developer working on Java platform since 2005.&lt;/p&gt;
     
     <item>
       <title>JavaEE Training</title>
-      <link>http://sivalabs.github.io/java-ee</link>
+      <link>https://sivalabs.github.io/java-ee</link>
       <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
       
-      <guid>http://sivalabs.github.io/java-ee</guid>
+      <guid>https://sivalabs.github.io/java-ee</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;Please reach me at &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt; for further details.&lt;/p&gt;
 &lt;/div&gt;
@@ -676,10 +676,10 @@ I am a Software developer working on Java platform since 2005.&lt;/p&gt;
     
     <item>
       <title>My Books</title>
-      <link>http://sivalabs.github.io/mybooks</link>
+      <link>https://sivalabs.github.io/mybooks</link>
       <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
       
-      <guid>http://sivalabs.github.io/mybooks</guid>
+      <guid>https://sivalabs.github.io/mybooks</guid>
       <description>&lt;div class=&#34;sect3&#34;&gt;
 &lt;h4 id=&#34;_i_am_the_author_of_the_following_books&#34;&gt;I am the author of the following books.&lt;/h4&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
@@ -687,14 +687,14 @@ I am a Software developer working on Java platform since 2005.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;div class=&#34;title&#34;&gt;&lt;strong&gt;Java Persistence with MyBatis 3&lt;/strong&gt;&lt;/div&gt;
-&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/application-development/java-persistence-mybatis-3&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/images/books/MyBatis.jpg&#34; alt=&#34;MyBatis&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/application-development/java-persistence-mybatis-3&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sivalabs.github.io/images/books/MyBatis.jpg&#34; alt=&#34;MyBatis&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;&amp;#160;&amp;#160;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;div class=&#34;title&#34;&gt;&lt;strong&gt;PrimeFaces Beginners Guide&lt;/strong&gt;&lt;/div&gt;
-&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/web-development/primefaces-beginners-guide&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/images/books/PFBG.jpg&#34; alt=&#34;PrimeFaces&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/web-development/primefaces-beginners-guide&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sivalabs.github.io/images/books/PFBG.jpg&#34; alt=&#34;PrimeFaces&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -702,10 +702,10 @@ I am a Software developer working on Java platform since 2005.&lt;/p&gt;
     
     <item>
       <title>Spring Training</title>
-      <link>http://sivalabs.github.io/spring</link>
+      <link>https://sivalabs.github.io/spring</link>
       <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
       
-      <guid>http://sivalabs.github.io/spring</guid>
+      <guid>https://sivalabs.github.io/spring</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;Please reach me at &lt;a href=&#34;mailto:sivaprasadreddy.k@gmail.com&#34;&gt;sivaprasadreddy.k@gmail.com&lt;/a&gt; for further details.&lt;/p&gt;
 &lt;/div&gt;
@@ -1003,10 +1003,10 @@ I am a Software developer working on Java platform since 2005.&lt;/p&gt;
     
     <item>
       <title>Trainings</title>
-      <link>http://sivalabs.github.io/trainings</link>
+      <link>https://sivalabs.github.io/trainings</link>
       <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
       
-      <guid>http://sivalabs.github.io/trainings</guid>
+      <guid>https://sivalabs.github.io/trainings</guid>
       <description>&lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;Trainings&lt;/p&gt;
 &lt;/div&gt;
