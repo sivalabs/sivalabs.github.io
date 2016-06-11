@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on SivaLabs</title>
-    <link>http://sivalabs.github.io/page/</link>
+    <link>https://sivalabs.github.io/page/</link>
     <description>Recent content in Pages on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Jan 2016 19:20:04 -0700</lastBuildDate>
-    <atom:link href="http://sivalabs.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sivalabs.github.io/page/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Contact</title>
-      <link>http://sivalabs.github.io/contact</link>
+      <link>https://sivalabs.github.io/contact</link>
       <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
       
-      <guid>http://sivalabs.github.io/contact</guid>
+      <guid>https://sivalabs.github.io/contact</guid>
       <description>&lt;div class=&#34;sect2&#34;&gt;
 &lt;h3 id=&#34;_k_siva_prasad_reddy&#34;&gt;K. Siva Prasad Reddy&lt;/h3&gt;
 &lt;div class=&#34;imageblock&#34;&gt;
 &lt;div class=&#34;content&#34;&gt;
-&lt;img src=&#34;http://sivalabs.github.io/static/images/Siva-1.jpg&#34; alt=&#34;Siva&#34; width=&#34;180&#34; height=&#34;220&#34;&gt;
+&lt;img src=&#34;https://sivalabs.github.io/static/images/Siva-1.jpg&#34; alt=&#34;Siva&#34; width=&#34;180&#34; height=&#34;220&#34;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
@@ -76,10 +76,10 @@ I am a Software developer working on Java platform since 2005.&lt;/p&gt;
     
     <item>
       <title>My Books</title>
-      <link>http://sivalabs.github.io/mybooks</link>
+      <link>https://sivalabs.github.io/mybooks</link>
       <pubDate>Fri, 01 Jan 2016 19:20:04 -0700</pubDate>
       
-      <guid>http://sivalabs.github.io/mybooks</guid>
+      <guid>https://sivalabs.github.io/mybooks</guid>
       <description>&lt;div class=&#34;sect3&#34;&gt;
 &lt;h4 id=&#34;_i_am_the_author_of_the_following_books&#34;&gt;I am the author of the following books.&lt;/h4&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
@@ -87,14 +87,14 @@ I am a Software developer working on Java platform since 2005.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;div class=&#34;title&#34;&gt;&lt;strong&gt;Java Persistence with MyBatis 3&lt;/strong&gt;&lt;/div&gt;
-&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/application-development/java-persistence-mybatis-3&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/static/images/books/MyBatis.jpg&#34; alt=&#34;MyBatis&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/application-development/java-persistence-mybatis-3&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sivalabs.github.io/static/images/books/MyBatis.jpg&#34; alt=&#34;MyBatis&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;p&gt;&amp;#160;&amp;#160;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;paragraph&#34;&gt;
 &lt;div class=&#34;title&#34;&gt;&lt;strong&gt;PrimeFaces Beginners Guide&lt;/strong&gt;&lt;/div&gt;
-&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/web-development/primefaces-beginners-guide&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://sivalabs.github.io/static/images/books/PFBG.jpg&#34; alt=&#34;PrimeFaces&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;image&#34;&gt;&lt;a class=&#34;image&#34; href=&#34;https://www.packtpub.com/web-development/primefaces-beginners-guide&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sivalabs.github.io/static/images/books/PFBG.jpg&#34; alt=&#34;PrimeFaces&#34; width=&#34;200&#34; height=&#34;240&#34;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
