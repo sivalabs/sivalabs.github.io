@@ -6,104 +6,45 @@
     <description>Recent content in Posts on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Jun 2016 19:20:04 -0700</lastBuildDate>
-    <atom:link href="https://sivalabs.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
-      <title>Hello World</title>
-      <link>https://sivalabs.github.io/2016/06/hello-world/</link>
-      <pubDate>Sat, 04 Jun 2016 19:20:04 -0700</pubDate>
+      <title>Debugging Weird Technical Issues using Siva&#39;s 3-Step Debugging Law</title>
+      <link>https://sivalabs.github.io/post/debug-3-laws/</link>
+      <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2016/06/hello-world/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;Hi,&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;My name is Siva and by profession I am a Software Developer primarily working on Java platform.
-I used to blog about the technology stuff that I learned at &lt;strong&gt;www.sivalabs.in&lt;/strong&gt;.
-I wanted to move to Hugo blogging platform because of its rich features,
-and here I am with my new blog &lt;a href=&#34;http://sivalabs.github.io&#34; class=&#34;bare&#34;&gt;http://sivalabs.github.io&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;Going forward you can find various Java related things, my thoughts on technology/life and simple tips also.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;Stay tuned :-)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;listingblock&#34;&gt;
-&lt;div class=&#34;content&#34;&gt;
-&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;HelloWorld&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
-    &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-        System&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Welcome to my new blog!!&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;listingblock&#34;&gt;
-&lt;div class=&#34;content&#34;&gt;
-&lt;pre class=&#34;pygments highlight&#34;&gt;&lt;code data-lang=&#34;html&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;Welcome&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;admonitionblock tip&#34;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&#34;icon&#34;&gt;
-&lt;i class=&#34;fa icon-tip&#34; title=&#34;ProTip&amp;#8482;&#34;&gt;&lt;/i&gt;
-&lt;/td&gt;
-&lt;td class=&#34;content&#34;&gt;
-&lt;div class=&#34;title&#34;&gt;How to show TIP?&lt;/div&gt;
-This is a TIP.
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class=&#34;admonitionblock note&#34;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&#34;icon&#34;&gt;
-&lt;i class=&#34;fa icon-note&#34; title=&#34;Note&#34;&gt;&lt;/i&gt;
-&lt;/td&gt;
-&lt;td class=&#34;content&#34;&gt;
-This is a NOTE.
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class=&#34;admonitionblock important&#34;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&#34;icon&#34;&gt;
-&lt;i class=&#34;fa icon-important&#34; title=&#34;Important&#34;&gt;&lt;/i&gt;
-&lt;/td&gt;
-&lt;td class=&#34;content&#34;&gt;
-&lt;div class=&#34;title&#34;&gt;Some Important Announcement&lt;/div&gt;
-&lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;This is to inform you that:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;olist arabic&#34;&gt;
-&lt;ol class=&#34;arabic&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;Asciidoctor is AWESOME.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HUGO rocks.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Thanks you GitHub.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-</description>
+      <guid>https://sivalabs.github.io/post/debug-3-laws/</guid>
+      <description>At times we stuck with some weird problem which doesn&amp;rsquo;t make any sense and gives no clue where to start debugging the issue also.
+If you find yourself in that situation, follow the following 3 steps.
+Step 1: Lock the system and go out for a quick walk. Why this works:
+When you are visually looking at the code and mentally decided it is correct then your brain can&amp;rsquo;t think out-of-the-box.</description>
+    </item>
+    
+    <item>
+      <title>Respect Woman</title>
+      <link>https://sivalabs.github.io/post/respect-woman/</link>
+      <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/post/respect-woman/</guid>
+      <description>It is evening 6.45 PM in Chicago and I am back from office,took shower and relaxing. My employer arranged nice stay at a decent restaurant with all goodies.But I have mixed feelings of excitement and emptiness.
+I am very excited because it is my first on-site visit to USA and tomorrow I am going to see some places in Chicago Loop, specifically 108 floors Willis Tower. On the other hand I am missing something.</description>
+    </item>
+    
+    <item>
+      <title>Welcome to my new personal blog</title>
+      <link>https://sivalabs.github.io/post/helloworld/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/post/helloworld/</guid>
+      <description>Hi,
+My name is Siva and by profession I am a Software Developer. I do blog about the technology stuff that I learned at http://sivalabs.in.
+I wanted to start blogging about non-technical stuff and here I am with my new blog http://sivaprasadreddy.github.io.
+Going forward you can find my thoughts on various interesting things in life here.
+Stay tuned :-)
+public class HelloWorld { public static void main(String[] args) { System.out.println(&amp;quot;Welcome to my new blog!</description>
     </item>
     
   </channel>
