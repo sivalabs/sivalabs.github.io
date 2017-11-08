@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        SivaLabs
+        </title>
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SivaLabs &#8211; My Experiments on Technology</title>
+
+    <link rel='stylesheet' id='sparkling-bootstrap-css'
+          href="/assets/css/bootstrap.min.css" type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='sparkling-icons-css'
+          href="/assets/css/font-awesome.min.css"
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-fonts-css'
+          href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-style-css'
+          href="/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' id='socicon-css'
+          href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css"
+          type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.js"></script>
+
+    <script type='text/javascript'
+            src="/assets/js/vendor/modernizr.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/functions.min.js"></script>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+</head>
+
+</head>
+
+<body class="home blog">
+<div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+    <nav class="navbar navbar-default " role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="site-navigation-inner col-sm-12">
+                    <div class="navbar-header">
+                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div id="logo">
+                            <h1 class="site-name">
+                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul id="menu-home" class="nav navbar-nav">
+
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/java">Java</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="/tags/spring">Spring </a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/javaee">Java EE</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/videos">Videos</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/mybooks">My Books</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <div id="content" class="site-content">
+
+        <div class="top-section">
+        </div>
+
+        <div class="container main-content-area">
+            <div class="row side-pull-left">
+                <div class="main-content-inner col-sm-12 col-md-8">
+
+                    <div id="primary" class="content-area">
+                        
+
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header page-header">
+
+            <h1 class="entry-title ">
+                Next level of Don’t Repeat Yourself(DRY) principle
+            </h1>
+
+            <div class="entry-meta">
+                <span class="posted-on"><i class="fa fa-calendar"></i>
+                    <time class="entry-date published"
+                          datetime="2011-01-30T13:16:00">January 30, 2011</time>
+                </span>
+                <span class="byline">
+                    <i class="fa fa-user"></i>
+                    <span class="author vcard">Siva</span>
+                </span>
+                <span class="cat-links"><i class="fa fa-folder-open-o"></i>
+				    
+                        
+                        <a rel="category tag" href="/categories/misc" rel="category">Misc</a>
+                    
+
+                </span>
+
+            </div>
+        </header>
+
+        <div class="entry-content">
+            <p>We are building the software applications using various languages for several years. Over the time new frameworks, new tools, new methodologies have came up. Especially in Java platform, now we have plenty of choices in each area following various design patterns and principles like MVC, FrontController etc.</p>
+
+<p>We have many development principles like KISS(Keep It Simple Stupid), DRY(Don&#8217;t Repeat Yourself) which encourages to write better code which is maintainable. Especially DRY principle is a very good one which every developer should understand and follow.</p>
+
+<p>The DRY principle is stated as **&#8220;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&#8221; **</p>
+
+<p>So the DRY principle is saying that if you need to write same piece of code at many places instead of copy-pasting make it as a separate method and use it wherever it is required. This is applying DRY at code level.</p>
+
+<p>I really really appreciate the Jakartha-Commons Utils authors for practically implementing DRY principle. Whenever i need a utility like some String operation, Date calculation, Regular expressions, Properties loading etc etc I just open the Jakartha-Commons website and i am sure i can find there what i need.<br />
+Even though each application has its own set of business requirements there are many things which are common to web/enterprise applications. Especially infrastructure code might be similar to many applications.</p>
+
+<p><strong>Now I think it is time to take DRY priciple to the next level, I mean to apply at functional level.</strong></p>
+
+<p>Let us see where we can apply DRY at functional level. The following are some of the things where we can build reusable components/small projects which we can directly use with other projects.</p>
+
+<p><strong>1. An application multi-level menu bar:</strong><br />
+I have seen many applications having a horizantal menu bar at the top of the page with single/multi level sub-menus. The menu bar can be build using Javascript or custom tags. What I am suggesting is if we can build a CustomTag to generate a Menu bar from an xml configuration and a style sheet that component can be used in any of hte projects.</p>
+
+<p>For Ex:</p>
+
+<p>we can create an xml structure for our menu as follows and create a customtag to parse that xml and render a menu bar with default stylesheet. If user is proved a custom stylesheet that custom tag will use that.</p>
+
+<pre>&lt;menubar><br />&nbsp;&nbsp;&nbsp; <br /><br />
+
+<menu>
+  <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;index>1&lt;/index><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;name>File&lt;/name><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;item><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;index>1&lt;/index><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;name>New&lt;/name><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;item><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;item><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;index>2&lt;/index><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;name>Save&lt;/name><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;item><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; .....<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; .....<br />&nbsp;&nbsp;&nbsp; &lt;/item>&lt;/item>&lt;/item>&lt;/item>
+</menu>
+
+<br />&nbsp;&nbsp;&nbsp; <br />
+
+<menu>
+  <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;index>2&lt;/index><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;name>Edit&lt;/name><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;item><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;index>1&lt;/index><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;name>Cut&lt;/name><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;item><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;item><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;index>2&lt;/index><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;name>Copy&lt;/name>&lt;/item><br />&lt;/menubar><br />
+</menu>
+
+<br /></pre>
+
+<p><strong>2. Role-based authentication and authorization system:</strong><br />
+I involved in many projects where the application users will have one or more roles and each role has one or more privileges. Each privilege is nothing but an action that a use will do in appliation. The whole application events will driven by role based authorization. And also there could be a requirement to create user groups and assign privileges to user groups instead of individual users.</p>
+
+<p>I think this Role based Authorization System can also be built as a component which we can plug in to any project.</p>
+
+<p><strong>3. Job Scheduling:</strong><br />
+For many enterprises there could be several batch jobs that should be run on perticular schedules. I think there a need to build a job scheduling web application with the following features:<br />
+&nbsp;&nbsp;&nbsp; a) A web based UI to create and schedule new jobs<br />
+&nbsp;&nbsp;&nbsp; b) Provision to track the status of the running jobs<br />
+&nbsp;&nbsp;&nbsp; c) Provision to run jobs in adhoc manner<br />
+&nbsp;&nbsp;&nbsp; d) Provision to reschedule, terminate a job<br />
+&nbsp;&nbsp;&nbsp; e) Informing the concerned groups about the status of jobs through emails<br />
+&nbsp;&nbsp;&nbsp; f) Automatic email notifications on job failures</p>
+
+<p>we can build a web application with the above mentioned features and leaving business logic implementation in the jobs for the developers.</p>
+
+<p><strong>4. Sophisticated logging system:</strong><br />
+While developing the application logging plays a vital role in debugging the problems. We can use AOP for logging in a better way with cleaner approach. Many times the developer needs to check what parameters are sending to methods and where it is throwing an exception.</p>
+
+<p>For this we can write MethodParamsDumbperAspect using SpringAOP+AspectJ which will display the method parameter values using reflection/commons-beanutils. Only thing a developer need to configure is the base package name.</p>
+
+<p><strong>5. Configurable and customizable work-flow engine</strong>:<br />
+I have seen many intranet portals having HelpDesk applications with the following features.</p>
+
+<ol>
+<li>A customer will raise a request.<br /></li>
+<li>The system will identify the workflow to process the request and the request will be routed to the concern person.<br /></li>
+<li>The requester can view the status of his request as each stpe is in progress.</li>
+</ol>
+
+<p>Like this there are many WorkFlow based systems. We can build a generic workflow engine where in the administrator can setup the metadata like Request Types, Steps for each request, Request Status codes etc.</p>
+
+<p><strong>So here my point is all these days we followed DRY in writing code. Let us take it to the next level in building components/sub-projects. If an architect or developer got a requirement to build a reusable component, it would be great if he/she can publish his/her approach (and code if possible) so that the other developers across the java community can use the approach/code instead of reinventing the wheel.</strong></p>
+
+<p>I am planning to build a JobScheduling Server with the above mentioned features. If anyone is interested you can join me 🙂</p>
+
+        </div>
+        <footer class="entry-meta">
+            <div class="tagcloud" style="display: block;">
+                    <a href="/tags/best-practices/" rel="tag">Best Practices</a></li>
+                    <a href="/tags/design-patterns/" rel="tag">Design Patterns</a></li>
+                    <a href="/tags/java/" rel="tag">Java</a></li>
+            </div>
+        </footer>
+    </div>
+</article>
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2011/02/finally-you-need-to-deliver-developerwrittencode-war-not-managersmanagerialskills-zip/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">Finally you need to deliver DeveloperWrittenCode.WAR, not Manager’sManagerialSkills.zip</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2011/01/10-things-to-become-outstanding-java/" rel="prev">
+                <span class="post-title">10 things to become an outstanding Java developer
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+                    </div>
+
+                </div>
+                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+                    <div class="well">
+
+    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+        <h3 class="widget-title">Social Networks</h3>
+
+        <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://github.com/sivaprasadreddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+                          style="background-color : #221e1b; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://twitter.com/sivalabs"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                          style="background-color : #55acee; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://facebook.com/sivaprasadreddy.k"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
+                          data-hover-rule="background-color" data-hover-color="#3b5998"
+                          style="background-color : #3b5998; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://plus.google.com/u/0/+SivaPrasadReddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-google"
+                          data-hover-rule="background-color" data-hover-color="#d93e2d"
+                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                              data-hover-rule="background-color" data-hover-color="#3371b7"
+                              style="background-color : #3371b7; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="http://www.youtube.com/c/SivaPrasadReddy%20"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                              data-hover-rule="background-color" data-hover-color="#e02a20"
+                              style="background-color : #e02a20; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <aside id="widget_sp_image-4" class="widget widget_sp_image">
+        <h3 class="widget-title">My Recent Books</h3><a
+            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
+            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
+            <img
+            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
+            style="max-width: 100%;"
+            src="https://images-na.ssl-images-amazon.com/images/I/41SaZiIaUNL._SX348_BO1,204,203,200_.jpg"/></a>
+    </aside>
+
+    <aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent
+        Posts</h3>
+        <ul>
+        </ul>
+    </aside>
+
+    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tagcloud">
+
+                <div class="widget__content">
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/android" title="android">android</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/angularjs" title="angularjs">angularjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/best-practices" title="best-practices">best-practices</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/blogging" title="blogging">blogging</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/books" title="books">books</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/design-patterns" title="design-patterns">design-patterns</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/extjs" title="extjs">extjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/hibernate" title="hibernate">hibernate</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/ide" title="ide">ide</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/interviews" title="interviews">interviews</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/it" title="it">it</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/java" title="java">java</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javaee" title="javaee">javaee</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javamail" title="javamail">javamail</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javascript" title="javascript">javascript</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jboss" title="jboss">jboss</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jcart" title="jcart">jcart</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jooq" title="jooq">jooq</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jpa" title="jpa">jpa</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jsf" title="jsf">jsf</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/linux" title="linux">linux</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/maven" title="maven">maven</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/mybatis" title="mybatis">mybatis</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/primefaces" title="primefaces">primefaces</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/quartz" title="quartz">quartz</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/rest" title="rest">rest</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/resteasy" title="resteasy">resteasy</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/spring" title="spring">spring</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springboot" title="springboot">springboot</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springcloud" title="springcloud">springcloud</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springmvc" title="springmvc">springmvc</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springsecurity" title="springsecurity">springsecurity</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tips" title="tips">tips</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tomcat" title="tomcat">tomcat</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/webservices" title="webservices">webservices</a>
+                </div>
+
+        </div>
+    </aside>
+
+    <aside class="widget widget_categories">
+        <h3 class="widget-title">Categories</h3>
+        <ul>
+                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                    <li class="cat-item"><a href="/categories/books">Books</a></li>
+                    <li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li>
+                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                    <li class="cat-item"><a href="/categories/java">Java</a></li>
+                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                    <li class="cat-item"><a href="/categories/javascript">Javascript</a></li>
+                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        </ul>
+    </aside>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-area">
+        <div class="container footer-inner">
+    <div class="row">
+
+    </div>
+</div>
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info container">
+        <div class="row">
+            <nav role="navigation" class="col-md-3">
+            </nav>
+            <div class="copyright col-md-6">
+                <a href="http://sivalabs.in/" target="_blank">SivaLabs</a> Powered by <a
+                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
+        </div>
+    </div>
+    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
+</footer>
+
+    </div>
+</div>
+
+</body>
+
+</html>

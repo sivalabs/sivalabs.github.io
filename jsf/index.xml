@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jsfs on SivaLabs</title>
+    <link>https://sivalabs.github.io/jsf/</link>
+    <description>Recent content in Jsfs on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Apr 2016 09:49:13 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/jsf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JSF</title>
+      <link>https://sivalabs.github.io/jsf/</link>
+      <pubDate>Tue, 12 Apr 2016 09:49:13 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/jsf/</guid>
+      <description>PrimeFaces Tutorials  PrimeFaces QuickStart Tutorial-Part1 PrimeFaces3 Tutorial : Form Validation Using BeanValidation API(JSR-303) PrimeFaces 3 Tutorial : Introduction &amp;amp; Form Validation  &amp;nbsp;</description>
+    </item>
+    
+  </channel>
+</rss>

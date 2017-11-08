@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quartz on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/quartz/</link>
+    <description>Recent content in Quartz on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Oct 2011 11:44:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/quartz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring and Quartz Integration Using Custom Annotation</title>
+      <link>https://sivalabs.github.io/2011/10/spring-and-quartz-integration-using-custom-annotation/</link>
+      <pubDate>Mon, 10 Oct 2011 11:44:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/10/spring-and-quartz-integration-using-custom-annotation/</guid>
+      <description>We know Spring has support for integrating with Quartz framework.
+But as of now Spring supports only static xml declarative approach only.
+If you want to see how to integrate Spring+Quartz you can refer Spring + Quartz Integration .
+As part of my pet project requirement I got to schedule the Jobs dynamically and I though of following 2 options:
+1. Using Annotations for providing Job Metada
+2. Loading the Job Metadata from Database</description>
+    </item>
+    
+    <item>
+      <title>Spring &#43; Quartz &#43; JavaMail Integration Tutorial</title>
+      <link>https://sivalabs.github.io/2011/05/spring-quartz-javamail-integration-tutorial/</link>
+      <pubDate>Mon, 30 May 2011 09:27:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/05/spring-quartz-javamail-integration-tutorial/</guid>
+      <description>Quartz is a job scheduling framework which is used to schedule the jobs to be executed on the specified time schedule.
+JavaMail is an API to send/recieve emails from Java Applications.
+Spring has integration points to integrate Quartz and JavaMail which makes easy to use those APIs.
+Lets create a small demo application to show how to integrate Spring + Quartz + JavaMail.
+Our application is to send birthday wishes emails to friends everyday at 6 AM.</description>
+    </item>
+    
+  </channel>
+</rss>

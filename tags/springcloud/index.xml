@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Springcloud on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/springcloud/</link>
+    <description>Recent content in Springcloud on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 Aug 2017 12:30:43 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/springcloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</title>
+      <link>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</link>
+      <pubDate>Mon, 14 Aug 2017 12:30:43 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</guid>
+      <description>Problem In the previous article Introduction to Spring Cloud Config Server (http://sivalabs.in/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/) we have seen how to use Spring Cloud Config Server.
+But, the problem is to reload the config changes in Config Client applications we need to trigger /refresh endpoint manually. This is not practical and viable if you have large number of applications.
+Solution Spring Cloud Bus module can be used to link multiple applications with a message broker and we can broadcast configuration changes.</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</title>
+      <link>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/</link>
+      <pubDate>Mon, 14 Aug 2017 03:35:07 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/</guid>
+      <description>Problem SpringBoot provides lot of flexibility in externalizing configuration properties via properties or YAML files. We can also configure properties for each environment (dev, qa, prod etc) separately using profile specific configuration files such as application.properties, application-dev.properties, application-prod.properties etc. But once the application is started we can not update the properties at runtime. If we change the properties we need to restart the application to use the updated configuration properties.</description>
+    </item>
+    
+  </channel>
+</rss>

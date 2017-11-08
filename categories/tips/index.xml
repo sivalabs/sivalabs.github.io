@@ -6,35 +6,43 @@
     <description>Recent content in Tips on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Oct 2017 02:50:23 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/categories/tips/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Debugging Weird Technical Issues using Siva&#39;s 3-Step Debugging Law</title>
-      <link>https://sivalabs.github.io/post/debug-3-laws/</link>
-      <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
+      <title>Select ALL starters on Spring Initializer (http://start.spring.io)</title>
+      <link>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</link>
+      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/post/debug-3-laws/</guid>
-      <description>At times we stuck with some weird problem which doesn&amp;rsquo;t make any sense and gives no clue where to start debugging the issue also.
-If you find yourself in that situation, follow the following 3 steps.
-Step 1: Lock the system and go out for a quick walk. Why this works:
-When you are visually looking at the code and mentally decided it is correct then your brain can&amp;rsquo;t think out-of-the-box.</description>
+      <guid>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</guid>
+      <description>If you are working on Spring Boot then you most probably aware of Spring Initializer (http://start.spring.io) which is an online spring boot application generator. You can select the starters that you want to use and then generate the application.
+If you notice that there is no SELECT ALL option to select all the starters. Who would do that insane thing of selecting all the starters for an application??!!???
+But, i would like to have the SELECT ALL option for one single reason:</description>
     </item>
     
     <item>
-      <title>Welcome to my new personal blog</title>
-      <link>https://sivalabs.github.io/post/helloworld/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <title>How to fix “vt-x is disabled in the bios” error?</title>
+      <link>https://sivalabs.github.io/2016/07/fix-vt-x-disabled-bios-error/</link>
+      <pubDate>Thu, 21 Jul 2016 01:54:29 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/post/helloworld/</guid>
-      <description>Hi,
-My name is Siva and by profession I am a Software Developer. I do blog about the technology stuff that I learned at http://sivalabs.in.
-I wanted to start blogging about non-technical stuff and here I am with my new blog http://sivaprasadreddy.github.io.
-Going forward you can find my thoughts on various interesting things in life here.
-Stay tuned :-)
-public class HelloWorld { public static void main(String[] args) { System.out.println(&amp;quot;Welcome to my new blog!</description>
+      <guid>https://sivalabs.github.io/2016/07/fix-vt-x-disabled-bios-error/</guid>
+      <description>If you face the &amp;#8220;vt-x is disabled in the bios&amp;#8221; error while trying to run Android emulator, here is the solution that worked for me.
+Step 1: Enable Virtualization Technology in BIOS Go to BIOS Setup and enable &amp;#8220;Virtualization Technology&amp;#8221; option.
+On my Lenovo laptop this option was already enabled, but still getting this error. I have disabled it and re-enabled it, then it is working.
+Step 2: Install HAXM Installer from Android SDK Manager Start the Android SDK Manager, select **Extras -&amp;gt; Intel x86 Emulator Accelerator (HAXM Installer) **and install it.</description>
+    </item>
+    
+    <item>
+      <title>Good Website to Convert Raw HTML to Escaped HTML</title>
+      <link>https://sivalabs.github.io/2011/12/good-website-to-convert-raw-html-to-escaped-html/</link>
+      <pubDate>Wed, 07 Dec 2011 06:57:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/12/good-website-to-convert-raw-html-to-escaped-html/</guid>
+      <description>Often we may need to escape HTML code to post on blog or for some other purpose.
+The following website provides a good utility to convert Raw HTML to escaped HTML.
+http://accessify.com/tools-and-wizards/developer-tools/quick-escape/default.php</description>
     </item>
     
   </channel>

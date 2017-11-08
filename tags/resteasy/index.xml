@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resteasy on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/resteasy/</link>
+    <description>Recent content in Resteasy on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Jun 2012 05:24:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/resteasy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RESTEasy Tutorial Part 3 – Exception Handling</title>
+      <link>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-3-exception-handling/</link>
+      <pubDate>Tue, 12 Jun 2012 05:24:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-3-exception-handling/</guid>
+      <description>&amp;nbsp;
+RESTEasy Tutorial Series
+RESTEasy Tutorial Part-1: Basics
+RESTEasy Tutorial Part-2: Spring Integration
+RESTEasy Tutorial Part 3 &amp;#8211; Exception Handling
+Exception Handling is an obvious requirement while developing software application. If any error occured while processing user request we should show the user an error page with details like brief exception message, error code(optional), hints to correct the input and retry(optional) and actual root cause(optional). This is applicable to RESTful web services also.</description>
+    </item>
+    
+    <item>
+      <title>RESTEasy Tutorial Part-2: Spring Integration</title>
+      <link>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-2-spring-integration/</link>
+      <pubDate>Wed, 06 Jun 2012 11:49:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-2-spring-integration/</guid>
+      <description>&amp;nbsp;
+RESTEasy Tutorial Series
+RESTEasy Tutorial Part-1: Basics
+RESTEasy Tutorial Part-2: Spring Integration
+RESTEasy Tutorial Part 3 &amp;#8211; Exception Handling
+RESTEasy provides support for Spring integration which enables us to expose Spring beans as RESTful WebServices.
+Step#1: Configure RESTEasy+Spring dependencies using Maven.
+ Step#2: Configure RESTEasy+Spring in web.xml
+&amp;lt;web-app xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xmlns=&#34;http://java.sun.com/xml/ns/javaee&#34; xmlns:web=&#34;http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&#34; xsi:schemaLocation=&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&#34; id=&#34;WebApp_ID&#34; version=&#34;3.0&#34; &amp;lt;listener &amp;lt;listener-classorg.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap&amp;lt;/listener-class &amp;lt;/listener &amp;lt;listener &amp;lt;listener-classorg.jboss.resteasy.plugins.spring.SpringContextLoaderListener&amp;lt;/listener-class &amp;lt;/listener &amp;lt;servlet &amp;lt;servlet-nameResteasy&amp;lt;/servlet-name &amp;lt;servlet-classorg.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher&amp;lt;/servlet-class &amp;lt;/servlet &amp;lt;servlet-mapping &amp;lt;servlet-nameResteasy&amp;lt;/servlet-name &amp;lt;url-pattern/rest/*&amp;lt;/url-pattern &amp;lt;/servlet-mapping &amp;lt;context-param contextConfigLocation&amp;lt;/param-name classpath:applicationContext.</description>
+    </item>
+    
+    <item>
+      <title>RESTEasy Tutorial Part-1: Basics</title>
+      <link>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-1-basics/</link>
+      <pubDate>Wed, 06 Jun 2012 10:07:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-1-basics/</guid>
+      <description>&amp;nbsp;
+RESTEasy Tutorial Series
+RESTEasy Tutorial Part-1: Basics
+RESTEasy Tutorial Part-2: Spring Integration
+RESTEasy Tutorial Part 3 &amp;#8211; Exception Handling
+RESTEasy is a JAX-RS implementation from JBoss/RedHat and is in-built in JBoss 6 onwards.
+Here I am going to show you how to develop a Simple RESTful Web Services application using RESTEasy and JBossAS7.1.1.FINAL.
+Step#1: Configure RESTEasy dependencies using Maven.
+ Step#2: Configure RESTEasy in web.xml
+ Step#3: Create User domain class, MockUserTable class to store User objects in-memory for testing purpose and UserResource class to expose CRUD operations on User as RESTful webservices.</description>
+    </item>
+    
+  </channel>
+</rss>

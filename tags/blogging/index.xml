@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogging on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/blogging/</link>
+    <description>Recent content in Blogging on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Jun 2015 05:52:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/blogging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java Bloggers Meet at Hyderabad Oracle Campus Celebrating Java 20 Years Anniversary</title>
+      <link>https://sivalabs.github.io/2015/06/java-bloggers-meet-at-hyderabad-oracle-campus-celebrating-java-20-years-anniversary/</link>
+      <pubDate>Tue, 16 Jun 2015 05:52:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/java-bloggers-meet-at-hyderabad-oracle-campus-celebrating-java-20-years-anniversary/</guid>
+      <description>Oracle arranged a nice Java Bloggers Meet at Hyderabad Oracle campus on 13th June 2015 and we celebrated Java 20th anniversary.
+It is a pleasure to meet all the co-bloggers there and exchanged few thoughts on Java blogging. Also we are privileged to meet Java Champion Harshad Oak and Debraj Dutta who is the winner of Oracle IOT challenge.
+Debraj Dutta demonstrated his Bot-So robot which is so cool. This robot actually took pictures of us and uploaded to GoogleDrive and shared on Twitter!</description>
+    </item>
+    
+    <item>
+      <title>Few Things That I Learned as a Blogger</title>
+      <link>https://sivalabs.github.io/2014/10/few-things-that-i-learned-as-blogger/</link>
+      <pubDate>Mon, 13 Oct 2014 05:58:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/10/few-things-that-i-learned-as-blogger/</guid>
+      <description>I started my career as a Java developer in 2006. I was working on a Servlets/JSP project based web application which we thought of migrating it to Struts framework.
+I got some issue and struggling with it for hours and hours and couldn&amp;#8217;t be able to find any solution. I read all the Struts reference documentation and referred many books on Struts framework. But in all those books and reference documentation I could find the happy path situation guidelines only.</description>
+    </item>
+    
+    <item>
+      <title>Welcome note</title>
+      <link>https://sivalabs.github.io/2008/12/welcome-note/</link>
+      <pubDate>Sun, 21 Dec 2008 08:05:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2008/12/welcome-note/</guid>
+      <description>Hi All,
+Welcome guys. This is a blog where in you can find tutorials on various Java and J2EE technologies and can have discussions regarding technical problems and application development related issues.</description>
+    </item>
+    
+  </channel>
+</rss>

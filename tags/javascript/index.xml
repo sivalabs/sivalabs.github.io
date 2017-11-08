@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/javascript/</link>
+    <description>Recent content in Javascript on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Mar 2011 06:35:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JSON processing using Jackson Java JSON Processor</title>
+      <link>https://sivalabs.github.io/2011/03/json-processing-using-jackson-java-json-processor/</link>
+      <pubDate>Wed, 23 Mar 2011 06:35:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/03/json-processing-using-jackson-java-json-processor/</guid>
+      <description>JSON(Javascript Object Notation) is becoming more popular data exchange format.
+While developing Web applications using Javascript frameworks like YUI, ExtJS, DOJO etc
+we can use either XML or JSON to exchange the data between the client and server.
+Normally we get the response from the server in terms of java objects. Then in Servlets or Action classes we need to build the JSON from objects and send back to client.</description>
+    </item>
+    
+  </channel>
+</rss>

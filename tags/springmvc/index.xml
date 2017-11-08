@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Springmvc on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/springmvc/</link>
+    <description>Recent content in Springmvc on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Mar 2014 01:01:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/springmvc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SpringMVC4 &#43; Spring Data JPA &#43; SpringSecurity configuration using JavaConfig</title>
+      <link>https://sivalabs.github.io/2014/03/springmvc4-spring-data-jpa-springsecurity-configuration-using-javaconfig/</link>
+      <pubDate>Sun, 02 Mar 2014 01:01:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/03/springmvc4-spring-data-jpa-springsecurity-configuration-using-javaconfig/</guid>
+      <description>In this article we will see how to configure and integrate SpringMVC4, Spring Data JPA with Hibernate and SpringSecurity using JavaConfig.
+ First let&amp;#8217;s configure all the necessary dependencies in pom.xml  &amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34; &amp;lt;modelVersion4.0.0&amp;lt;/modelVersion &amp;lt;groupIdcom.sivalabs&amp;lt;/groupId &amp;lt;artifactIdspringmvc-datajpa-security-demo&amp;lt;/artifactId &amp;lt;version1.0&amp;lt;/version &amp;lt;packagingwar&amp;lt;/packaging &amp;lt;properties &amp;lt;java.version1.7&amp;lt;/java.version &amp;lt;junit.version4.11&amp;lt;/junit.version &amp;lt;slf4j.version1.7.5&amp;lt;/slf4j.version &amp;lt;logback.version1.0.13&amp;lt;/logback.version &amp;lt;spring.version4.0.0.RELEASE&amp;lt;/spring.version &amp;lt;spring-data-jpa.version1.4.1.RELEASE&amp;lt;/spring-data-jpa.version &amp;lt;spring-security.version3.2.0.RELEASE&amp;lt;/spring-security.version &amp;lt;hibernate.version4.2.6.Final&amp;lt;/hibernate.version &amp;lt;aspectj.version1.7.2&amp;lt;/aspectj.version &amp;lt;mysql.version5.1.26&amp;lt;/mysql.version &amp;lt;jackson-json.version2.3.1&amp;lt;/jackson-json.version &amp;lt;commons-dbcp.version1.2.2&amp;lt;/commons-dbcp.version &amp;lt;commons-lang3.version3.1&amp;lt;/commons-lang3.version &amp;lt;/properties &amp;lt;build &amp;lt;finalName${project.artifactId}&amp;lt;/finalName &amp;lt;plugins &amp;lt;plugin &amp;lt;groupIdorg.apache.maven.plugins&amp;lt;/groupId &amp;lt;artifactIdmaven-compiler-plugin&amp;lt;/artifactId &amp;lt;version3.1&amp;lt;/version &amp;lt;configuration &amp;lt;source${java.version}&amp;lt;/source &amp;lt;target${java.version}&amp;lt;/target &amp;lt;/configuration &amp;lt;/plugin &amp;lt;/plugins &amp;lt;/build &amp;lt;dependencies &amp;lt;dependency &amp;lt;groupIdorg.</description>
+    </item>
+    
+    <item>
+      <title>Context root relative URLs using Spring’s</title>
+      <link>https://sivalabs.github.io/2011/07/context-root-relative-urls-using-springs/</link>
+      <pubDate>Tue, 26 Jul 2011 23:27:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/07/context-root-relative-urls-using-springs/</guid>
+      <description>While developing web applications the common problem is to reference the static resources like js, stylesheets,images in JSPs from the relative URLs.
+Suppose in your project you have the following structure.
+MyApp
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; src
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; WebContent
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; home.jsp
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; jsp
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; createUser.jsp
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; js
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; util.js
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; css
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; style.css
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; images</description>
+    </item>
+    
+    <item>
+      <title>How to POST and GET JSON between EXTJS and SpringMVC3</title>
+      <link>https://sivalabs.github.io/2011/06/how-to-post-and-get-json-between-extjs-and-springmvc3/</link>
+      <pubDate>Thu, 23 Jun 2011 02:57:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/06/how-to-post-and-get-json-between-extjs-and-springmvc3/</guid>
+      <description>After one month of evaluation of the frameworks and tools, i choose ExtJS for UI and Spring/SpringMVC for business layer for my pet project.
+Again by using ExtJS we can send data to server by form submits or as request parameters or in json format through Ajax requests. ExtJS uses JSON format in many situations to hold data. So I thought using JSON as data exchange format between EXTJS and Spring will be consistent.</description>
+    </item>
+    
+    <item>
+      <title>Authentication Checking using SpringMVC Interceptors</title>
+      <link>https://sivalabs.github.io/2011/06/authentication-checking-using-springmvc-interceptors/</link>
+      <pubDate>Mon, 06 Jun 2011 02:48:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/06/authentication-checking-using-springmvc-interceptors/</guid>
+      <description>For many web applications, some URLs need to protect from public access and some other URLs need to be protected based on the User Roles and privileges. To achieve this we can use Filters that comes with Servlet API or we can use JAAS(Java Authentication and Authorization Service).
+SpringMVC provides Interceptors which can be used to intercept the URL and pre-process, post-process the requests.
+Let us write a simple AuthenticationInterceptor to check whether the user is already logged in or not.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC 3 &#43; Tiles 2.2.2 Integration</title>
+      <link>https://sivalabs.github.io/2011/06/springmvc-3-tiles-222-integration/</link>
+      <pubDate>Mon, 06 Jun 2011 02:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/06/springmvc-3-tiles-222-integration/</guid>
+      <description>Apache Tiles is a popular and mostly used templating framework for java based web application.
+Tiles became more popular because Struts 1.x uses Tiles as its default templating framework.
+SpringMVC which is an MVC framework, like Struts, also supports integration of Tiles as its templating framework.
+Let us see how we can integrate SpringMVC and Tiles.
+You can download Tiles binaries from http://tiles.apache.org/ .
+Step#1: Add the following tiles jars to WEB-INF/lib folder.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC &#43; Hibernate Error: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here</title>
+      <link>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</link>
+      <pubDate>Tue, 17 May 2011 02:14:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</guid>
+      <description>While developing a web application using SpringMVC and Hibernate I got &amp;#8220;No Hibernate Session bound to thread Exception&amp;#8221; becuase of some configuration issue.
+Here I am going to explain how I resolved the issue.
+I used the SpringMVC/@Controller approach and configured the Web related Spring configuration in dispatcher-servlet.xml as follows:
+&amp;lt;beans
+&amp;lt;context:annotation-config&#34;/&amp;gt;
+&amp;lt;context:component-scan base-package=&#34;com.sivalabs&#34;/&amp;gt;
+&amp;lt;bean&amp;lt;/bean
+&amp;lt;bean&amp;lt;/bean
+&amp;lt;bean class=&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34; p:prefix=&#34;/WEB-INF/jsp/&#34; p:suffix=&#34;.jsp&#34;&amp;lt;/bean
+&amp;lt;bean id=&#34;messageSource&#34; class=&#34;org.springframework.context.support.ResourceBundleMessageSource&#34;
+p:basename=&#34;Messages&#34;&amp;lt;/bean
+&amp;lt;/beans
+ I have configured my business serices and DAOs in applicationContext.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC3 Hibernate CRUD Sample Application</title>
+      <link>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</link>
+      <pubDate>Fri, 01 Apr 2011 13:16:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</guid>
+      <description>To learn any web framework starting with a HelloWorld application is a good idea. Once we get familiarity with the framework configuration it would be better to do a CRUD(Create,Read,Update,Delete) application which covers various aspects of a web framework like Validations, Request URL Mappings, Request Parameter Binding,
+Pre-populating forms etc.
+Now I am going to explain how to write a Simple CRUD application using SpringMVC3, Hibernate and MySQL.
+Our Application is ContactsManagements where you can view or search contacts, create new contacts, edit or delete existing contacts.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC HelloWorld Tutorial</title>
+      <link>https://sivalabs.github.io/2011/03/springmvc-helloworld-tutorial/</link>
+      <pubDate>Tue, 29 Mar 2011 02:15:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/03/springmvc-helloworld-tutorial/</guid>
+      <description>Spring is a popular Application framework based on Inversion Of Control/DependencyInjection principle.
+SpringMVC is a framework following MVC architecture for building web applications.
+Let us see how to create simple Hello World application using SpringMVC.
+Step1 :
+Copy the SpringMVC dependent libraries into WEB-INF/lib folder.
+You can download the latest Spring bundle at http://www.springsource.org/download
+Step2:
+Configure the Spring&amp;#8217;s FrontController class DispatcherServlet in web.xml.
+You can configure the other spring beans (if any) in XMLs and wireup using ContextLoaderListener as follows:</description>
+    </item>
+    
+    <item>
+      <title>Spring&#43;Hibernate Application with zero XML</title>
+      <link>https://sivalabs.github.io/2011/02/springhibernate-application-with-zero-xml/</link>
+      <pubDate>Thu, 17 Feb 2011 17:00:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/springhibernate-application-with-zero-xml/</guid>
+      <description>Spring framework came up with Annotation support since 2.5 version which eases the development.
+Whether Annotation based approach better or XML approach is better is depends on the project and their personal preference.
+Let us see how we can write a Simple Application using Spring and Hibernate using Annotations, no xml at all.
+The configuration for JDBC datasource and Hibernate properties:
+application.properties
+################### JDBC Configuration ##########################
+jdbc.driverClassName=org.hsqldb.jdbcDriver
+jdbc.url=jdbc:hsqldb:file:db/SivaLabsDB;shutdown=true
+jdbc.username=sa
+jdbc.password=</description>
+    </item>
+    
+  </channel>
+</rss>

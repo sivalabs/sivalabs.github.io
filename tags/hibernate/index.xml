@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hibernate on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/hibernate/</link>
+    <description>Recent content in Hibernate on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Mar 2014 01:01:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/hibernate/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SpringMVC4 &#43; Spring Data JPA &#43; SpringSecurity configuration using JavaConfig</title>
+      <link>https://sivalabs.github.io/2014/03/springmvc4-spring-data-jpa-springsecurity-configuration-using-javaconfig/</link>
+      <pubDate>Sun, 02 Mar 2014 01:01:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/03/springmvc4-spring-data-jpa-springsecurity-configuration-using-javaconfig/</guid>
+      <description>In this article we will see how to configure and integrate SpringMVC4, Spring Data JPA with Hibernate and SpringSecurity using JavaConfig.
+ First let&amp;#8217;s configure all the necessary dependencies in pom.xml  &amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34; &amp;lt;modelVersion4.0.0&amp;lt;/modelVersion &amp;lt;groupIdcom.sivalabs&amp;lt;/groupId &amp;lt;artifactIdspringmvc-datajpa-security-demo&amp;lt;/artifactId &amp;lt;version1.0&amp;lt;/version &amp;lt;packagingwar&amp;lt;/packaging &amp;lt;properties &amp;lt;java.version1.7&amp;lt;/java.version &amp;lt;junit.version4.11&amp;lt;/junit.version &amp;lt;slf4j.version1.7.5&amp;lt;/slf4j.version &amp;lt;logback.version1.0.13&amp;lt;/logback.version &amp;lt;spring.version4.0.0.RELEASE&amp;lt;/spring.version &amp;lt;spring-data-jpa.version1.4.1.RELEASE&amp;lt;/spring-data-jpa.version &amp;lt;spring-security.version3.2.0.RELEASE&amp;lt;/spring-security.version &amp;lt;hibernate.version4.2.6.Final&amp;lt;/hibernate.version &amp;lt;aspectj.version1.7.2&amp;lt;/aspectj.version &amp;lt;mysql.version5.1.26&amp;lt;/mysql.version &amp;lt;jackson-json.version2.3.1&amp;lt;/jackson-json.version &amp;lt;commons-dbcp.version1.2.2&amp;lt;/commons-dbcp.version &amp;lt;commons-lang3.version3.1&amp;lt;/commons-lang3.version &amp;lt;/properties &amp;lt;build &amp;lt;finalName${project.artifactId}&amp;lt;/finalName &amp;lt;plugins &amp;lt;plugin &amp;lt;groupIdorg.apache.maven.plugins&amp;lt;/groupId &amp;lt;artifactIdmaven-compiler-plugin&amp;lt;/artifactId &amp;lt;version3.1&amp;lt;/version &amp;lt;configuration &amp;lt;source${java.version}&amp;lt;/source &amp;lt;target${java.version}&amp;lt;/target &amp;lt;/configuration &amp;lt;/plugin &amp;lt;/plugins &amp;lt;/build &amp;lt;dependencies &amp;lt;dependency &amp;lt;groupIdorg.</description>
+    </item>
+    
+    <item>
+      <title>Spring3&#43;JPA2&#43;JavaEE6AppServer = Confusion Over Configuration</title>
+      <link>https://sivalabs.github.io/2012/10/spring3jpa2javaee6appserver-confusion-over-configuration/</link>
+      <pubDate>Fri, 12 Oct 2012 05:38:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/spring3jpa2javaee6appserver-confusion-over-configuration/</guid>
+      <description>Spring is great, JavaEE6 is great and latest JavaEE6 Application servers are also great. This post is not a rant on Spring Vs JavaEE6, but my experience of porting a Spring3+JPA2(Hibernate) application on JBoss AS-7.1 App Server.
+My application requirement is very simple: Developing a couple of SOAP based webservices using Spring3.1 and JPA2(Hibernate) and host it on JBoss AS 7.1.
+So I started creating a multi-module maven project with one jar module containing the service implementations using Spring &amp;amp; JPA and another war module which exposes those services as SOAP based webservices.</description>
+    </item>
+    
+    <item>
+      <title>GeneratedValue not setting up auto increment in mysql and h2 dialects</title>
+      <link>https://sivalabs.github.io/2012/04/generatedvalue-not-setting-up-auto-increment-in-mysql-and-h2-dialects/</link>
+      <pubDate>Thu, 26 Apr 2012 07:57:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/04/generatedvalue-not-setting-up-auto-increment-in-mysql-and-h2-dialects/</guid>
+      <description>Hi,
+In earlier versions of Hibernate if we want to have an auto_increment primary key we can use the following:
+@Id @GeneratedValue(strategy=GenerationType.AUTO)
+@Column(name=&amp;#8221;user_id&amp;#8221;)
+private Integer userId;
+But in latest version of Hibernate(may be Hibernate4, whatever is used in JBoss AS7) this doesn&amp;#8217;t work as expected. The generated table primary key is not auto_increment column.
+To resolve this configure&amp;nbsp; in persistence.xml.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC &#43; Hibernate Error: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here</title>
+      <link>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</link>
+      <pubDate>Tue, 17 May 2011 02:14:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</guid>
+      <description>While developing a web application using SpringMVC and Hibernate I got &amp;#8220;No Hibernate Session bound to thread Exception&amp;#8221; becuase of some configuration issue.
+Here I am going to explain how I resolved the issue.
+I used the SpringMVC/@Controller approach and configured the Web related Spring configuration in dispatcher-servlet.xml as follows:
+&amp;lt;beans
+&amp;lt;context:annotation-config&#34;/&amp;gt;
+&amp;lt;context:component-scan base-package=&#34;com.sivalabs&#34;/&amp;gt;
+&amp;lt;bean&amp;lt;/bean
+&amp;lt;bean&amp;lt;/bean
+&amp;lt;bean class=&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34; p:prefix=&#34;/WEB-INF/jsp/&#34; p:suffix=&#34;.jsp&#34;&amp;lt;/bean
+&amp;lt;bean id=&#34;messageSource&#34; class=&#34;org.springframework.context.support.ResourceBundleMessageSource&#34;
+p:basename=&#34;Messages&#34;&amp;lt;/bean
+&amp;lt;/beans
+ I have configured my business serices and DAOs in applicationContext.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC3 Hibernate CRUD Sample Application</title>
+      <link>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</link>
+      <pubDate>Fri, 01 Apr 2011 13:16:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</guid>
+      <description>To learn any web framework starting with a HelloWorld application is a good idea. Once we get familiarity with the framework configuration it would be better to do a CRUD(Create,Read,Update,Delete) application which covers various aspects of a web framework like Validations, Request URL Mappings, Request Parameter Binding,
+Pre-populating forms etc.
+Now I am going to explain how to write a Simple CRUD application using SpringMVC3, Hibernate and MySQL.
+Our Application is ContactsManagements where you can view or search contacts, create new contacts, edit or delete existing contacts.</description>
+    </item>
+    
+    <item>
+      <title>Spring&#43;Hibernate Application with zero XML</title>
+      <link>https://sivalabs.github.io/2011/02/springhibernate-application-with-zero-xml/</link>
+      <pubDate>Thu, 17 Feb 2011 17:00:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/springhibernate-application-with-zero-xml/</guid>
+      <description>Spring framework came up with Annotation support since 2.5 version which eases the development.
+Whether Annotation based approach better or XML approach is better is depends on the project and their personal preference.
+Let us see how we can write a Simple Application using Spring and Hibernate using Annotations, no xml at all.
+The configuration for JDBC datasource and Hibernate properties:
+application.properties
+################### JDBC Configuration ##########################
+jdbc.driverClassName=org.hsqldb.jdbcDriver
+jdbc.url=jdbc:hsqldb:file:db/SivaLabsDB;shutdown=true
+jdbc.username=sa
+jdbc.password=</description>
+    </item>
+    
+  </channel>
+</rss>

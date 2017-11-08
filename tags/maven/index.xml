@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maven on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/maven/</link>
+    <description>Recent content in Maven on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Oct 2012 12:18:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A bunch of Maven Archetypes for Spring based Projects</title>
+      <link>https://sivalabs.github.io/2012/10/a-bunch-of-maven-archetypes-for-spring-based-projects/</link>
+      <pubDate>Mon, 29 Oct 2012 12:18:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/a-bunch-of-maven-archetypes-for-spring-based-projects/</guid>
+      <description>Maven is a good project management tool which&amp;nbsp;greatly&amp;nbsp;reduces the amount of time we spend on creating java projects with proper structure.&amp;nbsp;With so many&amp;nbsp;predefined&amp;nbsp;maven archetypes it is even easier to create projects by simply selecting the archetype based on the technologies we need and type(jar/war/ear) of project we want to create.
+However sometimes those predefined archetypes structure may not suite well for our needs or we may need some more additions to the pre-configured dependencies/frameworks etc.</description>
+    </item>
+    
+    <item>
+      <title>RESTEasy Tutorial Part 3 – Exception Handling</title>
+      <link>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-3-exception-handling/</link>
+      <pubDate>Tue, 12 Jun 2012 05:24:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-3-exception-handling/</guid>
+      <description>&amp;nbsp;
+RESTEasy Tutorial Series
+RESTEasy Tutorial Part-1: Basics
+RESTEasy Tutorial Part-2: Spring Integration
+RESTEasy Tutorial Part 3 &amp;#8211; Exception Handling
+Exception Handling is an obvious requirement while developing software application. If any error occured while processing user request we should show the user an error page with details like brief exception message, error code(optional), hints to correct the input and retry(optional) and actual root cause(optional). This is applicable to RESTful web services also.</description>
+    </item>
+    
+    <item>
+      <title>RESTEasy Tutorial Part-1: Basics</title>
+      <link>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-1-basics/</link>
+      <pubDate>Wed, 06 Jun 2012 10:07:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-1-basics/</guid>
+      <description>&amp;nbsp;
+RESTEasy Tutorial Series
+RESTEasy Tutorial Part-1: Basics
+RESTEasy Tutorial Part-2: Spring Integration
+RESTEasy Tutorial Part 3 &amp;#8211; Exception Handling
+RESTEasy is a JAX-RS implementation from JBoss/RedHat and is in-built in JBoss 6 onwards.
+Here I am going to show you how to develop a Simple RESTful Web Services application using RESTEasy and JBossAS7.1.1.FINAL.
+Step#1: Configure RESTEasy dependencies using Maven.
+ Step#2: Configure RESTEasy in web.xml
+ Step#3: Create User domain class, MockUserTable class to store User objects in-memory for testing purpose and UserResource class to expose CRUD operations on User as RESTful webservices.</description>
+    </item>
+    
+    <item>
+      <title>Unable to create a maven project using appfuse archetypes?</title>
+      <link>https://sivalabs.github.io/2011/12/unable-to-create-maven-project-using/</link>
+      <pubDate>Sat, 03 Dec 2011 21:29:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/12/unable-to-create-maven-project-using/</guid>
+      <description>I don&amp;#8217;t know why sometimes when i tried to create a Maven project using one of appfuse archetypes, eclipse throws error saying unable to create maven project.
+I resolved it by doing following:
+Window&amp;#8211;&amp;gt;Preferences&amp;#8211;&amp;gt;Maven&amp;#8211;&amp;gt;Archetypes
+Add Remote Catalog : http://repo1.maven.org/maven2/archetype-catalog.xml
+Now I am able to create maven projects using Appfuse archetypes.</description>
+    </item>
+    
+    <item>
+      <title>Solution for “Eclipse is running in a JRE, but a JDK is required” problem</title>
+      <link>https://sivalabs.github.io/2011/02/solution-for-eclipse-is-running-in-jre/</link>
+      <pubDate>Mon, 21 Feb 2011 06:44:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/solution-for-eclipse-is-running-in-jre/</guid>
+      <description>Hi,
+When i installed Maven2 Plugin for eclipse i was getting the below error message when i startup my Eclipse IDE.
+After that when I tried to perform Maven operations thrugh Eclipse I got some errors saying &amp;#8220;&amp;#8230;/tools.jar&amp;#8221; is not there.
+I did the below things to get rid of that problem.
+open the eclipse.ini file and add the below argument.
+-vm
+C:/Siva/Java/jdk1.6.0_04/bin/javaw.exe
+Note: The VM configuration should be in two lines and in between &amp;#8211;lancher and -vmargs.</description>
+    </item>
+    
+  </channel>
+</rss>

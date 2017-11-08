@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mybatis on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/mybatis/</link>
+    <description>Recent content in Mybatis on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Jul 2013 10:01:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Packt Publishing “Java Persistence With MyBatis3” published</title>
+      <link>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</link>
+      <pubDate>Tue, 16 Jul 2013 10:01:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</guid>
+      <description>Hurray&amp;#8230;My first book &amp;#8220;Java Persistence with MyBatis3&amp;#8221; is published. I would like to thank Packt Publishers for giving me this opportunity to write on my favorite framework MyBatis.
+For most of the software applications data persistence is a key and important aspect. In Java land we have many ways of implementing persistence layer starting from low level JDBC to fancy ORM frameworks.
+JDBC is too low level API and needs to write a lot of boilerplate code.</description>
+    </item>
+    
+    <item>
+      <title>MyBatis Tutorial : Part4 – Spring Integration</title>
+      <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part4-spring-integration/</link>
+      <pubDate>Wed, 24 Oct 2012 00:40:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part4-spring-integration/</guid>
+      <description>MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part-2: CRUD operations Using Annotations
+MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
+MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+MyBatis-Spring is a subproject of MyBatis and provides Spring integration support which drastically simplifies the MyBatis usage. For those who are familiar with Spring&amp;#8217;s way of Dependency Injection process, using MyBatis-Spring is a very simple.
+First let us see the process of using MyBatis without Spring.</description>
+    </item>
+    
+    <item>
+      <title>MyBatis Tutorial: Part 3 – Mapping Relationships</title>
+      <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-3-mapping-relationships/</link>
+      <pubDate>Sun, 21 Oct 2012 14:07:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-3-mapping-relationships/</guid>
+      <description>In this post let us see how to use MyBatis ResultMap configuration to map relationships.
+MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part-2: CRUD operations Using Annotations
+MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
+MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+To illustrate we are considering the following sample domain model:
+There will be Users and each User may have a Blog and each Blog can contain zero or more posts.</description>
+    </item>
+    
+    <item>
+      <title>MyBatis Tutorial: Part-2: CRUD operations Using Annotations</title>
+      <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-2-crud-operations-using-annotations/</link>
+      <pubDate>Sun, 21 Oct 2012 11:49:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-2-crud-operations-using-annotations/</guid>
+      <description>In this post I will explain how to perform CRUD operations using MyBatis Annotation support without need of Queries configuration in XML mapper files.
+MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part-2: CRUD operations Using Annotations
+MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
+MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+Step#1: Create a table BLOG and a java domain Object Blog.
+CREATE TABLE blog ( blog_id int(10) unsigned NOT NULL auto_increment, blog_name varchar(45) NOT NULL, created_on datetime NOT NULL, PRIMARY KEY (blog_id) ) ENGINE=InnoDB DEFAULT CHARSET=latin1; package com.</description>
+    </item>
+    
+    <item>
+      <title>MyBatis Tutorial: Part1 – CRUD Operations</title>
+      <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part1-crud-operations/</link>
+      <pubDate>Sun, 21 Oct 2012 11:10:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part1-crud-operations/</guid>
+      <description>MyBatis is an SQL Mapper tool which greatly simplifies the database programing when compared to using JDBC directly.
+MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part-2: CRUD operations Using Annotations
+MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
+MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+**Step1: **Create a Maven project and configure MyBatis dependencies.
+&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+    </item>
+    
+  </channel>
+</rss>

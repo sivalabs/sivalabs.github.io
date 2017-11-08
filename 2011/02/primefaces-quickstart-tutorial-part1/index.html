@@ -1,0 +1,909 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        SivaLabs
+        </title>
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SivaLabs &#8211; My Experiments on Technology</title>
+
+    <link rel='stylesheet' id='sparkling-bootstrap-css'
+          href="/assets/css/bootstrap.min.css" type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='sparkling-icons-css'
+          href="/assets/css/font-awesome.min.css"
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-fonts-css'
+          href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-style-css'
+          href="/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' id='socicon-css'
+          href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css"
+          type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.js"></script>
+
+    <script type='text/javascript'
+            src="/assets/js/vendor/modernizr.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/functions.min.js"></script>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+</head>
+
+</head>
+
+<body class="home blog">
+<div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+    <nav class="navbar navbar-default " role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="site-navigation-inner col-sm-12">
+                    <div class="navbar-header">
+                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div id="logo">
+                            <h1 class="site-name">
+                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul id="menu-home" class="nav navbar-nav">
+
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/java">Java</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="/tags/spring">Spring </a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/javaee">Java EE</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/videos">Videos</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/mybooks">My Books</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <div id="content" class="site-content">
+
+        <div class="top-section">
+        </div>
+
+        <div class="container main-content-area">
+            <div class="row side-pull-left">
+                <div class="main-content-inner col-sm-12 col-md-8">
+
+                    <div id="primary" class="content-area">
+                        
+
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header page-header">
+
+            <h1 class="entry-title ">
+                PrimeFaces QuickStart Tutorial-Part1
+            </h1>
+
+            <div class="entry-meta">
+                <span class="posted-on"><i class="fa fa-calendar"></i>
+                    <time class="entry-date published"
+                          datetime="2011-02-01T19:57:00">February 01, 2011</time>
+                </span>
+                <span class="byline">
+                    <i class="fa fa-user"></i>
+                    <span class="author vcard">Siva</span>
+                </span>
+                <span class="cat-links"><i class="fa fa-folder-open-o"></i>
+				    
+                        
+                        <a rel="category tag" href="/categories/javaee" rel="category">JavaEE</a>
+                    
+
+                </span>
+
+            </div>
+        </header>
+
+        <div class="entry-content">
+            <p>PrimeFaces is an open source component library for JSF 2.0 with morethan 100 rich components. PrimeFaces is far better than many other JSF component libraries because of the following reasons:</p>
+
+<p>&nbsp;&nbsp;&nbsp; 1. Rich set of UI components (DataTable, AutoComplete, HtmlEditor, Charts etc).<br />
+&nbsp;&nbsp;&nbsp; 2. No extra xml configuration is required and there is no required dependencies.<br />
+&nbsp;&nbsp;&nbsp; 3. Built-in Ajax based on standard JSF 2.0 Ajax APIs.<br />
+&nbsp;&nbsp;&nbsp; 4. Skinning Framework with 25+ built-in themes.<br />
+&nbsp;&nbsp;&nbsp; 5. Awesome documentation with code examples.<br />
+&nbsp;&nbsp;&nbsp;<br />
+Let us build a sample application using PrimeFaces with the following features:<br />
+1. A Login screen which accepts username and password and authenticate the user.<br />
+2. Upon successful login user will be shown a User Search screen. Users can search for users by their name.The search results will be displayed in a DataTable with pagination, sorting and filtering support.<br />
+3. Upon clicking on a row the user details will be displayed in a form.</p>
+
+<p>First download JSF 2 jars from <a href="http://javaserverfaces.java.net/download.html">http://javaserverfaces.java.net/download.html</a><br />
+Place the jsf-api-2.0.3.jar, jsf-impl-2.0.3.jar and jstl-1.0.2.jar jars in WEB-INF/lib folder.<br />
+Download PrimeFaces from <a href="http://www.primefaces.org/downloads.html">http://www.primefaces.org/downloads.html</a>.<br />
+Place primefaces-2.2.RC2.jar in WEB-INF/lib folder.</p>
+
+<p>Configure FacesServlet in web.xml</p>
+
+<pre>&lt;web-app version="2.5"&gt;
+<br />&nbsp;&nbsp;&nbsp; xmlns="http://java.sun.com/xml/ns/javaee"
+<br />&nbsp;&nbsp;&nbsp; xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<br />&nbsp;&nbsp;&nbsp; xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" &gt;
+<br />&nbsp;&nbsp;&nbsp; 
+<br />&nbsp;&nbsp;&nbsp; &lt;welcome-file-list>
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;welcome-file>index.jsp&lt;/welcome-file>
+<br />&nbsp;&nbsp;&nbsp; &lt;/welcome-file-list>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<br />&nbsp;&nbsp;&nbsp; &lt;servlet>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;servlet-name>Faces Servlet&lt;/servlet-name>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;servlet->javax.faces.webapp.FacesServlet&lt;/servlet-class>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;load-on-startup>1&lt;/load-on-startup>
+<br />&nbsp;&nbsp;&nbsp; &lt;/servlet>
+<br />
+<br />&nbsp;&nbsp;&nbsp; &lt;servlet-mapping>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;servlet-name>Faces Servlet&lt;/servlet-name>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;url-pattern>*.jsf&lt;/url-pattern>
+<br />&nbsp;&nbsp;&nbsp; &lt;/servlet-mapping>
+<br />&nbsp;&nbsp;&nbsp; 
+<br />&lt;/web-app&gt;
+<br />
+<br /></pre>
+
+<p>Create faces-config.xml in WEB-INF folder.</p>
+
+<pre>&lt;faces-config xmlns="http://java.sun.com/xml/ns/javaee">
+<br />&nbsp;&nbsp;&nbsp; xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<br />&nbsp;&nbsp;&nbsp; xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+<br />&nbsp;&nbsp;&nbsp; version="2.0"&gt;
+<br />&nbsp;&nbsp;&nbsp; 
+<br />&nbsp;&nbsp;&nbsp; &lt;/faces-config>
+<br /></pre>
+
+<p>Welcome page index.jsp just forwards to login screen.</p>
+
+<pre>&lt;jsp:forward page="login.jsf">&lt;/jsp:forward>
+<br /></pre>
+
+<p>Create login.xhtml page.</p>
+
+<pre>&nbsp;&nbsp;&nbsp; 
+<br /><html xmlns="http://www.w3c.org/1999/xhtml"
+<br />xmlns:f="http://java.sun.com/jsf/core"
+<br />&nbsp;&nbsp;&nbsp; xmlns:h="http://java.sun.com/jsf/html"
+<br />&nbsp;&nbsp;&nbsp; xmlns:p="http://primefaces.prime.com.tr/ui">
+<br /><h:head>
+<br />&nbsp;&nbsp;&nbsp; 
+
+<link href="themes/bluesky/skin.css" rel="stylesheet" type="text/css" />
+</link></h:head>
+
+<br /><h:body>
+<br />&nbsp;&nbsp;&nbsp; </h:body>
+<br />
+
+<center>
+  <br />&nbsp;&nbsp;&nbsp; 
+  
+  <p:panel header="Login Form">
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <h:form>
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <h:panelgr cellpadding="2" columns="2">
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <h:outputlabel for="#{userManagedBean.username}" value="UserName">
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <h:inputtext label="UserName" value="#{userManagedBean.username}"></h:inputtext>
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <h:outputlabel for="#{userManagedBean.password}" value="Password">
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <h:inputsecret value="#{userManagedBean.password}"></h:inputsecret>
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <h:commandbutton action="#{userManagedBean.login}" type="submit" value="Login"></h:commandbutton>
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </h:outputlabel>
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </h:outputlabel>
+    <br />&nbsp;&nbsp;&nbsp; </h:panelgrid>
+    <br />&nbsp;&nbsp;&nbsp; 
+    
+    <div>
+      <h:messages></h:messages>
+    </div>&nbsp;&nbsp;&nbsp; </h:form></p:panel></center>
+    
+    
+    <br />
+    <br /></html>
+    <br /></pre>
+    
+
+<pre><code>&lt;p&gt;
+  You can get the blusky theme from PrimeFaces bundle.
+&lt;/p&gt;
+
+
+&lt;p&gt;
+  Create home.xhtml which contains UserSearchForm, Results dataTable and UserDetails Panel.
+&lt;/p&gt;
+
+
+&lt;pre&gt;   
+</code></pre>
+
+<p><br />
+<br /><br />
+<br />&lt;html xmlns=&ldquo;<a href="http://www.w3c.org/1999/xhtml&quot;">http://www.w3c.org/1999/xhtml&quot;</a>
+<br />  xmlns:f=&ldquo;<a href="http://java.sun.com/jsf/core&quot;">http://java.sun.com/jsf/core&quot;</a>
+<br />  xmlns:h=&ldquo;<a href="http://java.sun.com/jsf/html&quot;">http://java.sun.com/jsf/html&quot;</a>
+<br />  xmlns:p=&ldquo;<a href="http://primefaces.prime.com.tr/ui&quot;&gt;">http://primefaces.prime.com.tr/ui&quot;&gt;</a>
+<br />&lt;h:head&gt;
+<br />      &lt;link type=&ldquo;text/css&rdquo; rel=&ldquo;stylesheet&rdquo; href=&ldquo;themes/bluesky/skin.css&rdquo; /&gt;
+<br />&lt;/h:head&gt;
+<br />&lt;h:body&gt;
+<br />&lt;center&gt;
+<br />  &lt;h:form&gt;
+<br />      &lt;p:panel header=&ldquo;Users Search Form&rdquo; style=&ldquo;width: 700;&rdquo;&gt;
+<br />      &lt;h:form&gt;
+<br />          &lt;h:panelGrid columns=&ldquo;3&rdquo; cellpadding=&ldquo;2&rdquo;&gt;
+<br />              &lt;h:outputLabel for=&ldquo;#{userManagedBean.searchUser}&rdquo; value=&ldquo;UserName&rdquo;/&gt;
+<br />              &lt;h:inputText value=&ldquo;#{userManagedBean.searchUser}&rdquo; label=&ldquo;UserName&rdquo;&gt;&lt;/h:inputText&gt;
+<br />              &lt;h:commandButton type=&ldquo;submit&rdquo; value=&ldquo;Search&rdquo; action=&ldquo;#{userManagedBean.searchUser}&rdquo;&gt;&lt;/h:commandButton&gt;
+<br />          &lt;/h:panelGrid&gt;
+<br />      &lt;/h:form&gt;
+<br />      &lt;/p:panel&gt;
+<br /><br />
+<br /><br />
+<br />  &lt;p:dataTable var=&ldquo;user&rdquo; value=&ldquo;#{userManagedBean.searchUsersResults}&rdquo;
+<br />          selection=&ldquo;#{userManagedBean.selectedUser}&rdquo; selectionMode=&ldquo;single&rdquo;
+<br />          dynamic=&ldquo;true&rdquo;
+<br />          onRowSelectUpdate=&ldquo;userUpdateForm&rdquo;
+<br />          onRowUnselectUpdate=&ldquo;userUpdateForm&rdquo;
+<br />          rowSelectListener=&ldquo;#{userManagedBean.onUserSelect}&rdquo;
+<br />            rowUnselectListener=&ldquo;#{userManagedBean.onUserUnselect}&rdquo;
+<br />          paginator=&ldquo;true&rdquo; rows=&ldquo;5&rdquo; style=&ldquo;width: 700&rdquo;&gt;
+<br />          &lt;p:column sortBy=&ldquo;#{user.userId}&rdquo; filterBy=&ldquo;#{user.userId}&rdquo;&gt;
+<br />              &lt;f:facet name=&ldquo;header&rdquo;&gt;
+<br />              &lt;h:outputText value=&ldquo;Id&rdquo; /&gt;
+<br />              &lt;/f:facet&gt;
+<br />              &lt;h:outputText value=&ldquo;#{user.userId}&rdquo; /&gt;
+<br />              &lt;/p:column&gt;
+<br />              &lt;p:column sortBy=&ldquo;#{user.username}&rdquo; filterBy=&ldquo;#{user.username}&rdquo;&gt;
+<br />              &lt;f:facet name=&ldquo;header&rdquo;&gt;
+<br />              &lt;h:outputText value=&ldquo;Name&rdquo; /&gt;
+<br />              &lt;/f:facet&gt;
+<br />              &lt;h:outputText value=&ldquo;#{user.username}&rdquo; /&gt;
+<br />              &lt;/p:column&gt;
+<br />              &lt;p:column sortBy=&ldquo;#{user.emailId}&rdquo; filterBy=&ldquo;#{user.emailId}&rdquo;&gt;
+<br />              &lt;f:facet name=&ldquo;header&rdquo;&gt;
+<br />              &lt;h:outputText value=&ldquo;Email&rdquo; /&gt;
+<br />              &lt;/f:facet&gt;
+<br />              &lt;h:outputText value=&ldquo;#{user.emailId}&rdquo; /&gt;
+<br />              &lt;/p:column&gt;
+<br />              &lt;p:column parser=&ldquo;date&rdquo; sortBy=&ldquo;#{user.dob}&rdquo; filterBy=&ldquo;#{user.dob}&rdquo;&gt;
+<br />              &lt;f:facet name=&ldquo;header&rdquo;&gt;
+<br />              &lt;h:outputText value=&ldquo;DOB&rdquo; /&gt;
+<br />              &lt;/f:facet&gt;
+<br />              &lt;h:outputText value=&ldquo;#{user.dob}&rdquo; &gt;
+<br />                  &lt;f:convertDateTime pattern=&ldquo;MM/dd/yyyy&rdquo; /&gt;
+<br />              &lt;/h:outputText&gt;
+<br />          &lt;/p:column&gt;
+<br />      &lt;/p:dataTable&gt;
+<br />      &lt;p:panel id=&ldquo;userDetailsPanelId&rdquo; header=&ldquo;Users Details&rdquo; style=&ldquo;width: 700;&rdquo;&gt;
+<br />      &lt;h:panelGrid columns=&ldquo;2&rdquo; cellpadding=&ldquo;2&rdquo; id=&ldquo;userUpdateForm&rdquo; border=&ldquo;0&rdquo; &gt;
+<br />              &lt;h:outputLabel for=&ldquo;#{userManagedBean.selectedUser.userId}&rdquo; value=&ldquo;UserId&rdquo;/&gt;
+<br />              &lt;h:inputText value=&ldquo;#{userManagedBean.selectedUser.userId}&rdquo; style=&ldquo;width: 100;&rdquo; readonly=&ldquo;true&rdquo;&gt;&lt;/h:inputText&gt;
+<br /><br />
+<br />              &lt;h:outputLabel for=&ldquo;#{userManagedBean.selectedUser.username}&rdquo; value=&ldquo;Username&rdquo;/&gt;
+<br />              &lt;h:inputText value=&ldquo;#{userManagedBean.selectedUser.username}&rdquo; readonly=&ldquo;true&rdquo;&gt;&lt;/h:inputText&gt;
+<br /><br />
+<br />              &lt;h:outputLabel for=&ldquo;#{userManagedBean.selectedUser.emailId}&rdquo; value=&ldquo;EmailId&rdquo;/&gt;
+<br />              &lt;h:inputText value=&ldquo;#{userManagedBean.selectedUser.emailId}&rdquo; readonly=&ldquo;true&rdquo;&gt;&lt;/h:inputText&gt;
+<br /><br />
+<br />              &lt;h:outputLabel for=&ldquo;#{userManagedBean.selectedUser.gender}&rdquo; value=&ldquo;Gender&rdquo;/&gt;
+<br />              &lt;h:inputText value=&ldquo;#{userManagedBean.selectedUser.gender}&rdquo; readonly=&ldquo;true&rdquo;&gt;&lt;/h:inputText&gt;
+<br /><br />
+<br />              &lt;h:outputLabel for=&ldquo;#{userManagedBean.selectedUser.dob}&rdquo; value=&ldquo;DOB&rdquo;/&gt;
+<br />              &lt;h:inputText value=&ldquo;#{userManagedBean.selectedUser.dob}&rdquo; readonly=&ldquo;true&rdquo;&gt;
+<br />                  &lt;f:convertDateTime pattern=&ldquo;MM/dd/yyyy&rdquo; /&gt;
+<br />              &lt;/h:inputText&gt;
+<br /><br />
+<br />          &lt;/h:panelGrid&gt;
+<br />          &lt;/p:panel&gt;
+<br />      &lt;/h:form&gt;<br />
+<br />      &lt;/center&gt;
+<br />&lt;/h:body&gt;
+<br />&lt;/html&gt;
+<br /></pre></p>
+
+<pre><code>&lt;p&gt;
+  Create User.java domain class.
+&lt;/p&gt;
+
+
+&lt;pre&gt;package com.primefaces.sample;
+</code></pre>
+
+<p><br />
+<br />import java.util.Date;
+<br />
+<br />public class User
+<br />{
+<br />&nbsp;&nbsp;&nbsp; private Integer userId;
+<br />&nbsp;&nbsp;&nbsp; private String username;
+<br />&nbsp;&nbsp;&nbsp; private String emailId;
+<br />&nbsp;&nbsp;&nbsp; private String phone;
+<br />&nbsp;&nbsp;&nbsp; private Date dob;
+<br />&nbsp;&nbsp;&nbsp; private String gender;
+<br />&nbsp;&nbsp;&nbsp; private String address;
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; public User()
+<br />&nbsp;&nbsp;&nbsp; {}
+<br />&nbsp;&nbsp;&nbsp; public User(Integer userId, String username, String emailId, String phone,
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Date dob, String gender, String address)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.userId = userId;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.username = username;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.emailId = emailId;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.phone = phone;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.dob = dob;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.gender = gender;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.address = address;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; //setter and getters&nbsp;&nbsp;&nbsp;
+<br />}
+<br /></pre></p>
+
+<pre><code>&lt;p&gt;
+  Create UserService.java which acts as a mock database table.
+&lt;/p&gt;
+
+
+&lt;pre&gt;package com.primefaces.sample;
+</code></pre>
+
+<p><br />
+<br />import java.util.ArrayList;
+<br />import java.util.Collection;
+<br />import java.util.Date;
+<br />import java.util.HashMap;
+<br />import java.util.Map;
+<br />import java.util.Set;
+<br />
+<br />public class UserService
+<br />{
+<br />&nbsp;&nbsp;&nbsp; private static final Map&lt;Integer, User&gt; USERS_TABLE = new HashMap&lt;Integer, User&gt;();
+<br />&nbsp;&nbsp;&nbsp; static
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(1, new User(1, &ldquo;Administrator&rdquo;, &ldquo;admin@gmail.com&rdquo;, &ldquo;9000510456&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(2, new User(2, &ldquo;Guest&rdquo;, &ldquo;guest@gmail.com&rdquo;, &ldquo;9247469543&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(3, new User(3, &ldquo;John&rdquo;, &ldquo;John@gmail.com&rdquo;, &ldquo;9000510456&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(4, new User(4, &ldquo;Paul&rdquo;, &ldquo;Paul@gmail.com&rdquo;, &ldquo;9247469543&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(5, new User(5, &ldquo;raju&rdquo;, &ldquo;raju@gmail.com&rdquo;, &ldquo;9000510456&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(6, new User(6, &ldquo;raghav&rdquo;, &ldquo;raghav@gmail.com&rdquo;, &ldquo;9247469543&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(7, new User(7, &ldquo;caren&rdquo;, &ldquo;caren@gmail.com&rdquo;, &ldquo;9000510456&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(8, new User(8, &ldquo;Mike&rdquo;, &ldquo;Mike@gmail.com&rdquo;, &ldquo;9247469543&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(9, new User(9, &ldquo;Steve&rdquo;, &ldquo;Steve@gmail.com&rdquo;, &ldquo;9000510456&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(10, new User(10, &ldquo;Polhman&rdquo;, &ldquo;Polhman@gmail.com&rdquo;, &ldquo;9247469543&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(11, new User(11, &ldquo;Rogermoor&rdquo;, &ldquo;Rogermoor@gmail.com&rdquo;, &ldquo;9000510456&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(12, new User(12, &ldquo;Robinhood&rdquo;, &ldquo;Robinhood@gmail.com&rdquo;, &ldquo;9247469543&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(13, new User(13, &ldquo;Sean&rdquo;, &ldquo;Sean@gmail.com&rdquo;, &ldquo;9000510456&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(14, new User(14, &ldquo;Gabriel&rdquo;, &ldquo;Gabriel@gmail.com&rdquo;, &ldquo;9247469543&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(15, new User(15, &ldquo;raman&rdquo;, &ldquo;raman@gmail.com&rdquo;, &ldquo;9000510456&rdquo;, new Date(), &ldquo;M&rdquo;, &ldquo;Hyderabad&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; public Integer create(User user)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if(user == null)
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; throw new RuntimeException(&ldquo;Unable to create User. User object is null.&rdquo;);
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Integer userId = this.getMaxUserId();
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; user.setUserId(userId);
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(userId, user);
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return userId;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />
+<br />&nbsp;&nbsp;&nbsp; public void delete(User user)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if(user == null)
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; throw new RuntimeException(&ldquo;Unable to delete User. User object is null.&rdquo;);
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.remove(user.getUserId());
+<br />&nbsp;&nbsp;&nbsp; }
+<br />
+<br />&nbsp;&nbsp;&nbsp; public Collection&lt;User&gt; getAllUsers()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return USERS_TABLE.values();
+<br />&nbsp;&nbsp;&nbsp; }
+<br />
+<br />&nbsp;&nbsp;&nbsp; public User getUser(Integer userId)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return USERS_TABLE.get(userId);
+<br />&nbsp;&nbsp;&nbsp; }
+<br />
+<br />&nbsp;&nbsp;&nbsp; public Collection&lt;User&gt; searchUsers(String username)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; String searchCriteria = (username == null)? &ldquo;&rdquo;:username.toLowerCase().trim();
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Collection&lt;User&gt; users = USERS_TABLE.values();
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Collection&lt;User&gt; searchResults = new ArrayList&lt;User&gt;();
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for (User user : users)
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if(user.getUsername() != null &amp;&amp; user.getUsername().toLowerCase().trim().startsWith(searchCriteria))
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; searchResults.add(user);
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return searchResults;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />
+<br />&nbsp;&nbsp;&nbsp; public void update(User user)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if(user == null || !USERS_TABLE.containsKey(user.getUserId()))
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; throw new RuntimeException(&ldquo;Unable to update User. User object is null or User Id [&ldquo;+user.getUserId()+&rdquo;] is invalid.&rdquo; );
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; USERS_TABLE.put(user.getUserId(), user);
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; protected Integer getMaxUserId()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Set&lt;Integer&gt; keys = USERS_TABLE.keySet();
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Integer maxId = 1;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for (Integer key : keys)
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if(key &gt; maxId)
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; maxId = key;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return maxId;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />}
+<br />
+<br /></pre></p>
+
+<pre><code>&lt;p&gt;
+  Create UserManagedBean.java
+&lt;/p&gt;
+
+
+&lt;pre&gt;package com.primefaces.sample;
+</code></pre>
+
+<p><br />
+<br />import java.util.Collection;
+<br />
+<br />import javax.faces.application.FacesMessage;
+<br />import javax.faces.bean.ApplicationScoped;
+<br />import javax.faces.bean.ManagedBean;
+<br />import javax.faces.context.FacesContext;
+<br />
+<br />import org.primefaces.event.SelectEvent;
+<br />import org.primefaces.event.UnselectEvent;
+<br />
+<br />@ManagedBean
+<br />@ApplicationScoped
+<br />public class UserManagedBean
+<br />{
+<br />&nbsp;&nbsp;&nbsp; UserService userService = new UserService();
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; private String username;
+<br />&nbsp;&nbsp;&nbsp; private String password;
+<br />&nbsp;&nbsp;&nbsp; private String searchUser;
+<br />&nbsp;&nbsp;&nbsp; private Collection&lt;User&gt; searchUsersResults;
+<br />&nbsp;&nbsp;&nbsp; private User selectedUser;
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; public String getUsername()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return username;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; public void setUsername(String username)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.username = username;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; public String getPassword()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return password;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; public void setPassword(String password)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.password = password;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; public User getSelectedUser()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if(selectedUser == null){
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; selectedUser = new User();
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return selectedUser;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; public void setSelectedUser(User selectedUser)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.selectedUser = selectedUser;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; public Collection&lt;User&gt; getSearchUsersResults()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return searchUsersResults;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; public void setSearchUsersResults(Collection&lt;User&gt; searchUsersResults)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.searchUsersResults = searchUsersResults;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; public String getSearchUser()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return searchUser;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; public void setSearchUser(String searchUser)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.searchUser = searchUser;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; public String login()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if(&ldquo;test&rdquo;.equalsIgnoreCase(getUsername()) &amp;&amp; &ldquo;test&rdquo;.equals(getPassword()))
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return &ldquo;home&rdquo;;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; FacesContext context = FacesContext.getCurrentInstance();
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; context.addMessage(&ldquo;username&rdquo;, new FacesMessage(&ldquo;Invalid UserName and Password&rdquo;));
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return &ldquo;login&rdquo;;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; public String searchUser()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; String username = (this.searchUser == null)? &ldquo;&rdquo;:this.searchUser.trim();&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.searchUsersResults = userService.searchUsers(username);
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; System.out.println(searchUsersResults);
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return &ldquo;home&rdquo;;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; public String updateUser()
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; userService.update(this.selectedUser);
+<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return &ldquo;home&rdquo;;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; public void onUserSelect(SelectEvent event)
+<br />&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp; }
+<br />&nbsp;&nbsp;&nbsp; public void onUserUnselect(UnselectEvent event)
+<br />&nbsp;&nbsp;&nbsp; {
+<br />&nbsp;&nbsp;&nbsp; }
+<br />}
+<br /></pre></p>
+
+<pre><code>&lt;p&gt;
+  That all we need to do. You can run the application and see the rich user interface with blusky theme.
+&lt;/p&gt;
+
+
+&lt;p&gt;
+  By default we don&amp;#8217;t get automcomplete for PrimeFaces tag  in Eclipse. To enable AutoComplete,&lt;br /&gt;Go to Window&amp;#8211;&gt;Preferences&amp;#8211;&gt;General&amp;#8211;&gt;ContentTypes&lt;br /&gt;Select JSP and add .xhtml as file association.
+&lt;/p&gt;
+
+
+&lt;p&gt;
+  You can download the sample as an Eclipse project &lt;a href=&quot;https://sites.google.com/site/sivalabworks/sampleappdownloads/PrimeFaces.zip?attredirects=0&amp;d=1&quot;&gt;Here&lt;/a&gt;
+&lt;/p&gt;
+</code></pre>
+
+        </div>
+        <footer class="entry-meta">
+            <div class="tagcloud" style="display: block;">
+                    <a href="/tags/jsf/" rel="tag">JSF</a></li>
+                    <a href="/tags/primefaces/" rel="tag">PrimeFaces</a></li>
+            </div>
+        </footer>
+    </div>
+</article>
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2011/02/syntax-highlighting/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">Syntax Highlighting</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2011/02/finally-you-need-to-deliver-developerwrittencode-war-not-managersmanagerialskills-zip/" rel="prev">
+                <span class="post-title">Finally you need to deliver DeveloperWrittenCode.WAR, not Manager’sManagerialSkills.zip
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+                    </div>
+
+                </div>
+                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+                    <div class="well">
+
+    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+        <h3 class="widget-title">Social Networks</h3>
+
+        <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://github.com/sivaprasadreddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+                          style="background-color : #221e1b; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://twitter.com/sivalabs"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                          style="background-color : #55acee; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://facebook.com/sivaprasadreddy.k"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
+                          data-hover-rule="background-color" data-hover-color="#3b5998"
+                          style="background-color : #3b5998; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://plus.google.com/u/0/+SivaPrasadReddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-google"
+                          data-hover-rule="background-color" data-hover-color="#d93e2d"
+                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                              data-hover-rule="background-color" data-hover-color="#3371b7"
+                              style="background-color : #3371b7; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="http://www.youtube.com/c/SivaPrasadReddy%20"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                              data-hover-rule="background-color" data-hover-color="#e02a20"
+                              style="background-color : #e02a20; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <aside id="widget_sp_image-4" class="widget widget_sp_image">
+        <h3 class="widget-title">My Recent Books</h3><a
+            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
+            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
+            <img
+            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
+            style="max-width: 100%;"
+            src="https://images-na.ssl-images-amazon.com/images/I/41SaZiIaUNL._SX348_BO1,204,203,200_.jpg"/></a>
+    </aside>
+
+    <aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent
+        Posts</h3>
+        <ul>
+        </ul>
+    </aside>
+
+    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tagcloud">
+
+                <div class="widget__content">
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/android" title="android">android</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/angularjs" title="angularjs">angularjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/best-practices" title="best-practices">best-practices</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/blogging" title="blogging">blogging</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/books" title="books">books</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/design-patterns" title="design-patterns">design-patterns</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/extjs" title="extjs">extjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/hibernate" title="hibernate">hibernate</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/ide" title="ide">ide</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/interviews" title="interviews">interviews</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/it" title="it">it</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/java" title="java">java</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javaee" title="javaee">javaee</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javamail" title="javamail">javamail</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javascript" title="javascript">javascript</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jboss" title="jboss">jboss</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jcart" title="jcart">jcart</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jooq" title="jooq">jooq</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jpa" title="jpa">jpa</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jsf" title="jsf">jsf</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/linux" title="linux">linux</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/maven" title="maven">maven</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/mybatis" title="mybatis">mybatis</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/primefaces" title="primefaces">primefaces</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/quartz" title="quartz">quartz</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/rest" title="rest">rest</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/resteasy" title="resteasy">resteasy</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/spring" title="spring">spring</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springboot" title="springboot">springboot</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springcloud" title="springcloud">springcloud</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springmvc" title="springmvc">springmvc</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springsecurity" title="springsecurity">springsecurity</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tips" title="tips">tips</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tomcat" title="tomcat">tomcat</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/webservices" title="webservices">webservices</a>
+                </div>
+
+        </div>
+    </aside>
+
+    <aside class="widget widget_categories">
+        <h3 class="widget-title">Categories</h3>
+        <ul>
+                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                    <li class="cat-item"><a href="/categories/books">Books</a></li>
+                    <li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li>
+                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                    <li class="cat-item"><a href="/categories/java">Java</a></li>
+                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                    <li class="cat-item"><a href="/categories/javascript">Javascript</a></li>
+                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        </ul>
+    </aside>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-area">
+        <div class="container footer-inner">
+    <div class="row">
+
+    </div>
+</div>
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info container">
+        <div class="row">
+            <nav role="navigation" class="col-md-3">
+            </nav>
+            <div class="copyright col-md-6">
+                <a href="http://sivalabs.in/" target="_blank">SivaLabs</a> Powered by <a
+                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
+        </div>
+    </div>
+    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
+</footer>
+
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        SivaLabs
+        </title>
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SivaLabs &#8211; My Experiments on Technology</title>
+
+    <link rel='stylesheet' id='sparkling-bootstrap-css'
+          href="/assets/css/bootstrap.min.css" type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='sparkling-icons-css'
+          href="/assets/css/font-awesome.min.css"
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-fonts-css'
+          href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-style-css'
+          href="/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' id='socicon-css'
+          href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css"
+          type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.js"></script>
+
+    <script type='text/javascript'
+            src="/assets/js/vendor/modernizr.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/functions.min.js"></script>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+</head>
+
+</head>
+
+<body class="home blog">
+<div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+    <nav class="navbar navbar-default " role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="site-navigation-inner col-sm-12">
+                    <div class="navbar-header">
+                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div id="logo">
+                            <h1 class="site-name">
+                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul id="menu-home" class="nav navbar-nav">
+
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/java">Java</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="/tags/spring">Spring </a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/javaee">Java EE</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/videos">Videos</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/mybooks">My Books</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <div id="content" class="site-content">
+
+        <div class="top-section">
+        </div>
+
+        <div class="container main-content-area">
+            <div class="row side-pull-left">
+                <div class="main-content-inner col-sm-12 col-md-8">
+
+                    <div id="primary" class="content-area">
+                        
+
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header page-header">
+
+            <h1 class="entry-title ">
+                JCart: Configuring Spring Security
+            </h1>
+
+            <div class="entry-meta">
+                <span class="posted-on"><i class="fa fa-calendar"></i>
+                    <time class="entry-date published"
+                          datetime="2015-12-01T05:27:15">December 01, 2015</time>
+                </span>
+                <span class="byline">
+                    <i class="fa fa-user"></i>
+                    <span class="author vcard">Siva</span>
+                </span>
+                <span class="cat-links"><i class="fa fa-folder-open-o"></i>
+				    
+                        
+                        <a rel="category tag" href="/categories/java" rel="category">Java</a>
+                    
+
+                </span>
+
+            </div>
+        </header>
+
+        <div class="entry-content">
+            
+
+<p>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.</p>
+
+<p>Let us add the following spring-security dependencies to <strong>jcart-admin/pom.xml</strong>.</p>
+
+<pre class="brush: xml">&lt;dependency>
+    &lt;groupId>org.springframework.boot&lt;/groupId>
+    &lt;artifactId>spring-boot-starter-security&lt;/artifactId>
+&lt;/dependency>
+&lt;dependency>
+    &lt;groupId>org.thymeleaf.extras&lt;/groupId>
+    &lt;artifactId>thymeleaf-extras-springsecurity4&lt;/artifactId>
+&lt;/dependency>
+</pre>
+
+<p>If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:</p>
+
+<pre class="brush: java">http
+    .authorizeRequests()
+        .antMatchers("/login","/login/form**","/register","/logout").permitAll()
+        .antMatchers("/admin","/admin/**").hasRole("ADMIN")
+        .anyRequest().authenticated()
+        .and()
+</pre>
+
+<p>But we need provision to dynamically create new roles as well, hence we can&#8217;t statically define constraints using role names.</p>
+
+<p>But in our JCart application, we have fixed list of permissions and then grouped them as Roles. So we can configure SpringSecurity to use Method Level Security by checking the permissions.</p>
+
+<p>SpringSecurity don&#8217;t have the support for Permissions. So we will follow suggestion given here <a href="http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions" target="_blank"><a href="http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions">http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions</a></a> where we consider the Permissions as Roles.</p>
+
+<h3 id="userrepository-to-get-user-by-email">UserRepository to get User by Email</h3>
+
+<pre class="brush: java">public interface UserRepository extends JpaRepository&lt;User, Integer&gt;
+{
+    User findByEmail(String email);
+}
+</pre>
+
+<h3 id="securityservice-8211-facade-to-all-security-related-methods">SecurityService &#8211; Facade to all Security Related Methods</h3>
+
+<pre class="brush: java">@Service
+@Transactional
+public class SecurityService
+{
+    @Autowired UserRepository userRepository;
+    
+    public User findUserByEmail(String email)
+    {
+         return userRepository.findByEmail(email);
+    }
+}
+</pre>
+
+<h3 id="wrapper-for-springsecurity-user">Wrapper for SpringSecurity User</h3>
+
+<pre class="brush: java">public class AuthenticatedUser extends org.springframework.security.core.userdetails.User
+{
+
+    private static final long serialVersionUID = 1L;
+    private User user;
+    
+    public AuthenticatedUser(User user)
+    {
+        super(user.getEmail(), user.getPassword(), getAuthorities(user));
+        this.user = user;
+    }
+    
+    public User getUser()
+    {
+        return user;
+    }
+    
+    private static Collection&lt;? extends GrantedAuthority&gt; getAuthorities(User user)
+    {
+    Set&lt;String&gt; roleAndPermissions = new HashSet&lt;&gt;();
+    List&lt;Role&gt; roles = user.getRoles();
+    
+    for (Role role : roles)
+    {
+    roleAndPermissions.add(role.getName());
+    List&lt;Permission&gt; permissions = role.getPermissions();
+    for (Permission permission : permissions)
+    {
+    roleAndPermissions.add("ROLE_"+permission.getName());
+    }
+    }
+    String[] roleNames = new String[roleAndPermissions.size()];
+    Collection&lt;GrantedAuthority&gt; authorities = AuthorityUtils.createAuthorityList(roleAndPermissions.toArray(roleNames));
+    return authorities;
+    }
+}
+</pre>
+
+<h3 id="custom-userdetailsservice-implementation">Custom UserDetailsService Implementation</h3>
+
+<pre class="brush: java">@Service
+@Transactional
+public class CustomUserDetailsService implements UserDetailsService
+{
+    @Autowired
+    private SecurityService securityService;
+    
+    @Override
+    public UserDetails loadUserByUsername(String userName)
+    throws UsernameNotFoundException {
+    User user = securityService.findUserByEmail(userName);
+    if(user == null){
+    throw new UsernameNotFoundException("Email "+userName+" not found");
+    }
+    return new AuthenticatedUser(user);
+    }
+
+}
+</pre>
+
+<h3 id="springsecurity-configuration">SpringSecurity Configuration</h3>
+
+<pre class="brush: java">@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true, proxyTargetClass = true)
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    
+    @Autowired
+    private UserDetailsService customUserDetailsService;
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+    
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .userDetailsService(customUserDetailsService)
+            .passwordEncoder(passwordEncoder());
+    }
+    
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .csrf().disable()
+            .authorizeRequests()
+                .antMatchers("/resources/**", "/webjars/**","/assets/**").permitAll()
+                .antMatchers("/", "/forgotPwd","/resetPwd").permitAll()
+                .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/home")
+                .failureUrl("/login?error")
+                .permitAll()
+                .and()
+            .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .permitAll()
+                .and()
+            .exceptionHandling().accessDeniedPage("/403");
+    }    
+}
+</pre>
+
+<h3 id="access-denied-exception-handler">Access Denied Exception Handler</h3>
+
+<pre class="brush: java">@Controller
+public class ErrorController
+{   
+    @RequestMapping("/403")
+    public String accessDenied()
+    {
+    return "error/accessDenied";
+    }
+    
+}
+</pre>
+
+<h3 id="abstract-controller-with-common-methods">Abstract Controller with Common Methods</h3>
+
+<p>Let us create a base Abstract Controller to have the common methods by all controllers.</p>
+
+<pre class="brush: java">public abstract class JCartAdminBaseController
+{   
+    @Autowired protected MessageSource messageSource;
+    
+    public String getMessage(String code)
+    {
+        return messageSource.getMessage(code, null, null);
+    }
+    
+    public String getMessage(String code, String defaultMsg)
+    {
+        return messageSource.getMessage(code, null, defaultMsg, null);
+    }
+    
+    @ModelAttribute("authenticatedUser")
+    public AuthenticatedUser authenticatedUser(@AuthenticationPrincipal AuthenticatedUser authenticatedUser)
+    {
+        return authenticatedUser;
+    }
+    
+    public static AuthenticatedUser getCurrentUser() {
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof AuthenticatedUser) {
+            return ((AuthenticatedUser) principal);
+        }
+        // principal object is either null or represents anonymous user -
+        // neither of which our domain User object can represent - so return null
+        return null;
+    }
+
+    public static boolean isLoggedIn() {
+        return getCurrentUser() != null;
+    }
+}
+</pre>
+
+<p>Observe how we injected Authenticated User object using <strong>@AuthenticationPrincipal</strong> and exposed as a ModelAttribute so that we can reference it in any of our templates. Also we have another method which return the AuthenticatedUser so that we can use it in any of our Controllers to access currently logged in user object, say to set CreatedBy/UpdatedBy objects on our JPA Entities.</p>
+
+<p>Now our Controllers can extend the JCartAdminBaseController class as follows:</p>
+
+<pre class="brush: java">@Controller
+public class HomeController extends JCartAdminBaseController
+{
+    ...
+}
+</pre>
+
+<h3 id="registering-springsecuritydialect-with-thymeleaf">Registering SpringSecurityDialect with Thymeleaf</h3>
+
+<p>In order to use SpringSecurity dialects features in Thymeleaf templates we need to register SpringSecurityDialect as an additional dialect. We can do this simply by registering a SpringSecurityDialect bean.</p>
+
+<pre class="brush: java">@Configuration
+public class WebConfig extends WebMvcConfigurerAdapter
+{   
+    ...
+    
+    @Bean
+    public SpringSecurityDialect securityDialect() {
+        return new SpringSecurityDialect();
+    }
+}
+</pre>
+
+<p>For more info read <a href="http://www.thymeleaf.org/doc/articles/springsecurity.html" target="_blank"><a href="http://www.thymeleaf.org/doc/articles/springsecurity.html">http://www.thymeleaf.org/doc/articles/springsecurity.html</a></a></p>
+
+<h3 id="using-springsecurity-in-thymeleaf-templates">Using SpringSecurity in Thymeleaf Templates</h3>
+
+<p>Now we can show the Left Nav Menu options by checking whether the logged in user has the Permission or not.</p>
+
+<pre class="brush: xml">
+&lt;html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"&gt;
+
+&lt;body&gt;
+    <span sec:authentication="principal.user.name">User</span>
+    
+
+<p>
+  Welcome <span th:text="${authenticatedUser.user.name}">User</span>!
+</p>
+    
+    
+
+<li sec:authorize="hasRole('ROLE_MANAGE_CATEGORIES')">
+  <a href="#" th:href="@{'/categories'}"><i class="fa fa-folder-open"></i> <span>Categories</span></a>
+    
+</li>
+    
+
+<li sec:authorize="hasRole('ROLE_MANAGE_PRODUCTS')">
+  <a href="#" th:href="@{'/products'}"><i class="fa fa-file"></i> <span>Products</span></a>
+    
+</li>
+    
+   &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>In our Controllers we can check for Permissions as follows:</p>
+
+<pre class="brush: java">@Controller
+@Secured("ROLE_MANAGE_CATEGORIES")
+public class CategoryController extends JCartAdminBaseController
+{
+    ...
+}
+</pre>
+
+<h3 id="registering-a-filter-after-springsecurity-filter">Registering a Filter After SpringSecurity Filter</h3>
+
+<p>I would like to show the currently selected Left Nav Menu link as Active. For that I thought of keep tracking the clicked URL and store the ACTIVE_MENU value in model and then conditionally apply Active style in Thymeleaf template.</p>
+
+<p>For this I thought of registering a Filter filter after SpringSecurityFilter. But SpringSecurity Filter is registered with LOWEST_PRIORITY order automatically. So we need to get it done using the hack explained here <a href="http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot" target="_blank"><a href="http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot">http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot</a></a></p>
+
+<pre class="brush: java">@Configuration
+public class WebConfig extends WebMvcConfigurerAdapter
+{  
+    ...
+    ...
+    
+    @Autowired 
+    private PostAuthorizationFilter postAuthorizationFilter;
+            
+    @Bean
+    public FilterRegistrationBean securityFilterChain(@Qualifier(AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME) Filter securityFilter) {
+        FilterRegistrationBean registration = new FilterRegistrationBean(securityFilter);
+        registration.setOrder(Integer.MAX_VALUE - 1);
+        registration.setName(AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME);
+        return registration;
+    }
+
+    @Bean
+    public FilterRegistrationBean PostAuthorizationFilterRegistrationBean() {
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        registrationBean.setFilter(postAuthorizationFilter);
+        registrationBean.setOrder(Integer.MAX_VALUE);
+        return registrationBean;
+    }
+}
+</pre>
+
+<pre class="brush: java">@Component
+public class PostAuthorizationFilter extends OncePerRequestFilter
+{   
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+    throws ServletException, IOException
+    {
+    String uri = request.getRequestURI();   
+    String menu = ...;
+    request.setAttribute("CURRENT_MENU", menu);
+    
+    chain.doFilter(request, response);
+    }
+    
+}
+</pre>
+
+<p>For complete PostAuthorizationFilter code, please check in github repository <a href="https://github.com/sivaprasadreddy/jcart" target="_blank"><a href="https://github.com/sivaprasadreddy/jcart">https://github.com/sivaprasadreddy/jcart</a></a>.</p>
+
+<p>Now we have Spring Security configured for our application. In our next posts we will see how to protect Controller methods at class/method level.</p>
+
+        </div>
+        <footer class="entry-meta">
+            <div class="tagcloud" style="display: block;">
+                    <a href="/tags/jcart/" rel="tag">jcart</a></li>
+                    <a href="/tags/springboot/" rel="tag">SpringBoot</a></li>
+            </div>
+        </footer>
+    </div>
+</article>
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2015/12/jcart-email-service-setup/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">JCart: Email Service SetUp</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2015/12/jcart-admin-ui-layout-setup/" rel="prev">
+                <span class="post-title">JCart: Admin UI Layout SetUp
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+                    </div>
+
+                </div>
+                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+                    <div class="well">
+
+    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+        <h3 class="widget-title">Social Networks</h3>
+
+        <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://github.com/sivaprasadreddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+                          style="background-color : #221e1b; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://twitter.com/sivalabs"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                          style="background-color : #55acee; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://facebook.com/sivaprasadreddy.k"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
+                          data-hover-rule="background-color" data-hover-color="#3b5998"
+                          style="background-color : #3b5998; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://plus.google.com/u/0/+SivaPrasadReddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-google"
+                          data-hover-rule="background-color" data-hover-color="#d93e2d"
+                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                              data-hover-rule="background-color" data-hover-color="#3371b7"
+                              style="background-color : #3371b7; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="http://www.youtube.com/c/SivaPrasadReddy%20"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                              data-hover-rule="background-color" data-hover-color="#e02a20"
+                              style="background-color : #e02a20; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <aside id="widget_sp_image-4" class="widget widget_sp_image">
+        <h3 class="widget-title">My Recent Books</h3><a
+            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
+            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
+            <img
+            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
+            style="max-width: 100%;"
+            src="https://images-na.ssl-images-amazon.com/images/I/41SaZiIaUNL._SX348_BO1,204,203,200_.jpg"/></a>
+    </aside>
+
+    <aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent
+        Posts</h3>
+        <ul>
+        </ul>
+    </aside>
+
+    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tagcloud">
+
+                <div class="widget__content">
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/android" title="android">android</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/angularjs" title="angularjs">angularjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/best-practices" title="best-practices">best-practices</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/blogging" title="blogging">blogging</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/books" title="books">books</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/design-patterns" title="design-patterns">design-patterns</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/extjs" title="extjs">extjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/hibernate" title="hibernate">hibernate</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/ide" title="ide">ide</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/interviews" title="interviews">interviews</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/it" title="it">it</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/java" title="java">java</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javaee" title="javaee">javaee</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javamail" title="javamail">javamail</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javascript" title="javascript">javascript</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jboss" title="jboss">jboss</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jcart" title="jcart">jcart</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jooq" title="jooq">jooq</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jpa" title="jpa">jpa</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jsf" title="jsf">jsf</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/linux" title="linux">linux</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/maven" title="maven">maven</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/mybatis" title="mybatis">mybatis</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/primefaces" title="primefaces">primefaces</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/quartz" title="quartz">quartz</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/rest" title="rest">rest</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/resteasy" title="resteasy">resteasy</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/spring" title="spring">spring</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springboot" title="springboot">springboot</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springcloud" title="springcloud">springcloud</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springmvc" title="springmvc">springmvc</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springsecurity" title="springsecurity">springsecurity</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tips" title="tips">tips</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tomcat" title="tomcat">tomcat</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/webservices" title="webservices">webservices</a>
+                </div>
+
+        </div>
+    </aside>
+
+    <aside class="widget widget_categories">
+        <h3 class="widget-title">Categories</h3>
+        <ul>
+                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                    <li class="cat-item"><a href="/categories/books">Books</a></li>
+                    <li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li>
+                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                    <li class="cat-item"><a href="/categories/java">Java</a></li>
+                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                    <li class="cat-item"><a href="/categories/javascript">Javascript</a></li>
+                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        </ul>
+    </aside>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-area">
+        <div class="container footer-inner">
+    <div class="row">
+
+    </div>
+</div>
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info container">
+        <div class="row">
+            <nav role="navigation" class="col-md-3">
+            </nav>
+            <div class="copyright col-md-6">
+                <a href="http://sivalabs.in/" target="_blank">SivaLabs</a> Powered by <a
+                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
+        </div>
+    </div>
+    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
+</footer>
+
+    </div>
+</div>
+
+</body>
+
+</html>

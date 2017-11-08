@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on SivaLabs</title>
+    <link>https://sivalabs.github.io/categories/books/</link>
+    <description>Recent content in Books on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Nov 2017 04:59:17 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/categories/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Review of Vlad Mihalcea’s High-Performance Java Persistence book</title>
+      <link>https://sivalabs.github.io/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</link>
+      <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</guid>
+      <description>In Java world, JPA/Hibernate is the most popular and widely used framework. When it comes to overall performance of a software system database persistence layer plays the crucial role. The tricky part with JPA/Hibernate is it is very easy to get started but very very hard to master. This is where Vlad Mihalcea&amp;#8216;s High-Performance Java Persistence book helps you a lot.
+
+The High-Performance Java Persistence book is not just another Hibernate book saying you put this annotation here and call that method there and you are done.</description>
+    </item>
+    
+    <item>
+      <title>Update on SpringBoot : Learn By Example book</title>
+      <link>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</link>
+      <pubDate>Sat, 30 Jul 2016 02:53:50 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</guid>
+      <description>I would like to let you know that I have updated/added the following sections to my SpringBoot : Learn By Example book.
+
+Additions to existing chapters:  Working with Multiple Databases Exposing JPA entities with bi-directional references through RESTful services  In some of our applications we need to work with multiple databases. For example, we may have a primary database and a reporting database where most the application uses primary database and the application reports will be generated out of reporting database data.</description>
+    </item>
+    
+    <item>
+      <title>My New Book SpringBoot : Learn By Example Published Today</title>
+      <link>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</link>
+      <pubDate>Wed, 20 Jul 2016 06:05:31 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</guid>
+      <description>I am happy to announce that my new book SpringBoot : Learn By Example got published today on Leanpub.
+SpringBoot : Learn By Example  &amp;nbsp;
+  What is SpringBoot?
+Spring is one of the most popular Java frameworks out there to build web and enterprise application.
+Spring supports variety of configuration approaches (XML, Annotations, JavaConfig etc) and properly configuring Spring applications become a bit tedious and repetitive process. To avoid these problems Spring team introduced SpringBoot to address the complexity of configuring Spring application.</description>
+    </item>
+    
+    <item>
+      <title>Packt Publishers Initiative FREE eBook every day</title>
+      <link>https://sivalabs.github.io/2015/06/packt-publishers-initiative-free-ebook-every-day/</link>
+      <pubDate>Tue, 02 Jun 2015 11:31:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/packt-publishers-initiative-free-ebook-every-day/</guid>
+      <description>Software Development is a field where learning new things continuously is very much important to keep up with the pace of technology evolution. Packt Publishers not only publishing new books everyday, now they are offering one ebook EVERYDAY for FREE http://bit.ly/1JdHmgx. This is really AWESOME!!
+  What are you waiting for??!!. Rush to http://bit.ly/1JdHmgx and Claim your today&amp;#8217;s free book right now 🙂</description>
+    </item>
+    
+    <item>
+      <title>Book Review: PrimeFaces Blueprints</title>
+      <link>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</link>
+      <pubDate>Mon, 26 Jan 2015 07:39:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</guid>
+      <description>PrimeFaces Blueprints is a recent publication from Packpub on PrimeFaces framework authored by Sudheer Jonna and Ramkumar Pillai. Sudheer Jonna is a well known member in the PrimeFaces community forum and is very knowledgeable on PrimeFaces and PrimeFaces Extensions.
+      PrimeFaces Blueprint book followed the approach of explaining the features with appropriate example applications. PrimeFaces provides more than 100 rich UI components with lot of customization options.</description>
+    </item>
+    
+    <item>
+      <title>Book Review: Enterprise Application Development with Ext JS and Spring</title>
+      <link>https://sivalabs.github.io/2014/02/book-review-enterprise-application-development-with-ext-js-and-spring/</link>
+      <pubDate>Tue, 11 Feb 2014 00:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/02/book-review-enterprise-application-development-with-ext-js-and-spring/</guid>
+      <description>I was asked to review &amp;#8220;Enterprise Application Development with Ext JS and Spring&amp;#8221; book by Packtpub guys and here is my review on the book. Actually now I am working on a project which is being developed using ExtJS and I thought of buying this book. But surprisingly on the very next day I was asked to review this book and gave me the ebook :-).
+  Book WebSite URL:&amp;nbsp;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Packt’s $5 eBook Bonanza is back!</title>
+      <link>https://sivalabs.github.io/2013/12/packts-5-ebook-bonanza-is-back/</link>
+      <pubDate>Fri, 20 Dec 2013 15:29:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/12/packts-5-ebook-bonanza-is-back/</guid>
+      <description>Packt Publishing provides IT related books, ebooks and videos on various cutting edge technologies with high quality and affordable price!
+Following on from the success of last year’s festive offer, the publisher will be celebrating the holiday season with an even bigger $5 Bonanza. &amp;nbsp;From December 19th, customers will be able to get any eBook or Video from Packt for just $5. This sale covers every title in the 1700+ range and customers can grab as many as they like until January 3rd 2014 – more information is available at http://bit.</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces Beginner’s Guide book published</title>
+      <link>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</link>
+      <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</guid>
+      <description>I am glad to announce that my second book PrimeFaces Beginner&amp;#8217;s Guide is published.
+As many of us know PrimeFaces is leading JSF component library for JSF based web applications. This PrimeFaces Beginner&amp;#8217;s Guide book targets the Java developers with basic knowledge on JSF and jQuery and covers most of the commonly used PrimeFaces components.
+ Good news is that PrimeFaces Beginner&amp;#8217;s Guide book covers the latest PrimeFaces 4.0 version features such as Client Side Validations (CSV) framework, Dialog Framework, Search Expressions, Sticky Component and many other enhancement as well.</description>
+    </item>
+    
+    <item>
+      <title>Drools JBoss Rules 5.X Developer’s Guide Book Review</title>
+      <link>https://sivalabs.github.io/2013/10/drools-jboss-rules-5x-developers-guide/</link>
+      <pubDate>Mon, 21 Oct 2013 04:58:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/10/drools-jboss-rules-5x-developers-guide/</guid>
+      <description>We all start our new projects by promising to follow best practices and good design principles etc.
+But over the time business rules change and developers keep adding new features or updates existing logic.
+In this process the common mistake done by many teams is putting if-else conditions here and there instead of coming up with better design to support enhancements. Once these feature turn on/off flags and behavior branching logic started creeping into code then overtime it might become un-maintainable mess.</description>
+    </item>
+    
+    <item>
+      <title>Packt Publishing “Java Persistence With MyBatis3” published</title>
+      <link>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</link>
+      <pubDate>Tue, 16 Jul 2013 10:01:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</guid>
+      <description>Hurray&amp;#8230;My first book &amp;#8220;Java Persistence with MyBatis3&amp;#8221; is published. I would like to thank Packt Publishers for giving me this opportunity to write on my favorite framework MyBatis.
+For most of the software applications data persistence is a key and important aspect. In Java land we have many ways of implementing persistence layer starting from low level JDBC to fancy ORM frameworks.
+JDBC is too low level API and needs to write a lot of boilerplate code.</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces Cookbook Review</title>
+      <link>https://sivalabs.github.io/2013/03/primefaces-cookbook-review/</link>
+      <pubDate>Mon, 18 Mar 2013 08:32:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/03/primefaces-cookbook-review/</guid>
+      <description>PrimeFaces is the Best Rich UI component library for JSF based applications. Also PrimeFaces has a wonderful showcase (http://www.primefaces.org/showcase/ui/home.jsf) and documentation (http://www.primefaces.org/documentation.html) on their website.     When I first heard about &amp;#8220;PrimeFaces Cookbook” I was very excited because this is the first book on PrimeFaces and usually cookbooks contain lot of tips for commonly faced issues and recipes for common use cases.
+    PrimeFaces Cookbook      &amp;lt;div&amp;gt; &amp;lt;a href=&amp;quot;http://www.</description>
+    </item>
+    
+  </channel>
+</rss>

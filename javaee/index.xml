@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javaees on SivaLabs</title>
+    <link>https://sivalabs.github.io/javaee/</link>
+    <description>Recent content in Javaees on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Nov 2015 16:28:55 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/javaee/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java EE</title>
+      <link>https://sivalabs.github.io/javaee/</link>
+      <pubDate>Thu, 26 Nov 2015 16:28:55 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/javaee/</guid>
+      <description> JavaEE Tutorials RESTEasy Tutorials  RESTEasy Tutorial Part-1: Basics RESTEasy Tutorial Part-2: Spring Integration RESTEasy Tutorial Part 3 – Exception Handling  </description>
+    </item>
+    
+  </channel>
+</rss>

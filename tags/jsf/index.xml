@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jsf on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/jsf/</link>
+    <description>Recent content in Jsf on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Nov 2013 04:02:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/jsf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PrimeFaces Beginner’s Guide book published</title>
+      <link>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</link>
+      <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</guid>
+      <description>I am glad to announce that my second book PrimeFaces Beginner&amp;#8217;s Guide is published.
+As many of us know PrimeFaces is leading JSF component library for JSF based web applications. This PrimeFaces Beginner&amp;#8217;s Guide book targets the Java developers with basic knowledge on JSF and jQuery and covers most of the commonly used PrimeFaces components.
+ Good news is that PrimeFaces Beginner&amp;#8217;s Guide book covers the latest PrimeFaces 4.0 version features such as Client Side Validations (CSV) framework, Dialog Framework, Search Expressions, Sticky Component and many other enhancement as well.</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces3 Tutorial : Form Validation Using BeanValidation API(JSR-303)</title>
+      <link>https://sivalabs.github.io/2012/02/primefaces3-tutorial-form-validation-using-beanvalidation-apijsr-303/</link>
+      <pubDate>Wed, 01 Feb 2012 23:10:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/02/primefaces3-tutorial-form-validation-using-beanvalidation-apijsr-303/</guid>
+      <description>JSF2 has in-built support for form validations using Bean Validation API(JSR-303).
+In my previous article PrimeFaces 3 Tutorial : Introduction &amp;amp; Form Validation , I have explained how to validate forms using JSF tags inside JSF xhtml pages.
+Now Let us see how we can validate the forms using HibernateValidator which is reference implementation of JSR-303.
+Note: Integrating JSR-303 with JSF2 doesn&amp;#8217;t have anything to do with PrimeFaces 3.
+But I am planning to write a series of articles on PrimeFaces and JSR-303 integration is a part of it.</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces 3 Tutorial : Introduction &amp; Form Validation</title>
+      <link>https://sivalabs.github.io/2012/01/primefaces-3-tutorial-introduction-form-validation/</link>
+      <pubDate>Mon, 30 Jan 2012 21:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/01/primefaces-3-tutorial-introduction-form-validation/</guid>
+      <description>PrimeFaces is a component library for JSF and has huge component support.
+Working with PrimeFaces is very much easy because there is a single jar, no mandatory other dependencies, no mandatory configuration is required.
+Ok, in this tutorial I am going to explain how to create a Maven based PrimeFaces project and create a simple registration for and validate the form.
+I am using JDK1.6.26 and Tomcat 7.0.32.
+Step#1
+Create Maven Project and add the following repositories, dependencies in pom.</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces QuickStart Tutorial-Part1</title>
+      <link>https://sivalabs.github.io/2011/02/primefaces-quickstart-tutorial-part1/</link>
+      <pubDate>Tue, 01 Feb 2011 19:57:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/primefaces-quickstart-tutorial-part1/</guid>
+      <description>PrimeFaces is an open source component library for JSF 2.0 with morethan 100 rich components. PrimeFaces is far better than many other JSF component libraries because of the following reasons:
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 1. Rich set of UI components (DataTable, AutoComplete, HtmlEditor, Charts etc).
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2. No extra xml configuration is required and there is no required dependencies.
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3. Built-in Ajax based on standard JSF 2.0 Ajax APIs.
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 4. Skinning Framework with 25+ built-in themes.</description>
+    </item>
+    
+    <item>
+      <title>JSF can be used for several purposes.</title>
+      <link>https://sivalabs.github.io/2011/01/jsf-can-be-used-for-several-purposes/</link>
+      <pubDate>Wed, 05 Jan 2011 23:06:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/jsf-can-be-used-for-several-purposes/</guid>
+      <description>Recently I got a wonderful opportunity to work with JSF and I couldn&amp;#8217;t stop myself sharing my feelings on JSF with everyone.
+By god&amp;#8217;s grace till last month i didn&amp;#8217;t a chance to work on JSF in my career. But recently i have to work on a project developed in JSF 1.x.
+After spending few days on JSF technology I realized that JSF is not only a web framework and we can use it for several purposes.</description>
+    </item>
+    
+  </channel>
+</rss>

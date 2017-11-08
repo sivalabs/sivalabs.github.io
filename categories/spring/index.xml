@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on SivaLabs</title>
+    <link>https://sivalabs.github.io/categories/spring/</link>
+    <description>Recent content in Spring on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Oct 2017 02:50:23 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Select ALL starters on Spring Initializer (http://start.spring.io)</title>
+      <link>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</link>
+      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</guid>
+      <description>If you are working on Spring Boot then you most probably aware of Spring Initializer (http://start.spring.io) which is an online spring boot application generator. You can select the starters that you want to use and then generate the application.
+If you notice that there is no SELECT ALL option to select all the starters. Who would do that insane thing of selecting all the starters for an application??!!???
+But, i would like to have the SELECT ALL option for one single reason:</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</title>
+      <link>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</link>
+      <pubDate>Mon, 14 Aug 2017 12:30:43 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</guid>
+      <description>Problem In the previous article Introduction to Spring Cloud Config Server (http://sivalabs.in/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/) we have seen how to use Spring Cloud Config Server.
+But, the problem is to reload the config changes in Config Client applications we need to trigger /refresh endpoint manually. This is not practical and viable if you have large number of applications.
+Solution Spring Cloud Bus module can be used to link multiple applications with a message broker and we can broadcast configuration changes.</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</title>
+      <link>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/</link>
+      <pubDate>Mon, 14 Aug 2017 03:35:07 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/</guid>
+      <description>Problem SpringBoot provides lot of flexibility in externalizing configuration properties via properties or YAML files. We can also configure properties for each environment (dev, qa, prod etc) separately using profile specific configuration files such as application.properties, application-dev.properties, application-prod.properties etc. But once the application is started we can not update the properties at runtime. If we change the properties we need to restart the application to use the updated configuration properties.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with SpringBoot in Intellij IDEA Community Edition</title>
+      <link>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</link>
+      <pubDate>Wed, 07 Sep 2016 09:53:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</guid>
+      <description>We can use Intellij IDEA Community Edition for working with SpringBoot applications as we don&amp;#8217;t need support for configuring servers like Tomcat, Wildlfy etc and can simply run the applications by running main() method.
+However, there is no provision in Intellij IDEA Community Edition to create SpringBoot application directly, the way it supports in Ultimate Edition.
+We can go to http://start.spring.io/ and generate the project and then import into our IDE.</description>
+    </item>
+    
+    <item>
+      <title>Update on SpringBoot : Learn By Example book</title>
+      <link>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</link>
+      <pubDate>Sat, 30 Jul 2016 02:53:50 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</guid>
+      <description>I would like to let you know that I have updated/added the following sections to my SpringBoot : Learn By Example book.
+
+Additions to existing chapters:  Working with Multiple Databases Exposing JPA entities with bi-directional references through RESTful services  In some of our applications we need to work with multiple databases. For example, we may have a primary database and a reporting database where most the application uses primary database and the application reports will be generated out of reporting database data.</description>
+    </item>
+    
+    <item>
+      <title>My New Book SpringBoot : Learn By Example Published Today</title>
+      <link>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</link>
+      <pubDate>Wed, 20 Jul 2016 06:05:31 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</guid>
+      <description>I am happy to announce that my new book SpringBoot : Learn By Example got published today on Leanpub.
+SpringBoot : Learn By Example  &amp;nbsp;
+  What is SpringBoot?
+Spring is one of the most popular Java frameworks out there to build web and enterprise application.
+Spring supports variety of configuration approaches (XML, Annotations, JavaConfig etc) and properly configuring Spring applications become a bit tedious and repetitive process. To avoid these problems Spring team introduced SpringBoot to address the complexity of configuring Spring application.</description>
+    </item>
+    
+    <item>
+      <title>My Review of Sanjay Patel’s Spring Course</title>
+      <link>https://sivalabs.github.io/2016/06/my-review-of-sanjay-patels-spring-course/</link>
+      <pubDate>Fri, 03 Jun 2016 01:18:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/06/my-review-of-sanjay-patels-spring-course/</guid>
+      <description>Spring is the most popular Java framework for building web and enterprise applications. There are plenty of official documentation, books, and Training Courses available for Spring framework on web.
+I got an opportunity to review Sanjay Patel&amp;#8216;s Spring Course Material which is divided into 3 modules.
+http://www.naturalprogrammer.com/spring-tutorial/
+The total course is divided into 3 modules covering various aspects of web application development using Spring/SpringBoot framework.
+ Module I : Spring Framework 4 And Dependency Injection For Beginners Module II : Spring Framework for the Real World Module III : Spring Framework REST API Development  Module I: Spring Framework 4 and Dependency Injection For Beginners</description>
+    </item>
+    
+    <item>
+      <title>Creating Custom SpringBoot Starter for Twitter4j</title>
+      <link>https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/</link>
+      <pubDate>Fri, 08 Apr 2016 06:57:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/</guid>
+      <description>**SpringBoot **provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.
+In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.
+In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create twitter4j-spring-boot-starter which will auto-configure Twitter4J beans.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot : Working with JOOQ</title>
+      <link>https://sivalabs.github.io/2016/03/springboot-working-with-jooq/</link>
+      <pubDate>Tue, 15 Mar 2016 07:13:21 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jooq/</guid>
+      <description>In my previous article SpringBoot : Working with MyBatis &amp;nbsp;we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
+JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL.
+JOOQ provides the following features:
+ Building Typesafe SQL using DSL API&amp;nbsp; Typesafe database object referencing using Code Generation&amp;nbsp; Easy to use API for Querying and Data fetching&amp;nbsp; SQL logging and debugging</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot : Working with MyBatis</title>
+      <link>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</link>
+      <pubDate>Mon, 14 Mar 2016 07:10:42 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</guid>
+      <description>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
+ SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&amp;nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
+**Create a SpringBoot Maven project and add the following MyBatis Starter dependency.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot : Working with JdbcTemplate</title>
+      <link>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</link>
+      <pubDate>Mon, 14 Mar 2016 07:08:22 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</guid>
+      <description>Spring provides a nice abstraction on top of JDBC API using **JdbcTemplate **and also provides great transaction management capabilities using annotation based approach.
+First let’s take a quick look at how we generally use Spring’s **JdbcTemplate (without** SpringBoot) by registering DataSource, **TransactionManager **and **JdbcTemplate **beans and optionally we can register **DataSourceInitializer **bean to initialize our database.
+@Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { &#34;classpath:application.properties&#34; }) public class AppConfig { @Autowired private Environment env; @Value(&#34;</description>
+    </item>
+    
+    <item>
+      <title>How SpringBoot AutoConfiguration magic works?</title>
+      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
+      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
+      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
+Exploring the power of @Conditional&amp;nbsp;
+While developing Spring based applications we may come across of a need to register beans conditionally.</description>
+    </item>
+    
+    <item>
+      <title>Why SpringBoot?</title>
+      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
+      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
+      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
+Spring framework provides flexibility to configure the beans in multiple ways such as XML, **Annotations **and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
+    </item>
+    
+    <item>
+      <title>Retrying Method Execution using Spring AOP</title>
+      <link>https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/</link>
+      <pubDate>Tue, 05 Jan 2016 15:40:36 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/</guid>
+      <description>One of my blog follower sends an email asking me to show an example of &amp;#8220;RealWorld Usage of Spring AOP&amp;#8221;. He mentioned that in most of the examples the usage of Spring AOP is demonstrated for logging method entry/exit or Transaction management or Security checks. He wanted to know how Spring AOP is being used in &amp;#8220;Real Project for Real Problems&amp;#8221;.
+So I would like to show how I have used Spring AOP for one of my project to handle a real problem.</description>
+    </item>
+    
+    <item>
+      <title>Selecting The Technology Stack for JCart</title>
+      <link>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</link>
+      <pubDate>Sun, 22 Nov 2015 05:17:20 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</guid>
+      <description>Selecting the right technology stack is very crucial and plays an important role in project success. Many of the architects (unknowingly??!!) try to make complex designs by trying to use all kinds of latest and greatest stuff. On the other hand some architects try to be in their comfort zone by limiting their technology stack to the technologies with which they are comfortable. Both approaches are dangerous. One should understand the business needs and pick the technologies that are necessary for project.</description>
+    </item>
+    
+    <item>
+      <title>Introducing the application JCart</title>
+      <link>https://sivalabs.github.io/2015/11/introducing-the-application-jcart/</link>
+      <pubDate>Sat, 21 Nov 2015 02:28:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/introducing-the-application-jcart/</guid>
+      <description>As I promised in my article Developing a simple e-commerce application from scratch to production using SpringBoot, I am starting first post by introducing the application JCart that we are going to build.
+One of my friend makes quilling toys and she sell them by advertising on Facebook or through word of mouth. Now she is getting more and more customers and she wants to expand her business by going online.</description>
+    </item>
+    
+    <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
+    </item>
+    
+    <item>
+      <title>A Developers Perspective on Spring vs JavaEE</title>
+      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
+      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
+      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
+I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot: Introducing SpringBoot</title>
+      <link>https://sivalabs.github.io/2014/07/springboot-introducing-springboot/</link>
+      <pubDate>Wed, 02 Jul 2014 00:03:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/07/springboot-introducing-springboot/</guid>
+      <description>SpringBoot&amp;#8230;there is a lot of buzz about SpringBoot nowadays. So what is SpringBoot?
+ SpringBoot is a new spring portfolio project which takes opinionated view of building production-ready Spring applications by drastically reducing the amount of configuration required. Spring Boot is taking the convention over configuration style to the next level by registering the default configurations automatically based on the classpath libraries available at runtime.
+ Well.. you might have already read this kind of introduction to SpringBoot on many blogs.</description>
+    </item>
+    
+    <item>
+      <title>Exporting Spring Data JPA Repositories as REST Services using Spring Data REST</title>
+      <link>https://sivalabs.github.io/2014/03/exporting-spring-data-jpa-repositories-as-rest-services-using-spring-data-rest/</link>
+      <pubDate>Sun, 02 Mar 2014 02:26:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/03/exporting-spring-data-jpa-repositories-as-rest-services-using-spring-data-rest/</guid>
+      <description>Spring Data modules provides various modules to work with various types of datasources like RDBMS, NOSQL stores etc in unified way. In my previous article SpringMVC4 + Spring Data JPA + SpringSecurity configuration using JavaConfig I have explained how to configure Spring Data JPA using JavaConfig.
+Now in this post let us see how we can use Spring Data JPA repositories and export JPA entities as REST endpoints using Spring Data REST.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC4 &#43; Spring Data JPA &#43; SpringSecurity configuration using JavaConfig</title>
+      <link>https://sivalabs.github.io/2014/03/springmvc4-spring-data-jpa-springsecurity-configuration-using-javaconfig/</link>
+      <pubDate>Sun, 02 Mar 2014 01:01:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/03/springmvc4-spring-data-jpa-springsecurity-configuration-using-javaconfig/</guid>
+      <description>In this article we will see how to configure and integrate SpringMVC4, Spring Data JPA with Hibernate and SpringSecurity using JavaConfig.
+ First let&amp;#8217;s configure all the necessary dependencies in pom.xml  &amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34; &amp;lt;modelVersion4.0.0&amp;lt;/modelVersion &amp;lt;groupIdcom.sivalabs&amp;lt;/groupId &amp;lt;artifactIdspringmvc-datajpa-security-demo&amp;lt;/artifactId &amp;lt;version1.0&amp;lt;/version &amp;lt;packagingwar&amp;lt;/packaging &amp;lt;properties &amp;lt;java.version1.7&amp;lt;/java.version &amp;lt;junit.version4.11&amp;lt;/junit.version &amp;lt;slf4j.version1.7.5&amp;lt;/slf4j.version &amp;lt;logback.version1.0.13&amp;lt;/logback.version &amp;lt;spring.version4.0.0.RELEASE&amp;lt;/spring.version &amp;lt;spring-data-jpa.version1.4.1.RELEASE&amp;lt;/spring-data-jpa.version &amp;lt;spring-security.version3.2.0.RELEASE&amp;lt;/spring-security.version &amp;lt;hibernate.version4.2.6.Final&amp;lt;/hibernate.version &amp;lt;aspectj.version1.7.2&amp;lt;/aspectj.version &amp;lt;mysql.version5.1.26&amp;lt;/mysql.version &amp;lt;jackson-json.version2.3.1&amp;lt;/jackson-json.version &amp;lt;commons-dbcp.version1.2.2&amp;lt;/commons-dbcp.version &amp;lt;commons-lang3.version3.1&amp;lt;/commons-lang3.version &amp;lt;/properties &amp;lt;build &amp;lt;finalName${project.artifactId}&amp;lt;/finalName &amp;lt;plugins &amp;lt;plugin &amp;lt;groupIdorg.apache.maven.plugins&amp;lt;/groupId &amp;lt;artifactIdmaven-compiler-plugin&amp;lt;/artifactId &amp;lt;version3.1&amp;lt;/version &amp;lt;configuration &amp;lt;source${java.version}&amp;lt;/source &amp;lt;target${java.version}&amp;lt;/target &amp;lt;/configuration &amp;lt;/plugin &amp;lt;/plugins &amp;lt;/build &amp;lt;dependencies &amp;lt;dependency &amp;lt;groupIdorg.</description>
+    </item>
+    
+    <item>
+      <title>Deploying BroadleafCommerce 2.0 on JBoss AS 7</title>
+      <link>https://sivalabs.github.io/2013/05/deploying-broadleafcommerce-20-on-jboss/</link>
+      <pubDate>Mon, 27 May 2013 11:40:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/05/deploying-broadleafcommerce-20-on-jboss/</guid>
+      <description>First 2 steps are not really related to Broadleaf specific, but mentioned to make it easy to follow(copy/paste) the steps.
+**Step#1: Configure DataSources in JBoss AS. **
+**
+**
+&amp;lt;datasource jta=&#34;true&#34; jndi-name=&#34;java:jboss/datasources/BroadleafDS&#34; pool-name=&#34;BroadleafDS_Pool&#34; enabled=&#34;true&#34; use-java-context=&#34;true&#34; use-ccm=&#34;true&#34;&amp;gt; &amp;lt;connection-url&amp;gt;jdbc:mysql://localhost:3306/broadleaf&amp;lt;/connection-url&amp;gt; &amp;lt;driver&amp;gt;mysql&amp;lt;/driver&amp;gt; &amp;lt;security&amp;gt; &amp;lt;user-name&amp;gt;root&amp;lt;/user-name&amp;gt; &amp;lt;password&amp;gt;admin&amp;lt;/password&amp;gt; &amp;lt;/security&amp;gt; &amp;lt;timeout&amp;gt; &amp;lt;idle-timeout-minutes&amp;gt;0&amp;lt;/idle-timeout-minutes&amp;gt; &amp;lt;query-timeout&amp;gt;600&amp;lt;/query-timeout&amp;gt; &amp;lt;/timeout&amp;gt; &amp;lt;/datasource&amp;gt; &amp;lt;datasource jta=&#34;true&#34; jndi-name=&#34;java:jboss/datasources/BroadleafSecureDS&#34; pool-name=&#34;BroadleafSecureDS_Pool&#34; enabled=&#34;true&#34; use-java-context=&#34;true&#34; use-ccm=&#34;true&#34;&amp;gt; &amp;lt;connection-url&amp;gt;jdbc:mysql://localhost:3306/broadleaf&amp;lt;/connection-url&amp;gt; &amp;lt;driver&amp;gt;mysql&amp;lt;/driver&amp;gt; &amp;lt;security&amp;gt; &amp;lt;user-name&amp;gt;root&amp;lt;/user-name&amp;gt; &amp;lt;password&amp;gt;admin&amp;lt;/password&amp;gt; &amp;lt;/security&amp;gt; &amp;lt;timeout&amp;gt; &amp;lt;idle-timeout-minutes&amp;gt;0&amp;lt;/idle-timeout-minutes&amp;gt; &amp;lt;query-timeout&amp;gt;600&amp;lt;/query-timeout&amp;gt; &amp;lt;/timeout&amp;gt; &amp;lt;/datasource&amp;gt; &amp;lt;datasource jta=&#34;true&#34; jndi-name=&#34;java:jboss/datasources/BroadleafCmsDS&#34; pool-name=&#34;BroadleafCmsDS_Pool&#34; enabled=&#34;true&#34; use-java-context=&#34;</description>
+    </item>
+    
+    <item>
+      <title>A bunch of Maven Archetypes for Spring based Projects</title>
+      <link>https://sivalabs.github.io/2012/10/a-bunch-of-maven-archetypes-for-spring-based-projects/</link>
+      <pubDate>Mon, 29 Oct 2012 12:18:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/a-bunch-of-maven-archetypes-for-spring-based-projects/</guid>
+      <description>Maven is a good project management tool which&amp;nbsp;greatly&amp;nbsp;reduces the amount of time we spend on creating java projects with proper structure.&amp;nbsp;With so many&amp;nbsp;predefined&amp;nbsp;maven archetypes it is even easier to create projects by simply selecting the archetype based on the technologies we need and type(jar/war/ear) of project we want to create.
+However sometimes those predefined archetypes structure may not suite well for our needs or we may need some more additions to the pre-configured dependencies/frameworks etc.</description>
+    </item>
+    
+    <item>
+      <title>Spring3&#43;JPA2&#43;JavaEE6AppServer = Confusion Over Configuration</title>
+      <link>https://sivalabs.github.io/2012/10/spring3jpa2javaee6appserver-confusion-over-configuration/</link>
+      <pubDate>Fri, 12 Oct 2012 05:38:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/spring3jpa2javaee6appserver-confusion-over-configuration/</guid>
+      <description>Spring is great, JavaEE6 is great and latest JavaEE6 Application servers are also great. This post is not a rant on Spring Vs JavaEE6, but my experience of porting a Spring3+JPA2(Hibernate) application on JBoss AS-7.1 App Server.
+My application requirement is very simple: Developing a couple of SOAP based webservices using Spring3.1 and JPA2(Hibernate) and host it on JBoss AS 7.1.
+So I started creating a multi-module maven project with one jar module containing the service implementations using Spring &amp;amp; JPA and another war module which exposes those services as SOAP based webservices.</description>
+    </item>
+    
+    <item>
+      <title>What additional features do JavaEE6 have to move from Spring?</title>
+      <link>https://sivalabs.github.io/2012/04/what-additional-features-do-javaee6-have-to-move-from-spring/</link>
+      <pubDate>Mon, 09 Apr 2012 16:52:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/04/what-additional-features-do-javaee6-have-to-move-from-spring/</guid>
+      <description>I am a senior java developer who has to work on the technologies chosen by the application architect.
+At the maximum I can express my opinion on a particular technology, I can&amp;#8217;t make/influence technology selection decision. So I don&amp;#8217;t have a choice of moving from Spring to JavaEE6 or from JavaEE6 to Spring on my official projects.
+I strongly believe that as a Java developer I have to keep updated on (at least few) latest technologies.</description>
+    </item>
+    
+    <item>
+      <title>Spring and Quartz Integration Using Custom Annotation</title>
+      <link>https://sivalabs.github.io/2011/10/spring-and-quartz-integration-using-custom-annotation/</link>
+      <pubDate>Mon, 10 Oct 2011 11:44:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/10/spring-and-quartz-integration-using-custom-annotation/</guid>
+      <description>We know Spring has support for integrating with Quartz framework.
+But as of now Spring supports only static xml declarative approach only.
+If you want to see how to integrate Spring+Quartz you can refer Spring + Quartz Integration .
+As part of my pet project requirement I got to schedule the Jobs dynamically and I though of following 2 options:
+1. Using Annotations for providing Job Metada
+2. Loading the Job Metadata from Database</description>
+    </item>
+    
+    <item>
+      <title>Context root relative URLs using Spring’s</title>
+      <link>https://sivalabs.github.io/2011/07/context-root-relative-urls-using-springs/</link>
+      <pubDate>Tue, 26 Jul 2011 23:27:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/07/context-root-relative-urls-using-springs/</guid>
+      <description>While developing web applications the common problem is to reference the static resources like js, stylesheets,images in JSPs from the relative URLs.
+Suppose in your project you have the following structure.
+MyApp
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; src
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; WebContent
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; home.jsp
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; jsp
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; createUser.jsp
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; js
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; util.js
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; css
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; style.css
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; images</description>
+    </item>
+    
+    <item>
+      <title>Authentication Checking using SpringMVC Interceptors</title>
+      <link>https://sivalabs.github.io/2011/06/authentication-checking-using-springmvc-interceptors/</link>
+      <pubDate>Mon, 06 Jun 2011 02:48:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/06/authentication-checking-using-springmvc-interceptors/</guid>
+      <description>For many web applications, some URLs need to protect from public access and some other URLs need to be protected based on the User Roles and privileges. To achieve this we can use Filters that comes with Servlet API or we can use JAAS(Java Authentication and Authorization Service).
+SpringMVC provides Interceptors which can be used to intercept the URL and pre-process, post-process the requests.
+Let us write a simple AuthenticationInterceptor to check whether the user is already logged in or not.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC 3 &#43; Tiles 2.2.2 Integration</title>
+      <link>https://sivalabs.github.io/2011/06/springmvc-3-tiles-222-integration/</link>
+      <pubDate>Mon, 06 Jun 2011 02:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/06/springmvc-3-tiles-222-integration/</guid>
+      <description>Apache Tiles is a popular and mostly used templating framework for java based web application.
+Tiles became more popular because Struts 1.x uses Tiles as its default templating framework.
+SpringMVC which is an MVC framework, like Struts, also supports integration of Tiles as its templating framework.
+Let us see how we can integrate SpringMVC and Tiles.
+You can download Tiles binaries from http://tiles.apache.org/ .
+Step#1: Add the following tiles jars to WEB-INF/lib folder.</description>
+    </item>
+    
+    <item>
+      <title>Spring &#43; Quartz &#43; JavaMail Integration Tutorial</title>
+      <link>https://sivalabs.github.io/2011/05/spring-quartz-javamail-integration-tutorial/</link>
+      <pubDate>Mon, 30 May 2011 09:27:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/05/spring-quartz-javamail-integration-tutorial/</guid>
+      <description>Quartz is a job scheduling framework which is used to schedule the jobs to be executed on the specified time schedule.
+JavaMail is an API to send/recieve emails from Java Applications.
+Spring has integration points to integrate Quartz and JavaMail which makes easy to use those APIs.
+Lets create a small demo application to show how to integrate Spring + Quartz + JavaMail.
+Our application is to send birthday wishes emails to friends everyday at 6 AM.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC &#43; Hibernate Error: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here</title>
+      <link>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</link>
+      <pubDate>Tue, 17 May 2011 02:14:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</guid>
+      <description>While developing a web application using SpringMVC and Hibernate I got &amp;#8220;No Hibernate Session bound to thread Exception&amp;#8221; becuase of some configuration issue.
+Here I am going to explain how I resolved the issue.
+I used the SpringMVC/@Controller approach and configured the Web related Spring configuration in dispatcher-servlet.xml as follows:
+&amp;lt;beans
+&amp;lt;context:annotation-config&#34;/&amp;gt;
+&amp;lt;context:component-scan base-package=&#34;com.sivalabs&#34;/&amp;gt;
+&amp;lt;bean&amp;lt;/bean
+&amp;lt;bean&amp;lt;/bean
+&amp;lt;bean class=&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34; p:prefix=&#34;/WEB-INF/jsp/&#34; p:suffix=&#34;.jsp&#34;&amp;lt;/bean
+&amp;lt;bean id=&#34;messageSource&#34; class=&#34;org.springframework.context.support.ResourceBundleMessageSource&#34;
+p:basename=&#34;Messages&#34;&amp;lt;/bean
+&amp;lt;/beans
+ I have configured my business serices and DAOs in applicationContext.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC3 Hibernate CRUD Sample Application</title>
+      <link>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</link>
+      <pubDate>Fri, 01 Apr 2011 13:16:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</guid>
+      <description>To learn any web framework starting with a HelloWorld application is a good idea. Once we get familiarity with the framework configuration it would be better to do a CRUD(Create,Read,Update,Delete) application which covers various aspects of a web framework like Validations, Request URL Mappings, Request Parameter Binding,
+Pre-populating forms etc.
+Now I am going to explain how to write a Simple CRUD application using SpringMVC3, Hibernate and MySQL.
+Our Application is ContactsManagements where you can view or search contacts, create new contacts, edit or delete existing contacts.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC HelloWorld Tutorial</title>
+      <link>https://sivalabs.github.io/2011/03/springmvc-helloworld-tutorial/</link>
+      <pubDate>Tue, 29 Mar 2011 02:15:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/03/springmvc-helloworld-tutorial/</guid>
+      <description>Spring is a popular Application framework based on Inversion Of Control/DependencyInjection principle.
+SpringMVC is a framework following MVC architecture for building web applications.
+Let us see how to create simple Hello World application using SpringMVC.
+Step1 :
+Copy the SpringMVC dependent libraries into WEB-INF/lib folder.
+You can download the latest Spring bundle at http://www.springsource.org/download
+Step2:
+Configure the Spring&amp;#8217;s FrontController class DispatcherServlet in web.xml.
+You can configure the other spring beans (if any) in XMLs and wireup using ContextLoaderListener as follows:</description>
+    </item>
+    
+    <item>
+      <title>Spring&#43;Hibernate Application with zero XML</title>
+      <link>https://sivalabs.github.io/2011/02/springhibernate-application-with-zero-xml/</link>
+      <pubDate>Thu, 17 Feb 2011 17:00:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/springhibernate-application-with-zero-xml/</guid>
+      <description>Spring framework came up with Annotation support since 2.5 version which eases the development.
+Whether Annotation based approach better or XML approach is better is depends on the project and their personal preference.
+Let us see how we can write a Simple Application using Spring and Hibernate using Annotations, no xml at all.
+The configuration for JDBC datasource and Hibernate properties:
+application.properties
+################### JDBC Configuration ##########################
+jdbc.driverClassName=org.hsqldb.jdbcDriver
+jdbc.url=jdbc:hsqldb:file:db/SivaLabsDB;shutdown=true
+jdbc.username=sa
+jdbc.password=</description>
+    </item>
+    
+    <item>
+      <title>Applying IOC/DI to Method Design</title>
+      <link>https://sivalabs.github.io/2011/01/applying-iocdi-to-method-design/</link>
+      <pubDate>Wed, 19 Jan 2011 10:21:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/applying-iocdi-to-method-design/</guid>
+      <description>Eventhough IOC is a generic design pattern, with Spring framework IOC/DI pattern became more popular.
+We can find lot of definitions for IOC/DI over internet, but the underlying concept is same.
+&amp;#8220;Instead of component is responsible for getting the required dependencies to perform a task, a container/factory should build the dependencies and inject the dependencies into the component. Then the component can perform the sole activity for which it is responsible.</description>
+    </item>
+    
+    <item>
+      <title>Aspect Oriented Programming using SpringAOP</title>
+      <link>https://sivalabs.github.io/2011/01/aspect-oriented-programming-using-springaop/</link>
+      <pubDate>Mon, 17 Jan 2011 18:01:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/aspect-oriented-programming-using-springaop/</guid>
+      <description>While developing software applications for a business we do recieve the requirements either from requirements gathering team or from business analysts. In general those requirements are functional requirements which represents the activities that the business is doing. while developing software applications, apart from the functional requirements we should also consider some other points like performance, transaction management, security, logging etc. These are called non-functional requirements.
+Suppose let us consider a BookStore application which is providing web access the store.</description>
+    </item>
+    
+    <item>
+      <title>Multiple DataSource configurations using Spring</title>
+      <link>https://sivalabs.github.io/2010/09/multiple-datasource-configurations-using-spring/</link>
+      <pubDate>Thu, 02 Sep 2010 05:00:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2010/09/multiple-datasource-configurations-using-spring/</guid>
+      <description>While developing Java based applications we might frequently need to change the database properties based on the environment we are working like PRODUCTION, DEVELOPMENT OR UAT environments. In that situations the following approach will be useful and easy to configure database properties for each environment.
+If we want to change the environment we just need to change the ENV property value.
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+jdbc.properties</description>
+    </item>
+    
+  </channel>
+</rss>

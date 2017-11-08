@@ -1,0 +1,1830 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on SivaLabs</title>
+    <link>https://sivalabs.github.io/posts/</link>
+    <description>Recent content in Posts on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Nov 2017 04:59:17 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Review of Vlad Mihalcea’s High-Performance Java Persistence book</title>
+      <link>https://sivalabs.github.io/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</link>
+      <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</guid>
+      <description>In Java world, JPA/Hibernate is the most popular and widely used framework. When it comes to overall performance of a software system database persistence layer plays the crucial role. The tricky part with JPA/Hibernate is it is very easy to get started but very very hard to master. This is where Vlad Mihalcea&amp;#8216;s High-Performance Java Persistence book helps you a lot.
+
+The High-Performance Java Persistence book is not just another Hibernate book saying you put this annotation here and call that method there and you are done.</description>
+    </item>
+    
+    <item>
+      <title>Select ALL starters on Spring Initializer (http://start.spring.io)</title>
+      <link>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</link>
+      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</guid>
+      <description>If you are working on Spring Boot then you most probably aware of Spring Initializer (http://start.spring.io) which is an online spring boot application generator. You can select the starters that you want to use and then generate the application.
+If you notice that there is no SELECT ALL option to select all the starters. Who would do that insane thing of selecting all the starters for an application??!!???
+But, i would like to have the SELECT ALL option for one single reason:</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</title>
+      <link>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</link>
+      <pubDate>Mon, 14 Aug 2017 12:30:43 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</guid>
+      <description>Problem In the previous article Introduction to Spring Cloud Config Server (http://sivalabs.in/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/) we have seen how to use Spring Cloud Config Server.
+But, the problem is to reload the config changes in Config Client applications we need to trigger /refresh endpoint manually. This is not practical and viable if you have large number of applications.
+Solution Spring Cloud Bus module can be used to link multiple applications with a message broker and we can broadcast configuration changes.</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</title>
+      <link>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/</link>
+      <pubDate>Mon, 14 Aug 2017 03:35:07 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/</guid>
+      <description>Problem SpringBoot provides lot of flexibility in externalizing configuration properties via properties or YAML files. We can also configure properties for each environment (dev, qa, prod etc) separately using profile specific configuration files such as application.properties, application-dev.properties, application-prod.properties etc. But once the application is started we can not update the properties at runtime. If we change the properties we need to restart the application to use the updated configuration properties.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with SpringBoot in Intellij IDEA Community Edition</title>
+      <link>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</link>
+      <pubDate>Wed, 07 Sep 2016 09:53:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</guid>
+      <description>We can use Intellij IDEA Community Edition for working with SpringBoot applications as we don&amp;#8217;t need support for configuring servers like Tomcat, Wildlfy etc and can simply run the applications by running main() method.
+However, there is no provision in Intellij IDEA Community Edition to create SpringBoot application directly, the way it supports in Ultimate Edition.
+We can go to http://start.spring.io/ and generate the project and then import into our IDE.</description>
+    </item>
+    
+    <item>
+      <title>Update on SpringBoot : Learn By Example book</title>
+      <link>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</link>
+      <pubDate>Sat, 30 Jul 2016 02:53:50 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</guid>
+      <description>I would like to let you know that I have updated/added the following sections to my SpringBoot : Learn By Example book.
+
+Additions to existing chapters:  Working with Multiple Databases Exposing JPA entities with bi-directional references through RESTful services  In some of our applications we need to work with multiple databases. For example, we may have a primary database and a reporting database where most the application uses primary database and the application reports will be generated out of reporting database data.</description>
+    </item>
+    
+    <item>
+      <title>How to fix “vt-x is disabled in the bios” error?</title>
+      <link>https://sivalabs.github.io/2016/07/fix-vt-x-disabled-bios-error/</link>
+      <pubDate>Thu, 21 Jul 2016 01:54:29 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/fix-vt-x-disabled-bios-error/</guid>
+      <description>If you face the &amp;#8220;vt-x is disabled in the bios&amp;#8221; error while trying to run Android emulator, here is the solution that worked for me.
+Step 1: Enable Virtualization Technology in BIOS Go to BIOS Setup and enable &amp;#8220;Virtualization Technology&amp;#8221; option.
+On my Lenovo laptop this option was already enabled, but still getting this error. I have disabled it and re-enabled it, then it is working.
+Step 2: Install HAXM Installer from Android SDK Manager Start the Android SDK Manager, select **Extras -&amp;gt; Intel x86 Emulator Accelerator (HAXM Installer) **and install it.</description>
+    </item>
+    
+    <item>
+      <title>My New Book SpringBoot : Learn By Example Published Today</title>
+      <link>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</link>
+      <pubDate>Wed, 20 Jul 2016 06:05:31 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</guid>
+      <description>I am happy to announce that my new book SpringBoot : Learn By Example got published today on Leanpub.
+SpringBoot : Learn By Example  &amp;nbsp;
+  What is SpringBoot?
+Spring is one of the most popular Java frameworks out there to build web and enterprise application.
+Spring supports variety of configuration approaches (XML, Annotations, JavaConfig etc) and properly configuring Spring applications become a bit tedious and repetitive process. To avoid these problems Spring team introduced SpringBoot to address the complexity of configuring Spring application.</description>
+    </item>
+    
+    <item>
+      <title>My Review of Sanjay Patel’s Spring Course</title>
+      <link>https://sivalabs.github.io/2016/06/my-review-of-sanjay-patels-spring-course/</link>
+      <pubDate>Fri, 03 Jun 2016 01:18:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/06/my-review-of-sanjay-patels-spring-course/</guid>
+      <description>Spring is the most popular Java framework for building web and enterprise applications. There are plenty of official documentation, books, and Training Courses available for Spring framework on web.
+I got an opportunity to review Sanjay Patel&amp;#8216;s Spring Course Material which is divided into 3 modules.
+http://www.naturalprogrammer.com/spring-tutorial/
+The total course is divided into 3 modules covering various aspects of web application development using Spring/SpringBoot framework.
+ Module I : Spring Framework 4 And Dependency Injection For Beginners Module II : Spring Framework for the Real World Module III : Spring Framework REST API Development  Module I: Spring Framework 4 and Dependency Injection For Beginners</description>
+    </item>
+    
+    <item>
+      <title>Creating Custom SpringBoot Starter for Twitter4j</title>
+      <link>https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/</link>
+      <pubDate>Fri, 08 Apr 2016 06:57:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/</guid>
+      <description>**SpringBoot **provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.
+In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.
+In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create twitter4j-spring-boot-starter which will auto-configure Twitter4J beans.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot : Working with JOOQ</title>
+      <link>https://sivalabs.github.io/2016/03/springboot-working-with-jooq/</link>
+      <pubDate>Tue, 15 Mar 2016 07:13:21 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jooq/</guid>
+      <description>In my previous article SpringBoot : Working with MyBatis &amp;nbsp;we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
+JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL.
+JOOQ provides the following features:
+ Building Typesafe SQL using DSL API&amp;nbsp; Typesafe database object referencing using Code Generation&amp;nbsp; Easy to use API for Querying and Data fetching&amp;nbsp; SQL logging and debugging</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot : Working with MyBatis</title>
+      <link>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</link>
+      <pubDate>Mon, 14 Mar 2016 07:10:42 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</guid>
+      <description>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
+ SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&amp;nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
+**Create a SpringBoot Maven project and add the following MyBatis Starter dependency.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot : Working with JdbcTemplate</title>
+      <link>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</link>
+      <pubDate>Mon, 14 Mar 2016 07:08:22 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</guid>
+      <description>Spring provides a nice abstraction on top of JDBC API using **JdbcTemplate **and also provides great transaction management capabilities using annotation based approach.
+First let’s take a quick look at how we generally use Spring’s **JdbcTemplate (without** SpringBoot) by registering DataSource, **TransactionManager **and **JdbcTemplate **beans and optionally we can register **DataSourceInitializer **bean to initialize our database.
+@Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { &#34;classpath:application.properties&#34; }) public class AppConfig { @Autowired private Environment env; @Value(&#34;</description>
+    </item>
+    
+    <item>
+      <title>How SpringBoot AutoConfiguration magic works?</title>
+      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
+      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
+      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
+Exploring the power of @Conditional&amp;nbsp;
+While developing Spring based applications we may come across of a need to register beans conditionally.</description>
+    </item>
+    
+    <item>
+      <title>Why SpringBoot?</title>
+      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
+      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
+      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
+Spring framework provides flexibility to configure the beans in multiple ways such as XML, **Annotations **and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
+    </item>
+    
+    <item>
+      <title>Retrying Method Execution using Spring AOP</title>
+      <link>https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/</link>
+      <pubDate>Tue, 05 Jan 2016 15:40:36 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/</guid>
+      <description>One of my blog follower sends an email asking me to show an example of &amp;#8220;RealWorld Usage of Spring AOP&amp;#8221;. He mentioned that in most of the examples the usage of Spring AOP is demonstrated for logging method entry/exit or Transaction management or Security checks. He wanted to know how Spring AOP is being used in &amp;#8220;Real Project for Real Problems&amp;#8221;.
+So I would like to show how I have used Spring AOP for one of my project to handle a real problem.</description>
+    </item>
+    
+    <item>
+      <title>JCart : Iteration-8</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-iteration-8/</link>
+      <pubDate>Thu, 31 Dec 2015 11:37:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-iteration-8/</guid>
+      <description>In this Iteration#8 we will implement showing the Customer Account and Order History functionality in our ShoppingCart application.
+ Customer MyAccount Page  Profile Order History   Once the customer is logged in our system he can click on MyAccount link at the top of the header and view his profile details and order history.
+First let us write the Controller handler method in our CustomerController to show myAccount details.</description>
+    </item>
+    
+    <item>
+      <title>JCart : Manage Customers</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-manage-customers/</link>
+      <pubDate>Thu, 31 Dec 2015 09:34:50 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-manage-customers/</guid>
+      <description>For Managing Customers we need a provision to see all the list of customers and view any Customers details.
+Let us start with implementing the back-end Customer service.
+public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt; { Customer findByEmail(String email); @Query(&#34;select o from Order o where o.customer.email=?1&#34;) List&amp;lt;Order&amp;gt; getCustomerOrders(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.</description>
+    </item>
+    
+    <item>
+      <title>JCart : Manage Orders</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-manage-orders/</link>
+      <pubDate>Thu, 31 Dec 2015 09:21:17 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-manage-orders/</guid>
+      <description>For Managing Orders we need a provision to see all the list of orders and view an order details and updating the order status.
+Let us start with implementing the back-end order service.
+@Service @Transactional public class OrderService { @Autowired EmailService emailService; @Autowired OrderRepository orderRepository; ... ... public Order getOrder(String orderNumber) { return orderRepository.findByOrderNumber(orderNumber); } public List&amp;lt;Order&amp;gt; getAllOrders() { Sort sort = new Sort(Direction.DESC, &#34;createdOn&#34;); return orderRepository.findAll(sort); } public Order updateOrder(Order order) { Order o = getOrder(order.</description>
+    </item>
+    
+    <item>
+      <title>JCart : Iteration-7</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-iteration-7/</link>
+      <pubDate>Thu, 31 Dec 2015 09:17:15 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-iteration-7/</guid>
+      <description>In Iteration#6 we have implemented features in ShoppingCart application to enable Customers place orders. In this Iteration#7 we will implement the features in Administration application to view and manage the Customers and Orders.
+As part of Iteration#7 we will implement the following usecases:
+ Manage Orders  List all Orders View Order details Update Order status  Manage Customers  List all customers View customer details   </description>
+    </item>
+    
+    <item>
+      <title>JCart : Billing and Delivery Page</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/</link>
+      <pubDate>Thu, 31 Dec 2015 07:40:14 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/</guid>
+      <description>Once the customer reviewed his cart items details and clicks on Checkout we should display Billing &amp;amp; Delivery page where customer enters delivery address details, payment details etc and place the order.
+Let us create a OrderDTO.java as follows:
+public class OrderDTO implements Serializable { private static final long serialVersionUID = 1L; @NotEmpty(message=&#34;FirstName is required&#34;) private String firstName; @NotEmpty(message=&#34;LastName is required&#34;) private String lastName; @NotEmpty(message=&#34;EmailId is required&#34;) @Email private String emailId; @NotEmpty(message=&#34;</description>
+    </item>
+    
+    <item>
+      <title>JCart : Customer Registration</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-customer-registration/</link>
+      <pubDate>Thu, 31 Dec 2015 07:24:01 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-customer-registration/</guid>
+      <description>To facilitate new customer registration we will provide a new Registration form where customer provide his details and register with our system.
+Let us implement the back-end customer service operations.
+public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt;{ Customer findByEmail(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.save(customer); } } @Component public class CustomerValidator implements Validator { @Autowired private CustomerService custmoerService; @Override public boolean supports(Class&amp;lt;?</description>
+    </item>
+    
+    <item>
+      <title>JCart : Customer Login</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-customer-login/</link>
+      <pubDate>Thu, 31 Dec 2015 07:20:06 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-customer-login/</guid>
+      <description>So far we have implemented the functionality where customers can browse the categories, add products to cart, view Cart and update/remove items.
+But to checkout the cart the customer should login into the system. So if the customer is not yet loggedin we should redirect customer to login page. If customer is already registered with our system he can login or he should be able to register. So, we will start implementing Customer Login/Registration usecases.</description>
+    </item>
+    
+    <item>
+      <title>JCart : Iteration -6</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-iteration-6/</link>
+      <pubDate>Thu, 31 Dec 2015 07:16:40 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-iteration-6/</guid>
+      <description>In this Iteration-6 we will be implementing the Customer Login/Register and placing the orders.
+As per of this we will implement the following usecases:
+ Customer Login Customer Registration Billing &amp;amp; Delivery Page  Create Order Order Confirmation Page Send Order Confirmation Email   </description>
+    </item>
+    
+    <item>
+      <title>JCart : View Cart</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-view-cart/</link>
+      <pubDate>Thu, 31 Dec 2015 05:32:11 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-view-cart/</guid>
+      <description>In our earlier post we have implemented Add To Cart functionality. In this post we will implement showing the Cart Item details.
+In out mainLayout.html header we have ShoppingCart icon showing the cart item count as follows:
+&amp;lt;div class=&#34;shopping-item&#34;&amp;gt; &amp;lt;a href=&#34;#&#34; th:href=&#34;@{/cart}&#34;&amp;gt;Cart &amp;lt;i class=&#34;fa fa-shopping-cart&#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span id=&#34;cart-item-count&#34; class=&#34;product-count&#34;&amp;gt;(0)&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; When customer clicks on Cart icon we will show the Cart details. Let us implement the &amp;#8220;/cart&amp;#8221; url handler method in CartController as follows:</description>
+    </item>
+    
+    <item>
+      <title>JCart : ShoppingCart Add Item To Cart</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/</link>
+      <pubDate>Thu, 31 Dec 2015 05:27:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/</guid>
+      <description>In our HomePage/CategoryPage/ProductPage we have a button Add To Cart as follows:
+&amp;lt;a class=&#34;add_to_cart_button&#34; data-quantity=&#34;1&#34; data-product_sku=&#34;&#34; data-product_id=&#34;70&#34; rel=&#34;nofollow&#34; href=&#34;#&#34; th:onclick=&#34;&#39;javascript:addItemToCart(\&#39;&#39; + ${product.sku} + &#39;\&#39;);&#39;&#34;&amp;gt;Add to cart&amp;lt;/a&amp;gt; When customer clicks on Add To Cart button it will trigger addItemToCart(sku) JavaScript function passing the product SKU value.
+Now create jcart-site/src/main/resources/static/assets/js/app.js and implement addItemToCart(sku) function as follows:
+function addItemToCart(sku) { $.ajax ({ url: &#39;/cart/items&#39;, type: &#34;POST&#34;, dataType: &#34;json&#34;, contentType: &#34;application/json&#34;, data : &#39;{&#34;sku&#34;:&#34;&#39;+ sku +&#39;&#34;</description>
+    </item>
+    
+    <item>
+      <title>JCart : Iteration-5</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-iteration-5/</link>
+      <pubDate>Thu, 31 Dec 2015 05:19:06 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-iteration-5/</guid>
+      <description>In Iteration-5 we will be primarily working on Cart related functionality. As part of Iteration-4 we have implemented showing Home page, Category Page, Product Page and Product Search features.
+In this Iteration we will implement the following usecases:
+ Add To Cart in HomePage/CategoryPage/ProductPage Cart Page  View Cart Items Updates Quantity Remove Items   </description>
+    </item>
+    
+    <item>
+      <title>JCart : ShoppingCart Product Search Results</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/</link>
+      <pubDate>Wed, 30 Dec 2015 14:27:57 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/</guid>
+      <description>In our main template we have a Search box to search for products. In this post we will implement the Product Search functionality. When customer search for a product we will search products based on name or SKU or description.
+Let us implement the search handler method in ProductController as follows:
+@Controller public class ProductController extends JCartSiteBaseController { @Autowired protected CatalogService catalogService; ... ... @RequestMapping(&#34;/products&#34;) public String searchProducts(@RequestParam(name=&#34;q&#34;, defaultValue=&#34;&#34;) String query, Model model) { List&amp;lt;Product&amp;gt; products = catalogService.</description>
+    </item>
+    
+    <item>
+      <title>JCart : ShoppingCart Product Page</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/</link>
+      <pubDate>Wed, 30 Dec 2015 14:25:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/</guid>
+      <description>Customers can click on a product to view more details about the product either in Home Page or in Category Page.
+Let us implement Controller method to show Product details as follows:
+@Controller public class ProductController extends JCartSiteBaseController { @Autowired protected CatalogService catalogService; .... .... @RequestMapping(&#34;/products/{sku}&#34;) public String product(@PathVariable String sku, Model model) { Product product = catalogService.getProductBySku(sku); model.addAttribute(&#34;product&#34;, product); return &#34;product&#34;; } } @Service @Transactional public class CatalogService { @Autowired ProductRepository productRepository; .</description>
+    </item>
+    
+    <item>
+      <title>JCart : ShoppingCart Category Page</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/</link>
+      <pubDate>Wed, 30 Dec 2015 14:23:06 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/</guid>
+      <description>In our Home Page we displayed all the Categories along with few products per each category. When customer clicks on any Category Name we should display Category Page which shows all the products in that Category.
+We already have HomeController.category() method to handle the URL /categories/{name}.
+So let us create category.html thymeleaf template as follows:
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34; layout:decorator=&#34;layout/mainLayout&#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Category&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div layout:fragment=&#34;content&#34;&amp;gt; &amp;lt;div class=&#34;single-product-area&#34;&amp;gt; &amp;lt;div class=&#34;</description>
+    </item>
+    
+    <item>
+      <title>JCart : ShoppingCart Home Page</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/</link>
+      <pubDate>Wed, 30 Dec 2015 14:20:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/</guid>
+      <description>In our Home page we will show all the categories along with few of the products in each Category.
+Let us update HomeController with two methods to show all the categories and the selected category products.
+@Controller public class HomeController extends JCartSiteBaseController { @Autowired protected CatalogService catalogService; @RequestMapping(&#34;/home&#34;) public String home(Model model) { List&amp;lt;Category&amp;gt; previewCategories = new ArrayList&amp;lt;&amp;gt;(); List&amp;lt;Category&amp;gt; categories = catalogService.getAllCategories(); for (Category category : categories) { Set&amp;lt;Product&amp;gt; products = category.</description>
+    </item>
+    
+    <item>
+      <title>JCart : ShoppingCart UI Layout Setup</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/</link>
+      <pubDate>Wed, 30 Dec 2015 14:17:41 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/</guid>
+      <description>In this post we will setup the layout for our ShoppingCart UI using Thymeleaf templates.
+Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ and copy the following directories/files into jcart-site/src/main/resources/static/assets folder.
+ css fonts img js style.css  Create Site layout thymeleaf template jcart-site/src/main/resources/templates/layout/mainLayout.html as follows:
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&#34;utf-8&#34;/&amp;gt; &amp;lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;/&amp;gt; &amp;lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;/&amp;gt; &amp;lt;title layout:title-pattern=&#34;$DECORATOR_TITLE - $CONTENT_TITLE&#34;&amp;gt;QuilCart&amp;lt;/title&amp;gt; &amp;lt;!-- Google Fonts --&amp;gt; &amp;lt;link href=&#39;https://fonts.</description>
+    </item>
+    
+    <item>
+      <title>JCart : Initial code setup for ShoppingCart</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/</link>
+      <pubDate>Wed, 30 Dec 2015 14:15:54 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/</guid>
+      <description>First we will start with setting up the initial code using SpringBoot. We have already discussed in JCart: Initial Code SetUp article about creating a maven module jcart-site which will be our ShoppingCart application. In that article we have shown what springboot dependencies to add as well.
+Just to recap we will be using SpringBoot, SpringMVC, Thymeleaf, JPA for our ShoppingCart application.
+jcart-site/pom.xml
+&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;com.</description>
+    </item>
+    
+    <item>
+      <title>JCart : Iteration-4</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-iteration-4/</link>
+      <pubDate>Wed, 30 Dec 2015 14:14:40 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-iteration-4/</guid>
+      <description>In this Iteration-4 we will start building the consumer facing ShoppingCart website.
+ Initial code setup for ShoppingCart webapp  Configuring HTTPS/SSL/TLS  ShoppingCart UI Layout setup Home Page Category Page Product Page Product Search Results  </description>
+    </item>
+    
+    <item>
+      <title>JCart Iteration-3 : Manage Categories and Products</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-iteration-3-manage-categories-and-products/</link>
+      <pubDate>Sun, 20 Dec 2015 05:58:44 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-iteration-3-manage-categories-and-products/</guid>
+      <description>In this iteration we will start working on the key requirement of our JCart administration application, ie managing categories and products.
+We will create various categories like Birds, Flowers, Vehicles etc. While creating products we will assign it to one of the category.
+Managing Categories and Products also looks similar to Manage Roles and Users. But there are few new things we will learn like FileUploading etc.
+Create Spring Data JPA Repositories for Category and Product public interface CategoryRepository extends JpaRepository&amp;lt;Category, Integer&amp;gt; { Category getByName(String name); } public interface ProductRepository extends JpaRepository&amp;lt;Product, Integer&amp;gt; { Product findByName(String name); Product findBySku(String sku); @Query(&#34;</description>
+    </item>
+    
+    <item>
+      <title>JCart: Manage Users</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-manage-users/</link>
+      <pubDate>Sat, 19 Dec 2015 06:20:55 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-manage-users/</guid>
+      <description>In our previous post JCart: Manage Roles we have seen how to list all roles, create new roles and update them.
+Implementation of Manage Users also follows the same approach and very similar to the Implementation of Manage Roles. So I am not posting details of the implementation here again. Instead you can simply refer the code on JCart github repository https://github.com/sivaprasadreddy/jcart.
+If you have any questions regarding the implementation of Manage Users please post a comment.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Manage Roles</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-manage-roles/</link>
+      <pubDate>Sat, 19 Dec 2015 03:16:38 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-manage-roles/</guid>
+      <description>In our previous post Manage Privileges – List all privileges we have implemented the functionality to show list of permissions. In this post we will implement Role management such as listing all Roles, creating new Role, editing Role permissions etc.
+Basically a Role is nothing a but group of Permissions assigned so that giving access to a set of action to user will become easy by assigning Roles.
+In this post we are going to see lot of code snippets, so I would suggest to clone the repo https://github.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Manage Privileges</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-manage-privileges/</link>
+      <pubDate>Fri, 18 Dec 2015 14:32:52 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-manage-privileges/</guid>
+      <description>This is the simplest usecase of entire JCart admin application :-). We need to show list of permissions configured in our system.
+In our system each permission is more like access to a particular screen. For example, If a user has MANAGE_CATEGORIES permission then only he can access &amp;#8220;Categories&amp;#8221; screen. So these set of permission are something like implemented features set, hence we don&amp;#8217;t need any provision to add/update/delete permissions dynamically.</description>
+    </item>
+    
+    <item>
+      <title>JCart : Iteration-2</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-iteration-2/</link>
+      <pubDate>Fri, 18 Dec 2015 13:38:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-iteration-2/</guid>
+      <description>Now we have completed Iteration-1 tasks. Iteration-1 includes so many tasks to establish the foundation like configuring Spring Security, Thymeleaf settings, UI layout setup etc. I hope from now on we can put more focus on actual tasks implementation rather than infrastructure setup.
+Though majority of the infrastructure setup is in place now, we will implement Role Based Access Control (RBAC) security using User-Role-Permission model before jumping on to Category/Product management.</description>
+    </item>
+    
+    <item>
+      <title>Setting up Jenkins/SonarQube</title>
+      <link>https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/</link>
+      <pubDate>Wed, 16 Dec 2015 14:42:29 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/</guid>
+      <description>In this post we will setup SonarQube and Jenkins to perform code quality check and continuous integration.
+&amp;nbsp;
+Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
+Let us install and configure SonarQube for our JCart application.
+Download SonarQube from http://www.sonarqube.org/downloads/.
+Extract it run sonarqube-5.2/bin/windows-x86-64/StartSonar.bat.
+By default SonarQube uses in-memory H2 database to store all the metrics.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Configuring HTTPS SSL/TLS</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-configuring-https-ssltls/</link>
+      <pubDate>Mon, 07 Dec 2015 13:17:45 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-configuring-https-ssltls/</guid>
+      <description>So far our JCart application is running on Tomcat default port 8080 using HTTP protocol. In this article we will configure to use HTTPS by using Self Signed Certificate. For real projects you would have to buy certificate from a Trusted Authority.
+I would like to run ShoppingCart site on https://host:8443 and if anyone tries to access it from http://host:8080 it should redirect to https://host:8443.
+Similarly I would like to run Administration site on https://host:9443 and if anyone tries to access it from http://host:9090 it should redirect to https://host:9443.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Admin Reset Password</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-admin-reset-password/</link>
+      <pubDate>Sun, 06 Dec 2015 10:41:22 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-admin-reset-password/</guid>
+      <description>Once the Admin User clicked on Password Reset Link that we sent via Email, we will validate the Token and if is valid then we will show a form to enter New Password, otherwise shows an error.
+@Controller public class UserAuthController extends JCartAdminBaseController { ... @RequestMapping(value=&#34;/resetPwd&#34;, method=RequestMethod.GET) public String resetPwd(HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) { String email = request.getParameter(&#34;email&#34;); String token = request.getParameter(&#34;token&#34;); boolean valid = securityService.verifyPasswordResetToken(email, token); if(valid){ model.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Admin Forgot Password</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-admin-forgot-password/</link>
+      <pubDate>Sun, 06 Dec 2015 10:34:33 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-admin-forgot-password/</guid>
+      <description>We will provide a link to Forgot Password in Login page and create jcart-admin/src/main/resources/templates/public/forgotPwd.html template as follows:
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; layout:decorator=&#34;layout/guestLayout&#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Forgot Password&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body &amp;gt; &amp;lt;div layout:fragment=&#34;content&#34;&amp;gt; &amp;lt;form action=&#34;forgotPwd&#34; th:action=&#34;@{/forgotPwd}&#34; method=&#34;post&#34;&amp;gt; &amp;lt;input type=&#34;email&#34; class=&#34;form-control&#34; name=&#34;email&#34; placeholder=&#34;Email&#34;/&amp;gt; &amp;lt;button type=&#34;submit&#34; class=&#34;btn btn-primary btn-block btn-flat&#34; th:text=&#34;#{label.submit}&#34;&amp;gt;Submit&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  When Admin user enters the email address and submit we will generate a token, store it in our DB and generates a Reset Password Link and send it to their email.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Email Service SetUp</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-email-service-setup/</link>
+      <pubDate>Sun, 06 Dec 2015 10:23:36 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-email-service-setup/</guid>
+      <description>We are going to implement Admin User Forgot Password functionality where we need to send the Password Reset link to User email address. So let us look at how to configure Email server and send emails.
+Spring provides support for sending Emails using JavaMailSender. SpringBoot makes it even easier by providing a starter for emailing support.
+As we need Emailing feature in both Admin and ShoppingCart modules, we will implement the emailing functionality in jcart-core module.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Configuring Spring Security</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/</link>
+      <pubDate>Tue, 01 Dec 2015 05:27:15 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/</guid>
+      <description>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.
+Let us add the following spring-security dependencies to jcart-admin/pom.xml.
+&amp;lt;dependency &amp;lt;groupIdorg.springframework.boot&amp;lt;/groupId &amp;lt;artifactIdspring-boot-starter-security&amp;lt;/artifactId &amp;lt;/dependency &amp;lt;dependency &amp;lt;groupIdorg.thymeleaf.extras&amp;lt;/groupId &amp;lt;artifactIdthymeleaf-extras-springsecurity4&amp;lt;/artifactId &amp;lt;/dependency  If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
+http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,&#34;/register&#34;,&#34;/logout&#34;).permitAll() .antMatchers(&#34;/admin&#34;,&#34;/admin/**&#34;).hasRole(&#34;ADMIN&#34;) .anyRequest().authenticated() .and()  But we need provision to dynamically create new roles as well, hence we can&amp;#8217;t statically define constraints using role names.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Admin UI Layout SetUp</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-admin-ui-layout-setup/</link>
+      <pubDate>Tue, 01 Dec 2015 04:38:56 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-admin-ui-layout-setup/</guid>
+      <description>As I am not really a good UI designer I searched for a free good looking UI website Admin templates and I found this fantastic template https://almsaeedstudio.com/preview. We will be using this template for our Administration web application.
+We are going to use Thymeleaf templates for our View layer. Thymeleaf offers facelets style templating mechanism. Basically we need 2 layout templates, one for unauthorized views like Login/ForgotPassword etc and another for authorized users.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Create JPA Entities</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/</link>
+      <pubDate>Tue, 01 Dec 2015 04:26:41 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/</guid>
+      <description>We are going to create the JPA Entities for the database tables we designed.
+@Entity @Table(name=&#34;users&#34;) public class User { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false) @NotEmpty() private String name; @Column(nullable=false, unique=true) @NotEmpty @Email(message=&#34;{errors.invalid_email}&#34;) private String email; @Column(nullable=false) @NotEmpty @Size(min=4) private String password; private String passwordResetToken; @ManyToMany(cascade=CascadeType.MERGE) @JoinTable( name=&#34;user_role&#34;, joinColumns={@JoinColumn(name=&#34;USER_ID&#34;, referencedColumnName=&#34;ID&#34;)}, inverseJoinColumns={@JoinColumn(name=&#34;ROLE_ID&#34;, referencedColumnName=&#34;ID&#34;)}) private List&amp;lt;Role&amp;gt; roles; //setters &amp; getters }  @Entity @Table(name=&#34;roles&#34;) public class Role { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false, unique=true) @NotEmpty private String name; @Column(length=1024) private String description; @ManyToMany(mappedBy=&#34;</description>
+    </item>
+    
+    <item>
+      <title>JCart: Domain Modelling and Database Designing</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/</link>
+      <pubDate>Tue, 01 Dec 2015 04:22:19 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/</guid>
+      <description>While developing database driven applications using some ORM framework, some people prefer Object first approach and others follow DB first approach. I prefer DB first approach.
+So, let us start listing down all the domain entities in our JCart application domain.
+ Product Category Customer Order OrderItem Cart Address User Role Permission  Let us create the database tables as follows:
+&amp;nbsp;
+Though we identified Cart as a domain entity, we are not creating the table for holding the Cart details.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Initial Code SetUp</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-initial-code-setup/</link>
+      <pubDate>Tue, 01 Dec 2015 04:14:09 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-initial-code-setup/</guid>
+      <description>Let us create a root pom type maven project with 3 sub-modules jcart-core, jcart-admin and jcart-site.
+jcart-core module will contain all the core logic excluding web related stuff.
+jcart-admin module will contain all the administration related web functionality like Controllers, Security, Validators etc.
+jcart-site module will contain all the shoppingcart related web functionality like Controllers, Security, Validators etc.
+All these modules use SpringBoot, but as of now STS/IntellijIdea are not providing option to create multi-module SpringBoot application, we will be creating Maven modules and then configure SpringBoot dependencies manually.</description>
+    </item>
+    
+    <item>
+      <title>JCart : Iteration-1</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-iteration-1/</link>
+      <pubDate>Tue, 01 Dec 2015 04:10:08 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-iteration-1/</guid>
+      <description>Now that we have completed the most difficult part (writing Introduction to technical article series is much harder than you think!!), so let&amp;#8217;s start the fun part. Coding!!!
+ Note: It is going to be a fast paced tutorial. Obviously we can&amp;#8217;t cover every little bit of all the technologies used in our application. So I would suggest to explore more on individual technologies like Spring, Thymeleaf on your own.</description>
+    </item>
+    
+    <item>
+      <title>Setting up the Development Environment for JCart</title>
+      <link>https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</link>
+      <pubDate>Tue, 24 Nov 2015 04:34:03 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</guid>
+      <description>For our JCart application development we will be using the following Softwares/Tools.
+  JDK 8 SpringSource Tool Suite (STS)  MySQL Git  Maven  Jenkins  SonarQube  Apache/Nginx WebServer  &amp;nbsp;
+I am not going to explain how to install JDK or MySQL because there are plenty of articles you can find on internet.
+If you are using Ubuntu based Linux Operating System then you can refer my article My Development Environment Setup on Linux to setup Java development tool chain.</description>
+    </item>
+    
+    <item>
+      <title>JCart Release Planning</title>
+      <link>https://sivalabs.github.io/2015/11/jcart-release-planning/</link>
+      <pubDate>Tue, 24 Nov 2015 04:26:20 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/jcart-release-planning/</guid>
+      <description>In our previous article JCart Requirements Analysis we have listed out all the requirements that we need to implement for JCart application. Now we need to come up with an implementation and release plan. As we are following iteration model, we will plan for N iterations where in each iteration we will implement some usecases.
+After listing out all the implementation tasks and based on the task dependencies, we came up with the following Iteration plan.</description>
+    </item>
+    
+    <item>
+      <title>Selecting The Technology Stack for JCart</title>
+      <link>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</link>
+      <pubDate>Sun, 22 Nov 2015 05:17:20 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</guid>
+      <description>Selecting the right technology stack is very crucial and plays an important role in project success. Many of the architects (unknowingly??!!) try to make complex designs by trying to use all kinds of latest and greatest stuff. On the other hand some architects try to be in their comfort zone by limiting their technology stack to the technologies with which they are comfortable. Both approaches are dangerous. One should understand the business needs and pick the technologies that are necessary for project.</description>
+    </item>
+    
+    <item>
+      <title>JCart Requirements Analysis</title>
+      <link>https://sivalabs.github.io/2015/11/jcart-requirements-analysis/</link>
+      <pubDate>Sat, 21 Nov 2015 11:29:54 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/jcart-requirements-analysis/</guid>
+      <description>For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.
+ShoppingCart Site Requirements Home Page: This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart.</description>
+    </item>
+    
+    <item>
+      <title>Introducing the application JCart</title>
+      <link>https://sivalabs.github.io/2015/11/introducing-the-application-jcart/</link>
+      <pubDate>Sat, 21 Nov 2015 02:28:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/introducing-the-application-jcart/</guid>
+      <description>As I promised in my article Developing a simple e-commerce application from scratch to production using SpringBoot, I am starting first post by introducing the application JCart that we are going to build.
+One of my friend makes quilling toys and she sell them by advertising on Facebook or through word of mouth. Now she is getting more and more customers and she wants to expand her business by going online.</description>
+    </item>
+    
+    <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
+    </item>
+    
+    <item>
+      <title>My Development Environment Setup on Linux</title>
+      <link>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</link>
+      <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</guid>
+      <description>As I mentioned in my previous post Thinking of moving from Windows to Linux? I am moving from Windows to Linux. Setting up my development environment is a bit tedious because I have to hunt down the applications and execute various commands to setup. So I thought of make a note of them in a post so that it will be easier for me next time.
+I am using Ubuntu/LinuxMint system so I am using apt-get to install, if you are using Fedora/CentOS you can use yum/dnf.</description>
+    </item>
+    
+    <item>
+      <title>How to SSH into VirtualBox Linux OS?</title>
+      <link>https://sivalabs.github.io/2015/10/how-to-ssh-into-virtualbox-linux-os/</link>
+      <pubDate>Tue, 13 Oct 2015 02:05:05 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/10/how-to-ssh-into-virtualbox-linux-os/</guid>
+      <description>While learning some of the Linux commands we may want to use SSH commands to login into a remote Linux system and we may not have a dedicated Linux system to play with.
+In this post I will explain how I am using my Linux OS installed on VirtualBox to SSH from Windows OS.
+
+1. Install openssh-server on Linux OS in VirtualBox
+sudo apt-get install openssh-server
+On some Linux distros (ex: Fedora) the openssh server won&amp;#8217;t start automatically.</description>
+    </item>
+    
+    <item>
+      <title>Thinking of moving from Windows to Linux?</title>
+      <link>https://sivalabs.github.io/2015/10/thinking-of-moving-from-windows-to-linux/</link>
+      <pubDate>Tue, 13 Oct 2015 02:02:30 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/10/thinking-of-moving-from-windows-to-linux/</guid>
+      <description>I have been using Windows operating system from the beginning. When I first started using computer Windows XP was the latest operating system and it was amazing. After few years I started my career as a Java developer and in my office also I have been using Windows only.
+After few years Windows Vista got released and I suffered with it for few months and then Microsoft released Windows 7 which is the best Windows operating system IMO.</description>
+    </item>
+    
+    <item>
+      <title>My Life as a Software Developer in India</title>
+      <link>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</link>
+      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</guid>
+      <description>I am Siva, working as a Software Developer in Hyderabad, India. Working as a Software Developer is very exciting as you see new things coming in everyday. If there are no new things at least we put a new fancy name to some old concept and celebrate (#microservices) :-). But in my opinion working as a Software Developer in India is little bit different and hard too. Few things are good, and few things are bad.</description>
+    </item>
+    
+    <item>
+      <title>Java Bloggers Meet at Hyderabad Oracle Campus Celebrating Java 20 Years Anniversary</title>
+      <link>https://sivalabs.github.io/2015/06/java-bloggers-meet-at-hyderabad-oracle-campus-celebrating-java-20-years-anniversary/</link>
+      <pubDate>Tue, 16 Jun 2015 05:52:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/java-bloggers-meet-at-hyderabad-oracle-campus-celebrating-java-20-years-anniversary/</guid>
+      <description>Oracle arranged a nice Java Bloggers Meet at Hyderabad Oracle campus on 13th June 2015 and we celebrated Java 20th anniversary.
+It is a pleasure to meet all the co-bloggers there and exchanged few thoughts on Java blogging. Also we are privileged to meet Java Champion Harshad Oak and Debraj Dutta who is the winner of Oracle IOT challenge.
+Debraj Dutta demonstrated his Bot-So robot which is so cool. This robot actually took pictures of us and uploaded to GoogleDrive and shared on Twitter!</description>
+    </item>
+    
+    <item>
+      <title>A Developers Perspective on Spring vs JavaEE</title>
+      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
+      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
+      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
+I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
+    </item>
+    
+    <item>
+      <title>Packt Publishers Initiative FREE eBook every day</title>
+      <link>https://sivalabs.github.io/2015/06/packt-publishers-initiative-free-ebook-every-day/</link>
+      <pubDate>Tue, 02 Jun 2015 11:31:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/packt-publishers-initiative-free-ebook-every-day/</guid>
+      <description>Software Development is a field where learning new things continuously is very much important to keep up with the pace of technology evolution. Packt Publishers not only publishing new books everyday, now they are offering one ebook EVERYDAY for FREE http://bit.ly/1JdHmgx. This is really AWESOME!!
+  What are you waiting for??!!. Rush to http://bit.ly/1JdHmgx and Claim your today&amp;#8217;s free book right now 🙂</description>
+    </item>
+    
+    <item>
+      <title>CentOS 7 Installation on Oracle Virtualbox</title>
+      <link>https://sivalabs.github.io/2015/05/centos-7-installation-on-oracle-virtualbox/</link>
+      <pubDate>Mon, 11 May 2015 07:36:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/05/centos-7-installation-on-oracle-virtualbox/</guid>
+      <description>I wanted to explore CentOS 7 Linux, so I installed it on my Oracle VirtualBox. Installation went smoothly ,but I had a hard time to install Virtualbox Guest Additions to get full screen. I thought of sharing the steps I performed so that it may be helpful for others.
+After installing CentOS 7, before installing Virtualbox Guest Additions first thing we need to do is update system.
+sudo yum update</description>
+    </item>
+    
+    <item>
+      <title>My Linux Journey Begins</title>
+      <link>https://sivalabs.github.io/2015/05/my-linux-journey-begins/</link>
+      <pubDate>Mon, 11 May 2015 06:58:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/05/my-linux-journey-begins/</guid>
+      <description>Like many people I started working with computers on Windows XP operating system. Even after starting my career as a Java developer I have been working on Windows for all my development activities.
+Initially I didn&amp;#8217;t get a chance(need) to work on Unix/Linux because we didn&amp;#8217;t have access to any of production systems which are using Linux. After few years we got a new client for whom we need to do deployment also in QA/UAT environments which are all Linux based.</description>
+    </item>
+    
+    <item>
+      <title>Book Review: PrimeFaces Blueprints</title>
+      <link>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</link>
+      <pubDate>Mon, 26 Jan 2015 07:39:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</guid>
+      <description>PrimeFaces Blueprints is a recent publication from Packpub on PrimeFaces framework authored by Sudheer Jonna and Ramkumar Pillai. Sudheer Jonna is a well known member in the PrimeFaces community forum and is very knowledgeable on PrimeFaces and PrimeFaces Extensions.
+      PrimeFaces Blueprint book followed the approach of explaining the features with appropriate example applications. PrimeFaces provides more than 100 rich UI components with lot of customization options.</description>
+    </item>
+    
+    <item>
+      <title>Can MicroServices Architecture Solve All Your Problems?</title>
+      <link>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</link>
+      <pubDate>Sun, 30 Nov 2014 01:21:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</guid>
+      <description>IT is one field where you can find new things coming everyday. Theses days the whole developer community websites are flooded with MicroServices and Docker related stuff. Among them the idea of MicroServices is very exciting and encourages better way of building software systems. But as with any architectural style there will be pros and cons to every approach.
+Before discussing what are good and bad sides of MicroServices approach, first let me say what I understood about MicroServices.</description>
+    </item>
+    
+    <item>
+      <title>RIP AngularJS! Oh Sorry, RIP $scope, ng-controller, DDO, jqLite and whatever you like in AngularJS</title>
+      <link>https://sivalabs.github.io/2014/10/rip-angularjs-oh-sorry-rip-scope-ng-controller-ddo-jqlite-and-whatever-you-like-in-angularjs/</link>
+      <pubDate>Wed, 29 Oct 2014 02:47:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/10/rip-angularjs-oh-sorry-rip-scope-ng-controller-ddo-jqlite-and-whatever-you-like-in-angularjs/</guid>
+      <description>I am &amp;nbsp;Software Developer, specifically Java Developer, spending most of the time writing back-end part of the applications. I can write basic HTML/JavaScript/CSS stuff to get the things done when needed. I didn&amp;#8217;t have much passion on HTML/JavaScript and neither I am good at web development. I just has good enough knowledge to get the front-end work done for my requirements. Whenever I find sometime I tried to experiment with some cool back-end technologies like SpringBoot or JavaEE7, I never spend my weekends learning any front-end technologies.</description>
+    </item>
+    
+    <item>
+      <title>NetBeansIDE and IntellijIDEA From The Eyes of a Long Time Eclipse User</title>
+      <link>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</link>
+      <pubDate>Mon, 13 Oct 2014 07:15:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</guid>
+      <description>I have been using Eclipse IDE since 2006 and I liked it so much for various reasons. First it is open source and free to use. Eclipse looks pretty neat on Windows OS on which I work most of the time. Occasionally I tried to use NetBeansIDE (before 6.x version) and I didn&amp;#8217;t like it because it&amp;#8217;s too slow. And I never tried IntellijIDEA because it&amp;#8217;s a commercial product and I am 100% sure that my employer is not going to pay $$$ for an IDE.</description>
+    </item>
+    
+    <item>
+      <title>Few Things That I Learned as a Blogger</title>
+      <link>https://sivalabs.github.io/2014/10/few-things-that-i-learned-as-blogger/</link>
+      <pubDate>Mon, 13 Oct 2014 05:58:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/10/few-things-that-i-learned-as-blogger/</guid>
+      <description>I started my career as a Java developer in 2006. I was working on a Servlets/JSP project based web application which we thought of migrating it to Struts framework.
+I got some issue and struggling with it for hours and hours and couldn&amp;#8217;t be able to find any solution. I read all the Struts reference documentation and referred many books on Struts framework. But in all those books and reference documentation I could find the happy path situation guidelines only.</description>
+    </item>
+    
+    <item>
+      <title>How much crap you are keeping because “You might need it in future”?</title>
+      <link>https://sivalabs.github.io/2014/09/how-much-crap-you-are-keeping-because-you-might-need-it-in-future/</link>
+      <pubDate>Mon, 15 Sep 2014 03:11:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/09/how-much-crap-you-are-keeping-because-you-might-need-it-in-future/</guid>
+      <description>How much crap you are keeping because &amp;#8220;You might need it in future&amp;#8221;?
+I am planning to move to a new house in a couple of weeks, so I started packing things and throwing away unnecessary stuff.
+In the process of identifying unnecessary stuff I realized how much crap I am keeping in my house thinking it might be required in future.
+But I only came to know that I have these things while looking for waste to throw away.</description>
+    </item>
+    
+    <item>
+      <title>AngularJS: Different ways of using Array Filters</title>
+      <link>https://sivalabs.github.io/2014/09/angularjs-different-ways-of-using-array-filters/</link>
+      <pubDate>Mon, 15 Sep 2014 01:43:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/09/angularjs-different-ways-of-using-array-filters/</guid>
+      <description>AngularJS provides filter feature which can be used to format input value or to filter an Array with the given matching input criteria. For example you can use &amp;#8216;date&amp;#8217; filter to format a Date value into human readable Date representation like MM-DD-YYYY as {{dob | date}}.
+On the other hand there are Array filtering feature which is very useful while filtering data from an Array of JavaScript objects. The Array filtering is very commonly used with a Table along with ng-repeat directive.</description>
+    </item>
+    
+    <item>
+      <title>AngularJS: Introducing modules, controllers, services</title>
+      <link>https://sivalabs.github.io/2014/09/angularjs-introducing-modules-controllers-services/</link>
+      <pubDate>Fri, 05 Sep 2014 07:38:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/09/angularjs-introducing-modules-controllers-services/</guid>
+      <description>In my previous post AngularJS Tutorial: Getting Started with AngularJS we have seen how to setup an application using SpringBoot + AngularJS + WebJars. But it&amp;#8217;s a kind of quick start tutorial where I haven&amp;#8217;t explained much about AngularJS modules, controllers and services. Also it is a single screen (only one route) application.
+In this part-2 tutorial, we will take a look at what are Angular modules, controllers and services and how to configure and use them.</description>
+    </item>
+    
+    <item>
+      <title>AngularJS Tutorial: Getting Started with AngularJS</title>
+      <link>https://sivalabs.github.io/2014/09/angularjs-tutorial-getting-started-with-angularjs/</link>
+      <pubDate>Thu, 04 Sep 2014 08:14:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/09/angularjs-tutorial-getting-started-with-angularjs/</guid>
+      <description>AngularJS is a popular JavaScript framework for building Single Page Applications (SPAs).
+AngularJS provides the following features which makes developing web apps easy:
+ Two way data binding
+ Dependency Injection
+ Custom HTML Directives
+ Easy integration with REST webservices using $http, $resource, Restangular etc
+ Support for Testing
+  and many more&amp;#8230;
+Though there are lot more features than the above mentioned list, these are the very commonly used features.</description>
+    </item>
+    
+    <item>
+      <title>What is your favorite open source project?</title>
+      <link>https://sivalabs.github.io/2014/07/what-is-your-favorite-open-source-project/</link>
+      <pubDate>Wed, 02 Jul 2014 21:20:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/07/what-is-your-favorite-open-source-project/</guid>
+      <description>I do spend at-least couple of hours everyday reading about what is going on in Java community to be aware where we are heading and what is hot these days.
+Because in Java land everyday new frameworks, new libraries came out and few of them might be really good and can drastically simplify the work you are doing. So I thought it is good to know about these new and hot stuff even if you are not going to use them in your official project.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot: Introducing SpringBoot</title>
+      <link>https://sivalabs.github.io/2014/07/springboot-introducing-springboot/</link>
+      <pubDate>Wed, 02 Jul 2014 00:03:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/07/springboot-introducing-springboot/</guid>
+      <description>SpringBoot&amp;#8230;there is a lot of buzz about SpringBoot nowadays. So what is SpringBoot?
+ SpringBoot is a new spring portfolio project which takes opinionated view of building production-ready Spring applications by drastically reducing the amount of configuration required. Spring Boot is taking the convention over configuration style to the next level by registering the default configurations automatically based on the classpath libraries available at runtime.
+ Well.. you might have already read this kind of introduction to SpringBoot on many blogs.</description>
+    </item>
+    
+    <item>
+      <title>Exporting Spring Data JPA Repositories as REST Services using Spring Data REST</title>
+      <link>https://sivalabs.github.io/2014/03/exporting-spring-data-jpa-repositories-as-rest-services-using-spring-data-rest/</link>
+      <pubDate>Sun, 02 Mar 2014 02:26:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/03/exporting-spring-data-jpa-repositories-as-rest-services-using-spring-data-rest/</guid>
+      <description>Spring Data modules provides various modules to work with various types of datasources like RDBMS, NOSQL stores etc in unified way. In my previous article SpringMVC4 + Spring Data JPA + SpringSecurity configuration using JavaConfig I have explained how to configure Spring Data JPA using JavaConfig.
+Now in this post let us see how we can use Spring Data JPA repositories and export JPA entities as REST endpoints using Spring Data REST.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC4 &#43; Spring Data JPA &#43; SpringSecurity configuration using JavaConfig</title>
+      <link>https://sivalabs.github.io/2014/03/springmvc4-spring-data-jpa-springsecurity-configuration-using-javaconfig/</link>
+      <pubDate>Sun, 02 Mar 2014 01:01:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/03/springmvc4-spring-data-jpa-springsecurity-configuration-using-javaconfig/</guid>
+      <description>In this article we will see how to configure and integrate SpringMVC4, Spring Data JPA with Hibernate and SpringSecurity using JavaConfig.
+ First let&amp;#8217;s configure all the necessary dependencies in pom.xml  &amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34; &amp;lt;modelVersion4.0.0&amp;lt;/modelVersion &amp;lt;groupIdcom.sivalabs&amp;lt;/groupId &amp;lt;artifactIdspringmvc-datajpa-security-demo&amp;lt;/artifactId &amp;lt;version1.0&amp;lt;/version &amp;lt;packagingwar&amp;lt;/packaging &amp;lt;properties &amp;lt;java.version1.7&amp;lt;/java.version &amp;lt;junit.version4.11&amp;lt;/junit.version &amp;lt;slf4j.version1.7.5&amp;lt;/slf4j.version &amp;lt;logback.version1.0.13&amp;lt;/logback.version &amp;lt;spring.version4.0.0.RELEASE&amp;lt;/spring.version &amp;lt;spring-data-jpa.version1.4.1.RELEASE&amp;lt;/spring-data-jpa.version &amp;lt;spring-security.version3.2.0.RELEASE&amp;lt;/spring-security.version &amp;lt;hibernate.version4.2.6.Final&amp;lt;/hibernate.version &amp;lt;aspectj.version1.7.2&amp;lt;/aspectj.version &amp;lt;mysql.version5.1.26&amp;lt;/mysql.version &amp;lt;jackson-json.version2.3.1&amp;lt;/jackson-json.version &amp;lt;commons-dbcp.version1.2.2&amp;lt;/commons-dbcp.version &amp;lt;commons-lang3.version3.1&amp;lt;/commons-lang3.version &amp;lt;/properties &amp;lt;build &amp;lt;finalName${project.artifactId}&amp;lt;/finalName &amp;lt;plugins &amp;lt;plugin &amp;lt;groupIdorg.apache.maven.plugins&amp;lt;/groupId &amp;lt;artifactIdmaven-compiler-plugin&amp;lt;/artifactId &amp;lt;version3.1&amp;lt;/version &amp;lt;configuration &amp;lt;source${java.version}&amp;lt;/source &amp;lt;target${java.version}&amp;lt;/target &amp;lt;/configuration &amp;lt;/plugin &amp;lt;/plugins &amp;lt;/build &amp;lt;dependencies &amp;lt;dependency &amp;lt;groupIdorg.</description>
+    </item>
+    
+    <item>
+      <title>Book Review: Enterprise Application Development with Ext JS and Spring</title>
+      <link>https://sivalabs.github.io/2014/02/book-review-enterprise-application-development-with-ext-js-and-spring/</link>
+      <pubDate>Tue, 11 Feb 2014 00:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/02/book-review-enterprise-application-development-with-ext-js-and-spring/</guid>
+      <description>I was asked to review &amp;#8220;Enterprise Application Development with Ext JS and Spring&amp;#8221; book by Packtpub guys and here is my review on the book. Actually now I am working on a project which is being developed using ExtJS and I thought of buying this book. But surprisingly on the very next day I was asked to review this book and gave me the ebook :-).
+  Book WebSite URL:&amp;nbsp;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Clean Code: Don’t mix different levels of abstractions</title>
+      <link>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
+      <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
+      <description>We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.
+Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.</description>
+    </item>
+    
+    <item>
+      <title>Packt’s $5 eBook Bonanza is back!</title>
+      <link>https://sivalabs.github.io/2013/12/packts-5-ebook-bonanza-is-back/</link>
+      <pubDate>Fri, 20 Dec 2013 15:29:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/12/packts-5-ebook-bonanza-is-back/</guid>
+      <description>Packt Publishing provides IT related books, ebooks and videos on various cutting edge technologies with high quality and affordable price!
+Following on from the success of last year’s festive offer, the publisher will be celebrating the holiday season with an even bigger $5 Bonanza. &amp;nbsp;From December 19th, customers will be able to get any eBook or Video from Packt for just $5. This sale covers every title in the 1700+ range and customers can grab as many as they like until January 3rd 2014 – more information is available at http://bit.</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces Beginner’s Guide book published</title>
+      <link>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</link>
+      <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</guid>
+      <description>I am glad to announce that my second book PrimeFaces Beginner&amp;#8217;s Guide is published.
+As many of us know PrimeFaces is leading JSF component library for JSF based web applications. This PrimeFaces Beginner&amp;#8217;s Guide book targets the Java developers with basic knowledge on JSF and jQuery and covers most of the commonly used PrimeFaces components.
+ Good news is that PrimeFaces Beginner&amp;#8217;s Guide book covers the latest PrimeFaces 4.0 version features such as Client Side Validations (CSV) framework, Dialog Framework, Search Expressions, Sticky Component and many other enhancement as well.</description>
+    </item>
+    
+    <item>
+      <title>Drools JBoss Rules 5.X Developer’s Guide Book Review</title>
+      <link>https://sivalabs.github.io/2013/10/drools-jboss-rules-5x-developers-guide/</link>
+      <pubDate>Mon, 21 Oct 2013 04:58:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/10/drools-jboss-rules-5x-developers-guide/</guid>
+      <description>We all start our new projects by promising to follow best practices and good design principles etc.
+But over the time business rules change and developers keep adding new features or updates existing logic.
+In this process the common mistake done by many teams is putting if-else conditions here and there instead of coming up with better design to support enhancements. Once these feature turn on/off flags and behavior branching logic started creeping into code then overtime it might become un-maintainable mess.</description>
+    </item>
+    
+    <item>
+      <title>Packt Publishing “Java Persistence With MyBatis3” published</title>
+      <link>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</link>
+      <pubDate>Tue, 16 Jul 2013 10:01:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</guid>
+      <description>Hurray&amp;#8230;My first book &amp;#8220;Java Persistence with MyBatis3&amp;#8221; is published. I would like to thank Packt Publishers for giving me this opportunity to write on my favorite framework MyBatis.
+For most of the software applications data persistence is a key and important aspect. In Java land we have many ways of implementing persistence layer starting from low level JDBC to fancy ORM frameworks.
+JDBC is too low level API and needs to write a lot of boilerplate code.</description>
+    </item>
+    
+    <item>
+      <title>Deploying BroadleafCommerce 2.0 on JBoss AS 7</title>
+      <link>https://sivalabs.github.io/2013/05/deploying-broadleafcommerce-20-on-jboss/</link>
+      <pubDate>Mon, 27 May 2013 11:40:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/05/deploying-broadleafcommerce-20-on-jboss/</guid>
+      <description>First 2 steps are not really related to Broadleaf specific, but mentioned to make it easy to follow(copy/paste) the steps.
+**Step#1: Configure DataSources in JBoss AS. **
+**
+**
+&amp;lt;datasource jta=&#34;true&#34; jndi-name=&#34;java:jboss/datasources/BroadleafDS&#34; pool-name=&#34;BroadleafDS_Pool&#34; enabled=&#34;true&#34; use-java-context=&#34;true&#34; use-ccm=&#34;true&#34;&amp;gt; &amp;lt;connection-url&amp;gt;jdbc:mysql://localhost:3306/broadleaf&amp;lt;/connection-url&amp;gt; &amp;lt;driver&amp;gt;mysql&amp;lt;/driver&amp;gt; &amp;lt;security&amp;gt; &amp;lt;user-name&amp;gt;root&amp;lt;/user-name&amp;gt; &amp;lt;password&amp;gt;admin&amp;lt;/password&amp;gt; &amp;lt;/security&amp;gt; &amp;lt;timeout&amp;gt; &amp;lt;idle-timeout-minutes&amp;gt;0&amp;lt;/idle-timeout-minutes&amp;gt; &amp;lt;query-timeout&amp;gt;600&amp;lt;/query-timeout&amp;gt; &amp;lt;/timeout&amp;gt; &amp;lt;/datasource&amp;gt; &amp;lt;datasource jta=&#34;true&#34; jndi-name=&#34;java:jboss/datasources/BroadleafSecureDS&#34; pool-name=&#34;BroadleafSecureDS_Pool&#34; enabled=&#34;true&#34; use-java-context=&#34;true&#34; use-ccm=&#34;true&#34;&amp;gt; &amp;lt;connection-url&amp;gt;jdbc:mysql://localhost:3306/broadleaf&amp;lt;/connection-url&amp;gt; &amp;lt;driver&amp;gt;mysql&amp;lt;/driver&amp;gt; &amp;lt;security&amp;gt; &amp;lt;user-name&amp;gt;root&amp;lt;/user-name&amp;gt; &amp;lt;password&amp;gt;admin&amp;lt;/password&amp;gt; &amp;lt;/security&amp;gt; &amp;lt;timeout&amp;gt; &amp;lt;idle-timeout-minutes&amp;gt;0&amp;lt;/idle-timeout-minutes&amp;gt; &amp;lt;query-timeout&amp;gt;600&amp;lt;/query-timeout&amp;gt; &amp;lt;/timeout&amp;gt; &amp;lt;/datasource&amp;gt; &amp;lt;datasource jta=&#34;true&#34; jndi-name=&#34;java:jboss/datasources/BroadleafCmsDS&#34; pool-name=&#34;BroadleafCmsDS_Pool&#34; enabled=&#34;true&#34; use-java-context=&#34;</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces Cookbook Review</title>
+      <link>https://sivalabs.github.io/2013/03/primefaces-cookbook-review/</link>
+      <pubDate>Mon, 18 Mar 2013 08:32:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/03/primefaces-cookbook-review/</guid>
+      <description>PrimeFaces is the Best Rich UI component library for JSF based applications. Also PrimeFaces has a wonderful showcase (http://www.primefaces.org/showcase/ui/home.jsf) and documentation (http://www.primefaces.org/documentation.html) on their website.     When I first heard about &amp;#8220;PrimeFaces Cookbook” I was very excited because this is the first book on PrimeFaces and usually cookbooks contain lot of tips for commonly faced issues and recipes for common use cases.
+    PrimeFaces Cookbook      &amp;lt;div&amp;gt; &amp;lt;a href=&amp;quot;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Dear NetBeansIDE, You are just one step away from massive adoption</title>
+      <link>https://sivalabs.github.io/2013/03/dear-netbeanside-you-are-just-one-step-away-from-massive-adoption/</link>
+      <pubDate>Mon, 18 Mar 2013 04:47:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/03/dear-netbeanside-you-are-just-one-step-away-from-massive-adoption/</guid>
+      <description>Well, NetBeansIDE 7.3 is out with plenty of new features, tremendous performance improvements.
+In addition to the great support for Java/JavaEE technologies, NetBeansIDE 7.3 comes with decent support for HTML5, Groovy, PHP, C++ as well. If you are skeptic with older versions of NetBeans like 5.x and never again look at NetBeansIDE, I would strongly suggest you to take a look at latest NeaBeans releases specifically 6.9.x&amp;nbsp;on wards.
+However, I wish NetBeans should have following features which greatly increases its adoption:</description>
+    </item>
+    
+    <item>
+      <title>A bunch of Maven Archetypes for Spring based Projects</title>
+      <link>https://sivalabs.github.io/2012/10/a-bunch-of-maven-archetypes-for-spring-based-projects/</link>
+      <pubDate>Mon, 29 Oct 2012 12:18:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/a-bunch-of-maven-archetypes-for-spring-based-projects/</guid>
+      <description>Maven is a good project management tool which&amp;nbsp;greatly&amp;nbsp;reduces the amount of time we spend on creating java projects with proper structure.&amp;nbsp;With so many&amp;nbsp;predefined&amp;nbsp;maven archetypes it is even easier to create projects by simply selecting the archetype based on the technologies we need and type(jar/war/ear) of project we want to create.
+However sometimes those predefined archetypes structure may not suite well for our needs or we may need some more additions to the pre-configured dependencies/frameworks etc.</description>
+    </item>
+    
+    <item>
+      <title>MyBatis Tutorial : Part4 – Spring Integration</title>
+      <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part4-spring-integration/</link>
+      <pubDate>Wed, 24 Oct 2012 00:40:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part4-spring-integration/</guid>
+      <description>MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part-2: CRUD operations Using Annotations
+MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
+MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+MyBatis-Spring is a subproject of MyBatis and provides Spring integration support which drastically simplifies the MyBatis usage. For those who are familiar with Spring&amp;#8217;s way of Dependency Injection process, using MyBatis-Spring is a very simple.
+First let us see the process of using MyBatis without Spring.</description>
+    </item>
+    
+    <item>
+      <title>MyBatis Tutorial: Part 3 – Mapping Relationships</title>
+      <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-3-mapping-relationships/</link>
+      <pubDate>Sun, 21 Oct 2012 14:07:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-3-mapping-relationships/</guid>
+      <description>In this post let us see how to use MyBatis ResultMap configuration to map relationships.
+MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part-2: CRUD operations Using Annotations
+MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
+MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+To illustrate we are considering the following sample domain model:
+There will be Users and each User may have a Blog and each Blog can contain zero or more posts.</description>
+    </item>
+    
+    <item>
+      <title>MyBatis Tutorial: Part-2: CRUD operations Using Annotations</title>
+      <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-2-crud-operations-using-annotations/</link>
+      <pubDate>Sun, 21 Oct 2012 11:49:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-2-crud-operations-using-annotations/</guid>
+      <description>In this post I will explain how to perform CRUD operations using MyBatis Annotation support without need of Queries configuration in XML mapper files.
+MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part-2: CRUD operations Using Annotations
+MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
+MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+Step#1: Create a table BLOG and a java domain Object Blog.
+CREATE TABLE blog ( blog_id int(10) unsigned NOT NULL auto_increment, blog_name varchar(45) NOT NULL, created_on datetime NOT NULL, PRIMARY KEY (blog_id) ) ENGINE=InnoDB DEFAULT CHARSET=latin1; package com.</description>
+    </item>
+    
+    <item>
+      <title>MyBatis Tutorial: Part1 – CRUD Operations</title>
+      <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part1-crud-operations/</link>
+      <pubDate>Sun, 21 Oct 2012 11:10:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part1-crud-operations/</guid>
+      <description>MyBatis is an SQL Mapper tool which greatly simplifies the database programing when compared to using JDBC directly.
+MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part-2: CRUD operations Using Annotations
+MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
+MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+**Step1: **Create a Maven project and configure MyBatis dependencies.
+&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+    </item>
+    
+    <item>
+      <title>Spring3&#43;JPA2&#43;JavaEE6AppServer = Confusion Over Configuration</title>
+      <link>https://sivalabs.github.io/2012/10/spring3jpa2javaee6appserver-confusion-over-configuration/</link>
+      <pubDate>Fri, 12 Oct 2012 05:38:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/10/spring3jpa2javaee6appserver-confusion-over-configuration/</guid>
+      <description>Spring is great, JavaEE6 is great and latest JavaEE6 Application servers are also great. This post is not a rant on Spring Vs JavaEE6, but my experience of porting a Spring3+JPA2(Hibernate) application on JBoss AS-7.1 App Server.
+My application requirement is very simple: Developing a couple of SOAP based webservices using Spring3.1 and JPA2(Hibernate) and host it on JBoss AS 7.1.
+So I started creating a multi-module maven project with one jar module containing the service implementations using Spring &amp;amp; JPA and another war module which exposes those services as SOAP based webservices.</description>
+    </item>
+    
+    <item>
+      <title>Keep The Code Clean: WatchDog &amp; SpotTheBug Approach</title>
+      <link>https://sivalabs.github.io/2012/08/keep-code-clean-watchdog-spotthebug/</link>
+      <pubDate>Tue, 28 Aug 2012 04:55:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/08/keep-code-clean-watchdog-spotthebug/</guid>
+      <description>Before going to discuss &amp;#8220;WatchDog &amp;amp; SpotTheBug Approach&amp;#8220;, let me give a brief context on what is the needs for this.
+Three months back I was asked to write core infrastructure code for our new application which uses all the latest and greatest technologies.
+I have written the infrastructure code and implemented 2 usecases to demonstrate which logic should go into which layer and the code looks good(atleast to me :-)).</description>
+    </item>
+    
+    <item>
+      <title>How I explained Dependency Injection to My Team</title>
+      <link>https://sivalabs.github.io/2012/06/how-i-explained-dependency-injection-to-my-team/</link>
+      <pubDate>Tue, 19 Jun 2012 02:20:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/06/how-i-explained-dependency-injection-to-my-team/</guid>
+      <description>Recently our company started developing a new java based web application and after some evaluation process we decided to use Spring.
+But many of the team members are not aware of Spring and Dependency Injection principles.
+So I was asked to give a crash course on what is Dependency Injection and basics on Spring.
+Instead of telling all the theory about IOC/DI I thought of explaining with an example.
+Requirement: We will get some Customer Address and we need to validate the address.</description>
+    </item>
+    
+    <item>
+      <title>RESTEasy Tutorial Part 3 – Exception Handling</title>
+      <link>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-3-exception-handling/</link>
+      <pubDate>Tue, 12 Jun 2012 05:24:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-3-exception-handling/</guid>
+      <description>&amp;nbsp;
+RESTEasy Tutorial Series
+RESTEasy Tutorial Part-1: Basics
+RESTEasy Tutorial Part-2: Spring Integration
+RESTEasy Tutorial Part 3 &amp;#8211; Exception Handling
+Exception Handling is an obvious requirement while developing software application. If any error occured while processing user request we should show the user an error page with details like brief exception message, error code(optional), hints to correct the input and retry(optional) and actual root cause(optional). This is applicable to RESTful web services also.</description>
+    </item>
+    
+    <item>
+      <title>RESTEasy Tutorial Part-2: Spring Integration</title>
+      <link>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-2-spring-integration/</link>
+      <pubDate>Wed, 06 Jun 2012 11:49:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-2-spring-integration/</guid>
+      <description>&amp;nbsp;
+RESTEasy Tutorial Series
+RESTEasy Tutorial Part-1: Basics
+RESTEasy Tutorial Part-2: Spring Integration
+RESTEasy Tutorial Part 3 &amp;#8211; Exception Handling
+RESTEasy provides support for Spring integration which enables us to expose Spring beans as RESTful WebServices.
+Step#1: Configure RESTEasy+Spring dependencies using Maven.
+ Step#2: Configure RESTEasy+Spring in web.xml
+&amp;lt;web-app xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xmlns=&#34;http://java.sun.com/xml/ns/javaee&#34; xmlns:web=&#34;http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&#34; xsi:schemaLocation=&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&#34; id=&#34;WebApp_ID&#34; version=&#34;3.0&#34; &amp;lt;listener &amp;lt;listener-classorg.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap&amp;lt;/listener-class &amp;lt;/listener &amp;lt;listener &amp;lt;listener-classorg.jboss.resteasy.plugins.spring.SpringContextLoaderListener&amp;lt;/listener-class &amp;lt;/listener &amp;lt;servlet &amp;lt;servlet-nameResteasy&amp;lt;/servlet-name &amp;lt;servlet-classorg.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher&amp;lt;/servlet-class &amp;lt;/servlet &amp;lt;servlet-mapping &amp;lt;servlet-nameResteasy&amp;lt;/servlet-name &amp;lt;url-pattern/rest/*&amp;lt;/url-pattern &amp;lt;/servlet-mapping &amp;lt;context-param contextConfigLocation&amp;lt;/param-name classpath:applicationContext.</description>
+    </item>
+    
+    <item>
+      <title>RESTEasy Tutorial Part-1: Basics</title>
+      <link>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-1-basics/</link>
+      <pubDate>Wed, 06 Jun 2012 10:07:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-1-basics/</guid>
+      <description>&amp;nbsp;
+RESTEasy Tutorial Series
+RESTEasy Tutorial Part-1: Basics
+RESTEasy Tutorial Part-2: Spring Integration
+RESTEasy Tutorial Part 3 &amp;#8211; Exception Handling
+RESTEasy is a JAX-RS implementation from JBoss/RedHat and is in-built in JBoss 6 onwards.
+Here I am going to show you how to develop a Simple RESTful Web Services application using RESTEasy and JBossAS7.1.1.FINAL.
+Step#1: Configure RESTEasy dependencies using Maven.
+ Step#2: Configure RESTEasy in web.xml
+ Step#3: Create User domain class, MockUserTable class to store User objects in-memory for testing purpose and UserResource class to expose CRUD operations on User as RESTful webservices.</description>
+    </item>
+    
+    <item>
+      <title>JAX-WS WSI Authentication using UserName &amp; Password Security Headers</title>
+      <link>https://sivalabs.github.io/2012/04/jax-ws-wsi-authentication-using-username-password-security-headers/</link>
+      <pubDate>Mon, 30 Apr 2012 00:21:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/04/jax-ws-wsi-authentication-using-username-password-security-headers/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>XML String to Document and Document to XML String</title>
+      <link>https://sivalabs.github.io/2012/04/xml-string-to-document-and-document-to-xml-string/</link>
+      <pubDate>Fri, 27 Apr 2012 12:35:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/04/xml-string-to-document-and-document-to-xml-string/</guid>
+      <description>Hi,
+The following Utility methods can be used to create Document object from XML String and Vice versa.
+Nothing new here. Just to keep the following utility methods handy.
+ </description>
+    </item>
+    
+    <item>
+      <title>GeneratedValue not setting up auto increment in mysql and h2 dialects</title>
+      <link>https://sivalabs.github.io/2012/04/generatedvalue-not-setting-up-auto-increment-in-mysql-and-h2-dialects/</link>
+      <pubDate>Thu, 26 Apr 2012 07:57:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/04/generatedvalue-not-setting-up-auto-increment-in-mysql-and-h2-dialects/</guid>
+      <description>Hi,
+In earlier versions of Hibernate if we want to have an auto_increment primary key we can use the following:
+@Id @GeneratedValue(strategy=GenerationType.AUTO)
+@Column(name=&amp;#8221;user_id&amp;#8221;)
+private Integer userId;
+But in latest version of Hibernate(may be Hibernate4, whatever is used in JBoss AS7) this doesn&amp;#8217;t work as expected. The generated table primary key is not auto_increment column.
+To resolve this configure&amp;nbsp; in persistence.xml.</description>
+    </item>
+    
+    <item>
+      <title>What additional features do JavaEE6 have to move from Spring?</title>
+      <link>https://sivalabs.github.io/2012/04/what-additional-features-do-javaee6-have-to-move-from-spring/</link>
+      <pubDate>Mon, 09 Apr 2012 16:52:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/04/what-additional-features-do-javaee6-have-to-move-from-spring/</guid>
+      <description>I am a senior java developer who has to work on the technologies chosen by the application architect.
+At the maximum I can express my opinion on a particular technology, I can&amp;#8217;t make/influence technology selection decision. So I don&amp;#8217;t have a choice of moving from Spring to JavaEE6 or from JavaEE6 to Spring on my official projects.
+I strongly believe that as a Java developer I have to keep updated on (at least few) latest technologies.</description>
+    </item>
+    
+    <item>
+      <title>Do you have defect id to burn the hours spent on code refactoring?</title>
+      <link>https://sivalabs.github.io/2012/02/do-you-have-defect-id-to-burn-hours/</link>
+      <pubDate>Wed, 22 Feb 2012 04:34:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/02/do-you-have-defect-id-to-burn-hours/</guid>
+      <description>Working on a large legacy code-base is challenging(painful?) and is inevitable.
+You may need to keep on refactoring the legacy code to fix bugs, to add new features or enhancements.
+For these changes normally we would have a defect or new requirement created in QualityCenter/VersionOne or whatever the tool you use for tracking the tasks. We burn the hours spent on these tasks against the respective defect-id or requirement-id.
+Then assume you identify some piece of code which is written in horrible way and thought of refactoring that logic.</description>
+    </item>
+    
+    <item>
+      <title>Where is Craig McClanahan(Author of Struts 1.x)?</title>
+      <link>https://sivalabs.github.io/2012/02/where-is-craig-mcclanahanauthor-of-struts-1-x/</link>
+      <pubDate>Thu, 02 Feb 2012 00:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/02/where-is-craig-mcclanahanauthor-of-struts-1-x/</guid>
+      <description>Firstly, a little background on why I like Struts&amp;#8230;please bear with me.
+I started my career as a java developer in 2006. That time my team lead strongly believes that freshers should work on core technologies without any tools for at-least 6 months so that they will get a chance to learn basics and have a strong foundation on fundamentals.So I was working on Core Java, Servlets and JSP for first 3-4 months and I used to hear the term &amp;#8220;Struts&amp;#8221; very frequently on web and in our senior java developers discussions.</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces3 Tutorial : Form Validation Using BeanValidation API(JSR-303)</title>
+      <link>https://sivalabs.github.io/2012/02/primefaces3-tutorial-form-validation-using-beanvalidation-apijsr-303/</link>
+      <pubDate>Wed, 01 Feb 2012 23:10:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/02/primefaces3-tutorial-form-validation-using-beanvalidation-apijsr-303/</guid>
+      <description>JSF2 has in-built support for form validations using Bean Validation API(JSR-303).
+In my previous article PrimeFaces 3 Tutorial : Introduction &amp;amp; Form Validation , I have explained how to validate forms using JSF tags inside JSF xhtml pages.
+Now Let us see how we can validate the forms using HibernateValidator which is reference implementation of JSR-303.
+Note: Integrating JSR-303 with JSF2 doesn&amp;#8217;t have anything to do with PrimeFaces 3.
+But I am planning to write a series of articles on PrimeFaces and JSR-303 integration is a part of it.</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces 3 Tutorial : Introduction &amp; Form Validation</title>
+      <link>https://sivalabs.github.io/2012/01/primefaces-3-tutorial-introduction-form-validation/</link>
+      <pubDate>Mon, 30 Jan 2012 21:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/01/primefaces-3-tutorial-introduction-form-validation/</guid>
+      <description>PrimeFaces is a component library for JSF and has huge component support.
+Working with PrimeFaces is very much easy because there is a single jar, no mandatory other dependencies, no mandatory configuration is required.
+Ok, in this tutorial I am going to explain how to create a Maven based PrimeFaces project and create a simple registration for and validate the form.
+I am using JDK1.6.26 and Tomcat 7.0.32.
+Step#1
+Create Maven Project and add the following repositories, dependencies in pom.</description>
+    </item>
+    
+    <item>
+      <title>Java Best Practices : Building Safe Domain Objects</title>
+      <link>https://sivalabs.github.io/2012/01/java-best-practices-building-safe-domain-objects/</link>
+      <pubDate>Mon, 16 Jan 2012 07:26:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2012/01/java-best-practices-building-safe-domain-objects/</guid>
+      <description>Domain objects are the core building blocks of any application. These are the fine grained objects which carries the information about the problem domain model.
+Generally domain objects will be created as dumb data carriers with setters/geters without having any logic. But this will cause huge problem in long run.
+If you build the domain objects with dumb setters and getters we will end up in writing null checks all over the places.</description>
+    </item>
+    
+    <item>
+      <title>Good Website to Convert Raw HTML to Escaped HTML</title>
+      <link>https://sivalabs.github.io/2011/12/good-website-to-convert-raw-html-to-escaped-html/</link>
+      <pubDate>Wed, 07 Dec 2011 06:57:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/12/good-website-to-convert-raw-html-to-escaped-html/</guid>
+      <description>Often we may need to escape HTML code to post on blog or for some other purpose.
+The following website provides a good utility to convert Raw HTML to escaped HTML.
+http://accessify.com/tools-and-wizards/developer-tools/quick-escape/default.php</description>
+    </item>
+    
+    <item>
+      <title>Unable to create a maven project using appfuse archetypes?</title>
+      <link>https://sivalabs.github.io/2011/12/unable-to-create-maven-project-using/</link>
+      <pubDate>Sat, 03 Dec 2011 21:29:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/12/unable-to-create-maven-project-using/</guid>
+      <description>I don&amp;#8217;t know why sometimes when i tried to create a Maven project using one of appfuse archetypes, eclipse throws error saying unable to create maven project.
+I resolved it by doing following:
+Window&amp;#8211;&amp;gt;Preferences&amp;#8211;&amp;gt;Maven&amp;#8211;&amp;gt;Archetypes
+Add Remote Catalog : http://repo1.maven.org/maven2/archetype-catalog.xml
+Now I am able to create maven projects using Appfuse archetypes.</description>
+    </item>
+    
+    <item>
+      <title>Solution for JDK6 &#43; JBoss-5.1.0GA &#43; JAX-WS integration error: java.lang.UnsupportedOperationException: setProperty must be overridden by all subclasses of SOAPMessage</title>
+      <link>https://sivalabs.github.io/2011/12/solution-for-jdk6-jboss-510ga-jax-ws/</link>
+      <pubDate>Sat, 03 Dec 2011 21:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/12/solution-for-jdk6-jboss-510ga-jax-ws/</guid>
+      <description> &amp;nbsp; &amp;nbsp; Copy the following jars from JBOSS_HOME/client to JBOSS_HOME/lib/endorsed dir.
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; a. &amp;nbsp; &amp;nbsp; jbossws-native-jaxrpc.jar
+&amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;b. &amp;nbsp; &amp;nbsp; jbossws-native-jaxws.jar
+&amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;c. &amp;nbsp; &amp;nbsp; jbossws-native-jaxws-ext.jar
+&amp;nbsp;&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;d. &amp;nbsp; &amp;nbsp; jbossws-native-saaj.jar
+ &amp;nbsp; &amp;nbsp; Delete saaj-impl.jar(if its already there) from JBOSS_HOME/lib/endorsed dir.
+  </description>
+    </item>
+    
+    <item>
+      <title>Spring and Quartz Integration Using Custom Annotation</title>
+      <link>https://sivalabs.github.io/2011/10/spring-and-quartz-integration-using-custom-annotation/</link>
+      <pubDate>Mon, 10 Oct 2011 11:44:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/10/spring-and-quartz-integration-using-custom-annotation/</guid>
+      <description>We know Spring has support for integrating with Quartz framework.
+But as of now Spring supports only static xml declarative approach only.
+If you want to see how to integrate Spring+Quartz you can refer Spring + Quartz Integration .
+As part of my pet project requirement I got to schedule the Jobs dynamically and I though of following 2 options:
+1. Using Annotations for providing Job Metada
+2. Loading the Job Metadata from Database</description>
+    </item>
+    
+    <item>
+      <title>Developing WebServices using JDK6/JAX-WS is simple. Is it true?</title>
+      <link>https://sivalabs.github.io/2011/10/developing-webservices-using-jdk6jax-ws-is-simple-is-it-true/</link>
+      <pubDate>Mon, 03 Oct 2011 01:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/10/developing-webservices-using-jdk6jax-ws-is-simple-is-it-true/</guid>
+      <description>In many articles, blogs we can see how to develop WebServices using with JDK6&amp;#8217;s JAX-WS in-built support in just 5 minutes.
+We can simply write a POJO and annotate it with @WebService, publish it with Endpoint.publish(&amp;#8230;) and you can see the generated wsdl by pointing your browser to http://localhost:8080/JAXWS/helloService?wsdl.
+Immediately we can write a client and call helloPort.sayHello(&amp;#8220;siva&amp;#8221;) and you will get &amp;#8220;Hello Siva!!!&amp;#8221; response from your HelloWebService.
+In the first look it feels like developing web services is very simple using JDK6&amp;#8217;s in-built JAX-WS support.</description>
+    </item>
+    
+    <item>
+      <title>Deploying JAX-WS WebService on Tomcat-6</title>
+      <link>https://sivalabs.github.io/2011/09/deploying-jax-ws-webservice-on-tomcat-6/</link>
+      <pubDate>Fri, 30 Sep 2011 02:54:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/09/deploying-jax-ws-webservice-on-tomcat-6/</guid>
+      <description>Now we are going to see how to deploy JAX-WS WebService on Tomcat Server.
+We are going to deploy The AuthenticationService developed in http://sivalabs.blogspot.com/2011/09/developing-webservices-using-jax-ws.html on apache-tomcat-6.0.32.
+To deploy our AuthenticationService we need to add the following configuration.
+1.web.xml
+&amp;lt;web-app&amp;gt;
+&amp;lt;listener&amp;gt;
+&amp;lt;listener-class&amp;gt;com.sun.xml.ws.transport.http.servlet.WSServletContextListener&amp;lt;/listener-class&amp;gt;
+&amp;lt;/listener&amp;gt;
+&amp;lt;servlet&amp;gt;
+&amp;lt;servlet-name&amp;gt;authenticationService&amp;lt;/servlet-name&amp;gt;
+&amp;lt;servlet-class&amp;gt;com.sun.xml.ws.transport.http.servlet.WSServlet&amp;lt;/servlet-class&amp;gt;
+&amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt;
+&amp;lt;/servlet&amp;gt;
+&amp;lt;servlet-mapping&amp;gt;
+&amp;lt;servlet-name&amp;gt;authenticationService&amp;lt;/servlet-name&amp;gt;
+&amp;lt;url-pattern&amp;gt;/services/AuthenticationService&amp;lt;/url-pattern&amp;gt;
+&amp;lt;/servlet-mapping&amp;gt;
+&amp;lt;/web-app&amp;gt;  2. Create a new file WEB-INF/sun-jax-ws.xml
+&amp;lt;?xml&amp;nbsp;version=&#34;1.0&#34;&amp;nbsp;encoding=&#34;UTF-8&#34;?&amp;gt;
+&amp;lt;endpoints
+&amp;nbsp;&amp;nbsp;xmlns=&#34;http://java.sun.com/xml/ns/jax-ws/ri/runtime&#34;
+&amp;nbsp;&amp;nbsp;version=&#34;2.0&#34;&amp;gt;
+&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;lt;endpoint
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;name=&#34;AuthenticationService&#34;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;implementation=&#34;com.sivalabs.caas.services.AuthenticationServiceImpl&#34;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;url-pattern=&#34;/services/AuthenticationService&#34;/&amp;gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;lt;/endpoints&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Developing WebServices using JAX-WS</title>
+      <link>https://sivalabs.github.io/2011/09/developing-webservices-using-jax-ws/</link>
+      <pubDate>Thu, 29 Sep 2011 12:25:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/09/developing-webservices-using-jax-ws/</guid>
+      <description>Let us assume an enterprise is maintaining user authentication details in a centralized system. We need to create an AuthenticationService which will take credentials, validate them and return the status. The rest of the applications will use the AuthenticationService to authenticate the Users.
+Create AuthenticationService interface as follows:
+package com.sivalabs.caas.services;
+import javax.jws.WebService;
+import com.sivalabs.caas.domain.AuthenticationStatus;
+import com.sivalabs.caas.domain.Credentials;
+import com.sivalabs.caas.exceptions.AuthenticationServiceException;
+@WebService
+public interface AuthenticationService
+{
+public AuthenticationStatus authenticate(Credentials credentials) throws AuthenticationServiceException;
+}</description>
+    </item>
+    
+    <item>
+      <title>CustomTag to generate  and  tags with absolute path</title>
+      <link>https://sivalabs.github.io/2011/08/customtag-to-generate-and-tags-with-absolute-path/</link>
+      <pubDate>Thu, 25 Aug 2011 01:13:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/08/customtag-to-generate-and-tags-with-absolute-path/</guid>
+      <description>Generally we write our javascript and css styles in separate file and include them in JSPs using  and  tags.
+To include those resource we can use either relative URL or absolute URL.
+If you use absolute URL you need to include the context root name which is not a good practice.
+Later if you want to change the context root name you need to update in several places.</description>
+    </item>
+    
+    <item>
+      <title>When to use RequestDispatcher.forward() and response.sendRedirect()?</title>
+      <link>https://sivalabs.github.io/2011/08/when-to-use-requestdispatcherforward/</link>
+      <pubDate>Thu, 25 Aug 2011 00:35:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/08/when-to-use-requestdispatcherforward/</guid>
+      <description>Many people know about how RequestDispatcher.forward() and response.sendRedirect() works.
+RequestDispatcher.forward() is generally called Server side redirection and is used to forward to a resource within the same application. That resource could be a JSP or another Servlet.
+response.sendRedirect() is generally called as Client side redirection as it issues a new request from the browser. This method is used to redirect to another resource within the same application or to the resource in some other application running in the same web container or can redirect to any other resource running in someother web container.</description>
+    </item>
+    
+    <item>
+      <title>Are frameworks making developers dumb?</title>
+      <link>https://sivalabs.github.io/2011/08/frameworks-making-developers-dumb/</link>
+      <pubDate>Mon, 22 Aug 2011 01:16:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/08/frameworks-making-developers-dumb/</guid>
+      <description>Last week I got to take interviews to hire senior java developers with around 5 years of experience. But after the interview process is over I felt like the frameworks makes developers life easier but at the same time  making them dumb.
+Everyone puts almost all the new frameworks on their resume claiming they have &amp;#8220;Strong, working experience on Spring, Hibernate, Web Services etc&amp;#8221;.
+Here is how the interviews went on.</description>
+    </item>
+    
+    <item>
+      <title>Mock Table utility for CRUD operations</title>
+      <link>https://sivalabs.github.io/2011/07/mock-table-utility-for-crud-operations/</link>
+      <pubDate>Wed, 27 Jul 2011 05:38:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/07/mock-table-utility-for-crud-operations/</guid>
+      <description>While learning a new technology we may need a database table to store the data.
+But creating a database, setting up jdbc connection and writing crud operation may be cumbersome.
+So I thought it would be good to have some mock utility to represent a table which can be used just like a database table.
+Here is what I came up with.
+package com.sivalabs.sample.util;
+import java.io.Serializable;
+public interface Identifiable&amp;lt;K&amp;gt; extends Serializable</description>
+    </item>
+    
+    <item>
+      <title>Context root relative URLs using Spring’s</title>
+      <link>https://sivalabs.github.io/2011/07/context-root-relative-urls-using-springs/</link>
+      <pubDate>Tue, 26 Jul 2011 23:27:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/07/context-root-relative-urls-using-springs/</guid>
+      <description>While developing web applications the common problem is to reference the static resources like js, stylesheets,images in JSPs from the relative URLs.
+Suppose in your project you have the following structure.
+MyApp
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; src
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; WebContent
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; home.jsp
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; jsp
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; createUser.jsp
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; js
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; util.js
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; css
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; style.css
+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; images</description>
+    </item>
+    
+    <item>
+      <title>How to POST and GET JSON between EXTJS and SpringMVC3</title>
+      <link>https://sivalabs.github.io/2011/06/how-to-post-and-get-json-between-extjs-and-springmvc3/</link>
+      <pubDate>Thu, 23 Jun 2011 02:57:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/06/how-to-post-and-get-json-between-extjs-and-springmvc3/</guid>
+      <description>After one month of evaluation of the frameworks and tools, i choose ExtJS for UI and Spring/SpringMVC for business layer for my pet project.
+Again by using ExtJS we can send data to server by form submits or as request parameters or in json format through Ajax requests. ExtJS uses JSON format in many situations to hold data. So I thought using JSON as data exchange format between EXTJS and Spring will be consistent.</description>
+    </item>
+    
+    <item>
+      <title>Useful Eclipse Plugins</title>
+      <link>https://sivalabs.github.io/2011/06/useful-eclipse-plugins/</link>
+      <pubDate>Tue, 14 Jun 2011 12:34:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/06/useful-eclipse-plugins/</guid>
+      <description>The following are very useful Eclipse(Helios ) Plugin Update Sites which I wanted to keep handy. May be useful for you too 🙂
+Maven2 : http://m2eclipse.sonatype.org/sites/m2e/0.12.1.20110112-1712/
+Spring IDE : http://dist.springsource.com/release/TOOLS/update/e3.6/
+JBossTools : http://download.jboss.org/jbosstools/updates/stable/helios/
+GWT : http://dl.google.com/eclipse/plugin/3.6
+Vaadin : http://vaadin.com/eclipse/
+Subclipse : http://subclipse.tigris.org/update_1.6.x
+Git : http://download.eclipse.org/egit/updates-0.12
+FindBugs : http://findbugs.cs.umd.edu/eclipse
+PMD: : http://pmd.sf.net/eclipse
+CheckStyle : http://eclipse-cs.sf.net/update/
+Eclipse Color Themes: http://eclipse-color-theme.github.com/update
+Any other useful eclipse plugins???</description>
+    </item>
+    
+    <item>
+      <title>Authentication Checking using SpringMVC Interceptors</title>
+      <link>https://sivalabs.github.io/2011/06/authentication-checking-using-springmvc-interceptors/</link>
+      <pubDate>Mon, 06 Jun 2011 02:48:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/06/authentication-checking-using-springmvc-interceptors/</guid>
+      <description>For many web applications, some URLs need to protect from public access and some other URLs need to be protected based on the User Roles and privileges. To achieve this we can use Filters that comes with Servlet API or we can use JAAS(Java Authentication and Authorization Service).
+SpringMVC provides Interceptors which can be used to intercept the URL and pre-process, post-process the requests.
+Let us write a simple AuthenticationInterceptor to check whether the user is already logged in or not.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC 3 &#43; Tiles 2.2.2 Integration</title>
+      <link>https://sivalabs.github.io/2011/06/springmvc-3-tiles-222-integration/</link>
+      <pubDate>Mon, 06 Jun 2011 02:23:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/06/springmvc-3-tiles-222-integration/</guid>
+      <description>Apache Tiles is a popular and mostly used templating framework for java based web application.
+Tiles became more popular because Struts 1.x uses Tiles as its default templating framework.
+SpringMVC which is an MVC framework, like Struts, also supports integration of Tiles as its templating framework.
+Let us see how we can integrate SpringMVC and Tiles.
+You can download Tiles binaries from http://tiles.apache.org/ .
+Step#1: Add the following tiles jars to WEB-INF/lib folder.</description>
+    </item>
+    
+    <item>
+      <title>Spring &#43; Quartz &#43; JavaMail Integration Tutorial</title>
+      <link>https://sivalabs.github.io/2011/05/spring-quartz-javamail-integration-tutorial/</link>
+      <pubDate>Mon, 30 May 2011 09:27:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/05/spring-quartz-javamail-integration-tutorial/</guid>
+      <description>Quartz is a job scheduling framework which is used to schedule the jobs to be executed on the specified time schedule.
+JavaMail is an API to send/recieve emails from Java Applications.
+Spring has integration points to integrate Quartz and JavaMail which makes easy to use those APIs.
+Lets create a small demo application to show how to integrate Spring + Quartz + JavaMail.
+Our application is to send birthday wishes emails to friends everyday at 6 AM.</description>
+    </item>
+    
+    <item>
+      <title>Sending Email with Attachments using JavaMail</title>
+      <link>https://sivalabs.github.io/2011/05/sending-email-with-attachments-using-javamail/</link>
+      <pubDate>Mon, 30 May 2011 08:02:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/05/sending-email-with-attachments-using-javamail/</guid>
+      <description>We can send emails using JavaMail API.
+Instead of directly using JavaMail API here is a small utility to send emails which shields the user from JavaMail internals.
+EmailConfiguration.java
+package com.sivalabs.email;
+import java.util.Properties;
+public class EmailConfiguration
+{
+private Properties properties = new Properties();
+public static final String SMTP_HOST = &#34;mail.smtp.host&#34;;
+public static final String SMTP_AUTH = &#34;mail.smtp.auth&#34;;
+public static final String SMTP_TLS_ENABLE = &#34;mail.smtp.starttls.enable&#34;;
+public static final String SMTP_AUTH_USER = &#34;</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC &#43; Hibernate Error: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here</title>
+      <link>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</link>
+      <pubDate>Tue, 17 May 2011 02:14:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</guid>
+      <description>While developing a web application using SpringMVC and Hibernate I got &amp;#8220;No Hibernate Session bound to thread Exception&amp;#8221; becuase of some configuration issue.
+Here I am going to explain how I resolved the issue.
+I used the SpringMVC/@Controller approach and configured the Web related Spring configuration in dispatcher-servlet.xml as follows:
+&amp;lt;beans
+&amp;lt;context:annotation-config&#34;/&amp;gt;
+&amp;lt;context:component-scan base-package=&#34;com.sivalabs&#34;/&amp;gt;
+&amp;lt;bean&amp;lt;/bean
+&amp;lt;bean&amp;lt;/bean
+&amp;lt;bean class=&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34; p:prefix=&#34;/WEB-INF/jsp/&#34; p:suffix=&#34;.jsp&#34;&amp;lt;/bean
+&amp;lt;bean id=&#34;messageSource&#34; class=&#34;org.springframework.context.support.ResourceBundleMessageSource&#34;
+p:basename=&#34;Messages&#34;&amp;lt;/bean
+&amp;lt;/beans
+ I have configured my business serices and DAOs in applicationContext.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC3 Hibernate CRUD Sample Application</title>
+      <link>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</link>
+      <pubDate>Fri, 01 Apr 2011 13:16:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</guid>
+      <description>To learn any web framework starting with a HelloWorld application is a good idea. Once we get familiarity with the framework configuration it would be better to do a CRUD(Create,Read,Update,Delete) application which covers various aspects of a web framework like Validations, Request URL Mappings, Request Parameter Binding,
+Pre-populating forms etc.
+Now I am going to explain how to write a Simple CRUD application using SpringMVC3, Hibernate and MySQL.
+Our Application is ContactsManagements where you can view or search contacts, create new contacts, edit or delete existing contacts.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC HelloWorld Tutorial</title>
+      <link>https://sivalabs.github.io/2011/03/springmvc-helloworld-tutorial/</link>
+      <pubDate>Tue, 29 Mar 2011 02:15:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/03/springmvc-helloworld-tutorial/</guid>
+      <description>Spring is a popular Application framework based on Inversion Of Control/DependencyInjection principle.
+SpringMVC is a framework following MVC architecture for building web applications.
+Let us see how to create simple Hello World application using SpringMVC.
+Step1 :
+Copy the SpringMVC dependent libraries into WEB-INF/lib folder.
+You can download the latest Spring bundle at http://www.springsource.org/download
+Step2:
+Configure the Spring&amp;#8217;s FrontController class DispatcherServlet in web.xml.
+You can configure the other spring beans (if any) in XMLs and wireup using ContextLoaderListener as follows:</description>
+    </item>
+    
+    <item>
+      <title>JSON processing using Jackson Java JSON Processor</title>
+      <link>https://sivalabs.github.io/2011/03/json-processing-using-jackson-java-json-processor/</link>
+      <pubDate>Wed, 23 Mar 2011 06:35:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/03/json-processing-using-jackson-java-json-processor/</guid>
+      <description>JSON(Javascript Object Notation) is becoming more popular data exchange format.
+While developing Web applications using Javascript frameworks like YUI, ExtJS, DOJO etc
+we can use either XML or JSON to exchange the data between the client and server.
+Normally we get the response from the server in terms of java objects. Then in Servlets or Action classes we need to build the JSON from objects and send back to client.</description>
+    </item>
+    
+    <item>
+      <title>Solution for “Eclipse is running in a JRE, but a JDK is required” problem</title>
+      <link>https://sivalabs.github.io/2011/02/solution-for-eclipse-is-running-in-jre/</link>
+      <pubDate>Mon, 21 Feb 2011 06:44:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/solution-for-eclipse-is-running-in-jre/</guid>
+      <description>Hi,
+When i installed Maven2 Plugin for eclipse i was getting the below error message when i startup my Eclipse IDE.
+After that when I tried to perform Maven operations thrugh Eclipse I got some errors saying &amp;#8220;&amp;#8230;/tools.jar&amp;#8221; is not there.
+I did the below things to get rid of that problem.
+open the eclipse.ini file and add the below argument.
+-vm
+C:/Siva/Java/jdk1.6.0_04/bin/javaw.exe
+Note: The VM configuration should be in two lines and in between &amp;#8211;lancher and -vmargs.</description>
+    </item>
+    
+    <item>
+      <title>Spring&#43;Hibernate Application with zero XML</title>
+      <link>https://sivalabs.github.io/2011/02/springhibernate-application-with-zero-xml/</link>
+      <pubDate>Thu, 17 Feb 2011 17:00:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/springhibernate-application-with-zero-xml/</guid>
+      <description>Spring framework came up with Annotation support since 2.5 version which eases the development.
+Whether Annotation based approach better or XML approach is better is depends on the project and their personal preference.
+Let us see how we can write a Simple Application using Spring and Hibernate using Annotations, no xml at all.
+The configuration for JDBC datasource and Hibernate properties:
+application.properties
+################### JDBC Configuration ##########################
+jdbc.driverClassName=org.hsqldb.jdbcDriver
+jdbc.url=jdbc:hsqldb:file:db/SivaLabsDB;shutdown=true
+jdbc.username=sa
+jdbc.password=</description>
+    </item>
+    
+    <item>
+      <title>Java Coding Best Practices: Better Search Implementation</title>
+      <link>https://sivalabs.github.io/2011/02/java-coding-best-practices-better-search-implementation/</link>
+      <pubDate>Tue, 08 Feb 2011 20:52:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/java-coding-best-practices-better-search-implementation/</guid>
+      <description>In web applications searching for information based on the selected criteria and displaying the results is a very common requirement.
+Suppose we need to search users based on their name. The end user will enter the username in the textbox and hit the search button and the user results will be fetched from database and display in a grid.
+In the first look it looks simple and we start to implement it as follows:</description>
+    </item>
+    
+    <item>
+      <title>Syntax Highlighting</title>
+      <link>https://sivalabs.github.io/2011/02/syntax-highlighting/</link>
+      <pubDate>Fri, 04 Feb 2011 00:38:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/syntax-highlighting/</guid>
+      <description>To enable syntax highlighting on blogspot follow the below steps.
+Go to Design &amp;#8211;&amp;gt; EditHTML&amp;#8211;&amp;gt;Edit Template section
+Add the following just before 
+&amp;lt;!-- Add-in CSS for syntax highlighting --&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shCore.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushCpp.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushCSharp.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushCss.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushDelphi.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushJava.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushJScript.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushPhp.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushPython.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushRuby.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushSql.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushVb.js&#39; type=&#39;text/javascript&#39;/&amp;gt; &amp;lt;script src=&#39;http://syntaxhighlighter.googlecode.com/svn/trunk/Scripts/shBrushXml.js&#39; type=&#39;text/javascript&#39;/&amp;gt;  Add the following just before</description>
+    </item>
+    
+    <item>
+      <title>PrimeFaces QuickStart Tutorial-Part1</title>
+      <link>https://sivalabs.github.io/2011/02/primefaces-quickstart-tutorial-part1/</link>
+      <pubDate>Tue, 01 Feb 2011 19:57:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/primefaces-quickstart-tutorial-part1/</guid>
+      <description>PrimeFaces is an open source component library for JSF 2.0 with morethan 100 rich components. PrimeFaces is far better than many other JSF component libraries because of the following reasons:
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 1. Rich set of UI components (DataTable, AutoComplete, HtmlEditor, Charts etc).
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2. No extra xml configuration is required and there is no required dependencies.
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3. Built-in Ajax based on standard JSF 2.0 Ajax APIs.
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 4. Skinning Framework with 25+ built-in themes.</description>
+    </item>
+    
+    <item>
+      <title>Finally you need to deliver DeveloperWrittenCode.WAR, not Manager’sManagerialSkills.zip</title>
+      <link>https://sivalabs.github.io/2011/02/finally-you-need-to-deliver-developerwrittencode-war-not-managersmanagerialskills-zip/</link>
+      <pubDate>Tue, 01 Feb 2011 00:40:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/02/finally-you-need-to-deliver-developerwrittencode-war-not-managersmanagerialskills-zip/</guid>
+      <description>Some IT managers perspective on developers made me to write this post.
+A managing director of a company telling to delivery head that
+ We need not worry about developers. If we go around the villages with a car and get the people who just completed their school and give him a computer with internet connection and then give 15 days of time to learn java. Then assign the work and put a deadline.</description>
+    </item>
+    
+    <item>
+      <title>Next level of Don’t Repeat Yourself(DRY) principle</title>
+      <link>https://sivalabs.github.io/2011/01/next-level-of-dont-repeat-yourselfdry-principle/</link>
+      <pubDate>Sun, 30 Jan 2011 13:16:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/next-level-of-dont-repeat-yourselfdry-principle/</guid>
+      <description>We are building the software applications using various languages for several years. Over the time new frameworks, new tools, new methodologies have came up. Especially in Java platform, now we have plenty of choices in each area following various design patterns and principles like MVC, FrontController etc.
+We have many development principles like KISS(Keep It Simple Stupid), DRY(Don&amp;#8217;t Repeat Yourself) which encourages to write better code which is maintainable. Especially DRY principle is a very good one which every developer should understand and follow.</description>
+    </item>
+    
+    <item>
+      <title>10 things to become an outstanding Java developer</title>
+      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
+      <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
+      <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
+1. Have strong foundation and understanding on OO Principles
+For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
+    </item>
+    
+    <item>
+      <title>Applying IOC/DI to Method Design</title>
+      <link>https://sivalabs.github.io/2011/01/applying-iocdi-to-method-design/</link>
+      <pubDate>Wed, 19 Jan 2011 10:21:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/applying-iocdi-to-method-design/</guid>
+      <description>Eventhough IOC is a generic design pattern, with Spring framework IOC/DI pattern became more popular.
+We can find lot of definitions for IOC/DI over internet, but the underlying concept is same.
+&amp;#8220;Instead of component is responsible for getting the required dependencies to perform a task, a container/factory should build the dependencies and inject the dependencies into the component. Then the component can perform the sole activity for which it is responsible.</description>
+    </item>
+    
+    <item>
+      <title>Aspect Oriented Programming using SpringAOP</title>
+      <link>https://sivalabs.github.io/2011/01/aspect-oriented-programming-using-springaop/</link>
+      <pubDate>Mon, 17 Jan 2011 18:01:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/aspect-oriented-programming-using-springaop/</guid>
+      <description>While developing software applications for a business we do recieve the requirements either from requirements gathering team or from business analysts. In general those requirements are functional requirements which represents the activities that the business is doing. while developing software applications, apart from the functional requirements we should also consider some other points like performance, transaction management, security, logging etc. These are called non-functional requirements.
+Suppose let us consider a BookStore application which is providing web access the store.</description>
+    </item>
+    
+    <item>
+      <title>Struts, Spring, Hibernate… What next?</title>
+      <link>https://sivalabs.github.io/2011/01/struts-spring-hibernate-what-next/</link>
+      <pubDate>Sun, 09 Jan 2011 00:16:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/struts-spring-hibernate-what-next/</guid>
+      <description>I have started my career in 2006 as a Java Developer. Since then most of the times I was being involved in developing web applications using Servlets, JSP, Struts, IBatis and Hibernate. In late 2008 I started working with Spring and now I am a big fan of Spring.
+I am pretty much interested in learning new technologies/frameworks. So i started playing with several things like Quartz, JMS, JSF,JasperReports, DWR, XStream API, JPA, JavaMail, DisplayTag, JUnit, Ant, ApachePOI, JExcel blah blah blah.</description>
+    </item>
+    
+    <item>
+      <title>JSF can be used for several purposes.</title>
+      <link>https://sivalabs.github.io/2011/01/jsf-can-be-used-for-several-purposes/</link>
+      <pubDate>Wed, 05 Jan 2011 23:06:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/jsf-can-be-used-for-several-purposes/</guid>
+      <description>Recently I got a wonderful opportunity to work with JSF and I couldn&amp;#8217;t stop myself sharing my feelings on JSF with everyone.
+By god&amp;#8217;s grace till last month i didn&amp;#8217;t a chance to work on JSF in my career. But recently i have to work on a project developed in JSF 1.x.
+After spending few days on JSF technology I realized that JSF is not only a web framework and we can use it for several purposes.</description>
+    </item>
+    
+    <item>
+      <title>How to get List of property values from List of objects?</title>
+      <link>https://sivalabs.github.io/2010/09/package-com/</link>
+      <pubDate>Wed, 08 Sep 2010 13:31:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2010/09/package-com/</guid>
+      <description>package com.javautils.core;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import com.javautils.beans.Address;
+import com.javautils.beans.User;
+public class CollectionUtil
+{
+&amp;nbsp;&amp;nbsp;&amp;nbsp; public static void main(String[] args)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; {
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user1 = new User(1,&#34;AAAA&#34;, &#34;Hyd&#34;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user2 = new User(2,&#34;BBBB&#34;, &#34;Bnglr&#34;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user3 = new User(3,&#34;CCCC&#34;, &#34;Chennai&#34;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user4 = new User(4,&#34;DDD&#34;, &#34;Kochin&#34;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user5 = new User(5,&#34;AAAA&#34;, &#34;US&#34;);
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; Collection&amp;lt;User&amp;gt; users =new ArrayList&amp;lt;User&amp;gt;();</description>
+    </item>
+    
+    <item>
+      <title>Multiple DataSource configurations using Spring</title>
+      <link>https://sivalabs.github.io/2010/09/multiple-datasource-configurations-using-spring/</link>
+      <pubDate>Thu, 02 Sep 2010 05:00:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2010/09/multiple-datasource-configurations-using-spring/</guid>
+      <description>While developing Java based applications we might frequently need to change the database properties based on the environment we are working like PRODUCTION, DEVELOPMENT OR UAT environments. In that situations the following approach will be useful and easy to configure database properties for each environment.
+If we want to change the environment we just need to change the ENV property value.
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+jdbc.properties</description>
+    </item>
+    
+    <item>
+      <title>Java Versions and Code Names</title>
+      <link>https://sivalabs.github.io/2009/10/java-versions-and-code-names/</link>
+      <pubDate>Thu, 08 Oct 2009 14:20:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2009/10/java-versions-and-code-names/</guid>
+      <description>VERSION  CODE NAME  RELEASE DATE     JDK 1.1.4   Sparkler  Sept 12, 1997     JDK 1.1.5   Pumpkin  Dec 3, 1997     JDK 1.1.6   Abigail  April 24, 1998     JDK 1.1.7   Brutus  Sept 28, 1998     JDK 1.1.8   Chelsea  April 8, 1999     J2SE 1.</description>
+    </item>
+    
+    <item>
+      <title>JDBC DataSource Configuration in Tomcat</title>
+      <link>https://sivalabs.github.io/2009/02/jdbc-datasource-configuration-in-tomcat/</link>
+      <pubDate>Tue, 10 Feb 2009 15:03:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2009/02/jdbc-datasource-configuration-in-tomcat/</guid>
+      <description>Put a file named context.xml in META-INF folder which contains:
+&amp;lt;?xml version=&amp;#8221;1.0&amp;#8243; encoding=&amp;#8221;UTF-8&amp;#8243;?&amp;gt;
+
+
+Getting the DataSource:
+Context context = new InitialContext();
+DataSource MYSQL_DATASOURCE = (DataSource) context.lookup(&amp;#8220;java:comp/env/MySQLDS&amp;#8221;);</description>
+    </item>
+    
+    <item>
+      <title>How to kill a process running on a port</title>
+      <link>https://sivalabs.github.io/2009/02/how-to-kill-process-running-on-port/</link>
+      <pubDate>Mon, 09 Feb 2009 13:26:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2009/02/how-to-kill-process-running-on-port/</guid>
+      <description>Hi All,
+Many of the Java developers frequently facing some problems with ports.
+Ex: If JBoss server has started and closed accedentally without properly shutdown process , several processes will remain running on some ports which will causes Port Already binded kind of exceptions.
+In that kind of situations, we can forcefully kill a process running on a port as follows:
+1. get the PID of that process
+d:&amp;gt;netstat –ao</description>
+    </item>
+    
+    <item>
+      <title>Struts1 Vs Struts2 Vs JSF Vs SpringMVC</title>
+      <link>https://sivalabs.github.io/2008/12/struts1-vs-struts2-vs-jsf-vs-springmvc/</link>
+      <pubDate>Sat, 27 Dec 2008 22:51:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2008/12/struts1-vs-struts2-vs-jsf-vs-springmvc/</guid>
+      <description>Hi,
+Recently I have done some research on J2EE Web frameworks usability and features to decide the framework to be used for one of my new projects.
+I consider Struts 1, Struts2, JSF and Spring MVC. After spending some hours on going through each of the frameworks features and some more hours to do a simple application(Proof Of Concept).
+In this process i was excited looking at some of the features, become a fan of one of the frameworks, felt home sick to leave my all time favourite framework and irritated with some of the frameworks.</description>
+    </item>
+    
+    <item>
+      <title>Welcome note</title>
+      <link>https://sivalabs.github.io/2008/12/welcome-note/</link>
+      <pubDate>Sun, 21 Dec 2008 08:05:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2008/12/welcome-note/</guid>
+      <description>Hi All,
+Welcome guys. This is a blog where in you can find tutorials on various Java and J2EE technologies and can have discussions regarding technical problems and application development related issues.</description>
+    </item>
+    
+    <item>
+      <title>What is Inversion Of Control (IOC)?</title>
+      <link>https://sivalabs.github.io/2008/12/what-is-inversion-of-control-ioc/</link>
+      <pubDate>Sun, 21 Dec 2008 04:39:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2008/12/what-is-inversion-of-control-ioc/</guid>
+      <description>Inversion Of Control is a design pattern which suggests the creation of collaborating objects and injecting them should not be done by the dependent object itself.
+For example, Suppose WhetherController(Servlet) is depend on WhetherService which is depend WhetherDAO.
+WhetherController .java
+class WhetherController extends HttpServlet
+{ 
+protected doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException 
+{ 
+WhetherService service = new WhetherService(); 
+service.doSomething(params);
+….
+…. 
+}
+}</description>
+    </item>
+    
+  </channel>
+</rss>

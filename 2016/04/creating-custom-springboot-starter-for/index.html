@@ -1,0 +1,1109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        SivaLabs
+        </title>
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SivaLabs &#8211; My Experiments on Technology</title>
+
+    <link rel='stylesheet' id='sparkling-bootstrap-css'
+          href="/assets/css/bootstrap.min.css" type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='sparkling-icons-css'
+          href="/assets/css/font-awesome.min.css"
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-fonts-css'
+          href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-style-css'
+          href="/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' id='socicon-css'
+          href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css"
+          type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.js"></script>
+
+    <script type='text/javascript'
+            src="/assets/js/vendor/modernizr.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/functions.min.js"></script>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+</head>
+
+</head>
+
+<body class="home blog">
+<div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+    <nav class="navbar navbar-default " role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="site-navigation-inner col-sm-12">
+                    <div class="navbar-header">
+                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div id="logo">
+                            <h1 class="site-name">
+                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul id="menu-home" class="nav navbar-nav">
+
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/java">Java</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="/tags/spring">Spring </a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/javaee">Java EE</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/videos">Videos</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/mybooks">My Books</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <div id="content" class="site-content">
+
+        <div class="top-section">
+        </div>
+
+        <div class="container main-content-area">
+            <div class="row side-pull-left">
+                <div class="main-content-inner col-sm-12 col-md-8">
+
+                    <div id="primary" class="content-area">
+                        
+
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header page-header">
+
+            <h1 class="entry-title ">
+                Creating Custom SpringBoot Starter for Twitter4j
+            </h1>
+
+            <div class="entry-meta">
+                <span class="posted-on"><i class="fa fa-calendar"></i>
+                    <time class="entry-date published"
+                          datetime="2016-04-08T06:57:23">April 08, 2016</time>
+                </span>
+                <span class="byline">
+                    <i class="fa fa-user"></i>
+                    <span class="author vcard">Siva</span>
+                </span>
+                <span class="cat-links"><i class="fa fa-folder-open-o"></i>
+				    
+                        
+                        <a rel="category tag" href="/categories/spring" rel="category">Spring</a>
+                    
+
+                </span>
+
+            </div>
+        </header>
+
+        <div class="entry-content">
+            
+
+<p>**SpringBoot **provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.</p>
+
+<p>In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.</p>
+
+<p>In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create <strong>twitter4j-spring-boot-starter</strong> which will auto-configure Twitter4J beans.</p>
+
+<p>To accomplish this, we are going to create:</p>
+
+<ol>
+<li>&nbsp;<strong>twitter4j-spring-boot-autoconfigure</strong> module which contains Twitter4J AutoConfiguration bean definitions&nbsp;</li>
+<li><strong>twitter4j-spring-boot-starter</strong> module which pulls in <strong>twitter4j-spring-boot-autoconfigure</strong> and <strong>twitter4j-core</strong> dependencies&nbsp;</li>
+<li>Sample application which uses <strong>twitter4j-spring-boot-starter</strong>&nbsp;</li>
+</ol>
+
+<h3 id="create-parent-module-spring-boot-starter-twitter4j">Create Parent Module spring-boot-starter-twitter4j</h3>
+
+<p>First we are going to create a parent pom type module to define dependency versions and sub-modules.</p>
+
+<pre class="brush: xml;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                        http://maven.apache.org/maven-v4_0_0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.sivalabs&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-twitter4j&lt;/artifactId&gt;
+    &lt;packaging&gt;pom&lt;/packaging&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;spring-boot-starter-twitter4j&lt;/name&gt;
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;twitter4j.version&gt;4.0.3&lt;/twitter4j.version&gt;
+        &lt;spring-boot.version&gt;1.3.2.RELEASE&lt;/spring-boot.version&gt;
+    &lt;/properties&gt;
+
+    &lt;modules&gt;
+        &lt;module&gt;twitter4j-spring-boot-autoconfigure&lt;/module&gt;
+        &lt;module&gt;twitter4j-spring-boot-starter&lt;/module&gt;
+        &lt;module&gt;twitter4j-spring-boot-sample&lt;/module&gt;
+    &lt;/modules&gt;
+
+    &lt;dependencyManagement&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;
+                &lt;version&gt;${spring-boot.version}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.twitter4j&lt;/groupId&gt;
+                &lt;artifactId&gt;twitter4j-core&lt;/artifactId&gt;
+                &lt;version&gt;${twitter4j.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;
+
+&lt;/project&gt;
+</pre>
+
+<p>In this <strong>pom.xml</strong> we are defining the SpringBoot and Twitter4j versions in <dependencymanagement> section so that we don’t need to specify versions all over the places.&nbsp;</dependencymanagement></p>
+
+<p><dependencymanagement><br />
+</dependencymanagement></p>
+
+<h3 id="dependencymanagement-create-twitter4j-spring-boot-autoconfigure-module-nbsp-dependencymanagement"><dependencymanagement>Create twitter4j-spring-boot-autoconfigure module&nbsp;</dependencymanagement></h3>
+
+<p>Create a child module with name <strong>twitter4j-spring-boot-autoconfigure</strong> in our parent maven module <strong>spring-boot-starter-twitter4j</strong>.&nbsp;</p>
+
+<p>Add the maven dependencies such as spring-boot, <strong>spring-boot-autoconfigure</strong>, <strong>twitter4j-core</strong> and **junit **as follows:</p>
+
+<pre class="brush: xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+               http://maven.apache.org/maven-v4_0_0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.sivalabs&lt;/groupId&gt;
+    &lt;artifactId&gt;twitter4j-spring-boot-autoconfigure&lt;/artifactId&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;com.sivalabs&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-twitter4j&lt;/artifactId&gt;
+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-autoconfigure&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.twitter4j&lt;/groupId&gt;
+            &lt;artifactId&gt;twitter4j-core&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;
+</pre>
+
+<div>
+</div>
+
+<p>Note that we have specified <strong>twitter4j-core</strong> as **optional **dependency because <strong>twitter4j-core</strong> should be added to the project only when <strong>twitter4j-spring-boot-starter</strong> is added to the project.</p>
+
+<div>
+</div>
+
+<h3 id="create-twitter4jproperties-to-hold-the-twitter4j-config-parameters-nbsp">Create Twitter4jProperties to hold the Twitter4J config parameters&nbsp;</h3>
+
+<div>
+  Create <b>Twitter4jProperties.java </b>to hold the Twitter4J OAuth config parameters.
+</div>
+
+<div>
+</div>
+
+<div>
+  <pre class="brush: java">
+package com.sivalabs.spring.boot.autoconfigure;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
+
+@ConfigurationProperties(prefix= Twitter4jProperties.TWITTER4J_PREFIX)
+public class Twitter4jProperties {
+
+    public static final String TWITTER4J_PREFIX = "twitter4j";
+
+    private Boolean debug = false;
+
+    @NestedConfigurationProperty
+    private OAuth oauth = new OAuth();
+
+    public Boolean getDebug() {
+        return debug;
+    }
+
+    public void setDebug(Boolean debug) {
+        this.debug = debug;
+    }
+
+    public OAuth getOauth() {
+        return oauth;
+    }
+
+    public void setOauth(OAuth oauth) {
+        this.oauth = oauth;
+    }
+
+    public static class OAuth {
+
+        private String consumerKey;
+        private String consumerSecret;
+        private String accessToken;
+        private String accessTokenSecret;
+
+        public String getConsumerKey() {
+            return consumerKey;
+        }
+        public void setConsumerKey(String consumerKey) {
+            this.consumerKey = consumerKey;
+        }
+        public String getConsumerSecret() {
+            return consumerSecret;
+        }
+        public void setConsumerSecret(String consumerSecret) {
+            this.consumerSecret = consumerSecret;
+        }
+        public String getAccessToken() {
+            return accessToken;
+        }
+        public void setAccessToken(String accessToken) {
+            this.accessToken = accessToken;
+        }
+        public String getAccessTokenSecret() {
+            return accessTokenSecret;
+        }
+        public void setAccessTokenSecret(String accessTokenSecret) {
+            this.accessTokenSecret = accessTokenSecret;
+        }
+    }
+}
+</pre>
+  
+  <div>
+  </div>
+  
+
+<p><p>
+    With this configuration object we can configure the twitter4j properties in <b>application.properties</b> as follows:</div></p>
+
+<pre><code>&lt;div&gt;
+  &amp;nbsp;&lt;/p&gt; 
+
+  &lt;p&gt;
+  &lt;/p&gt;
+
+  &lt;pre class=&quot;brush: java&quot;&gt;twitter4j.debug=true
+</code></pre>
+
+<p>twitter4j.oauth.consumer-key=your-consumer-key-here
+twitter4j.oauth.consumer-secret=your-consumer-secret-here
+twitter4j.oauth.access-token=your-access-token-here
+twitter4j.oauth.access-token-secret=your-access-token-secret-here
+</pre></p>
+
+<pre><code>  &lt;div&gt;
+  &lt;/div&gt;
+
+  &lt;h3&gt;
+    &lt;p&gt;
+      Create Twitter4jAutoConfiguration to auto-configure Twitter4J&amp;nbsp;&lt;/h3&gt; &lt;/div&gt; 
+
+      &lt;div&gt;
+        Here comes the key part of our starter. &lt;b&gt;Twitter4jAutoConfiguration &lt;/b&gt;configuration class contains the bean definitions that will be automatically configured based on some criteria.&amp;nbsp;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        What is that criteria?&amp;nbsp;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;ul&gt;
+          &lt;li&gt;
+            If &lt;b&gt;twitter4j.TwitterFactory&lt;/b&gt;.class is on classpath&amp;nbsp;
+          &lt;/li&gt;
+          &lt;li&gt;
+            If &lt;b&gt;TwitterFactory &lt;/b&gt;bean is not already defined explicitly&amp;nbsp;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        So, the &lt;b&gt;Twitter4jAutoConfiguration &lt;/b&gt;goes like this.
+      &lt;/div&gt;
+
+      &lt;div&gt;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;pre class=&quot;brush: java&quot;&gt;
+</code></pre>
+
+<p>package com.sivalabs.spring.boot.autoconfigure;</p>
+
+<p>import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;</p>
+
+<p>import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
+import twitter4j.conf.ConfigurationBuilder;</p>
+
+<p>@Configuration
+@ConditionalOnClass({ TwitterFactory.class, Twitter.class })
+@EnableConfigurationProperties(Twitter4jProperties.class)
+public class Twitter4jAutoConfiguration {</p>
+
+<pre><code>private static Log log = LogFactory.getLog(Twitter4jAutoConfiguration.class);
+
+@Autowired
+private Twitter4jProperties properties;
+
+@Bean
+@ConditionalOnMissingBean
+public TwitterFactory twitterFactory(){
+
+    if (this.properties.getOauth().getConsumerKey() == null
+        || this.properties.getOauth().getConsumerSecret() == null
+        || this.properties.getOauth().getAccessToken() == null
+        || this.properties.getOauth().getAccessTokenSecret() == null)
+    {
+        String msg = &quot;Twitter4j properties not configured properly.&quot; + 
+                     &quot; Please check twitter4j.* properties settings in configuration file.&quot;;
+        log.error(msg);
+        throw new RuntimeException(msg);
+    }
+
+    ConfigurationBuilder cb = new ConfigurationBuilder();
+    cb.setDebugEnabled(properties.getDebug())
+      .setOAuthConsumerKey(properties.getOauth().getConsumerKey())
+      .setOAuthConsumerSecret(properties.getOauth().getConsumerSecret())
+      .setOAuthAccessToken(properties.getOauth().getAccessToken())
+      .setOAuthAccessTokenSecret(properties.getOauth().getAccessTokenSecret());
+    TwitterFactory tf = new TwitterFactory(cb.build());
+    return tf;
+}
+
+@Bean
+@ConditionalOnMissingBean
+public Twitter twitter(TwitterFactory twitterFactory){
+    return twitterFactory.getInstance();
+}
+</code></pre>
+
+<p>}
+</pre></p>
+
+<pre><code>        &lt;div&gt;
+        &lt;/div&gt;
+
+        &lt;p&gt;
+          We have used &lt;b&gt;@ConditionalOnClass({ TwitterFactory.class, Twitter.class })&lt;/b&gt; to specify that this auto configuration should take place only when &lt;b&gt;TwitterFactory.class, Twitter.class &lt;/b&gt;classes are present.&amp;nbsp;&lt;/div&gt; 
+
+          &lt;div&gt;
+          &lt;/div&gt;
+
+          &lt;div&gt;
+            We have also used &lt;b&gt;@ConditionalOnMissingBean&lt;/b&gt; on bean definition methods to specify consider this bean definition only if &lt;b&gt;TwitterFactory&lt;/b&gt;/&lt;b&gt;Twitter &lt;/b&gt;beans are not already defined explicitly.&amp;nbsp;
+          &lt;/div&gt;
+
+          &lt;div&gt;
+          &lt;/div&gt;
+
+          &lt;div&gt;
+            Also note that we have annotated with &lt;b&gt;@EnableConfigurationProperties(Twitter4jProperties.class)&lt;/b&gt; to enable support for ConfigurationProperties and injected &lt;b&gt;Twitter4jProperties &lt;/b&gt;bean.&amp;nbsp;
+          &lt;/div&gt;
+
+          &lt;div&gt;
+          &lt;/div&gt;
+
+          &lt;div&gt;
+            Now we need to configure our custom &lt;b&gt;Twitter4jAutoConfiguration &lt;/b&gt;in &lt;b&gt;src/main/resources/META-INF/spring.factories&lt;/b&gt; file as follows:&lt;/p&gt; 
+
+            &lt;p&gt;
+              &lt;b&gt;org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.sivalabs.spring.boot.autoconfigure.Twitter4jAutoConfiguration&lt;/b&gt;&amp;nbsp;&lt;/div&gt; 
+
+              &lt;div&gt;
+              &lt;/div&gt;
+
+              &lt;h3&gt;
+                Create twitter4j-spring-boot-starter module&amp;nbsp;
+              &lt;/h3&gt;
+
+              &lt;div&gt;
+                Create a child module with name twitter4j-spring-boot-starter in our parent maven module spring-boot-starter-twitter4j.
+              &lt;/div&gt;
+
+              &lt;div&gt;
+              &lt;/div&gt;
+
+              &lt;div&gt;
+                &lt;pre class=&quot;brush: xml&quot;&gt;
+</code></pre>
+
+<p>&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?&gt;
+&lt;project xmlns=&ldquo;<a href="http://maven.apache.org/POM/4.0.0&quot;">http://maven.apache.org/POM/4.0.0&quot;</a>
+    xmlns:xsi=&ldquo;<a href="http://www.w3.org/2001/XMLSchema-instance&quot;">http://www.w3.org/2001/XMLSchema-instance&quot;</a>
+    xsi:schemaLocation=&ldquo;<a href="http://maven.apache.org/POM/4.0.0">http://maven.apache.org/POM/4.0.0</a>
+                        <a href="http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;">http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;</a>
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.sivalabs&lt;/groupId&gt;
+    &lt;artifactId&gt;twitter4j-spring-boot-starter&lt;/artifactId&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</p>
+
+<pre><code>&amp;lt;parent&amp;gt;
+    &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-boot-starter-twitter4j&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
+&amp;lt;/parent&amp;gt;
+
+&amp;lt;properties&amp;gt;
+    &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
+&amp;lt;/properties&amp;gt;
+
+
+&amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;spring-boot-starter&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;twitter4j-spring-boot-autoconfigure&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;${project.version}&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+
+    &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.twitter4j&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;twitter4j-core&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+
+&amp;lt;/dependencies&amp;gt;
+</code></pre>
+
+<p>&lt;/project&gt;
+</pre></p>
+
+<pre><code>                &lt;div&gt;
+                &lt;/div&gt;
+
+                &lt;p&gt;
+                  Note that in this maven module we are actually pulling in &lt;b&gt;twitter4j-core&lt;/b&gt; dependency.&amp;nbsp;&lt;/div&gt; 
+
+                  &lt;div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div&gt;
+                    We don’t need to add any code in this module, but optionally we can specify what are the dependencies we are going to provide through this starter in &lt;b&gt;src/main/resources/META-INF/spring.provides&lt;/b&gt; file as follows:&amp;nbsp;
+                  &lt;/div&gt;
+
+                  &lt;div&gt;
+                    &lt;b&gt;provides: twitter4j-core&amp;nbsp;&lt;/b&gt;
+                  &lt;/div&gt;
+
+                  &lt;div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div&gt;
+                    That’s all for our starter.&amp;nbsp;
+                  &lt;/div&gt;
+
+                  &lt;div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div&gt;
+                    Let us create a sample using our brand new starter &lt;b&gt;twitter4j-spring-boot-starter&lt;/b&gt;.&amp;nbsp;
+                  &lt;/div&gt;
+
+                  &lt;div&gt;
+                  &lt;/div&gt;
+
+                  &lt;h3&gt;
+                    Create twitter4j-spring-boot-sample sample application&amp;nbsp;
+                  &lt;/h3&gt;
+
+                  &lt;div&gt;
+                    Let us create a simple SpringBoot application and add our &lt;b&gt;twitter4j-spring-boot-starter&lt;/b&gt; dependency.
+                  &lt;/div&gt;
+
+                  &lt;div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div&gt;
+                    &lt;pre class=&quot;brush: xml&quot;&gt;
+</code></pre>
+
+<p>&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?&gt;
+&lt;project xmlns=&ldquo;<a href="http://maven.apache.org/POM/4.0.0&quot;">http://maven.apache.org/POM/4.0.0&quot;</a>
+    xmlns:xsi=&ldquo;<a href="http://www.w3.org/2001/XMLSchema-instance&quot;">http://www.w3.org/2001/XMLSchema-instance&quot;</a>
+    xsi:schemaLocation=&ldquo;<a href="http://maven.apache.org/POM/4.0.0">http://maven.apache.org/POM/4.0.0</a>
+                        <a href="http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;">http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;</a>
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.sivalabs&lt;/groupId&gt;
+    &lt;artifactId&gt;twitter4j-spring-boot-sample&lt;/artifactId&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</p>
+
+<pre><code>&amp;lt;parent&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.3.2.RELEASE&amp;lt;/version&amp;gt;
+&amp;lt;/parent&amp;gt;
+
+&amp;lt;properties&amp;gt;
+    &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
+    &amp;lt;java.version&amp;gt;1.8&amp;lt;/java.version&amp;gt;
+&amp;lt;/properties&amp;gt;
+
+&amp;lt;build&amp;gt;
+    &amp;lt;plugins&amp;gt;
+        &amp;lt;plugin&amp;gt;
+            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+            &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
+        &amp;lt;/plugin&amp;gt;
+    &amp;lt;/plugins&amp;gt;
+&amp;lt;/build&amp;gt;
+
+&amp;lt;dependencies&amp;gt;
+
+    &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;twitter4j-spring-boot-starter&amp;lt;/artifactId&amp;gt;
+        &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+    &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;spring-boot-starter-test&amp;lt;/artifactId&amp;gt;
+        &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+&amp;lt;/dependencies&amp;gt;
+</code></pre>
+
+<p>&lt;/project&gt;
+</pre></p>
+
+<pre><code>                    &lt;div&gt;
+                    &lt;/div&gt;
+
+                    &lt;p&gt;
+                      Create the entry-point class &lt;b&gt;SpringbootTwitter4jDemoApplication &lt;/b&gt;as follows:&lt;/div&gt; 
+
+                      &lt;div&gt;
+                        &amp;nbsp;&lt;/p&gt; 
+
+                        &lt;p&gt;
+                        &lt;/p&gt;
+
+                        &lt;pre class=&quot;brush: java&quot;&gt;
+</code></pre>
+
+<p>package com.sivalabs.demo;</p>
+
+<p>import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;</p>
+
+<p>@SpringBootApplication
+public class SpringbootTwitter4jDemoApplication {</p>
+
+<pre><code>public static void main(String[] args) {
+    SpringApplication.run(SpringbootTwitter4jDemoApplication.class, args);
+}
+</code></pre>
+
+<p>}
+</pre></p>
+
+<pre><code>                        &lt;div&gt;
+                        &lt;/div&gt;
+
+                        &lt;p&gt;
+                          Create &lt;b&gt;TweetService &lt;/b&gt;as follows:&lt;/div&gt; 
+
+                          &lt;div&gt;
+                            &amp;nbsp;&lt;/p&gt; 
+
+                            &lt;p&gt;
+                            &lt;/p&gt;
+
+                            &lt;pre class=&quot;brush: java&quot;&gt;
+</code></pre>
+
+<p>package com.sivalabs.demo;</p>
+
+<p>import java.util.ArrayList;
+import java.util.List;</p>
+
+<p>import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;</p>
+
+<p>import twitter4j.ResponseList;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;</p>
+
+<p>@Service
+public class TweetService {</p>
+
+<pre><code>@Autowired
+private Twitter twitter;
+
+public List&amp;lt;String&amp;gt; getLatestTweets(){
+    List&amp;lt;String&amp;gt; tweets = new ArrayList&amp;lt;&amp;gt;();
+    try {
+        ResponseList&amp;lt;Status&amp;gt; homeTimeline = twitter.getHomeTimeline();
+        for (Status status : homeTimeline) {
+            tweets.add(status.getText());
+        }
+    } catch (TwitterException e) {
+        throw new RuntimeException(e);
+    }
+    return tweets;
+}
+</code></pre>
+
+<p>}
+</pre></p>
+
+<pre><code>                            &lt;div&gt;
+                            &lt;/div&gt;
+
+                            &lt;p&gt;
+                              Now create a Test to verify our Twitter4j AutoConfigutation.&amp;nbsp;
+                            &lt;/p&gt;
+                          &lt;/div&gt;
+
+                          &lt;div&gt;
+                          &lt;/div&gt;
+
+                          &lt;div&gt;
+                            &lt;span style=&quot;color: red;&quot;&gt;Before that make sure you have set your twitter4j oauth configuration parameter to your actual values. You can get them from &lt;b&gt;https://apps.twitter.com/&lt;/b&gt;&lt;/span&gt;
+                          &lt;/div&gt;
+
+                          &lt;div&gt;
+                            &lt;br /&gt; &amp;nbsp;&lt;/p&gt; 
+
+                            &lt;p&gt;
+                            &lt;/p&gt;
+
+                            &lt;pre class=&quot;brush: java&quot;&gt;
+</code></pre>
+
+<p>package com.sivalabs.demo;</p>
+
+<p>import java.util.List;</p>
+
+<p>import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</p>
+
+<p>import twitter4j.TwitterException;</p>
+
+<p>@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(SpringbootTwitter4jDemoApplication.class)
+public class SpringbootTwitter4jDemoApplicationTest  {</p>
+
+<pre><code>@Autowired
+private TweetService tweetService;
+
+@Test
+public void testGetTweets() throws TwitterException {
+    List&amp;lt;String&amp;gt; tweets = tweetService.getLatestTweets();
+    for (String tweet : tweets) {
+        System.err.println(tweet);
+    }
+}
+</code></pre>
+
+<p>}
+</pre></p>
+
+<pre><code>                            &lt;div&gt;
+                            &lt;/div&gt;
+
+                            &lt;p&gt;
+                              Now you should be able to see the latest tweets on your console output.&amp;nbsp;
+                            &lt;/p&gt;
+                          &lt;/div&gt;
+
+                          &lt;div&gt;
+                          &lt;/div&gt;
+
+                          &lt;div&gt;
+                            You can find the code on GitHub &lt;b&gt;&lt;a href=&quot;https://github.com/sivaprasadreddy/twitter4j-spring-boot-starter&quot;&gt;https://github.com/sivaprasadreddy/twitter4j-spring-boot-starter&lt;/a&gt;&lt;/b&gt;
+                          &lt;/div&gt;
+</code></pre>
+
+        </div>
+        <footer class="entry-meta">
+            <div class="tagcloud" style="display: block;">
+                    <a href="/tags/springboot/" rel="tag">SpringBoot</a></li>
+            </div>
+        </footer>
+    </div>
+</article>
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2016/06/my-review-of-sanjay-patels-spring-course/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">My Review of Sanjay Patel’s Spring Course</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2016/03/springboot-working-with-jooq/" rel="prev">
+                <span class="post-title">SpringBoot : Working with JOOQ
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+                    </div>
+
+                </div>
+                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+                    <div class="well">
+
+    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+        <h3 class="widget-title">Social Networks</h3>
+
+        <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://github.com/sivaprasadreddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+                          style="background-color : #221e1b; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://twitter.com/sivalabs"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                          style="background-color : #55acee; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://facebook.com/sivaprasadreddy.k"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
+                          data-hover-rule="background-color" data-hover-color="#3b5998"
+                          style="background-color : #3b5998; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://plus.google.com/u/0/+SivaPrasadReddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-google"
+                          data-hover-rule="background-color" data-hover-color="#d93e2d"
+                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                              data-hover-rule="background-color" data-hover-color="#3371b7"
+                              style="background-color : #3371b7; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="http://www.youtube.com/c/SivaPrasadReddy%20"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                              data-hover-rule="background-color" data-hover-color="#e02a20"
+                              style="background-color : #e02a20; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <aside id="widget_sp_image-4" class="widget widget_sp_image">
+        <h3 class="widget-title">My Recent Books</h3><a
+            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
+            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
+            <img
+            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
+            style="max-width: 100%;"
+            src="https://images-na.ssl-images-amazon.com/images/I/41SaZiIaUNL._SX348_BO1,204,203,200_.jpg"/></a>
+    </aside>
+
+    <aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent
+        Posts</h3>
+        <ul>
+        </ul>
+    </aside>
+
+    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tagcloud">
+
+                <div class="widget__content">
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/android" title="android">android</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/angularjs" title="angularjs">angularjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/best-practices" title="best-practices">best-practices</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/blogging" title="blogging">blogging</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/books" title="books">books</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/design-patterns" title="design-patterns">design-patterns</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/extjs" title="extjs">extjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/hibernate" title="hibernate">hibernate</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/ide" title="ide">ide</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/interviews" title="interviews">interviews</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/it" title="it">it</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/java" title="java">java</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javaee" title="javaee">javaee</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javamail" title="javamail">javamail</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javascript" title="javascript">javascript</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jboss" title="jboss">jboss</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jcart" title="jcart">jcart</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jooq" title="jooq">jooq</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jpa" title="jpa">jpa</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jsf" title="jsf">jsf</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/linux" title="linux">linux</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/maven" title="maven">maven</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/mybatis" title="mybatis">mybatis</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/primefaces" title="primefaces">primefaces</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/quartz" title="quartz">quartz</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/rest" title="rest">rest</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/resteasy" title="resteasy">resteasy</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/spring" title="spring">spring</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springboot" title="springboot">springboot</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springcloud" title="springcloud">springcloud</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springmvc" title="springmvc">springmvc</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springsecurity" title="springsecurity">springsecurity</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tips" title="tips">tips</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tomcat" title="tomcat">tomcat</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/webservices" title="webservices">webservices</a>
+                </div>
+
+        </div>
+    </aside>
+
+    <aside class="widget widget_categories">
+        <h3 class="widget-title">Categories</h3>
+        <ul>
+                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                    <li class="cat-item"><a href="/categories/books">Books</a></li>
+                    <li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li>
+                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                    <li class="cat-item"><a href="/categories/java">Java</a></li>
+                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                    <li class="cat-item"><a href="/categories/javascript">Javascript</a></li>
+                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        </ul>
+    </aside>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-area">
+        <div class="container footer-inner">
+    <div class="row">
+
+    </div>
+</div>
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info container">
+        <div class="row">
+            <nav role="navigation" class="col-md-3">
+            </nav>
+            <div class="copyright col-md-6">
+                <a href="http://sivalabs.in/" target="_blank">SivaLabs</a> Powered by <a
+                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
+        </div>
+    </div>
+    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
+</footer>
+
+    </div>
+</div>
+
+</body>
+
+</html>

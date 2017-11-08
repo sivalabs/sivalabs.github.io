@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tomcat on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/tomcat/</link>
+    <description>Recent content in Tomcat on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Feb 2009 15:03:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JDBC DataSource Configuration in Tomcat</title>
+      <link>https://sivalabs.github.io/2009/02/jdbc-datasource-configuration-in-tomcat/</link>
+      <pubDate>Tue, 10 Feb 2009 15:03:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2009/02/jdbc-datasource-configuration-in-tomcat/</guid>
+      <description>Put a file named context.xml in META-INF folder which contains:
+&amp;lt;?xml version=&amp;#8221;1.0&amp;#8243; encoding=&amp;#8221;UTF-8&amp;#8243;?&amp;gt;
+
+
+Getting the DataSource:
+Context context = new InitialContext();
+DataSource MYSQL_DATASOURCE = (DataSource) context.lookup(&amp;#8220;java:comp/env/MySQLDS&amp;#8221;);</description>
+    </item>
+    
+  </channel>
+</rss>

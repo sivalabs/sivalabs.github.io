@@ -1,0 +1,1194 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        SivaLabs
+        </title>
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SivaLabs &#8211; My Experiments on Technology</title>
+
+    <link rel='stylesheet' id='sparkling-bootstrap-css'
+          href="/assets/css/bootstrap.min.css" type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='sparkling-icons-css'
+          href="/assets/css/font-awesome.min.css"
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-fonts-css'
+          href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-style-css'
+          href="/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' id='socicon-css'
+          href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css"
+          type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.js"></script>
+
+    <script type='text/javascript'
+            src="/assets/js/vendor/modernizr.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/functions.min.js"></script>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+</head>
+
+</head>
+
+<body class="home blog">
+<div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+    <nav class="navbar navbar-default " role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="site-navigation-inner col-sm-12">
+                    <div class="navbar-header">
+                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div id="logo">
+                            <h1 class="site-name">
+                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul id="menu-home" class="nav navbar-nav">
+
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/java">Java</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="/tags/spring">Spring </a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/javaee">Java EE</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/videos">Videos</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/mybooks">My Books</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <div id="content" class="site-content">
+
+        <div class="top-section">
+        </div>
+
+        <div class="container main-content-area">
+            <div class="row side-pull-left">
+                <div class="main-content-inner col-sm-12 col-md-8">
+
+                    <div id="primary" class="content-area">
+                        
+
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header page-header">
+
+            <h1 class="entry-title ">
+                JCart Iteration-3 : Manage Categories and Products
+            </h1>
+
+            <div class="entry-meta">
+                <span class="posted-on"><i class="fa fa-calendar"></i>
+                    <time class="entry-date published"
+                          datetime="2015-12-20T05:58:44">December 20, 2015</time>
+                </span>
+                <span class="byline">
+                    <i class="fa fa-user"></i>
+                    <span class="author vcard">Siva</span>
+                </span>
+                <span class="cat-links"><i class="fa fa-folder-open-o"></i>
+				    
+                        
+                        <a rel="category tag" href="/categories/java" rel="category">Java</a>
+                    
+
+                </span>
+
+            </div>
+        </header>
+
+        <div class="entry-content">
+            
+
+<p>In this iteration we will start working on the key requirement of our JCart administration application, ie managing categories and products.</p>
+
+<p>We will create various categories like Birds, Flowers, Vehicles etc. While creating products we will assign it to one of the category.</p>
+
+<p>Managing Categories and Products also looks similar to Manage Roles and Users. But there are few new things we will learn like FileUploading etc.</p>
+
+<h3 id="create-spring-data-jpa-repositories-for-category-and-product">Create Spring Data JPA Repositories for Category and Product</h3>
+
+<pre class="brush: java">public interface CategoryRepository extends JpaRepository&lt;Category, Integer&gt; {
+    Category getByName(String name);
+}
+
+public interface ProductRepository extends JpaRepository&lt;Product, Integer&gt; {
+    Product findByName(String name);
+    Product findBySku(String sku);
+    @Query("select p from Product p where p.name like ?1 or p.sku like ?1 or p.description like ?1")
+    List&lt;Product&gt; search(String query);
+}
+</pre>
+
+<h3 id="create-catalogservice-which-contains-all-the-catalog-related-service-methods">Create CatalogService which contains all the catalog related service methods.</h3>
+
+<pre class="brush: java">@Service
+@Transactional
+public class CatalogService {
+    @Autowired CategoryRepository categoryRepository;
+    @Autowired ProductRepository productRepository;
+    
+    public List&lt;Category&gt; getAllCategories() {
+        
+        return categoryRepository.findAll();
+    }
+    
+    public List&lt;Product&gt; getAllProducts() {
+        
+        return productRepository.findAll();
+    }
+
+    public Category getCategoryByName(String name) {
+        return categoryRepository.getByName(name);
+    }
+    
+    public Category getCategoryById(Integer id) {
+        return categoryRepository.findOne(id);
+    }
+
+    public Category createCategory(Category category) {
+        Category persistedCategory = getCategoryByName(category.getName());
+        if(persistedCategory != null){
+            throw new JCartException("Category "+category.getName()+" already exist");
+        }
+        return categoryRepository.save(category);
+    }
+
+    public Category updateCategory(Category category) {
+        Category persistedCategory = getCategoryById(category.getId());
+        if(persistedCategory == null){
+            throw new JCartException("Category "+category.getId()+" doesn't exist");
+        }
+        persistedCategory.setDescription(category.getDescription());
+        persistedCategory.setDisplayOrder(category.getDisplayOrder());
+        persistedCategory.setDisabled(category.isDisabled());
+        return categoryRepository.save(persistedCategory);
+    }
+
+    public Product getProductById(Integer id) {
+        return productRepository.findOne(id);
+    }
+    
+    public Product getProductBySku(String sku) {
+        return productRepository.findBySku(sku);
+    }
+    
+    public Product createProduct(Product product) {
+        Product persistedProduct = getProductBySku(product.getName());
+        if(persistedProduct != null){
+            throw new JCartException("Product SKU "+product.getSku()+" already exist");
+        }
+        return productRepository.save(product);
+    }
+    
+    public Product updateProduct(Product product) {
+        Product persistedProduct = getProductById(product.getId());
+        if(persistedProduct == null){
+            throw new JCartException("Product "+product.getId()+" doesn't exist");
+        }
+        persistedProduct.setDescription(product.getDescription());
+        persistedProduct.setDisabled(product.isDisabled());
+        persistedProduct.setPrice(product.getPrice());
+        persistedProduct.setCategory(getCategoryById(product.getCategory().getId()));
+        return productRepository.save(persistedProduct);
+    }
+
+    public List&lt;Product&gt; searchProducts(String query) {
+        return productRepository.search("%"+query+"%");
+    }
+}
+</pre>
+
+<h3 id="let-us-create-categorycontroller-to-handle-list-all-categories-create-update-categories-actions-as-follows">Let us create CategoryController to handle list all categories, create/update categories actions as follows:</h3>
+
+<pre class="brush: java">@Controller
+@Secured(SecurityUtil.MANAGE_CATEGORIES)
+public class CategoryController extends JCartAdminBaseController
+{
+    private static final String viewPrefix = "categories/";
+    
+    @Autowired
+    private CatalogService catalogService;
+    
+    @Autowired private CategoryValidator categoryValidator;
+    
+    @Override
+    protected String getHeaderTitle()
+    {
+        return "Manage Categories";
+    }
+    
+    @RequestMapping(value="/categories", method=RequestMethod.GET)
+    public String listCategories(Model model) {
+        List&lt;Category&gt; list = catalogService.getAllCategories();
+        model.addAttribute("categories",list);
+        return viewPrefix+"categories";
+    }
+    
+    @RequestMapping(value="/categories/new", method=RequestMethod.GET)
+    public String createCategoryForm(Model model) {
+        Category category = new Category();
+        model.addAttribute("category",category);
+        
+        return viewPrefix+"create_category";
+    }
+
+    @RequestMapping(value="/categories", method=RequestMethod.POST)
+    public String createCategory(@Valid @ModelAttribute("category") Category category, BindingResult result,
+            Model model, RedirectAttributes redirectAttributes) {
+        categoryValidator.validate(category, result);
+        if(result.hasErrors()){
+            return viewPrefix+"create_category";
+        }
+        Category persistedCategory = catalogService.createCategory(category);
+        logger.debug("Created new category with id : {} and name : {}", persistedCategory.getId(), persistedCategory.getName());
+        redirectAttributes.addFlashAttribute("info", "Category created successfully");
+        return "redirect:/categories";
+    }
+    
+    @RequestMapping(value="/categories/{id}", method=RequestMethod.GET)
+    public String editCategoryForm(@PathVariable Integer id, Model model) {
+        Category category = catalogService.getCategoryById(id);
+        model.addAttribute("category",category);
+        return viewPrefix+"edit_category";
+    }
+    
+    @RequestMapping(value="/categories/{id}", method=RequestMethod.POST)
+    public String updateCategory(Category category, Model model, RedirectAttributes redirectAttributes) {
+        Category persistedCategory = catalogService.updateCategory(category);
+        logger.debug("Updated category with id : {} and name : {}", persistedCategory.getId(), persistedCategory.getName());
+        redirectAttributes.addFlashAttribute("info", "Category updated successfully");
+        return "redirect:/categories";
+    }
+
+}
+</pre>
+
+<h3 id="next-create-the-thymeleaf-views-for-category-management-as-follows">Next create the thymeleaf views for category management as follows:</h3>
+
+<p><strong>jcart-admin/src/main/resources/templates/categories/categories.html</strong></p>
+
+<pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout/mainLayout"&gt;
+      
+      &lt;head&gt;
+        &lt;title&gt;Categories&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        
+        &lt;div layout:fragment="content"&gt;
+            &lt;div class="row"&gt;
+            &lt;div class="col-md-12"&gt;
+              &lt;div class="box"&gt;
+                &lt;div class="box-header"&gt;
+                  &lt;h3 class="box-title"&gt;List of Categories&lt;/h3&gt;
+                  &lt;div class="box-tools"&gt;
+                    &lt;div class="input-group" style="width: 150px;"&gt;
+                        &lt;a class="btn btn-sm btn-default" th:href="@{/categories/new}"&gt;
+                                &lt;i class="fa fa-plus-circle"&gt;&lt;/i&gt; New Category&lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="box-body table-responsive no-padding"&gt;
+                  &lt;table class="table table-hover"&gt;
+                    &lt;tr&gt;
+                      &lt;th style="width: 10px"&gt;#&lt;/th&gt;
+                      &lt;th&gt;Name&lt;/th&gt;
+                      &lt;th&gt;Description&lt;/th&gt;
+                      &lt;th&gt;Edit&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr th:each="cat,iterStat : ${categories}"&gt;
+                      &lt;td th:text="${iterStat.count}"&gt;1&lt;/td&gt;
+                      &lt;td th:text="${cat.name}"&gt;Category Name&lt;/td&gt;
+                      &lt;td th:text="${cat.description}"&gt;Category Description&lt;/td&gt;
+                      &lt;td&gt;&lt;a th:href="@{/categories/{id}(id=${cat.id})}" class="btn btn-sm btn-default"&gt;
+                            &lt;i class="fa fa-edit"&gt;&lt;/i&gt; Edit&lt;/a&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    
+                  &lt;/table&gt;
+                &lt;/div&gt;
+                
+              &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;/div&gt;              
+        &lt;/div&gt;        
+    &lt;/body&gt;    
+&lt;/html&gt;
+</pre>
+
+<p><strong>jcart-admin/src/main/resources/templates/categories/create_category.html</strong></p>
+
+<pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout/mainLayout"&gt;
+      
+      &lt;head&gt;
+        &lt;title&gt;Categories - New&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        
+        &lt;div layout:fragment="content"&gt;
+            
+              &lt;div class="box box-warning"&gt;
+                &lt;div class="box-header with-border"&gt;
+                  &lt;h3 class="box-title"&gt;Create New Category&lt;/h3&gt;
+                &lt;/div&gt;
+                &lt;div class="box-body"&gt;
+                  &lt;form role="form" th:action="@{/categories}" th:object="${category}" method="post"&gt;
+                    &lt;p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" 
+                            th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                    
+                    &lt;div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'"&gt;
+                      &lt;label&gt;Name&lt;/label&gt;
+                      &lt;input type="text" class="form-control" name="name" th:field="*{name}" 
+                            placeholder="Enter Category Name"/&gt;
+                      &lt;p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" 
+                            th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'"&gt;
+                      &lt;label&gt;Description&lt;/label&gt;
+                      &lt;textarea class="form-control" rows="3" name="description" 
+                            th:field="*{description}" placeholder="Enter Category Description"&gt;&lt;/textarea&gt;
+                      &lt;p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" 
+                            th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class="form-group" th:classappend="${#fields.hasErrors('displayOrder')}? 'has-error'"&gt;
+                      &lt;label&gt;Display Order&lt;/label&gt;
+                      &lt;input type="number" class="form-control" name="displayOrder" 
+                                th:field="*{displayOrder}" placeholder="Enter display order number"/&gt;
+                      &lt;p th:if="${#fields.hasErrors('displayOrder')}" th:errors="*{displayOrder}" 
+                            th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                    &lt;/div&gt;
+                                        
+                    &lt;div class="box-footer"&gt;
+                        &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/form&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        &lt;/div&gt;
+        
+    &lt;/body&gt;
+    
+&lt;/html&gt;
+</pre>
+
+<p><strong>jcart-admin/src/main/resources/templates/categories/edit_category.html</strong></p>
+
+<pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout/mainLayout"&gt;
+      
+      &lt;head&gt;
+        &lt;title&gt;Categories - Edit&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+                
+        &lt;div layout:fragment="content"&gt;
+            
+              &lt;div class="box box-warning"&gt;
+                &lt;div class="box-header with-border"&gt;
+                  &lt;h3 class="box-title"&gt;Edit Category&lt;/h3&gt;
+                &lt;/div&gt;
+                &lt;div class="box-body"&gt;
+                  &lt;form role="form" th:action="@{/categories/{id}(id=${category.id})}" 
+                        th:object="${category}" method="post"&gt;
+                  &lt;p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" 
+                        th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                    
+                    &lt;div class="form-group"&gt;
+                      &lt;label&gt;Name&lt;/label&gt;
+                      &lt;input type="text" class="form-control" name="name" 
+                        th:field="*{name}" readonly="readonly"/&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class="form-group"&gt;
+                      &lt;label&gt;Description&lt;/label&gt;
+                      &lt;textarea class="form-control" rows="3" name="description" 
+                        th:field="*{description}" placeholder="Enter Category Description"&gt;&lt;/textarea&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class="form-group"&gt;
+                      &lt;label&gt;Display Order&lt;/label&gt;
+                      &lt;input type="number" class="form-control" name="displayOrder" 
+                            th:field="*{displayOrder}" placeholder="Enter display order number"/&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class="box-footer"&gt;
+                        &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/form&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+        &lt;/div&gt;
+        
+    &lt;/body&gt;
+    
+&lt;/html&gt;
+</pre>
+
+<p>Now you can run the application and test Category related functionality be performing adding new categories or editing existing categories.</p>
+
+<h2 id="product-management">Product Management</h2>
+
+<p>While storing the product details in our database we store the product image on disk and store the path in products.image_url column.</p>
+
+<p>So we will create a ProductForm class to hold the uploaded image <strong>(org.springframework.web.multipart.MultipartFile)</strong> and then convert that into <strong>Product</strong> JPA entity.</p>
+
+<p>Create <strong>ProductForm</strong> class as follows:</p>
+
+<pre class="brush: java">package com.sivalabs.jcart.admin.web.models;
+
+import java.math.BigDecimal;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
+import com.sivalabs.jcart.entities.Category;
+import com.sivalabs.jcart.entities.Product;
+
+public class ProductForm 
+{
+    private Integer id;
+    @NotEmpty
+    private String sku;
+    @NotEmpty
+    private String name;
+    private String description;
+    @NotNull
+    @DecimalMin("0.1")
+    private BigDecimal price = new BigDecimal("0.0");
+    private String imageUrl;
+    private MultipartFile image;
+    private boolean disabled;
+    @NotNull
+    private Integer categoryId;
+    
+    // setters & getters
+    
+    public Product toProduct() {
+        Product p = new Product();
+        p.setId(id);
+        p.setName(name);
+        p.setDescription(description);
+        p.setDisabled(disabled);
+        p.setPrice(price);
+        p.setSku(sku);
+        Category category = new Category();
+        category.setId(categoryId);
+        p.setCategory(category );
+        return p;
+    }
+    
+    public static ProductForm fromProduct(Product product)
+    {
+        ProductForm p = new ProductForm();
+        p.setId(product.getId());
+        p.setName(product.getName());
+        p.setDescription(product.getDescription());
+        p.setDisabled(product.isDisabled());
+        p.setPrice(product.getPrice());
+        p.setSku(product.getSku());
+        p.setCategoryId(product.getCategory().getId());
+        return p;
+    }
+}
+</pre>
+
+<p>We will use apache commons-io library to store/read the files from disk, so add the following maven dependency in jcart-admin/pom.xml</p>
+
+<pre class="brush: html">&lt;dependency&gt;
+    &lt;groupId&gt;commons-io&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+    &lt;version&gt;2.3&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+
+<p>SpringBoot (SpringMVC) supports Servlet 3 javax.servlet.http.Part API for uploading files. for more details see Handling Multipart File Uploads <a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-multipart-file-upload-configuration" target="_blank"><a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-multipart-file-upload-configuration">http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-multipart-file-upload-configuration</a></a></p>
+
+<h3 id="implement-the-productcontroller-to-handle-product-related-actions">Implement the ProductController to handle product related actions.</h3>
+
+<pre class="brush: java">@Controller
+@Secured(SecurityUtil.MANAGE_PRODUCTS)
+public class ProductController extends JCartAdminBaseController
+{
+    private static final String viewPrefix = "products/";
+    @Autowired
+    private CatalogService catalogService;
+    
+    @Autowired private ProductFormValidator productFormValidator;
+    
+    @Override
+    protected String getHeaderTitle()
+    {
+        return "Manage Products";
+    }
+    
+    @ModelAttribute("categoriesList")
+    public List&lt;Category&gt; categoriesList()
+    {
+        return catalogService.getAllCategories();
+    }
+    
+    @RequestMapping(value="/products", method=RequestMethod.GET)
+    public String listProducts(Model model) {
+        model.addAttribute("products",catalogService.getAllProducts());
+        return viewPrefix+"products";
+    }
+
+    @RequestMapping(value="/products/new", method=RequestMethod.GET)
+    public String createProductForm(Model model) {
+        ProductForm product = new ProductForm();
+        model.addAttribute("product",product);
+        return viewPrefix+"create_product";
+    }
+
+    @RequestMapping(value="/products", method=RequestMethod.POST)
+    public String createProduct(@Valid @ModelAttribute("product") ProductForm productForm, BindingResult result, 
+            Model model, RedirectAttributes redirectAttributes) {
+        productFormValidator.validate(productForm, result);
+        if(result.hasErrors()){
+            return viewPrefix+"create_product";
+        }
+        Product product = productForm.toProduct();
+        Product persistedProduct = catalogService.createProduct(product);
+        productForm.setId(product.getId());
+        this.saveProductImageToDisk(productForm);
+        logger.debug("Created new product with id : {} and name : {}", persistedProduct.getId(), persistedProduct.getName());
+        redirectAttributes.addFlashAttribute("info", "Product created successfully");
+        return "redirect:/products";
+    }
+    
+    @RequestMapping(value="/products/{id}", method=RequestMethod.GET)
+    public String editProductForm(@PathVariable Integer id, Model model) {
+        Product product = catalogService.getProductById(id);
+        model.addAttribute("product",ProductForm.fromProduct(product));
+        return viewPrefix+"edit_product";
+    }
+    
+    @RequestMapping(value="/products/images/{productId}", method=RequestMethod.GET)
+    public void showProductImage(@PathVariable String productId, HttpServletRequest request, HttpServletResponse response) {
+        try {
+            FileSystemResource file = new FileSystemResource(WebUtils.IMAGES_DIR +productId+".jpg");
+            response.setContentType("image/jpg");
+            org.apache.commons.io.IOUtils.copy(file.getInputStream(), response.getOutputStream());
+            response.flushBuffer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }         
+    }
+    
+    @RequestMapping(value="/products/{id}", method=RequestMethod.POST)
+    public String updateProduct(@Valid @ModelAttribute("product") ProductForm productForm, BindingResult result, 
+            Model model, RedirectAttributes redirectAttributes) {
+        productFormValidator.validate(productForm, result);
+        if(result.hasErrors()){
+            return viewPrefix+"edit_product";
+        }
+        Product product = productForm.toProduct();
+        Product persistedProduct = catalogService.updateProduct(product);
+        this.saveProductImageToDisk(productForm);
+        logger.debug("Updated product with id : {} and name : {}", persistedProduct.getId(), persistedProduct.getName());
+        redirectAttributes.addFlashAttribute("info", "Product updated successfully");
+        return "redirect:/products";
+    }
+    
+    private void saveProductImageToDisk(ProductForm productForm) {
+        MultipartFile file = productForm.getImage();
+        if (file!= null && !file.isEmpty()) {
+            String name = WebUtils.IMAGES_DIR + productForm.getId() + ".jpg";
+            try {
+                byte[] bytes = file.getBytes();
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(name)));
+                stream.write(bytes);
+                stream.close();
+            } catch (Exception e) {
+                throw new JCartException(e);
+            }
+        }
+    }
+}
+</pre>
+
+<p>The left over things are preparing thymeleaf views for product management screens.</p>
+
+<p><strong>jcart-admin/src/main/resources/templates/products/products.html</strong></p>
+
+<pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    layout:decorator="layout/mainLayout"&gt;
+&lt;head&gt;
+&lt;title&gt;Products&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div layout:fragment="content"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-md-12"&gt;
+                &lt;div class="box"&gt;
+                    &lt;div class="box-header"&gt;
+                        &lt;h3 class="box-title"&gt;List of Products&lt;/h3&gt;
+                        &lt;div class="box-tools"&gt;
+                            &lt;div class="input-group" style="width: 150px;"&gt;
+                                &lt;a class="btn btn-sm btn-default" th:href="@{/products/new}"&gt;&lt;i
+                                    class="fa fa-plus-circle"&gt;&lt;/i&gt; New Product&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="box-body table-responsive no-padding"&gt;
+                        &lt;table class="table table-hover"&gt;
+                            &lt;tr&gt;
+                                &lt;th style="width: 10px"&gt;#&lt;/th&gt;
+                                &lt;th&gt;Name&lt;/th&gt;
+                                &lt;th&gt;Description&lt;/th&gt;
+                                &lt;th&gt;Edit&lt;/th&gt;
+                            &lt;/tr&gt;
+                            &lt;tr th:each="product,iterStat : ${products}"&gt;
+                                &lt;td th:text="${iterStat.count}"&gt;1&lt;/td&gt;
+                                &lt;td th:text="${product.name}"&gt;Product Name&lt;/td&gt;
+                                &lt;td th:text="${product.description}"&gt;Product Description&lt;/td&gt;
+                                &lt;td&gt;&lt;a th:href="@{/products/{id}(id=${product.id})}"
+                                    class="btn btn-sm btn-default"&gt;&lt;i class="fa fa-edit"&gt;&lt;/i&gt;Edit&lt;/a&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+<p><strong>jcart-admin/src/main/resources/templates/products/create_product.html</strong></p>
+
+<pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout/mainLayout"&gt;      
+&lt;head&gt;
+    &lt;title&gt;Products - New&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;    
+    &lt;div layout:fragment="content"&gt;
+        
+          &lt;div class="box box-warning"&gt;
+            &lt;div class="box-header with-border"&gt;
+              &lt;h3 class="box-title"&gt;Create New Product&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class="box-body"&gt;
+              &lt;form role="form" th:action="@{/products}" th:object="${product}" 
+                    method="post" enctype="multipart/form-data"&gt;
+                &lt;p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" 
+                    th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'"&gt;
+                  &lt;label&gt;Name&lt;/label&gt;
+                  &lt;input type="text" class="form-control" name="name" th:field="*{name}" 
+                    placeholder="Enter Product Name"/&gt;
+                  &lt;p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" 
+                    th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('sku')}? 'has-error'"&gt;
+                  &lt;label&gt;SKU&lt;/label&gt;
+                  &lt;input type="text" class="form-control" name="sku" 
+                        th:field="*{sku}" placeholder="Enter Product SKU"/&gt;
+                  &lt;p th:if="${#fields.hasErrors('sku')}" th:errors="*{sku}" 
+                     th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('price')}? 'has-error'"&gt;
+                  &lt;label&gt;Price&lt;/label&gt;
+                  &lt;input type="text" class="form-control" name="price" 
+                     th:field="*{price}" placeholder="Enter Product Price"/&gt;
+                  &lt;p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" 
+                    th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                &lt;/div&gt;
+                
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'"&gt;
+                  &lt;label&gt;Description&lt;/label&gt;
+                  &lt;textarea class="form-control" rows="3" name="description" 
+                    th:field="*{description}" placeholder="Enter Role Description"&gt;&lt;/textarea&gt;
+                  &lt;p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" 
+                        th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('image')}? 'has-error'"&gt;
+                  &lt;label for="image"&gt;Image&lt;/label&gt;
+                  &lt;input type="file" class="form-control" name="image" th:field="*{image}"/&gt;
+                  &lt;p th:if="${#fields.hasErrors('image')}" th:errors="*{image}" 
+                    th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                  &lt;p class="help-block"&gt;Select JPG Image&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('categoryId')}? 'has-error'"&gt;
+                    &lt;label&gt;Category&lt;/label&gt;
+                    &lt;div&gt;
+                        &lt;select class="form-control" th:field="*{categoryId}"&gt;
+                          &lt;option th:each="cat : ${categoriesList}" 
+                                  th:value="${cat.id}" 
+                                  th:text="${cat.name}"&gt;Category&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;p th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"
+                        th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                    &lt;/div&gt;
+                    
+                &lt;/div&gt;
+                
+                &lt;div class="box-footer"&gt;
+                    &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/form&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+    &lt;/div&gt;
+    
+&lt;/body&gt;
+    
+&lt;/html&gt;
+</pre>
+
+<p><strong>jcart-admin/src/main/resources/templates/products/edit_product.html</strong></p>
+
+<pre class="brush: html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout/mainLayout"&gt;      
+&lt;head&gt;
+    &lt;title&gt;Products - Edit&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+                
+    &lt;div layout:fragment="content"&gt;       
+          &lt;div class="box box-warning"&gt;
+            &lt;div class="box-header with-border"&gt;
+              &lt;h3 class="box-title"&gt;Edit Product&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class="box-body"&gt;
+              &lt;form role="form" th:action="@{/products/{id}(id=${product.id})}" 
+                    th:object="${product}" method="post"  enctype="multipart/form-data"&gt;
+                &lt;p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" 
+                    th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                
+                &lt;div class="form-group"&gt;
+                  &lt;label&gt;Name&lt;/label&gt;
+                  &lt;input type="text" class="form-control" name="name" th:field="*{name}" readonly="readonly"/&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group"&gt;
+                  &lt;label&gt;SKU&lt;/label&gt;
+                  &lt;input type="text" class="form-control" name="sku" th:field="*{sku}" readonly="readonly"/&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('price')}? 'has-error'"&gt;
+                  &lt;label&gt;Price&lt;/label&gt;
+                  &lt;input type="text" class="form-control" name="price" th:field="*{price}" 
+                    placeholder="Enter Product Price"/&gt;
+                  &lt;p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" 
+                    th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'"&gt;
+                  &lt;label&gt;Description&lt;/label&gt;
+                  &lt;textarea class="form-control" rows="3" name="description" th:field="*{description}" 
+                    placeholder="Enter Role Description"&gt;&lt;/textarea&gt;
+                  &lt;p th:if="${#fields.hasErrors('description')}" th:errors="*{description}" 
+                     th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('image')}? 'has-error'"&gt;
+                  &lt;label for="image"&gt;Image&lt;/label&gt;
+                  &lt;input type="file" class="form-control" name="image" th:field="*{image}"/&gt;
+                  &lt;p th:if="${#fields.hasErrors('image')}" th:errors="*{image}" th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                  &lt;p class="help-block"&gt;Select JPG Image&lt;/p&gt;
+                  &lt;p&gt;
+                    &lt;img alt="" src="image.jpg" th:src="@{'/products/images/{imageUrl}.jpg'(imageUrl=${product.id})}" 
+                        height="200" width="250"/&gt;
+                  &lt;/p&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="form-group" th:classappend="${#fields.hasErrors('categoryId')}? 'has-error'"&gt;
+                    &lt;label&gt;Category&lt;/label&gt;
+                    &lt;div&gt;
+                        &lt;select class="form-control" th:field="*{categoryId}"&gt;
+                          &lt;option th:each="cat : ${categoriesList}" 
+                                  th:value="${cat.id}" 
+                                  th:text="${cat.name}"&gt;Category&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;p th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}" 
+                        th:class="text-red"&gt;Incorrect data&lt;/p&gt;
+                    &lt;/div&gt;
+                    
+                &lt;/div&gt;
+                                    
+                &lt;div class="box-footer"&gt;
+                    &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/form&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+    &lt;/div&gt;
+    
+&lt;/body&gt;    
+&lt;/html&gt;
+</pre>
+
+<blockquote>
+<p>That&#8217;s a lot of code snippets, I know it is difficult to read that much of code on blog!!</p>
+
+<p>I would encourage you to checkout the code from github repo into your IDE.</p>
+</blockquote>
+
+<p>Though initially we consider to implement multi language and multi currency support we are postponing these requirements as they are not high priority for this first release.</p>
+
+<p>Next we will start building the consumer facing ShoppingCart application in Iteration-4.</p>
+
+        </div>
+        <footer class="entry-meta">
+            <div class="tagcloud" style="display: block;">
+                    <a href="/tags/jcart/" rel="tag">jcart</a></li>
+            </div>
+        </footer>
+    </div>
+</article>
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2015/12/jcart-iteration-4/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">JCart : Iteration-4</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2015/12/jcart-manage-users/" rel="prev">
+                <span class="post-title">JCart: Manage Users
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+                    </div>
+
+                </div>
+                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+                    <div class="well">
+
+    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+        <h3 class="widget-title">Social Networks</h3>
+
+        <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://github.com/sivaprasadreddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+                          style="background-color : #221e1b; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://twitter.com/sivalabs"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                          style="background-color : #55acee; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://facebook.com/sivaprasadreddy.k"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
+                          data-hover-rule="background-color" data-hover-color="#3b5998"
+                          style="background-color : #3b5998; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://plus.google.com/u/0/+SivaPrasadReddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-google"
+                          data-hover-rule="background-color" data-hover-color="#d93e2d"
+                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                              data-hover-rule="background-color" data-hover-color="#3371b7"
+                              style="background-color : #3371b7; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="http://www.youtube.com/c/SivaPrasadReddy%20"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                              data-hover-rule="background-color" data-hover-color="#e02a20"
+                              style="background-color : #e02a20; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <aside id="widget_sp_image-4" class="widget widget_sp_image">
+        <h3 class="widget-title">My Recent Books</h3><a
+            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
+            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
+            <img
+            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
+            style="max-width: 100%;"
+            src="https://images-na.ssl-images-amazon.com/images/I/41SaZiIaUNL._SX348_BO1,204,203,200_.jpg"/></a>
+    </aside>
+
+    <aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent
+        Posts</h3>
+        <ul>
+        </ul>
+    </aside>
+
+    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tagcloud">
+
+                <div class="widget__content">
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/android" title="android">android</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/angularjs" title="angularjs">angularjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/best-practices" title="best-practices">best-practices</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/blogging" title="blogging">blogging</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/books" title="books">books</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/design-patterns" title="design-patterns">design-patterns</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/extjs" title="extjs">extjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/hibernate" title="hibernate">hibernate</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/ide" title="ide">ide</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/interviews" title="interviews">interviews</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/it" title="it">it</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/java" title="java">java</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javaee" title="javaee">javaee</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javamail" title="javamail">javamail</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javascript" title="javascript">javascript</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jboss" title="jboss">jboss</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jcart" title="jcart">jcart</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jooq" title="jooq">jooq</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jpa" title="jpa">jpa</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jsf" title="jsf">jsf</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/linux" title="linux">linux</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/maven" title="maven">maven</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/mybatis" title="mybatis">mybatis</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/primefaces" title="primefaces">primefaces</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/quartz" title="quartz">quartz</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/rest" title="rest">rest</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/resteasy" title="resteasy">resteasy</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/spring" title="spring">spring</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springboot" title="springboot">springboot</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springcloud" title="springcloud">springcloud</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springmvc" title="springmvc">springmvc</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springsecurity" title="springsecurity">springsecurity</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tips" title="tips">tips</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tomcat" title="tomcat">tomcat</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/webservices" title="webservices">webservices</a>
+                </div>
+
+        </div>
+    </aside>
+
+    <aside class="widget widget_categories">
+        <h3 class="widget-title">Categories</h3>
+        <ul>
+                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                    <li class="cat-item"><a href="/categories/books">Books</a></li>
+                    <li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li>
+                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                    <li class="cat-item"><a href="/categories/java">Java</a></li>
+                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                    <li class="cat-item"><a href="/categories/javascript">Javascript</a></li>
+                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        </ul>
+    </aside>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-area">
+        <div class="container footer-inner">
+    <div class="row">
+
+    </div>
+</div>
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info container">
+        <div class="row">
+            <nav role="navigation" class="col-md-3">
+            </nav>
+            <div class="copyright col-md-6">
+                <a href="http://sivalabs.in/" target="_blank">SivaLabs</a> Powered by <a
+                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
+        </div>
+    </div>
+    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
+</footer>
+
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        SivaLabs
+        </title>
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SivaLabs &#8211; My Experiments on Technology</title>
+
+    <link rel='stylesheet' id='sparkling-bootstrap-css'
+          href="/assets/css/bootstrap.min.css" type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='sparkling-icons-css'
+          href="/assets/css/font-awesome.min.css"
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-fonts-css'
+          href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='sparkling-style-css'
+          href="/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' id='socicon-css'
+          href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css"
+          type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.js"></script>
+
+    <script type='text/javascript'
+            src="/assets/js/vendor/modernizr.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script type='text/javascript'
+            src="/assets/js/functions.min.js"></script>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+</head>
+
+</head>
+
+<body class="home blog">
+<div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+    <nav class="navbar navbar-default " role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="site-navigation-inner col-sm-12">
+                    <div class="navbar-header">
+                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div id="logo">
+                            <h1 class="site-name">
+                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul id="menu-home" class="nav navbar-nav">
+
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/java">Java</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="/tags/spring">Spring </a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/javaee">Java EE</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/videos">Videos</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/mybooks">My Books</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/page/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <div id="content" class="site-content">
+
+        <div class="top-section">
+        </div>
+
+        <div class="container main-content-area">
+            <div class="row side-pull-left">
+                <div class="main-content-inner col-sm-12 col-md-8">
+
+                    <div id="primary" class="content-area">
+                        
+
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header page-header">
+
+            <h1 class="entry-title ">
+                SpringBoot : Working with JdbcTemplate
+            </h1>
+
+            <div class="entry-meta">
+                <span class="posted-on"><i class="fa fa-calendar"></i>
+                    <time class="entry-date published"
+                          datetime="2016-03-14T07:08:22">March 14, 2016</time>
+                </span>
+                <span class="byline">
+                    <i class="fa fa-user"></i>
+                    <span class="author vcard">Siva</span>
+                </span>
+                <span class="cat-links"><i class="fa fa-folder-open-o"></i>
+				    
+                        
+                        <a rel="category tag" href="/categories/spring" rel="category">Spring</a>
+                    
+
+                </span>
+
+            </div>
+        </header>
+
+        <div class="entry-content">
+            <p>Spring provides a nice abstraction on top of JDBC API using **JdbcTemplate **and also provides great transaction management capabilities using annotation based approach.</p>
+
+<p>First let’s take a quick look at how we generally use Spring’s **JdbcTemplate <strong>(</strong>without** <strong>SpringBoot</strong>) by registering <strong>DataSource</strong>, **TransactionManager **and **JdbcTemplate **beans and optionally we can register **DataSourceInitializer **bean to initialize our database.</p>
+
+<pre class="brush: java; gutter: true;">@Configuration
+@ComponentScan
+@EnableTransactionManagement
+@PropertySource(value = { "classpath:application.properties" })
+public class AppConfig 
+{
+    @Autowired
+    private Environment env;
+
+    @Value("${init-db:false}")
+    private String initDatabase;
+    
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer()
+    {
+        return new PropertySourcesPlaceholderConfigurer();
+    }    
+
+    @Bean
+    public JdbcTemplate jdbcTemplate(DataSource dataSource)
+    {
+        return new JdbcTemplate(dataSource);
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource)
+    {
+        return new DataSourceTransactionManager(dataSource);
+    }
+
+    @Bean
+    public DataSource dataSource()
+    {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
+        dataSource.setUrl(env.getProperty("jdbc.url"));
+        dataSource.setUsername(env.getProperty("jdbc.username"));
+        dataSource.setPassword(env.getProperty("jdbc.password"));
+        return dataSource;
+    }
+
+    @Bean
+    public DataSourceInitializer dataSourceInitializer(DataSource dataSource)
+    {
+        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();    
+        dataSourceInitializer.setDataSource(dataSource);
+        ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
+        databasePopulator.addScript(new ClassPathResource("data.sql"));
+        dataSourceInitializer.setDatabasePopulator(databasePopulator);
+        dataSourceInitializer.setEnabled(Boolean.parseBoolean(initDatabase));
+        return dataSourceInitializer;
+    }
+}
+</pre>
+
+<p>With this configuration in place, we can inject **JdbcTemplate **into Data Access components to interact with databases.</p>
+
+<pre class="brush: java;">public class User
+{
+    private Integer id;
+    private String name;
+    private String email;
+
+    // setters & getters
+}
+</pre>
+
+<pre class="brush: java;">@Repository
+public class UserRepository
+{
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Transactional(readOnly=true)
+    public List&lt;User&gt; findAll() {
+        return jdbcTemplate.query("select * from users", new UserRowMapper());
+    }
+}
+</pre>
+
+<pre class="brush: java;">class UserRowMapper implements RowMapper&lt;User&gt;
+{
+    @Override
+    public User mapRow(ResultSet rs, int rowNum) throws SQLException 
+    {
+        User user = new User();
+        user.setId(rs.getInt("id"));
+        user.setName(rs.getString("name"));
+        user.setEmail(rs.getString("email"));
+
+        return user;
+    }
+}
+</pre>
+
+<p>You might have observed that most of the times we use this similar kind of configuration in our applications.</p>
+
+<p>Now let us see how to use **JdbcTemplate **without requiring to configure all these beans manually by using <strong>SpringBoot</strong>.</p>
+
+<p><span style="font-size: x-large;">Using <b>JdbcTemplate </b>with <b>SpringBoot </b></span></p>
+
+<p>By using SpringBoot we can take advantage of auto configuration feature and eliminate the need to configure beans by ourselves.</p>
+
+<p><strong>Create a SpringBoot maven based project and add spring-boot-starter-jdbc module.</strong></p>
+
+<pre class="brush: java;">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</pre>
+
+<p>By adding <strong>spring-boot-starter-jdbc</strong> module, we get the following auto configuration:</p>
+
+<p>&nbsp;</p>
+
+<ul>
+<li>The spring-boot-starter-jdbc module transitively pulls tomcat-jdbc-{version}.jar which is used to configure the DataSource bean.</li>
+<li>If you have not defined any DataSource bean explicitly and if you have any embedded database driver in classpath such as H2, HSQL or Derby then SpringBoot will automatically registers DataSource bean using in-memory database settings.</li>
+
+<li><p>If you haven’t registered any of the following type beans then SpringBoot will register them automatically.
+• **PlatformTransactionManager (DataSourceTransactionManager)</p>
+
+<p>**• **JdbcTemplate</p>
+
+<p>**</p>
+
+<p>• <strong>NamedParameterJdbcTemplate </strong></li></p>
+
+<ul>
+<li><p>We can have <strong>schema.sql</strong> and <strong>data.sql</strong> files in root classpath which SpringBoot will automatically use to initialize database.In addition to schema.sql and data.sql, Spring Boot will load <strong>schema-${platform}.sql</strong> and <strong>data-${platform}.sql</strong> files if they are available in root classpath.</p>
+
+<p>Here platform value is the value of the property spring.datasource.platform which can be <strong>hsqldb, h2, oracle, mysql, postgresql</strong> etc.</p>
+You can customize the default names of the scripts using the following properties:</p>
+
+<p>• **spring.datasource.schema=create-db.sql</p>
+
+<p>**</p>
+
+<p>• **spring.datasource.data=seed-data.sql</p>
+
+<p>**</p>
+
+<p>SpringBoot uses <strong>spring.datasource.initialize</strong> property value, which is **true **by default, to determine whether to initialize database or not. If you want to turn off the database initialization you can set <strong>spring.datasource.initialize=false</strong></p>
+
+<p>If there are any errors in executing the scripts then application will fail to start. If you want to continue then you can set <strong>spring.datasource.continueOnError=true</strong>.</li> </ul></p>
+
+<p>Let us add **H2 **database driver to our <strong>pom.xml</strong>.</p>
+
+<pre class="brush: java;">&lt;dependency&gt;
+&lt;groupId&gt;com.h2database&lt;/groupId&gt;
+&lt;artifactId&gt;h2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</pre>
+        
+
+<p>Create <strong>schema.sql</strong> in <strong>src/main/resources</strong> as follows:</p>
+
+<pre class="brush: java;">CREATE TABLE users
+(
+id int(11) NOT NULL AUTO_INCREMENT,
+name varchar(100) NOT NULL,
+email varchar(100) DEFAULT NULL,
+PRIMARY KEY (id)
+);
+</pre>
+        
+
+<p>Create <strong>data.sql</strong> in <strong>src/main/resources</strong> as follows:</p>
+
+<pre class="brush: java;">insert into users(id, name, email) values(1,'Siva','siva@gmail.com');
+insert into users(id, name, email) values(2,'Prasad','prasad@gmail.com');
+insert into users(id, name, email) values(3,'Reddy','reddy@gmail.com');
+</pre>
+        
+
+<p>Now you can inject **JdbcTemplate **into **UserRepository **as follows:</p>
+
+<p><pre class="brush: java;">@Repository
+public class UserRepository
+{
+@Autowired
+private JdbcTemplate jdbcTemplate;</p></li>
+</ul>
+
+<p>@Transactional(readOnly=true)
+public List&lt;User&gt; findAll() {
+    return jdbcTemplate.query(&ldquo;select * from users&rdquo;,
+            new UserRowMapper());
+}</p>
+
+<p>@Transactional(readOnly=true)
+public User findUserById(int id) {
+    return jdbcTemplate.queryForObject(
+        &ldquo;select * from users where id=?&ldquo;,
+        new Object[]{id}, new UserRowMapper());
+}</p>
+
+<p>public User create(final User user)
+{
+    final String sql = &ldquo;insert into users(name,email) values(?,?)&rdquo;;</p>
+
+<pre><code>KeyHolder holder = new GeneratedKeyHolder();
+jdbcTemplate.update(new PreparedStatementCreator() {
+    @Override
+    public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ps.setString(1, user.getName());
+        ps.setString(2, user.getEmail());
+        return ps;
+    }
+}, holder);
+
+int newUserId = holder.getKey().intValue();
+user.setId(newUserId);
+return user;
+</code></pre>
+
+<p>}
+}</p></li>
+</ul>
+
+<p>class UserRowMapper implements RowMapper&lt;User&gt;
+{
+    @Override
+    public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+        User user = new User();
+        user.setId(rs.getInt(&ldquo;id&rdquo;));
+        user.setName(rs.getString(&ldquo;name&rdquo;));
+        user.setEmail(rs.getString(&ldquo;email&rdquo;));
+        return user;
+    }
+}
+</pre></p>
+
+<pre><code>    Create the entry point **SpringbootJdbcDemoApplication.java**.
+
+    &lt;pre class=&quot;brush: java;&quot;&gt;@SpringBootApplication
+</code></pre>
+
+<p>public class SpringbootJdbcDemoApplication
+{
+    public static void main(String[] args)
+    {
+        SpringApplication.run(SpringbootJdbcDemoApplication.class, args);
+    }
+}
+</pre></p>
+
+<pre><code>    Let us create a JUnit Test class to test our UserRepository methods.
+
+    &lt;pre class=&quot;brush: java;&quot;&gt;@RunWith(SpringJUnit4ClassRunner.class)
+</code></pre>
+
+<p>@SpringApplicationConfiguration(SpringbootJdbcDemoApplication.class)
+public class SpringbootJdbcDemoApplicationTests
+{
+    @Autowired
+    private UserRepository userRepository;</p>
+
+<pre><code>@Test
+public void findAllUsers() {
+    List&amp;lt;User&amp;gt; users = userRepository.findAll();
+    assertNotNull(users);
+    assertTrue(!users.isEmpty());
+}
+
+@Test
+public void findUserById() {
+    User user = userRepository.findUserById(1);
+    assertNotNull(user);
+}
+
+@Test
+public void createUser() {
+    User user = new User(0, &quot;John&quot;, &quot;john@gmail.com&quot;);
+    User savedUser = userRepository.create(user);
+    User newUser = userRepository.findUserById(savedUser.getId());
+    assertNotNull(newUser);
+    assertEquals(&quot;John&quot;, newUser.getName());
+    assertEquals(&quot;john@gmail.com&quot;, newUser.getEmail());
+}
+</code></pre>
+
+<p>}
+</pre></p>
+
+<pre><code>    &amp;nbsp;
+
+    &lt;blockquote class=&quot;tr_bq&quot;&gt;
+      &lt;p&gt;
+        &lt;span style=&quot;color: red;&quot;&gt;By default SpringBoot features such as external properties, logging etc are available in the ApplicationContext only if you use &lt;b&gt;SpringApplication&lt;/b&gt;. So, SpringBoot provides &lt;b&gt;@SpringApplicationConfiguration&lt;/b&gt; annotation to configure the ApplicationContext for tests which uses &lt;b&gt;SpringApplication &lt;/b&gt;behind the scenes&lt;/span&gt;.
+      &lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    We have learned how to get started quickly with Embedded database. **What if we want to use Non-Embedded databases like MySQL, Oracle or PostgreSQL etc?**.
+
+    We can configure the database properties in application.properties file so that SpringBoot will use those jdbc parameters to configure DataSource bean.
+
+    &lt;pre class=&quot;brush: java;&quot;&gt;spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+</code></pre>
+
+<p>spring.datasource.url=jdbc:mysql://localhost:3306/test
+spring.datasource.username=root
+spring.datasource.password=admin
+</pre></p>
+
+<pre><code>    For any reason if you want to have more control and configure **DataSource **bean by yourself then you can configure DataSource bean in a Configuration class. If you register DataSource bean then SpringBoot will not configure DataSource automatically using AutoConfiguration.
+
+    **What if you want to use another Connection Pooling library?**
+
+    SpringBoot by default pulls in **tomcat-jdbc-{version}.jar** and uses **org.apache.tomcat.jdbc.pool.DataSource** to configure **DataSource **bean.
+
+    SpringBoot checks the availability of the following classes and uses the first one that is available in classpath.
+
+      * org.apache.tomcat.jdbc.pool.DataSource
+      * com.zaxxer.hikari.HikariDataSource
+      * org.apache.commons.dbcp.BasicDataSource
+      * org.apache.commons.dbcp2.BasicDataSource
+
+    For example, If you want to use **HikariDataSource **then you can exclude **tomcat-jdbc** and add **HikariCP **dependency as follows:
+
+    &lt;pre class=&quot;brush: java;&quot;&gt;&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;spring-boot-starter-jdbc&amp;lt;/artifactId&amp;gt;
+&amp;lt;exclusions&amp;gt;
+    &amp;lt;exclusion&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.tomcat&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;tomcat-jdbc&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/exclusion&amp;gt;
+&amp;lt;/exclusions&amp;gt;
+</code></pre>
+
+<p>&lt;/dependency&gt;</p>
+
+<p>&lt;dependency&gt;
+    &lt;groupId&gt;com.zaxxer&lt;/groupId&gt;
+    &lt;artifactId&gt;HikariCP&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</pre></p>
+
+<pre><code>    With this dependency configuration SpringBoot will use **HikariCP **to configure **DataSource **bean.
+
+    You can find the source code of the article at my GitHub repo &lt;https://github.com/sivaprasadreddy/springboot-tutorials&gt;
+</code></pre>
+
+        </div>
+        <footer class="entry-meta">
+            <div class="tagcloud" style="display: block;">
+                    <a href="/tags/springboot/" rel="tag">SpringBoot</a></li>
+            </div>
+        </footer>
+    </div>
+</article>
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2016/03/springboot-working-with-mybatis/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">SpringBoot : Working with MyBatis</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2016/03/how-springboot-autoconfiguration-magic/" rel="prev">
+                <span class="post-title">How SpringBoot AutoConfiguration magic works?
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+                    </div>
+
+                </div>
+                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+                    <div class="well">
+
+    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+        <h3 class="widget-title">Social Networks</h3>
+
+        <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://github.com/sivaprasadreddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+                          style="background-color : #221e1b; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://twitter.com/sivalabs"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                          style="background-color : #55acee; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://facebook.com/sivaprasadreddy.k"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
+                          data-hover-rule="background-color" data-hover-color="#3b5998"
+                          style="background-color : #3b5998; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://plus.google.com/u/0/+SivaPrasadReddy"
+                   target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-google"
+                          data-hover-rule="background-color" data-hover-color="#d93e2d"
+                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
+                    ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                              data-hover-rule="background-color" data-hover-color="#3371b7"
+                              style="background-color : #3371b7; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+            <li class="zoom-social_icons-list__item">
+                <a class="zoom-social_icons-list__link"
+                   href="http://www.youtube.com/c/SivaPrasadReddy%20"
+                   target="_blank">
+                        <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                              data-hover-rule="background-color" data-hover-color="#e02a20"
+                              style="background-color : #e02a20; font-size: 18px; padding:8px"
+                        ></span>
+
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <aside id="widget_sp_image-4" class="widget widget_sp_image">
+        <h3 class="widget-title">My Recent Books</h3><a
+            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
+            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
+            <img
+            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
+            style="max-width: 100%;"
+            src="https://images-na.ssl-images-amazon.com/images/I/41SaZiIaUNL._SX348_BO1,204,203,200_.jpg"/></a>
+    </aside>
+
+    <aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent
+        Posts</h3>
+        <ul>
+        </ul>
+    </aside>
+
+    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tagcloud">
+
+                <div class="widget__content">
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/android" title="android">android</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/angularjs" title="angularjs">angularjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/best-practices" title="best-practices">best-practices</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/blogging" title="blogging">blogging</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/books" title="books">books</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/design-patterns" title="design-patterns">design-patterns</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/extjs" title="extjs">extjs</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/hibernate" title="hibernate">hibernate</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/ide" title="ide">ide</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/interviews" title="interviews">interviews</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/it" title="it">it</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/java" title="java">java</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javaee" title="javaee">javaee</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javamail" title="javamail">javamail</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javascript" title="javascript">javascript</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jboss" title="jboss">jboss</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jcart" title="jcart">jcart</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jooq" title="jooq">jooq</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jpa" title="jpa">jpa</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jsf" title="jsf">jsf</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/linux" title="linux">linux</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/maven" title="maven">maven</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/mybatis" title="mybatis">mybatis</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/primefaces" title="primefaces">primefaces</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/quartz" title="quartz">quartz</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/rest" title="rest">rest</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/resteasy" title="resteasy">resteasy</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/spring" title="spring">spring</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springboot" title="springboot">springboot</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springcloud" title="springcloud">springcloud</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springmvc" title="springmvc">springmvc</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springsecurity" title="springsecurity">springsecurity</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tips" title="tips">tips</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tomcat" title="tomcat">tomcat</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/webservices" title="webservices">webservices</a>
+                </div>
+
+        </div>
+    </aside>
+
+    <aside class="widget widget_categories">
+        <h3 class="widget-title">Categories</h3>
+        <ul>
+                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                    <li class="cat-item"><a href="/categories/books">Books</a></li>
+                    <li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li>
+                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                    <li class="cat-item"><a href="/categories/java">Java</a></li>
+                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                    <li class="cat-item"><a href="/categories/javascript">Javascript</a></li>
+                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        </ul>
+    </aside>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-area">
+        <div class="container footer-inner">
+    <div class="row">
+
+    </div>
+</div>
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info container">
+        <div class="row">
+            <nav role="navigation" class="col-md-3">
+            </nav>
+            <div class="copyright col-md-6">
+                <a href="http://sivalabs.in/" target="_blank">SivaLabs</a> Powered by <a
+                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
+        </div>
+    </div>
+    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
+</footer>
+
+    </div>
+</div>
+
+</body>
+
+</html>
