@@ -66,10 +66,10 @@ We can go to http://start.spring.io/ and generate the project and then import in
     
     <item>
       <title>My Books</title>
-      <link>https://sivalabs.github.io/my-books/</link>
+      <link>https://sivalabs.github.io/mybooks/</link>
       <pubDate>Mon, 05 Sep 2016 02:32:39 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/my-books/</guid>
+      <guid>https://sivalabs.github.io/mybooks/</guid>
       <description></description>
     </item>
     
@@ -123,97 +123,12 @@ The total course is divided into 3 modules covering various aspects of web appli
     </item>
     
     <item>
-      <title>JSF</title>
-      <link>https://sivalabs.github.io/jsf/</link>
-      <pubDate>Tue, 12 Apr 2016 09:49:13 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/jsf/</guid>
-      <description>PrimeFaces Tutorials  PrimeFaces QuickStart Tutorial-Part1 PrimeFaces3 Tutorial : Form Validation Using BeanValidation API(JSR-303) PrimeFaces 3 Tutorial : Introduction &amp;amp; Form Validation  &amp;nbsp;</description>
-    </item>
-    
-    <item>
-      <title>AngularJS</title>
-      <link>https://sivalabs.github.io/angularjs/</link>
-      <pubDate>Sun, 10 Apr 2016 07:15:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/angularjs/</guid>
-      <description> AngularJS Tutorials  AngularJS Tutorial: Getting Started with AngularJS AngularJS: Introducing modules, controllers, services AngularJS: Different ways of using Array Filters  </description>
-    </item>
-    
-    <item>
-      <title>Java</title>
-      <link>https://sivalabs.github.io/java/</link>
-      <pubDate>Sun, 10 Apr 2016 06:18:02 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/java/</guid>
-      <description>Java Tutorials  Java Coding Best Practices: Better Search Implementation Java Best Practices : Building Safe Domain Objects XML String to Document and Document to XML String Mock Table utility for CRUD operations Sending Email with Attachments using JavaMail JSON processing using Jackson Java JSON Processor How to get List of property values from List of objects?  &amp;nbsp;</description>
-    </item>
-    
-    <item>
-      <title>MyBatis</title>
-      <link>https://sivalabs.github.io/mybatis/</link>
-      <pubDate>Sun, 10 Apr 2016 06:14:09 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/mybatis/</guid>
-      <description> MyBatis Tutorials  MyBatis Tutorial: Part1 – CRUD Operations MyBatis Tutorial: Part-2: CRUD operations Using Annotations MyBatis Tutorial: Part 3 – Mapping Relationships MyBatis Tutorial : Part4 – Spring Integration  </description>
-    </item>
-    
-    <item>
-      <title>JPA/Hibernate</title>
-      <link>https://sivalabs.github.io/jpa-hibernate/</link>
-      <pubDate>Sun, 10 Apr 2016 06:13:30 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/jpa-hibernate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Frameworks</title>
-      <link>https://sivalabs.github.io/frameworks/</link>
-      <pubDate>Sun, 10 Apr 2016 06:12:49 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/frameworks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spring Security</title>
-      <link>https://sivalabs.github.io/spring-security/</link>
-      <pubDate>Sun, 10 Apr 2016 06:10:37 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/spring-security/</guid>
-      <description> Spring Security Tutorials  SpringMVC4 + Spring Data JPA + SpringSecurity configuration using JavaConfig  </description>
-    </item>
-    
-    <item>
-      <title>SpringBoot</title>
-      <link>https://sivalabs.github.io/springboot/</link>
-      <pubDate>Sun, 10 Apr 2016 04:20:31 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/springboot/</guid>
-      <description>SpringBoot Tutorials
- SpringBoot: Introducing SpringBoot Why SpringBoot? How SpringBoot AutoConfiguration magic works? SpringBoot : Working with JdbcTemplate SpringBoot : Working with MyBatis SpringBoot : Working with JOOQ Creating Custom SpringBoot Starter for Twitter4j  </description>
-    </item>
-    
-    <item>
-      <title>Spring</title>
-      <link>https://sivalabs.github.io/spring/</link>
-      <pubDate>Sun, 10 Apr 2016 04:18:22 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/spring/</guid>
-      <description>Spring Tutorials
- Retrying Method Execution using Spring AOP Spring and Quartz Integration Using Custom Annotation Spring + Quartz + JavaMail Integration Tutorial SpringMVC 3 + Tiles 2.2.2 Integration Aspect Oriented Programming using SpringAOP SpringMVC4 + Spring Data JPA + SpringSecurity configuration using JavaConfig Authentication Checking using SpringMVC Interceptors SpringMVC3 Hibernate CRUD Sample Application  </description>
-    </item>
-    
-    <item>
       <title>Videos</title>
       <link>https://sivalabs.github.io/videos/</link>
       <pubDate>Sun, 10 Apr 2016 04:03:33 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/videos/</guid>
-      <description>My YouTube Channel  SpringBoot Tutorials Part 1 : Introduction To SpringBoot 
-
-Part-2 : Using SpringBoot with Tomcat Jetty Undertow servers</description>
+      <description> My YouTube Channel  Part 1 : Introduction To SpringBoot   Part-2 : Using SpringBoot with Tomcat Jetty Undertow servers   </description>
     </item>
     
     <item>
@@ -673,15 +588,6 @@ All these modules use SpringBoot, but as of now STS/IntellijIdea are not providi
     </item>
     
     <item>
-      <title>Java EE</title>
-      <link>https://sivalabs.github.io/javaee/</link>
-      <pubDate>Thu, 26 Nov 2015 16:28:55 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/javaee/</guid>
-      <description> JavaEE Tutorials RESTEasy Tutorials  RESTEasy Tutorial Part-1: Basics RESTEasy Tutorial Part-2: Spring Integration RESTEasy Tutorial Part 3 – Exception Handling  </description>
-    </item>
-    
-    <item>
       <title>Setting up the Development Environment for JCart</title>
       <link>https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</link>
       <pubDate>Tue, 24 Nov 2015 04:34:03 +0000</pubDate>
@@ -817,10 +723,10 @@ I am a Java developer who uses both Spring and JavaEE and I am not part of Sprin
     
     <item>
       <title>Java EE7</title>
-      <link>https://sivalabs.github.io/java-ee7/</link>
+      <link>https://sivalabs.github.io/trainings/java-ee7/</link>
       <pubDate>Sun, 31 May 2015 13:08:14 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/java-ee7/</guid>
+      <guid>https://sivalabs.github.io/trainings/java-ee7/</guid>
       <description>Please reach me at sivaprasadreddy.k@gmail.com for further details.
 
 Java EE7 Training Course Topics:  Overview of JavaEE  Introduction to JavaEE Platform Overview on Key Specifications    JPA   Introduction to ORM concepts   Entity modeling   Entity Relationships   EntityManagerFactory, EntityManager, PersistenceContext   Criteria Queries, JPQL, Named Queries, Native Queries   Transaction Management      EJB   Introduction to EJB   Types of EJBs: Stateless, Stateful, MessageDriven, Singleton   Life Cycle of EJBs   Timers   Transaction Management      CDI   Dependency Injection   Bean Discovery Modes   Injection Points, Qualifiers, Alternatives   Producer, Disposer, LifeCycle callbacks   Interceptors, Decorators   Bean Scopes   Stereotypes   Events      Bean Validation   Introduction to Bean Validation API   Built-in Constraints   Creating Custom Constraints   Validation Groups      JSF   Introduction to Component Oriented UI development using JSF   JSF Request Life Cycle   Standard UI components, JSF Ajax features   Converters, Validations   ManagedBeans, Scopes, Navigation      RESTful WebServices(JAX-RS)   Introduction to REST concepts   Mapping REST operations to HTTP methods   Client API   Filters and Interceptors   Mapping Exceptions      SOAP WebServices(JAX-WS)   Introduction to JAX-WS, WSDL   Developing SOAP web services   Generating WebServices Client      JMS    Introduction Asynchronous processing using JMS   Queues, Topics   Types of JMS Messages   Sending and receiving messages      JSON Processing   Object Model API to convert Object to JSON and vice-versa   Streaming API      Concurrency Utils   Managed Threads   Asynchronous Tasks   Schedule Tasks      WebSockets   Overview of WebSockets   Server Endpoint   Client Endpoint   JavaScript WebSocket Client      Batch Processing   Chunk-Oriented Processing   Batchlet Processing   Listeners   Job Sequence     Please reach me at sivaprasadreddy.</description>
@@ -828,10 +734,10 @@ Java EE7 Training Course Topics:  Overview of JavaEE  Introduction to JavaEE Pla
     
     <item>
       <title>Core Java</title>
-      <link>https://sivalabs.github.io/core-java/</link>
+      <link>https://sivalabs.github.io/trainings/corejava/</link>
       <pubDate>Sun, 31 May 2015 13:07:25 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/core-java/</guid>
+      <guid>https://sivalabs.github.io/trainings/corejava/</guid>
       <description>This Core Java training aims at the beginners who want to learn Java programming starting from scratch.
 
 Please reach me at sivaprasadreddy.k@gmail.com for further details.
@@ -845,21 +751,8 @@ Core Java Course Topics:  Java Programming Fundamentals  Introduction to Java Pr
       
       <guid>https://sivalabs.github.io/contact/</guid>
       <description>You can reach me at:
-Twitter: **https://twitter.com/sivalabs
-GitHub: https://github.com/sivaprasadreddy**
- &amp;nbsp;</description>
-    </item>
-    
-    <item>
-      <title>Trainings</title>
-      <link>https://sivalabs.github.io/trainings/</link>
-      <pubDate>Sun, 31 May 2015 13:06:01 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/trainings/</guid>
-      <description>We offer the following technology training from the trainers with real industry experience.
-Core Java
-Spring Framework
-Java EE7</description>
+Twitter: https://twitter.com/sivalabs
+GitHub: https://github.com/sivaprasadreddy</description>
     </item>
     
     <item>
