@@ -39,7 +39,7 @@ But, i would like to have the SELECT ALL option for one single reason:</descript
       <pubDate>Mon, 14 Aug 2017 12:30:43 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</guid>
-      <description>Problem In the previous article Introduction to Spring Cloud Config Server (http://sivalabs.in/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/) we have seen how to use Spring Cloud Config Server.
+      <description>Problem In the previous article Introduction to Spring Cloud Config Server we have seen how to use Spring Cloud Config Server.
 But, the problem is to reload the config changes in Config Client applications we need to trigger /refresh endpoint manually. This is not practical and viable if you have large number of applications.
 Solution Spring Cloud Bus module can be used to link multiple applications with a message broker and we can broadcast configuration changes.</description>
     </item>

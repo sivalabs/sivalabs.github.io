@@ -619,7 +619,7 @@ public class CatalogServiceApplication {
 
 <ul>
 <li>Mark Spring beans that you want to reload on config changes with @RefreshScope</li>
-<li>Issue <a href="http://localhost:8181**/refresh**">http://localhost:8181**/refresh**</a> request using <strong>POST</strong> method</li>
+<li>Issue <a href="http://localhost:8181/refresh">http://localhost:8181/refresh</a> request using <strong>POST</strong> method</li>
 </ul>
 
 <p>To test the reloading behaviour let&#8217;s add a property <strong>name=Siva</strong> in <strong>config-repo/catalogservice.properties</strong> and commit it.</p>
@@ -643,13 +643,11 @@ class HomeController
 
 <p>Now access <a href="http://localhost:8181/name">http://localhost:8181/name</a> which which will display <strong>Siva</strong>. Now change the property value to <strong>name=Prasad</strong> in <strong>config-repo/catalogservice.properties</strong> and commit it.</p>
 
-<p>In order to reload the config changes trigger <a href="http://localhost:8181**/refresh**">http://localhost:8181**/refresh**</a> request using <strong>POST</strong> method and again access <a href="http://localhost:8181/name">http://localhost:8181/name</a> which should display <strong>Prasad</strong>.</p>
+<p>In order to reload the config changes trigger <a href="http://localhost:8181/refresh">http://localhost:8181/refresh</a> request using <strong>POST</strong> method and again access <a href="http://localhost:8181/name">http://localhost:8181/name</a> which should display <strong>Prasad</strong>.</p>
 
 <p>But issuing <strong>/refresh</strong> requests manually is tedious and impractical in case of large number of applications and multiple instances of same application. We will cover how to handle this problem using <strong>Spring Cloud Bus</strong> in next post</p>
 
-<p><strong>Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus (</strong></p>
-
-<p><a href="http://sivalabs.in/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">http://sivalabs.in/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</a>).</p>
+<p><a href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a>.</p>
 
 <p>The source code for this article is at <a href="https://github.com/sivaprasadreddy/spring-cloud-tutorial">https://github.com/sivaprasadreddy/spring-cloud-tutorial</a></p>
 
