@@ -148,354 +148,323 @@
         </header>
 
         <div class="entry-content">
-            <p>Spring provides a nice abstraction on top of JDBC API using **JdbcTemplate **and also provides great transaction management capabilities using annotation based approach.</p>
+            
 
-<p>First let’s take a quick look at how we generally use Spring’s **JdbcTemplate <strong>(</strong>without** <strong>SpringBoot</strong>) by registering <strong>DataSource</strong>, **TransactionManager **and **JdbcTemplate **beans and optionally we can register **DataSourceInitializer **bean to initialize our database.</p>
+<p>Spring provides a nice abstraction on top of JDBC API using <strong>JdbcTemplate</strong> and also provides great transaction management capabilities
+using annotation based approach.</p>
 
-<pre class="brush: java; gutter: true;">@Configuration
-@ComponentScan
-@EnableTransactionManagement
-@PropertySource(value = { "classpath:application.properties" })
-public class AppConfig 
-{
-    @Autowired
-    private Environment env;
+<p>First let’s take a quick look at how we generally use Spring’s <strong>JdbcTemplate</strong> (<strong>without SpringBoot</strong>) by registering <strong>DataSource</strong>,
+<strong>TransactionManager</strong> and <strong>JdbcTemplate</strong> beans and optionally we can register <strong>DataSourceInitializer</strong> bean to initialize our database.</p>
 
-    @Value("${init-db:false}")
-    private String initDatabase;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@ComponentScan</span>
+<span style="color:#a6e22e">@EnableTransactionManagement</span>
+<span style="color:#a6e22e">@PropertySource</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;classpath:application.properties&#34;</span> <span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span> 
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> Environment env<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${init-db:false}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String initDatabase<span style="color:#f92672">;</span>
     
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer()
-    {
-        return new PropertySourcesPlaceholderConfigurer();
-    }    
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> PropertySourcesPlaceholderConfigurer <span style="color:#a6e22e">placeHolderConfigurer</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> PropertySourcesPlaceholderConfigurer<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>    
 
-    @Bean
-    public JdbcTemplate jdbcTemplate(DataSource dataSource)
-    {
-        return new JdbcTemplate(dataSource);
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> JdbcTemplate <span style="color:#a6e22e">jdbcTemplate</span><span style="color:#f92672">(</span>DataSource dataSource<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JdbcTemplate<span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    public PlatformTransactionManager transactionManager(DataSource dataSource)
-    {
-        return new DataSourceTransactionManager(dataSource);
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> PlatformTransactionManager <span style="color:#a6e22e">transactionManager</span><span style="color:#f92672">(</span>DataSource dataSource<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> DataSourceTransactionManager<span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    public DataSource dataSource()
-    {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
-        dataSource.setUrl(env.getProperty("jdbc.url"));
-        dataSource.setUsername(env.getProperty("jdbc.username"));
-        dataSource.setPassword(env.getProperty("jdbc.password"));
-        return dataSource;
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">dataSource</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        BasicDataSource dataSource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BasicDataSource<span style="color:#f92672">();</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setDriverClassName</span><span style="color:#f92672">(</span>env<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.driverClassName&#34;</span><span style="color:#f92672">));</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUrl</span><span style="color:#f92672">(</span>env<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.url&#34;</span><span style="color:#f92672">));</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span>env<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.username&#34;</span><span style="color:#f92672">));</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>env<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.password&#34;</span><span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">return</span> dataSource<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    public DataSourceInitializer dataSourceInitializer(DataSource dataSource)
-    {
-        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();    
-        dataSourceInitializer.setDataSource(dataSource);
-        ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-        databasePopulator.addScript(new ClassPathResource("data.sql"));
-        dataSourceInitializer.setDatabasePopulator(databasePopulator);
-        dataSourceInitializer.setEnabled(Boolean.parseBoolean(initDatabase));
-        return dataSourceInitializer;
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> DataSourceInitializer <span style="color:#a6e22e">dataSourceInitializer</span><span style="color:#f92672">(</span>DataSource dataSource<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        DataSourceInitializer dataSourceInitializer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DataSourceInitializer<span style="color:#f92672">();</span>    
+        dataSourceInitializer<span style="color:#f92672">.</span><span style="color:#a6e22e">setDataSource</span><span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span>
+        ResourceDatabasePopulator databasePopulator <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ResourceDatabasePopulator<span style="color:#f92672">();</span>
+        databasePopulator<span style="color:#f92672">.</span><span style="color:#a6e22e">addScript</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ClassPathResource<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;data.sql&#34;</span><span style="color:#f92672">));</span>
+        dataSourceInitializer<span style="color:#f92672">.</span><span style="color:#a6e22e">setDatabasePopulator</span><span style="color:#f92672">(</span>databasePopulator<span style="color:#f92672">);</span>
+        dataSourceInitializer<span style="color:#f92672">.</span><span style="color:#a6e22e">setEnabled</span><span style="color:#f92672">(</span>Boolean<span style="color:#f92672">.</span><span style="color:#a6e22e">parseBoolean</span><span style="color:#f92672">(</span>initDatabase<span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">return</span> dataSourceInitializer<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>With this configuration in place, we can inject **JdbcTemplate **into Data Access components to interact with databases.</p>
+<p>With this configuration in place, we can inject <strong>JdbcTemplate</strong> into Data Access components to interact with databases.</p>
 
-<pre class="brush: java;">public class User
-{
-    private Integer id;
-    private String name;
-    private String email;
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> Integer id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String email<span style="color:#f92672">;</span>
 
-    // setters & getters
-}
-</pre>
+    <span style="color:#75715e">// setters &amp; getters
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span></code></pre></div></p>
 
-<pre class="brush: java;">@Repository
-public class UserRepository
-{
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Repository</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserRepository</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> JdbcTemplate jdbcTemplate<span style="color:#f92672">;</span>
 
-    @Transactional(readOnly=true)
-    public List&lt;User&gt; findAll() {
-        return jdbcTemplate.query("select * from users", new UserRowMapper());
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@Transactional</span><span style="color:#f92672">(</span>readOnly<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> jdbcTemplate<span style="color:#f92672">.</span><span style="color:#a6e22e">query</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;select * from users&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> UserRowMapper<span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<pre class="brush: java;">class UserRowMapper implements RowMapper&lt;User&gt;
-{
-    @Override
-    public User mapRow(ResultSet rs, int rowNum) throws SQLException 
-    {
-        User user = new User();
-        user.setId(rs.getInt("id"));
-        user.setName(rs.getString("name"));
-        user.setEmail(rs.getString("email"));
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserRowMapper</span> <span style="color:#66d9ef">implements</span> RowMapper<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">mapRow</span><span style="color:#f92672">(</span>ResultSet rs<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> rowNum<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> SQLException 
+    <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">();</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>rs<span style="color:#f92672">.</span><span style="color:#a6e22e">getInt</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">));</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>rs<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">));</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setEmail</span><span style="color:#f92672">(</span>rs<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;email&#34;</span><span style="color:#f92672">));</span>
 
-        return user;
-    }
-}
-</pre>
+        <span style="color:#66d9ef">return</span> user<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>You might have observed that most of the times we use this similar kind of configuration in our applications.</p>
 
-<p>Now let us see how to use **JdbcTemplate **without requiring to configure all these beans manually by using <strong>SpringBoot</strong>.</p>
+<p>Now let us see how to use <strong>JdbcTemplate</strong> without requiring to configure all these beans manually by using <strong>SpringBoot</strong>.</p>
 
-<p><span style="font-size: x-large;">Using <b>JdbcTemplate </b>with <b>SpringBoot </b></span></p>
+<h2 id="using-jdbctemplate-with-springboot">Using JdbcTemplate with SpringBoot</h2>
 
 <p>By using SpringBoot we can take advantage of auto configuration feature and eliminate the need to configure beans by ourselves.</p>
 
 <p><strong>Create a SpringBoot maven based project and add spring-boot-starter-jdbc module.</strong></p>
 
-<pre class="brush: java;">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-jdbc<span style="color:#f92672">&lt;/artifactId&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
 
 <p>By adding <strong>spring-boot-starter-jdbc</strong> module, we get the following auto configuration:</p>
-
-<p>&nbsp;</p>
 
 <ul>
 <li>The spring-boot-starter-jdbc module transitively pulls tomcat-jdbc-{version}.jar which is used to configure the DataSource bean.</li>
 <li>If you have not defined any DataSource bean explicitly and if you have any embedded database driver in classpath such as H2, HSQL or Derby then SpringBoot will automatically registers DataSource bean using in-memory database settings.</li>
-
-<li><p>If you haven’t registered any of the following type beans then SpringBoot will register them automatically.
-• **PlatformTransactionManager (DataSourceTransactionManager)</p>
-
-<p>**• **JdbcTemplate</p>
-
-<p>**</p>
-
-<p>• <strong>NamedParameterJdbcTemplate </strong></li></p>
+<li>If you haven’t registered any of the following type beans then SpringBoot will register them automatically.
 
 <ul>
-<li><p>We can have <strong>schema.sql</strong> and <strong>data.sql</strong> files in root classpath which SpringBoot will automatically use to initialize database.In addition to schema.sql and data.sql, Spring Boot will load <strong>schema-${platform}.sql</strong> and <strong>data-${platform}.sql</strong> files if they are available in root classpath.</p>
+<li><strong>PlatformTransactionManager (DataSourceTransactionManager)</strong></li>
+<li><strong>JdbcTemplate</strong></li>
+<li><strong>NamedParameterJdbcTemplate</strong></li>
+</ul></li>
+<li>We can have <strong>schema.sql</strong> and <strong>data.sql</strong> files in root classpath which SpringBoot will automatically use to initialize database.In addition to schema.sql and data.sql, Spring Boot will load <strong>schema-${platform}.sql</strong> and <strong>data-${platform}.sql</strong> files if they are available in root classpath.
+<br /></li>
+</ul>
 
-<p>Here platform value is the value of the property spring.datasource.platform which can be <strong>hsqldb, h2, oracle, mysql, postgresql</strong> etc.</p>
+<p>Here platform value is the value of the property spring.datasource.platform which can be <strong>hsqldb, h2, oracle, mysql, postgresql</strong> etc.
 You can customize the default names of the scripts using the following properties:</p>
 
-<p>• **spring.datasource.schema=create-db.sql</p>
+<ul>
+<li><strong>spring.datasource.schema=create-db.sql</strong></li>
+<li><strong>spring.datasource.data=seed-data.sql</strong>
+<br /></li>
+</ul>
 
-<p>**</p>
-
-<p>• **spring.datasource.data=seed-data.sql</p>
-
-<p>**</p>
-
-<p>SpringBoot uses <strong>spring.datasource.initialize</strong> property value, which is **true **by default, to determine whether to initialize database or not. If you want to turn off the database initialization you can set <strong>spring.datasource.initialize=false</strong></p>
+<p>SpringBoot uses <strong>spring.datasource.initialize</strong> property value, which is <strong>true</strong> by default, to determine whether to initialize database or not. If you want to turn off the database initialization you can set <strong>spring.datasource.initialize=false</strong></p>
 
 <p>If there are any errors in executing the scripts then application will fail to start. If you want to continue then you can set <strong>spring.datasource.continueOnError=true</strong>.</li> </ul></p>
 
-<p>Let us add **H2 **database driver to our <strong>pom.xml</strong>.</p>
+<p>Let us add <strong>H2</strong> database driver to our <strong>pom.xml</strong>.</p>
 
-<pre class="brush: java;">&lt;dependency&gt;
-&lt;groupId&gt;com.h2database&lt;/groupId&gt;
-&lt;artifactId&gt;h2&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</pre>
-        
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.h2database<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>h2<span style="color:#f92672">&lt;/artifactId&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
 
 <p>Create <strong>schema.sql</strong> in <strong>src/main/resources</strong> as follows:</p>
 
-<pre class="brush: java;">CREATE TABLE users
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> users
 (
-id int(11) NOT NULL AUTO_INCREMENT,
-name varchar(100) NOT NULL,
-email varchar(100) DEFAULT NULL,
-PRIMARY KEY (id)
-);
-</pre>
-        
+    id int(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
+    name varchar(<span style="color:#ae81ff">100</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+    email varchar(<span style="color:#ae81ff">100</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+    <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (id)
+);</code></pre></div>
 
 <p>Create <strong>data.sql</strong> in <strong>src/main/resources</strong> as follows:</p>
 
-<pre class="brush: java;">insert into users(id, name, email) values(1,'Siva','siva@gmail.com');
-insert into users(id, name, email) values(2,'Prasad','prasad@gmail.com');
-insert into users(id, name, email) values(3,'Reddy','reddy@gmail.com');
-</pre>
-        
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> users(id, name, email) <span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;Siva&#39;</span>,<span style="color:#e6db74">&#39;siva@gmail.com&#39;</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> users(id, name, email) <span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">2</span>,<span style="color:#e6db74">&#39;Prasad&#39;</span>,<span style="color:#e6db74">&#39;prasad@gmail.com&#39;</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> users(id, name, email) <span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">&#39;Reddy&#39;</span>,<span style="color:#e6db74">&#39;reddy@gmail.com&#39;</span>);</code></pre></div>
 
-<p>Now you can inject **JdbcTemplate **into **UserRepository **as follows:</p>
+<p>Now you can inject <strong>JdbcTemplate</strong> into <strong>UserRepository</strong> as follows:</p>
 
-<p><pre class="brush: java;">@Repository
-public class UserRepository
-{
-@Autowired
-private JdbcTemplate jdbcTemplate;</p></li>
-</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Repository</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserRepository</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> JdbcTemplate jdbcTemplate<span style="color:#f92672">;</span>
 
-<p>@Transactional(readOnly=true)
-public List&lt;User&gt; findAll() {
-    return jdbcTemplate.query(&ldquo;select * from users&rdquo;,
-            new UserRowMapper());
-}</p>
+    <span style="color:#a6e22e">@Transactional</span><span style="color:#f92672">(</span>readOnly<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> jdbcTemplate<span style="color:#f92672">.</span><span style="color:#a6e22e">query</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;select * from users&#34;</span><span style="color:#f92672">,</span> 
+                <span style="color:#66d9ef">new</span> UserRowMapper<span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-<p>@Transactional(readOnly=true)
-public User findUserById(int id) {
-    return jdbcTemplate.queryForObject(
-        &ldquo;select * from users where id=?&ldquo;,
-        new Object[]{id}, new UserRowMapper());
-}</p>
+    <span style="color:#a6e22e">@Transactional</span><span style="color:#f92672">(</span>readOnly<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> jdbcTemplate<span style="color:#f92672">.</span><span style="color:#a6e22e">queryForObject</span><span style="color:#f92672">(</span>
+            <span style="color:#e6db74">&#34;select * from users where id=?&#34;</span><span style="color:#f92672">,</span>
+            <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[]{</span>id<span style="color:#f92672">},</span> <span style="color:#66d9ef">new</span> UserRowMapper<span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-<p>public User create(final User user)
-{
-    final String sql = &ldquo;insert into users(name,email) values(?,?)&rdquo;;</p>
+    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">create</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> User user<span style="color:#f92672">)</span> 
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">final</span> String sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;insert into users(name,email) values(?,?)&#34;</span><span style="color:#f92672">;</span>
 
-<pre><code>KeyHolder holder = new GeneratedKeyHolder();
-jdbcTemplate.update(new PreparedStatementCreator() {
-    @Override
-    public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-        ps.setString(1, user.getName());
-        ps.setString(2, user.getEmail());
-        return ps;
-    }
-}, holder);
+        KeyHolder holder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GeneratedKeyHolder<span style="color:#f92672">();</span>
+        jdbcTemplate<span style="color:#f92672">.</span><span style="color:#a6e22e">update</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> PreparedStatementCreator<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> PreparedStatement <span style="color:#a6e22e">createPreparedStatement</span><span style="color:#f92672">(</span>Connection connection<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> SQLException <span style="color:#f92672">{</span>
+                PreparedStatement ps <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span><span style="color:#a6e22e">prepareStatement</span><span style="color:#f92672">(</span>sql<span style="color:#f92672">,</span> Statement<span style="color:#f92672">.</span><span style="color:#a6e22e">RETURN_GENERATED_KEYS</span><span style="color:#f92672">);</span>
+                ps<span style="color:#f92672">.</span><span style="color:#a6e22e">setString</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> user<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+                ps<span style="color:#f92672">.</span><span style="color:#a6e22e">setString</span><span style="color:#f92672">(</span>2<span style="color:#f92672">,</span> user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">());</span>
+                <span style="color:#66d9ef">return</span> ps<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">},</span> holder<span style="color:#f92672">);</span>
 
-int newUserId = holder.getKey().intValue();
-user.setId(newUserId);
-return user;
-</code></pre>
+        <span style="color:#66d9ef">int</span> newUserId <span style="color:#f92672">=</span> holder<span style="color:#f92672">.</span><span style="color:#a6e22e">getKey</span><span style="color:#f92672">().</span><span style="color:#a6e22e">intValue</span><span style="color:#f92672">();</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>newUserId<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> user<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-<p>}
-}</p></li>
-</ul>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserRowMapper</span> <span style="color:#66d9ef">implements</span> RowMapper<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">mapRow</span><span style="color:#f92672">(</span>ResultSet rs<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> rowNum<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> SQLException <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">();</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>rs<span style="color:#f92672">.</span><span style="color:#a6e22e">getInt</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">));</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>rs<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">));</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setEmail</span><span style="color:#f92672">(</span>rs<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;email&#34;</span><span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">return</span> user<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>class UserRowMapper implements RowMapper&lt;User&gt;
-{
-    @Override
-    public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-        User user = new User();
-        user.setId(rs.getInt(&ldquo;id&rdquo;));
-        user.setName(rs.getString(&ldquo;name&rdquo;));
-        user.setEmail(rs.getString(&ldquo;email&rdquo;));
-        return user;
-    }
-}
-</pre></p>
+<p>Create the entry point <strong>SpringbootJdbcDemoApplication.java</strong>.</p>
 
-<pre><code>    Create the entry point **SpringbootJdbcDemoApplication.java**.
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringbootJdbcDemoApplication</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>SpringbootJdbcDemoApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div></p>
 
-    &lt;pre class=&quot;brush: java;&quot;&gt;@SpringBootApplication
-</code></pre>
+<p>Let us create a JUnit Test class to test our UserRepository methods.</p>
 
-<p>public class SpringbootJdbcDemoApplication
-{
-    public static void main(String[] args)
-    {
-        SpringApplication.run(SpringbootJdbcDemoApplication.class, args);
-    }
-}
-</pre></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringJUnit4ClassRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@SpringApplicationConfiguration</span><span style="color:#f92672">(</span>SpringbootJdbcDemoApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringbootJdbcDemoApplicationTests</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> UserRepository userRepository<span style="color:#f92672">;</span>
 
-<pre><code>    Let us create a JUnit Test class to test our UserRepository methods.
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> users <span style="color:#f92672">=</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
+        assertNotNull<span style="color:#f92672">(</span>users<span style="color:#f92672">);</span>
+        assertTrue<span style="color:#f92672">(!</span>users<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    &lt;pre class=&quot;brush: java;&quot;&gt;@RunWith(SpringJUnit4ClassRunner.class)
-</code></pre>
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">findUserById</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+        assertNotNull<span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-<p>@SpringApplicationConfiguration(SpringbootJdbcDemoApplication.class)
-public class SpringbootJdbcDemoApplicationTests
-{
-    @Autowired
-    private UserRepository userRepository;</p>
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createUser</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;John&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;john@gmail.com&#34;</span><span style="color:#f92672">);</span>
+        User savedUser <span style="color:#f92672">=</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+        User newUser <span style="color:#f92672">=</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>savedUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+        assertNotNull<span style="color:#f92672">(</span>newUser<span style="color:#f92672">);</span>
+        assertEquals<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;John&#34;</span><span style="color:#f92672">,</span> newUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+        assertEquals<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;john@gmail.com&#34;</span><span style="color:#f92672">,</span> newUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<pre><code>@Test
-public void findAllUsers() {
-    List&amp;lt;User&amp;gt; users = userRepository.findAll();
-    assertNotNull(users);
-    assertTrue(!users.isEmpty());
-}
+<blockquote class="tr_bq">
+    <span style="color: red;">By default SpringBoot features such as external properties, logging etc are available in 
+    the ApplicationContext only if you use <b>SpringApplication</b>. So, SpringBoot provides <b>@SpringApplicationConfiguration</b> annotation 
+    to configure the ApplicationContext for tests which uses <b>SpringApplication </b>behind the scenes</span>.
+</blockquote>
 
-@Test
-public void findUserById() {
-    User user = userRepository.findUserById(1);
-    assertNotNull(user);
-}
+<p>We have learned how to get started quickly with Embedded database.</p>
 
-@Test
-public void createUser() {
-    User user = new User(0, &quot;John&quot;, &quot;john@gmail.com&quot;);
-    User savedUser = userRepository.create(user);
-    User newUser = userRepository.findUserById(savedUser.getId());
-    assertNotNull(newUser);
-    assertEquals(&quot;John&quot;, newUser.getName());
-    assertEquals(&quot;john@gmail.com&quot;, newUser.getEmail());
-}
-</code></pre>
+<p><strong>What if we want to use Non-Embedded databases like MySQL, Oracle or PostgreSQL etc?</strong>.</p>
 
-<p>}
-</pre></p>
+<p>We can configure the database properties in application.properties file so that SpringBoot will use those jdbc parameters to configure DataSource bean.</p>
 
-<pre><code>    &amp;nbsp;
-
-    &lt;blockquote class=&quot;tr_bq&quot;&gt;
-      &lt;p&gt;
-        &lt;span style=&quot;color: red;&quot;&gt;By default SpringBoot features such as external properties, logging etc are available in the ApplicationContext only if you use &lt;b&gt;SpringApplication&lt;/b&gt;. So, SpringBoot provides &lt;b&gt;@SpringApplicationConfiguration&lt;/b&gt; annotation to configure the ApplicationContext for tests which uses &lt;b&gt;SpringApplication &lt;/b&gt;behind the scenes&lt;/span&gt;.
-      &lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    We have learned how to get started quickly with Embedded database. **What if we want to use Non-Embedded databases like MySQL, Oracle or PostgreSQL etc?**.
-
-    We can configure the database properties in application.properties file so that SpringBoot will use those jdbc parameters to configure DataSource bean.
-
-    &lt;pre class=&quot;brush: java;&quot;&gt;spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-</code></pre>
-
-<p>spring.datasource.url=jdbc:mysql://localhost:3306/test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/test
 spring.datasource.username=root
-spring.datasource.password=admin
-</pre></p>
+spring.datasource.password=admin</code></pre></div>
 
-<pre><code>    For any reason if you want to have more control and configure **DataSource **bean by yourself then you can configure DataSource bean in a Configuration class. If you register DataSource bean then SpringBoot will not configure DataSource automatically using AutoConfiguration.
+<p>For any reason if you want to have more control and configure <strong>DataSource</strong> bean by yourself then you can configure DataSource bean in a Configuration class. If you register DataSource bean then SpringBoot will not configure DataSource automatically using AutoConfiguration.</p>
 
-    **What if you want to use another Connection Pooling library?**
+<p><strong>What if you want to use another Connection Pooling library?</strong></p>
 
-    SpringBoot by default pulls in **tomcat-jdbc-{version}.jar** and uses **org.apache.tomcat.jdbc.pool.DataSource** to configure **DataSource **bean.
+<p>SpringBoot by default pulls in <strong>tomcat-jdbc-{version}.jar</strong> and uses <strong>org.apache.tomcat.jdbc.pool.DataSource</strong> to configure <strong>DataSource</strong> bean.</p>
 
-    SpringBoot checks the availability of the following classes and uses the first one that is available in classpath.
+<p>SpringBoot checks the availability of the following classes and uses the first one that is available in classpath.</p>
 
-      * org.apache.tomcat.jdbc.pool.DataSource
-      * com.zaxxer.hikari.HikariDataSource
-      * org.apache.commons.dbcp.BasicDataSource
-      * org.apache.commons.dbcp2.BasicDataSource
+<ul>
+<li>org.apache.tomcat.jdbc.pool.DataSource</li>
+<li>com.zaxxer.hikari.HikariDataSource</li>
+<li>org.apache.commons.dbcp.BasicDataSource</li>
+<li>org.apache.commons.dbcp2.BasicDataSource</li>
+</ul>
 
-    For example, If you want to use **HikariDataSource **then you can exclude **tomcat-jdbc** and add **HikariCP **dependency as follows:
+<p>For example, If you want to use <strong>HikariDataSource</strong> then you can exclude <strong>tomcat-jdbc</strong> and add <strong>HikariCP</strong> dependency as follows:</p>
 
-    &lt;pre class=&quot;brush: java;&quot;&gt;&amp;lt;dependency&amp;gt;
-&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-&amp;lt;artifactId&amp;gt;spring-boot-starter-jdbc&amp;lt;/artifactId&amp;gt;
-&amp;lt;exclusions&amp;gt;
-    &amp;lt;exclusion&amp;gt;
-    &amp;lt;groupId&amp;gt;org.apache.tomcat&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;tomcat-jdbc&amp;lt;/artifactId&amp;gt;
-    &amp;lt;/exclusion&amp;gt;
-&amp;lt;/exclusions&amp;gt;
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-jdbc<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;exclusions&gt;</span>
+        <span style="color:#f92672">&lt;exclusion&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.tomcat<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>tomcat-jdbc<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/exclusion&gt;</span>
+    <span style="color:#f92672">&lt;/exclusions&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
 
-<p>&lt;/dependency&gt;</p>
+<span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.zaxxer<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>HikariCP<span style="color:#f92672">&lt;/artifactId&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
 
-<p>&lt;dependency&gt;
-    &lt;groupId&gt;com.zaxxer&lt;/groupId&gt;
-    &lt;artifactId&gt;HikariCP&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</pre></p>
+<p>With this dependency configuration SpringBoot will use <strong>HikariCP</strong> to configure <strong>DataSource</strong> bean.</p>
 
-<pre><code>    With this dependency configuration SpringBoot will use **HikariCP **to configure **DataSource **bean.
-
-    You can find the source code of the article at my GitHub repo &lt;https://github.com/sivaprasadreddy/springboot-tutorials&gt;
-</code></pre>
+<p>You can find the source code of the article at my GitHub repo <a href="https://github.com/sivaprasadreddy/springboot-tutorials">https://github.com/sivaprasadreddy/springboot-tutorials</a></p>
 
         </div>
         <div class="sharedaddy sd-sharing-enabled">

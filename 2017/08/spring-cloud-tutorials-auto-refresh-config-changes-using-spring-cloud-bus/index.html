@@ -175,27 +175,25 @@
 
 <p>Let us add <strong>Cloud Bus AMQP</strong> starter to <strong>catalog-service/pom.xml</strong>.</p>
 
-<pre class="brush: xml;">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-bus-amqp&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+	<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#f92672">&lt;/groupId&gt;</span>
+	<span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-starter-bus-amqp<span style="color:#f92672">&lt;/artifactId&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
 
 <p>We are going to use RabbitMQ as message broker to broadcast config changes. We can install RabbitMQ on our local machine or run in a docker container. I am going to run rabbitmq in docker container using the following <strong>docker-compose.yml</strong> configuration.</p>
 
-<pre class="brush: xml;">version: '2'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version: <span style="color:#e6db74">&#39;2&#39;</span>
 
 services:
   rabbitmq:
       container_name: rabbitmq-server
-      image: 'rabbitmq:management'
+      image: <span style="color:#e6db74">&#39;rabbitmq:management&#39;</span>
       environment:
         - RABBITMQ_DEFAULT_USER=guest
         - RABBITMQ_DEFAULT_PASS=guest
       ports:
-        - "5672:5672"
-        - "15672:15672"
-</pre>
+        - <span style="color:#e6db74">&#34;5672:5672&#34;</span>
+        - <span style="color:#e6db74">&#34;15672:15672&#34;</span></code></pre></div>
 
 <p>Now run <strong>docker-compose up</strong> to start rabbitmq container.</p>
 
@@ -203,11 +201,10 @@ services:
 
 <p><strong>config-repo/catalogservice.properties</strong></p>
 
-<pre class="brush: xml;">spring.rabbitmq.host=localhost
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.rabbitmq.host=localhost
 spring.rabbitmq.port=5672
 spring.rabbitmq.username=guest
-spring.rabbitmq.password=guest
-</pre>
+spring.rabbitmq.password=guest</code></pre></div>
 
 <p>Now we can run <strong>catalog-service</strong> and to reload the configuration changes we can trigger POST &#8211; <strong><a href="http://localhost:8181/bus/refresh">http://localhost:8181/bus/refresh</a></strong> instead of <strong><a href="http://localhost:8181/refresh">http://localhost:8181/refresh</a></strong>.</p>
 

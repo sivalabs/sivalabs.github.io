@@ -249,8 +249,8 @@ JOOQ provides the following features:
                 <div class="entry-content">
 
                     <p>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
- SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
-**Create a SpringBoot Maven project and add the following MyBatis Starter dependency. [&hellip;]</p>
+SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt;&lt;groupId&gt;org. [&hellip;]</p>
                     <p><a class="btn btn-default read-more"
                           href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/"
                           title="SpringBoot : Working with MyBatis">Read More</a>
@@ -334,9 +334,9 @@ JOOQ provides the following features:
 
                 <div class="entry-content">
 
-                    <p>Spring provides a nice abstraction on top of JDBC API using **JdbcTemplate **and also provides great transaction management capabilities using annotation based approach.
-First let’s take a quick look at how we generally use Spring’s **JdbcTemplate (without** SpringBoot) by registering DataSource, **TransactionManager **and **JdbcTemplate **beans and optionally we can register **DataSourceInitializer **bean to initialize our database.
-@Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { "classpath:application.properties" }) public class AppConfig { @Autowired private Environment env; @Value(" [&hellip;]</p>
+                    <p>Spring provides a nice abstraction on top of JDBC API using JdbcTemplate and also provides great transaction management capabilities using annotation based approach.
+First let’s take a quick look at how we generally use Spring’s JdbcTemplate (without SpringBoot) by registering DataSource, TransactionManager and JdbcTemplate beans and optionally we can register DataSourceInitializer bean to initialize our database.
+@Configuration@ComponentScan@EnableTransactionManagement@PropertySource(value = { &#34;classpath:application.properties&#34; })public class AppConfig {@Autowiredprivate Environment env;@Value(&#34;${init-db:false}&#34;)private String initDatabase;@Beanpublic static PropertySourcesPlaceholderConfigurer placeHolderConfigurer(){return new PropertySourcesPlaceholderConfigurer();} @Beanpublic JdbcTemplate jdbcTemplate(DataSource dataSource){return new JdbcTemplate(dataSource);}@Beanpublic PlatformTransactionManager transactionManager(DataSource dataSource){return new DataSourceTransactionManager(dataSource);}@Beanpublic DataSource dataSource(){BasicDataSource dataSource = new BasicDataSource();dataSource. [&hellip;]</p>
                     <p><a class="btn btn-default read-more"
                           href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/"
                           title="SpringBoot : Working with JdbcTemplate">Read More</a>
@@ -422,8 +422,7 @@ First let’s take a quick look at how we generally use Spring’s **JdbcTemplat
 
                     <p>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
 But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
-Exploring the power of @Conditional&nbsp;
-While developing Spring based applications we may come across of a need to register beans conditionally. [&hellip;]</p>
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally. [&hellip;]</p>
                     <p><a class="btn btn-default read-more"
                           href="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/"
                           title="How SpringBoot AutoConfiguration magic works?">Read More</a>
@@ -508,7 +507,7 @@ While developing Spring based applications we may come across of a need to regis
                 <div class="entry-content">
 
                     <p>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
-Spring framework provides flexibility to configure the beans in multiple ways such as XML, **Annotations **and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone. [&hellip;]</p>
+Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone. [&hellip;]</p>
                     <p><a class="btn btn-default read-more"
                           href="https://sivalabs.github.io/2016/03/why-springboot/"
                           title="Why SpringBoot?">Read More</a>

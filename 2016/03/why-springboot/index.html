@@ -152,7 +152,7 @@
 
 <p>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.</p>
 
-<p>Spring framework provides flexibility to configure the beans in multiple ways such as <strong>XML</strong>, **Annotations **and <strong>JavaConfig</strong>. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</p>
+<p>Spring framework provides flexibility to configure the beans in multiple ways such as <strong>XML</strong>, <strong>Annotations</strong> and <strong>JavaConfig</strong>. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</p>
 
 <p>Spring team created SpringBoot to address the complexity of configuration.</p>
 
@@ -166,7 +166,7 @@
 <li>A quick taste of SpringBoot</li>
 </ul>
 
-<p><span style="font-size: x-large;">Overview of Spring framework </span></p>
+<h2 id="overview-of-spring-framework">Overview of Spring framework</h2>
 
 <p>If you are a Java developer then there is a high chance that you might have heard about Spring framework and probably have used it in your projects. Spring framework was created primarily as a Dependency Injection container but it is much more than that.</p>
 
@@ -195,86 +195,76 @@
 
 <p>Let us take a quick look at how each of those configuration styles looks like.</p>
 
-<p>**XML based configuration</p>
+<h3 id="xml-based-configuration">XML based configuration</h3>
 
-<p>**</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userService&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.sivalabs.myapp.service.UserService&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;userDao&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;userDao&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span>
 
-<pre class="brush: xml;">&lt;bean id="userService" class="com.sivalabs.myapp.service.UserService"&gt;
-    &lt;property name="userDao" ref="userDao"/&gt;
-&lt;/bean&gt;
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userDao&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.sivalabs.myapp.dao.JdbcUserDao&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span>
 
-&lt;bean id="userDao" class="com.sivalabs.myapp.dao.JdbcUserDao"&gt;
-    &lt;property name="dataSource" ref="dataSource"/&gt;
-&lt;/bean&gt;
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.apache.commons.dbcp.BasicDataSource&#34;</span> <span style="color:#a6e22e">destroy-method=</span><span style="color:#e6db74">&#34;close&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driverClassName&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/test&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;secret&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span></code></pre></div>
 
-&lt;bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"&gt;
-    &lt;property name="driverClassName" value="com.mysql.jdbc.Driver"/&gt;
-    &lt;property name="url" value="jdbc:mysql://localhost:3306/test"/&gt;
-    &lt;property name="username" value="root"/&gt;
-    &lt;property name="password" value="secret"/&gt;
-&lt;/bean&gt;
-</pre>
+<h3 id="annotation-based-configuration">Annotation based configuration</h3>
 
-<p><strong>Annotation based configuration</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserService</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> UserDao userDao<span style="color:#f92672">;</span>
 
-<p>&nbsp;</p>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UserService</span><span style="color:#f92672">(</span>UserDao dao<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userDao</span> <span style="color:#f92672">=</span> dao<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<pre class="brush: java;">@Service
-public class UserService
-{
-    private UserDao userDao;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Repository</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JdbcUserDao</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> DataSource dataSource<span style="color:#f92672">;</span>
 
-    @Autowired
-    public UserService(UserDao dao){
-        this.userDao = dao;
-    }
-    ...
-    ...
-}
-</pre>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">JdbcUserDao</span><span style="color:#f92672">(</span>DataSource dataSource<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dataSource</span> <span style="color:#f92672">=</span> dataSource<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<pre class="brush: java;">@Repository
-public class JdbcUserDao
-{
-    private DataSource dataSource;
+<h3 id="javaconfig-based-configuration">JavaConfig based configuration</h3>
 
-    @Autowired
-    public JdbcUserDao(DataSource dataSource){
-        this.dataSource = dataSource;
-    }
-    ...
-    ...
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> UserService <span style="color:#a6e22e">userService</span><span style="color:#f92672">(</span>UserDao dao<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> UserService<span style="color:#f92672">(</span>dao<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-<p><strong>JavaConfig based configuration</strong></p>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> UserDao <span style="color:#a6e22e">userDao</span><span style="color:#f92672">(</span>DataSource dataSource<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JdbcUserDao<span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-<p>&nbsp;</p>
-
-<pre class="brush: java;">@Configuration
-public class AppConfig
-{
-    @Bean
-    public UserService userService(UserDao dao){
-        return new UserService(dao);
-    }
-
-    @Bean
-    public UserDao userDao(DataSource dataSource){
-        return new JdbcUserDao(dataSource);
-    }
-
-    @Bean
-    public DataSource dataSource(){
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test");
-        dataSource.setUsername("root");
-        dataSource.setPassword("secret");
-        return dataSource;
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">dataSource</span><span style="color:#f92672">(){</span>
+        BasicDataSource dataSource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BasicDataSource<span style="color:#f92672">();</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setDriverClassName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span><span style="color:#f92672">);</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/test&#34;</span><span style="color:#f92672">);</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">);</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;secret&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> dataSource<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>Wow… Spring provides many approaches for doing the same thing and we can even mix the approaches as well like you can use both JavaConfig and Annotation based configuration styles in the same application.</p>
 
@@ -292,7 +282,7 @@ public class AppConfig
 
 <p>Let us take a quick look at the configuration of a typical SpringMVC + JPA/Hibernate web application configuration looks like.</p>
 
-<h3 id="span-style-font-size-x-large-a-web-application-using-spring-mvc-and-jpa-hibernate-span"><span style="font-size: x-large;">A web application using Spring MVC and JPA(Hibernate) </span></h3>
+<h2 id="a-web-application-using-spring-mvc-and-jpa-hibernate">A web application using Spring MVC and JPA(Hibernate)</h2>
 
 <p>Before getting to know what is SpringBoot and what kind of features it provides, let us take a look at how a typical Spring web application configuration looks like, what are the pain points and then we will discuss about how SpringBoot addresses those problems.</p>
 
@@ -300,174 +290,170 @@ public class AppConfig
 
 <p>First thing we need to do is configure all the dependencies required in our <strong>pom.xml</strong>.</p>
 
-<pre class="brush: xml;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                        http://maven.apache.org/maven-v4_0_0.xsd"&gt;
-    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-    &lt;groupId&gt;com.sivalabs&lt;/groupId&gt;
-    &lt;artifactId&gt;springmvc-jpa-demo&lt;/artifactId&gt;
-    &lt;packaging&gt;war&lt;/packaging&gt;
-    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-    &lt;name&gt;springmvc-jpa-demo&lt;/name&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> 
+    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 
+</span><span style="color:#e6db74">                        http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>springmvc-jpa-demo<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;packaging&gt;</span>war<span style="color:#f92672">&lt;/packaging&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>springmvc-jpa-demo<span style="color:#f92672">&lt;/name&gt;</span>
 
-    &lt;properties&gt;
-        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
-        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;      
-        &lt;failOnMissingWebXml&gt;false&lt;/failOnMissingWebXml&gt;
-    &lt;/properties&gt;
+    <span style="color:#f92672">&lt;properties&gt;</span>
+        <span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+        <span style="color:#f92672">&lt;maven.compiler.source&gt;</span>1.8<span style="color:#f92672">&lt;/maven.compiler.source&gt;</span>
+        <span style="color:#f92672">&lt;maven.compiler.target&gt;</span>1.8<span style="color:#f92672">&lt;/maven.compiler.target&gt;</span>      
+        <span style="color:#f92672">&lt;failOnMissingWebXml&gt;</span>false<span style="color:#f92672">&lt;/failOnMissingWebXml&gt;</span>
+    <span style="color:#f92672">&lt;/properties&gt;</span>
 
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
-            &lt;version&gt;4.2.4.RELEASE&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.data&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-data-jpa&lt;/artifactId&gt;
-            &lt;version&gt;1.9.2.RELEASE&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-            &lt;artifactId&gt;jcl-over-slf4j&lt;/artifactId&gt;
-            &lt;version&gt;1.7.13&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-            &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
-            &lt;version&gt;1.7.13&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-            &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
-            &lt;version&gt;1.7.13&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;log4j&lt;/groupId&gt;
-            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
-            &lt;version&gt;1.2.17&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;com.h2database&lt;/groupId&gt;
-            &lt;artifactId&gt;h2&lt;/artifactId&gt;
-            &lt;version&gt;1.4.190&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;commons-dbcp&lt;/groupId&gt;
-            &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt;
-            &lt;version&gt;1.4&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;mysql&lt;/groupId&gt;
-            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-            &lt;version&gt;5.1.38&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
-            &lt;artifactId&gt;hibernate-entitymanager&lt;/artifactId&gt;
-            &lt;version&gt;4.3.11.Final&lt;/version&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
-            &lt;version&gt;3.1.0&lt;/version&gt;
-            &lt;scope&gt;provided&lt;/scope&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.thymeleaf&lt;/groupId&gt;
-            &lt;artifactId&gt;thymeleaf-spring4&lt;/artifactId&gt;
-            &lt;version&gt;2.1.4.RELEASE&lt;/version&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-&lt;/project&gt;
-</pre>
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-webmvc<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>4.2.4.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.data<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-data-jpa<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>1.9.2.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>jcl-over-slf4j<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>1.7.13<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>slf4j-api<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>1.7.13<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.slf4j<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>slf4j-log4j12<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>1.7.13<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>log4j<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>log4j<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>1.2.17<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>com.h2database<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>h2<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>1.4.190<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>commons-dbcp<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>commons-dbcp<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>1.4<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>mysql<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>mysql-connector-java<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>5.1.38<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.hibernate<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>hibernate-entitymanager<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>4.3.11.Final<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>javax.servlet<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>javax.servlet-api<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>3.1.0<span style="color:#f92672">&lt;/version&gt;</span>
+            <span style="color:#f92672">&lt;scope&gt;</span>provided<span style="color:#f92672">&lt;/scope&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.thymeleaf<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>thymeleaf-spring4<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>2.1.4.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
 
 <p>We have configured all our Maven jar dependencies to include Spring MVC, Spring Data JPA, JPA/Hibernate, Thymeleaf and Log4j.</p>
 
-<p>**Step 2: Configure Service/DAO layer beans using JavaConfig.</p>
+<p><strong>Step 2: Configure Service/DAO layer beans using JavaConfig.</strong></p>
 
-<p>**</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@EnableTransactionManagement</span>
+<span style="color:#a6e22e">@EnableJpaRepositories</span><span style="color:#f92672">(</span>basePackages<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;com.sivalabs.demo&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@PropertySource</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;classpath:application.properties&#34;</span> <span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span> 
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> Environment env<span style="color:#f92672">;</span>
 
-<pre class="brush: java;">@Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories(basePackages="com.sivalabs.demo")
-@PropertySource(value = { "classpath:application.properties" })
-public class AppConfig 
-{
-    @Autowired
-    private Environment env;
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer()
-    {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> PropertySourcesPlaceholderConfigurer <span style="color:#a6e22e">placeHolderConfigurer</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> PropertySourcesPlaceholderConfigurer<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
     
-    @Value("${init-db:false}")
-    private String initDatabase;
+    <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${init-db:false}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String initDatabase<span style="color:#f92672">;</span>
     
-    @Bean
-    public PlatformTransactionManager transactionManager()
-    {
-        EntityManagerFactory factory = entityManagerFactory().getObject();
-        return new JpaTransactionManager(factory);
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> PlatformTransactionManager <span style="color:#a6e22e">transactionManager</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        EntityManagerFactory factory <span style="color:#f92672">=</span> entityManagerFactory<span style="color:#f92672">().</span><span style="color:#a6e22e">getObject</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JpaTransactionManager<span style="color:#f92672">(</span>factory<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory()
-    {
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> LocalContainerEntityManagerFactoryBean <span style="color:#a6e22e">entityManagerFactory</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        LocalContainerEntityManagerFactoryBean factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LocalContainerEntityManagerFactoryBean<span style="color:#f92672">();</span>
 
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(Boolean.TRUE);
-        vendorAdapter.setShowSql(Boolean.TRUE);
+        HibernateJpaVendorAdapter vendorAdapter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HibernateJpaVendorAdapter<span style="color:#f92672">();</span>
+        vendorAdapter<span style="color:#f92672">.</span><span style="color:#a6e22e">setGenerateDdl</span><span style="color:#f92672">(</span>Boolean<span style="color:#f92672">.</span><span style="color:#a6e22e">TRUE</span><span style="color:#f92672">);</span>
+        vendorAdapter<span style="color:#f92672">.</span><span style="color:#a6e22e">setShowSql</span><span style="color:#f92672">(</span>Boolean<span style="color:#f92672">.</span><span style="color:#a6e22e">TRUE</span><span style="color:#f92672">);</span>
 
-        factory.setDataSource(dataSource());
-        factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("com.sivalabs.demo");
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">setDataSource</span><span style="color:#f92672">(</span>dataSource<span style="color:#f92672">());</span>
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">setJpaVendorAdapter</span><span style="color:#f92672">(</span>vendorAdapter<span style="color:#f92672">);</span>
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">setPackagesToScan</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.sivalabs.demo&#34;</span><span style="color:#f92672">);</span>
 
-        Properties jpaProperties = new Properties();
-        jpaProperties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-        factory.setJpaProperties(jpaProperties);
+        Properties jpaProperties <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">();</span>
+        jpaProperties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hibernate.hbm2ddl.auto&#34;</span><span style="color:#f92672">,</span> env<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hibernate.hbm2ddl.auto&#34;</span><span style="color:#f92672">));</span>
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">setJpaProperties</span><span style="color:#f92672">(</span>jpaProperties<span style="color:#f92672">);</span>
 
-        factory.afterPropertiesSet();
-        factory.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
-        return factory;
-    }
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">afterPropertiesSet</span><span style="color:#f92672">();</span>
+        factory<span style="color:#f92672">.</span><span style="color:#a6e22e">setLoadTimeWeaver</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> InstrumentationLoadTimeWeaver<span style="color:#f92672">());</span>
+        <span style="color:#66d9ef">return</span> factory<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    public HibernateExceptionTranslator hibernateExceptionTranslator()
-    {
-        return new HibernateExceptionTranslator();
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> HibernateExceptionTranslator <span style="color:#a6e22e">hibernateExceptionTranslator</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> HibernateExceptionTranslator<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
     
-    @Bean
-    public DataSource dataSource()
-    {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
-        dataSource.setUrl(env.getProperty("jdbc.url"));
-        dataSource.setUsername(env.getProperty("jdbc.username"));
-        dataSource.setPassword(env.getProperty("jdbc.password"));
-        return dataSource;
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">dataSource</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        BasicDataSource dataSource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BasicDataSource<span style="color:#f92672">();</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setDriverClassName</span><span style="color:#f92672">(</span>env<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.driverClassName&#34;</span><span style="color:#f92672">));</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUrl</span><span style="color:#f92672">(</span>env<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.url&#34;</span><span style="color:#f92672">));</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span>env<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.username&#34;</span><span style="color:#f92672">));</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>env<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.password&#34;</span><span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">return</span> dataSource<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
     
-    @Bean
-    public DataSourceInitializer dataSourceInitializer(DataSource dataSource) 
-    {
-        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
-        dataSourceInitializer.setDataSource(dataSource);
-        ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-        databasePopulator.addScript(new ClassPathResource("data.sql"));
-        dataSourceInitializer.setDatabasePopulator(databasePopulator);
-        dataSourceInitializer.setEnabled(Boolean.parseBoolean(initDatabase));
-        return dataSourceInitializer;
-    }   
-}
-</pre>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> DataSourceInitializer <span style="color:#a6e22e">dataSourceInitializer</span><span style="color:#f92672">(</span>DataSource dataSource<span style="color:#f92672">)</span> 
+    <span style="color:#f92672">{</span>
+        DataSourceInitializer dataSourceInitializer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DataSourceInitializer<span style="color:#f92672">();</span>
+        dataSourceInitializer<span style="color:#f92672">.</span><span style="color:#a6e22e">setDataSource</span><span style="color:#f92672">(</span>dataSource<span style="color:#f92672">);</span>
+        ResourceDatabasePopulator databasePopulator <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ResourceDatabasePopulator<span style="color:#f92672">();</span>
+        databasePopulator<span style="color:#f92672">.</span><span style="color:#a6e22e">addScript</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ClassPathResource<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;data.sql&#34;</span><span style="color:#f92672">));</span>
+        dataSourceInitializer<span style="color:#f92672">.</span><span style="color:#a6e22e">setDatabasePopulator</span><span style="color:#f92672">(</span>databasePopulator<span style="color:#f92672">);</span>
+        dataSourceInitializer<span style="color:#f92672">.</span><span style="color:#a6e22e">setEnabled</span><span style="color:#f92672">(</span>Boolean<span style="color:#f92672">.</span><span style="color:#a6e22e">parseBoolean</span><span style="color:#f92672">(</span>initDatabase<span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">return</span> dataSourceInitializer<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>   
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>In our AppConfig.java configuration class we have done the following:</p>
 
@@ -482,101 +468,97 @@ public class AppConfig
 
 <p>we need to configure property placeholder values in <strong>application.properties</strong> in src/main/resources as follows:</p>
 
-<pre class="brush: java;">jdbc.driverClassName=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://localhost:3306/test
-jdbc.username=root
-jdbc.password=admin
-init-db=true
-hibernate.dialect=org.hibernate.dialect.MySQLDialect
-hibernate.show_sql=true
-hibernate.hbm2ddl.auto=update
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">jdbc<span style="color:#f92672">.</span><span style="color:#a6e22e">driverClassName</span><span style="color:#f92672">=</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span>
+jdbc<span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">=</span>jdbc:mysql:<span style="color:#75715e">//localhost:3306/test
+</span><span style="color:#75715e"></span>jdbc<span style="color:#f92672">.</span><span style="color:#a6e22e">username</span><span style="color:#f92672">=</span>root
+jdbc<span style="color:#f92672">.</span><span style="color:#a6e22e">password</span><span style="color:#f92672">=</span>admin
+init<span style="color:#f92672">-</span>db<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>
+hibernate<span style="color:#f92672">.</span><span style="color:#a6e22e">dialect</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">hibernate</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dialect</span><span style="color:#f92672">.</span><span style="color:#a6e22e">MySQLDialect</span>
+hibernate<span style="color:#f92672">.</span><span style="color:#a6e22e">show_sql</span><span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>
+hibernate<span style="color:#f92672">.</span><span style="color:#a6e22e">hbm2ddl</span><span style="color:#f92672">.</span><span style="color:#a6e22e">auto</span><span style="color:#f92672">=</span>update</code></pre></div>
 
-<p>we can create a simple sql script <strong>data.sql</strong> to populate sample data into **USER **table.</p>
+<p>we can create a simple sql script <strong>data.sql</strong> to populate sample data into <strong>USER</strong> table.</p>
 
-<pre class="brush: sql;">delete from user;
-insert into user(id, name) values(1,'Siva');
-insert into user(id, name) values(2,'Prasad');
-insert into user(id, name) values(3,'Reddy');
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">delete</span> <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">user</span>;
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">user</span>(id, name) <span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;Siva&#39;</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">user</span>(id, name) <span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">2</span>,<span style="color:#e6db74">&#39;Prasad&#39;</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">user</span>(id, name) <span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">&#39;Reddy&#39;</span>);</code></pre></div>
 
 <p>We can create <strong>log4j.properties</strong> file with basic configuration as follows:</p>
 
-<pre class="brush: java;">log4j.rootCategory=INFO, stdout
-log4j.appender.stdout=org.apache.log4j.ConsoleAppender
-log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
-log4j.appender.stdout.layout.ConversionPattern=%5p %t %c{2}:%L - %m%n
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">rootCategory</span><span style="color:#f92672">=</span>INFO<span style="color:#f92672">,</span> stdout
+log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">stdout</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ConsoleAppender</span>
+log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">stdout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PatternLayout</span>
+log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">appender</span><span style="color:#f92672">.</span><span style="color:#a6e22e">stdout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ConversionPattern</span><span style="color:#f92672">=%</span>5p <span style="color:#f92672">%</span>t <span style="color:#f92672">%</span>c<span style="color:#f92672">{</span>2<span style="color:#f92672">}:%</span>L <span style="color:#f92672">-</span> <span style="color:#f92672">%</span>m<span style="color:#f92672">%</span>n
 
-log4j.category.org.springframework=INFO
-log4j.category.com.sivalabs=DEBUG
-</pre>
+log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">category</span><span style="color:#f92672">.</span><span style="color:#a6e22e">org</span><span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">=</span>INFO
+log4j<span style="color:#f92672">.</span><span style="color:#a6e22e">category</span><span style="color:#f92672">.</span><span style="color:#a6e22e">com</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sivalabs</span><span style="color:#f92672">=</span>DEBUG</code></pre></div>
 
 <p><strong>Step 3: Configure Spring MVC web layer beans </strong></p>
 
-<p>We will have to configure Thymeleaf <strong>ViewResolver</strong>, static <strong>ResourceHandlers</strong>, **MessageSource **for i18n etc.</p>
+<p>We will have to configure Thymeleaf <strong>ViewResolver</strong>, static <strong>ResourceHandlers</strong>, <strong>MessageSource</strong> for i18n etc.</p>
 
-<pre class="brush: java;">@Configuration
-@ComponentScan(basePackages = { "com.sivalabs.demo"}) 
-@EnableWebMvc
-public class WebMvcConfig extends WebMvcConfigurerAdapter
-{
-    @Bean
-    public TemplateResolver templateResolver() {
-        TemplateResolver templateResolver = new ServletContextTemplateResolver();
-        templateResolver.setPrefix("/WEB-INF/views/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
-        templateResolver.setCacheable(false);
-        return templateResolver;
-    }
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@ComponentScan</span><span style="color:#f92672">(</span>basePackages <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;com.sivalabs.demo&#34;</span><span style="color:#f92672">})</span> 
+<span style="color:#a6e22e">@EnableWebMvc</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WebMvcConfig</span> <span style="color:#66d9ef">extends</span> WebMvcConfigurerAdapter
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> TemplateResolver <span style="color:#a6e22e">templateResolver</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        TemplateResolver templateResolver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ServletContextTemplateResolver<span style="color:#f92672">();</span>
+        templateResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">setPrefix</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/WEB-INF/views/&#34;</span><span style="color:#f92672">);</span>
+        templateResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">setSuffix</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.html&#34;</span><span style="color:#f92672">);</span>
+        templateResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">setTemplateMode</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;HTML5&#34;</span><span style="color:#f92672">);</span>
+        templateResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">setCacheable</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> templateResolver<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    public SpringTemplateEngine templateEngine() {
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver());
-        return templateEngine;
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> SpringTemplateEngine <span style="color:#a6e22e">templateEngine</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        SpringTemplateEngine templateEngine <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SpringTemplateEngine<span style="color:#f92672">();</span>
+        templateEngine<span style="color:#f92672">.</span><span style="color:#a6e22e">setTemplateResolver</span><span style="color:#f92672">(</span>templateResolver<span style="color:#f92672">());</span>
+        <span style="color:#66d9ef">return</span> templateEngine<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    public ThymeleafViewResolver viewResolver() {
-        ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
-        thymeleafViewResolver.setTemplateEngine(templateEngine());
-        thymeleafViewResolver.setCharacterEncoding("UTF-8");
-        return thymeleafViewResolver;
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> ThymeleafViewResolver <span style="color:#a6e22e">viewResolver</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        ThymeleafViewResolver thymeleafViewResolver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThymeleafViewResolver<span style="color:#f92672">();</span>
+        thymeleafViewResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">setTemplateEngine</span><span style="color:#f92672">(</span>templateEngine<span style="color:#f92672">());</span>
+        thymeleafViewResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">setCharacterEncoding</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> thymeleafViewResolver<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry)
-    {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-    }
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addResourceHandlers</span><span style="color:#f92672">(</span>ResourceHandlerRegistry registry<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        registry<span style="color:#f92672">.</span><span style="color:#a6e22e">addResourceHandler</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/resources/**&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">addResourceLocations</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/resources/&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)
-    {
-        configurer.enable();
-    }
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configureDefaultServletHandling</span><span style="color:#f92672">(</span>DefaultServletHandlerConfigurer configurer<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        configurer<span style="color:#f92672">.</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean(name = "messageSource")
-    public MessageSource configureMessageSource()
-    {
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("classpath:messages");
-        messageSource.setCacheSeconds(5);
-        messageSource.setDefaultEncoding("UTF-8");
-        return messageSource;
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@Bean</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;messageSource&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> MessageSource <span style="color:#a6e22e">configureMessageSource</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        ReloadableResourceBundleMessageSource messageSource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ReloadableResourceBundleMessageSource<span style="color:#f92672">();</span>
+        messageSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setBasename</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;classpath:messages&#34;</span><span style="color:#f92672">);</span>
+        messageSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setCacheSeconds</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span>
+        messageSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setDefaultEncoding</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> messageSource<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>In our <strong>WebMvcConfig.java</strong> configuration class we have done the following:</p>
 
 <ul>
 <li>Marked it as as a Spring Configuration class using <strong>@Configuration</strong> annotation.</li>
 <li>Enabled Annotation based Spring MVC configuration using <strong>@EnableWebMvc</strong></li>
-<li>Configured Thymeleaf ViewResolver by registering <strong>TemplateResolver</strong>, <strong>SpringTemplateEngine</strong>, **ThymeleafViewResolver **beans.</li>
+<li>Configured Thymeleaf ViewResolver by registering <strong>TemplateResolver</strong>, <strong>SpringTemplateEngine</strong>, <strong>ThymeleafViewResolver</strong> beans.</li>
 <li>Registered ResourceHandlers bean to indicate requests for static resources with URI <strong>/resources/</strong>** will be served from the location <strong>/resources/</strong> directory.</li>
-<li>Configured **MessageSource **bean to load i18n messages from ResourceBundle <strong>messages-{country-code}.properties</strong> from classpath.</li>
+<li>Configured <strong>MessageSource</strong> bean to load i18n messages from ResourceBundle <strong>messages-{country-code}.properties</strong> from classpath.</li>
 </ul>
 
 <p>For now we do not have any messages to be configured, so create an empty <strong>messages.properties</strong> file in <strong>src/main/resources</strong> folder.</p>
@@ -585,134 +567,121 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
 
 <p>Prior to Servlet 3.x specification we have to register Servlets/Filters in <strong>web.xml</strong>. Since Servlet 3.x specification we can register Servlets/Filters programatically using <strong>ServletContainerInitializer</strong>.</p>
 
-<p>Spring MVC provides a convenient class **AbstractAnnotationConfigDispatcherServletInitializer **to register <strong>DispatcherServlet</strong>.</p>
+<p>Spring MVC provides a convenient class <strong>AbstractAnnotationConfigDispatcherServletInitializer</strong> to register <strong>DispatcherServlet</strong>.</p>
 
-<pre class="brush: java;">public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
-{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringWebAppInitializer</span> <span style="color:#66d9ef">extends</span> AbstractAnnotationConfigDispatcherServletInitializer
+<span style="color:#f92672">{</span>
 
-    @Override
-    protected Class&lt;?&gt;[] getRootConfigClasses()
-    {
-        return new Class&lt;?&gt;[] { AppConfig.class};
-    }
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> Class<span style="color:#f92672">&lt;?&gt;[]</span> getRootConfigClasses<span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Class<span style="color:#f92672">&lt;?&gt;[]</span> <span style="color:#f92672">{</span> AppConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
 
-    @Override
-    protected Class&lt;?&gt;[] getServletConfigClasses()
-    {
-        return new Class&lt;?&gt;[] { WebMvcConfig.class };
-    }
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> Class<span style="color:#f92672">&lt;?&gt;[]</span> getServletConfigClasses<span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Class<span style="color:#f92672">&lt;?&gt;[]</span> <span style="color:#f92672">{</span> WebMvcConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
 
-    @Override
-    protected String[] getServletMappings()
-    {
-        return new String[] { "/" };
-    }
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> String<span style="color:#f92672">[]</span> <span style="color:#a6e22e">getServletMappings</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
 
-    @Override
-    protected Filter[] getServletFilters() {
-       return new Filter[]{ new OpenEntityManagerInViewFilter() };
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> Filter<span style="color:#f92672">[]</span> <span style="color:#a6e22e">getServletFilters</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+       <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Filter<span style="color:#f92672">[]{</span> <span style="color:#66d9ef">new</span> OpenEntityManagerInViewFilter<span style="color:#f92672">()</span> <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>In our **SpringWebAppInitializer.java **configuration class we have done the following:</p>
+<p>In our <strong>SpringWebAppInitializer.java</strong> configuration class we have done the following:</p>
 
 <ul>
-<li>We have configured <strong>AppConfig.class</strong> as **RootConfirationClasses **which will become the parent **ApplicationContext <strong>that contains bean definitions shared by all child (</strong>DispatcherServlet**) contexts.</li>
-<li>We have configured <strong>WebMvcConfig.class</strong> as **ServletConfigClasses **which is child **ApplicationContext **that contains WebMvc bean definitions.</li>
-<li>We have configured <strong>”/”</strong> as **ServletMapping **means all the requests will be handled by <strong>DispatcherServlet</strong>.</li>
-<li>We have registered **OpenEntityManagerInViewFilter **as a Servlet Filter so that we can lazy load the JPA Entity lazy collections while rendering the view.</li>
+<li>We have configured <strong>AppConfig.class</strong> as <strong>RootConfirationClasses</strong> which will become the parent <strong>ApplicationContext</strong> that contains bean definitions shared by all child (<strong>DispatcherServlet</strong>) contexts.</li>
+<li>We have configured <strong>WebMvcConfig.class</strong> as <strong>ServletConfigClasses</strong> which is child <strong>ApplicationContext</strong> that contains WebMvc bean definitions.</li>
+<li>We have configured <strong>”/”</strong> as <strong>ServletMapping</strong> means all the requests will be handled by <strong>DispatcherServlet</strong>.</li>
+<li>We have registered <strong>OpenEntityManagerInViewFilter</strong> as a Servlet Filter so that we can lazy load the JPA Entity lazy collections while rendering the view.</li>
 </ul>
 
-<p><strong>Step 5: Create a JPA Entity and Spring Data JPA Repository </strong></p>
+<p><strong>Step 5: Create a JPA Entity and Spring Data JPA Repository</strong></p>
 
 <p>Create a JPA entity <strong>User.java</strong> and a Spring Data JPA repository for User entity.</p>
 
-<pre class="brush: java;">@Entity
-public class User
-{
-    @Id @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
-    private String name;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Id</span> <span style="color:#a6e22e">@GeneratedValue</span><span style="color:#f92672">(</span>strategy<span style="color:#f92672">=</span>GenerationType<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTO</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Integer id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
 
-    //setters and getters
-}
-</pre>
+    <span style="color:#75715e">//setters and getters
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span></code></pre></div>
 
-<pre class="brush: java;">public interface UserRepository extends JpaRepository&lt;User, Integer&gt;
-{
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserRepository</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">{</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p><strong>Step 6: Create a SpringMVC Controller </strong></p>
+<p><strong>Step 6: Create a SpringMVC Controller</strong></p>
 
-<p>Create a SpringMVC controller to handle URL **“/” **and render list of users.</p>
+<p>Create a SpringMVC controller to handle URL <strong>“/”</strong> and render list of users.</p>
 
-<pre class="brush: java;">@Controller
-public class HomeController
-{
-    @Autowired UserRepository userRepo;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HomeController</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span> UserRepository userRepo<span style="color:#f92672">;</span>
 
-    @RequestMapping("/")
-    public String home(Model model)
-    {
-        model.addAttribute("users", userRepo.findAll());
-        return "index";
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">home</span><span style="color:#f92672">(</span>Model model<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;users&#34;</span><span style="color:#f92672">,</span> userRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">());</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;index&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>**Step 7: Create a thymeleaf view /WEB-INF/views/index.html to render list of Users.</p>
+<p><strong>Step 7: Create a thymeleaf view /WEB-INF/views/index.html to render list of Users.</strong></p>
 
-<p>**</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#f92672">&lt;html</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xhtml&#34;</span> 
+      <span style="color:#a6e22e">xmlns:th=</span><span style="color:#e6db74">&#34;http://www.thymeleaf.org&#34;</span><span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;head&gt;</span>
+<span style="color:#f92672">&lt;meta</span> <span style="color:#a6e22e">charset=</span><span style="color:#e6db74">&#34;utf-8&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;title&gt;</span>Home<span style="color:#f92672">&lt;/title&gt;</span>
+<span style="color:#f92672">&lt;/head&gt;</span>
+<span style="color:#f92672">&lt;body&gt;</span>
+    <span style="color:#f92672">&lt;table&gt;</span>
+        <span style="color:#f92672">&lt;thead&gt;</span>
+            <span style="color:#f92672">&lt;tr&gt;</span>
+                <span style="color:#f92672">&lt;th&gt;</span>Id<span style="color:#f92672">&lt;/th&gt;</span>
+                <span style="color:#f92672">&lt;th&gt;</span>Name<span style="color:#f92672">&lt;/th&gt;</span>
+            <span style="color:#f92672">&lt;/tr&gt;</span>
+        <span style="color:#f92672">&lt;/thead&gt;</span>
+        <span style="color:#f92672">&lt;tbody&gt;</span>
+            <span style="color:#f92672">&lt;tr</span> <span style="color:#a6e22e">th:each=</span><span style="color:#e6db74">&#34;user : ${users}&#34;</span><span style="color:#f92672">&gt;</span>
+                <span style="color:#f92672">&lt;td</span> <span style="color:#a6e22e">th:text=</span><span style="color:#e6db74">&#34;${user.id}&#34;</span><span style="color:#f92672">&gt;</span>Id<span style="color:#f92672">&lt;/td&gt;</span>
+                <span style="color:#f92672">&lt;td</span> <span style="color:#a6e22e">th:text=</span><span style="color:#e6db74">&#34;${user.name}&#34;</span><span style="color:#f92672">&gt;</span>Name<span style="color:#f92672">&lt;/td&gt;</span>
+            <span style="color:#f92672">&lt;/tr&gt;</span>
+        <span style="color:#f92672">&lt;/tbody&gt;</span>
+    <span style="color:#f92672">&lt;/table&gt;</span>
+<span style="color:#f92672">&lt;/body&gt;</span>
+<span style="color:#f92672">&lt;/html&gt;</span></code></pre></div>
 
-<pre class="brush: xml;">&lt;!DOCTYPE html&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org"&gt;
-&lt;head&gt;
-&lt;meta charset="utf-8"/&gt;
-&lt;title&gt;Home&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;table&gt;
-        &lt;thead&gt;
-            &lt;tr&gt;
-                &lt;th&gt;Id&lt;/th&gt;
-                &lt;th&gt;Name&lt;/th&gt;
-            &lt;/tr&gt;
-        &lt;/thead&gt;
-        &lt;tbody&gt;
-            &lt;tr th:each="user : ${users}"&gt;
-                &lt;td th:text="${user.id}"&gt;Id&lt;/td&gt;
-                &lt;td th:text="${user.name}"&gt;Name&lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;/tbody&gt;
-    &lt;/table&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>
-
-<p>We are all set now to run the application. But before that we need to download and configure the server like **Tomcat **or **Jetty **or **Wildfly **etc in your IDE.</p>
+<p>We are all set now to run the application. But before that we need to download and configure the server like <strong>Tomcat</strong> or <strong>Jetty</strong> or <strong>Wildfly</strong> etc in your IDE.</p>
 
 <p>You can download Tomcat 8 and configure in your favourite IDE,run the application and point your browser to <strong><a href="http://localhost:8080/springmvcjpa-demo">http://localhost:8080/springmvcjpa-demo</a></strong>. You should see the list of users details in a table.</p>
 
 <p>Yay…We did it.</p>
 
-<p>**But wait..Isn’t it too much work to just show a list of user details pulled from a database table?</p>
+<p><strong>But wait..Isn’t it too much work to just show a list of user details pulled from a database table?
+Let us be honest and fair. All this configuration is not just for this one use-case.
+This configuration is basis for rest of the application also.</strong></p>
 
-<p>Let us be honest and fair. All this configuration is not just for this one use-case. This configuration is basis for rest of the application also. **</p>
+<p><strong>But again, this is too much of work to do if you want to quickly get up and running.
+Another problem with it is, assume you want to develop another SpringMVC application with similar technical stack?</strong></p>
 
-<p>**</p>
-
-<p>**</p>
-
-<p><strong>But again, this is too much of work to do if you want to quickly get up and running. Another problem with it is, assume you want to develop another SpringMVC application with similar technical stack? </strong></p>
-
-<p>**</p>
-
-<p>**</p>
-
-<p><strong>Well, you copy-paste the configuration and tweak it. Right? But remember one thing: if you have to do the same thing again and again, you should find an automated way to do it.</strong></p>
+<p><strong>Well, you copy-paste the configuration and tweak it. Right? But remember one thing: if you have to do the same thing again and again,
+you should find an automated way to do it.</strong></p>
 
 <p>Apart from writing the same configuration again and again, do you see any other problems here?</p>
 
@@ -720,8 +689,8 @@ public class HomeController
 
 <ul>
 <li>You need to hunt for all the <strong>compatible libraries</strong> for the specific Spring version and configure them.</li>
-<li>95% of the times we configure the <strong>DataSource</strong>, <strong>EntitymanagerFactory</strong>, **TransactionManager **etc beans in the same way. Wouldn’t it be great if Spring can do it for me automatically.</li>
-<li>Similarly we configure SpringMVC beans like <strong>ViewResolver</strong>, **MessageSource **etc in the same way most of the times.</li>
+<li>95% of the times we configure the <strong>DataSource</strong>, <strong>EntitymanagerFactory</strong>, <strong>TransactionManager</strong> etc beans in the same way. Wouldn’t it be great if Spring can do it for me automatically.</li>
+<li>Similarly we configure SpringMVC beans like <strong>ViewResolver</strong>, <strong>MessageSource</strong> etc in the same way most of the times.</li>
 </ul>
 
 <blockquote class="tr_bq">
@@ -738,7 +707,7 @@ public class HomeController
 
 <p>Well, you are about to enter into the world of SpringBoot where your dreams come true!!!</p>
 
-<p><span style="font-size: x-large;"><br /> A quick taste of SpringBoot </span></p>
+<h2 id="a-quick-taste-of-springboot">A quick taste of SpringBoot</h2>
 
 <p>Welcome to SpringBoot!. SpringBoot do what exactly you are looking for. It will do things automatically for you but allows you to override the defaults if you want to.</p>
 
@@ -750,99 +719,94 @@ public class HomeController
 
 <p>Create a Maven project and configure the dependencies as follows:</p>
 
-<pre class="brush: xml;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                        http://maven.apache.org/maven-v4_0_0.xsd"&gt;
-    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-    &lt;groupId&gt;com.sivalabs&lt;/groupId&gt;
-    &lt;artifactId&gt;hello-springboot&lt;/artifactId&gt;
-    &lt;packaging&gt;jar&lt;/packaging&gt;
-    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-    &lt;name&gt;hello-springboot&lt;/name&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> 
+        <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+        <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 
+</span><span style="color:#e6db74">                        http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>hello-springboot<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;packaging&gt;</span>jar<span style="color:#f92672">&lt;/packaging&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>hello-springboot<span style="color:#f92672">&lt;/name&gt;</span>
 
-    &lt;parent&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
-        &lt;version&gt;1.3.2.RELEASE&lt;/version&gt;
-    &lt;/parent&gt;
+    <span style="color:#f92672">&lt;parent&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;version&gt;</span>1.3.2.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/parent&gt;</span>
 
-    &lt;properties&gt;
-        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-        &lt;java.version&gt;1.8&lt;/java.version&gt;
-    &lt;/properties&gt;
+    <span style="color:#f92672">&lt;properties&gt;</span>
+        <span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+        <span style="color:#f92672">&lt;java.version&gt;</span>1.8<span style="color:#f92672">&lt;/java.version&gt;</span>
+    <span style="color:#f92672">&lt;/properties&gt;</span>
 
     
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;mysql&lt;/groupId&gt;
-            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-&lt;/project&gt;
-</pre>
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-devtools<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>mysql<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>mysql-connector-java<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
 
 <p>Wow our <strong>pom.xml</strong> suddenly become so small!!.</p>
 
-<p>**Step 2: Configure datasource/JPA properties in application.properties in src/main/resources as follows.</p>
+<p><strong>Step 2: Configure datasource/JPA properties in application.properties in src/main/resources as follows.</strong></p>
 
-<p>**</p>
-
-<pre class="brush: java;">spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/test
-spring.datasource.username=root
-spring.datasource.password=admin
-spring.datasource.initialize=true
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">driver</span><span style="color:#f92672">-</span>class<span style="color:#f92672">-</span>name<span style="color:#f92672">=</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span>
+spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">=</span>jdbc:mysql:<span style="color:#75715e">//localhost:3306/test
+</span><span style="color:#75715e"></span>spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">username</span><span style="color:#f92672">=</span>root
+spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">password</span><span style="color:#f92672">=</span>admin
+spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">initialize</span><span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>
+spring<span style="color:#f92672">.</span><span style="color:#a6e22e">jpa</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hibernate</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ddl</span><span style="color:#f92672">-</span>auto<span style="color:#f92672">=</span>update
+spring<span style="color:#f92672">.</span><span style="color:#a6e22e">jpa</span><span style="color:#f92672">.</span><span style="color:#a6e22e">show</span><span style="color:#f92672">-</span>sql<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span></code></pre></div>
 
 <p>you can copy the same <strong>data.sql</strong> file into <strong>src/main/resources</strong> folder.</p>
 
-<p><strong>Step 3: Create a JPA Entity and Spring Data JPA Repository Interface for the entity. </strong></p>
+<p><strong>Step 3: Create a JPA Entity and Spring Data JPA Repository Interface for the entity.</strong></p>
 
 <p>Create <strong>User.java, UserRepository.java</strong> and <strong>HomeController.java</strong> same as in <strong>springmvc-jpa-demo</strong> application.</p>
 
-<p><strong>Step 4: Create Thymeleaf view to show list of users </strong></p>
+<p><strong>Step 4: Create Thymeleaf view to show list of users</strong></p>
 
 <p>Copy <strong>/WEB-INF/views/index.html</strong> that we created in <strong>springmvc-jpa-demo</strong> application into <strong>src/-main/resources/templates</strong> folder in our new project.</p>
 
-<p><strong>Step 5: Create SpringBoot EntryPoint Class. </strong></p>
+<p><strong>Step 5: Create SpringBoot EntryPoint Class.</strong></p>
 
 <p>Create a Java class <strong>Application.java</strong> with main method as follows:</p>
 
-<pre class="brush: java;">@SpringBootApplication
-public class Application
-{
-    public static void main(String[] args)
-    {
-        SpringApplication.run(Application.class, args);
-    }
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Application</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>Application<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>Now run **Application.java **as a Java Application and point your browser to <strong><a href="http://localhost:8080/">http://localhost:8080/</a></strong>.</p>
+<p>Now run <strong>Application.java</strong> as a Java Application and point your browser to <strong><a href="http://localhost:8080/">http://localhost:8080/</a></strong>.</p>
 
 <p>You should see the list of users in table format. Coool!!!</p>
 
@@ -855,30 +819,33 @@ public class Application
 <ul>
 <li><p>First thing to observe is we are using some dependencies named like <strong>spring-boot-starter-</strong>*.</p>
 
-<p>Remember I said “95% of the times I use same configuration”. So when you add **springboot-starter-web **dependency by default it will pull all the commonly used libraries while developing Spring MVC applications such as **spring-webmvc, jackson-json, validation-api **and <strong>tomcat</strong>.</p></li>
+<p>Remember I said “95% of the times I use same configuration”. So when you add <strong>springboot-starter-web</strong> dependency by default it will pull all the commonly used libraries while developing Spring MVC applications such as <strong>spring-webmvc, jackson-json, validation-api</strong> and <strong>tomcat</strong>.</p></li>
 
-<li><p>We have added **spring-boot-starter-data-jpa **dependency. This pulls all the <strong>spring-data-jpa</strong> dependencies and also adds **Hibernate **libraries because majority of the applications use Hibernate as JPA implementation.</p></li>
+<li><p>We have added <strong>spring-boot-starter-data-jpa</strong> dependency. This pulls all the <strong>spring-data-jpa</strong> dependencies and also adds <strong>Hibernate</strong> libraries because majority of the applications use Hibernate as JPA implementation.</p></li>
 </ul>
 
 <p><strong>2. Auto Configuration </strong></p>
 
 <ul>
-<li>Not only the <strong>spring-boot-starter-web</strong> adds all these libraries but also configures the commonly registered beans like **DispatcherServlet, ResourceHandlers, MessageSource **etc beans with sensible defaults.</li>
-<li>We also added **spring-boot-starter-thymeleaf **which not only adds the thymeleaf library dependencies but also configures <strong>ThymeleafViewResolver</strong> beans as well automatically.</li>
-<li>We haven’t defined any of the **DataSource, EntityManagerFactory, TransactionManager **etc beans but they are automatically gets created. How?If we have any in-memory database drivers like **H2 **or **HSQL **in our classpath then SpringBoot will automatically creates an in-memory <strong>DataSource</strong> and then registers **EntityManagerFactory, TransactionManager **beans automatically with sensible defaults.But we are using MySQL, so we need to explicitly provide MySQL connection details. We have configured those MySQL connection details in <strong>application.properties</strong> file and SpringBoot creates a <strong>DataSource</strong> using these properties.</li>
+<li>Not only the <strong>spring-boot-starter-web</strong> adds all these libraries but also configures the commonly registered beans like <strong>DispatcherServlet, ResourceHandlers, MessageSource</strong> etc beans with sensible defaults.</li>
+<li>We also added <strong>spring-boot-starter-thymeleaf</strong> which not only adds the thymeleaf library dependencies but also configures <strong>ThymeleafViewResolver</strong> beans as well automatically.</li>
+<li>We haven’t defined any of the <strong>DataSource, EntityManagerFactory, TransactionManager</strong> etc beans but they are automatically gets created. <strong>How?</strong>
+<br /></li>
 </ul>
+
+<p>If we have any in-memory database drivers like <strong>H2</strong> or <strong>HSQL</strong> in our classpath then SpringBoot will automatically creates an in-memory <strong>DataSource</strong> and then registers <strong>EntityManagerFactory, TransactionManager</strong> beans automatically with sensible defaults.But we are using MySQL, so we need to explicitly provide MySQL connection details. We have configured those MySQL connection details in <strong>application.properties</strong> file and SpringBoot creates a <strong>DataSource</strong> using these properties.</p>
 
 <p><strong>3. Embedded Servlet Container Support</strong></p>
 
-<p>The most important and surprising thing is we have created a simple Java class annotated with some magical annotation **@SpringBootApplication **having a main method and by running that main we are able to run the application and access it at <strong><a href="http://localhost:8080/">http://localhost:8080/</a></strong>.</p>
+<p>The most important and surprising thing is we have created a simple Java class annotated with some magical annotation <strong>@SpringBootApplication</strong> having a main method and by running that main we are able to run the application and access it at <strong><a href="http://localhost:8080/">http://localhost:8080/</a></strong>.</p>
 
-<p><strong>Where is the servlet container comes from? </strong></p>
+<p><strong>Where is the servlet container comes from?</strong></p>
 
-<p>We have added <strong>spring-boot-starter-web</strong> which pull the <strong>spring-boot-starter-tomcat</strong> automatically and when we run the main() method it started tomcat as an **embedded container **so that we don’t have to deploy our application on any externally installed tomcat server.</p>
+<p>We have added <strong>spring-boot-starter-web</strong> which pull the <strong>spring-boot-starter-tomcat</strong> automatically and when we run the main() method it started tomcat as an <strong>embedded container</strong> so that we don’t have to deploy our application on any externally installed tomcat server.</p>
 
 <p>By the way have you observe that our packaging type in <strong>pom.xml</strong> is <strong>‘jar’ not ‘war’</strong>. Wonderful!</p>
 
-<p><strong>Ok, but what if I want to use Jetty server instead of tomcat? </strong></p>
+<p><strong>Ok, but what if I want to use Jetty server instead of tomcat?</strong></p>
 
 <p>Simple, exclude <strong>spring-bootstarter-tomcat</strong> from <strong>spring-boot-starter-web</strong> and include <strong>spring-boot-starter-jetty</strong>.</p>
 

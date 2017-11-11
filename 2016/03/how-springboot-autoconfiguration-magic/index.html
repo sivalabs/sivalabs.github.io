@@ -148,11 +148,13 @@
         </header>
 
         <div class="entry-content">
-            <p>In my previous post <a href="http://www.sivalabs.in/2016/03/why-springboot.html" target="_blank">Why SpringBoot?</a> we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.</p>
+            
+
+<p>In my previous post <a href="http://www.sivalabs.in/2016/03/why-springboot.html" target="_blank">Why SpringBoot?</a> we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.</p>
 
 <p>But before that you should know about Spring’s <strong>@Conditional</strong> feature based on which all the SpringBoot’s AutoConfiguration magic depends.</p>
 
-<p><span style="font-size: x-large;">Exploring the power of @Conditional&nbsp;</span></p>
+<h2 id="exploring-the-power-of-conditional">Exploring the power of @Conditional</h2>
 
 <p>While developing Spring based applications we may come across of a need to register beans conditionally.</p>
 
@@ -162,22 +164,21 @@
 
 <p>To address this problem Spring 3.1 introduced the concept of <strong>Profiles</strong>. You can register multiple beans of the same type and associate them to one or more profiles. When you run the application you can activate the desired profiles and beans associated with the activated profiles only will be registered.</p>
 
-<pre class="brush: java;">@Configuration
-public class AppConfig
-{
-    @Bean
-    @Profile("DEV")
-    public DataSource devDataSource() {
-        ...
-    }
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#a6e22e">@Profile</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DEV&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">devDataSource</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#f92672">...</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    @Profile("PROD")
-    public DataSource prodDataSource() {
-        ...
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#a6e22e">@Profile</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;PROD&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">prodDataSource</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#f92672">...</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>Then you can specify the active profile using System Property <strong>-Dspring.profiles.active=DEV</strong></p>
 
@@ -199,213 +200,203 @@ public class AppConfig
 
 <p>Let us take a look at how Spring’s @Conditional works.</p>
 
-<p>Suppose we have a **UserDAO **interface with methods to get data from a data store. We have two implements of **UserDAO **interface namely **JdbcUserDAO **which talks to **MySQL **database and **MongoUserDAO **which talks to <strong>MongoDB</strong>.</p>
+<p>Suppose we have a <strong>UserDAO</strong> interface with methods to get data from a data store. We have two implements of <strong>UserDAO</strong> interface namely <strong>JdbcUserDAO</strong> which talks to <strong>MySQL</strong> database and <strong>MongoUserDAO</strong> which talks to <strong>MongoDB</strong>.</p>
 
-<p>We may want to enable only one of **JdbcUserDAO **and **MongoUserDAO **based on a System Property say <strong>dbType</strong>.</p>
+<p>We may want to enable only one of <strong>JdbcUserDAO</strong> and <strong>MongoUserDAO</strong> based on a System Property say <strong>dbType</strong>.</p>
 
 <p>If the application is started using <strong>java -jar myapp.jar -DdbType=MySQL</strong> then we want to enable <strong>JdbcUserDAO</strong>, otherwise if the application is started using <strong>java -jar myapp.jar -DdbType=MONGO</strong> we want to enable <strong>MongoUserDAO</strong>.</p>
 
-<p>Suppose we have **UserDAO **interface and <strong>JdbcUserDAO</strong>, **MongoUserDAO **implementations as follows:</p>
+<p>Suppose we have <strong>UserDAO</strong> interface and <strong>JdbcUserDAO</strong>, <strong>MongoUserDAO</strong> implementations as follows:</p>
 
-<pre class="brush: java;">public interface UserDAO
-{
-    List&lt;String&gt; getAllUserNames();
-}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserDAO</span>
+<span style="color:#f92672">{</span>
+    List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllUserNames</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
 
-public class JdbcUserDAO implements UserDAO
-{
-    @Override
-    public List&lt;String&gt; getAllUserNames()
-    {
-        System.out.println("**** Getting usernames from RDBMS *****");
-        return Arrays.asList("Siva","Prasad","Reddy");
-    }
-}
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JdbcUserDAO</span> <span style="color:#66d9ef">implements</span> UserDAO
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllUserNames</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;**** Getting usernames from RDBMS *****&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Siva&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Prasad&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Reddy&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-public class MongoUserDAO implements UserDAO
-{
-    @Override
-    public List&lt;String&gt; getAllUserNames()
-    {
-        System.out.println("**** Getting usernames from MongoDB *****");
-        return Arrays.asList("Bond","James","Bond");
-    }
-}
-</pre>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoUserDAO</span> <span style="color:#66d9ef">implements</span> UserDAO
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllUserNames</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;**** Getting usernames from MongoDB *****&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Bond&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;James&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Bond&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>We can implement the Condition **MySQLDatabaseTypeCondition **to check whether the System Property **dbType **is <strong>&#8220;MYSQL&#8221;</strong> as follows:</p>
+<p>We can implement the Condition <strong>MySQLDatabaseTypeCondition</strong> to check whether the System Property <strong>dbType</strong> is <strong>&#8220;MYSQL&#8221;</strong> as follows:</p>
 
-<pre class="brush: java;">public class MySQLDatabaseTypeCondition implements Condition
-{
-    @Override
-    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata metadata)
-    {
-        String enabledDBType = System.getProperty("dbType");
-        return (enabledDBType != null && enabledDBType.equalsIgnoreCase("MYSQL"));
-    }
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MySQLDatabaseTypeCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span> AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        String enabledDBType <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dbType&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>enabledDBType <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> enabledDBType<span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MYSQL&#34;</span><span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>We can implement the Condition **MongoDBDatabaseTypeCondition **to check whether the System Property **dbType <strong>is &#8220;</strong>MONGODB**&#8221; as follows:</p>
+<p>We can implement the Condition <strong>MongoDBDatabaseTypeCondition</strong> to check whether the System Property <strong>dbType</strong> is &#8220;<strong>MONGODB</strong>&#8221; as follows:</p>
 
-<pre class="brush: java;">public class MongoDBDatabaseTypeCondition implements Condition
-{
-    @Override
-    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata metadata)
-    {
-        String enabledDBType = System.getProperty("dbType");
-        return (enabledDBType != null && enabledDBType.equalsIgnoreCase("MONGODB"));
-    }
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDBDatabaseTypeCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span> AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        String enabledDBType <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dbType&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>enabledDBType <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> enabledDBType<span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MONGODB&#34;</span><span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>Now we can configure both **JdbcUserDAO **and **MongoUserDAO **beans conditionally using <strong>@Conditional</strong> as follows:</p>
+<p>Now we can configure both <strong>JdbcUserDAO</strong> and <strong>MongoUserDAO</strong> beans conditionally using <strong>@Conditional</strong> as follows:</p>
 
-<pre class="brush: java;">@Configuration
-public class AppConfig
-{
-    @Bean
-    @Conditional(MySQLDatabaseTypeCondition.class)
-    public UserDAO jdbcUserDAO(){
-        return new JdbcUserDAO();
-    }
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#a6e22e">@Conditional</span><span style="color:#f92672">(</span>MySQLDatabaseTypeCondition<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> UserDAO <span style="color:#a6e22e">jdbcUserDAO</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JdbcUserDAO<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    @Conditional(MongoDBDatabaseTypeCondition.class)
-    public UserDAO mongoUserDAO(){
-        return new MongoUserDAO();
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#a6e22e">@Conditional</span><span style="color:#f92672">(</span>MongoDBDatabaseTypeCondition<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> UserDAO <span style="color:#a6e22e">mongoUserDAO</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MongoUserDAO<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>If we run the application like <strong>java -jar myapp.jar -DdbType=MYSQL</strong> then only **JdbcUserDAO **bean will be registered.</p>
+<p>If we run the application like <strong>java -jar myapp.jar -DdbType=MYSQL</strong> then only <strong>JdbcUserDAO</strong> bean will be registered.</p>
 
-<p>But if you set the System property like <strong>-DdbType=MONGODB</strong> then only **MongoUserDAO **bean will be registered.</p>
+<p>But if you set the System property like <strong>-DdbType=MONGODB</strong> then only <strong>MongoUserDAO</strong> bean will be registered.</p>
 
 <p>Now that we have seen how to conditionally register a bean based on System Property.</p>
 
-<p>Suppose we want to register **MongoUserDAO **bean only when **MongoDB **java driver class <strong>&#8220;com.mongodb.Server&#8221;</strong> is available on classpath, if not we want to register **JdbcUserDAO **bean.&nbsp;</p>
+<p>Suppose we want to register <strong>MongoUserDAO</strong> bean only when <strong>MongoDB</strong> java driver class <strong>&#8220;com.mongodb.Server&#8221;</strong> is available on classpath, if not we want to register <strong>JdbcUserDAO</strong> bean.&nbsp;</p>
 
 <p>To accomplish that we can create Conditions to check the presence or absence of MongoDB driver class <strong>&#8220;com.mongodb.Server&#8221;</strong> as follows:</p>
 
-<pre class="brush: java;">public class MongoDriverPresentsCondition implements Condition
-{
-    @Override
-    public boolean matches(ConditionContext conditionContext,AnnotatedTypeMetadata metadata)
-    {
-        try {
-            Class.forName("com.mongodb.Server");
-            return true;
-        } catch (ClassNotFoundException e) {
-            return false;
-        }
-    }
-}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDriverPresentsCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span>AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.mongodb.Server&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>ClassNotFoundException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-public class MongoDriverNotPresentsCondition implements Condition
-{
-    @Override
-    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata metadata)
-    {
-        try {
-            Class.forName("com.mongodb.Server");
-            return false;
-        } catch (ClassNotFoundException e) {
-            return true;
-        }
-    }
-}
-</pre>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDriverNotPresentsCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span> AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.mongodb.Server&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>ClassNotFoundException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>We just have seen how to register beans conditionally based on presence/absence of a class in classpath.</p>
 
-<p>What if we want to register **MongoUserDAO **bean only if no other Spring bean of type **UserDAO **is already registered.</p>
+<p>What if we want to register <strong>MongoUserDAO</strong> bean only if no other Spring bean of type <strong>UserDAO</strong> is already registered.</p>
 
 <p>We can create a Condition to check if there is any existing bean of a certain type as follows:</p>
 
-<pre class="brush: java;">public class UserDAOBeanNotPresentsCondition implements Condition
-{
-    @Override
-    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata metadata)
-    {
-        UserDAO userDAO = conditionContext.getBeanFactory().getBean(UserDAO.class);
-        return (userDAO == null);
-    }
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDAOBeanNotPresentsCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span> AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        UserDAO userDAO <span style="color:#f92672">=</span> conditionContext<span style="color:#f92672">.</span><span style="color:#a6e22e">getBeanFactory</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span>UserDAO<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>userDAO <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>What if we want to register **MongoUserDAO **bean only if property <strong>app.dbType=MONGO</strong> is set in properties placeholder configuration file?</p>
+<p>What if we want to register <strong>MongoUserDAO</strong> bean only if property <strong>app.dbType=MONGO</strong> is set in properties placeholder configuration file?</p>
 
 <p>We can implement that Condition as follows:</p>
 
-<pre class="brush: java;">public class MongoDbTypePropertyCondition implements Condition
-{
-    @Override
-    public boolean matches(ConditionContext conditionContext,
-    AnnotatedTypeMetadata metadata)
-    {
-        String dbType = conditionContext.getEnvironment()
-                            .getProperty("app.dbType");
-        return "MONGO".equalsIgnoreCase(dbType);
-    }
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDbTypePropertyCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span>
+    AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        String dbType <span style="color:#f92672">=</span> conditionContext<span style="color:#f92672">.</span><span style="color:#a6e22e">getEnvironment</span><span style="color:#f92672">()</span>
+                            <span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;app.dbType&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;MONGO&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>dbType<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>We have just seen how to implement various types of Conditions.</p>
 
 <p>But there is even more elegant way to implement Conditions using Annotations. Instead of creating a Condition implementation for both MYSQL and MongoDB, we can create aDatabaseType annotation as follows:</p>
 
-<pre class="brush: java;">@Target({ ElementType.TYPE, ElementType.METHOD })
-@Retention(RetentionPolicy.RUNTIME)
-@Conditional(DatabaseTypeCondition.class)
-public @interface DatabaseType
-{
-    String value();
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE</span><span style="color:#f92672">,</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span> <span style="color:#f92672">})</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Conditional</span><span style="color:#f92672">(</span>DatabaseTypeCondition<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> DatabaseType
+<span style="color:#f92672">{</span>
+    String <span style="color:#a6e22e">value</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>Then we can implement **DatabaseTypeCondition **to use the **DatabaseType **value to determine whether to enable or disable bean registration as follows:</p>
+<p>Then we can implement <strong>DatabaseTypeCondition</strong> to use the <strong>DatabaseType</strong> value to determine whether to enable or disable bean registration as follows:</p>
 
-<pre class="brush: java;">public class DatabaseTypeCondition implements Condition
-{
-    @Override
-    public boolean matches(ConditionContext conditionContext,
-    AnnotatedTypeMetadata metadata)
-    {
-        Map&lt;String, Object&gt; attributes = metadata.getAnnotationAttributes(DatabaseType.class.getName());
-        String type = (String) attributes.get("value");
-        String enabledDBType = System.getProperty("dbType","MYSQL");
-        return (enabledDBType != null && type != null && enabledDBType.equalsIgnoreCase(type));
-    }
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DatabaseTypeCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span>
+    AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> attributes <span style="color:#f92672">=</span> metadata<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotationAttributes</span><span style="color:#f92672">(</span>DatabaseType<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+        String type <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span> attributes<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">);</span>
+        String enabledDBType <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dbType&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;MYSQL&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>enabledDBType <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> type <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> enabledDBType<span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>type<span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>Now we can use the <strong>@DatabaseType</strong> annotation on our bean definitions as follows:</p>
 
-<pre class="brush: java;">@Configuration
-@ComponentScan
-public class AppConfig
-{
-    @DatabaseType("MYSQL")
-    public UserDAO jdbcUserDAO(){
-        return new JdbcUserDAO();
-    }
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@ComponentScan</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@DatabaseType</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MYSQL&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> UserDAO <span style="color:#a6e22e">jdbcUserDAO</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JdbcUserDAO<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    @DatabaseType("MONGO")
-    public UserDAO mongoUserDAO(){
-        return new MongoUserDAO();
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#a6e22e">@DatabaseType</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MONGO&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> UserDAO <span style="color:#a6e22e">mongoUserDAO</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MongoUserDAO<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>Here we are getting the metadata from **DatabaseType **annotation and checking against the System Property **dbType **value to determine whether to enable or disable the bean registration.</p>
+<p>Here we are getting the metadata from <strong>DatabaseType</strong> annotation and checking against the System Property <strong>dbType</strong> value to determine whether to enable or disable the bean registration.</p>
 
 <p>We have seen good number of examples to understand how we can register beans conditionally using <strong>@Conditional</strong> annotation.</p>
 
 <p>SpringBoot extensively uses <strong>@Conditional</strong> feature to register beans conditionally based on various criteria.</p>
 
-<p>You can find various Condition implementations that SpringBoot uses in <strong>org.springframework.boot.autoconfigure&nbsp;</strong>package of <strong>spring-boot-autoconfigure-{version}.jar</strong>.&nbsp;</p>
+<p>You can find various Condition implementations that SpringBoot uses in <strong>org.springframework.boot.autoconfigure</strong> package of <strong>spring-boot-autoconfigure-{version}.jar</strong>.&nbsp;</p>
 
 <p>Now that we come to know about how SpringBoot uses <strong>@Conditional</strong> feature to conditionally check whether to register a bean or not.</p>
 
@@ -413,122 +404,122 @@ public class AppConfig
 
 <p>This is what we are going to look at in next section.</p>
 
-<p><span style="font-size: x-large;">SpringBoot AutoConfiguration&nbsp;</span></p>
+<h3 id="springboot-autoconfiguration">SpringBoot AutoConfiguration</h3>
 
-<p>The key to the SpringBoot’s auto-configuration magic is <strong>@EnableAutoConfiguration</strong> annotation. Typically we annotate our Application entry point class with either <strong>@SpringBootApplication</strong> or if we want to customize the defaults we can use the following annotations:</p>
+<p>The key to the SpringBoot’s auto-configuration magic is <strong>@EnableAutoConfiguration</strong> annotation.
+Typically we annotate our Application entry point class with either <strong>@SpringBootApplication</strong> or
+if we want to customize the defaults we can use the following annotations:</p>
 
-<pre class="brush: java;">@Configuration
-@EnableAutoConfiguration
-@ComponentScan
-public class Application
-{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@EnableAutoConfiguration</span>
+<span style="color:#a6e22e">@ComponentScan</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Application</span>
+<span style="color:#f92672">{</span>
 
-}
-</pre>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>The <strong>@EnableAutoConfiguration</strong> annotation enables the auto-configuration of Spring **ApplicationContext **by scanning the classpath components and registers the beans that are matching various Conditions.&nbsp;</p>
+<p>The <strong>@EnableAutoConfiguration</strong> annotation enables the auto-configuration of Spring <strong>ApplicationContext</strong> by scanning the classpath components and registers the beans that are matching various Conditions.&nbsp;</p>
 
-<p>SpringBoot provides various **AutoConfiguration **classes in <strong>spring-boot-autoconfigure-{version}.jar</strong> which are responsible for registering various components.</p>
+<p>SpringBoot provides various <strong>AutoConfiguration</strong> classes in <strong>spring-boot-autoconfigure-{version}.jar</strong> which are responsible for registering various components.</p>
 
-<p>Typically **AutoConfiguration **classes are annotated with <strong>@Configuration</strong> to mark it as a Spring configuration class and annotated with <strong>@EnableConfigurationProperties</strong> to bind the customization properties and one or more Conditional bean registration methods.</p>
+<p>Typically <strong>AutoConfiguration</strong> classes are annotated with <strong>@Configuration</strong> to mark it as a Spring configuration class and annotated with <strong>@EnableConfigurationProperties</strong> to bind the customization properties and one or more Conditional bean registration methods.</p>
 
 <p>For example consider <strong>org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration</strong> class.</p>
 
-<pre class="brush: java;">@Configuration
-@ConditionalOnClass({ DataSource.class, EmbeddedDatabaseType.class })
-@EnableConfigurationProperties(DataSourceProperties.class)
-@Import({ Registrar.class, DataSourcePoolMetadataProvidersConfiguration.class })
-public class DataSourceAutoConfiguration 
-{
-    ...
-    ...
-    @Conditional(DataSourceAutoConfiguration.EmbeddedDataSourceCondition.class)
-    @ConditionalOnMissingBean({ DataSource.class, XADataSource.class })
-    @Import(EmbeddedDataSourceConfiguration.class)
-    protected static class EmbeddedConfiguration {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@ConditionalOnClass</span><span style="color:#f92672">({</span> DataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> EmbeddedDatabaseType<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">})</span>
+<span style="color:#a6e22e">@EnableConfigurationProperties</span><span style="color:#f92672">(</span>DataSourceProperties<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Import</span><span style="color:#f92672">({</span> Registrar<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> DataSourcePoolMetadataProvidersConfiguration<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DataSourceAutoConfiguration</span> 
+<span style="color:#f92672">{</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#a6e22e">@Conditional</span><span style="color:#f92672">(</span>DataSourceAutoConfiguration<span style="color:#f92672">.</span><span style="color:#a6e22e">EmbeddedDataSourceCondition</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@ConditionalOnMissingBean</span><span style="color:#f92672">({</span> DataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> XADataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">})</span>
+    <span style="color:#a6e22e">@Import</span><span style="color:#f92672">(</span>EmbeddedDataSourceConfiguration<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EmbeddedConfiguration</span> <span style="color:#f92672">{</span>
 
-    }
+    <span style="color:#f92672">}</span>
 
-    @Configuration
-    @ConditionalOnMissingBean(DataSourceInitializer.class)
-    protected static class DataSourceInitializerConfiguration {
-        @Bean
-        public DataSourceInitializer dataSourceInitializer() {
-        return new DataSourceInitializer();
-        }
-    }
+    <span style="color:#a6e22e">@Configuration</span>
+    <span style="color:#a6e22e">@ConditionalOnMissingBean</span><span style="color:#f92672">(</span>DataSourceInitializer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DataSourceInitializerConfiguration</span> <span style="color:#f92672">{</span>
+        <span style="color:#a6e22e">@Bean</span>
+        <span style="color:#66d9ef">public</span> DataSourceInitializer <span style="color:#a6e22e">dataSourceInitializer</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> DataSourceInitializer<span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-    @Conditional(DataSourceAutoConfiguration.NonEmbeddedDataSourceCondition.class)
-    @ConditionalOnMissingBean({ DataSource.class, XADataSource.class })
-    protected static class NonEmbeddedConfiguration {
-        @Autowired
-        private DataSourceProperties properties;
+    <span style="color:#a6e22e">@Conditional</span><span style="color:#f92672">(</span>DataSourceAutoConfiguration<span style="color:#f92672">.</span><span style="color:#a6e22e">NonEmbeddedDataSourceCondition</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@ConditionalOnMissingBean</span><span style="color:#f92672">({</span> DataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> XADataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NonEmbeddedConfiguration</span> <span style="color:#f92672">{</span>
+        <span style="color:#a6e22e">@Autowired</span>
+        <span style="color:#66d9ef">private</span> DataSourceProperties properties<span style="color:#f92672">;</span>
 
-        @Bean
-        @ConfigurationProperties(prefix = DataSourceProperties.PREFIX)
-        public DataSource dataSource() {
-            DataSourceBuilder factory = DataSourceBuilder
-                    .create(this.properties.getClassLoader())
-                    .driverClassName(this.properties.getDriverClassName())
-                    .url(this.properties.getUrl()).username(this.properties.getUsername())
-                    .password(this.properties.getPassword());
-            if (this.properties.getType() != null) {
-                factory.type(this.properties.getType());
-            }
-            return factory.build();
-        }
-    }
-    ...
-    ...
-    @Configuration
-    @ConditionalOnProperty(prefix = "spring.datasource", name = "jmx-enabled")
-    @ConditionalOnClass(name = "org.apache.tomcat.jdbc.pool.DataSourceProxy")
-    @Conditional(DataSourceAutoConfiguration.DataSourceAvailableCondition.class)
-    @ConditionalOnMissingBean(name = "dataSourceMBean")
-    protected static class TomcatDataSourceJmxConfiguration {
-        @Bean
-        public Object dataSourceMBean(DataSource dataSource) {
-        ....
-        ....
-        }
-    }
-    ...
-    ...
-}
-</pre>
+        <span style="color:#a6e22e">@Bean</span>
+        <span style="color:#a6e22e">@ConfigurationProperties</span><span style="color:#f92672">(</span>prefix <span style="color:#f92672">=</span> DataSourceProperties<span style="color:#f92672">.</span><span style="color:#a6e22e">PREFIX</span><span style="color:#f92672">)</span>
+        <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">dataSource</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            DataSourceBuilder factory <span style="color:#f92672">=</span> DataSourceBuilder
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClassLoader</span><span style="color:#f92672">())</span>
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">driverClassName</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getDriverClassName</span><span style="color:#f92672">())</span>
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getUrl</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">username</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getUsername</span><span style="color:#f92672">())</span>
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">password</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">());</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getType</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                factory<span style="color:#f92672">.</span><span style="color:#a6e22e">type</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getType</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">return</span> factory<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#a6e22e">@Configuration</span>
+    <span style="color:#a6e22e">@ConditionalOnProperty</span><span style="color:#f92672">(</span>prefix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;spring.datasource&#34;</span><span style="color:#f92672">,</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jmx-enabled&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@ConditionalOnClass</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;org.apache.tomcat.jdbc.pool.DataSourceProxy&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@Conditional</span><span style="color:#f92672">(</span>DataSourceAutoConfiguration<span style="color:#f92672">.</span><span style="color:#a6e22e">DataSourceAvailableCondition</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@ConditionalOnMissingBean</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dataSourceMBean&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TomcatDataSourceJmxConfiguration</span> <span style="color:#f92672">{</span>
+        <span style="color:#a6e22e">@Bean</span>
+        <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">dataSourceMBean</span><span style="color:#f92672">(</span>DataSource dataSource<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#f92672">....</span>
+        <span style="color:#f92672">....</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<p>Here **DataSourceAutoConfiguration **is annotated with <strong>@ConditionalOnClass({ DataSource.class,EmbeddedDatabaseType.class })</strong> which means that Auto Configuration of beans within **DataSourceAutoConfiguration **will be considered only if **DataSource.class **and **EmbeddedDatabaseType.class **classes are available on classpath.</p>
+<p>Here <strong>DataSourceAutoConfiguration</strong> is annotated with <strong>@ConditionalOnClass({ DataSource.class,EmbeddedDatabaseType.class })</strong>
+which means that Auto Configuration of beans within <strong>DataSourceAutoConfiguration</strong> will be considered only if <strong>DataSource.class</strong>
+and <strong>EmbeddedDatabaseType.class</strong> classes are available on classpath.</p>
 
-<p>The class is also annotated with **@EnableConfigurationProperties(DataSourceProperties.class) **which enables binding the properties in <strong>application.properties</strong> to the properties of <strong>DataSourceProperties</strong> class automatically.</p>
+<p>The class is also annotated with <strong>@EnableConfigurationProperties(DataSourceProperties.class)</strong> which enables binding the properties
+in <strong>application.properties</strong> to the properties of <strong>DataSourceProperties</strong> class automatically.</p>
 
-<pre class="brush: java;">@ConfigurationProperties(prefix = DataSourceProperties.PREFIX)
-public class DataSourceProperties implements BeanClassLoaderAware, EnvironmentAware, InitializingBean {
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@ConfigurationProperties</span><span style="color:#f92672">(</span>prefix <span style="color:#f92672">=</span> DataSourceProperties<span style="color:#f92672">.</span><span style="color:#a6e22e">PREFIX</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DataSourceProperties</span> <span style="color:#66d9ef">implements</span> BeanClassLoaderAware<span style="color:#f92672">,</span> EnvironmentAware<span style="color:#f92672">,</span> InitializingBean <span style="color:#f92672">{</span>
 
-    public static final String PREFIX = "spring.datasource";
-    ...
-    ...
-    private String driverClassName;
-    private String url;
-    private String username;
-    private String password;
-    ...
-    //setters and getters
-}
-</pre>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String PREFIX <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;spring.datasource&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#66d9ef">private</span> String driverClassName<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String url<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String username<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String password<span style="color:#f92672">;</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#75715e">//setters and getters
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span></code></pre></div></p>
 
-<p>With this configuration all the properties that starts with <strong>spring.datasource.</strong>* will be automatically binds to **DataSourceProperties **object.</p>
+<p>With this configuration all the properties that starts with <strong>spring.datasource.</strong>* will be automatically binds to <strong>DataSourceProperties</strong> object.</p>
 
-<pre class="brush: java;">spring.datasource.url=jdbc:mysql://localhost:3306/test
-spring.datasource.username=root
-spring.datasource.password=secret
-spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">=</span>jdbc:mysql:<span style="color:#75715e">//localhost:3306/test
+</span><span style="color:#75715e"></span>spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">username</span><span style="color:#f92672">=</span>root
+spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">password</span><span style="color:#f92672">=</span>secret
+spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">driver</span><span style="color:#f92672">-</span>class<span style="color:#f92672">-</span>name<span style="color:#f92672">=</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span></code></pre></div>
 
-<p>You can also see some inner classes and bean definition methods that are annotated with SpringBoot’s Conditional annotations such as <strong>@ConditionalOnMissingBean, @ConditionalOnClass and @ConditionalOnProperty</strong> etc.</p>
+<p>You can also see some inner classes and bean definition methods that are annotated with SpringBoot’s Conditional annotations
+such as <strong>@ConditionalOnMissingBean, @ConditionalOnClass and @ConditionalOnProperty</strong> etc.</p>
 
-<p>These bean definitions will be registered in **ApplicationContext</p>
-
-<p>**only if those conditions are matched.</p>
+<p>These bean definitions will be registered in <strong>ApplicationContext</strong> only if those conditions are matched.</p>
 
 <p>You can also explore many other AutoConfiguration classes in <strong>spring-boot-autoconfigure-{version}.jar</strong> such as</p>
 
@@ -542,7 +533,8 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 <p>etc etc.&nbsp;</p></li>
 </ul>
 
-<p>I hope now you have an understanding of how SpringBoot auto-configuration works by using various AutoConfiration classes along with <strong>@Conditional</strong> features.</p>
+<p>I hope now you have an understanding of how SpringBoot auto-configuration works by using various AutoConfiration classes
+along with <strong>@Conditional</strong> features.</p>
 
         </div>
         <div class="sharedaddy sd-sharing-enabled">

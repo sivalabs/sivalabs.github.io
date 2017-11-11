@@ -148,75 +148,67 @@
         </header>
 
         <div class="entry-content">
-            <p><strong>MyBatis</strong> is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.</p>
+            
+
+<p><strong>MyBatis</strong> is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.</p>
 
 <blockquote class="tr_bq">
-  <p>
     <span style="color: red;"><br />SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;</span>
-  </p>
 </blockquote>
 
 <p>You can read about the SpringBoot MyBatis Starter release announcement at <a href="http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html">http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html</a> and you can explore the source code on GitHub <a href="https://github.com/mybatis/mybatis-spring-boot">https://github.com/mybatis/mybatis-spring-boot</a>.</p>
 
-<p>**Create a SpringBoot Maven project and add the following MyBatis Starter dependency.</p></p>
+<h3 id="create-a-springboot-maven-project-and-add-the-following-mybatis-starter-dependency">Create a SpringBoot Maven project and add the following MyBatis Starter dependency.</h3>
 
-<p></b></p>
-
-<p>**<br />
-**</p>
-
-<pre class="brush: xml;">&lt;dependency&gt;
-    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
-    &lt;version&gt;1.0.0&lt;/version&gt;
-&lt;/dependency&gt;
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.mybatis.spring.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>mybatis-spring-boot-starter<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.0.0<span style="color:#f92672">&lt;/version&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
 
 <p>We will be reusing <strong>User.java, schema.sql and data.sql</strong> files created in my previous article</p>
 
 <p><a href="http://www.sivalabs.in/2016/03/springboot-working-with-jdbctemplate.html" target="_blank">SpringBoot : Working with JdbcTemplate</a></p>
 
-<p>Create MyBatis SQL Mapper interface **UserMapper.java **with few database operations as follows:</p>
+<p>Create MyBatis SQL Mapper interface <strong>UserMapper.java</strong> with few database operations as follows:</p>
 
-<pre class="brush: java;">package com.sivalabs.demo.domain;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.demo.domain<span style="color:#f92672">;</span>
 
-public interface UserMapper
-{
-    void insertUser(User user);
-    User findUserById(Integer id);
-    List&lt;User&gt; findAllUsers();
-}
-</pre>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserMapper</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insertUser</span><span style="color:#f92672">(</span>User user<span style="color:#f92672">);</span>
+    User <span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>Integer id<span style="color:#f92672">);</span>
+    List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>We need to create Mapper XML files to define the queries for the mapped SQL statements for the corresponding Mapper interface methods.</p>
 
-<p>Create <strong>UserMapper.xml</strong> file in **src/main/resources/com/sivalabs/demo/mappers/ **directory as follows:</p>
+<p>Create <strong>UserMapper.xml</strong> file in <strong>src/main/resources/com/sivalabs/demo/mappers/</strong> directory as follows:</p>
 
-<pre class="brush: xml;">&lt;!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!DOCTYPE mapper
+</span><span style="color:#75715e">    PUBLIC &#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;
+</span><span style="color:#75715e">    &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>
 
-&lt;mapper namespace="com.sivalabs.demo.mappers.UserMapper"&gt;
+<span style="color:#f92672">&lt;mapper</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;com.sivalabs.demo.mappers.UserMapper&#34;</span><span style="color:#f92672">&gt;</span>
 
-    &lt;resultMap id="UserResultMap" type="User"&gt;
-        &lt;id column="id" property="id" /&gt;
-        &lt;result column="name" property="name" /&gt;
-        &lt;result column="email" property="email" /&gt;
-    &lt;/resultMap&gt;
+    <span style="color:#f92672">&lt;resultMap</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;UserResultMap&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;User&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;id</span> <span style="color:#a6e22e">column=</span><span style="color:#e6db74">&#34;id&#34;</span> <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;id&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;result</span> <span style="color:#a6e22e">column=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;result</span> <span style="color:#a6e22e">column=</span><span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/resultMap&gt;</span>
 
-    &lt;select id="findAllUsers" resultMap="UserResultMap"&gt;
+    <span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;findAllUsers&#34;</span> <span style="color:#a6e22e">resultMap=</span><span style="color:#e6db74">&#34;UserResultMap&#34;</span><span style="color:#f92672">&gt;</span>
         select id, name, email from users
-    &lt;/select&gt;
+    <span style="color:#f92672">&lt;/select&gt;</span>
 
-    &lt;select id="findUserById" resultMap="UserResultMap"&gt;
+    <span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;findUserById&#34;</span> <span style="color:#a6e22e">resultMap=</span><span style="color:#e6db74">&#34;UserResultMap&#34;</span><span style="color:#f92672">&gt;</span>
         select id, name, email from users WHERE id=#{id}
-    &lt;/select&gt;
+    <span style="color:#f92672">&lt;/select&gt;</span>
 
-    &lt;insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id"&gt;
+    <span style="color:#f92672">&lt;insert</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;insertUser&#34;</span> <span style="color:#a6e22e">parameterType=</span><span style="color:#e6db74">&#34;User&#34;</span> <span style="color:#a6e22e">useGeneratedKeys=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">keyProperty=</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">&gt;</span>
         insert into users(name,email) values(#{name},#{email})
-    &lt;/insert&gt;
-&lt;/mapper&gt;
-</pre>
+    <span style="color:#f92672">&lt;/insert&gt;</span>
+<span style="color:#f92672">&lt;/mapper&gt;</span></code></pre></div>
 
 <p>Few things to observe here are:</p>
 
@@ -230,89 +222,80 @@ public interface UserMapper
 
 <p>We can create <strong>UserMapper.java</strong> interface and configure the mapped SQLs using annotations as follows:</p>
 
-<pre class="brush: java;">public interface UserMapper
-{
-    @Insert("insert into users(name,email) values(#{name},#{email})")
-    @SelectKey(statement="call identity()", keyProperty="id",
-    before=false, resultType=Integer.class)
-    void insertUser(User user);
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserMapper</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Insert</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;insert into users(name,email) values(#{name},#{email})&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@SelectKey</span><span style="color:#f92672">(</span>statement<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;call identity()&#34;</span><span style="color:#f92672">,</span> keyProperty<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">,</span>
+    before<span style="color:#f92672">=</span><span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> resultType<span style="color:#f92672">=</span>Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insertUser</span><span style="color:#f92672">(</span>User user<span style="color:#f92672">);</span>
 
-    @Select("select id, name, email from users WHERE id=#{id}")
-    User findUserById(Integer id);
+    <span style="color:#a6e22e">@Select</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;select id, name, email from users WHERE id=#{id}&#34;</span><span style="color:#f92672">)</span>
+    User <span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>Integer id<span style="color:#f92672">);</span>
 
-    @Select("select id, name, email from users")
-    List&lt;User&gt; findAllUsers();
+    <span style="color:#a6e22e">@Select</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;select id, name, email from users&#34;</span><span style="color:#f92672">)</span>
+    List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">();</span>
 
-}
-</pre>
+<span style="color:#f92672">}</span></code></pre></div></p>
 
 <p>SpringBoot MyBatis starter provides the following MyBatis configuration parameters which we can use to customize MyBatis settings.</p>
 
-<pre class="brush: java;">mybatis.config = mybatis config file name
-mybatis.mapperLocations = mappers file locations
-mybatis.typeAliasesPackage = domain object's package
-mybatis.typeHandlersPackage = handler's package
-mybatis.check-config-location = check the mybatis configuration exists
-mybatis.executorType = mode of execution. Default is SIMPLE
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> mybatis config file name
+mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">mapperLocations</span> <span style="color:#f92672">=</span> mappers file locations
+mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">typeAliasesPackage</span> <span style="color:#f92672">=</span> domain object<span style="color:#960050;background-color:#1e0010">&#39;</span>s <span style="color:#f92672">package</span>
+mybatis.typeHandlersPackage <span style="color:#f92672">=</span> handler<span style="color:#960050;background-color:#1e0010">&#39;</span>s <span style="color:#f92672">package</span>
+mybatis.check<span style="color:#f92672">-</span>config<span style="color:#f92672">-</span>location <span style="color:#f92672">=</span> check the mybatis configuration exists
+mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">executorType</span> <span style="color:#f92672">=</span> mode of execution<span style="color:#f92672">.</span> Default is SIMPLE</code></pre></div>
 
-<p>Configure the <strong>typeAliasesPackage</strong> and **mapperLocations **in **application.properties.</p></p>
+<p>Configure the <strong>typeAliasesPackage</strong> and <strong>mapperLocations</strong> in <strong>application.properties</strong>.</p>
 
-<p></b></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">typeAliasesPackage</span><span style="color:#f92672">=</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">sivalabs</span><span style="color:#f92672">.</span><span style="color:#a6e22e">demo</span><span style="color:#f92672">.</span><span style="color:#a6e22e">domain</span>
+mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">mapperLocations</span><span style="color:#f92672">=</span>classpath<span style="color:#f92672">*:**/</span>mappers<span style="color:#f92672">/*.</span><span style="color:#a6e22e">xml</span></code></pre></div>
 
-<pre class="brush: java;">mybatis.typeAliasesPackage=com.sivalabs.demo.domain
-mybatis.mapperLocations=classpath*:**/mappers/*.xml
-</pre>
+<p>Create the entry point class <strong>SpringbootMyBatisDemoApplication.java</strong>.</p>
 
-<p>Create the entry point class **SpringbootMyBatisDemoApplication.java.</p></p>
-
-<p></b></p>
-
-<pre class="brush: java;">@SpringBootApplication
-@MapperScan("com.sivalabs.demo.mappers")
-public class SpringbootMyBatisDemoApplication
-{
-    public static void main(String[] args)
-    {
-        SpringApplication.run(SpringbootMyBatisDemoApplication.class, args);
-    }
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#a6e22e">@MapperScan</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.sivalabs.demo.mappers&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringbootMyBatisDemoApplication</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>SpringbootMyBatisDemoApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>Observe that we have used <strong>@MapperScan(&#8220;com.sivalabs.demo.mappers&#8221;)</strong> annotation to specify where to look for Mapper interfaces.</p>
 
 <p>Now create a JUnit test class and test our UserMapper methods.</p>
 
-<pre class="brush: java;">@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(SpringbootMyBatisDemoApplication.class)
-public class SpringbootMyBatisDemoApplicationTests
-{
-    @Autowired
-    private UserMapper userMapper;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringJUnit4ClassRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@SpringApplicationConfiguration</span><span style="color:#f92672">(</span>SpringbootMyBatisDemoApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringbootMyBatisDemoApplicationTests</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> UserMapper userMapper<span style="color:#f92672">;</span>
 
-    @Test
-    public void findAllUsers() {
-        List&lt;User&gt; users = userMapper.findAllUsers();
-        assertNotNull(users);
-        assertTrue(!users.isEmpty());
-    }
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> users <span style="color:#f92672">=</span> userMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">();</span>
+        assertNotNull<span style="color:#f92672">(</span>users<span style="color:#f92672">);</span>
+        assertTrue<span style="color:#f92672">(!</span>users<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    @Test
-    public void findUserById() {
-        User user = userMapper.findUserById(1);
-        assertNotNull(user);
-    }
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">findUserById</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> userMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+        assertNotNull<span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test
-    public void createUser() {
-        User user = new User(0, "Siva", "siva@gmail.com");
-        userMapper.insertUser(user);
-        User newUser = userMapper.findUserById(user.getId());
-        assertEquals("Siva", newUser.getName());
-        assertEquals("siva@gmail.com", newUser.getEmail());
-    }
-}
-</pre>
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createUser</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Siva&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;siva@gmail.com&#34;</span><span style="color:#f92672">);</span>
+        userMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">insertUser</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+        User newUser <span style="color:#f92672">=</span> userMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+        assertEquals<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Siva&#34;</span><span style="color:#f92672">,</span> newUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+        assertEquals<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;siva@gmail.com&#34;</span><span style="color:#f92672">,</span> newUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>You can find the source code of the article at my GitHub repo&nbsp;<a href="https://github.com/sivaprasadreddy/springboot-tutorials">https://github.com/sivaprasadreddy/springboot-tutorials</a></p>
 

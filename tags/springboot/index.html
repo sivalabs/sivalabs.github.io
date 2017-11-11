@@ -713,7 +713,7 @@ Spring supports variety of configuration approaches (XML, Annotations, JavaConfi
 
                 <div class="entry-content">
 
-                    <p>**SpringBoot **provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.
+                    <p>SpringBoot provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.
 In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.
 In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create twitter4j-spring-boot-starter which will auto-configure Twitter4J beans. [&hellip;]</p>
                     <p><a class="btn btn-default read-more"
@@ -890,8 +890,8 @@ JOOQ provides the following features:
                 <div class="entry-content">
 
                     <p>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
- SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
-**Create a SpringBoot Maven project and add the following MyBatis Starter dependency. [&hellip;]</p>
+SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt;&lt;groupId&gt;org. [&hellip;]</p>
                     <p><a class="btn btn-default read-more"
                           href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/"
                           title="SpringBoot : Working with MyBatis">Read More</a>
@@ -975,9 +975,9 @@ JOOQ provides the following features:
 
                 <div class="entry-content">
 
-                    <p>Spring provides a nice abstraction on top of JDBC API using **JdbcTemplate **and also provides great transaction management capabilities using annotation based approach.
-First let’s take a quick look at how we generally use Spring’s **JdbcTemplate (without** SpringBoot) by registering DataSource, **TransactionManager **and **JdbcTemplate **beans and optionally we can register **DataSourceInitializer **bean to initialize our database.
-@Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { "classpath:application.properties" }) public class AppConfig { @Autowired private Environment env; @Value(" [&hellip;]</p>
+                    <p>Spring provides a nice abstraction on top of JDBC API using JdbcTemplate and also provides great transaction management capabilities using annotation based approach.
+First let’s take a quick look at how we generally use Spring’s JdbcTemplate (without SpringBoot) by registering DataSource, TransactionManager and JdbcTemplate beans and optionally we can register DataSourceInitializer bean to initialize our database.
+@Configuration@ComponentScan@EnableTransactionManagement@PropertySource(value = { &#34;classpath:application.properties&#34; })public class AppConfig {@Autowiredprivate Environment env;@Value(&#34;${init-db:false}&#34;)private String initDatabase;@Beanpublic static PropertySourcesPlaceholderConfigurer placeHolderConfigurer(){return new PropertySourcesPlaceholderConfigurer();} @Beanpublic JdbcTemplate jdbcTemplate(DataSource dataSource){return new JdbcTemplate(dataSource);}@Beanpublic PlatformTransactionManager transactionManager(DataSource dataSource){return new DataSourceTransactionManager(dataSource);}@Beanpublic DataSource dataSource(){BasicDataSource dataSource = new BasicDataSource();dataSource. [&hellip;]</p>
                     <p><a class="btn btn-default read-more"
                           href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/"
                           title="SpringBoot : Working with JdbcTemplate">Read More</a>

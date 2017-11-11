@@ -172,253 +172,250 @@
 
 <p>Before jumping on to implementing these Spring Advice and Aspect, first let us write a simple utility to execute a <strong>&#8220;Task&#8221;</strong> which automatically retry for N times ignoring the given set of Exceptions.</p>
 
-<pre class="lang:java decode:true brush: java">public interface Task&lt;T&gt; {
-    T execute();
-}
-</pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Task</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+	T <span style="color:#a6e22e">execute</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<pre class="lang:java decode:true  brush: java">import java.util.HashSet;
-import java.util.Set;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.HashSet<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Set<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.slf4j.Logger<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.slf4j.LoggerFactory<span style="color:#f92672">;</span>
 
-public class TaskExecutionUtil 
-{
-    
-    private static Logger logger = LoggerFactory.getLogger(TaskExecutionUtil.class);
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TaskExecutionUtil</span> 
+<span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Logger logger <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>TaskExecutionUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
 
-    @SafeVarargs
-    public static &lt;T&gt; T execute(Task&lt;T&gt; task, 
-                                int noOfRetryAttempts, 
-                                long sleepInterval, 
-                                Class&lt;? extends Throwable&gt;... ignoreExceptions) 
-    {
-        
-        if (noOfRetryAttempts &lt; 1) {
-            noOfRetryAttempts = 1;
-        }
-        Set&lt;Class&lt;? extends Throwable&gt;&gt; ignoreExceptionsSet = new HashSet&lt;Class&lt;? extends Throwable&gt;&gt;();
-        if (ignoreExceptions != null && ignoreExceptions.length &gt; 0) {
-            for (Class&lt;? extends Throwable&gt; ignoreException : ignoreExceptions) {
-                ignoreExceptionsSet.add(ignoreException);
-            }
-        }
-        
-        logger.debug("noOfRetryAttempts = "+noOfRetryAttempts);
-        logger.debug("ignoreExceptionsSet = "+ignoreExceptionsSet);
-        
-        T result = null;
-        for (int retryCount = 1; retryCount &lt;= noOfRetryAttempts; retryCount++) {
-            logger.debug("Executing the task. Attemp#"+retryCount);
-            try {
-                result = task.execute();
-                break;
-            } catch (RuntimeException t) {
-                Throwable e = t.getCause();
-                logger.error(" Caught Exception class"+e.getClass());
-                for (Class&lt;? extends Throwable&gt; ignoreExceptionClazz : ignoreExceptionsSet) {
-                    logger.error(" Comparing with Ignorable Exception : "+ignoreExceptionClazz.getName());
-                    
-                    if (!ignoreExceptionClazz.isAssignableFrom(e.getClass())) {
-                        logger.error("Encountered exception which is not ignorable: "+e.getClass());
-                        logger.error("Throwing exception to the caller");
-                        
-                        throw t;
-                    }
-                }
-                logger.error("Failed at Retry attempt :" + retryCount + " of : " + noOfRetryAttempts);
-                if (retryCount &gt;= noOfRetryAttempts) {
-                    logger.error("Maximum retrial attempts exceeded.");
-                    logger.error("Throwing exception to the caller");
-                    throw t;
-                }
-                try {
-                    Thread.sleep(sleepInterval);
-                } catch (InterruptedException e1) {
-                    //Intentionally left blank
-                }
-            }
-        }
-        return result;
-    }
+	<span style="color:#a6e22e">@SafeVarargs</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> T <span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>Task<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> task<span style="color:#f92672">,</span> 
+								<span style="color:#66d9ef">int</span> noOfRetryAttempts<span style="color:#f92672">,</span> 
+								<span style="color:#66d9ef">long</span> sleepInterval<span style="color:#f92672">,</span> 
+								Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> Throwable<span style="color:#f92672">&gt;...</span> ignoreExceptions<span style="color:#f92672">)</span> 
+	<span style="color:#f92672">{</span>
+		
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>noOfRetryAttempts <span style="color:#f92672">&lt;</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			noOfRetryAttempts <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		Set<span style="color:#f92672">&lt;</span>Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> Throwable<span style="color:#f92672">&gt;&gt;</span> ignoreExceptionsSet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;</span>Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> Throwable<span style="color:#f92672">&gt;&gt;();</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>ignoreExceptions <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> ignoreExceptions<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> Throwable<span style="color:#f92672">&gt;</span> ignoreException <span style="color:#f92672">:</span> ignoreExceptions<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+				ignoreExceptionsSet<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>ignoreException<span style="color:#f92672">);</span>
+			<span style="color:#f92672">}</span>
+		<span style="color:#f92672">}</span>
+		
+		logger<span style="color:#f92672">.</span><span style="color:#a6e22e">debug</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;noOfRetryAttempts = &#34;</span><span style="color:#f92672">+</span>noOfRetryAttempts<span style="color:#f92672">);</span>
+		logger<span style="color:#f92672">.</span><span style="color:#a6e22e">debug</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ignoreExceptionsSet = &#34;</span><span style="color:#f92672">+</span>ignoreExceptionsSet<span style="color:#f92672">);</span>
+		
+		T result <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> retryCount <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> retryCount <span style="color:#f92672">&lt;=</span> noOfRetryAttempts<span style="color:#f92672">;</span> retryCount<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+			logger<span style="color:#f92672">.</span><span style="color:#a6e22e">debug</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Executing the task. Attemp#&#34;</span><span style="color:#f92672">+</span>retryCount<span style="color:#f92672">);</span>
+			<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+				result <span style="color:#f92672">=</span> task<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">();</span>
+				<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+			<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>RuntimeException t<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+				Throwable e <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span><span style="color:#a6e22e">getCause</span><span style="color:#f92672">();</span>
+				logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; Caught Exception class&#34;</span><span style="color:#f92672">+</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">());</span>
+				<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> Throwable<span style="color:#f92672">&gt;</span> ignoreExceptionClazz <span style="color:#f92672">:</span> ignoreExceptionsSet<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+					logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; Comparing with Ignorable Exception : &#34;</span><span style="color:#f92672">+</span>ignoreExceptionClazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+					
+					<span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>ignoreExceptionClazz<span style="color:#f92672">.</span><span style="color:#a6e22e">isAssignableFrom</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+						logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Encountered exception which is not ignorable: &#34;</span><span style="color:#f92672">+</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">());</span>
+						logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Throwing exception to the caller&#34;</span><span style="color:#f92672">);</span>
+						
+						<span style="color:#66d9ef">throw</span> t<span style="color:#f92672">;</span>
+					<span style="color:#f92672">}</span>
+				<span style="color:#f92672">}</span>
+				logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Failed at Retry attempt :&#34;</span> <span style="color:#f92672">+</span> retryCount <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; of : &#34;</span> <span style="color:#f92672">+</span> noOfRetryAttempts<span style="color:#f92672">);</span>
+				<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>retryCount <span style="color:#f92672">&gt;=</span> noOfRetryAttempts<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+					logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Maximum retrial attempts exceeded.&#34;</span><span style="color:#f92672">);</span>
+					logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Throwing exception to the caller&#34;</span><span style="color:#f92672">);</span>
+					<span style="color:#66d9ef">throw</span> t<span style="color:#f92672">;</span>
+				<span style="color:#f92672">}</span>
+				<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+					Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>sleepInterval<span style="color:#f92672">);</span>
+				<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+					<span style="color:#75715e">//Intentionally left blank
+</span><span style="color:#75715e"></span>				<span style="color:#f92672">}</span>
+			<span style="color:#f92672">}</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-}</pre>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>I hope this method is self explanatory. It is taking a <strong>Task</strong> and retries <strong>noOfRetryAttempts</strong> times in case method <strong>task.execute()</strong> throws any Exception and <strong>ignoreExceptions</strong> indicates what type of exceptions to be ignored while retrying.</p>
 
 <p>Now let us create a Retry annotation as follows:</p>
 
-<pre class="lang:java decode:true  brush: java">import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.lang.annotation.ElementType<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.lang.annotation.Retention<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.lang.annotation.RetentionPolicy<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.lang.annotation.Target<span style="color:#f92672">;</span>
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public  @interface Retry {
-    
-    public int retryAttempts() default 3;
-    
-    public long sleepInterval() default 1000L; //milliseconds
-    
-    Class&lt;? extends Throwable&gt;[] ignoreExceptions() default { RuntimeException.class };
-    
-}
-</pre>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">(</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span>  <span style="color:#a6e22e">@interface</span> Retry <span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">retryAttempts</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> 3<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">sleepInterval</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> 1000L<span style="color:#f92672">;</span> <span style="color:#75715e">//milliseconds
+</span><span style="color:#75715e"></span>	
+	Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> Throwable<span style="color:#f92672">&gt;[]</span> <span style="color:#a6e22e">ignoreExceptions</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> <span style="color:#f92672">{</span> RuntimeException<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">};</span>
+	
+<span style="color:#f92672">}</span></code></pre></div></p>
 
 <p>We will use this <strong>@Retry</strong> annotation to demarcate which methods needs to be retried.</p>
 
 <p>Now let us implement the Aspect which applies to the method with <strong>@Retry</strong> annotation.</p>
 
-<pre class="lang:java decode:true  brush: java">import java.lang.reflect.Method;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.lang.reflect.Method<span style="color:#f92672">;</span>
 
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.reflect.MethodSignature;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+<span style="color:#f92672">import</span> org.aspectj.lang.ProceedingJoinPoint<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.aspectj.lang.annotation.Around<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.aspectj.lang.annotation.Aspect<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.aspectj.lang.reflect.MethodSignature<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.slf4j.Logger<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.slf4j.LoggerFactory<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.stereotype.Component<span style="color:#f92672">;</span>
 
-@Component
-@Aspect
-public class MethodRetryHandlerAspect {
-    
-    private static Logger logger = LoggerFactory.getLogger(MethodRetryHandlerAspect.class);
-    
-    @Around("@annotation(com.sivalabs.springretrydemo.Retry)")
-    public Object audit(ProceedingJoinPoint pjp) 
-    {
-        Object result = null;
-        result = retryableExecute(pjp);
-        return result;
-    }
-    
-    protected Object retryableExecute(final ProceedingJoinPoint pjp)
-    {
-        MethodSignature signature = (MethodSignature) pjp.getSignature();
-        Method method = signature.getMethod();
-        logger.debug("-----Retry Aspect---------");
-        logger.debug("Method: "+signature.toString());
+<span style="color:#a6e22e">@Component</span>
+<span style="color:#a6e22e">@Aspect</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MethodRetryHandlerAspect</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Logger logger <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>MethodRetryHandlerAspect<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+	
+	<span style="color:#a6e22e">@Around</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;@annotation(com.sivalabs.springretrydemo.Retry)&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">audit</span><span style="color:#f92672">(</span>ProceedingJoinPoint pjp<span style="color:#f92672">)</span> 
+	<span style="color:#f92672">{</span>
+		Object result <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+		result <span style="color:#f92672">=</span> retryableExecute<span style="color:#f92672">(</span>pjp<span style="color:#f92672">);</span>
+	    <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">protected</span> Object <span style="color:#a6e22e">retryableExecute</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> ProceedingJoinPoint pjp<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		MethodSignature signature <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>MethodSignature<span style="color:#f92672">)</span> pjp<span style="color:#f92672">.</span><span style="color:#a6e22e">getSignature</span><span style="color:#f92672">();</span>
+		Method method <span style="color:#f92672">=</span> signature<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">();</span>
+		logger<span style="color:#f92672">.</span><span style="color:#a6e22e">debug</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-----Retry Aspect---------&#34;</span><span style="color:#f92672">);</span>
+		logger<span style="color:#f92672">.</span><span style="color:#a6e22e">debug</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Method: &#34;</span><span style="color:#f92672">+</span>signature<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
 
-        Retry retry = method.getDeclaredAnnotation(Retry.class);
-        int retryAttempts = retry.retryAttempts();
-        long sleepInterval = retry.sleepInterval();
-        Class&lt;? extends Throwable&gt;[] ignoreExceptions = retry.ignoreExceptions();
-        
-        Task&lt;Object&gt; task = new Task&lt;Object&gt;() {
-            @Override
-            public Object execute() {
-                try {
-                    return pjp.proceed();
-                } catch (Throwable e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        };
-        return TaskExecutionUtil.execute(task, retryAttempts, sleepInterval, ignoreExceptions);
-    }
-}</pre>
+		Retry retry <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredAnnotation</span><span style="color:#f92672">(</span>Retry<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">int</span> retryAttempts <span style="color:#f92672">=</span> retry<span style="color:#f92672">.</span><span style="color:#a6e22e">retryAttempts</span><span style="color:#f92672">();</span>
+		<span style="color:#66d9ef">long</span> sleepInterval <span style="color:#f92672">=</span> retry<span style="color:#f92672">.</span><span style="color:#a6e22e">sleepInterval</span><span style="color:#f92672">();</span>
+		Class<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> Throwable<span style="color:#f92672">&gt;[]</span> ignoreExceptions <span style="color:#f92672">=</span> retry<span style="color:#f92672">.</span><span style="color:#a6e22e">ignoreExceptions</span><span style="color:#f92672">();</span>
+		
+		Task<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> task <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Task<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+			<span style="color:#a6e22e">@Override</span>
+			<span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">execute</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+				<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+					<span style="color:#66d9ef">return</span> pjp<span style="color:#f92672">.</span><span style="color:#a6e22e">proceed</span><span style="color:#f92672">();</span>
+				<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Throwable e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+					<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span>e<span style="color:#f92672">);</span>
+				<span style="color:#f92672">}</span>
+			<span style="color:#f92672">}</span>
+		<span style="color:#f92672">};</span>
+		<span style="color:#66d9ef">return</span> TaskExecutionUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>task<span style="color:#f92672">,</span> retryAttempts<span style="color:#f92672">,</span> sleepInterval<span style="color:#f92672">,</span> ignoreExceptions<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>That&#8217;s it. We just need some test cases to actually test it.</p>
 
 <p>First create <strong>AppConfig.java</strong> configuration class as follows:</p>
 
-<pre class="lang:java decode:true  brush: java">import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.context.annotation.ComponentScan<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Configuration<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.annotation.EnableAspectJAutoProxy<span style="color:#f92672">;</span>
 
-@Configuration
-@ComponentScan
-@EnableAspectJAutoProxy
-public class AppConfig {
+<span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@ComponentScan</span>
+<span style="color:#a6e22e">@EnableAspectJAutoProxy</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span> <span style="color:#f92672">{</span>
 
-}</pre>
+<span style="color:#f92672">}</span></code></pre></div></p>
 
 <p>And couple of dummy Service beans.</p>
 
-<pre class="lang:java decode:true  brush: java">import org.springframework.stereotype.Service;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.stereotype.Service<span style="color:#f92672">;</span>
 
-@Service
-public class ServiceA {
-    
-    private int counter = 1;
-    
-    public void method1() {
-        System.err.println("----method1----");
-    }
-    
-    @Retry(retryAttempts=5, ignoreExceptions={NullPointerException.class})
-    public void method2() {
-        System.err.println("----method2 begin----");
-        if(counter != 3){
-            counter++;
-            throw new NullPointerException();
-        }
-        System.err.println("----method2 end----");      
-    }
-}</pre>
+<span style="color:#a6e22e">@Service</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServiceA</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> counter <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">method1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;----method1----&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Retry</span><span style="color:#f92672">(</span>retryAttempts<span style="color:#f92672">=</span>5<span style="color:#f92672">,</span> ignoreExceptions<span style="color:#f92672">={</span>NullPointerException<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">})</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">method2</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;----method2 begin----&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>counter <span style="color:#f92672">!=</span> 3<span style="color:#f92672">){</span>
+			counter<span style="color:#f92672">++;</span>
+			<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> NullPointerException<span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;----method2 end----&#34;</span><span style="color:#f92672">);</span>		
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
-<pre class="lang:java decode:true  brush: java">import java.io.IOException;
-import org.springframework.stereotype.Service;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.stereotype.Service<span style="color:#f92672">;</span>
 
-@Service
-public class ServiceB {
-    
-    @Retry(retryAttempts = 2, ignoreExceptions={IOException.class})
-    public void method3() {
-        System.err.println("----method3----");
-        if(1 == 1){
-            throw new ArrayIndexOutOfBoundsException();
-        }
-    }
-    
-    @Retry
-    public void method4() {
-        System.err.println("----method4----");
-    }
-}
-</pre>
+<span style="color:#a6e22e">@Service</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServiceB</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#a6e22e">@Retry</span><span style="color:#f92672">(</span>retryAttempts <span style="color:#f92672">=</span> 2<span style="color:#f92672">,</span> ignoreExceptions<span style="color:#f92672">={</span>IOException<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">})</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">method3</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;----method3----&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>1 <span style="color:#f92672">==</span> 1<span style="color:#f92672">){</span>
+			<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ArrayIndexOutOfBoundsException<span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Retry</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">method4</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;----method4----&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>Finally write a simple Junit test to invoke these methods.</p>
 
-<pre class="lang:java decode:true  brush: java">import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.junit.Test<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.runner.RunWith<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.context.ContextConfiguration<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.context.junit4.SpringJUnit4ClassRunner<span style="color:#f92672">;</span>
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=AppConfig.class)
-public class RetryTest 
-{
-    @Autowired ServiceA svcA;
-    @Autowired ServiceB svcB;
-    
-    @Test
-    public void testA()
-    {
-        svcA.method1();
-    }
-    
-    @Test
-    public void testB()
-    {
-        svcA.method2();
-    }
-    
-    @Test(expected=RuntimeException.class)
-    public void testC()
-    {
-        svcB.method3();
-    }
-    
-    @Test
-    public void testD()
-    {
-        svcB.method4();
-    }
-}</pre>
+<span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringJUnit4ClassRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@ContextConfiguration</span><span style="color:#f92672">(</span>classes<span style="color:#f92672">=</span>AppConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RetryTest</span> 
+<span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Autowired</span> ServiceA svcA<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@Autowired</span> ServiceB svcB<span style="color:#f92672">;</span>
+	
+	<span style="color:#a6e22e">@Test</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testA</span><span style="color:#f92672">()</span>
+	<span style="color:#f92672">{</span>
+		svcA<span style="color:#f92672">.</span><span style="color:#a6e22e">method1</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Test</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testB</span><span style="color:#f92672">()</span>
+	<span style="color:#f92672">{</span>
+		svcA<span style="color:#f92672">.</span><span style="color:#a6e22e">method2</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>expected<span style="color:#f92672">=</span>RuntimeException<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testC</span><span style="color:#f92672">()</span>
+	<span style="color:#f92672">{</span>
+		svcB<span style="color:#f92672">.</span><span style="color:#a6e22e">method3</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Test</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testD</span><span style="color:#f92672">()</span>
+	<span style="color:#f92672">{</span>
+		svcB<span style="color:#f92672">.</span><span style="color:#a6e22e">method4</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
 
 <p>Yeah, I know I could have written these test methods a bit better, but I hope you got the idea.</p>
 
