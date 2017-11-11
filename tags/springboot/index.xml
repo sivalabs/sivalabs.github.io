@@ -94,7 +94,7 @@ In this post we will look into how to create a custom SpringBoot starter. To dem
       <pubDate>Tue, 15 Mar 2016 07:13:21 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jooq/</guid>
-      <description>In my previous article SpringBoot : Working with MyBatis &amp;nbsp;we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
+      <description>In my previous article SpringBoot : Working with MyBatis we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
 JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL.
 JOOQ provides the following features:
  Building Typesafe SQL using DSL API&amp;nbsp; Typesafe database object referencing using Code Generation&amp;nbsp; Easy to use API for Querying and Data fetching&amp;nbsp; SQL logging and debugging</description>
