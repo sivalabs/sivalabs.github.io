@@ -59,18 +59,5 @@ Step#1
 Create Maven Project and add the following repositories, dependencies in pom.</description>
     </item>
     
-    <item>
-      <title>PrimeFaces QuickStart Tutorial-Part1</title>
-      <link>https://sivalabs.github.io/2011/02/primefaces-quickstart-tutorial-part1/</link>
-      <pubDate>Tue, 01 Feb 2011 19:57:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/02/primefaces-quickstart-tutorial-part1/</guid>
-      <description>PrimeFaces is an open source component library for JSF 2.0 with morethan 100 rich components. PrimeFaces is far better than many other JSF component libraries because of the following reasons:
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 1. Rich set of UI components (DataTable, AutoComplete, HtmlEditor, Charts etc).
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 2. No extra xml configuration is required and there is no required dependencies.
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 3. Built-in Ajax based on standard JSF 2.0 Ajax APIs.
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 4. Skinning Framework with 25+ built-in themes.</description>
-    </item>
-    
   </channel>
 </rss>
