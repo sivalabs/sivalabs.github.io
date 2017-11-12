@@ -1,177 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>SivaLabs - JCart : Initial code setup for ShoppingCart</title>
-
-    <link rel='stylesheet' id='sparkling-bootstrap-css'
-          href="/assets/css/bootstrap.min.css" type='text/css'
-          media='all'/>
-
-    <link rel='stylesheet' id='sparkling-icons-css'
-          href="/assets/css/font-awesome.min.css"
-          type='text/css' media='all'/>
-
-    <link rel='stylesheet' id='sparkling-fonts-css'
-          href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'
-          type='text/css' media='all'/>
-
-    <link rel='stylesheet' id='sparkling-style-css'
-          href="/assets/css/style.css" type='text/css' media='all'/>
-
-    <link rel='stylesheet' id='socicon-css'
-          href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css"
-          type='text/css' media='all'/>
-
-    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css"
-            type="text/css" media="all">
-
-    <link rel="stylesheet" href="/assets/css/jetpack.css"
-            type="text/css" media="all">
-
-    <script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.js"></script>
-
-    <script type='text/javascript'
-            src="/assets/js/vendor/modernizr.min.js"></script>
-
-    <script type='text/javascript'
-            src="/assets/js/vendor/bootstrap.min.js"></script>
-
-    <script type='text/javascript'
-            src="/assets/js/functions.min.js"></script>
-
-    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
-
-    
-
-    
-    <div class="analytics">
-        
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-71296890-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
-    </div>
-    
-
-</head>
-
-</head>
-
-<body class="home blog">
-<div id="page" class="hfeed site">
-    <header id="masthead" class="site-header" role="banner">
-    <nav class="navbar navbar-default " role="navigation">
-        <div class="container">
-            <div class="row">
-                <div class="site-navigation-inner col-sm-12">
-                    <div class="navbar-header">
-                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
-                                data-target=".navbar-ex1-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <div id="logo">
-                            <h1 class="site-name">
-                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul id="menu-home" class="nav navbar-nav">
-
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                    href="/tags/java">Java</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                <a href="/tags/spring">Spring </a>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                    href="/tags/javaee">Java EE</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                    href="/videos">Videos</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                    href="/mybooks">My Books</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                    href="/contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
-
-    <div id="content" class="site-content">
-        <div class="container main-content-area">
-            <div class="row side-pull-left">
-                <div class="main-content-inner col-sm-12 col-md-8">
-
-                    <div id="primary" class="content-area">
-                        
-
-<article class="post type-post status-publish format-standard hentry">
-    <div class="post-inner-content">
-        <header class="entry-header page-header">
-            <h1 class="entry-title ">JCart : Initial code setup for ShoppingCart</h1>
-            <div class="entry-meta">
-    <span>
-        <i class="fa fa-user"></i>
-        <span class="author vcard">Siva</span>
-    </span>
-    <span class="posted-on">
-        <i class="fa fa-calendar"></i>
-        <time class="entry-date published"
-              datetime="2015-12-30T14:15:54">
-            December 30, 2015
-        </time>
-    </span>
-    
-    
-    
-    <span>
-        <i class="fa fa-folder-open-o"></i>
-        
-        <a class="article-category-link" href="/categories/java/">Java</a>
-        
-        
-    </span>
-    
-    
-
-    
-    
-    
-    <span class="tagcloud" style="display: inline">
-        <i class="fa fa-tags"></i>
-        
-        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-        
-        
-    </span>
-    
-    
-
-</div>
-
-        </header>
-        <div class="entry-content">
-            
-
-<p>First we will start with setting up the initial code using SpringBoot. We have already discussed in <a href="http://sivalabs.in/jcart-initial-code-setup/" target="_blank">JCart: Initial Code SetUp</a>  article about creating a maven module <strong>jcart-site</strong> which will be our ShoppingCart application. In that article we have shown what springboot dependencies to add as well.</p>
-
-<p>Just to recap we will be using SpringBoot, SpringMVC, Thymeleaf, JPA for our ShoppingCart application.</p>
-
-<p><strong>jcart-site/pom.xml</strong></p>
-
-<pre class="lang:xhtml decode:true ">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SivaLabs - JCart : Initial code setup for ShoppingCart</title><link rel="stylesheet" id="sparkling-bootstrap-css" href="/assets/css/bootstrap.min.css" type="text/css" media="all"><link rel="stylesheet" id="sparkling-icons-css" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" id="sparkling-fonts-css" href="//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3" type="text/css" media="all"><link rel="stylesheet" id="sparkling-style-css" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" id="socicon-css" href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/vendor/jquery-1.12.4.js"></script><script type="text/javascript" src="/assets/js/vendor/modernizr.min.js"></script><script type="text/javascript" src="/assets/js/vendor/bootstrap.min.js"></script><script type="text/javascript" src="/assets/js/functions.min.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div></head><body class="home blog"><div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"><button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button><div id="logo"><h1 class="site-name"><a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a></h1></div></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/java">Java</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/spring">Spring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/javaee">Java EE</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/videos">Videos</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/mybooks">My Books</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact">Contact</a></li></ul></div></div></div></div></nav></header><div id="content" class="site-content"><div class="container main-content-area"><div class="row side-pull-left"><div class="main-content-inner col-sm-12 col-md-8"><div id="primary" class="content-area"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">JCart : Initial code setup for ShoppingCart</h1><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-30T14:15:54">December 30, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>First we will start with setting up the initial code using SpringBoot. We have already discussed in <a href="http://sivalabs.in/jcart-initial-code-setup/" target="_blank">JCart: Initial Code SetUp</a>  article about creating a maven module <strong>jcart-site</strong> which will be our ShoppingCart application. In that article we have shown what springboot dependencies to add as well.</p><p>Just to recap we will be using SpringBoot, SpringMVC, Thymeleaf, JPA for our ShoppingCart application.</p><p><strong>jcart-site/pom.xml</strong></p><pre class="lang:xhtml decode:true">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
     http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
@@ -230,35 +57,7 @@ ga('send', 'pageview');
             &lt;version&gt;2.3&lt;/version&gt;
         &lt;/dependency&gt;
     &lt;/dependencies&gt;
-&lt;/project&gt;</pre>
-
-<p>For our JCart &#8211; Admin application we have used <strong>AdminLTE</strong> (<a href="https://almsaeedstudio.com/preview" target="_blank"><a href="https://almsaeedstudio.com/preview">https://almsaeedstudio.com/preview</a></a>) theme which is based on Bootstrap with nice coloring scheme. It looks good for Administration kind of applications but not so good for a public facing e-commerce application, IMHO.</p>
-
-<p>As I said earlier I am not a UI designer, so again I have googled for free e-commerce templates and found <strong>Ustora HTML5 ECommerce Template</strong> (<a href="https://www.freshdesignweb.com/ustora/" target="_blank"><a href="https://www.freshdesignweb.com/ustora/">https://www.freshdesignweb.com/ustora/</a></a>)</p>
-
-<p>which looks good to me. So we will be using this template for our ShoppingCart screens.</p>
-
-<h3 id="configuring-https-ssl">Configuring HTTPS/SSL</h3>
-
-<p>As we discussed in <a href="http://sivalabs.in/jcart-configuring-https-ssltls/" target="_blank">JCart-Admin Configuring HTTPS/SSL</a> post we will generate the keystore file and copy it to <strong>jcart-site/src/main/resources/</strong> directory.</p>
-
-<p>Configure the SSL related configuration properties in <strong>jcart-site/src/main/resources/application-default.properties</strong></p>
-
-<p><strong>server.port=8443</strong></p>
-
-<p><strong>server.ssl.key-store=classpath:jcartsitekeystore.p12</strong></p>
-
-<p><strong>server.ssl.key-store-password=jcartsite</strong></p>
-
-<p><strong>server.ssl.keyStoreType=PKCS12</strong></p>
-
-<p><strong>server.ssl.keyAlias=jcartsitetomcat</strong></p>
-
-<h3 id="webmvc-configuration">WebMVC Configuration</h3>
-
-<p>We will create <strong>com.sivalabs.jcart.site.config.WebConfig.java</strong> for configuring SpringMVC components like ViewControllers, Interceptors, TemplateResolvers, SpringSecurityDialect and EmbeddedTomcatConnector as follows:</p>
-
-<pre class="lang:java decode:true ">@Configuration
+&lt;/project&gt;</pre><p>For our JCart &#8211; Admin application we have used <strong>AdminLTE</strong> (<a href="https://almsaeedstudio.com/preview" target="_blank"><a href="https://almsaeedstudio.com/preview">https://almsaeedstudio.com/preview</a></a>) theme which is based on Bootstrap with nice coloring scheme. It looks good for Administration kind of applications but not so good for a public facing e-commerce application, IMHO.</p><p>As I said earlier I am not a UI designer, so again I have googled for free e-commerce templates and found <strong>Ustora HTML5 ECommerce Template</strong> (<a href="https://www.freshdesignweb.com/ustora/" target="_blank"><a href="https://www.freshdesignweb.com/ustora/">https://www.freshdesignweb.com/ustora/</a></a>)</p><p>which looks good to me. So we will be using this template for our ShoppingCart screens.</p><h3 id="configuring-https-ssl">Configuring HTTPS/SSL</h3><p>As we discussed in <a href="http://sivalabs.in/jcart-configuring-https-ssltls/" target="_blank">JCart-Admin Configuring HTTPS/SSL</a> post we will generate the keystore file and copy it to <strong>jcart-site/src/main/resources/</strong> directory.</p><p>Configure the SSL related configuration properties in <strong>jcart-site/src/main/resources/application-default.properties</strong></p><p><strong>server.port=8443</strong></p><p><strong>server.ssl.key-store=classpath:jcartsitekeystore.p12</strong></p><p><strong>server.ssl.key-store-password=jcartsite</strong></p><p><strong>server.ssl.keyStoreType=PKCS12</strong></p><p><strong>server.ssl.keyAlias=jcartsitetomcat</strong></p><h3 id="webmvc-configuration">WebMVC Configuration</h3><p>We will create <strong>com.sivalabs.jcart.site.config.WebConfig.java</strong> for configuring SpringMVC components like ViewControllers, Interceptors, TemplateResolvers, SpringSecurityDialect and EmbeddedTomcatConnector as follows:</p><pre class="lang:java decode:true">@Configuration
 public class WebConfig extends WebMvcConfigurerAdapter
 {
 
@@ -334,19 +133,7 @@ public class WebConfig extends WebMvcConfigurerAdapter
 
         return connector;
     }
-}</pre>
-
-<p>Note that for ShoppingCart application we will be running embedded tomcat server on <strong><a href="https://host:8443">https://host:8443</a></strong> and call to <strong><a href="http://host:8080">http://host:8080</a></strong> port will be redirected to <strong><a href="https://host:8443">https://host:8443</a></strong>.</p>
-
-<h3 id="configuring-springsecurity">Configuring SpringSecurity</h3>
-
-<p>As it is a public facing e-commerce site customers can browse through catalog products and add products to cart without requiring to login. But in order to checkout we will redirect the customer to login if he/she is not already loggedin. Also there are some URL that we would like to protect like customer&#8217;s <strong>MyAccount</strong> page, <strong>Order History</strong> page etc.</p>
-
-<p>So, for ShoppingCart application, Customer would become the user.</p>
-
-<p><strong>Create SpringSecurity User Wrapper AuthenticatedUser</strong></p>
-
-<pre class="lang:java decode:true ">package com.sivalabs.jcart.admin.security;
+}</pre><p>Note that for ShoppingCart application we will be running embedded tomcat server on <strong><a href="https://host:8443">https://host:8443</a></strong> and call to <strong><a href="http://host:8080">http://host:8080</a></strong> port will be redirected to <strong><a href="https://host:8443">https://host:8443</a></strong>.</p><h3 id="configuring-springsecurity">Configuring SpringSecurity</h3><p>As it is a public facing e-commerce site customers can browse through catalog products and add products to cart without requiring to login. But in order to checkout we will redirect the customer to login if he/she is not already loggedin. Also there are some URL that we would like to protect like customer&#8217;s <strong>MyAccount</strong> page, <strong>Order History</strong> page etc.</p><p>So, for ShoppingCart application, Customer would become the user.</p><p><strong>Create SpringSecurity User Wrapper AuthenticatedUser</strong></p><pre class="lang:java decode:true">package com.sivalabs.jcart.admin.security;
 
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
@@ -373,17 +160,9 @@ public class AuthenticatedUser extends org.springframework.security.core.userdet
         Collection&lt;GrantedAuthority&gt; authorities = AuthorityUtils.createAuthorityList("ROLE_USER");
         return authorities;
     }
-}</pre>
-
-<p><strong>Create Spring Data JPA Repository for Customer Entity jcart-core/src/main/java/com/sivalabs/jcart/customers/CustomerRepository.java as follows:</strong></p>
-
-<pre class="lang:java decode:true ">public interface CustomerRepository extends JpaRepository&lt;Customer, Integer&gt; {
+}</pre><p><strong>Create Spring Data JPA Repository for Customer Entity jcart-core/src/main/java/com/sivalabs/jcart/customers/CustomerRepository.java as follows:</strong></p><pre class="lang:java decode:true">public interface CustomerRepository extends JpaRepository&lt;Customer, Integer&gt; {
     Customer findByEmail(String email);
-}</pre>
-
-<p><strong>Create jcart-core/src/main/java/com/sivalabs/jcart/customers/CustomerService.java to implement all Customer related operations.</strong></p>
-
-<pre class="lang:java decode:true ">@Service
+}</pre><p><strong>Create jcart-core/src/main/java/com/sivalabs/jcart/customers/CustomerService.java to implement all Customer related operations.</strong></p><pre class="lang:java decode:true">@Service
 @Transactional
 public class CustomerService 
 {
@@ -394,11 +173,7 @@ public class CustomerService
         return customerRepository.findByEmail(email);
     }
     
-}</pre>
-
-<p><strong>Create com.sivalabs.jcart.admin.security.CustomUserDetailsService.java which implements SpringSecurity&#8217;s UserDetailsService.</strong></p>
-
-<pre class="lang:java decode:true ">@Service
+}</pre><p><strong>Create com.sivalabs.jcart.admin.security.CustomUserDetailsService.java which implements SpringSecurity&#8217;s UserDetailsService.</strong></p><pre class="lang:java decode:true">@Service
 @Transactional
 public class CustomUserDetailsService implements UserDetailsService
 {
@@ -415,11 +190,7 @@ public class CustomUserDetailsService implements UserDetailsService
     }
 
 }
-</pre>
-
-<p><strong>Create com.sivalabs.jcart.site.security.WebSecurityConfig.java to configure SpringSecurity configuration.</strong></p>
-
-<pre class="lang:java decode:true ">@Configuration
+</pre><p><strong>Create com.sivalabs.jcart.site.security.WebSecurityConfig.java to configure SpringSecurity configuration.</strong></p><pre class="lang:java decode:true">@Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, proxyTargetClass = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -461,11 +232,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .passwordEncoder(passwordEncoder());
     }
 }
-</pre>
-
-<p>Finally, let us create a simple <strong>HomeController</strong> to handle /home request and render <strong>home.html</strong> view.</p>
-
-<pre class="lang:java decode:true ">@Controller
+</pre><p>Finally, let us create a simple <strong>HomeController</strong> to handle /home request and render <strong>home.html</strong> view.</p><pre class="lang:java decode:true">@Controller
 public class HomeController
 {       
     @RequestMapping("/home")
@@ -473,9 +240,7 @@ public class HomeController
     {
         return "home";
     }   
-}</pre>
-
-<pre class="lang:xhtml decode:true ">&lt;!DOCTYPE html&gt;
+}</pre><pre class="lang:xhtml decode:true">&lt;!DOCTYPE html&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"&gt;
       
@@ -489,325 +254,4 @@ public class HomeController
 &lt;body&gt;
    &lt;h3&gt;Welcome to QuilCart&lt;/h3&gt;     
 &lt;/body&gt;
-&lt;/html&gt;</pre>
-
-<p>Now run the application and point your browser to <strong><a href="http://localhost:8080">http://localhost:8080</a></strong>. It should automatically redirect you to <strong><a href="https://localhost:8443/home">https://localhost:8443/home</a></strong> and show home.html view.</p>
-
-<p>In our next post we will setup the UI Layout using Thymeleaf templates and start developing screens.</p>
-
-        </div>
-        <div class="sharedaddy sd-sharing-enabled">
-    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
-        <h3 class="sd-title">Share this:</h3>
-        <div class="sd-content">
-            <ul>
-                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
-                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
-                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
-                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f&title=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
-                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f&title=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
-                <li class="share-end"></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-    </div>
-</article>
-
-<div class="comments">
-	<div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-
-
-
-<nav class="navigation post-navigation" role="navigation">
-	<h2 class="screen-reader-text">Post navigation</h2>
-	<div class="nav-links">
-		<div class="nav-previous">
-			<a href="/2015/12/jcart-shoppingcart-ui-layout-setup/" rel="next">
-				<i class="fa fa-chevron-left"></i>
-				<span class="post-title">JCart : ShoppingCart UI Layout Setup</span>
-			</a>
-		</div>
-		<div class="nav-next">
-			<a href="/2015/12/jcart-iteration-4/" rel="prev">
-                <span class="post-title">JCart : Iteration-4
-                    <i class="fa fa-chevron-right"></i>
-                </span>
-			</a>
-		</div>
-	</div>
-</nav>
-
-
-
-                    </div>
-                </div>
-                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
-                    <div class="well">
-
-    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
-    <h3 class="widget-title">Social Networks</h3>
-
-    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://github.com/sivaprasadreddy"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-github"
-                          data-hover-rule="background-color" data-hover-color="#221e1b"
-                          style="background-color : #221e1b; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://twitter.com/sivalabs"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
-                          data-hover-rule="background-color" data-hover-color="#55acee"
-                          style="background-color : #55acee; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://facebook.com/sivaprasadreddy.k"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
-                          data-hover-rule="background-color" data-hover-color="#3b5998"
-                          style="background-color : #3b5998; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://plus.google.com/u/0/&#43;SivaPrasadReddy"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-google"
-                          data-hover-rule="background-color" data-hover-color="#d93e2d"
-                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
-                          data-hover-rule="background-color" data-hover-color="#3371b7"
-                          style="background-color : #3371b7; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="http://www.youtube.com/c/SivaPrasadReddy%20"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
-                          data-hover-rule="background-color" data-hover-color="#e02a20"
-                          style="background-color : #e02a20; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-    </ul>
-</aside>
-
-
-    <aside id="widget_sp_image-4" class="widget widget_sp_image">
-        <h3 class="widget-title">My Recent Books</h3><a
-            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
-            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
-            <img
-            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
-            style="max-width: 100%;"
-            src="/images/ApressSpringBootBook.jpg"/></a>
-    </aside>
-
-    <aside id="recent-posts-2" class="widget widget_recent_entries">
-        <h3 class="widget-title">Recent Posts</h3>
-        <ul>
-            <li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li>
-        </ul>
-    </aside>
-
-    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
-        <h3 class="widget-title">Tags</h3>
-        <div class="tagcloud">
-
-                <div class="widget__content">
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/android" title="android">android</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/angularjs" title="angularjs">angularjs</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/best-practices" title="best-practices">best-practices</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/blogging" title="blogging">blogging</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/books" title="books">books</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/design-patterns" title="design-patterns">design-patterns</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/extjs" title="extjs">extjs</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/hibernate" title="hibernate">hibernate</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/ide" title="ide">ide</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/interviews" title="interviews">interviews</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/it" title="it">it</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/java" title="java">java</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/javaee" title="javaee">javaee</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/javamail" title="javamail">javamail</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/javascript" title="javascript">javascript</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/jboss" title="jboss">jboss</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/jcart" title="jcart">jcart</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/jooq" title="jooq">jooq</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/jpa" title="jpa">jpa</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/jsf" title="jsf">jsf</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/linux" title="linux">linux</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/maven" title="maven">maven</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/mybatis" title="mybatis">mybatis</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/primefaces" title="primefaces">primefaces</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/quartz" title="quartz">quartz</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/rest" title="rest">rest</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/resteasy" title="resteasy">resteasy</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/spring" title="spring">spring</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/springboot" title="springboot">springboot</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/springcloud" title="springcloud">springcloud</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/springmvc" title="springmvc">springmvc</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/springsecurity" title="springsecurity">springsecurity</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/tips" title="tips">tips</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/tomcat" title="tomcat">tomcat</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/videos" title="videos">videos</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/webservices" title="webservices">webservices</a>
-                </div>
-
-        </div>
-    </aside>
-
-    <aside class="widget widget_categories">
-        <h3 class="widget-title">Categories</h3>
-        <ul>
-                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
-                    <li class="cat-item"><a href="/categories/books">Books</a></li>
-                    <li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li>
-                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
-                    <li class="cat-item"><a href="/categories/java">Java</a></li>
-                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
-                    <li class="cat-item"><a href="/categories/javascript">Javascript</a></li>
-                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
-                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
-                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-                    <li class="cat-item"><a href="/categories/videos">Videos</a></li>
-        </ul>
-    </aside>
-</div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="footer-area">
-        
-<footer id="colophon" class="site-footer" role="contentinfo">
-    <div class="site-info container">
-        <div class="row">
-            <nav role="navigation" class="col-md-3">
-            </nav>
-            <div class="copyright col-md-6">
-                <a href="/" target="_blank">SivaLabs</a> Powered by <a
-                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
-        </div>
-    </div>
-    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
-</footer>
-
-    </div>
-</div>
-</body>
-</html>
+&lt;/html&gt;</pre><p>Now run the application and point your browser to <strong><a href="http://localhost:8080">http://localhost:8080</a></strong>. It should automatically redirect you to <strong><a href="https://localhost:8443/home">https://localhost:8443/home</a></strong> and show home.html view.</p><p>In our next post we will setup the UI Layout using Thymeleaf templates and start developing screens.</p></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f&title=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f&title=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></article><div class="comments"><div id="disqus_thread"></div><script>var disqus_config=function(){};!function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1)return void(document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.");var e=document,t=e.createElement("script");t.async=!0,t.src="//sivalabs.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}()</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div><nav class="navigation post-navigation" role="navigation"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><div class="nav-previous"><a href="/2015/12/jcart-shoppingcart-ui-layout-setup/" rel="next"><i class="fa fa-chevron-left"></i> <span class="post-title">JCart : ShoppingCart UI Layout Setup</span></a></div><div class="nav-next"><a href="/2015/12/jcart-iteration-4/" rel="prev"><span class="post-title">JCart : Iteration-4 <i class="fa fa-chevron-right"></i></span></a></div></div></nav></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="well"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Social Networks</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b" style="background-color:#221e1b;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee" style="background-color:#55acee;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998" style="background-color:#3b5998;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google" data-hover-rule="background-color" data-hover-color="#d93e2d" style="background-color:#d93e2d;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7" style="background-color:#3371b7;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20" style="background-color:#e02a20;font-size:18px;padding:8px"></span></a></li></ul></aside><aside id="widget_sp_image-4" class="widget widget_sp_image"><h3 class="widget-title">My Recent Books</h3><a href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304" target="_blank" class="widget_sp_image-image-link" title="My Recent Books"><img width="2100" height="3000" alt="My Recent Books" class="attachment-full" style="max-width:100%" src="/images/ApressSpringBootBook.jpg"></a></aside><aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent Posts</h3><ul><li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li><li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li><li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li><li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li><li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li></ul></aside><aside id="tag_cloud-5" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="android">android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/angularjs" title="angularjs">angularjs</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="best-practices">best-practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="blogging">blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/design-patterns" title="design-patterns">design-patterns</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="e-commerce">e-commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/extjs" title="extjs">extjs</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/hibernate" title="hibernate">hibernate</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="ide">ide</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="interviews">interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="it">it</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="java">java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="javaee">javaee</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javamail" title="javamail">javamail</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javascript" title="javascript">javascript</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jboss" title="jboss">jboss</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jpa" title="jpa">jpa</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="jsf">jsf</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="linux">linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="maven">maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="mybatis">mybatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="primefaces">primefaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/quartz" title="quartz">quartz</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rest" title="rest">rest</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/resteasy" title="resteasy">resteasy</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="spring">spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springmvc" title="springmvc">springmvc</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springsecurity" title="springsecurity">springsecurity</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="tips">tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tomcat" title="tomcat">tomcat</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="virtualbox">virtualbox</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/webservices" title="webservices">webservices</a></div></div></aside><aside class="widget widget_categories"><h3 class="widget-title">Categories</h3><ul><li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li><li class="cat-item"><a href="/categories/ide">Ide</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">Javaee</a></li><li class="cat-item"><a href="/categories/javascript">Javascript</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><nav role="navigation" class="col-md-3"></nav><div class="copyright col-md-6"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></div></div></div><div class="scroll-to-top"><i class="fa fa-angle-up"></i></div></footer></div></div></body></html>
