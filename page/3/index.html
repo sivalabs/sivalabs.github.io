@@ -1,9 +1,6 @@
-
 <!DOCTYPE html>
 <html>
-    
-
-<head>
+    <head>
 	<meta name="generator" content="Hugo 0.30.2" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +10,25 @@
     <link rel='stylesheet' id='sparkling-bootstrap-css'
           href="/assets/css/bootstrap.min.css" type='text/css'
           media='all'/>
+
     <link rel='stylesheet' id='sparkling-icons-css'
           href="/assets/css/font-awesome.min.css"
           type='text/css' media='all'/>
+
     <link rel='stylesheet' id='sparkling-fonts-css'
           href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'
           type='text/css' media='all'/>
+
     <link rel='stylesheet' id='sparkling-style-css'
-          href="/css/style.css" type='text/css' media='all'/>
+          href="/assets/css/style.css" type='text/css' media='all'/>
+
     <link rel='stylesheet' id='socicon-css'
           href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css"
           type='text/css' media='all'/>
+
     <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css"
             type="text/css" media="all">
+
     <link rel="stylesheet" href="/assets/css/jetpack.css"
             type="text/css" media="all">
 
@@ -33,11 +36,28 @@
 
     <script type='text/javascript'
             src="/assets/js/vendor/modernizr.min.js"></script>
+
     <script type='text/javascript'
             src="/assets/js/vendor/bootstrap.min.js"></script>
+
     <script type='text/javascript'
             src="/assets/js/functions.min.js"></script>
+
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+
+    
+    <div class="analytics">
+        
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-71296890-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+
 </head>
 
 </head>
@@ -88,12 +108,7 @@
     </nav>
 </header>
 
-
     <div id="content" class="site-content">
-
-        <div class="top-section">
-        </div>
-
         <div class="container main-content-area">
             <div class="row side-pull-left">
                 <div class="main-content-inner col-sm-12 col-md-8">
@@ -106,59 +121,57 @@
     
 
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/"
-               title="JCart : Billing and Delivery Page">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/" title="JCart : Billing and Delivery Page"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/"
-                            rel="bookmark">JCart : Billing and Delivery Page</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/" rel="bookmark">JCart : Billing and Delivery Page</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-31T07:40:14">
+            December 31, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 31, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>Once the customer reviewed his cart items details and clicks on Checkout we should display Billing &amp; Delivery page where customer enters delivery address details, payment details etc and place the order.
 Let us create a OrderDTO.java as follows:
 public class OrderDTO implements Serializable { private static final long serialVersionUID = 1L; @NotEmpty(message="FirstName is required") private String firstName; @NotEmpty(message="LastName is required") private String lastName; @NotEmpty(message="EmailId is required") @Email private String emailId; @NotEmpty(message=" [&hellip;]</p>
@@ -184,67 +197,63 @@ public class OrderDTO implements Serializable { private static final long serial
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
 
-
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-customer-registration/"
-               title="JCart : Customer Registration">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-customer-registration/" title="JCart : Customer Registration"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-customer-registration/"
-                            rel="bookmark">JCart : Customer Registration</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-customer-registration/" rel="bookmark">JCart : Customer Registration</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-31T07:24:01">
+            December 31, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 31, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>To facilitate new customer registration we will provide a new Registration form where customer provide his details and register with our system.
 Let us implement the back-end customer service operations.
 public interface CustomerRepository extends JpaRepository&lt;Customer, Integer&gt;{ Customer findByEmail(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.save(customer); } } @Component public class CustomerValidator implements Validator { @Autowired private CustomerService custmoerService; @Override public boolean supports(Class&lt;? [&hellip;]</p>
@@ -270,67 +279,63 @@ public interface CustomerRepository extends JpaRepository&lt;Customer, Integer&g
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
 
-
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-customer-login/"
-               title="JCart : Customer Login">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-customer-login/" title="JCart : Customer Login"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-customer-login/"
-                            rel="bookmark">JCart : Customer Login</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-customer-login/" rel="bookmark">JCart : Customer Login</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-31T07:20:06">
+            December 31, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 31, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>So far we have implemented the functionality where customers can browse the categories, add products to cart, view Cart and update/remove items.
 But to checkout the cart the customer should login into the system. So if the customer is not yet loggedin we should redirect customer to login page. If customer is already registered with our system he can login or he should be able to register. So, we will start implementing Customer Login/Registration usecases. [&hellip;]</p>
                     <p><a class="btn btn-default read-more"
@@ -355,67 +360,63 @@ But to checkout the cart the customer should login into the system. So if the cu
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
 
-
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-6/"
-               title="JCart : Iteration -6">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-6/" title="JCart : Iteration -6"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-iteration-6/"
-                            rel="bookmark">JCart : Iteration -6</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-iteration-6/" rel="bookmark">JCart : Iteration -6</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-31T07:16:40">
+            December 31, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 31, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>In this Iteration-6 we will be implementing the Customer Login/Register and placing the orders.
 As per of this we will implement the following usecases:
  Customer Login Customer Registration Billing &amp; Delivery Page  Create Order Order Confirmation Page Send Order Confirmation Email    [&hellip;]</p>
@@ -441,67 +442,63 @@ As per of this we will implement the following usecases:
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
 
-
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-view-cart/"
-               title="JCart : View Cart">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-view-cart/" title="JCart : View Cart"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-view-cart/"
-                            rel="bookmark">JCart : View Cart</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-view-cart/" rel="bookmark">JCart : View Cart</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-31T05:32:11">
+            December 31, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 31, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>In our earlier post we have implemented Add To Cart functionality. In this post we will implement showing the Cart Item details.
 In out mainLayout.html header we have ShoppingCart icon showing the cart item count as follows:
 &lt;div class="shopping-item"&gt; &lt;a href="#" th:href="@{/cart}"&gt;Cart &lt;i class="fa fa-shopping-cart"&gt;&lt;/i&gt; &lt;span id="cart-item-count" class="product-count"&gt;(0)&lt;/span&gt;&lt;/a&gt; &lt;/div&gt; When customer clicks on Cart icon we will show the Cart details. Let us implement the &#8220;/cart&#8221; url handler method in CartController as follows: [&hellip;]</p>
@@ -527,67 +524,63 @@ In out mainLayout.html header we have ShoppingCart icon showing the cart item co
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
 
-
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/"
-               title="JCart : ShoppingCart Add Item To Cart">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/" title="JCart : ShoppingCart Add Item To Cart"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/"
-                            rel="bookmark">JCart : ShoppingCart Add Item To Cart</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/" rel="bookmark">JCart : ShoppingCart Add Item To Cart</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-31T05:27:23">
+            December 31, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 31, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>In our HomePage/CategoryPage/ProductPage we have a button Add To Cart as follows:
 &lt;a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="#" th:onclick="'javascript:addItemToCart(\'' + ${product.sku} + '\');'"&gt;Add to cart&lt;/a&gt; When customer clicks on Add To Cart button it will trigger addItemToCart(sku) JavaScript function passing the product SKU value.
 Now create jcart-site/src/main/resources/static/assets/js/app.js and implement addItemToCart(sku) function as follows:
@@ -614,67 +607,63 @@ function addItemToCart(sku) { $.ajax ({ url: '/cart/items', type: "POST", dataTy
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
 
-
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-5/"
-               title="JCart : Iteration-5">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-5/" title="JCart : Iteration-5"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-iteration-5/"
-                            rel="bookmark">JCart : Iteration-5</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-iteration-5/" rel="bookmark">JCart : Iteration-5</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-31T05:19:06">
+            December 31, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 31, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>In Iteration-5 we will be primarily working on Cart related functionality. As part of Iteration-4 we have implemented showing Home page, Category Page, Product Page and Product Search features.
 In this Iteration we will implement the following usecases:
  Add To Cart in HomePage/CategoryPage/ProductPage Cart Page  View Cart Items Updates Quantity Remove Items    [&hellip;]</p>
@@ -700,67 +689,63 @@ In this Iteration we will implement the following usecases:
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
 
-
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/"
-               title="JCart : ShoppingCart Product Search Results">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/" title="JCart : ShoppingCart Product Search Results"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/"
-                            rel="bookmark">JCart : ShoppingCart Product Search Results</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/" rel="bookmark">JCart : ShoppingCart Product Search Results</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-30T14:27:57">
+            December 30, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 30, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>In our main template we have a Search box to search for products. In this post we will implement the Product Search functionality. When customer search for a product we will search products based on name or SKU or description.
 Let us implement the search handler method in ProductController as follows:
 @Controller public class ProductController extends JCartSiteBaseController { @Autowired protected CatalogService catalogService; ... ... @RequestMapping("/products") public String searchProducts(@RequestParam(name="q", defaultValue="") String query, Model model) { List&lt;Product&gt; products = catalogService. [&hellip;]</p>
@@ -786,67 +771,63 @@ Let us implement the search handler method in ProductController as follows:
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
 
-
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/"
-               title="JCart : ShoppingCart Product Page">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" title="JCart : ShoppingCart Product Page"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/"
-                            rel="bookmark">JCart : ShoppingCart Product Page</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" rel="bookmark">JCart : ShoppingCart Product Page</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-30T14:25:35">
+            December 30, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 30, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>Customers can click on a product to view more details about the product either in Home Page or in Category Page.
 Let us implement Controller method to show Product details as follows:
 @Controller public class ProductController extends JCartSiteBaseController { @Autowired protected CatalogService catalogService; .... .... @RequestMapping("/products/{sku}") public String product(@PathVariable String sku, Model model) { Product product = catalogService.getProductBySku(sku); model.addAttribute("product", product); return "product"; } } @Service @Transactional public class CatalogService { @Autowired ProductRepository productRepository; . [&hellip;]</p>
@@ -872,67 +853,63 @@ Let us implement Controller method to show Product details as follows:
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
 
-
     
-    <article
-            class="post type-post status-publish format-standard hentry">
+    <article class="post type-post status-publish format-standard hentry">
         <div class="blog-item-wrap">
-            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/"
-               title="JCart : ShoppingCart Category Page">
-            </a>
+            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" title="JCart : ShoppingCart Category Page"></a>
             <div class="post-inner-content">
                 <header class="entry-header page-header">
-
-                    <h2 class="entry-title"><a
-                            href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/"
-                            rel="bookmark">JCart : ShoppingCart Category Page</a></h2>
-
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" rel="bookmark">JCart : ShoppingCart Category Page</a>
+                    </h2>
                     <div class="entry-meta">
-                        <span class="posted-on"><i class="fa fa-calendar"></i>
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-30T14:23:06">
+            December 30, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
 
-                            <time class="entry-date published">Dec 30, 2015</time>
-                        </span>
-                        <span> <i class="fa fa-user"></i>
-                            <span class="author vcard">
-                                Siva
-                            </span>
-                        </span>
-                        
-                        
-                        
-                        <span>
-                            <i class="fa fa-folder-open-o"></i>
-                            
-                            <a class="article-category-link" href="/categories/java/">Java</a>
-                            
-                            
-                        </span>
-                        
-                        
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
 
-                        
-                        
-                        
-                        <span class="tagcloud" style="display: inline">
-                            <i class="fa fa-tags"></i>
-                            
-                            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-                            
-                            
-                        </span>
-                        
-                        
-                    </div>
+</div>
+
                 </header>
 
                 <div class="entry-content">
-
                     <p>In our Home Page we displayed all the Categories along with few products per each category. When customer clicks on any Category Name we should display Category Page which shows all the products in that Category.
 We already have HomeController.category() method to handle the URL /categories/{name}.
 So let us create category.html thymeleaf template as follows:
@@ -959,12 +936,10 @@ So let us create category.html thymeleaf template as follows:
 </div>
 
 
-
                 </div>
             </div>
         </div>
     </article>
-
 
     
 
@@ -988,92 +963,96 @@ So let us create category.html thymeleaf template as follows:
 
 
                     </div>
-
                 </div>
                 <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
                     <div class="well">
 
     <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
-        <h3 class="widget-title">Social Networks</h3>
+    <h3 class="widget-title">Social Networks</h3>
 
-        <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
 
-
-            <li class="zoom-social_icons-list__item">
-                <a class="zoom-social_icons-list__link"
-                   href="https://github.com/sivaprasadreddy"
-                   target="_blank">
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
                     <span class="zoom-social_icons-list-span socicon socicon-github"
                           data-hover-rule="background-color" data-hover-color="#221e1b"
                           style="background-color : #221e1b; font-size: 18px; padding:8px"
                     ></span>
+            </a>
+        </li>
+        
 
-                </a>
-            </li>
-
-            <li class="zoom-social_icons-list__item">
-                <a class="zoom-social_icons-list__link"
-                   href="https://twitter.com/sivalabs"
-                   target="_blank">
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
                     <span class="zoom-social_icons-list-span socicon socicon-twitter"
                           data-hover-rule="background-color" data-hover-color="#55acee"
                           style="background-color : #55acee; font-size: 18px; padding:8px"
                     ></span>
+            </a>
+        </li>
+        
 
-                </a>
-            </li>
-
-            <li class="zoom-social_icons-list__item">
-                <a class="zoom-social_icons-list__link"
-                   href="https://facebook.com/sivaprasadreddy.k"
-                   target="_blank">
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://facebook.com/sivaprasadreddy.k"
+               target="_blank">
                     <span class="zoom-social_icons-list-span socicon socicon-facebook"
                           data-hover-rule="background-color" data-hover-color="#3b5998"
                           style="background-color : #3b5998; font-size: 18px; padding:8px"
                     ></span>
+            </a>
+        </li>
+        
 
-                </a>
-            </li>
-
-            <li class="zoom-social_icons-list__item">
-                <a class="zoom-social_icons-list__link"
-                   href="https://plus.google.com/u/0/+SivaPrasadReddy"
-                   target="_blank">
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://plus.google.com/u/0/&#43;SivaPrasadReddy"
+               target="_blank">
                     <span class="zoom-social_icons-list-span socicon socicon-google"
                           data-hover-rule="background-color" data-hover-color="#d93e2d"
                           style="background-color : #d93e2d; font-size: 18px; padding:8px"
                     ></span>
+            </a>
+        </li>
+        
 
-                </a>
-            </li>
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                          style="background-color : #3371b7; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
 
-            <li class="zoom-social_icons-list__item">
-                <a class="zoom-social_icons-list__link"
-                   href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
-                   target="_blank">
-                        <span class="zoom-social_icons-list-span socicon socicon-linkedin"
-                              data-hover-rule="background-color" data-hover-color="#3371b7"
-                              style="background-color : #3371b7; font-size: 18px; padding:8px"
-                        ></span>
+        
 
-                </a>
-            </li>
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                          style="background-color : #e02a20; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
 
-            <li class="zoom-social_icons-list__item">
-                <a class="zoom-social_icons-list__link"
-                   href="http://www.youtube.com/c/SivaPrasadReddy%20"
-                   target="_blank">
-                        <span class="zoom-social_icons-list-span socicon socicon-youtube"
-                              data-hover-rule="background-color" data-hover-color="#e02a20"
-                              style="background-color : #e02a20; font-size: 18px; padding:8px"
-                        ></span>
-
-                </a>
-            </li>
-
-        </ul>
-
-    </aside>
 
     <aside id="widget_sp_image-4" class="widget widget_sp_image">
         <h3 class="widget-title">My Recent Books</h3><a
@@ -1082,7 +1061,7 @@ So let us create category.html thymeleaf template as follows:
             <img
             width="2100" height="3000" alt="My Recent Books" class="attachment-full"
             style="max-width: 100%;"
-            src="https://images-na.ssl-images-amazon.com/images/I/41SaZiIaUNL._SX348_BO1,204,203,200_.jpg"/></a>
+            src="/images/ApressSpringBootBook.jpg"/></a>
     </aside>
 
     <aside id="recent-posts-2" class="widget widget_recent_entries">
@@ -1210,26 +1189,19 @@ So let us create category.html thymeleaf template as follows:
     </aside>
 </div>
 
-
                 </div>
             </div>
         </div>
     </div>
-
     <div id="footer-area">
-        <div class="container footer-inner">
-    <div class="row">
-
-    </div>
-</div>
-
+        
 <footer id="colophon" class="site-footer" role="contentinfo">
     <div class="site-info container">
         <div class="row">
             <nav role="navigation" class="col-md-3">
             </nav>
             <div class="copyright col-md-6">
-                <a href="http://sivalabs.in/" target="_blank">SivaLabs</a> Powered by <a
+                <a href="/" target="_blank">SivaLabs</a> Powered by <a
                     href="https://gohugo.io/" target="_blank">Hugo</a></div>
         </div>
     </div>
@@ -1238,7 +1210,5 @@ So let us create category.html thymeleaf template as follows:
 
     </div>
 </div>
-
 </body>
-
 </html>
