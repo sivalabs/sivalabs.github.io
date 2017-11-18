@@ -6,22 +6,10 @@
     <description>Recent content in Servlets Jsp on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Aug 2011 01:13:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Aug 2011 00:35:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/servlets-jsp/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>CustomTag to generate  and  tags with absolute path</title>
-      <link>https://sivalabs.github.io/2011/08/customtag-to-generate-and-tags-with-absolute-path/</link>
-      <pubDate>Thu, 25 Aug 2011 01:13:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/08/customtag-to-generate-and-tags-with-absolute-path/</guid>
-      <description>Generally we write our javascript and css styles in separate file and include them in JSPs using  and  tags.
-To include those resource we can use either relative URL or absolute URL.
-If you use absolute URL you need to include the context root name which is not a good practice.
-Later if you want to change the context root name you need to update in several places.</description>
-    </item>
     
     <item>
       <title>When to use RequestDispatcher.forward() and response.sendRedirect()?</title>

@@ -6,20 +6,10 @@
     <description>Recent content in Primefaces on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jan 2015 07:39:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2013 04:02:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/primefaces/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Book Review: PrimeFaces Blueprints</title>
-      <link>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</link>
-      <pubDate>Mon, 26 Jan 2015 07:39:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</guid>
-      <description>PrimeFaces Blueprints is a recent publication from Packpub on PrimeFaces framework authored by Sudheer Jonna and Ramkumar Pillai. Sudheer Jonna is a well known member in the PrimeFaces community forum and is very knowledgeable on PrimeFaces and PrimeFaces Extensions.
-    PrimeFaces Blueprint book followed the approach of explaining the features with appropriate example applications. PrimeFaces provides more than 100 rich UI components with lot of customization options.   Instead of explaining all these components individually, the book authors explained how to use various PrimeFaces components together by developing 9 different small applications.</description>
-    </item>
     
     <item>
       <title>PrimeFaces Beginner’s Guide book published</title>
@@ -30,33 +20,6 @@
       <description>I am glad to announce that my second book PrimeFaces Beginner&amp;#8217;s Guide is published.
 As many of us know PrimeFaces is leading JSF component library for JSF based web applications. This PrimeFaces Beginner&amp;#8217;s Guide book targets the Java developers with basic knowledge on JSF and jQuery and covers most of the commonly used PrimeFaces components.
  Good news is that PrimeFaces Beginner&amp;#8217;s Guide book covers the latest PrimeFaces 4.0 version features such as Client Side Validations (CSV) framework, Dialog Framework, Search Expressions, Sticky Component and many other enhancement as well.</description>
-    </item>
-    
-    <item>
-      <title>PrimeFaces3 Tutorial : Form Validation Using BeanValidation API(JSR-303)</title>
-      <link>https://sivalabs.github.io/2012/02/primefaces3-tutorial-form-validation-using-beanvalidation-apijsr-303/</link>
-      <pubDate>Wed, 01 Feb 2012 23:10:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2012/02/primefaces3-tutorial-form-validation-using-beanvalidation-apijsr-303/</guid>
-      <description>JSF2 has in-built support for form validations using Bean Validation API(JSR-303).
-In my previous article PrimeFaces 3 Tutorial : Introduction &amp;amp; Form Validation , I have explained how to validate forms using JSF tags inside JSF xhtml pages.
-Now Let us see how we can validate the forms using HibernateValidator which is reference implementation of JSR-303.
-Note: Integrating JSR-303 with JSF2 doesn&amp;#8217;t have anything to do with PrimeFaces 3.
-But I am planning to write a series of articles on PrimeFaces and JSR-303 integration is a part of it.</description>
-    </item>
-    
-    <item>
-      <title>PrimeFaces 3 Tutorial : Introduction &amp; Form Validation</title>
-      <link>https://sivalabs.github.io/2012/01/primefaces-3-tutorial-introduction-form-validation/</link>
-      <pubDate>Mon, 30 Jan 2012 21:23:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2012/01/primefaces-3-tutorial-introduction-form-validation/</guid>
-      <description>PrimeFaces is a component library for JSF and has huge component support.
-Working with PrimeFaces is very much easy because there is a single jar, no mandatory other dependencies, no mandatory configuration is required.
-Ok, in this tutorial I am going to explain how to create a Maven based PrimeFaces project and create a simple registration for and validate the form.
-I am using JDK1.6.26 and Tomcat 7.0.32.
-Step#1
-Create Maven Project and add the following repositories, dependencies in pom.</description>
     </item>
     
   </channel>

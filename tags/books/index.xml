@@ -44,55 +44,5 @@ Spring is one of the most popular Java frameworks out there to build web and ent
 Spring supports variety of configuration approaches (XML, Annotations, JavaConfig etc) and properly configuring Spring applications become a bit tedious and repetitive process. To avoid these problems Spring team introduced SpringBoot to address the complexity of configuring Spring application.</description>
     </item>
     
-    <item>
-      <title>Packt Publishers Initiative FREE eBook every day</title>
-      <link>https://sivalabs.github.io/2015/06/packt-publishers-initiative-free-ebook-every-day/</link>
-      <pubDate>Tue, 02 Jun 2015 11:31:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/06/packt-publishers-initiative-free-ebook-every-day/</guid>
-      <description>Software Development is a field where learning new things continuously is very much important to keep up with the pace of technology evolution. Packt Publishers not only publishing new books everyday, now they are offering one ebook EVERYDAY for FREE http://bit.ly/1JdHmgx. This is really AWESOME!!
-  What are you waiting for??!!. Rush to http://bit.ly/1JdHmgx and Claim your today&amp;#8217;s free book right now 🙂</description>
-    </item>
-    
-    <item>
-      <title>Book Review: PrimeFaces Blueprints</title>
-      <link>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</link>
-      <pubDate>Mon, 26 Jan 2015 07:39:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</guid>
-      <description>PrimeFaces Blueprints is a recent publication from Packpub on PrimeFaces framework authored by Sudheer Jonna and Ramkumar Pillai. Sudheer Jonna is a well known member in the PrimeFaces community forum and is very knowledgeable on PrimeFaces and PrimeFaces Extensions.
-    PrimeFaces Blueprint book followed the approach of explaining the features with appropriate example applications. PrimeFaces provides more than 100 rich UI components with lot of customization options.   Instead of explaining all these components individually, the book authors explained how to use various PrimeFaces components together by developing 9 different small applications.</description>
-    </item>
-    
-    <item>
-      <title>Book Review: Enterprise Application Development with Ext JS and Spring</title>
-      <link>https://sivalabs.github.io/2014/02/book-review-enterprise-application-development-with-ext-js-and-spring/</link>
-      <pubDate>Tue, 11 Feb 2014 00:23:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2014/02/book-review-enterprise-application-development-with-ext-js-and-spring/</guid>
-      <description>I was asked to review &amp;#8220;Enterprise Application Development with Ext JS and Spring&amp;#8221; book by Packtpub guys and here is my review on the book. Actually now I am working on a project which is being developed using ExtJS and I thought of buying this book. But surprisingly on the very next day I was asked to review this book and gave me the ebook :-).
-  Book WebSite URL:&amp;nbsp;http://www.</description>
-    </item>
-    
-    <item>
-      <title>Packt’s $5 eBook Bonanza is back!</title>
-      <link>https://sivalabs.github.io/2013/12/packts-5-ebook-bonanza-is-back/</link>
-      <pubDate>Fri, 20 Dec 2013 15:29:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2013/12/packts-5-ebook-bonanza-is-back/</guid>
-      <description>Packt Publishing provides IT related books, ebooks and videos on various cutting edge technologies with high quality and affordable price!
-Following on from the success of last year’s festive offer, the publisher will be celebrating the holiday season with an even bigger $5 Bonanza. &amp;nbsp;From December 19th, customers will be able to get any eBook or Video from Packt for just $5. This sale covers every title in the 1700+ range and customers can grab as many as they like until January 3rd 2014 – more information is available at http://bit.</description>
-    </item>
-    
-    <item>
-      <title>PrimeFaces Cookbook Review</title>
-      <link>https://sivalabs.github.io/2013/03/primefaces-cookbook-review/</link>
-      <pubDate>Mon, 18 Mar 2013 08:32:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2013/03/primefaces-cookbook-review/</guid>
-      <description>PrimeFaces is the Best Rich UI component library for JSF based applications. Also PrimeFaces has a wonderful showcase (http://www.primefaces.org/showcase/ui/home.jsf) and documentation (http://www.primefaces.org/documentation.html) on their website.     When I first heard about &amp;#8220;PrimeFaces Cookbook” I was very excited because this is the first book on PrimeFaces and usually cookbooks contain lot of tips for commonly faced issues and recipes for common use cases.
-    PrimeFaces Cookbook      &amp;lt;div&amp;gt; &amp;lt;a href=&amp;quot;http://www.</description>
-    </item>
-    
   </channel>
 </rss>

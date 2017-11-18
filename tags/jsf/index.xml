@@ -22,43 +22,5 @@ As many of us know PrimeFaces is leading JSF component library for JSF based web
  Good news is that PrimeFaces Beginner&amp;#8217;s Guide book covers the latest PrimeFaces 4.0 version features such as Client Side Validations (CSV) framework, Dialog Framework, Search Expressions, Sticky Component and many other enhancement as well.</description>
     </item>
     
-    <item>
-      <title>PrimeFaces3 Tutorial : Form Validation Using BeanValidation API(JSR-303)</title>
-      <link>https://sivalabs.github.io/2012/02/primefaces3-tutorial-form-validation-using-beanvalidation-apijsr-303/</link>
-      <pubDate>Wed, 01 Feb 2012 23:10:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2012/02/primefaces3-tutorial-form-validation-using-beanvalidation-apijsr-303/</guid>
-      <description>JSF2 has in-built support for form validations using Bean Validation API(JSR-303).
-In my previous article PrimeFaces 3 Tutorial : Introduction &amp;amp; Form Validation , I have explained how to validate forms using JSF tags inside JSF xhtml pages.
-Now Let us see how we can validate the forms using HibernateValidator which is reference implementation of JSR-303.
-Note: Integrating JSR-303 with JSF2 doesn&amp;#8217;t have anything to do with PrimeFaces 3.
-But I am planning to write a series of articles on PrimeFaces and JSR-303 integration is a part of it.</description>
-    </item>
-    
-    <item>
-      <title>PrimeFaces 3 Tutorial : Introduction &amp; Form Validation</title>
-      <link>https://sivalabs.github.io/2012/01/primefaces-3-tutorial-introduction-form-validation/</link>
-      <pubDate>Mon, 30 Jan 2012 21:23:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2012/01/primefaces-3-tutorial-introduction-form-validation/</guid>
-      <description>PrimeFaces is a component library for JSF and has huge component support.
-Working with PrimeFaces is very much easy because there is a single jar, no mandatory other dependencies, no mandatory configuration is required.
-Ok, in this tutorial I am going to explain how to create a Maven based PrimeFaces project and create a simple registration for and validate the form.
-I am using JDK1.6.26 and Tomcat 7.0.32.
-Step#1
-Create Maven Project and add the following repositories, dependencies in pom.</description>
-    </item>
-    
-    <item>
-      <title>JSF can be used for several purposes.</title>
-      <link>https://sivalabs.github.io/2011/01/jsf-can-be-used-for-several-purposes/</link>
-      <pubDate>Wed, 05 Jan 2011 23:06:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/01/jsf-can-be-used-for-several-purposes/</guid>
-      <description>Recently I got a wonderful opportunity to work with JSF and I couldn&amp;#8217;t stop myself sharing my feelings on JSF with everyone.
-By god&amp;#8217;s grace till last month i didn&amp;#8217;t a chance to work on JSF in my career. But recently i have to work on a project developed in JSF 1.x.
-After spending few days on JSF technology I realized that JSF is not only a web framework and we can use it for several purposes.</description>
-    </item>
-    
   </channel>
 </rss>

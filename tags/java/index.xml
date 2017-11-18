@@ -30,17 +30,6 @@
     </item>
     
     <item>
-      <title>SpringBoot: Introducing SpringBoot</title>
-      <link>https://sivalabs.github.io/2014/07/springboot-introducing-springboot/</link>
-      <pubDate>Wed, 02 Jul 2014 00:03:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2014/07/springboot-introducing-springboot/</guid>
-      <description>SpringBoot&amp;#8230;there is a lot of buzz about SpringBoot nowadays. So what is SpringBoot?
- SpringBoot is a new spring portfolio project which takes opinionated view of building production-ready Spring applications by drastically reducing the amount of configuration required. Spring Boot is taking the convention over configuration style to the next level by registering the default configurations automatically based on the classpath libraries available at runtime.
- Well.. you might have already read this kind of introduction to SpringBoot on many blogs.</description>
-    </item>
-    
-    <item>
       <title>Clean Code: Don’t mix different levels of abstractions</title>
       <link>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
       <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
@@ -48,28 +37,6 @@
       <guid>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
       <description>We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.
 Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.</description>
-    </item>
-    
-    <item>
-      <title>Drools JBoss Rules 5.X Developer’s Guide Book Review</title>
-      <link>https://sivalabs.github.io/2013/10/drools-jboss-rules-5x-developers-guide/</link>
-      <pubDate>Mon, 21 Oct 2013 04:58:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2013/10/drools-jboss-rules-5x-developers-guide/</guid>
-      <description>We all start our new projects by promising to follow best practices and good design principles etc.
-But over the time business rules change and developers keep adding new features or updates existing logic.
-In this process the common mistake done by many teams is putting if-else conditions here and there instead of coming up with better design to support enhancements. Once these feature turn on/off flags and behavior branching logic started creeping into code then overtime it might become un-maintainable mess.</description>
-    </item>
-    
-    <item>
-      <title>Dear NetBeansIDE, You are just one step away from massive adoption</title>
-      <link>https://sivalabs.github.io/2013/03/dear-netbeanside-you-are-just-one-step-away-from-massive-adoption/</link>
-      <pubDate>Mon, 18 Mar 2013 04:47:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2013/03/dear-netbeanside-you-are-just-one-step-away-from-massive-adoption/</guid>
-      <description>Well, NetBeansIDE 7.3 is out with plenty of new features, tremendous performance improvements.
-In addition to the great support for Java/JavaEE technologies, NetBeansIDE 7.3 comes with decent support for HTML5, Groovy, PHP, C++ as well. If you are skeptic with older versions of NetBeans like 5.x and never again look at NetBeansIDE, I would strongly suggest you to take a look at latest NeaBeans releases specifically 6.9.x&amp;nbsp;on wards.
-However, I wish NetBeans should have following features which greatly increases its adoption:</description>
     </item>
     
     <item>
@@ -83,19 +50,8 @@ MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
 MyBatis Tutorial: Part-2: CRUD operations Using Annotations
 MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
 MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
-**Step1: **Create a Maven project and configure MyBatis dependencies.
-&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
-    </item>
-    
-    <item>
-      <title>Spring3&#43;JPA2&#43;JavaEE6AppServer = Confusion Over Configuration</title>
-      <link>https://sivalabs.github.io/2012/10/spring3jpa2javaee6appserver-confusion-over-configuration/</link>
-      <pubDate>Fri, 12 Oct 2012 05:38:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2012/10/spring3jpa2javaee6appserver-confusion-over-configuration/</guid>
-      <description>Spring is great, JavaEE6 is great and latest JavaEE6 Application servers are also great. This post is not a rant on Spring Vs JavaEE6, but my experience of porting a Spring3+JPA2(Hibernate) application on JBoss AS-7.1 App Server.
-My application requirement is very simple: Developing a couple of SOAP based webservices using Spring3.1 and JPA2(Hibernate) and host it on JBoss AS 7.1.
-So I started creating a multi-module maven project with one jar module containing the service implementations using Spring &amp;amp; JPA and another war module which exposes those services as SOAP based webservices.</description>
+Step1: Create a Maven project and configure MyBatis dependencies.
+&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt;&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;&amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt;&amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt;&amp;lt;properties&amp;gt;&amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;&amp;lt;/properties&amp;gt;&amp;lt;build&amp;gt;&amp;lt;plugins&amp;gt;&amp;lt;plugin&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
     </item>
     
     <item>
@@ -104,60 +60,9 @@ So I started creating a multi-module maven project with one jar module containin
       <pubDate>Tue, 28 Aug 2012 04:55:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2012/08/keep-code-clean-watchdog-spotthebug/</guid>
-      <description>Before going to discuss &amp;#8220;WatchDog &amp;amp; SpotTheBug Approach&amp;#8220;, let me give a brief context on what is the needs for this.
+      <description>Before going to discuss WatchDog &amp;amp; SpotTheBug Approach, let me give a brief context on what is the needs for this.
 Three months back I was asked to write core infrastructure code for our new application which uses all the latest and greatest technologies.
 I have written the infrastructure code and implemented 2 usecases to demonstrate which logic should go into which layer and the code looks good(atleast to me :-)).</description>
-    </item>
-    
-    <item>
-      <title>How I explained Dependency Injection to My Team</title>
-      <link>https://sivalabs.github.io/2012/06/how-i-explained-dependency-injection-to-my-team/</link>
-      <pubDate>Tue, 19 Jun 2012 02:20:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2012/06/how-i-explained-dependency-injection-to-my-team/</guid>
-      <description>Recently our company started developing a new java based web application and after some evaluation process we decided to use Spring.
-But many of the team members are not aware of Spring and Dependency Injection principles.
-So I was asked to give a crash course on what is Dependency Injection and basics on Spring.
-Instead of telling all the theory about IOC/DI I thought of explaining with an example.
-Requirement: We will get some Customer Address and we need to validate the address.</description>
-    </item>
-    
-    <item>
-      <title>XML String to Document and Document to XML String</title>
-      <link>https://sivalabs.github.io/2012/04/xml-string-to-document-and-document-to-xml-string/</link>
-      <pubDate>Fri, 27 Apr 2012 12:35:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2012/04/xml-string-to-document-and-document-to-xml-string/</guid>
-      <description>Hi,
-The following Utility methods can be used to create Document object from XML String and Vice versa.
-Nothing new here. Just to keep the following utility methods handy.
- </description>
-    </item>
-    
-    <item>
-      <title>GeneratedValue not setting up auto increment in mysql and h2 dialects</title>
-      <link>https://sivalabs.github.io/2012/04/generatedvalue-not-setting-up-auto-increment-in-mysql-and-h2-dialects/</link>
-      <pubDate>Thu, 26 Apr 2012 07:57:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2012/04/generatedvalue-not-setting-up-auto-increment-in-mysql-and-h2-dialects/</guid>
-      <description>Hi,
-In earlier versions of Hibernate if we want to have an auto_increment primary key we can use the following:
-@Id @GeneratedValue(strategy=GenerationType.AUTO)
-@Column(name=&amp;#8221;user_id&amp;#8221;)
-private Integer userId;
-But in latest version of Hibernate(may be Hibernate4, whatever is used in JBoss AS7) this doesn&amp;#8217;t work as expected. The generated table primary key is not auto_increment column.
-To resolve this configure&amp;nbsp; in persistence.xml.</description>
-    </item>
-    
-    <item>
-      <title>Java Best Practices : Building Safe Domain Objects</title>
-      <link>https://sivalabs.github.io/2012/01/java-best-practices-building-safe-domain-objects/</link>
-      <pubDate>Mon, 16 Jan 2012 07:26:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2012/01/java-best-practices-building-safe-domain-objects/</guid>
-      <description>Domain objects are the core building blocks of any application. These are the fine grained objects which carries the information about the problem domain model.
-Generally domain objects will be created as dumb data carriers with setters/geters without having any logic. But this will cause huge problem in long run.
-If you build the domain objects with dumb setters and getters we will end up in writing null checks all over the places.</description>
     </item>
     
     <item>
@@ -172,210 +77,13 @@ Here is how the interviews went on.</description>
     </item>
     
     <item>
-      <title>Mock Table utility for CRUD operations</title>
-      <link>https://sivalabs.github.io/2011/07/mock-table-utility-for-crud-operations/</link>
-      <pubDate>Wed, 27 Jul 2011 05:38:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/07/mock-table-utility-for-crud-operations/</guid>
-      <description>While learning a new technology we may need a database table to store the data.
-But creating a database, setting up jdbc connection and writing crud operation may be cumbersome.
-So I thought it would be good to have some mock utility to represent a table which can be used just like a database table.
-Here is what I came up with.
-package com.sivalabs.sample.util;
-import java.io.Serializable;
-public interface Identifiable&amp;lt;K&amp;gt; extends Serializable</description>
-    </item>
-    
-    <item>
-      <title>Spring &#43; Quartz &#43; JavaMail Integration Tutorial</title>
-      <link>https://sivalabs.github.io/2011/05/spring-quartz-javamail-integration-tutorial/</link>
-      <pubDate>Mon, 30 May 2011 09:27:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/05/spring-quartz-javamail-integration-tutorial/</guid>
-      <description>Quartz is a job scheduling framework which is used to schedule the jobs to be executed on the specified time schedule.
-JavaMail is an API to send/recieve emails from Java Applications.
-Spring has integration points to integrate Quartz and JavaMail which makes easy to use those APIs.
-Lets create a small demo application to show how to integrate Spring + Quartz + JavaMail.
-Our application is to send birthday wishes emails to friends everyday at 6 AM.</description>
-    </item>
-    
-    <item>
-      <title>Sending Email with Attachments using JavaMail</title>
-      <link>https://sivalabs.github.io/2011/05/sending-email-with-attachments-using-javamail/</link>
-      <pubDate>Mon, 30 May 2011 08:02:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/05/sending-email-with-attachments-using-javamail/</guid>
-      <description>We can send emails using JavaMail API.
-Instead of directly using JavaMail API here is a small utility to send emails which shields the user from JavaMail internals.
-EmailConfiguration.java
-package com.sivalabs.email;
-import java.util.Properties;
-public class EmailConfiguration
-{
-private Properties properties = new Properties();
-public static final String SMTP_HOST = &#34;mail.smtp.host&#34;;
-public static final String SMTP_AUTH = &#34;mail.smtp.auth&#34;;
-public static final String SMTP_TLS_ENABLE = &#34;mail.smtp.starttls.enable&#34;;
-public static final String SMTP_AUTH_USER = &#34;</description>
-    </item>
-    
-    <item>
-      <title>SpringMVC &#43; Hibernate Error: No Hibernate Session bound to thread, and configuration does not allow creation of non-transactional one here</title>
-      <link>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</link>
-      <pubDate>Tue, 17 May 2011 02:14:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</guid>
-      <description>While developing a web application using SpringMVC and Hibernate I got &amp;#8220;No Hibernate Session bound to thread Exception&amp;#8221; becuase of some configuration issue.
-Here I am going to explain how I resolved the issue.
-I used the SpringMVC/@Controller approach and configured the Web related Spring configuration in dispatcher-servlet.xml as follows:
-&amp;lt;beans
-&amp;lt;context:annotation-config&#34;/&amp;gt;
-&amp;lt;context:component-scan base-package=&#34;com.sivalabs&#34;/&amp;gt;
-&amp;lt;bean&amp;lt;/bean
-&amp;lt;bean&amp;lt;/bean
-&amp;lt;bean class=&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34; p:prefix=&#34;/WEB-INF/jsp/&#34; p:suffix=&#34;.jsp&#34;&amp;lt;/bean
-&amp;lt;bean id=&#34;messageSource&#34; class=&#34;org.springframework.context.support.ResourceBundleMessageSource&#34;
-p:basename=&#34;Messages&#34;&amp;lt;/bean
-&amp;lt;/beans
- I have configured my business serices and DAOs in applicationContext.</description>
-    </item>
-    
-    <item>
-      <title>SpringMVC3 Hibernate CRUD Sample Application</title>
-      <link>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</link>
-      <pubDate>Fri, 01 Apr 2011 13:16:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</guid>
-      <description>To learn any web framework starting with a HelloWorld application is a good idea. Once we get familiarity with the framework configuration it would be better to do a CRUD(Create,Read,Update,Delete) application which covers various aspects of a web framework like Validations, Request URL Mappings, Request Parameter Binding,
-Pre-populating forms etc.
-Now I am going to explain how to write a Simple CRUD application using SpringMVC3, Hibernate and MySQL.
-Our Application is ContactsManagements where you can view or search contacts, create new contacts, edit or delete existing contacts.</description>
-    </item>
-    
-    <item>
-      <title>SpringMVC HelloWorld Tutorial</title>
-      <link>https://sivalabs.github.io/2011/03/springmvc-helloworld-tutorial/</link>
-      <pubDate>Tue, 29 Mar 2011 02:15:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/03/springmvc-helloworld-tutorial/</guid>
-      <description>Spring is a popular Application framework based on Inversion Of Control/DependencyInjection principle.
-SpringMVC is a framework following MVC architecture for building web applications.
-Let us see how to create simple Hello World application using SpringMVC.
-Step1 :
-Copy the SpringMVC dependent libraries into WEB-INF/lib folder.
-You can download the latest Spring bundle at http://www.springsource.org/download
-Step2:
-Configure the Spring&amp;#8217;s FrontController class DispatcherServlet in web.xml.
-You can configure the other spring beans (if any) in XMLs and wireup using ContextLoaderListener as follows:</description>
-    </item>
-    
-    <item>
-      <title>JSON processing using Jackson Java JSON Processor</title>
-      <link>https://sivalabs.github.io/2011/03/json-processing-using-jackson-java-json-processor/</link>
-      <pubDate>Wed, 23 Mar 2011 06:35:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/03/json-processing-using-jackson-java-json-processor/</guid>
-      <description>JSON(Javascript Object Notation) is becoming more popular data exchange format.
-While developing Web applications using Javascript frameworks like YUI, ExtJS, DOJO etc
-we can use either XML or JSON to exchange the data between the client and server.
-Normally we get the response from the server in terms of java objects. Then in Servlets or Action classes we need to build the JSON from objects and send back to client.</description>
-    </item>
-    
-    <item>
-      <title>Java Coding Best Practices: Better Search Implementation</title>
-      <link>https://sivalabs.github.io/2011/02/java-coding-best-practices-better-search-implementation/</link>
-      <pubDate>Tue, 08 Feb 2011 20:52:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/02/java-coding-best-practices-better-search-implementation/</guid>
-      <description>In web applications searching for information based on the selected criteria and displaying the results is a very common requirement.
-Suppose we need to search users based on their name. The end user will enter the username in the textbox and hit the search button and the user results will be fetched from database and display in a grid.
-In the first look it looks simple and we start to implement it as follows:</description>
-    </item>
-    
-    <item>
-      <title>Next level of Don’t Repeat Yourself(DRY) principle</title>
-      <link>https://sivalabs.github.io/2011/01/next-level-of-dont-repeat-yourselfdry-principle/</link>
-      <pubDate>Sun, 30 Jan 2011 13:16:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/01/next-level-of-dont-repeat-yourselfdry-principle/</guid>
-      <description>We are building the software applications using various languages for several years. Over the time new frameworks, new tools, new methodologies have came up. Especially in Java platform, now we have plenty of choices in each area following various design patterns and principles like MVC, FrontController etc.
-We have many development principles like KISS(Keep It Simple Stupid), DRY(Don&amp;#8217;t Repeat Yourself) which encourages to write better code which is maintainable. Especially DRY principle is a very good one which every developer should understand and follow.</description>
-    </item>
-    
-    <item>
       <title>10 things to become an outstanding Java developer</title>
       <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
       <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
       <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
-1. Have strong foundation and understanding on OO Principles
-For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
-    </item>
-    
-    <item>
-      <title>Applying IOC/DI to Method Design</title>
-      <link>https://sivalabs.github.io/2011/01/applying-iocdi-to-method-design/</link>
-      <pubDate>Wed, 19 Jan 2011 10:21:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/01/applying-iocdi-to-method-design/</guid>
-      <description>Eventhough IOC is a generic design pattern, with Spring framework IOC/DI pattern became more popular.
-We can find lot of definitions for IOC/DI over internet, but the underlying concept is same.
-&amp;#8220;Instead of component is responsible for getting the required dependencies to perform a task, a container/factory should build the dependencies and inject the dependencies into the component. Then the component can perform the sole activity for which it is responsible.</description>
-    </item>
-    
-    <item>
-      <title>Struts, Spring, Hibernate… What next?</title>
-      <link>https://sivalabs.github.io/2011/01/struts-spring-hibernate-what-next/</link>
-      <pubDate>Sun, 09 Jan 2011 00:16:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/01/struts-spring-hibernate-what-next/</guid>
-      <description>I have started my career in 2006 as a Java Developer. Since then most of the times I was being involved in developing web applications using Servlets, JSP, Struts, IBatis and Hibernate. In late 2008 I started working with Spring and now I am a big fan of Spring.
-I am pretty much interested in learning new technologies/frameworks. So i started playing with several things like Quartz, JMS, JSF,JasperReports, DWR, XStream API, JPA, JavaMail, DisplayTag, JUnit, Ant, ApachePOI, JExcel blah blah blah.</description>
-    </item>
-    
-    <item>
-      <title>JSF can be used for several purposes.</title>
-      <link>https://sivalabs.github.io/2011/01/jsf-can-be-used-for-several-purposes/</link>
-      <pubDate>Wed, 05 Jan 2011 23:06:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/01/jsf-can-be-used-for-several-purposes/</guid>
-      <description>Recently I got a wonderful opportunity to work with JSF and I couldn&amp;#8217;t stop myself sharing my feelings on JSF with everyone.
-By god&amp;#8217;s grace till last month i didn&amp;#8217;t a chance to work on JSF in my career. But recently i have to work on a project developed in JSF 1.x.
-After spending few days on JSF technology I realized that JSF is not only a web framework and we can use it for several purposes.</description>
-    </item>
-    
-    <item>
-      <title>How to get List of property values from List of objects?</title>
-      <link>https://sivalabs.github.io/2010/09/package-com/</link>
-      <pubDate>Wed, 08 Sep 2010 13:31:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2010/09/package-com/</guid>
-      <description>package com.javautils.core;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import com.javautils.beans.Address;
-import com.javautils.beans.User;
-public class CollectionUtil
-{
-&amp;nbsp;&amp;nbsp;&amp;nbsp; public static void main(String[] args)
-&amp;nbsp;&amp;nbsp;&amp;nbsp; {
-&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user1 = new User(1,&#34;AAAA&#34;, &#34;Hyd&#34;);
-&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user2 = new User(2,&#34;BBBB&#34;, &#34;Bnglr&#34;);
-&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user3 = new User(3,&#34;CCCC&#34;, &#34;Chennai&#34;);
-&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user4 = new User(4,&#34;DDD&#34;, &#34;Kochin&#34;);
-&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; User user5 = new User(5,&#34;AAAA&#34;, &#34;US&#34;);
-&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; Collection&amp;lt;User&amp;gt; users =new ArrayList&amp;lt;User&amp;gt;();</description>
-    </item>
-    
-    <item>
-      <title>Java Versions and Code Names</title>
-      <link>https://sivalabs.github.io/2009/10/java-versions-and-code-names/</link>
-      <pubDate>Thu, 08 Oct 2009 14:20:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2009/10/java-versions-and-code-names/</guid>
-      <description>VERSION  CODE NAME  RELEASE DATE     JDK 1.1.4   Sparkler  Sept 12, 1997     JDK 1.1.5   Pumpkin  Dec 3, 1997     JDK 1.1.6   Abigail  April 24, 1998     JDK 1.1.7   Brutus  Sept 28, 1998     JDK 1.1.8   Chelsea  April 8, 1999     J2SE 1.</description>
+1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
     </item>
     
   </channel>

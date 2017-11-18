@@ -32,7 +32,7 @@ JDBC is too low level API and needs to write a lot of boilerplate code.</descrip
 MyBatis Tutorial: Part-2: CRUD operations Using Annotations
 MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
 MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
-MyBatis-Spring is a subproject of MyBatis and provides Spring integration support which drastically simplifies the MyBatis usage. For those who are familiar with Spring&amp;#8217;s way of Dependency Injection process, using MyBatis-Spring is a very simple.
+MyBatis-Spring is a sub-project of MyBatis and provides Spring integration support which drastically simplifies the MyBatis usage. For those who are familiar with Spring&amp;#8217;s way of Dependency Injection process, using MyBatis-Spring is a very simple.
 First let us see the process of using MyBatis without Spring.</description>
     </item>
     
@@ -77,8 +77,8 @@ MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
 MyBatis Tutorial: Part-2: CRUD operations Using Annotations
 MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
 MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
-**Step1: **Create a Maven project and configure MyBatis dependencies.
-&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+Step1: Create a Maven project and configure MyBatis dependencies.
+&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt;&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;&amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt;&amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt;&amp;lt;properties&amp;gt;&amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;&amp;lt;/properties&amp;gt;&amp;lt;build&amp;gt;&amp;lt;plugins&amp;gt;&amp;lt;plugin&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
     </item>
     
   </channel>

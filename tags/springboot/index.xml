@@ -260,16 +260,5 @@ All these modules use SpringBoot, but as of now STS/IntellijIdea are not providi
       <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
     </item>
     
-    <item>
-      <title>SpringBoot: Introducing SpringBoot</title>
-      <link>https://sivalabs.github.io/2014/07/springboot-introducing-springboot/</link>
-      <pubDate>Wed, 02 Jul 2014 00:03:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2014/07/springboot-introducing-springboot/</guid>
-      <description>SpringBoot&amp;#8230;there is a lot of buzz about SpringBoot nowadays. So what is SpringBoot?
- SpringBoot is a new spring portfolio project which takes opinionated view of building production-ready Spring applications by drastically reducing the amount of configuration required. Spring Boot is taking the convention over configuration style to the next level by registering the default configurations automatically based on the classpath libraries available at runtime.
- Well.. you might have already read this kind of introduction to SpringBoot on many blogs.</description>
-    </item>
-    
   </channel>
 </rss>

@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>Angularjs</title>
-      <link>https://sivalabs.github.io/tags/angularjs/</link>
-      <pubDate>Wed, 29 Oct 2014 02:47:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/angularjs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Best Practices</title>
       <link>https://sivalabs.github.io/tags/best-practices/</link>
       <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
@@ -41,7 +32,7 @@
     <item>
       <title>Blogging</title>
       <link>https://sivalabs.github.io/tags/blogging/</link>
-      <pubDate>Mon, 13 Oct 2014 05:58:00 +0000</pubDate>
+      <pubDate>Sun, 21 Dec 2008 08:05:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/blogging/</guid>
       <description></description>
@@ -57,38 +48,11 @@
     </item>
     
     <item>
-      <title>Design Patterns</title>
-      <link>https://sivalabs.github.io/tags/design-patterns/</link>
-      <pubDate>Tue, 19 Jun 2012 02:20:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/design-patterns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>E Commerce</title>
       <link>https://sivalabs.github.io/tags/e-commerce/</link>
       <pubDate>Tue, 24 Nov 2015 04:34:03 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/e-commerce/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Extjs</title>
-      <link>https://sivalabs.github.io/tags/extjs/</link>
-      <pubDate>Tue, 11 Feb 2014 00:23:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/extjs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hibernate</title>
-      <link>https://sivalabs.github.io/tags/hibernate/</link>
-      <pubDate>Sun, 02 Mar 2014 01:01:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/hibernate/</guid>
       <description></description>
     </item>
     
@@ -138,33 +102,6 @@
     </item>
     
     <item>
-      <title>Javamail</title>
-      <link>https://sivalabs.github.io/tags/javamail/</link>
-      <pubDate>Mon, 30 May 2011 09:27:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/javamail/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Javascript</title>
-      <link>https://sivalabs.github.io/tags/javascript/</link>
-      <pubDate>Wed, 23 Mar 2011 06:35:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jboss</title>
-      <link>https://sivalabs.github.io/tags/jboss/</link>
-      <pubDate>Mon, 27 May 2013 11:40:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/jboss/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Jcart</title>
       <link>https://sivalabs.github.io/tags/jcart/</link>
       <pubDate>Thu, 31 Dec 2015 11:37:10 +0000</pubDate>
@@ -179,15 +116,6 @@
       <pubDate>Tue, 15 Mar 2016 07:13:21 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/jooq/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jpa</title>
-      <link>https://sivalabs.github.io/tags/jpa/</link>
-      <pubDate>Sun, 02 Mar 2014 01:01:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/jpa/</guid>
       <description></description>
     </item>
     
@@ -219,15 +147,6 @@
     </item>
     
     <item>
-      <title>Miscellaneous</title>
-      <link>https://sivalabs.github.io/tags/miscellaneous/</link>
-      <pubDate>Fri, 04 Feb 2011 00:38:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/miscellaneous/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Mybatis</title>
       <link>https://sivalabs.github.io/tags/mybatis/</link>
       <pubDate>Tue, 16 Jul 2013 10:01:00 +0000</pubDate>
@@ -239,43 +158,16 @@
     <item>
       <title>Primefaces</title>
       <link>https://sivalabs.github.io/tags/primefaces/</link>
-      <pubDate>Mon, 26 Jan 2015 07:39:00 +0000</pubDate>
+      <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/primefaces/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Quartz</title>
-      <link>https://sivalabs.github.io/tags/quartz/</link>
-      <pubDate>Mon, 10 Oct 2011 11:44:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/quartz/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rest</title>
-      <link>https://sivalabs.github.io/tags/rest/</link>
-      <pubDate>Sun, 02 Mar 2014 02:26:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/rest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Resteasy</title>
-      <link>https://sivalabs.github.io/tags/resteasy/</link>
-      <pubDate>Tue, 12 Jun 2012 05:24:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/resteasy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Servlets Jsp</title>
       <link>https://sivalabs.github.io/tags/servlets-jsp/</link>
-      <pubDate>Thu, 25 Aug 2011 01:13:00 +0000</pubDate>
+      <pubDate>Thu, 25 Aug 2011 00:35:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/servlets-jsp/</guid>
       <description></description>
@@ -309,38 +201,11 @@
     </item>
     
     <item>
-      <title>Springmvc</title>
-      <link>https://sivalabs.github.io/tags/springmvc/</link>
-      <pubDate>Sun, 02 Mar 2014 01:01:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/springmvc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Springsecurity</title>
-      <link>https://sivalabs.github.io/tags/springsecurity/</link>
-      <pubDate>Sun, 02 Mar 2014 01:01:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/springsecurity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Tips</title>
       <link>https://sivalabs.github.io/tags/tips/</link>
       <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tomcat</title>
-      <link>https://sivalabs.github.io/tags/tomcat/</link>
-      <pubDate>Tue, 10 Feb 2009 15:03:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/tomcat/</guid>
       <description></description>
     </item>
     
@@ -359,15 +224,6 @@
       <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/virtualbox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Webservices</title>
-      <link>https://sivalabs.github.io/tags/webservices/</link>
-      <pubDate>Tue, 12 Jun 2012 05:24:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/webservices/</guid>
       <description></description>
     </item>
     

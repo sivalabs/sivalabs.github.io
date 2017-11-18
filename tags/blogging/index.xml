@@ -6,20 +6,10 @@
     <description>Recent content in Blogging on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Oct 2014 05:58:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Dec 2008 08:05:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/blogging/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Few Things That I Learned as a Blogger</title>
-      <link>https://sivalabs.github.io/2014/10/few-things-that-i-learned-as-blogger/</link>
-      <pubDate>Mon, 13 Oct 2014 05:58:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2014/10/few-things-that-i-learned-as-blogger/</guid>
-      <description>I started my career as a Java developer in 2006. I was working on a Servlets/JSP project based web application which we thought of migrating it to Struts framework.
-I got some issue and struggling with it for hours and hours and couldn&amp;#8217;t be able to find any solution. I read all the Struts reference documentation and referred many books on Struts framework. But in all those books and reference documentation I could find the happy path situation guidelines only.</description>
-    </item>
     
     <item>
       <title>Welcome note</title>
@@ -28,7 +18,7 @@ I got some issue and struggling with it for hours and hours and couldn&amp;#8217
       
       <guid>https://sivalabs.github.io/2008/12/welcome-note/</guid>
       <description>Hi All,
-Welcome guys. This is a blog where in you can find tutorials on various Java and J2EE technologies and can have discussions regarding technical problems and application development related issues.</description>
+Welcome folks. This is a blog where in you can find tutorials on various Java and JavaEE technologies and can have discussions regarding technical problems and application development related issues.</description>
     </item>
     
   </channel>

@@ -318,11 +318,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2015/06/packt-publishers-initiative-free-ebook-every-day/</loc>
-    <lastmod>2015-06-02T11:31:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/trainings/java-ee7/</loc>
     <lastmod>2015-05-31T13:08:14+00:00</lastmod>
   </url>
@@ -348,18 +343,8 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</loc>
-    <lastmod>2015-01-26T07:39:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</loc>
     <lastmod>2014-11-30T01:21:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/10/rip-angularjs-oh-sorry-rip-scope-ng-controller-ddo-jqlite-and-whatever-you-like-in-angularjs/</loc>
-    <lastmod>2014-10-29T02:47:00+00:00</lastmod>
   </url>
   
   <url>
@@ -368,63 +353,8 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2014/10/few-things-that-i-learned-as-blogger/</loc>
-    <lastmod>2014-10-13T05:58:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/09/how-much-crap-you-are-keeping-because-you-might-need-it-in-future/</loc>
-    <lastmod>2014-09-15T03:11:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/09/angularjs-different-ways-of-using-array-filters/</loc>
-    <lastmod>2014-09-15T01:43:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/09/angularjs-introducing-modules-controllers-services/</loc>
-    <lastmod>2014-09-05T07:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/09/angularjs-tutorial-getting-started-with-angularjs/</loc>
-    <lastmod>2014-09-04T08:14:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/07/what-is-your-favorite-open-source-project/</loc>
-    <lastmod>2014-07-02T21:20:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/07/springboot-introducing-springboot/</loc>
-    <lastmod>2014-07-02T00:03:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/03/exporting-spring-data-jpa-repositories-as-rest-services-using-spring-data-rest/</loc>
-    <lastmod>2014-03-02T02:26:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/03/springmvc4-spring-data-jpa-springsecurity-configuration-using-javaconfig/</loc>
-    <lastmod>2014-03-02T01:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2014/02/book-review-enterprise-application-development-with-ext-js-and-spring/</loc>
-    <lastmod>2014-02-11T00:23:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</loc>
     <lastmod>2013-12-29T00:53:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2013/12/packts-5-ebook-bonanza-is-back/</loc>
-    <lastmod>2013-12-20T15:29:00+00:00</lastmod>
   </url>
   
   <url>
@@ -433,28 +363,8 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2013/10/drools-jboss-rules-5x-developers-guide/</loc>
-    <lastmod>2013-10-21T04:58:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</loc>
     <lastmod>2013-07-16T10:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2013/05/deploying-broadleafcommerce-20-on-jboss/</loc>
-    <lastmod>2013-05-27T11:40:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2013/03/primefaces-cookbook-review/</loc>
-    <lastmod>2013-03-18T08:32:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2013/03/dear-netbeanside-you-are-just-one-step-away-from-massive-adoption/</loc>
-    <lastmod>2013-03-18T04:47:00+00:00</lastmod>
   </url>
   
   <url>
@@ -483,118 +393,8 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2012/10/spring3jpa2javaee6appserver-confusion-over-configuration/</loc>
-    <lastmod>2012-10-12T05:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/2012/08/keep-code-clean-watchdog-spotthebug/</loc>
     <lastmod>2012-08-28T04:55:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/06/how-i-explained-dependency-injection-to-my-team/</loc>
-    <lastmod>2012-06-19T02:20:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-3-exception-handling/</loc>
-    <lastmod>2012-06-12T05:24:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-2-spring-integration/</loc>
-    <lastmod>2012-06-06T11:49:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/06/resteasy-tutorial-part-1-basics/</loc>
-    <lastmod>2012-06-06T10:07:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/04/jax-ws-wsi-authentication-using-username-password-security-headers/</loc>
-    <lastmod>2012-04-30T00:21:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/04/xml-string-to-document-and-document-to-xml-string/</loc>
-    <lastmod>2012-04-27T12:35:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/04/generatedvalue-not-setting-up-auto-increment-in-mysql-and-h2-dialects/</loc>
-    <lastmod>2012-04-26T07:57:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/04/what-additional-features-do-javaee6-have-to-move-from-spring/</loc>
-    <lastmod>2012-04-09T16:52:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/02/do-you-have-defect-id-to-burn-hours/</loc>
-    <lastmod>2012-02-22T04:34:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/02/where-is-craig-mcclanahanauthor-of-struts-1-x/</loc>
-    <lastmod>2012-02-02T00:23:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/02/primefaces3-tutorial-form-validation-using-beanvalidation-apijsr-303/</loc>
-    <lastmod>2012-02-01T23:10:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/01/primefaces-3-tutorial-introduction-form-validation/</loc>
-    <lastmod>2012-01-30T21:23:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2012/01/java-best-practices-building-safe-domain-objects/</loc>
-    <lastmod>2012-01-16T07:26:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/12/good-website-to-convert-raw-html-to-escaped-html/</loc>
-    <lastmod>2011-12-07T06:57:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/12/unable-to-create-maven-project-using/</loc>
-    <lastmod>2011-12-03T21:29:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/12/solution-for-jdk6-jboss-510ga-jax-ws/</loc>
-    <lastmod>2011-12-03T21:23:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/10/spring-and-quartz-integration-using-custom-annotation/</loc>
-    <lastmod>2011-10-10T11:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/10/developing-webservices-using-jdk6jax-ws-is-simple-is-it-true/</loc>
-    <lastmod>2011-10-03T01:23:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/09/deploying-jax-ws-webservice-on-tomcat-6/</loc>
-    <lastmod>2011-09-30T02:54:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/09/developing-webservices-using-jax-ws/</loc>
-    <lastmod>2011-09-29T12:25:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/08/customtag-to-generate-and-tags-with-absolute-path/</loc>
-    <lastmod>2011-08-25T01:13:00+00:00</lastmod>
   </url>
   
   <url>
@@ -608,148 +408,8 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2011/07/mock-table-utility-for-crud-operations/</loc>
-    <lastmod>2011-07-27T05:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/07/context-root-relative-urls-using-springs/</loc>
-    <lastmod>2011-07-26T23:27:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/06/how-to-post-and-get-json-between-extjs-and-springmvc3/</loc>
-    <lastmod>2011-06-23T02:57:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/06/useful-eclipse-plugins/</loc>
-    <lastmod>2011-06-14T12:34:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/06/authentication-checking-using-springmvc-interceptors/</loc>
-    <lastmod>2011-06-06T02:48:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/06/springmvc-3-tiles-222-integration/</loc>
-    <lastmod>2011-06-06T02:23:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/05/spring-quartz-javamail-integration-tutorial/</loc>
-    <lastmod>2011-05-30T09:27:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/05/sending-email-with-attachments-using-javamail/</loc>
-    <lastmod>2011-05-30T08:02:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/05/springmvc-hibernate-error-no-hibernate-session-bound-to-thread-and-configuration-does-not-allow-creation-of-non-transactional-one-here/</loc>
-    <lastmod>2011-05-17T02:14:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/04/springmvc3-hibernate-crud-sample-application/</loc>
-    <lastmod>2011-04-01T13:16:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/03/springmvc-helloworld-tutorial/</loc>
-    <lastmod>2011-03-29T02:15:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/03/json-processing-using-jackson-java-json-processor/</loc>
-    <lastmod>2011-03-23T06:35:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/02/solution-for-eclipse-is-running-in-jre/</loc>
-    <lastmod>2011-02-21T06:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/02/springhibernate-application-with-zero-xml/</loc>
-    <lastmod>2011-02-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/02/java-coding-best-practices-better-search-implementation/</loc>
-    <lastmod>2011-02-08T20:52:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/02/syntax-highlighting/</loc>
-    <lastmod>2011-02-04T00:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/02/finally-you-need-to-deliver-developerwrittencode-war-not-managersmanagerialskills-zip/</loc>
-    <lastmod>2011-02-01T00:40:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/01/next-level-of-dont-repeat-yourselfdry-principle/</loc>
-    <lastmod>2011-01-30T13:16:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</loc>
     <lastmod>2011-01-26T07:11:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/01/applying-iocdi-to-method-design/</loc>
-    <lastmod>2011-01-19T10:21:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/01/aspect-oriented-programming-using-springaop/</loc>
-    <lastmod>2011-01-17T18:01:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/01/struts-spring-hibernate-what-next/</loc>
-    <lastmod>2011-01-09T00:16:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2011/01/jsf-can-be-used-for-several-purposes/</loc>
-    <lastmod>2011-01-05T23:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2010/09/package-com/</loc>
-    <lastmod>2010-09-08T13:31:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2010/09/multiple-datasource-configurations-using-spring/</loc>
-    <lastmod>2010-09-02T05:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2009/10/java-versions-and-code-names/</loc>
-    <lastmod>2009-10-08T14:20:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2009/02/jdbc-datasource-configuration-in-tomcat/</loc>
-    <lastmod>2009-02-10T15:03:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2009/02/how-to-kill-process-running-on-port/</loc>
-    <lastmod>2009-02-09T13:26:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2008/12/struts1-vs-struts2-vs-jsf-vs-springmvc/</loc>
-    <lastmod>2008-12-27T22:51:00+00:00</lastmod>
   </url>
   
   <url>
@@ -758,19 +418,8 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2008/12/what-is-inversion-of-control-ioc/</loc>
-    <lastmod>2008-12-21T04:39:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/tags/android/</loc>
     <lastmod>2016-07-21T01:54:29+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/angularjs/</loc>
-    <lastmod>2014-10-29T02:47:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -788,7 +437,7 @@
   
   <url>
     <loc>https://sivalabs.github.io/tags/blogging/</loc>
-    <lastmod>2014-10-13T05:58:00+00:00</lastmod>
+    <lastmod>2008-12-21T08:05:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -811,32 +460,8 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/design-patterns/</loc>
-    <lastmod>2012-06-19T02:20:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/design-patterns/</loc>
-    <lastmod>2012-06-19T02:20:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/tags/e-commerce/</loc>
     <lastmod>2015-11-24T04:34:03+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/extjs/</loc>
-    <lastmod>2014-02-11T00:23:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/hibernate/</loc>
-    <lastmod>2014-03-02T01:01:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -889,30 +514,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/javamail/</loc>
-    <lastmod>2011-05-30T09:27:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/categories/javascript/</loc>
-    <lastmod>2014-10-29T02:47:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/javascript/</loc>
-    <lastmod>2011-03-23T06:35:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/jboss/</loc>
-    <lastmod>2013-05-27T11:40:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/tags/jcart/</loc>
     <lastmod>2015-12-31T11:37:10+00:00</lastmod>
     <priority>0</priority>
@@ -921,12 +522,6 @@
   <url>
     <loc>https://sivalabs.github.io/tags/jooq/</loc>
     <lastmod>2016-03-15T07:13:21+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/jpa/</loc>
-    <lastmod>2014-03-02T01:01:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -961,12 +556,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/miscellaneous/</loc>
-    <lastmod>2011-02-04T00:38:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/tags/mybatis/</loc>
     <lastmod>2013-07-16T10:01:00+00:00</lastmod>
     <priority>0</priority>
@@ -986,31 +575,13 @@
   
   <url>
     <loc>https://sivalabs.github.io/tags/primefaces/</loc>
-    <lastmod>2015-01-26T07:39:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/quartz/</loc>
-    <lastmod>2011-10-10T11:44:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/rest/</loc>
-    <lastmod>2014-03-02T02:26:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/resteasy/</loc>
-    <lastmod>2012-06-12T05:24:00+00:00</lastmod>
+    <lastmod>2013-11-28T04:02:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.github.io/tags/servlets-jsp/</loc>
-    <lastmod>2011-08-25T01:13:00+00:00</lastmod>
+    <lastmod>2011-08-25T00:35:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1045,18 +616,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/springmvc/</loc>
-    <lastmod>2014-03-02T01:01:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/springsecurity/</loc>
-    <lastmod>2014-03-02T01:01:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/tags/</loc>
     <lastmod>2016-07-21T01:54:29+00:00</lastmod>
     <priority>0</priority>
@@ -1071,12 +630,6 @@
   <url>
     <loc>https://sivalabs.github.io/tags/tips/</loc>
     <lastmod>2017-10-18T02:50:23+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/tomcat/</loc>
-    <lastmod>2009-02-10T15:03:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1101,12 +654,6 @@
   <url>
     <loc>https://sivalabs.github.io/tags/virtualbox/</loc>
     <lastmod>2015-10-13T02:07:05+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/webservices/</loc>
-    <lastmod>2012-06-12T05:24:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

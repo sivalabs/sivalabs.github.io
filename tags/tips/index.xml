@@ -23,17 +23,6 @@ But, i would like to have the SELECT ALL option for one single reason:</descript
     </item>
     
     <item>
-      <title>Good Website to Convert Raw HTML to Escaped HTML</title>
-      <link>https://sivalabs.github.io/2011/12/good-website-to-convert-raw-html-to-escaped-html/</link>
-      <pubDate>Wed, 07 Dec 2011 06:57:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/12/good-website-to-convert-raw-html-to-escaped-html/</guid>
-      <description>Often we may need to escape HTML code to post on blog or for some other purpose.
-The following website provides a good utility to convert Raw HTML to escaped HTML.
-http://accessify.com/tools-and-wizards/developer-tools/quick-escape/default.php</description>
-    </item>
-    
-    <item>
       <title>When to use RequestDispatcher.forward() and response.sendRedirect()?</title>
       <link>https://sivalabs.github.io/2011/08/when-to-use-requestdispatcherforward/</link>
       <pubDate>Thu, 25 Aug 2011 00:35:00 +0000</pubDate>
