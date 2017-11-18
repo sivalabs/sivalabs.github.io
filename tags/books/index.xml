@@ -61,7 +61,7 @@ Spring supports variety of configuration approaches (XML, Annotations, JavaConfi
       
       <guid>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</guid>
       <description>PrimeFaces Blueprints is a recent publication from Packpub on PrimeFaces framework authored by Sudheer Jonna and Ramkumar Pillai. Sudheer Jonna is a well known member in the PrimeFaces community forum and is very knowledgeable on PrimeFaces and PrimeFaces Extensions.
-      PrimeFaces Blueprint book followed the approach of explaining the features with appropriate example applications. PrimeFaces provides more than 100 rich UI components with lot of customization options.</description>
+    PrimeFaces Blueprint book followed the approach of explaining the features with appropriate example applications. PrimeFaces provides more than 100 rich UI components with lot of customization options.   Instead of explaining all these components individually, the book authors explained how to use various PrimeFaces components together by developing 9 different small applications.</description>
     </item>
     
     <item>

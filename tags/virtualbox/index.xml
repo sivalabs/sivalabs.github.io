@@ -29,9 +29,7 @@ I am using Ubuntu/LinuxMint system so I am using apt-get to install, if you are 
       <guid>https://sivalabs.github.io/2015/10/how-to-ssh-into-virtualbox-linux-os/</guid>
       <description>While learning some of the Linux commands we may want to use SSH commands to login into a remote Linux system and we may not have a dedicated Linux system to play with.
 In this post I will explain how I am using my Linux OS installed on VirtualBox to SSH from Windows OS.
-
-1. Install openssh-server on Linux OS in VirtualBox
-sudo apt-get install openssh-server
+1. Install openssh-server on Linux OS in VirtualBox sudo apt-get install openssh-server
 On some Linux distros (ex: Fedora) the openssh server won&amp;#8217;t start automatically.</description>
     </item>
     

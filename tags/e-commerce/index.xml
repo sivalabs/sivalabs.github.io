@@ -18,9 +18,8 @@
       
       <guid>https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</guid>
       <description>For our JCart application development we will be using the following Softwares/Tools.
-  JDK 8 SpringSource Tool Suite (STS)  MySQL Git  Maven  Jenkins  SonarQube  Apache/Nginx WebServer  &amp;nbsp;
-I am not going to explain how to install JDK or MySQL because there are plenty of articles you can find on internet.
-If you are using Ubuntu based Linux Operating System then you can refer my article My Development Environment Setup on Linux to setup Java development tool chain.</description>
+  JDK 8 SpringSource Tool Suite (STS)  MySQL Git  Maven  Jenkins  SonarQube  Apache/Nginx WebServer  I am not going to explain how to install JDK or MySQL because there are plenty of articles you can find on internet.
+If you are using Ubuntu based Linux Operating System then you can refer my article My Development Environment Setup on Linux to setup Java development tool chain.</description>
     </item>
     
     <item>
@@ -58,7 +57,7 @@ ShoppingCart Site Requirements Home Page: This page shows list of categories and
       <pubDate>Sat, 21 Nov 2015 02:28:23 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2015/11/introducing-the-application-jcart/</guid>
-      <description>As I promised in my article Developing a simple e-commerce application from scratch to production using SpringBoot, I am starting first post by introducing the application JCart that we are going to build.
+      <description>As I promised in my article Developing a simple e-commerce application from scratch to production using SpringBoot , I am starting first post by introducing the application JCart that we are going to build.
 One of my friend makes quilling toys and she sell them by advertising on Facebook or through word of mouth. Now she is getting more and more customers and she wants to expand her business by going online.</description>
     </item>
     

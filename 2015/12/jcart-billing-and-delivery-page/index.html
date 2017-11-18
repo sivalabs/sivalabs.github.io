@@ -1,521 +1,521 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SivaLabs - JCart : Billing and Delivery Page</title><link rel="stylesheet" id="sparkling-bootstrap-css" href="/assets/css/bootstrap.min.css" type="text/css" media="all"><link rel="stylesheet" id="sparkling-icons-css" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" id="sparkling-fonts-css" href="//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3" type="text/css" media="all"><link rel="stylesheet" id="sparkling-style-css" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" id="socicon-css" href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/vendor/jquery-1.12.4.js"></script><script type="text/javascript" src="/assets/js/vendor/modernizr.min.js"></script><script type="text/javascript" src="/assets/js/vendor/bootstrap.min.js"></script><script type="text/javascript" src="/assets/js/functions.min.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><script id="mcjs">!function(e,t,c,s,a){s=e.createElement(t),a=e.getElementsByTagName(t)[0],s.async=1,s.src=c,a.parentNode.insertBefore(s,a)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/a244435ef0378fac204b5a2d4/5f76189934783143aeb496d1e.js")</script><script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"],function(d){d.start({baseUrl:"mc.us9.list-manage.com",uuid:"a244435ef0378fac204b5a2d4",lid:"bdded8d3db"})})</script></head><body class="home blog"><div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"><button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button><div id="logo"><h1 class="site-name"><a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a></h1></div></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/java">Java</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/spring">Spring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/javaee">Java EE</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/videos">Videos</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/mybooks">My Books</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact">Contact</a></li></ul></div></div></div></div></nav></header><div id="content" class="site-content"><div class="container main-content-area"><div class="row side-pull-left"><div class="main-content-inner col-sm-12 col-md-8"><div id="primary" class="content-area"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">JCart : Billing and Delivery Page</h1><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-31T07:40:14">December 31, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>Once the customer reviewed his cart items details and clicks on Checkout we should display Billing &amp; Delivery page where customer enters delivery address details, payment details etc and place the order.</p><p>Let us create a <strong>OrderDTO.java</strong> as follows:</p><pre class="lang:java decode:true">public class OrderDTO implements Serializable
-{
-    private static final long serialVersionUID = 1L;
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SivaLabs - JCart : Billing and Delivery Page</title><link rel="stylesheet" id="sparkling-bootstrap-css" href="/assets/css/bootstrap.min.css" type="text/css" media="all"><link rel="stylesheet" id="sparkling-icons-css" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" id="sparkling-fonts-css" href="//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3" type="text/css" media="all"><link rel="stylesheet" id="sparkling-style-css" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" id="socicon-css" href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/vendor/jquery-1.12.4.js"></script><script type="text/javascript" src="/assets/js/vendor/modernizr.min.js"></script><script type="text/javascript" src="/assets/js/vendor/bootstrap.min.js"></script><script type="text/javascript" src="/assets/js/functions.min.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><script id="mcjs">!function(e,t,c,s,a){s=e.createElement(t),a=e.getElementsByTagName(t)[0],s.async=1,s.src=c,a.parentNode.insertBefore(s,a)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/a244435ef0378fac204b5a2d4/5f76189934783143aeb496d1e.js")</script><script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"],function(d){d.start({baseUrl:"mc.us9.list-manage.com",uuid:"a244435ef0378fac204b5a2d4",lid:"bdded8d3db"})})</script></head><body class="home blog"><div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"><button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button><div id="logo"><h1 class="site-name"><a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a></h1></div></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/java">Java</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/spring">Spring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/javaee">Java EE</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/videos">Videos</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/mybooks">My Books</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact">Contact</a></li></ul></div></div></div></div></nav></header><div id="content" class="site-content"><div class="container main-content-area"><div class="row side-pull-left"><div class="main-content-inner col-sm-12 col-md-8"><div id="primary" class="content-area"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">JCart : Billing and Delivery Page</h1><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-31T07:40:14">December 31, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>Once the customer reviewed his cart items details and clicks on Checkout we should display Billing &amp; Delivery page where customer enters delivery address details, payment details etc and place the order.</p><p>Let us create a <strong>OrderDTO.java</strong> as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrderDTO</span> <span style="color:#66d9ef">implements</span> Serializable
+<span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> serialVersionUID <span style="color:#f92672">=</span> 1L<span style="color:#f92672">;</span>
 
-    @NotEmpty(message="FirstName is required")
-    private String firstName;
-    @NotEmpty(message="LastName is required")
-    private String lastName;
-    @NotEmpty(message="EmailId is required")
-    @Email
-    private String emailId;
-    @NotEmpty(message="Phone is required")
-    private String phone;
-    
-    @NotEmpty(message="Address Line1 is required")
-    private String addressLine1;
-    private String addressLine2;
-    @NotEmpty(message="City is required")
-    private String city;
-    @NotEmpty(message="State is required")
-    private String state;
-    @NotEmpty(message="ZipCode is required")
-    private String zipCode;
-    @NotEmpty(message="Country is required")
-    private String country;
-    
-    @NotEmpty(message="FirstName is required")
-    private String billingFirstName;
-    @NotEmpty(message="LastName is required")
-    private String billingLastName;
-    @NotEmpty(message="Address Line1 is required")
-    private String billingAddressLine1;
-    private String billingAddressLine2;
-    @NotEmpty(message="City is required")
-    private String billingCity;
-    @NotEmpty(message="State is required")
-    private String billingState;
-    @NotEmpty(message="ZipCode is required")
-    private String billingZipCode;
-    @NotEmpty(message="Country is required")
-    private String billingCountry;
-    
-    @NotEmpty(message="Credit Card Number is required")
-    private String ccNumber;
-    @NotEmpty(message="CVV is required")
-    private String cvv;
-    
-    //setters & getters
-}</pre><p>Create <strong>CheckoutController</strong> to display the Billing &amp; Delivery page as follows:</p><pre class="lang:java decode:true">@Controller
-public class CheckoutController extends JCartSiteBaseController
-{
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;FirstName is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String firstName<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;LastName is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String lastName<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;EmailId is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#a6e22e">@Email</span>
+	<span style="color:#66d9ef">private</span> String emailId<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Phone is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String phone<span style="color:#f92672">;</span>
+	
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Address Line1 is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String addressLine1<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">private</span> String addressLine2<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;City is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String city<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;State is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String state<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ZipCode is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String zipCode<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Country is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String country<span style="color:#f92672">;</span>
+	
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;FirstName is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String billingFirstName<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;LastName is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String billingLastName<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Address Line1 is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String billingAddressLine1<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">private</span> String billingAddressLine2<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;City is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String billingCity<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;State is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String billingState<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ZipCode is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String billingZipCode<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Country is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String billingCountry<span style="color:#f92672">;</span>
+	
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Credit Card Number is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String ccNumber<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CVV is required&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String cvv<span style="color:#f92672">;</span>
+	
+	<span style="color:#75715e">//setters &amp; getters
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span></code></pre></div><p>Create <strong>CheckoutController</strong> to display the Billing &amp; Delivery page as follows:</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CheckoutController</span> <span style="color:#66d9ef">extends</span> JCartSiteBaseController
+<span style="color:#f92672">{</span>
 
-    @Override
-    protected String getHeaderTitle()
-    {
-        return "Checkout";
-    }
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">protected</span> String <span style="color:#a6e22e">getHeaderTitle</span><span style="color:#f92672">()</span>
+	<span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Checkout&#34;</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-    @RequestMapping(value="/checkout", method=RequestMethod.GET)
-    public String checkout(HttpServletRequest request, Model model)
-    {
-        OrderDTO order = new OrderDTO();
-        model.addAttribute("order", order);
-        Cart cart = getOrCreateCart(request);
-        model.addAttribute("cart", cart);
-        return "checkout";
-    }
-}</pre><p>Finally create the <strong>checkout.html</strong> view as follows:</p><pre class="lang:xhtml decode:true">&lt;!DOCTYPE html&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-      layout:decorator="layout/mainLayout"&gt;
+	<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/checkout&#34;</span><span style="color:#f92672">,</span> method<span style="color:#f92672">=</span>RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">GET</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">checkout</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> Model model<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		OrderDTO order <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OrderDTO<span style="color:#f92672">();</span>
+		model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;order&#34;</span><span style="color:#f92672">,</span> order<span style="color:#f92672">);</span>
+		Cart cart <span style="color:#f92672">=</span> getOrCreateCart<span style="color:#f92672">(</span>request<span style="color:#f92672">);</span>
+		model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;cart&#34;</span><span style="color:#f92672">,</span> cart<span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;checkout&#34;</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div><p></p><p>Finally create the <strong>checkout.html</strong> view as follows:</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">xmlns</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xhtml&#34;</span> 
+	  <span style="color:#a6e22e">xmlns:th</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.thymeleaf.org&#34;</span>
+	  <span style="color:#a6e22e">xmlns:sec</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34;</span>
+      <span style="color:#a6e22e">layout:decorator</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;layout/mainLayout&#34;</span>&gt;
       
-&lt;head&gt;
-&lt;title&gt;Cart&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div layout:fragment="content"&gt;
-&lt;div class="single-product-area"&gt;
-&lt;div class="zigzag-bottom"&gt;&lt;/div&gt;
-&lt;div class="container"&gt;
-&lt;div class="row"&gt;
-                    
-    &lt;div class="woocommerce-info col-md-offset-2 col-md-8" th:if="${#lists.isEmpty(cart.items)}"&gt;
-            &lt;h2&gt;Cart is Empty&lt;/h2&gt;
-    &lt;/div&gt;
-     &lt;div class="col-md-offset-2 col-md-8" th:unless="${#lists.isEmpty(cart.items)}"&gt;
-        &lt;div class="product-content-right"&gt;
-            &lt;div class="woocommerce"&gt;
-                                        
-                    &lt;h3 id="order_review_heading"&gt;Your order&lt;/h3&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">title</span>&gt;Cart&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">layout:fragment</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;single-product-area&#34;</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;zigzag-bottom&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row&#34;</span>&gt;
+					
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;woocommerce-info col-md-offset-2 col-md-8&#34;</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#lists.isEmpty(cart.items)}&#34;</span>&gt;
+			&lt;<span style="color:#f92672">h2</span>&gt;Cart is Empty&lt;/<span style="color:#f92672">h2</span>&gt;
+	&lt;/<span style="color:#f92672">div</span>&gt;
+	 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-md-offset-2 col-md-8&#34;</span> <span style="color:#a6e22e">th:unless</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#lists.isEmpty(cart.items)}&#34;</span>&gt;
+		&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;product-content-right&#34;</span>&gt;
+			&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;woocommerce&#34;</span>&gt;
+										
+					&lt;<span style="color:#f92672">h3</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;order_review_heading&#34;</span>&gt;Your order&lt;/<span style="color:#f92672">h3</span>&gt;
 
-                    &lt;div id="order_review" style="position: relative;"&gt;
-                        &lt;table class="shop_table"&gt;
-                            &lt;thead&gt;
-                                &lt;tr&gt;
-                                    &lt;th class="product-name"&gt;Product&lt;/th&gt;
-                                    &lt;th class="product-total"&gt;Total&lt;/th&gt;
-                                &lt;/tr&gt;
-                            &lt;/thead&gt;
-                            &lt;tbody&gt;
-                                &lt;tr class="cart_item" th:each="item : ${cart.items}"&gt;
-                                    &lt;td class="product-name" &gt;
-                                        &lt;span th:text="${item.product.name}" &gt;Product Name &lt;/span&gt; 
-                                        &lt;strong class="product-quantity" th:text="'× '+${item.quantity}"&gt;× 1&lt;/strong&gt; &lt;/td&gt;
-                                    &lt;td class="product-total"&gt;
-                                        &lt;span class="amount" th:text="${item.product.price * item.quantity}"&gt;£15.00&lt;/span&gt; &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                            &lt;tfoot&gt;
-                                &lt;tr class="cart-subtotal"&gt;
-                                    &lt;th&gt;Cart Subtotal&lt;/th&gt;
-                                    &lt;td&gt;&lt;span class="amount" th:text="${cart.totalAmount}"&gt;£15.00&lt;/span&gt;
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                                &lt;tr class="shipping"&gt;
-                                    &lt;th&gt;Shipping and Handling&lt;/th&gt;
-                                    &lt;td&gt;
+					&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;order_review&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;position: relative;&#34;</span>&gt;
+						&lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shop_table&#34;</span>&gt;
+							&lt;<span style="color:#f92672">thead</span>&gt;
+								&lt;<span style="color:#f92672">tr</span>&gt;
+									&lt;<span style="color:#f92672">th</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;product-name&#34;</span>&gt;Product&lt;/<span style="color:#f92672">th</span>&gt;
+									&lt;<span style="color:#f92672">th</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;product-total&#34;</span>&gt;Total&lt;/<span style="color:#f92672">th</span>&gt;
+								&lt;/<span style="color:#f92672">tr</span>&gt;
+							&lt;/<span style="color:#f92672">thead</span>&gt;
+							&lt;<span style="color:#f92672">tbody</span>&gt;
+								&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cart_item&#34;</span> <span style="color:#a6e22e">th:each</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item : ${cart.items}&#34;</span>&gt;
+									&lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;product-name&#34;</span> &gt;
+										&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${item.product.name}&#34;</span> &gt;Product Name &lt;/<span style="color:#f92672">span</span>&gt; 
+										&lt;<span style="color:#f92672">strong</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;product-quantity&#34;</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;× &#39;+${item.quantity}&#34;</span>&gt;× 1&lt;/<span style="color:#f92672">strong</span>&gt; &lt;/<span style="color:#f92672">td</span>&gt;
+									&lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;product-total&#34;</span>&gt;
+										&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;amount&#34;</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${item.product.price * item.quantity}&#34;</span>&gt;£15.00&lt;/<span style="color:#f92672">span</span>&gt; &lt;/<span style="color:#f92672">td</span>&gt;
+								&lt;/<span style="color:#f92672">tr</span>&gt;
+							&lt;/<span style="color:#f92672">tbody</span>&gt;
+							&lt;<span style="color:#f92672">tfoot</span>&gt;
+								&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cart-subtotal&#34;</span>&gt;
+									&lt;<span style="color:#f92672">th</span>&gt;Cart Subtotal&lt;/<span style="color:#f92672">th</span>&gt;
+									&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;amount&#34;</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${cart.totalAmount}&#34;</span>&gt;£15.00&lt;/<span style="color:#f92672">span</span>&gt;
+									&lt;/<span style="color:#f92672">td</span>&gt;
+								&lt;/<span style="color:#f92672">tr</span>&gt;
+								&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping&#34;</span>&gt;
+									&lt;<span style="color:#f92672">th</span>&gt;Shipping and Handling&lt;/<span style="color:#f92672">th</span>&gt;
+									&lt;<span style="color:#f92672">td</span>&gt;
 
-                                        Free Shipping
-                                        &lt;input type="hidden" class="shipping_method" value="free_shipping" id="shipping_method_0" data-index="0" name="shipping_method[0]"/&gt;
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
+										Free Shipping
+										&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_method&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;free_shipping&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_method_0&#34;</span> <span style="color:#a6e22e">data-index</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_method[0]&#34;</span>/&gt;
+									&lt;/<span style="color:#f92672">td</span>&gt;
+								&lt;/<span style="color:#f92672">tr</span>&gt;
 
-                                &lt;tr class="order-total"&gt;
-                                    &lt;th&gt;Order Total&lt;/th&gt;
-                                    &lt;td&gt;&lt;strong&gt;&lt;span class="amount" th:text="${cart.totalAmount}"&gt;£15.00&lt;/span&gt;&lt;/strong&gt; &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tfoot&gt;
-                        &lt;/table&gt;
-                    &lt;/div&gt;
-                    
-                &lt;form action="#" th:action="@{/orders}" class="checkout" method="post" th:object="${order}"&gt;
+								&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;order-total&#34;</span>&gt;
+									&lt;<span style="color:#f92672">th</span>&gt;Order Total&lt;/<span style="color:#f92672">th</span>&gt;
+									&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">strong</span>&gt;&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;amount&#34;</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${cart.totalAmount}&#34;</span>&gt;£15.00&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">strong</span>&gt; &lt;/<span style="color:#f92672">td</span>&gt;
+								&lt;/<span style="color:#f92672">tr</span>&gt;
+							&lt;/<span style="color:#f92672">tfoot</span>&gt;
+						&lt;/<span style="color:#f92672">table</span>&gt;
+					&lt;/<span style="color:#f92672">div</span>&gt;
+					
+				&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#a6e22e">th:action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{/orders}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkout&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> <span style="color:#a6e22e">th:object</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${order}&#34;</span>&gt;
 
-                    &lt;div id="customer_details" class="col2-set"&gt;
-                        &lt;div class="col-1"&gt;
-                            &lt;div class="woocommerce-billing-fields"&gt;
-                                &lt;h3&gt;Billing Details&lt;/h3&gt;
+					&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customer_details&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col2-set&#34;</span>&gt;
+						&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-1&#34;</span>&gt;
+							&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;woocommerce-billing-fields&#34;</span>&gt;
+								&lt;<span style="color:#f92672">h3</span>&gt;Billing Details&lt;/<span style="color:#f92672">h3</span>&gt;
 
-                                &lt;p id="billing_first_name_field" class="form-row form-row-first validate-required"&gt;
-                                    &lt;label class="" for="billing_first_name"&gt;First Name &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;input type="text" value="" placeholder="" th:field="*{billingFirstName}" class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('billingFirstName')}" th:errors="*{billingFirstName}" th:errorclass="text-danger"&gt;Incorrect firstName&lt;/p&gt;
-                                &lt;/p&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_first_name_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-first validate-required&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_first_name&#34;</span>&gt;First Name &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingFirstName}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;billingFirstName&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingFirstName}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect firstName&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
 
-                                &lt;p id="billing_last_name_field" class="form-row form-row-last validate-required"&gt;
-                                    &lt;label class="" for="billing_last_name"&gt;Last Name &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;input type="text" value="" placeholder="" th:field="*{billingLastName}" class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('billingLastName')}" 
-                                        th:errors="*{billingLastName}" th:errorclass="text-danger"&gt;Incorrect lastName&lt;/p&gt;
-                                &lt;/p&gt;
-                                &lt;p id="billing_email_field" class="form-row form-row-first validate-required validate-email"&gt;
-                                    &lt;label class="" for="billing_email"&gt;Email Address &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;input type="text" value="" placeholder="" th:field="*{emailId}" class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('emailId')}" 
-                                        th:errors="*{emailId}" th:errorclass="text-danger"&gt;Incorrect emailId&lt;/p&gt;
-                                &lt;/p&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_last_name_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-last validate-required&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_last_name&#34;</span>&gt;Last Name &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingLastName}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;billingLastName&#39;)}&#34;</span> 
+										<span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingLastName}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect lastName&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_email_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-first validate-required validate-email&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_email&#34;</span>&gt;Email Address &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{emailId}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;emailId&#39;)}&#34;</span> 
+										<span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{emailId}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect emailId&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
 
-                                &lt;p id="billing_phone_field" class="form-row form-row-last validate-required validate-phone"&gt;
-                                    &lt;label class="" for="billing_phone"&gt;Phone &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;input type="text" value="" placeholder="" th:field="*{phone}"  class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('phone')}" 
-                                        th:errors="*{phone}" th:errorclass="text-danger"&gt;Incorrect phone&lt;/p&gt;
-                                &lt;/p&gt;
-                                &lt;div class="clear"&gt;&lt;/div&gt;
-                                
-                                &lt;p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required"&gt;
-                                    &lt;label class="" for="billing_address_1"&gt;Address &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;input type="text" value="" placeholder="Street address" th:field="*{billingAddressLine1}" class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('billingAddressLine1')}" th:errors="*{billingAddressLine1}" th:errorclass="text-danger"&gt;Incorrect addressLine1&lt;/p&gt;
-                                &lt;/p&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_phone_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-last validate-required validate-phone&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_phone&#34;</span>&gt;Phone &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{phone}&#34;</span>  <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;phone&#39;)}&#34;</span> 
+										<span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{phone}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect phone&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;clear&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+								
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_address_1_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field validate-required&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_address_1&#34;</span>&gt;Address &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Street address&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingAddressLine1}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;billingAddressLine1&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingAddressLine1}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect addressLine1&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
 
-                                &lt;p id="billing_address_2_field" class="form-row form-row-wide address-field"&gt;
-                                    &lt;input type="text" value="" placeholder="Apartment, suite, unit etc. (optional)" th:field="*{billingAddressLine2}"  class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('billingAddressLine2')}" th:errors="*{billingAddressLine2}" th:errorclass="text-danger"&gt;Incorrect addressLine2&lt;/p&gt;
-                                &lt;/p&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_address_2_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field&#34;</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Apartment, suite, unit etc. (optional)&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingAddressLine2}&#34;</span>  <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;billingAddressLine2&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingAddressLine2}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect addressLine2&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
 
-                                &lt;p id="billing_city_field" class="form-row form-row-wide address-field validate-required" data-o_class="form-row form-row-wide address-field validate-required"&gt;
-                                    &lt;label class="" for="billing_city"&gt;Town / City &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;input type="text" value="" placeholder="Town / City" th:field="*{billingCity}" class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('billingCity')}" th:errors="*{billingCity}" th:errorclass="text-danger"&gt;Incorrect city&lt;/p&gt;
-                                &lt;/p&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_city_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field validate-required&#34;</span> <span style="color:#a6e22e">data-o_class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field validate-required&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_city&#34;</span>&gt;Town / City &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Town / City&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingCity}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;billingCity&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingCity}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect city&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
 
-                                &lt;p id="billing_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state"&gt;
-                                    &lt;label class="" for="billing_state"&gt;State&lt;/label&gt;
-                                    &lt;input type="text" th:field="*{billingState}" placeholder="State / County" value="" class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('billingState')}" th:errors="*{billingState}" th:errorclass="text-danger"&gt;Incorrect state&lt;/p&gt;
-                                &lt;/p&gt;
-                                &lt;p id="billing_postcode_field" class="form-row form-row-last address-field validate-required validate-postcode" data-o_class="form-row form-row-last address-field validate-required validate-postcode"&gt;
-                                    &lt;label class="" for="billing_postcode"&gt;Zip Code &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;input type="text" value="" placeholder="Postcode / Zip" th:field="*{billingZipCode}" class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('billingZipCode')}" th:errors="*{billingZipCode}" th:errorclass="text-danger"&gt;Incorrect zipCode&lt;/p&gt;
-                                &lt;/p&gt;
-                                &lt;p id="billing_country_field" class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated"&gt;
-                                    &lt;label class="" for="billing_country"&gt;Country &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;select class="country_to_state country_select" th:field="*{billingCountry}"&gt;                                                    
-                                        &lt;option value="IN"&gt;India&lt;/option&gt;
-                                    &lt;/select&gt;
-                                &lt;/p&gt;
-                                &lt;div class="clear"&gt;&lt;/div&gt;                                            
-                            &lt;/div&gt;
-                        &lt;/div&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_state_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-first address-field validate-state&#34;</span> <span style="color:#a6e22e">data-o_class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-first address-field validate-state&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_state&#34;</span>&gt;State&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingState}&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;State / County&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;billingState&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingState}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect state&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_postcode_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-last address-field validate-required validate-postcode&#34;</span> <span style="color:#a6e22e">data-o_class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-last address-field validate-required validate-postcode&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_postcode&#34;</span>&gt;Zip Code &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Postcode / Zip&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingZipCode}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;billingZipCode&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingZipCode}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect zipCode&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_country_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;billing_country&#34;</span>&gt;Country &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;country_to_state country_select&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{billingCountry}&#34;</span>&gt;                                                    
+										&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IN&#34;</span>&gt;India&lt;/<span style="color:#f92672">option</span>&gt;
+									&lt;/<span style="color:#f92672">select</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;clear&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;                                            
+							&lt;/<span style="color:#f92672">div</span>&gt;
+						&lt;/<span style="color:#f92672">div</span>&gt;
 
-                        &lt;div class="col-2"&gt;
-                            &lt;div class="woocommerce-shipping-fields"&gt;
-                                &lt;h3 id="ship-to-different-address"&gt;
-                                    &lt;label class="checkbox" for="ship-to-different-address-checkbox"&gt;Ship to same address?&lt;/label&gt;
-                                    &lt;input type="checkbox" value="1" name="ship_to_different_address" checked="checked" 
-                                            class="input-checkbox" id="ship-to-different-address-checkbox"/&gt;
-                                &lt;/h3&gt;
-                                &lt;div class="shipping_address" style="display: block;"&gt;                                                
+						&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-2&#34;</span>&gt;
+							&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;woocommerce-shipping-fields&#34;</span>&gt;
+								&lt;<span style="color:#f92672">h3</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ship-to-different-address&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ship-to-different-address-checkbox&#34;</span>&gt;Ship to same address?&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ship_to_different_address&#34;</span> <span style="color:#a6e22e">checked</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checked&#34;</span> 
+											<span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-checkbox&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ship-to-different-address-checkbox&#34;</span>/&gt;
+								&lt;/<span style="color:#f92672">h3</span>&gt;
+								&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_address&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;display: block;&#34;</span>&gt;                                                
 
-                                    &lt;p id="shipping_first_name_field" class="form-row form-row-first validate-required"&gt;
-                                        &lt;label class="" for="shipping_first_name"&gt;First Name &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                        &lt;/label&gt;
-                                        &lt;input type="text" value="" placeholder="" th:field="*{firstName}" class="input-text "/&gt;
-                                        &lt;p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="text-danger"&gt;Incorrect firstName&lt;/p&gt;
-                                    &lt;/p&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_first_name_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-first validate-required&#34;</span>&gt;
+										&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_first_name&#34;</span>&gt;First Name &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+										&lt;/<span style="color:#f92672">label</span>&gt;
+										&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{firstName}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+										&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;firstName&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{firstName}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect firstName&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;/<span style="color:#f92672">p</span>&gt;
 
-                                    &lt;p id="shipping_last_name_field" class="form-row form-row-last validate-required"&gt;
-                                        &lt;label class="" for="shipping_last_name"&gt;Last Name &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                        &lt;/label&gt;
-                                        &lt;input type="text" value="" placeholder="" th:field="*{lastName}" class="input-text "/&gt;
-                                        &lt;p th:if="${#fields.hasErrors('lastName')}" 
-                                            th:errors="*{lastName}" th:errorclass="text-danger"&gt;Incorrect lastName&lt;/p&gt;
-                                    &lt;/p&gt;
-                                    &lt;div class="clear"&gt;&lt;/div&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_last_name_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-last validate-required&#34;</span>&gt;
+										&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_last_name&#34;</span>&gt;Last Name &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+										&lt;/<span style="color:#f92672">label</span>&gt;
+										&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{lastName}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+										&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;lastName&#39;)}&#34;</span> 
+											<span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{lastName}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect lastName&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;clear&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 
-                                    &lt;p id="shipping_address_1_field" class="form-row form-row-wide address-field validate-required"&gt;
-                                        &lt;label class="" for="shipping_address_1"&gt;Address &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                        &lt;/label&gt;
-                                        &lt;input type="text" value="" placeholder="Street address" th:field="*{addressLine1}"  class="input-text "/&gt;
-                                        &lt;p th:if="${#fields.hasErrors('addressLine1')}" th:errors="*{addressLine1}" th:errorclass="text-danger"&gt;Incorrect addressLine1&lt;/p&gt;
-                                    &lt;/p&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_address_1_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field validate-required&#34;</span>&gt;
+										&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_address_1&#34;</span>&gt;Address &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+										&lt;/<span style="color:#f92672">label</span>&gt;
+										&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Street address&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{addressLine1}&#34;</span>  <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+										&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;addressLine1&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{addressLine1}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect addressLine1&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;/<span style="color:#f92672">p</span>&gt;
 
-                                    &lt;p id="shipping_address_2_field" class="form-row form-row-wide address-field"&gt;
-                                        &lt;input type="text" value="" placeholder="Apartment, suite, unit etc. (optional)" th:field="*{addressLine2}" class="input-text "/&gt;
-                                        &lt;p th:if="${#fields.hasErrors('addressLine2')}" th:errors="*{addressLine2}" th:errorclass="text-danger"&gt;Incorrect addressLine2&lt;/p&gt;
-                                    &lt;/p&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_address_2_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field&#34;</span>&gt;
+										&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Apartment, suite, unit etc. (optional)&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{addressLine2}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+										&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;addressLine2&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{addressLine2}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect addressLine2&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;/<span style="color:#f92672">p</span>&gt;
 
-                                    &lt;p id="shipping_city_field" class="form-row form-row-wide address-field validate-required" data-o_class="form-row form-row-wide address-field validate-required"&gt;
-                                        &lt;label class="" for="shipping_city"&gt;City &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                        &lt;/label&gt;
-                                        &lt;input type="text" value="" placeholder="Town / City" th:field="*{city}" class="input-text "/&gt;
-                                        &lt;p th:if="${#fields.hasErrors('city')}" th:errors="*{city}" th:errorclass="text-danger"&gt;Incorrect city&lt;/p&gt;
-                                    &lt;/p&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_city_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field validate-required&#34;</span> <span style="color:#a6e22e">data-o_class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field validate-required&#34;</span>&gt;
+										&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_city&#34;</span>&gt;City &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+										&lt;/<span style="color:#f92672">label</span>&gt;
+										&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Town / City&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{city}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+										&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;city&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{city}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect city&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;/<span style="color:#f92672">p</span>&gt;
 
-                                    &lt;p id="shipping_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state"&gt;
-                                        &lt;label class="" for="shipping_state"&gt;State&lt;/label&gt;
-                                        &lt;input type="text" th:field="*{state}" placeholder="State / County" value="" class="input-text "/&gt;
-                                        &lt;p th:if="${#fields.hasErrors('state')}" th:errors="*{state}" th:errorclass="text-danger"&gt;Incorrect state&lt;/p&gt;
-                                    &lt;/p&gt;
-                                    &lt;p id="shipping_postcode_field" class="form-row form-row-last address-field validate-required validate-postcode" data-o_class="form-row form-row-last address-field validate-required validate-postcode"&gt;
-                                        &lt;label class="" for="shipping_postcode"&gt;Zip Code &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                        &lt;/label&gt;
-                                        &lt;input type="text" value="" placeholder="Postcode / Zip" th:field="*{zipCode}" class="input-text "/&gt;
-                                        &lt;p th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}" th:errorclass="text-danger"&gt;Incorrect zipCode&lt;/p&gt;
-                                    &lt;/p&gt;
-                                    &lt;p id="shipping_country_field" class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated"&gt;
-                                        &lt;label class="" for="shipping_country"&gt;Country &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                        &lt;/label&gt;
-                                        &lt;select class="country_to_state country_select" th:field="*{country}" &gt;
-                                            &lt;option value="IN"&gt;India&lt;/option&gt;
-                                        &lt;/select&gt;
-                                    &lt;/p&gt;
-                                    &lt;div class="clear"&gt;&lt;/div&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;                                
-                    &lt;div id="customer_details" class="col2-set"&gt;
-                        &lt;div class="col-1"&gt;
-                            &lt;div class="woocommerce-billing-fields"&gt;
-                                &lt;h3&gt;Payment Details&lt;/h3&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_state_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-first address-field validate-state&#34;</span> <span style="color:#a6e22e">data-o_class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-first address-field validate-state&#34;</span>&gt;
+										&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_state&#34;</span>&gt;State&lt;/<span style="color:#f92672">label</span>&gt;
+										&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{state}&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;State / County&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+										&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;state&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{state}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect state&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_postcode_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-last address-field validate-required validate-postcode&#34;</span> <span style="color:#a6e22e">data-o_class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-last address-field validate-required validate-postcode&#34;</span>&gt;
+										&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_postcode&#34;</span>&gt;Zip Code &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+										&lt;/<span style="color:#f92672">label</span>&gt;
+										&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Postcode / Zip&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{zipCode}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+										&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;zipCode&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{zipCode}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Incorrect zipCode&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_country_field&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated&#34;</span>&gt;
+										&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_country&#34;</span>&gt;Country &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+										&lt;/<span style="color:#f92672">label</span>&gt;
+										&lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;country_to_state country_select&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{country}&#34;</span> &gt;
+											&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IN&#34;</span>&gt;India&lt;/<span style="color:#f92672">option</span>&gt;
+										&lt;/<span style="color:#f92672">select</span>&gt;
+									&lt;/<span style="color:#f92672">p</span>&gt;
+									&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;clear&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+								&lt;/<span style="color:#f92672">div</span>&gt;
+							&lt;/<span style="color:#f92672">div</span>&gt;
+						&lt;/<span style="color:#f92672">div</span>&gt;
+					&lt;/<span style="color:#f92672">div</span>&gt;                                
+					&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;customer_details&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col2-set&#34;</span>&gt;
+						&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-1&#34;</span>&gt;
+							&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;woocommerce-billing-fields&#34;</span>&gt;
+								&lt;<span style="color:#f92672">h3</span>&gt;Payment Details&lt;/<span style="color:#f92672">h3</span>&gt;
 
-                                &lt;p id="cc_number" class="form-row form-row-first validate-required"&gt;
-                                    &lt;label class="" for="cc_number"&gt;Credit Card Number &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;input type="text" th:field="*{ccNumber}" class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('ccNumber')}" th:errors="*{ccNumber}" th:errorclass="text-danger"&gt;Invalid Credit Card&lt;/p&gt;
-                                &lt;/p&gt;
-                                
-                                &lt;p id="cc_cvv" class="form-row form-row-first validate-required"&gt;
-                                    &lt;label class="" for="cc_cvv"&gt;CCV &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;
-                                    &lt;/label&gt;
-                                    &lt;input type="text" th:field="*{cvv}" class="input-text "/&gt;
-                                    &lt;p th:if="${#fields.hasErrors('cvv')}" th:errors="*{cvv}" th:errorclass="text-danger"&gt;Invalid CVV&lt;/p&gt;
-                                &lt;/p&gt;
-                                &lt;p id="payment_expiry_date" class="form-row form-row-wide validate-required woocommerce-validated"&gt;
-                                    &lt;label class="" for="shipping_country"&gt;Expiry Date &lt;abbr title="required" class="required"&gt;*&lt;/abbr&gt;&lt;/label&gt;
-                                    &lt;div style="display: inline;"&gt;
-                                    &lt;select style="width: 25%"&gt;
-                                        &lt;option value="2015"&gt;2015&lt;/option&gt;
-                                        &lt;option value="2016"&gt;2016&lt;/option&gt;
-                                        &lt;option value="2017"&gt;2017&lt;/option&gt;
-                                        &lt;option value="2018"&gt;2018&lt;/option&gt;
-                                    &lt;/select&gt;
-                                    
-                                    &lt;select style="width: 25%"&gt;
-                                        &lt;option value="1"&gt;Jan&lt;/option&gt;
-                                        &lt;option value="2"&gt;Feb&lt;/option&gt;
-                                        &lt;option value="3"&gt;Mar&lt;/option&gt;
-                                        &lt;option value="4"&gt;Apr&lt;/option&gt;
-                                    &lt;/select&gt;
-                                    &lt;/div&gt;
-                                &lt;/p&gt;
-                                
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                   &lt;/div&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cc_number&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-first validate-required&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cc_number&#34;</span>&gt;Credit Card Number &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{ccNumber}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;ccNumber&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{ccNumber}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Invalid Credit Card&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
+								
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cc_cvv&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-first validate-required&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cc_cvv&#34;</span>&gt;CCV &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;
+									&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{cvv}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-text &#34;</span>/&gt;
+									&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;cvv&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{cvv}&#34;</span> <span style="color:#a6e22e">th:errorclass</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-danger&#34;</span>&gt;Invalid CVV&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
+								&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;payment_expiry_date&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row form-row-wide validate-required woocommerce-validated&#34;</span>&gt;
+									&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping_country&#34;</span>&gt;Expiry Date &lt;<span style="color:#f92672">abbr</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">abbr</span>&gt;&lt;/<span style="color:#f92672">label</span>&gt;
+									&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;display: inline;&#34;</span>&gt;
+									&lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width: 25%&#34;</span>&gt;
+										&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2015&#34;</span>&gt;2015&lt;/<span style="color:#f92672">option</span>&gt;
+										&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2016&#34;</span>&gt;2016&lt;/<span style="color:#f92672">option</span>&gt;
+										&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2017&#34;</span>&gt;2017&lt;/<span style="color:#f92672">option</span>&gt;
+										&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2018&#34;</span>&gt;2018&lt;/<span style="color:#f92672">option</span>&gt;
+									&lt;/<span style="color:#f92672">select</span>&gt;
+									
+									&lt;<span style="color:#f92672">select</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width: 25%&#34;</span>&gt;
+										&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>&gt;Jan&lt;/<span style="color:#f92672">option</span>&gt;
+										&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2&#34;</span>&gt;Feb&lt;/<span style="color:#f92672">option</span>&gt;
+										&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;3&#34;</span>&gt;Mar&lt;/<span style="color:#f92672">option</span>&gt;
+										&lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span>&gt;Apr&lt;/<span style="color:#f92672">option</span>&gt;
+									&lt;/<span style="color:#f92672">select</span>&gt;
+									&lt;/<span style="color:#f92672">div</span>&gt;
+								&lt;/<span style="color:#f92672">p</span>&gt;
+								
+							&lt;/<span style="color:#f92672">div</span>&gt;
+						&lt;/<span style="color:#f92672">div</span>&gt;
+				   &lt;/<span style="color:#f92672">div</span>&gt;
 
-                    &lt;div id="payment"&gt;
-                            
-                         &lt;div class="form-row place-order"&gt;
-                             &lt;input type="submit" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt"/&gt;
-                         &lt;/div&gt;
+					&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;payment&#34;</span>&gt;
+							
+						 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-row place-order&#34;</span>&gt;
+							 &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">data-value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Place order&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Place order&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;place_order&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;woocommerce_checkout_place_order&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button alt&#34;</span>/&gt;
+						 &lt;/<span style="color:#f92672">div</span>&gt;
 
-                         &lt;div class="clear"&gt;&lt;/div&gt;
+						 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;clear&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 
-                  &lt;/div&gt;
-                &lt;/form&gt;
+				  &lt;/<span style="color:#f92672">div</span>&gt;
+				&lt;/<span style="color:#f92672">form</span>&gt;
 
-            &lt;/div&gt;                       
-        &lt;/div&gt;                    
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre><p>Next we need to implement the back-end services for Order related operations.</p><pre class="lang:java decode:true">public interface OrderRepository extends JpaRepository&lt;Order, Integer&gt;
-{
-    Order findByOrderNumber(String orderNumber);
-}</pre><pre class="lang:java decode:true">@Service
-@Transactional
-public class OrderService
-{   
-    @Autowired OrderRepository orderRepository;
-    
-    public Order createOrder(Order order)
-    {
-        order.setOrderNumber(String.valueOf(System.currentTimeMillis()));
-        Order savedOrder = orderRepository.save(order);
-        return savedOrder;
-    }
-    
-    public Order getOrder(String orderNumber)
-    {
-        return orderRepository.findByOrderNumber(orderNumber);
-    }
+			&lt;/<span style="color:#f92672">div</span>&gt;                       
+		&lt;/<span style="color:#f92672">div</span>&gt;                    
+	&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div><p></p><p>Next we need to implement the back-end services for Order related operations.</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">OrderRepository</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>Order<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">{</span>
+	Order <span style="color:#a6e22e">findByOrderNumber</span><span style="color:#f92672">(</span>String orderNumber<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span></code></pre></div><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
+<span style="color:#a6e22e">@Transactional</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrderService</span>
+<span style="color:#f92672">{</span>	
+	<span style="color:#a6e22e">@Autowired</span> OrderRepository orderRepository<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">public</span> Order <span style="color:#a6e22e">createOrder</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		order<span style="color:#f92672">.</span><span style="color:#a6e22e">setOrderNumber</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">()));</span>
+		Order savedOrder <span style="color:#f92672">=</span> orderRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>order<span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">return</span> savedOrder<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> Order <span style="color:#a6e22e">getOrder</span><span style="color:#f92672">(</span>String orderNumber<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> orderRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findByOrderNumber</span><span style="color:#f92672">(</span>orderNumber<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
 
-}</pre><pre class="lang:java decode:true">@Controller
-public class OrderController extends JCartSiteBaseController
-{
+<span style="color:#f92672">}</span></code></pre></div><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrderController</span> <span style="color:#66d9ef">extends</span> JCartSiteBaseController
+<span style="color:#f92672">{</span>
 
-    @Autowired private CustomerService customerService;
-    @Autowired protected OrderService orderService;
-    @Autowired protected EmailService emailService;
-    
-    @Override
-    protected String getHeaderTitle()
-    {
-        return "Order";
-    }
+	<span style="color:#a6e22e">@Autowired</span> <span style="color:#66d9ef">private</span> CustomerService customerService<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@Autowired</span> <span style="color:#66d9ef">protected</span> OrderService orderService<span style="color:#f92672">;</span>
+	<span style="color:#a6e22e">@Autowired</span> <span style="color:#66d9ef">protected</span> EmailService emailService<span style="color:#f92672">;</span>
+	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">protected</span> String <span style="color:#a6e22e">getHeaderTitle</span><span style="color:#f92672">()</span>
+	<span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Order&#34;</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-    @RequestMapping(value="/orders", method=RequestMethod.POST)
-    public String placeOrder(@Valid @ModelAttribute("order") OrderDTO order, 
-            BindingResult result, Model model, HttpServletRequest request)
-    {
-        Cart cart = getOrCreateCart(request);
-        if (result.hasErrors()) {
-            model.addAttribute("cart", cart);
-            return "checkout";
-        }
-        
-        Order newOrder = new Order();
-        
-        String email = getCurrentUser().getCustomer().getEmail();
-        Customer customer = customerService.getCustomerByEmail(email);
-        newOrder.setCustomer(customer);
-        Address address = new Address();
-        address.setAddressLine1(order.getAddressLine1());
-        address.setAddressLine2(order.getAddressLine2());
-        address.setCity(order.getCity());
-        address.setState(order.getState());
-        address.setZipCode(order.getZipCode());
-        address.setCountry(order.getCountry());
-        
-        newOrder.setDeliveryAddress(address);
-        
-        Address billingAddress = new Address();
-        billingAddress.setAddressLine1(order.getAddressLine1());
-        billingAddress.setAddressLine2(order.getAddressLine2());
-        billingAddress.setCity(order.getCity());
-        billingAddress.setState(order.getState());
-        billingAddress.setZipCode(order.getZipCode());
-        billingAddress.setCountry(order.getCountry());
-        
-        newOrder.setBillingAddress(billingAddress);
-        
-        Set&lt;OrderItem&gt; orderItems = new HashSet&lt;OrderItem&gt;();
-        List&lt;LineItem&gt; lineItems = cart.getItems();
-        for (LineItem lineItem : lineItems)
-        {
-            OrderItem item = new OrderItem();
-            item.setProduct(lineItem.getProduct());
-            item.setQuantity(lineItem.getQuantity());
-            item.setPrice(lineItem.getProduct().getPrice());
-            item.setOrder(newOrder);
-            orderItems.add(item);
-        }
-        
-        newOrder.setItems(orderItems);
-        
-        Payment payment = new Payment();
-        payment.setCcNumber(order.getCcNumber());
-        payment.setCvv(order.getCvv());
-        
-        newOrder.setPayment(payment);
-        Order savedOrder = orderService.createOrder(newOrder);
-        
-        this.sendOrderConfirmationEmail(savedOrder);
-        
-        request.getSession().removeAttribute("CART_KEY");
-        return "redirect:orderconfirmation?orderNumber="+savedOrder.getOrderNumber();
-    }
-    
-    protected void sendOrderConfirmationEmail(Order order)
-    {
-        try {
-            emailService.sendEmail(order.getCustomer().getEmail(), 
-                    "QuilCartCart - Order Confirmation", 
-                    "Your order has been placed successfully.\n"
-                    + "Order Number : "+order.getOrderNumber());
-        } catch (JCartException e) {
-            logger.error(e);
-        }
-    }
-    
-    @RequestMapping(value="/orderconfirmation", method=RequestMethod.GET)
-    public String showOrderConfirmation(@RequestParam(value="orderNumber")String orderNumber, Model model)
-    {
-        Order order = orderService.getOrder(orderNumber);
-        model.addAttribute("order", order);
-        return "orderconfirmation";
-    }
+	<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/orders&#34;</span><span style="color:#f92672">,</span> method<span style="color:#f92672">=</span>RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">POST</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">placeOrder</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@ModelAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;order&#34;</span><span style="color:#f92672">)</span> OrderDTO order<span style="color:#f92672">,</span> 
+			BindingResult result<span style="color:#f92672">,</span> Model model<span style="color:#f92672">,</span> HttpServletRequest request<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		Cart cart <span style="color:#f92672">=</span> getOrCreateCart<span style="color:#f92672">(</span>request<span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result<span style="color:#f92672">.</span><span style="color:#a6e22e">hasErrors</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+			model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;cart&#34;</span><span style="color:#f92672">,</span> cart<span style="color:#f92672">);</span>
+			<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;checkout&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+		
+		Order newOrder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Order<span style="color:#f92672">();</span>
+		
+		String email <span style="color:#f92672">=</span> getCurrentUser<span style="color:#f92672">().</span><span style="color:#a6e22e">getCustomer</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">();</span>
+		Customer customer <span style="color:#f92672">=</span> customerService<span style="color:#f92672">.</span><span style="color:#a6e22e">getCustomerByEmail</span><span style="color:#f92672">(</span>email<span style="color:#f92672">);</span>
+		newOrder<span style="color:#f92672">.</span><span style="color:#a6e22e">setCustomer</span><span style="color:#f92672">(</span>customer<span style="color:#f92672">);</span>
+		Address address <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Address<span style="color:#f92672">();</span>
+		address<span style="color:#f92672">.</span><span style="color:#a6e22e">setAddressLine1</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getAddressLine1</span><span style="color:#f92672">());</span>
+		address<span style="color:#f92672">.</span><span style="color:#a6e22e">setAddressLine2</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getAddressLine2</span><span style="color:#f92672">());</span>
+		address<span style="color:#f92672">.</span><span style="color:#a6e22e">setCity</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getCity</span><span style="color:#f92672">());</span>
+		address<span style="color:#f92672">.</span><span style="color:#a6e22e">setState</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getState</span><span style="color:#f92672">());</span>
+		address<span style="color:#f92672">.</span><span style="color:#a6e22e">setZipCode</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getZipCode</span><span style="color:#f92672">());</span>
+		address<span style="color:#f92672">.</span><span style="color:#a6e22e">setCountry</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getCountry</span><span style="color:#f92672">());</span>
+		
+		newOrder<span style="color:#f92672">.</span><span style="color:#a6e22e">setDeliveryAddress</span><span style="color:#f92672">(</span>address<span style="color:#f92672">);</span>
+		
+		Address billingAddress <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Address<span style="color:#f92672">();</span>
+		billingAddress<span style="color:#f92672">.</span><span style="color:#a6e22e">setAddressLine1</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getAddressLine1</span><span style="color:#f92672">());</span>
+		billingAddress<span style="color:#f92672">.</span><span style="color:#a6e22e">setAddressLine2</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getAddressLine2</span><span style="color:#f92672">());</span>
+		billingAddress<span style="color:#f92672">.</span><span style="color:#a6e22e">setCity</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getCity</span><span style="color:#f92672">());</span>
+		billingAddress<span style="color:#f92672">.</span><span style="color:#a6e22e">setState</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getState</span><span style="color:#f92672">());</span>
+		billingAddress<span style="color:#f92672">.</span><span style="color:#a6e22e">setZipCode</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getZipCode</span><span style="color:#f92672">());</span>
+		billingAddress<span style="color:#f92672">.</span><span style="color:#a6e22e">setCountry</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getCountry</span><span style="color:#f92672">());</span>
+		
+		newOrder<span style="color:#f92672">.</span><span style="color:#a6e22e">setBillingAddress</span><span style="color:#f92672">(</span>billingAddress<span style="color:#f92672">);</span>
+		
+		Set<span style="color:#f92672">&lt;</span>OrderItem<span style="color:#f92672">&gt;</span> orderItems <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;</span>OrderItem<span style="color:#f92672">&gt;();</span>
+		List<span style="color:#f92672">&lt;</span>LineItem<span style="color:#f92672">&gt;</span> lineItems <span style="color:#f92672">=</span> cart<span style="color:#f92672">.</span><span style="color:#a6e22e">getItems</span><span style="color:#f92672">();</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>LineItem lineItem <span style="color:#f92672">:</span> lineItems<span style="color:#f92672">)</span>
+		<span style="color:#f92672">{</span>
+			OrderItem item <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OrderItem<span style="color:#f92672">();</span>
+			item<span style="color:#f92672">.</span><span style="color:#a6e22e">setProduct</span><span style="color:#f92672">(</span>lineItem<span style="color:#f92672">.</span><span style="color:#a6e22e">getProduct</span><span style="color:#f92672">());</span>
+			item<span style="color:#f92672">.</span><span style="color:#a6e22e">setQuantity</span><span style="color:#f92672">(</span>lineItem<span style="color:#f92672">.</span><span style="color:#a6e22e">getQuantity</span><span style="color:#f92672">());</span>
+			item<span style="color:#f92672">.</span><span style="color:#a6e22e">setPrice</span><span style="color:#f92672">(</span>lineItem<span style="color:#f92672">.</span><span style="color:#a6e22e">getProduct</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getPrice</span><span style="color:#f92672">());</span>
+			item<span style="color:#f92672">.</span><span style="color:#a6e22e">setOrder</span><span style="color:#f92672">(</span>newOrder<span style="color:#f92672">);</span>
+			orderItems<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>item<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+		
+		newOrder<span style="color:#f92672">.</span><span style="color:#a6e22e">setItems</span><span style="color:#f92672">(</span>orderItems<span style="color:#f92672">);</span>
+		
+		Payment payment <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Payment<span style="color:#f92672">();</span>
+		payment<span style="color:#f92672">.</span><span style="color:#a6e22e">setCcNumber</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getCcNumber</span><span style="color:#f92672">());</span>
+		payment<span style="color:#f92672">.</span><span style="color:#a6e22e">setCvv</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getCvv</span><span style="color:#f92672">());</span>
+		
+		newOrder<span style="color:#f92672">.</span><span style="color:#a6e22e">setPayment</span><span style="color:#f92672">(</span>payment<span style="color:#f92672">);</span>
+		Order savedOrder <span style="color:#f92672">=</span> orderService<span style="color:#f92672">.</span><span style="color:#a6e22e">createOrder</span><span style="color:#f92672">(</span>newOrder<span style="color:#f92672">);</span>
+		
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sendOrderConfirmationEmail</span><span style="color:#f92672">(</span>savedOrder<span style="color:#f92672">);</span>
+		
+		request<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">().</span><span style="color:#a6e22e">removeAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CART_KEY&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;redirect:orderconfirmation?orderNumber=&#34;</span><span style="color:#f92672">+</span>savedOrder<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrderNumber</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendOrderConfirmationEmail</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+			emailService<span style="color:#f92672">.</span><span style="color:#a6e22e">sendEmail</span><span style="color:#f92672">(</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getCustomer</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">(),</span> 
+					<span style="color:#e6db74">&#34;QuilCartCart - Order Confirmation&#34;</span><span style="color:#f92672">,</span> 
+					<span style="color:#e6db74">&#34;Your order has been placed successfully.\n&#34;</span>
+					<span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;Order Number : &#34;</span><span style="color:#f92672">+</span>order<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrderNumber</span><span style="color:#f92672">());</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JCartException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>e<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/orderconfirmation&#34;</span><span style="color:#f92672">,</span> method<span style="color:#f92672">=</span>RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">GET</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">showOrderConfirmation</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span>value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;orderNumber&#34;</span><span style="color:#f92672">)</span>String orderNumber<span style="color:#f92672">,</span> Model model<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		Order order <span style="color:#f92672">=</span> orderService<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrder</span><span style="color:#f92672">(</span>orderNumber<span style="color:#f92672">);</span>
+		model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;order&#34;</span><span style="color:#f92672">,</span> order<span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;orderconfirmation&#34;</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-}</pre><p>Create the template <strong>orderconfirmation.html</strong> for showing order confirmation as follows:</p><pre class="lang:xhtml decode:true">&lt;!DOCTYPE html&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-    layout:decorator="layout/mainLayout"&gt;
-&lt;head&gt;
-&lt;title&gt;Order Confirmation&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div layout:fragment="content"&gt;
-        &lt;div class="single-product-area"&gt;
-            &lt;div class="zigzag-bottom"&gt;&lt;/div&gt;
-            &lt;div class="container"&gt;
-                &lt;div class="row"&gt;
+<span style="color:#f92672">}</span></code></pre></div><p></p><p>Create the template <strong>orderconfirmation.html</strong> for showing order confirmation as follows:</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">xmlns</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xhtml&#34;</span>
+	<span style="color:#a6e22e">xmlns:th</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.thymeleaf.org&#34;</span>
+	<span style="color:#a6e22e">xmlns:sec</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34;</span>
+	<span style="color:#a6e22e">layout:decorator</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;layout/mainLayout&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">title</span>&gt;Order Confirmation&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">layout:fragment</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;
+		&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;single-product-area&#34;</span>&gt;
+			&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;zigzag-bottom&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+			&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+				&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row&#34;</span>&gt;
 
-                    &lt;div class="woocommerce-info col-md-offset-2 col-md-8"&gt;
-                        &lt;div th:unless="${order}" &gt;
-                            &lt;h2&gt;No order found&lt;/h2&gt;
-                        &lt;/div&gt;
-                        &lt;div th:if="${order}" &gt;
-                            &lt;h2&gt;Your order has been placed successfully.&lt;/h2&gt;
-                            &lt;h2&gt;
-                                Order Number : &lt;span th:text="${order.orderNumber}"&gt;Number&lt;/span&gt;
-                            &lt;/h2&gt;
-                            &lt;table class="table"&gt;
-                                &lt;thead&gt;
-                                    &lt;tr&gt;
-                                        &lt;th&gt;Name&lt;/th&gt;
-                                        &lt;th&gt;Quantity&lt;/th&gt;
-                                        &lt;th&gt;Cost&lt;/th&gt;
-                                    &lt;/tr&gt;
-                                &lt;/thead&gt;
-                                &lt;tbody&gt;
-                                    &lt;tr th:each="item : ${order.items}"&gt;
-                                        &lt;td th:text="${item.product.name}"&gt;product.name&lt;/td&gt;
-                                        &lt;td th:text="${item.quantity}"&gt;&lt;/td&gt;
-                                        &lt;td th:text="${item.price * item.quantity}"&gt;price&lt;/td&gt;
-                                    &lt;/tr&gt;
-                                &lt;/tbody&gt;
-                                &lt;tfoot&gt;
-                                    &lt;tr class="cart-subtotal"&gt;
-                                        &lt;th&gt;Order Subtotal&lt;/th&gt;
-                                        &lt;td&gt;&lt;span class="amount" th:text="${order.totalAmount}"&gt;£15.00&lt;/span&gt;
-                                        &lt;/td&gt;
-                                    &lt;/tr&gt;
+					&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;woocommerce-info col-md-offset-2 col-md-8&#34;</span>&gt;
+						&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">th:unless</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${order}&#34;</span> &gt;
+							&lt;<span style="color:#f92672">h2</span>&gt;No order found&lt;/<span style="color:#f92672">h2</span>&gt;
+						&lt;/<span style="color:#f92672">div</span>&gt;
+						&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${order}&#34;</span> &gt;
+							&lt;<span style="color:#f92672">h2</span>&gt;Your order has been placed successfully.&lt;/<span style="color:#f92672">h2</span>&gt;
+							&lt;<span style="color:#f92672">h2</span>&gt;
+								Order Number : &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${order.orderNumber}&#34;</span>&gt;Number&lt;/<span style="color:#f92672">span</span>&gt;
+							&lt;/<span style="color:#f92672">h2</span>&gt;
+							&lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;table&#34;</span>&gt;
+								&lt;<span style="color:#f92672">thead</span>&gt;
+									&lt;<span style="color:#f92672">tr</span>&gt;
+										&lt;<span style="color:#f92672">th</span>&gt;Name&lt;/<span style="color:#f92672">th</span>&gt;
+										&lt;<span style="color:#f92672">th</span>&gt;Quantity&lt;/<span style="color:#f92672">th</span>&gt;
+										&lt;<span style="color:#f92672">th</span>&gt;Cost&lt;/<span style="color:#f92672">th</span>&gt;
+									&lt;/<span style="color:#f92672">tr</span>&gt;
+								&lt;/<span style="color:#f92672">thead</span>&gt;
+								&lt;<span style="color:#f92672">tbody</span>&gt;
+									&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">th:each</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item : ${order.items}&#34;</span>&gt;
+										&lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${item.product.name}&#34;</span>&gt;product.name&lt;/<span style="color:#f92672">td</span>&gt;
+										&lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${item.quantity}&#34;</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+										&lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${item.price * item.quantity}&#34;</span>&gt;price&lt;/<span style="color:#f92672">td</span>&gt;
+									&lt;/<span style="color:#f92672">tr</span>&gt;
+								&lt;/<span style="color:#f92672">tbody</span>&gt;
+								&lt;<span style="color:#f92672">tfoot</span>&gt;
+									&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cart-subtotal&#34;</span>&gt;
+										&lt;<span style="color:#f92672">th</span>&gt;Order Subtotal&lt;/<span style="color:#f92672">th</span>&gt;
+										&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;amount&#34;</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${order.totalAmount}&#34;</span>&gt;£15.00&lt;/<span style="color:#f92672">span</span>&gt;
+										&lt;/<span style="color:#f92672">td</span>&gt;
+									&lt;/<span style="color:#f92672">tr</span>&gt;
 
-                                    &lt;tr class="shipping"&gt;
-                                        &lt;th&gt;Shipping and Handling&lt;/th&gt;
-                                        &lt;td&gt;Free Shipping&lt;/td&gt;
-                                    &lt;/tr&gt;
+									&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;shipping&#34;</span>&gt;
+										&lt;<span style="color:#f92672">th</span>&gt;Shipping and Handling&lt;/<span style="color:#f92672">th</span>&gt;
+										&lt;<span style="color:#f92672">td</span>&gt;Free Shipping&lt;/<span style="color:#f92672">td</span>&gt;
+									&lt;/<span style="color:#f92672">tr</span>&gt;
 
-                                    &lt;tr class="order-total"&gt;
-                                        &lt;th&gt;Order Total&lt;/th&gt;
-                                        &lt;td&gt;&lt;strong&gt;&lt;span class="amount" th:text="${order.totalAmount}"&gt;£15.00&lt;/span&gt;&lt;/strong&gt; &lt;/td&gt;
-                                    &lt;/tr&gt;
+									&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;order-total&#34;</span>&gt;
+										&lt;<span style="color:#f92672">th</span>&gt;Order Total&lt;/<span style="color:#f92672">th</span>&gt;
+										&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">strong</span>&gt;&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;amount&#34;</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${order.totalAmount}&#34;</span>&gt;£15.00&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">strong</span>&gt; &lt;/<span style="color:#f92672">td</span>&gt;
+									&lt;/<span style="color:#f92672">tr</span>&gt;
 
-                                &lt;/tfoot&gt;
-                            &lt;/table&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre><p>Now you can add items to cart, view cart item details, and checkout by providing delivery and billing info and finally place order. Once the order is successfully placed it will display the order confirmation page.</p><p>&nbsp;</p></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Billing%20and%20Delivery%20Page-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f&title=JCart%20%3a%20Billing%20and%20Delivery%20Page" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f&title=JCart%20%3a%20Billing%20and%20Delivery%20Page" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></article><div class="comments"><div id="disqus_thread"></div><script>var disqus_config=function(){};!function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1)return void(document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.");var e=document,t=e.createElement("script");t.async=!0,t.src="//sivalabs.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}()</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div><nav class="navigation post-navigation" role="navigation"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><div class="nav-previous"><a href="/2015/12/jcart-iteration-7/" rel="next"><i class="fa fa-chevron-left"></i> <span class="post-title">JCart : Iteration-7</span></a></div><div class="nav-next"><a href="/2015/12/jcart-customer-registration/" rel="prev"><span class="post-title">JCart : Customer Registration <i class="fa fa-chevron-right"></i></span></a></div></div></nav></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="well"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Social Networks</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b" style="background-color:#221e1b;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee" style="background-color:#55acee;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998" style="background-color:#3b5998;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google" data-hover-rule="background-color" data-hover-color="#d93e2d" style="background-color:#d93e2d;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7" style="background-color:#3371b7;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20" style="background-color:#e02a20;font-size:18px;padding:8px"></span></a></li></ul></aside><aside id="widget_sp_image-4" class="widget widget_sp_image"><h3 class="widget-title">My Recent Books</h3><a href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304" target="_blank" class="widget_sp_image-image-link" title="My Recent Books"><img width="2100" height="3000" alt="My Recent Books" class="attachment-full" style="max-width:100%" src="/images/ApressSpringBootBook.jpg"></a></aside><aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent Posts</h3><ul><li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li><li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li><li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li><li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li><li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li></ul></aside><aside id="tag_cloud-5" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="android">android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/angularjs" title="angularjs">angularjs</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="best-practices">best-practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="blogging">blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/design-patterns" title="design-patterns">design-patterns</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="e-commerce">e-commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/extjs" title="extjs">extjs</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/hibernate" title="hibernate">hibernate</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="ide">ide</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="interviews">interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="it">it</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="java">java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="javaee">javaee</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javamail" title="javamail">javamail</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javascript" title="javascript">javascript</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jboss" title="jboss">jboss</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jpa" title="jpa">jpa</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="jsf">jsf</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="linux">linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="maven">maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="mybatis">mybatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="primefaces">primefaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/quartz" title="quartz">quartz</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rest" title="rest">rest</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/resteasy" title="resteasy">resteasy</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="spring">spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springmvc" title="springmvc">springmvc</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springsecurity" title="springsecurity">springsecurity</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="tips">tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tomcat" title="tomcat">tomcat</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="virtualbox">virtualbox</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/webservices" title="webservices">webservices</a></div></div></aside><aside class="widget widget_categories"><h3 class="widget-title">Categories</h3><ul><li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li><li class="cat-item"><a href="/categories/ide">Ide</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">Javaee</a></li><li class="cat-item"><a href="/categories/javascript">Javascript</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><nav role="navigation" class="col-md-3"></nav><div class="copyright col-md-6"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></div></div></div><div class="scroll-to-top"><i class="fa fa-angle-up"></i></div></footer></div></div></body></html>
+								&lt;/<span style="color:#f92672">tfoot</span>&gt;
+							&lt;/<span style="color:#f92672">table</span>&gt;
+						&lt;/<span style="color:#f92672">div</span>&gt;
+					&lt;/<span style="color:#f92672">div</span>&gt;
+				&lt;/<span style="color:#f92672">div</span>&gt;
+			&lt;/<span style="color:#f92672">div</span>&gt;
+		&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div><p></p><p>Now you can add items to cart, view cart item details, and checkout by providing delivery and billing info and finally place order. Once the order is successfully placed it will display the order confirmation page.</p><p>&nbsp;</p></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Billing%20and%20Delivery%20Page-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f&title=JCart%20%3a%20Billing%20and%20Delivery%20Page" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-billing-and-delivery-page%2f&title=JCart%20%3a%20Billing%20and%20Delivery%20Page" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></article><div class="comments"><div id="disqus_thread"></div><script>var disqus_config=function(){};!function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1)return void(document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.");var e=document,t=e.createElement("script");t.async=!0,t.src="//sivalabs.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}()</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div><nav class="navigation post-navigation" role="navigation"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><div class="nav-previous"><a href="/2015/12/jcart-iteration-7/" rel="next"><i class="fa fa-chevron-left"></i> <span class="post-title">JCart : Iteration-7</span></a></div><div class="nav-next"><a href="/2015/12/jcart-customer-registration/" rel="prev"><span class="post-title">JCart : Customer Registration <i class="fa fa-chevron-right"></i></span></a></div></div></nav></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="well"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Social Networks</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b" style="background-color:#221e1b;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee" style="background-color:#55acee;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998" style="background-color:#3b5998;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google" data-hover-rule="background-color" data-hover-color="#d93e2d" style="background-color:#d93e2d;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7" style="background-color:#3371b7;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20" style="background-color:#e02a20;font-size:18px;padding:8px"></span></a></li></ul></aside><aside id="widget_sp_image-4" class="widget widget_sp_image"><h3 class="widget-title">My Recent Books</h3><a href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304" target="_blank" class="widget_sp_image-image-link" title="My Recent Books"><img width="2100" height="3000" alt="My Recent Books" class="attachment-full" style="max-width:100%" src="/images/ApressSpringBootBook.jpg"></a></aside><aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent Posts</h3><ul><li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li><li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li><li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li><li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li><li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li></ul></aside><aside id="tag_cloud-5" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="android">android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/angularjs" title="angularjs">angularjs</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="best-practices">best-practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="blogging">blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/design-patterns" title="design-patterns">design-patterns</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="e-commerce">e-commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/extjs" title="extjs">extjs</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/hibernate" title="hibernate">hibernate</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="ide">ide</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="interviews">interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="it">it</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="java">java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="javaee">javaee</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javamail" title="javamail">javamail</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javascript" title="javascript">javascript</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jboss" title="jboss">jboss</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jpa" title="jpa">jpa</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="jsf">jsf</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="linux">linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="maven">maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/miscellaneous" title="miscellaneous">miscellaneous</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="mybatis">mybatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="primefaces">primefaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/quartz" title="quartz">quartz</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rest" title="rest">rest</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/resteasy" title="resteasy">resteasy</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="spring">spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springmvc" title="springmvc">springmvc</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springsecurity" title="springsecurity">springsecurity</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="tips">tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tomcat" title="tomcat">tomcat</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="virtualbox">virtualbox</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/webservices" title="webservices">webservices</a></div></div></aside><aside class="widget widget_categories"><h3 class="widget-title">Categories</h3><ul><li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/design-patterns">Design-Patterns</a></li><li class="cat-item"><a href="/categories/ide">Ide</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">Javaee</a></li><li class="cat-item"><a href="/categories/javascript">Javascript</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside></div></div></div></div></div><div id="footer-area"><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><nav role="navigation" class="col-md-3"></nav><div class="copyright col-md-6"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></div></div></div><div class="scroll-to-top"><i class="fa fa-angle-up"></i></div></footer></div></div></body></html>

@@ -208,7 +208,7 @@ First let us write the Controller handler method in our CustomerController to sh
       <guid>https://sivalabs.github.io/2015/12/jcart-manage-customers/</guid>
       <description>For Managing Customers we need a provision to see all the list of customers and view any Customers details.
 Let us start with implementing the back-end Customer service.
-public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt; { Customer findByEmail(String email); @Query(&#34;select o from Order o where o.customer.email=?1&#34;) List&amp;lt;Order&amp;gt; getCustomerOrders(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.</description>
+public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt;{Customer findByEmail(String email);@Query(&amp;#34;select o from Order o where o.customer.email=?1&amp;#34;)List&amp;lt;Order&amp;gt; getCustomerOrders(String email);} @Service@Transactionalpublic class CustomerService {@Autowired CustomerRepository customerRepository;public Customer getCustomerByEmail(String email) {return customerRepository.findByEmail(email);}public Customer createCustomer(Customer customer) {return customerRepository.</description>
     </item>
     
     <item>
@@ -219,7 +219,7 @@ public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integ
       <guid>https://sivalabs.github.io/2015/12/jcart-manage-orders/</guid>
       <description>For Managing Orders we need a provision to see all the list of orders and view an order details and updating the order status.
 Let us start with implementing the back-end order service.
-@Service @Transactional public class OrderService { @Autowired EmailService emailService; @Autowired OrderRepository orderRepository; ... ... public Order getOrder(String orderNumber) { return orderRepository.findByOrderNumber(orderNumber); } public List&amp;lt;Order&amp;gt; getAllOrders() { Sort sort = new Sort(Direction.DESC, &#34;createdOn&#34;); return orderRepository.findAll(sort); } public Order updateOrder(Order order) { Order o = getOrder(order.</description>
+@Service@Transactionalpublic class OrderService{@Autowired EmailService emailService;@Autowired OrderRepository orderRepository;......public Order getOrder(String orderNumber){return orderRepository.findByOrderNumber(orderNumber);}public List&amp;lt;Order&amp;gt; getAllOrders(){Sort sort = new Sort(Direction.DESC, &amp;#34;createdOn&amp;#34;);return orderRepository.findAll(sort);}public Order updateOrder(Order order) {Order o = getOrder(order.</description>
     </item>
     
     <item>
@@ -241,7 +241,7 @@ As part of Iteration#7 we will implement the following usecases:
       <guid>https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/</guid>
       <description>Once the customer reviewed his cart items details and clicks on Checkout we should display Billing &amp;amp; Delivery page where customer enters delivery address details, payment details etc and place the order.
 Let us create a OrderDTO.java as follows:
-public class OrderDTO implements Serializable { private static final long serialVersionUID = 1L; @NotEmpty(message=&#34;FirstName is required&#34;) private String firstName; @NotEmpty(message=&#34;LastName is required&#34;) private String lastName; @NotEmpty(message=&#34;EmailId is required&#34;) @Email private String emailId; @NotEmpty(message=&#34;</description>
+public class OrderDTO implements Serializable{private static final long serialVersionUID = 1L;@NotEmpty(message=&amp;#34;FirstName is required&amp;#34;)private String firstName;@NotEmpty(message=&amp;#34;LastName is required&amp;#34;)private String lastName;@NotEmpty(message=&amp;#34;EmailId is required&amp;#34;)@Emailprivate String emailId;@NotEmpty(message=&amp;#34;Phone is required&amp;#34;)private String phone;@NotEmpty(message=&amp;#34;Address Line1 is required&amp;#34;)private String addressLine1;private String addressLine2;@NotEmpty(message=&amp;#34;City is required&amp;#34;)private String city;@NotEmpty(message=&amp;#34;State is required&amp;#34;)private String state;@NotEmpty(message=&amp;#34;ZipCode is required&amp;#34;)private String zipCode;@NotEmpty(message=&amp;#34;Country is required&amp;#34;)private String country;@NotEmpty(message=&amp;#34;FirstName is required&amp;#34;)private String billingFirstName;@NotEmpty(message=&amp;#34;LastName is required&amp;#34;)private String billingLastName;@NotEmpty(message=&amp;#34;Address Line1 is required&amp;#34;)private String billingAddressLine1;private String billingAddressLine2;@NotEmpty(message=&amp;#34;City is required&amp;#34;)private String billingCity;@NotEmpty(message=&amp;#34;State is required&amp;#34;)private String billingState;@NotEmpty(message=&amp;#34;ZipCode is required&amp;#34;)private String billingZipCode;@NotEmpty(message=&amp;#34;Country is required&amp;#34;)private String billingCountry;@NotEmpty(message=&amp;#34;Credit Card Number is required&amp;#34;)private String ccNumber;@NotEmpty(message=&amp;#34;CVV is required&amp;#34;)private String cvv;//setters &amp;amp; getters} Create CheckoutController to display the Billing &amp;amp; Delivery page as follows:</description>
     </item>
     
     <item>
@@ -252,7 +252,7 @@ public class OrderDTO implements Serializable { private static final long serial
       <guid>https://sivalabs.github.io/2015/12/jcart-customer-registration/</guid>
       <description>To facilitate new customer registration we will provide a new Registration form where customer provide his details and register with our system.
 Let us implement the back-end customer service operations.
-public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt;{ Customer findByEmail(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.save(customer); } } @Component public class CustomerValidator implements Validator { @Autowired private CustomerService custmoerService; @Override public boolean supports(Class&amp;lt;?</description>
+public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt;{Customer findByEmail(String email);} @Service@Transactionalpublic class CustomerService {@Autowired CustomerRepository customerRepository;public Customer getCustomerByEmail(String email) {return customerRepository.findByEmail(email);}public Customer createCustomer(Customer customer) {return customerRepository.save(customer);}} @Componentpublic class CustomerValidator implements Validator{@Autowired private CustomerService custmoerService;@Overridepublic boolean supports(Class&amp;lt;?</description>
     </item>
     
     <item>
@@ -284,7 +284,7 @@ As per of this we will implement the following usecases:
       <guid>https://sivalabs.github.io/2015/12/jcart-view-cart/</guid>
       <description>In our earlier post we have implemented Add To Cart functionality. In this post we will implement showing the Cart Item details.
 In out mainLayout.html header we have ShoppingCart icon showing the cart item count as follows:
-&amp;lt;div class=&#34;shopping-item&#34;&amp;gt; &amp;lt;a href=&#34;#&#34; th:href=&#34;@{/cart}&#34;&amp;gt;Cart &amp;lt;i class=&#34;fa fa-shopping-cart&#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span id=&#34;cart-item-count&#34; class=&#34;product-count&#34;&amp;gt;(0)&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; When customer clicks on Cart icon we will show the Cart details. Let us implement the &amp;#8220;/cart&amp;#8221; url handler method in CartController as follows:</description>
+&amp;lt;div class=&amp;#34;shopping-item&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;#&amp;#34; th:href=&amp;#34;@{/cart}&amp;#34;&amp;gt;Cart &amp;lt;i class=&amp;#34;fa fa-shopping-cart&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span id=&amp;#34;cart-item-count&amp;#34; class=&amp;#34;product-count&amp;#34;&amp;gt;(0)&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; When customer clicks on Cart icon we will show the Cart details. Let us implement the &amp;#8220;/cart&amp;#8221; url handler method in CartController as follows:</description>
     </item>
     
     <item>
@@ -294,9 +294,9 @@ In out mainLayout.html header we have ShoppingCart icon showing the cart item co
       
       <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/</guid>
       <description>In our HomePage/CategoryPage/ProductPage we have a button Add To Cart as follows:
-&amp;lt;a class=&#34;add_to_cart_button&#34; data-quantity=&#34;1&#34; data-product_sku=&#34;&#34; data-product_id=&#34;70&#34; rel=&#34;nofollow&#34; href=&#34;#&#34; th:onclick=&#34;&#39;javascript:addItemToCart(\&#39;&#39; + ${product.sku} + &#39;\&#39;);&#39;&#34;&amp;gt;Add to cart&amp;lt;/a&amp;gt; When customer clicks on Add To Cart button it will trigger addItemToCart(sku) JavaScript function passing the product SKU value.
+&amp;lt;a class=&amp;#34;add_to_cart_button&amp;#34; data-quantity=&amp;#34;1&amp;#34; data-product_sku=&amp;#34;&amp;#34; data-product_id=&amp;#34;70&amp;#34; rel=&amp;#34;nofollow&amp;#34; href=&amp;#34;#&amp;#34;th:onclick=&amp;#34;&amp;#39;javascript:addItemToCart(\&amp;#39;&amp;#39; + ${product.sku} + &amp;#39;\&amp;#39;);&amp;#39;&amp;#34;&amp;gt;Add to cart&amp;lt;/a&amp;gt; When customer clicks on Add To Cart button it will trigger addItemToCart(sku) JavaScript function passing the product SKU value.
 Now create jcart-site/src/main/resources/static/assets/js/app.js and implement addItemToCart(sku) function as follows:
-function addItemToCart(sku) { $.ajax ({ url: &#39;/cart/items&#39;, type: &#34;POST&#34;, dataType: &#34;json&#34;, contentType: &#34;application/json&#34;, data : &#39;{&#34;sku&#34;:&#34;&#39;+ sku +&#39;&#34;</description>
+function addItemToCart(sku){$.ajax ({ url: &amp;#39;/cart/items&amp;#39;, type: &amp;#34;POST&amp;#34;, dataType: &amp;#34;json&amp;#34;,contentType: &amp;#34;application/json&amp;#34;,data : &amp;#39;{&amp;#34;sku&amp;#34;:&amp;#34;&amp;#39;+ sku +&amp;#39;&amp;#34;}&amp;#34;&amp;#39;,complete: function(responseData, status, xhttp){updateCartItemCount();	}}); } This function triggers an Ajax call to url &amp;#8216;/cart/items&amp;#8217; using jQuery and if it is successful we are calling another JavaScript function updateCartItemCount().</description>
     </item>
     
     <item>
@@ -307,7 +307,8 @@ function addItemToCart(sku) { $.ajax ({ url: &#39;/cart/items&#39;, type: &#34;P
       <guid>https://sivalabs.github.io/2015/12/jcart-iteration-5/</guid>
       <description>In Iteration-5 we will be primarily working on Cart related functionality. As part of Iteration-4 we have implemented showing Home page, Category Page, Product Page and Product Search features.
 In this Iteration we will implement the following usecases:
- Add To Cart in HomePage/CategoryPage/ProductPage Cart Page  View Cart Items Updates Quantity Remove Items   </description>
+ Add To Cart in HomePage/CategoryPage/ProductPage Cart Page
+ View Cart Items Updates Quantity Remove Items   </description>
     </item>
     
     <item>
@@ -318,7 +319,7 @@ In this Iteration we will implement the following usecases:
       <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/</guid>
       <description>In our main template we have a Search box to search for products. In this post we will implement the Product Search functionality. When customer search for a product we will search products based on name or SKU or description.
 Let us implement the search handler method in ProductController as follows:
-@Controller public class ProductController extends JCartSiteBaseController { @Autowired protected CatalogService catalogService; ... ... @RequestMapping(&#34;/products&#34;) public String searchProducts(@RequestParam(name=&#34;q&#34;, defaultValue=&#34;&#34;) String query, Model model) { List&amp;lt;Product&amp;gt; products = catalogService.</description>
+@Controllerpublic class ProductController extends JCartSiteBaseController{	@Autowired protected CatalogService catalogService;......@RequestMapping(&amp;#34;/products&amp;#34;)public String searchProducts(@RequestParam(name=&amp;#34;q&amp;#34;, defaultValue=&amp;#34;&amp;#34;) String query, Model model){List&amp;lt;Product&amp;gt; products = catalogService.</description>
     </item>
     
     <item>
@@ -329,7 +330,7 @@ Let us implement the search handler method in ProductController as follows:
       <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/</guid>
       <description>Customers can click on a product to view more details about the product either in Home Page or in Category Page.
 Let us implement Controller method to show Product details as follows:
-@Controller public class ProductController extends JCartSiteBaseController { @Autowired protected CatalogService catalogService; .... .... @RequestMapping(&#34;/products/{sku}&#34;) public String product(@PathVariable String sku, Model model) { Product product = catalogService.getProductBySku(sku); model.addAttribute(&#34;product&#34;, product); return &#34;product&#34;; } } @Service @Transactional public class CatalogService { @Autowired ProductRepository productRepository; .</description>
+@Controllerpublic class ProductController extends JCartSiteBaseController{	@Autowired protected CatalogService catalogService;........@RequestMapping(&amp;#34;/products/{sku}&amp;#34;)public String product(@PathVariable String sku, Model model){Product product = catalogService.getProductBySku(sku);model.addAttribute(&amp;#34;product&amp;#34;, product);return &amp;#34;product&amp;#34;;}} @Service@Transactionalpublic class CatalogService {@Autowired ProductRepository productRepository;.</description>
     </item>
     
     <item>
@@ -341,7 +342,7 @@ Let us implement Controller method to show Product details as follows:
       <description>In our Home Page we displayed all the Categories along with few products per each category. When customer clicks on any Category Name we should display Category Page which shows all the products in that Category.
 We already have HomeController.category() method to handle the URL /categories/{name}.
 So let us create category.html thymeleaf template as follows:
-&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34; layout:decorator=&#34;layout/mainLayout&#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Category&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div layout:fragment=&#34;content&#34;&amp;gt; &amp;lt;div class=&#34;single-product-area&#34;&amp;gt; &amp;lt;div class=&#34;</description>
+&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34;xmlns:sec=&amp;#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&amp;#34;layout:decorator=&amp;#34;layout/mainLayout&amp;#34;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;Category&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div layout:fragment=&amp;#34;content&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;single-product-area&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;zigzag-bottom&amp;#34;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;container&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;row&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;woocommerce-info&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;&amp;#34; th:href=&amp;#34;@{/}&amp;#34;&amp;gt;Home&amp;lt;/a&amp;gt; / &amp;lt;a href=&amp;#34;&amp;#34; th:href=&amp;#34;@{/categories/{name}(name=${category.</description>
     </item>
     
     <item>
@@ -352,7 +353,7 @@ So let us create category.html thymeleaf template as follows:
       <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/</guid>
       <description>In our Home page we will show all the categories along with few of the products in each Category.
 Let us update HomeController with two methods to show all the categories and the selected category products.
-@Controller public class HomeController extends JCartSiteBaseController { @Autowired protected CatalogService catalogService; @RequestMapping(&#34;/home&#34;) public String home(Model model) { List&amp;lt;Category&amp;gt; previewCategories = new ArrayList&amp;lt;&amp;gt;(); List&amp;lt;Category&amp;gt; categories = catalogService.getAllCategories(); for (Category category : categories) { Set&amp;lt;Product&amp;gt; products = category.</description>
+@Controllerpublic class HomeController extends JCartSiteBaseController{	@Autowired protected CatalogService catalogService;@RequestMapping(&amp;#34;/home&amp;#34;)public String home(Model model){List&amp;lt;Category&amp;gt; previewCategories = new ArrayList&amp;lt;&amp;gt;();List&amp;lt;Category&amp;gt; categories = catalogService.getAllCategories();for (Category category : categories){Set&amp;lt;Product&amp;gt; products = category.</description>
     </item>
     
     <item>
@@ -364,7 +365,7 @@ Let us update HomeController with two methods to show all the categories and the
       <description>In this post we will setup the layout for our ShoppingCart UI using Thymeleaf templates.
 Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ and copy the following directories/files into jcart-site/src/main/resources/static/assets folder.
  css fonts img js style.css  Create Site layout thymeleaf template jcart-site/src/main/resources/templates/layout/mainLayout.html as follows:
-&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&#34;utf-8&#34;/&amp;gt; &amp;lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;/&amp;gt; &amp;lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;/&amp;gt; &amp;lt;title layout:title-pattern=&#34;$DECORATOR_TITLE - $CONTENT_TITLE&#34;&amp;gt;QuilCart&amp;lt;/title&amp;gt; &amp;lt;!-- Google Fonts --&amp;gt; &amp;lt;link href=&#39;https://fonts.</description>
+&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34;xmlns:sec=&amp;#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&amp;#34;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#34;utf-8&amp;#34;/&amp;gt;&amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;/&amp;gt;&amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1&amp;#34;/&amp;gt;&amp;lt;title layout:title-pattern=&amp;#34;$DECORATOR_TITLE - $CONTENT_TITLE&amp;#34;&amp;gt;QuilCart&amp;lt;/title&amp;gt;&amp;lt;!-- Google Fonts --&amp;gt;&amp;lt;link href=&amp;#39;https://fonts.</description>
     </item>
     
     <item>
@@ -376,7 +377,7 @@ Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ a
       <description>First we will start with setting up the initial code using SpringBoot. We have already discussed in JCart: Initial Code SetUp article about creating a maven module jcart-site which will be our ShoppingCart application. In that article we have shown what springboot dependencies to add as well.
 Just to recap we will be using SpringBoot, SpringMVC, Thymeleaf, JPA for our ShoppingCart application.
 jcart-site/pom.xml
-&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;com.</description>
+&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt;&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&amp;lt;parent&amp;gt;&amp;lt;groupId&amp;gt;com.</description>
     </item>
     
     <item>
@@ -386,7 +387,8 @@ jcart-site/pom.xml
       
       <guid>https://sivalabs.github.io/2015/12/jcart-iteration-4/</guid>
       <description>In this Iteration-4 we will start building the consumer facing ShoppingCart website.
- Initial code setup for ShoppingCart webapp  Configuring HTTPS/SSL/TLS  ShoppingCart UI Layout setup Home Page Category Page Product Page Product Search Results  </description>
+ Initial code setup for ShoppingCart webapp
+ Configuring HTTPS/SSL/TLS  ShoppingCart UI Layout setup Home Page Category Page Product Page Product Search Results  </description>
     </item>
     
     <item>
@@ -398,7 +400,7 @@ jcart-site/pom.xml
       <description>In this iteration we will start working on the key requirement of our JCart administration application, ie managing categories and products.
 We will create various categories like Birds, Flowers, Vehicles etc. While creating products we will assign it to one of the category.
 Managing Categories and Products also looks similar to Manage Roles and Users. But there are few new things we will learn like FileUploading etc.
-Create Spring Data JPA Repositories for Category and Product public interface CategoryRepository extends JpaRepository&amp;lt;Category, Integer&amp;gt; { Category getByName(String name); } public interface ProductRepository extends JpaRepository&amp;lt;Product, Integer&amp;gt; { Product findByName(String name); Product findBySku(String sku); @Query(&#34;</description>
+Create Spring Data JPA Repositories for Category and Product public interface CategoryRepository extends JpaRepository&amp;lt;Category, Integer&amp;gt; {Category getByName(String name);}public interface ProductRepository extends JpaRepository&amp;lt;Product, Integer&amp;gt; {Product findByName(String name);Product findBySku(String sku);@Query(&amp;#34;select p from Product p where p.</description>
     </item>
     
     <item>
@@ -407,7 +409,7 @@ Create Spring Data JPA Repositories for Category and Product public interface Ca
       <pubDate>Sat, 19 Dec 2015 06:20:55 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2015/12/jcart-manage-users/</guid>
-      <description>In our previous post JCart: Manage Roles we have seen how to list all roles, create new roles and update them.
+      <description>In our previous post JCart: Manage Roles we have seen how to list all roles, create new roles and update them.
 Implementation of Manage Users also follows the same approach and very similar to the Implementation of Manage Roles. So I am not posting details of the implementation here again. Instead you can simply refer the code on JCart github repository https://github.com/sivaprasadreddy/jcart.
 If you have any questions regarding the implementation of Manage Users please post a comment.</description>
     </item>
@@ -476,7 +478,7 @@ Similarly I would like to run Administration site on https://host:9443 and if an
       
       <guid>https://sivalabs.github.io/2015/12/jcart-admin-reset-password/</guid>
       <description>Once the Admin User clicked on Password Reset Link that we sent via Email, we will validate the Token and if is valid then we will show a form to enter New Password, otherwise shows an error.
-@Controller public class UserAuthController extends JCartAdminBaseController { ... @RequestMapping(value=&#34;/resetPwd&#34;, method=RequestMethod.GET) public String resetPwd(HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) { String email = request.getParameter(&#34;email&#34;); String token = request.getParameter(&#34;token&#34;); boolean valid = securityService.verifyPasswordResetToken(email, token); if(valid){ model.</description>
+@Controller public class UserAuthController extends JCartAdminBaseController { ... @RequestMapping(value=&amp;#34;/resetPwd&amp;#34;, method=RequestMethod.GET) public String resetPwd(HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) { String email = request.getParameter(&amp;#34;email&amp;#34;); String token = request.getParameter(&amp;#34;token&amp;#34;); boolean valid = securityService.verifyPasswordResetToken(email, token); if(valid){ model.</description>
     </item>
     
     <item>
@@ -486,7 +488,7 @@ Similarly I would like to run Administration site on https://host:9443 and if an
       
       <guid>https://sivalabs.github.io/2015/12/jcart-admin-forgot-password/</guid>
       <description>We will provide a link to Forgot Password in Login page and create jcart-admin/src/main/resources/templates/public/forgotPwd.html template as follows:
-&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; layout:decorator=&#34;layout/guestLayout&#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Forgot Password&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body &amp;gt; &amp;lt;div layout:fragment=&#34;content&#34;&amp;gt; &amp;lt;form action=&#34;forgotPwd&#34; th:action=&#34;@{/forgotPwd}&#34; method=&#34;post&#34;&amp;gt; &amp;lt;input type=&#34;email&#34; class=&#34;form-control&#34; name=&#34;email&#34; placeholder=&#34;Email&#34;/&amp;gt; &amp;lt;button type=&#34;submit&#34; class=&#34;btn btn-primary btn-block btn-flat&#34; th:text=&#34;#{label.submit}&#34;&amp;gt;Submit&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  When Admin user enters the email address and submit we will generate a token, store it in our DB and generates a Reset Password Link and send it to their email.</description>
+&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34;layout:decorator=&amp;#34;layout/guestLayout&amp;#34;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;Forgot Password&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body &amp;gt;&amp;lt;div layout:fragment=&amp;#34;content&amp;#34;&amp;gt;&amp;lt;form action=&amp;#34;forgotPwd&amp;#34; th:action=&amp;#34;@{/forgotPwd}&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt;&amp;lt;input type=&amp;#34;email&amp;#34; class=&amp;#34;form-control&amp;#34; name=&amp;#34;email&amp;#34; placeholder=&amp;#34;Email&amp;#34;/&amp;gt; &amp;lt;button type=&amp;#34;submit&amp;#34; class=&amp;#34;btn btn-primary btn-block btn-flat&amp;#34; th:text=&amp;#34;#{label.submit}&amp;#34;&amp;gt;Submit&amp;lt;/button&amp;gt;&amp;lt;/form&amp;gt; &amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt; When Admin user enters the email address and submit we will generate a token, store it in our DB and generates a Reset Password Link and send it to their email.</description>
     </item>
     
     <item>
@@ -508,8 +510,8 @@ As we need Emailing feature in both Admin and ShoppingCart modules, we will impl
       <guid>https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/</guid>
       <description>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.
 Let us add the following spring-security dependencies to jcart-admin/pom.xml.
-&amp;lt;dependency &amp;lt;groupIdorg.springframework.boot&amp;lt;/groupId &amp;lt;artifactIdspring-boot-starter-security&amp;lt;/artifactId &amp;lt;/dependency &amp;lt;dependency &amp;lt;groupIdorg.thymeleaf.extras&amp;lt;/groupId &amp;lt;artifactIdthymeleaf-extras-springsecurity4&amp;lt;/artifactId &amp;lt;/dependency  If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
-http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,&#34;/register&#34;,&#34;/logout&#34;).permitAll() .antMatchers(&#34;/admin&#34;,&#34;/admin/**&#34;).hasRole(&#34;ADMIN&#34;) .anyRequest().authenticated() .and()  But we need provision to dynamically create new roles as well, hence we can&amp;#8217;t statically define constraints using role names.</description>
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-security&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf.extras&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf-extras-springsecurity4&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
+http .authorizeRequests() .antMatchers(&amp;#34;/login&amp;#34;,&amp;#34;/login/form**&amp;#34;,&amp;#34;/register&amp;#34;,&amp;#34;/logout&amp;#34;).permitAll() .antMatchers(&amp;#34;/admin&amp;#34;,&amp;#34;/admin/**&amp;#34;).hasRole(&amp;#34;ADMIN&amp;#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&amp;#8217;t statically define constraints using role names.</description>
     </item>
     
     <item>
@@ -529,7 +531,7 @@ We are going to use Thymeleaf templates for our View layer. Thymeleaf offers fac
       
       <guid>https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/</guid>
       <description>We are going to create the JPA Entities for the database tables we designed.
-@Entity @Table(name=&#34;users&#34;) public class User { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false) @NotEmpty() private String name; @Column(nullable=false, unique=true) @NotEmpty @Email(message=&#34;{errors.invalid_email}&#34;) private String email; @Column(nullable=false) @NotEmpty @Size(min=4) private String password; private String passwordResetToken; @ManyToMany(cascade=CascadeType.MERGE) @JoinTable( name=&#34;user_role&#34;, joinColumns={@JoinColumn(name=&#34;USER_ID&#34;, referencedColumnName=&#34;ID&#34;)}, inverseJoinColumns={@JoinColumn(name=&#34;ROLE_ID&#34;, referencedColumnName=&#34;ID&#34;)}) private List&amp;lt;Role&amp;gt; roles; //setters &amp; getters }  @Entity @Table(name=&#34;roles&#34;) public class Role { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false, unique=true) @NotEmpty private String name; @Column(length=1024) private String description; @ManyToMany(mappedBy=&#34;</description>
+@Entity @Table(name=&amp;#34;users&amp;#34;) public class User { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false) @NotEmpty() private String name; @Column(nullable=false, unique=true) @NotEmpty @Email(message=&amp;#34;{errors.invalid_email}&amp;#34;) private String email; @Column(nullable=false) @NotEmpty @Size(min=4) private String password; private String passwordResetToken; @ManyToMany(cascade=CascadeType.MERGE) @JoinTable( name=&amp;#34;user_role&amp;#34;, joinColumns={@JoinColumn(name=&amp;#34;USER_ID&amp;#34;, referencedColumnName=&amp;#34;ID&amp;#34;)}, inverseJoinColumns={@JoinColumn(name=&amp;#34;ROLE_ID&amp;#34;, referencedColumnName=&amp;#34;ID&amp;#34;)}) private List&amp;lt;Role&amp;gt; roles; //setters &amp;amp; getters } @Entity @Table(name=&amp;#34;roles&amp;#34;) public class Role { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false, unique=true) @NotEmpty private String name; @Column(length=1024) private String description; @ManyToMany(mappedBy=&amp;#34;roles&amp;#34;) private List&amp;lt;User&amp;gt; users; @ManyToMany @JoinTable( name=&amp;#34;role_permission&amp;#34;, joinColumns={@JoinColumn(name=&amp;#34;ROLE_ID&amp;#34;, referencedColumnName=&amp;#34;ID&amp;#34;)}, inverseJoinColumns={@JoinColumn(name=&amp;#34;PERM_ID&amp;#34;, referencedColumnName=&amp;#34;ID&amp;#34;)}) private List&amp;lt;Permission&amp;gt; permissions; //setters &amp;amp; getters }</description>
     </item>
     
     <item>
@@ -541,7 +543,6 @@ We are going to use Thymeleaf templates for our View layer. Thymeleaf offers fac
       <description>While developing database driven applications using some ORM framework, some people prefer Object first approach and others follow DB first approach. I prefer DB first approach.
 So, let us start listing down all the domain entities in our JCart application domain.
  Product Category Customer Order OrderItem Cart Address User Role Permission  Let us create the database tables as follows:
-&amp;nbsp;
 Though we identified Cart as a domain entity, we are not creating the table for holding the Cart details.</description>
     </item>
     
@@ -565,7 +566,7 @@ All these modules use SpringBoot, but as of now STS/IntellijIdea are not providi
       
       <guid>https://sivalabs.github.io/2015/12/jcart-iteration-1/</guid>
       <description>Now that we have completed the most difficult part (writing Introduction to technical article series is much harder than you think!!), so let&amp;#8217;s start the fun part. Coding!!!
- Note: It is going to be a fast paced tutorial. Obviously we can&amp;#8217;t cover every little bit of all the technologies used in our application. So I would suggest to explore more on individual technologies like Spring, Thymeleaf on your own.</description>
+ Note: It is going to be a fast paced tutorial. Obviously we can&amp;rsquo;t cover every little bit of all the technologies used in our application. So I would suggest to explore more on individual technologies like Spring, Thymeleaf on your own.</description>
     </item>
     
     <item>
@@ -575,9 +576,8 @@ All these modules use SpringBoot, but as of now STS/IntellijIdea are not providi
       
       <guid>https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</guid>
       <description>For our JCart application development we will be using the following Softwares/Tools.
-  JDK 8 SpringSource Tool Suite (STS)  MySQL Git  Maven  Jenkins  SonarQube  Apache/Nginx WebServer  &amp;nbsp;
-I am not going to explain how to install JDK or MySQL because there are plenty of articles you can find on internet.
-If you are using Ubuntu based Linux Operating System then you can refer my article My Development Environment Setup on Linux to setup Java development tool chain.</description>
+  JDK 8 SpringSource Tool Suite (STS)  MySQL Git  Maven  Jenkins  SonarQube  Apache/Nginx WebServer  I am not going to explain how to install JDK or MySQL because there are plenty of articles you can find on internet.
+If you are using Ubuntu based Linux Operating System then you can refer my article My Development Environment Setup on Linux to setup Java development tool chain.</description>
     </item>
     
     <item>
@@ -615,7 +615,7 @@ ShoppingCart Site Requirements Home Page: This page shows list of categories and
       <pubDate>Sat, 21 Nov 2015 02:28:23 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2015/11/introducing-the-application-jcart/</guid>
-      <description>As I promised in my article Developing a simple e-commerce application from scratch to production using SpringBoot, I am starting first post by introducing the application JCart that we are going to build.
+      <description>As I promised in my article Developing a simple e-commerce application from scratch to production using SpringBoot , I am starting first post by introducing the application JCart that we are going to build.
 One of my friend makes quilling toys and she sell them by advertising on Facebook or through word of mouth. Now she is getting more and more customers and she wants to expand her business by going online.</description>
     </item>
     
@@ -646,9 +646,7 @@ I am using Ubuntu/LinuxMint system so I am using apt-get to install, if you are 
       <guid>https://sivalabs.github.io/2015/10/how-to-ssh-into-virtualbox-linux-os/</guid>
       <description>While learning some of the Linux commands we may want to use SSH commands to login into a remote Linux system and we may not have a dedicated Linux system to play with.
 In this post I will explain how I am using my Linux OS installed on VirtualBox to SSH from Windows OS.
-
-1. Install openssh-server on Linux OS in VirtualBox
-sudo apt-get install openssh-server
+1. Install openssh-server on Linux OS in VirtualBox sudo apt-get install openssh-server
 On some Linux distros (ex: Fedora) the openssh server won&amp;#8217;t start automatically.</description>
     </item>
     
@@ -669,17 +667,6 @@ After few years Windows Vista got released and I suffered with it for few months
       
       <guid>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</guid>
       <description>I am Siva, working as a Software Developer in Hyderabad, India. Working as a Software Developer is very exciting as you see new things coming in everyday. If there are no new things at least we put a new fancy name to some old concept and celebrate (#microservices) :-). But in my opinion working as a Software Developer in India is little bit different and hard too. Few things are good, and few things are bad.</description>
-    </item>
-    
-    <item>
-      <title>Java Bloggers Meet at Hyderabad Oracle Campus Celebrating Java 20 Years Anniversary</title>
-      <link>https://sivalabs.github.io/2015/06/java-bloggers-meet-at-hyderabad-oracle-campus-celebrating-java-20-years-anniversary/</link>
-      <pubDate>Tue, 16 Jun 2015 05:52:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/06/java-bloggers-meet-at-hyderabad-oracle-campus-celebrating-java-20-years-anniversary/</guid>
-      <description>Oracle arranged a nice Java Bloggers Meet at Hyderabad Oracle campus on 13th June 2015 and we celebrated Java 20th anniversary.
-It is a pleasure to meet all the co-bloggers there and exchanged few thoughts on Java blogging. Also we are privileged to meet Java Champion Harshad Oak and Debraj Dutta who is the winner of Oracle IOT challenge.
-Debraj Dutta demonstrated his Bot-So robot which is so cool. This robot actually took pictures of us and uploaded to GoogleDrive and shared on Twitter!</description>
     </item>
     
     <item>
@@ -720,7 +707,7 @@ sudo yum update</description>
       
       <guid>https://sivalabs.github.io/2015/05/my-linux-journey-begins/</guid>
       <description>Like many people I started working with computers on Windows XP operating system. Even after starting my career as a Java developer I have been working on Windows for all my development activities.
-Initially I didn&amp;#8217;t get a chance(need) to work on Unix/Linux because we didn&amp;#8217;t have access to any of production systems which are using Linux. After few years we got a new client for whom we need to do deployment also in QA/UAT environments which are all Linux based.</description>
+Initially I didn&amp;rsquo;t get a chance(need) to work on Unix/Linux because we didn&amp;rsquo;t have access to any of production systems which are using Linux. After few years we got a new client for whom we need to do deployment also in QA/UAT environments which are all Linux based.</description>
     </item>
     
     <item>
@@ -730,7 +717,7 @@ Initially I didn&amp;#8217;t get a chance(need) to work on Unix/Linux because we
       
       <guid>https://sivalabs.github.io/2015/01/book-review-primefaces-blueprints/</guid>
       <description>PrimeFaces Blueprints is a recent publication from Packpub on PrimeFaces framework authored by Sudheer Jonna and Ramkumar Pillai. Sudheer Jonna is a well known member in the PrimeFaces community forum and is very knowledgeable on PrimeFaces and PrimeFaces Extensions.
-      PrimeFaces Blueprint book followed the approach of explaining the features with appropriate example applications. PrimeFaces provides more than 100 rich UI components with lot of customization options.</description>
+    PrimeFaces Blueprint book followed the approach of explaining the features with appropriate example applications. PrimeFaces provides more than 100 rich UI components with lot of customization options.   Instead of explaining all these components individually, the book authors explained how to use various PrimeFaces components together by developing 9 different small applications.</description>
     </item>
     
     <item>
