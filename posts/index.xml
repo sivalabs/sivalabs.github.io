@@ -71,7 +71,6 @@ We can go to http://start.spring.io/ and generate the project and then import in
       
       <guid>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</guid>
       <description>I would like to let you know that I have updated/added the following sections to my SpringBoot : Learn By Example book.
-
 Additions to existing chapters:  Working with Multiple Databases Exposing JPA entities with bi-directional references through RESTful services  In some of our applications we need to work with multiple databases. For example, we may have a primary database and a reporting database where most the application uses primary database and the application reports will be generated out of reporting database data.</description>
     </item>
     
