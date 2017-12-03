@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</loc>
+    <lastmod>2016-03-13T07:04:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/03/why-springboot/</loc>
+    <lastmod>2016-03-13T07:02:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</loc>
+    <lastmod>2015-11-20T14:18:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</loc>
+    <lastmod>2015-07-06T16:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</loc>
+    <lastmod>2015-06-15T13:04:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</loc>
+    <lastmod>2014-11-30T01:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</loc>
+    <lastmod>2013-12-29T00:53:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</loc>
+    <lastmod>2011-01-26T07:11:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://sivalabs.github.io/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</loc>
     <lastmod>2017-11-05T04:59:17+00:00</lastmod>
   </url>
@@ -75,16 +115,6 @@
   <url>
     <loc>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</loc>
     <lastmod>2016-03-14T07:08:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</loc>
-    <lastmod>2016-03-13T07:04:56+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2016/03/why-springboot/</loc>
-    <lastmod>2016-03-13T07:02:10+00:00</lastmod>
   </url>
   
   <url>
@@ -288,11 +318,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</loc>
-    <lastmod>2015-11-20T14:18:35+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</loc>
     <lastmod>2015-10-13T02:07:05+00:00</lastmod>
   </url>
@@ -305,16 +330,6 @@
   <url>
     <loc>https://sivalabs.github.io/2015/10/thinking-of-moving-from-windows-to-linux/</loc>
     <lastmod>2015-10-13T02:02:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</loc>
-    <lastmod>2015-07-06T16:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</loc>
-    <lastmod>2015-06-15T13:04:00+00:00</lastmod>
   </url>
   
   <url>
@@ -343,18 +358,8 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</loc>
-    <lastmod>2014-11-30T01:21:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</loc>
     <lastmod>2014-10-13T07:15:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</loc>
-    <lastmod>2013-12-29T00:53:00+00:00</lastmod>
   </url>
   
   <url>
@@ -408,11 +413,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</loc>
-    <lastmod>2011-01-26T07:11:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/2008/12/welcome-note/</loc>
     <lastmod>2008-12-21T08:05:00+00:00</lastmod>
   </url>
@@ -461,7 +461,7 @@
   
   <url>
     <loc>https://sivalabs.github.io/tags/e-commerce/</loc>
-    <lastmod>2015-11-24T04:34:03+00:00</lastmod>
+    <lastmod>2015-11-20T14:18:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -491,13 +491,13 @@
   
   <url>
     <loc>https://sivalabs.github.io/tags/java/</loc>
-    <lastmod>2015-11-22T05:17:20+00:00</lastmod>
+    <lastmod>2015-11-20T14:18:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.github.io/categories/java/</loc>
-    <lastmod>2017-08-14T12:30:43+00:00</lastmod>
+    <lastmod>2015-11-20T14:18:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -515,7 +515,7 @@
   
   <url>
     <loc>https://sivalabs.github.io/tags/jcart/</loc>
-    <lastmod>2015-12-31T11:37:10+00:00</lastmod>
+    <lastmod>2015-11-20T14:18:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -569,7 +569,7 @@
   
   <url>
     <loc>https://sivalabs.github.io/posts/</loc>
-    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <lastmod>2016-03-13T07:04:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -587,25 +587,25 @@
   
   <url>
     <loc>https://sivalabs.github.io/</loc>
-    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <lastmod>2016-03-13T07:04:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.github.io/tags/spring/</loc>
-    <lastmod>2017-08-14T12:30:43+00:00</lastmod>
+    <lastmod>2015-11-20T14:18:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.github.io/categories/spring/</loc>
-    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <lastmod>2016-03-13T07:04:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.github.io/tags/springboot/</loc>
-    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <lastmod>2016-03-13T07:04:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   

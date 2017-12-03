@@ -6,10 +6,50 @@
     <description>Recent content in Spring on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Oct 2017 02:50:23 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Mar 2016 07:04:56 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/categories/spring/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How SpringBoot AutoConfiguration magic works?</title>
+      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
+      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
+      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</description>
+    </item>
+    
+    <item>
+      <title>Why SpringBoot?</title>
+      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
+      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
+      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
+Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
+    </item>
+    
+    <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
+    </item>
+    
+    <item>
+      <title>A Developers Perspective on Spring vs JavaEE</title>
+      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
+      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
+      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
+I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
+    </item>
     
     <item>
       <title>Select ALL starters on Spring Initializer (http://start.spring.io)</title>
@@ -120,7 +160,7 @@ JOOQ provides the following features:
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</guid>
       <description>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
 SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&amp;nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
-Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
     
     <item>
@@ -131,28 +171,7 @@ Create a SpringBoot Maven project and add the following MyBatis Starter dependen
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</guid>
       <description>Spring provides a nice abstraction on top of JDBC API using JdbcTemplate and also provides great transaction management capabilities using annotation based approach.
 First let’s take a quick look at how we generally use Spring’s JdbcTemplate (without SpringBoot) by registering DataSource, TransactionManager and JdbcTemplate beans and optionally we can register DataSourceInitializer bean to initialize our database.
-@Configuration@ComponentScan@EnableTransactionManagement@PropertySource(value = { &amp;#34;classpath:application.properties&amp;#34; })public class AppConfig {@Autowiredprivate Environment env;@Value(&amp;#34;${init-db:false}&amp;#34;)private String initDatabase;@Beanpublic static PropertySourcesPlaceholderConfigurer placeHolderConfigurer(){return new PropertySourcesPlaceholderConfigurer();} @Beanpublic JdbcTemplate jdbcTemplate(DataSource dataSource){return new JdbcTemplate(dataSource);}@Beanpublic PlatformTransactionManager transactionManager(DataSource dataSource){return new DataSourceTransactionManager(dataSource);}@Beanpublic DataSource dataSource(){BasicDataSource dataSource = new BasicDataSource();dataSource.</description>
-    </item>
-    
-    <item>
-      <title>How SpringBoot AutoConfiguration magic works?</title>
-      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
-      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
-      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
-But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
-Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</description>
-    </item>
-    
-    <item>
-      <title>Why SpringBoot?</title>
-      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
-      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
-      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
-Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
+@Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { &amp;#34;classpath:application.properties&amp;#34; }) public class AppConfig { @Autowired private Environment env; @Value(&amp;#34;${init-db:false}&amp;#34;) private String initDatabase; @Bean public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() { return new PropertySourcesPlaceholderConfigurer(); } @Bean public JdbcTemplate jdbcTemplate(DataSource dataSource) { return new JdbcTemplate(dataSource); } @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { return new DataSourceTransactionManager(dataSource); } @Bean public DataSource dataSource() { BasicDataSource dataSource = new BasicDataSource(); dataSource.</description>
     </item>
     
     <item>
@@ -182,25 +201,6 @@ So I would like to show how I have used Spring AOP for one of my project to hand
       <guid>https://sivalabs.github.io/2015/11/introducing-the-application-jcart/</guid>
       <description>As I promised in my article Developing a simple e-commerce application from scratch to production using SpringBoot , I am starting first post by introducing the application JCart that we are going to build.
 One of my friend makes quilling toys and she sell them by advertising on Facebook or through word of mouth. Now she is getting more and more customers and she wants to expand her business by going online.</description>
-    </item>
-    
-    <item>
-      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
-      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
-      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
-      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
-    </item>
-    
-    <item>
-      <title>A Developers Perspective on Spring vs JavaEE</title>
-      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
-      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
-      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
-I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
     </item>
     
     <item>

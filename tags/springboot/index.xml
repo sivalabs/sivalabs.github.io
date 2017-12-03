@@ -6,10 +6,40 @@
     <description>Recent content in Springboot on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Oct 2017 02:50:23 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Mar 2016 07:04:56 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How SpringBoot AutoConfiguration magic works?</title>
+      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
+      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
+      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</description>
+    </item>
+    
+    <item>
+      <title>Why SpringBoot?</title>
+      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
+      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
+      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
+Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
+    </item>
+    
+    <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
+    </item>
     
     <item>
       <title>Select ALL starters on Spring Initializer (http://start.spring.io)</title>
@@ -107,7 +137,7 @@ JOOQ provides the following features:
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</guid>
       <description>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
 SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&amp;nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
-Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
     
     <item>
@@ -118,28 +148,7 @@ Create a SpringBoot Maven project and add the following MyBatis Starter dependen
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</guid>
       <description>Spring provides a nice abstraction on top of JDBC API using JdbcTemplate and also provides great transaction management capabilities using annotation based approach.
 First let’s take a quick look at how we generally use Spring’s JdbcTemplate (without SpringBoot) by registering DataSource, TransactionManager and JdbcTemplate beans and optionally we can register DataSourceInitializer bean to initialize our database.
-@Configuration@ComponentScan@EnableTransactionManagement@PropertySource(value = { &amp;#34;classpath:application.properties&amp;#34; })public class AppConfig {@Autowiredprivate Environment env;@Value(&amp;#34;${init-db:false}&amp;#34;)private String initDatabase;@Beanpublic static PropertySourcesPlaceholderConfigurer placeHolderConfigurer(){return new PropertySourcesPlaceholderConfigurer();} @Beanpublic JdbcTemplate jdbcTemplate(DataSource dataSource){return new JdbcTemplate(dataSource);}@Beanpublic PlatformTransactionManager transactionManager(DataSource dataSource){return new DataSourceTransactionManager(dataSource);}@Beanpublic DataSource dataSource(){BasicDataSource dataSource = new BasicDataSource();dataSource.</description>
-    </item>
-    
-    <item>
-      <title>How SpringBoot AutoConfiguration magic works?</title>
-      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
-      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
-      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
-But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
-Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</description>
-    </item>
-    
-    <item>
-      <title>Why SpringBoot?</title>
-      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
-      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
-      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
-Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
+@Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { &amp;#34;classpath:application.properties&amp;#34; }) public class AppConfig { @Autowired private Environment env; @Value(&amp;#34;${init-db:false}&amp;#34;) private String initDatabase; @Bean public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() { return new PropertySourcesPlaceholderConfigurer(); } @Bean public JdbcTemplate jdbcTemplate(DataSource dataSource) { return new JdbcTemplate(dataSource); } @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { return new DataSourceTransactionManager(dataSource); } @Bean public DataSource dataSource() { BasicDataSource dataSource = new BasicDataSource(); dataSource.</description>
     </item>
     
     <item>
@@ -170,7 +179,7 @@ Similarly I would like to run Administration site on https://host:9443 and if an
       
       <guid>https://sivalabs.github.io/2015/12/jcart-admin-forgot-password/</guid>
       <description>We will provide a link to Forgot Password in Login page and create jcart-admin/src/main/resources/templates/public/forgotPwd.html template as follows:
-&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34;layout:decorator=&amp;#34;layout/guestLayout&amp;#34;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;Forgot Password&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body &amp;gt;&amp;lt;div layout:fragment=&amp;#34;content&amp;#34;&amp;gt;&amp;lt;form action=&amp;#34;forgotPwd&amp;#34; th:action=&amp;#34;@{/forgotPwd}&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt;&amp;lt;input type=&amp;#34;email&amp;#34; class=&amp;#34;form-control&amp;#34; name=&amp;#34;email&amp;#34; placeholder=&amp;#34;Email&amp;#34;/&amp;gt; &amp;lt;button type=&amp;#34;submit&amp;#34; class=&amp;#34;btn btn-primary btn-block btn-flat&amp;#34; th:text=&amp;#34;#{label.submit}&amp;#34;&amp;gt;Submit&amp;lt;/button&amp;gt;&amp;lt;/form&amp;gt; &amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt; When Admin user enters the email address and submit we will generate a token, store it in our DB and generates a Reset Password Link and send it to their email.</description>
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34; layout:decorator=&amp;#34;layout/guestLayout&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Forgot Password&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body &amp;gt; &amp;lt;div layout:fragment=&amp;#34;content&amp;#34;&amp;gt; &amp;lt;form action=&amp;#34;forgotPwd&amp;#34; th:action=&amp;#34;@{/forgotPwd}&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;email&amp;#34; class=&amp;#34;form-control&amp;#34; name=&amp;#34;email&amp;#34; placeholder=&amp;#34;Email&amp;#34;/&amp;gt; &amp;lt;button type=&amp;#34;submit&amp;#34; class=&amp;#34;btn btn-primary btn-block btn-flat&amp;#34; th:text=&amp;#34;#{label.submit}&amp;#34;&amp;gt;Submit&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; When Admin user enters the email address and submit we will generate a token, store it in our DB and generates a Reset Password Link and send it to their email.</description>
     </item>
     
     <item>
@@ -248,15 +257,6 @@ All these modules use SpringBoot, but as of now STS/IntellijIdea are not providi
       
       <guid>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</guid>
       <description>Selecting the right technology stack is very crucial and plays an important role in project success. Many of the architects (unknowingly??!!) try to make complex designs by trying to use all kinds of latest and greatest stuff. On the other hand some architects try to be in their comfort zone by limiting their technology stack to the technologies with which they are comfortable. Both approaches are dangerous. One should understand the business needs and pick the technologies that are necessary for project.</description>
-    </item>
-    
-    <item>
-      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
-      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
-      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
-      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
     </item>
     
   </channel>

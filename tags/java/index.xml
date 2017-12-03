@@ -6,19 +6,10 @@
     <description>Recent content in Java on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Nov 2015 05:17:20 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2015 14:18:35 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Selecting The Technology Stack for JCart</title>
-      <link>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</link>
-      <pubDate>Sun, 22 Nov 2015 05:17:20 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</guid>
-      <description>Selecting the right technology stack is very crucial and plays an important role in project success. Many of the architects (unknowingly??!!) try to make complex designs by trying to use all kinds of latest and greatest stuff. On the other hand some architects try to be in their comfort zone by limiting their technology stack to the technologies with which they are comfortable. Both approaches are dangerous. One should understand the business needs and pick the technologies that are necessary for project.</description>
-    </item>
     
     <item>
       <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
@@ -40,6 +31,25 @@ Many people associate readability of code with coding conventions like following
     </item>
     
     <item>
+      <title>10 things to become an outstanding Java developer</title>
+      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
+      <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
+      <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
+1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
+    </item>
+    
+    <item>
+      <title>Selecting The Technology Stack for JCart</title>
+      <link>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</link>
+      <pubDate>Sun, 22 Nov 2015 05:17:20 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</guid>
+      <description>Selecting the right technology stack is very crucial and plays an important role in project success. Many of the architects (unknowingly??!!) try to make complex designs by trying to use all kinds of latest and greatest stuff. On the other hand some architects try to be in their comfort zone by limiting their technology stack to the technologies with which they are comfortable. Both approaches are dangerous. One should understand the business needs and pick the technologies that are necessary for project.</description>
+    </item>
+    
+    <item>
       <title>MyBatis Tutorial: Part1 – CRUD Operations</title>
       <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part1-crud-operations/</link>
       <pubDate>Sun, 21 Oct 2012 11:10:00 +0000</pubDate>
@@ -51,7 +61,7 @@ MyBatis Tutorial: Part-2: CRUD operations Using Annotations
 MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
 MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
 Step1: Create a Maven project and configure MyBatis dependencies.
-&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt;&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;&amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt;&amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt;&amp;lt;properties&amp;gt;&amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;&amp;lt;/properties&amp;gt;&amp;lt;build&amp;gt;&amp;lt;plugins&amp;gt;&amp;lt;plugin&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
+&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
     
     <item>
@@ -74,16 +84,6 @@ I have written the infrastructure code and implemented 2 usecases to demonstrate
       <description>Last week I got to take interviews to hire senior java developers with around 5 years of experience. But after the interview process is over I felt like the frameworks makes developers life easier but at the same time  making them dumb.
 Everyone puts almost all the new frameworks on their resume claiming they have &amp;#8220;Strong, working experience on Spring, Hibernate, Web Services etc&amp;#8221;.
 Here is how the interviews went on.</description>
-    </item>
-    
-    <item>
-      <title>10 things to become an outstanding Java developer</title>
-      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
-      <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
-      <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
-1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
     </item>
     
   </channel>

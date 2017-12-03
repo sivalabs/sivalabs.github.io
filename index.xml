@@ -6,10 +6,89 @@
     <description>Recent content on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Nov 2017 04:59:17 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Mar 2016 07:04:56 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How SpringBoot AutoConfiguration magic works?</title>
+      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
+      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
+      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</description>
+    </item>
+    
+    <item>
+      <title>Why SpringBoot?</title>
+      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
+      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
+      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
+Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
+    </item>
+    
+    <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
+    </item>
+    
+    <item>
+      <title>My Life as a Software Developer in India</title>
+      <link>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</link>
+      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</guid>
+      <description>I am Siva, working as a Software Developer in Hyderabad, India. Working as a Software Developer is very exciting as you see new things coming in everyday. If there are no new things at least we put a new fancy name to some old concept and celebrate (#microservices) :-). But in my opinion working as a Software Developer in India is little bit different and hard too. Few things are good, and few things are bad.</description>
+    </item>
+    
+    <item>
+      <title>A Developers Perspective on Spring vs JavaEE</title>
+      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
+      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
+      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
+I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
+    </item>
+    
+    <item>
+      <title>Can MicroServices Architecture Solve All Your Problems?</title>
+      <link>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</link>
+      <pubDate>Sun, 30 Nov 2014 01:21:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</guid>
+      <description>IT is one field where you can find new things coming everyday. Theses days the whole developer community websites are flooded with MicroServices and Docker related stuff. Among them the idea of MicroServices is very exciting and encourages better way of building software systems. But as with any architectural style there will be pros and cons to every approach.
+Before discussing what are good and bad sides of MicroServices approach, first let me say what I understood about MicroServices.</description>
+    </item>
+    
+    <item>
+      <title>Clean Code: Don’t mix different levels of abstractions</title>
+      <link>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
+      <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
+      <description>We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.
+Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.</description>
+    </item>
+    
+    <item>
+      <title>10 things to become an outstanding Java developer</title>
+      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
+      <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
+      <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
+1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
+    </item>
     
     <item>
       <title>My Review of Vlad Mihalcea’s High-Performance Java Persistence book</title>
@@ -164,7 +243,7 @@ JOOQ provides the following features:
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</guid>
       <description>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
 SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&amp;nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
-Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
     
     <item>
@@ -175,28 +254,7 @@ Create a SpringBoot Maven project and add the following MyBatis Starter dependen
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</guid>
       <description>Spring provides a nice abstraction on top of JDBC API using JdbcTemplate and also provides great transaction management capabilities using annotation based approach.
 First let’s take a quick look at how we generally use Spring’s JdbcTemplate (without SpringBoot) by registering DataSource, TransactionManager and JdbcTemplate beans and optionally we can register DataSourceInitializer bean to initialize our database.
-@Configuration@ComponentScan@EnableTransactionManagement@PropertySource(value = { &amp;#34;classpath:application.properties&amp;#34; })public class AppConfig {@Autowiredprivate Environment env;@Value(&amp;#34;${init-db:false}&amp;#34;)private String initDatabase;@Beanpublic static PropertySourcesPlaceholderConfigurer placeHolderConfigurer(){return new PropertySourcesPlaceholderConfigurer();} @Beanpublic JdbcTemplate jdbcTemplate(DataSource dataSource){return new JdbcTemplate(dataSource);}@Beanpublic PlatformTransactionManager transactionManager(DataSource dataSource){return new DataSourceTransactionManager(dataSource);}@Beanpublic DataSource dataSource(){BasicDataSource dataSource = new BasicDataSource();dataSource.</description>
-    </item>
-    
-    <item>
-      <title>How SpringBoot AutoConfiguration magic works?</title>
-      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
-      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
-      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
-But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
-Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</description>
-    </item>
-    
-    <item>
-      <title>Why SpringBoot?</title>
-      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
-      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
-      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
-Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
+@Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { &amp;#34;classpath:application.properties&amp;#34; }) public class AppConfig { @Autowired private Environment env; @Value(&amp;#34;${init-db:false}&amp;#34;) private String initDatabase; @Bean public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() { return new PropertySourcesPlaceholderConfigurer(); } @Bean public JdbcTemplate jdbcTemplate(DataSource dataSource) { return new JdbcTemplate(dataSource); } @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { return new DataSourceTransactionManager(dataSource); } @Bean public DataSource dataSource() { BasicDataSource dataSource = new BasicDataSource(); dataSource.</description>
     </item>
     
     <item>
@@ -228,7 +286,7 @@ First let us write the Controller handler method in our CustomerController to sh
       <guid>https://sivalabs.github.io/2015/12/jcart-manage-customers/</guid>
       <description>For Managing Customers we need a provision to see all the list of customers and view any Customers details.
 Let us start with implementing the back-end Customer service.
-public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt;{Customer findByEmail(String email);@Query(&amp;#34;select o from Order o where o.customer.email=?1&amp;#34;)List&amp;lt;Order&amp;gt; getCustomerOrders(String email);} @Service@Transactionalpublic class CustomerService {@Autowired CustomerRepository customerRepository;public Customer getCustomerByEmail(String email) {return customerRepository.findByEmail(email);}public Customer createCustomer(Customer customer) {return customerRepository.</description>
+public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt; { Customer findByEmail(String email); @Query(&amp;#34;select o from Order o where o.customer.email=?1&amp;#34;) List&amp;lt;Order&amp;gt; getCustomerOrders(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.</description>
     </item>
     
     <item>
@@ -239,7 +297,7 @@ public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integ
       <guid>https://sivalabs.github.io/2015/12/jcart-manage-orders/</guid>
       <description>For Managing Orders we need a provision to see all the list of orders and view an order details and updating the order status.
 Let us start with implementing the back-end order service.
-@Service@Transactionalpublic class OrderService{@Autowired EmailService emailService;@Autowired OrderRepository orderRepository;......public Order getOrder(String orderNumber){return orderRepository.findByOrderNumber(orderNumber);}public List&amp;lt;Order&amp;gt; getAllOrders(){Sort sort = new Sort(Direction.DESC, &amp;#34;createdOn&amp;#34;);return orderRepository.findAll(sort);}public Order updateOrder(Order order) {Order o = getOrder(order.</description>
+@Service @Transactional public class OrderService { @Autowired EmailService emailService; @Autowired OrderRepository orderRepository; ... ... public Order getOrder(String orderNumber) { return orderRepository.findByOrderNumber(orderNumber); } public List&amp;lt;Order&amp;gt; getAllOrders() { Sort sort = new Sort(Direction.DESC, &amp;#34;createdOn&amp;#34;); return orderRepository.findAll(sort); } public Order updateOrder(Order order) { Order o = getOrder(order.</description>
     </item>
     
     <item>
@@ -261,7 +319,7 @@ As part of Iteration#7 we will implement the following usecases:
       <guid>https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/</guid>
       <description>Once the customer reviewed his cart items details and clicks on Checkout we should display Billing &amp;amp; Delivery page where customer enters delivery address details, payment details etc and place the order.
 Let us create a OrderDTO.java as follows:
-public class OrderDTO implements Serializable{private static final long serialVersionUID = 1L;@NotEmpty(message=&amp;#34;FirstName is required&amp;#34;)private String firstName;@NotEmpty(message=&amp;#34;LastName is required&amp;#34;)private String lastName;@NotEmpty(message=&amp;#34;EmailId is required&amp;#34;)@Emailprivate String emailId;@NotEmpty(message=&amp;#34;Phone is required&amp;#34;)private String phone;@NotEmpty(message=&amp;#34;Address Line1 is required&amp;#34;)private String addressLine1;private String addressLine2;@NotEmpty(message=&amp;#34;City is required&amp;#34;)private String city;@NotEmpty(message=&amp;#34;State is required&amp;#34;)private String state;@NotEmpty(message=&amp;#34;ZipCode is required&amp;#34;)private String zipCode;@NotEmpty(message=&amp;#34;Country is required&amp;#34;)private String country;@NotEmpty(message=&amp;#34;FirstName is required&amp;#34;)private String billingFirstName;@NotEmpty(message=&amp;#34;LastName is required&amp;#34;)private String billingLastName;@NotEmpty(message=&amp;#34;Address Line1 is required&amp;#34;)private String billingAddressLine1;private String billingAddressLine2;@NotEmpty(message=&amp;#34;City is required&amp;#34;)private String billingCity;@NotEmpty(message=&amp;#34;State is required&amp;#34;)private String billingState;@NotEmpty(message=&amp;#34;ZipCode is required&amp;#34;)private String billingZipCode;@NotEmpty(message=&amp;#34;Country is required&amp;#34;)private String billingCountry;@NotEmpty(message=&amp;#34;Credit Card Number is required&amp;#34;)private String ccNumber;@NotEmpty(message=&amp;#34;CVV is required&amp;#34;)private String cvv;//setters &amp;amp; getters} Create CheckoutController to display the Billing &amp;amp; Delivery page as follows:</description>
+public class OrderDTO implements Serializable { private static final long serialVersionUID = 1L; @NotEmpty(message=&amp;#34;FirstName is required&amp;#34;) private String firstName; @NotEmpty(message=&amp;#34;LastName is required&amp;#34;) private String lastName; @NotEmpty(message=&amp;#34;EmailId is required&amp;#34;) @Email private String emailId; @NotEmpty(message=&amp;#34;Phone is required&amp;#34;) private String phone; @NotEmpty(message=&amp;#34;Address Line1 is required&amp;#34;) private String addressLine1; private String addressLine2; @NotEmpty(message=&amp;#34;City is required&amp;#34;) private String city; @NotEmpty(message=&amp;#34;State is required&amp;#34;) private String state; @NotEmpty(message=&amp;#34;ZipCode is required&amp;#34;) private String zipCode; @NotEmpty(message=&amp;#34;Country is required&amp;#34;) private String country; @NotEmpty(message=&amp;#34;FirstName is required&amp;#34;) private String billingFirstName; @NotEmpty(message=&amp;#34;LastName is required&amp;#34;) private String billingLastName; @NotEmpty(message=&amp;#34;Address Line1 is required&amp;#34;) private String billingAddressLine1; private String billingAddressLine2; @NotEmpty(message=&amp;#34;City is required&amp;#34;) private String billingCity; @NotEmpty(message=&amp;#34;State is required&amp;#34;) private String billingState; @NotEmpty(message=&amp;#34;ZipCode is required&amp;#34;) private String billingZipCode; @NotEmpty(message=&amp;#34;Country is required&amp;#34;) private String billingCountry; @NotEmpty(message=&amp;#34;Credit Card Number is required&amp;#34;) private String ccNumber; @NotEmpty(message=&amp;#34;CVV is required&amp;#34;) private String cvv; //setters &amp;amp; getters } Create CheckoutController to display the Billing &amp;amp; Delivery page as follows:</description>
     </item>
     
     <item>
@@ -272,7 +330,7 @@ public class OrderDTO implements Serializable{private static final long serial
       <guid>https://sivalabs.github.io/2015/12/jcart-customer-registration/</guid>
       <description>To facilitate new customer registration we will provide a new Registration form where customer provide his details and register with our system.
 Let us implement the back-end customer service operations.
-public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt;{Customer findByEmail(String email);} @Service@Transactionalpublic class CustomerService {@Autowired CustomerRepository customerRepository;public Customer getCustomerByEmail(String email) {return customerRepository.findByEmail(email);}public Customer createCustomer(Customer customer) {return customerRepository.save(customer);}} @Componentpublic class CustomerValidator implements Validator{@Autowired private CustomerService custmoerService;@Overridepublic boolean supports(Class&amp;lt;?</description>
+public interface CustomerRepository extends JpaRepository&amp;lt;Customer, Integer&amp;gt;{ Customer findByEmail(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.save(customer); } } @Component public class CustomerValidator implements Validator { @Autowired private CustomerService custmoerService; @Override public boolean supports(Class&amp;lt;?</description>
     </item>
     
     <item>
@@ -304,7 +362,7 @@ As per of this we will implement the following usecases:
       <guid>https://sivalabs.github.io/2015/12/jcart-view-cart/</guid>
       <description>In our earlier post we have implemented Add To Cart functionality. In this post we will implement showing the Cart Item details.
 In out mainLayout.html header we have ShoppingCart icon showing the cart item count as follows:
-&amp;lt;div class=&amp;#34;shopping-item&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;#&amp;#34; th:href=&amp;#34;@{/cart}&amp;#34;&amp;gt;Cart &amp;lt;i class=&amp;#34;fa fa-shopping-cart&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span id=&amp;#34;cart-item-count&amp;#34; class=&amp;#34;product-count&amp;#34;&amp;gt;(0)&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt; When customer clicks on Cart icon we will show the Cart details. Let us implement the &amp;#8220;/cart&amp;#8221; url handler method in CartController as follows:</description>
+&amp;lt;div class=&amp;#34;shopping-item&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;#&amp;#34; th:href=&amp;#34;@{/cart}&amp;#34;&amp;gt;Cart &amp;lt;i class=&amp;#34;fa fa-shopping-cart&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span id=&amp;#34;cart-item-count&amp;#34; class=&amp;#34;product-count&amp;#34;&amp;gt;(0)&amp;lt;/span&amp;gt; &amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; When customer clicks on Cart icon we will show the Cart details. Let us implement the &amp;#8220;/cart&amp;#8221; url handler method in CartController as follows:</description>
     </item>
     
     <item>
@@ -314,9 +372,9 @@ In out mainLayout.html header we have ShoppingCart icon showing the cart item co
       
       <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/</guid>
       <description>In our HomePage/CategoryPage/ProductPage we have a button Add To Cart as follows:
-&amp;lt;a class=&amp;#34;add_to_cart_button&amp;#34; data-quantity=&amp;#34;1&amp;#34; data-product_sku=&amp;#34;&amp;#34; data-product_id=&amp;#34;70&amp;#34; rel=&amp;#34;nofollow&amp;#34; href=&amp;#34;#&amp;#34;th:onclick=&amp;#34;&amp;#39;javascript:addItemToCart(\&amp;#39;&amp;#39; + ${product.sku} + &amp;#39;\&amp;#39;);&amp;#39;&amp;#34;&amp;gt;Add to cart&amp;lt;/a&amp;gt; When customer clicks on Add To Cart button it will trigger addItemToCart(sku) JavaScript function passing the product SKU value.
+&amp;lt;a class=&amp;#34;add_to_cart_button&amp;#34; data-quantity=&amp;#34;1&amp;#34; data-product_sku=&amp;#34;&amp;#34; data-product_id=&amp;#34;70&amp;#34; rel=&amp;#34;nofollow&amp;#34; href=&amp;#34;#&amp;#34; th:onclick=&amp;#34;&amp;#39;javascript:addItemToCart(\&amp;#39;&amp;#39; + ${product.sku} + &amp;#39;\&amp;#39;);&amp;#39;&amp;#34;&amp;gt; Add to cart &amp;lt;/a&amp;gt; When customer clicks on Add To Cart button it will trigger addItemToCart(sku) JavaScript function passing the product SKU value.
 Now create jcart-site/src/main/resources/static/assets/js/app.js and implement addItemToCart(sku) function as follows:
-function addItemToCart(sku){$.ajax ({ url: &amp;#39;/cart/items&amp;#39;, type: &amp;#34;POST&amp;#34;, dataType: &amp;#34;json&amp;#34;,contentType: &amp;#34;application/json&amp;#34;,data : &amp;#39;{&amp;#34;sku&amp;#34;:&amp;#34;&amp;#39;+ sku +&amp;#39;&amp;#34;}&amp;#34;&amp;#39;,complete: function(responseData, status, xhttp){updateCartItemCount();	}}); } This function triggers an Ajax call to url &amp;#8216;/cart/items&amp;#8217; using jQuery and if it is successful we are calling another JavaScript function updateCartItemCount().</description>
+function addItemToCart(sku) { $.ajax ({ url: &amp;#39;/cart/items&amp;#39;, type: &amp;#34;POST&amp;#34;, dataType: &amp;#34;json&amp;#34;, contentType: &amp;#34;application/json&amp;#34;, data : &amp;#39;{&amp;#34;sku&amp;#34;:&amp;#34;&amp;#39;+ sku +&amp;#39;&amp;#34;}&amp;#34;&amp;#39;, complete: function(responseData, status, xhttp){ updateCartItemCount();	} }); } This function triggers an Ajax call to url &amp;#8216;/cart/items&amp;#8217; using jQuery and if it is successful we are calling another JavaScript function updateCartItemCount().</description>
     </item>
     
     <item>
@@ -339,7 +397,7 @@ In this Iteration we will implement the following usecases:
       <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/</guid>
       <description>In our main template we have a Search box to search for products. In this post we will implement the Product Search functionality. When customer search for a product we will search products based on name or SKU or description.
 Let us implement the search handler method in ProductController as follows:
-@Controllerpublic class ProductController extends JCartSiteBaseController{	@Autowired protected CatalogService catalogService;......@RequestMapping(&amp;#34;/products&amp;#34;)public String searchProducts(@RequestParam(name=&amp;#34;q&amp;#34;, defaultValue=&amp;#34;&amp;#34;) String query, Model model){List&amp;lt;Product&amp;gt; products = catalogService.</description>
+@Controller public class ProductController extends JCartSiteBaseController {	@Autowired protected CatalogService catalogService; ... ... @RequestMapping(&amp;#34;/products&amp;#34;) public String searchProducts(@RequestParam(name=&amp;#34;q&amp;#34;, defaultValue=&amp;#34;&amp;#34;) String query, Model model) { List&amp;lt;Product&amp;gt; products = catalogService.</description>
     </item>
     
     <item>
@@ -350,7 +408,7 @@ Let us implement the search handler method in ProductController as follows:
       <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/</guid>
       <description>Customers can click on a product to view more details about the product either in Home Page or in Category Page.
 Let us implement Controller method to show Product details as follows:
-@Controllerpublic class ProductController extends JCartSiteBaseController{	@Autowired protected CatalogService catalogService;........@RequestMapping(&amp;#34;/products/{sku}&amp;#34;)public String product(@PathVariable String sku, Model model){Product product = catalogService.getProductBySku(sku);model.addAttribute(&amp;#34;product&amp;#34;, product);return &amp;#34;product&amp;#34;;}} @Service@Transactionalpublic class CatalogService {@Autowired ProductRepository productRepository;.</description>
+@Controller public class ProductController extends JCartSiteBaseController {	@Autowired protected CatalogService catalogService; .... .... @RequestMapping(&amp;#34;/products/{sku}&amp;#34;) public String product(@PathVariable String sku, Model model) { Product product = catalogService.getProductBySku(sku); model.addAttribute(&amp;#34;product&amp;#34;, product); return &amp;#34;product&amp;#34;; } } @Service @Transactional public class CatalogService { @Autowired ProductRepository productRepository; .</description>
     </item>
     
     <item>
@@ -362,7 +420,7 @@ Let us implement Controller method to show Product details as follows:
       <description>In our Home Page we displayed all the Categories along with few products per each category. When customer clicks on any Category Name we should display Category Page which shows all the products in that Category.
 We already have HomeController.category() method to handle the URL /categories/{name}.
 So let us create category.html thymeleaf template as follows:
-&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34;xmlns:sec=&amp;#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&amp;#34;layout:decorator=&amp;#34;layout/mainLayout&amp;#34;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;Category&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div layout:fragment=&amp;#34;content&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;single-product-area&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;zigzag-bottom&amp;#34;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;#34;container&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;row&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;woocommerce-info&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;&amp;#34; th:href=&amp;#34;@{/}&amp;#34;&amp;gt;Home&amp;lt;/a&amp;gt; / &amp;lt;a href=&amp;#34;&amp;#34; th:href=&amp;#34;@{/categories/{name}(name=${category.</description>
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34; xmlns:sec=&amp;#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&amp;#34; layout:decorator=&amp;#34;layout/mainLayout&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Category&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div layout:fragment=&amp;#34;content&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;single-product-area&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;zigzag-bottom&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;container&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;row&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;woocommerce-info&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;&amp;#34; th:href=&amp;#34;@{/}&amp;#34;&amp;gt;Home&amp;lt;/a&amp;gt; / &amp;lt;a href=&amp;#34;&amp;#34; th:href=&amp;#34;@{/categories/{name}(name=${category.</description>
     </item>
     
     <item>
@@ -373,7 +431,7 @@ So let us create category.html thymeleaf template as follows:
       <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/</guid>
       <description>In our Home page we will show all the categories along with few of the products in each Category.
 Let us update HomeController with two methods to show all the categories and the selected category products.
-@Controllerpublic class HomeController extends JCartSiteBaseController{	@Autowired protected CatalogService catalogService;@RequestMapping(&amp;#34;/home&amp;#34;)public String home(Model model){List&amp;lt;Category&amp;gt; previewCategories = new ArrayList&amp;lt;&amp;gt;();List&amp;lt;Category&amp;gt; categories = catalogService.getAllCategories();for (Category category : categories){Set&amp;lt;Product&amp;gt; products = category.</description>
+@Controller public class HomeController extends JCartSiteBaseController {	@Autowired protected CatalogService catalogService; @RequestMapping(&amp;#34;/home&amp;#34;) public String home(Model model) { List&amp;lt;Category&amp;gt; previewCategories = new ArrayList&amp;lt;&amp;gt;(); List&amp;lt;Category&amp;gt; categories = catalogService.getAllCategories(); for (Category category : categories) { Set&amp;lt;Product&amp;gt; products = category.</description>
     </item>
     
     <item>
@@ -385,7 +443,7 @@ Let us update HomeController with two methods to show all the categories and the
       <description>In this post we will setup the layout for our ShoppingCart UI using Thymeleaf templates.
 Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ and copy the following directories/files into jcart-site/src/main/resources/static/assets folder.
  css fonts img js style.css  Create Site layout thymeleaf template jcart-site/src/main/resources/templates/layout/mainLayout.html as follows:
-&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34;xmlns:sec=&amp;#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&amp;#34;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#34;utf-8&amp;#34;/&amp;gt;&amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;/&amp;gt;&amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1&amp;#34;/&amp;gt;&amp;lt;title layout:title-pattern=&amp;#34;$DECORATOR_TITLE - $CONTENT_TITLE&amp;#34;&amp;gt;QuilCart&amp;lt;/title&amp;gt;&amp;lt;!-- Google Fonts --&amp;gt;&amp;lt;link href=&amp;#39;https://fonts.</description>
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34; xmlns:sec=&amp;#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;/&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;/&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1&amp;#34;/&amp;gt; &amp;lt;title layout:title-pattern=&amp;#34;$DECORATOR_TITLE - $CONTENT_TITLE&amp;#34;&amp;gt;QuilCart&amp;lt;/title&amp;gt; &amp;lt;!-- Google Fonts --&amp;gt; &amp;lt;link href=&amp;#39;https://fonts.</description>
     </item>
     
     <item>
@@ -397,7 +455,7 @@ Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ a
       <description>First we will start with setting up the initial code using SpringBoot. We have already discussed in JCart: Initial Code SetUp article about creating a maven module jcart-site which will be our ShoppingCart application. In that article we have shown what springboot dependencies to add as well.
 Just to recap we will be using SpringBoot, SpringMVC, Thymeleaf, JPA for our ShoppingCart application.
 jcart-site/pom.xml
-&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt;&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&amp;lt;parent&amp;gt;&amp;lt;groupId&amp;gt;com.</description>
+&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;com.</description>
     </item>
     
     <item>
@@ -420,7 +478,7 @@ jcart-site/pom.xml
       <description>In this iteration we will start working on the key requirement of our JCart administration application, ie managing categories and products.
 We will create various categories like Birds, Flowers, Vehicles etc. While creating products we will assign it to one of the category.
 Managing Categories and Products also looks similar to Manage Roles and Users. But there are few new things we will learn like FileUploading etc.
-Create Spring Data JPA Repositories for Category and Product public interface CategoryRepository extends JpaRepository&amp;lt;Category, Integer&amp;gt; {Category getByName(String name);}public interface ProductRepository extends JpaRepository&amp;lt;Product, Integer&amp;gt; {Product findByName(String name);Product findBySku(String sku);@Query(&amp;#34;select p from Product p where p.</description>
+Create Spring Data JPA Repositories for Category and Product public interface CategoryRepository extends JpaRepository&amp;lt;Category, Integer&amp;gt; { Category getByName(String name); } public interface ProductRepository extends JpaRepository&amp;lt;Product, Integer&amp;gt; { Product findByName(String name); Product findBySku(String sku); @Query(&amp;#34;select p from Product p where p.</description>
     </item>
     
     <item>
@@ -508,7 +566,7 @@ Similarly I would like to run Administration site on https://host:9443 and if an
       
       <guid>https://sivalabs.github.io/2015/12/jcart-admin-forgot-password/</guid>
       <description>We will provide a link to Forgot Password in Login page and create jcart-admin/src/main/resources/templates/public/forgotPwd.html template as follows:
-&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34;layout:decorator=&amp;#34;layout/guestLayout&amp;#34;&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;Forgot Password&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body &amp;gt;&amp;lt;div layout:fragment=&amp;#34;content&amp;#34;&amp;gt;&amp;lt;form action=&amp;#34;forgotPwd&amp;#34; th:action=&amp;#34;@{/forgotPwd}&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt;&amp;lt;input type=&amp;#34;email&amp;#34; class=&amp;#34;form-control&amp;#34; name=&amp;#34;email&amp;#34; placeholder=&amp;#34;Email&amp;#34;/&amp;gt; &amp;lt;button type=&amp;#34;submit&amp;#34; class=&amp;#34;btn btn-primary btn-block btn-flat&amp;#34; th:text=&amp;#34;#{label.submit}&amp;#34;&amp;gt;Submit&amp;lt;/button&amp;gt;&amp;lt;/form&amp;gt; &amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt; When Admin user enters the email address and submit we will generate a token, store it in our DB and generates a Reset Password Link and send it to their email.</description>
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34; layout:decorator=&amp;#34;layout/guestLayout&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Forgot Password&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body &amp;gt; &amp;lt;div layout:fragment=&amp;#34;content&amp;#34;&amp;gt; &amp;lt;form action=&amp;#34;forgotPwd&amp;#34; th:action=&amp;#34;@{/forgotPwd}&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;email&amp;#34; class=&amp;#34;form-control&amp;#34; name=&amp;#34;email&amp;#34; placeholder=&amp;#34;Email&amp;#34;/&amp;gt; &amp;lt;button type=&amp;#34;submit&amp;#34; class=&amp;#34;btn btn-primary btn-block btn-flat&amp;#34; th:text=&amp;#34;#{label.submit}&amp;#34;&amp;gt;Submit&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; When Admin user enters the email address and submit we will generate a token, store it in our DB and generates a Reset Password Link and send it to their email.</description>
     </item>
     
     <item>
@@ -640,15 +698,6 @@ One of my friend makes quilling toys and she sell them by advertising on Faceboo
     </item>
     
     <item>
-      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
-      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
-      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
-      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
-    </item>
-    
-    <item>
       <title>My Development Environment Setup on Linux</title>
       <link>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</link>
       <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
@@ -678,25 +727,6 @@ On some Linux distros (ex: Fedora) the openssh server won&amp;#8217;t start auto
       <guid>https://sivalabs.github.io/2015/10/thinking-of-moving-from-windows-to-linux/</guid>
       <description>I have been using Windows operating system from the beginning. When I first started using computer Windows XP was the latest operating system and it was amazing. After few years I started my career as a Java developer and in my office also I have been using Windows only.
 After few years Windows Vista got released and I suffered with it for few months and then Microsoft released Windows 7 which is the best Windows operating system IMO.</description>
-    </item>
-    
-    <item>
-      <title>My Life as a Software Developer in India</title>
-      <link>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</link>
-      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</guid>
-      <description>I am Siva, working as a Software Developer in Hyderabad, India. Working as a Software Developer is very exciting as you see new things coming in everyday. If there are no new things at least we put a new fancy name to some old concept and celebrate (#microservices) :-). But in my opinion working as a Software Developer in India is little bit different and hard too. Few things are good, and few things are bad.</description>
-    </item>
-    
-    <item>
-      <title>A Developers Perspective on Spring vs JavaEE</title>
-      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
-      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
-      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
-I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
     </item>
     
     <item>
@@ -755,32 +785,12 @@ Initially I didn&amp;rsquo;t get a chance(need) to work on Unix/Linux because we
     </item>
     
     <item>
-      <title>Can MicroServices Architecture Solve All Your Problems?</title>
-      <link>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</link>
-      <pubDate>Sun, 30 Nov 2014 01:21:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</guid>
-      <description>IT is one field where you can find new things coming everyday. Theses days the whole developer community websites are flooded with MicroServices and Docker related stuff. Among them the idea of MicroServices is very exciting and encourages better way of building software systems. But as with any architectural style there will be pros and cons to every approach.
-Before discussing what are good and bad sides of MicroServices approach, first let me say what I understood about MicroServices.</description>
-    </item>
-    
-    <item>
       <title>NetBeansIDE and IntellijIDEA From The Eyes of a Long Time Eclipse User</title>
       <link>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</link>
       <pubDate>Mon, 13 Oct 2014 07:15:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</guid>
       <description>I have been using Eclipse IDE since 2006 and I liked it so much for various reasons. First it is open source and free to use. Eclipse looks pretty neat on Windows OS on which I work most of the time. Occasionally I tried to use NetBeansIDE (before 6.x version) and I didn&amp;rsquo;t like it because it&amp;rsquo;s too slow. And I never tried IntellijIDEA because it&amp;rsquo;s a commercial product and I am 100% sure that my employer is not going to pay $$$ for an IDE.</description>
-    </item>
-    
-    <item>
-      <title>Clean Code: Don’t mix different levels of abstractions</title>
-      <link>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
-      <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
-      <description>We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.
-Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.</description>
     </item>
     
     <item>
@@ -871,7 +881,7 @@ MyBatis Tutorial: Part-2: CRUD operations Using Annotations
 MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
 MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
 Step1: Create a Maven project and configure MyBatis dependencies.
-&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt;&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;&amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt;&amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt;&amp;lt;properties&amp;gt;&amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;&amp;lt;/properties&amp;gt;&amp;lt;build&amp;gt;&amp;lt;plugins&amp;gt;&amp;lt;plugin&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
+&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
     
     <item>
@@ -905,16 +915,6 @@ response.sendRedirect() is generally called as Client side redirection as it iss
       <description>Last week I got to take interviews to hire senior java developers with around 5 years of experience. But after the interview process is over I felt like the frameworks makes developers life easier but at the same time  making them dumb.
 Everyone puts almost all the new frameworks on their resume claiming they have &amp;#8220;Strong, working experience on Spring, Hibernate, Web Services etc&amp;#8221;.
 Here is how the interviews went on.</description>
-    </item>
-    
-    <item>
-      <title>10 things to become an outstanding Java developer</title>
-      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
-      <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
-      <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
-1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
     </item>
     
     <item>
