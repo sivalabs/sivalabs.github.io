@@ -6,29 +6,10 @@
     <description>Recent content in Spring on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Nov 2015 14:18:35 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Aug 2017 12:30:43 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
-      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
-      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
-      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
-    </item>
-    
-    <item>
-      <title>A Developers Perspective on Spring vs JavaEE</title>
-      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
-      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
-      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
-I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
-    </item>
     
     <item>
       <title>Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</title>
@@ -80,6 +61,25 @@ So I would like to show how I have used Spring AOP for one of my project to hand
       
       <guid>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</guid>
       <description>Selecting the right technology stack is very crucial and plays an important role in project success. Many of the architects (unknowingly??!!) try to make complex designs by trying to use all kinds of latest and greatest stuff. On the other hand some architects try to be in their comfort zone by limiting their technology stack to the technologies with which they are comfortable. Both approaches are dangerous. One should understand the business needs and pick the technologies that are necessary for project.</description>
+    </item>
+    
+    <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
+    </item>
+    
+    <item>
+      <title>A Developers Perspective on Spring vs JavaEE</title>
+      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
+      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
+      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
+I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
     </item>
     
     <item>

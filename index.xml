@@ -6,89 +6,10 @@
     <description>Recent content on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Mar 2016 07:04:56 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Nov 2017 04:59:17 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>How SpringBoot AutoConfiguration magic works?</title>
-      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
-      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
-      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
-But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
-Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</description>
-    </item>
-    
-    <item>
-      <title>Why SpringBoot?</title>
-      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
-      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
-      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
-Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
-    </item>
-    
-    <item>
-      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
-      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
-      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
-      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
-    </item>
-    
-    <item>
-      <title>My Life as a Software Developer in India</title>
-      <link>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</link>
-      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</guid>
-      <description>I am Siva, working as a Software Developer in Hyderabad, India. Working as a Software Developer is very exciting as you see new things coming in everyday. If there are no new things at least we put a new fancy name to some old concept and celebrate (#microservices) :-). But in my opinion working as a Software Developer in India is little bit different and hard too. Few things are good, and few things are bad.</description>
-    </item>
-    
-    <item>
-      <title>A Developers Perspective on Spring vs JavaEE</title>
-      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
-      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
-      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
-I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
-    </item>
-    
-    <item>
-      <title>Can MicroServices Architecture Solve All Your Problems?</title>
-      <link>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</link>
-      <pubDate>Sun, 30 Nov 2014 01:21:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</guid>
-      <description>IT is one field where you can find new things coming everyday. Theses days the whole developer community websites are flooded with MicroServices and Docker related stuff. Among them the idea of MicroServices is very exciting and encourages better way of building software systems. But as with any architectural style there will be pros and cons to every approach.
-Before discussing what are good and bad sides of MicroServices approach, first let me say what I understood about MicroServices.</description>
-    </item>
-    
-    <item>
-      <title>Clean Code: Don’t mix different levels of abstractions</title>
-      <link>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
-      <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
-      <description>We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.
-Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.</description>
-    </item>
-    
-    <item>
-      <title>10 things to become an outstanding Java developer</title>
-      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
-      <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
-      <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
-1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
-    </item>
     
     <item>
       <title>My Review of Vlad Mihalcea’s High-Performance Java Persistence book</title>
@@ -255,6 +176,27 @@ Create a SpringBoot Maven project and add the following MyBatis Starter dependen
       <description>Spring provides a nice abstraction on top of JDBC API using JdbcTemplate and also provides great transaction management capabilities using annotation based approach.
 First let’s take a quick look at how we generally use Spring’s JdbcTemplate (without SpringBoot) by registering DataSource, TransactionManager and JdbcTemplate beans and optionally we can register DataSourceInitializer bean to initialize our database.
 @Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { &amp;#34;classpath:application.properties&amp;#34; }) public class AppConfig { @Autowired private Environment env; @Value(&amp;#34;${init-db:false}&amp;#34;) private String initDatabase; @Bean public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() { return new PropertySourcesPlaceholderConfigurer(); } @Bean public JdbcTemplate jdbcTemplate(DataSource dataSource) { return new JdbcTemplate(dataSource); } @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { return new DataSourceTransactionManager(dataSource); } @Bean public DataSource dataSource() { BasicDataSource dataSource = new BasicDataSource(); dataSource.</description>
+    </item>
+    
+    <item>
+      <title>How SpringBoot AutoConfiguration magic works?</title>
+      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
+      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
+      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</description>
+    </item>
+    
+    <item>
+      <title>Why SpringBoot?</title>
+      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
+      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
+      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
+Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
     </item>
     
     <item>
@@ -698,6 +640,15 @@ One of my friend makes quilling toys and she sell them by advertising on Faceboo
     </item>
     
     <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
+    </item>
+    
+    <item>
       <title>My Development Environment Setup on Linux</title>
       <link>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</link>
       <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
@@ -727,6 +678,25 @@ On some Linux distros (ex: Fedora) the openssh server won&amp;#8217;t start auto
       <guid>https://sivalabs.github.io/2015/10/thinking-of-moving-from-windows-to-linux/</guid>
       <description>I have been using Windows operating system from the beginning. When I first started using computer Windows XP was the latest operating system and it was amazing. After few years I started my career as a Java developer and in my office also I have been using Windows only.
 After few years Windows Vista got released and I suffered with it for few months and then Microsoft released Windows 7 which is the best Windows operating system IMO.</description>
+    </item>
+    
+    <item>
+      <title>My Life as a Software Developer in India</title>
+      <link>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</link>
+      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</guid>
+      <description>I am Siva, working as a Software Developer in Hyderabad, India. Working as a Software Developer is very exciting as you see new things coming in everyday. If there are no new things at least we put a new fancy name to some old concept and celebrate (#microservices) :-). But in my opinion working as a Software Developer in India is little bit different and hard too. Few things are good, and few things are bad.</description>
+    </item>
+    
+    <item>
+      <title>A Developers Perspective on Spring vs JavaEE</title>
+      <link>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</link>
+      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</guid>
+      <description>In Java community Spring vs JavaEE is a never ending debate. In such debates people form two groups consisting of evangelists, architects and hard core fans of one platform and debate endlessly. Those who participate in the debates may be architects who are responsible for platform selection. But what would developers think about this Spring vs JavaEE debate?
+I am a Java developer who uses both Spring and JavaEE and I am not part of Spring or JavaEE fan club.</description>
     </item>
     
     <item>
@@ -785,12 +755,32 @@ Initially I didn&amp;rsquo;t get a chance(need) to work on Unix/Linux because we
     </item>
     
     <item>
+      <title>Can MicroServices Architecture Solve All Your Problems?</title>
+      <link>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</link>
+      <pubDate>Sun, 30 Nov 2014 01:21:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</guid>
+      <description>IT is one field where you can find new things coming everyday. Theses days the whole developer community websites are flooded with MicroServices and Docker related stuff. Among them the idea of MicroServices is very exciting and encourages better way of building software systems. But as with any architectural style there will be pros and cons to every approach.
+Before discussing what are good and bad sides of MicroServices approach, first let me say what I understood about MicroServices.</description>
+    </item>
+    
+    <item>
       <title>NetBeansIDE and IntellijIDEA From The Eyes of a Long Time Eclipse User</title>
       <link>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</link>
       <pubDate>Mon, 13 Oct 2014 07:15:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</guid>
       <description>I have been using Eclipse IDE since 2006 and I liked it so much for various reasons. First it is open source and free to use. Eclipse looks pretty neat on Windows OS on which I work most of the time. Occasionally I tried to use NetBeansIDE (before 6.x version) and I didn&amp;rsquo;t like it because it&amp;rsquo;s too slow. And I never tried IntellijIDEA because it&amp;rsquo;s a commercial product and I am 100% sure that my employer is not going to pay $$$ for an IDE.</description>
+    </item>
+    
+    <item>
+      <title>Clean Code: Don’t mix different levels of abstractions</title>
+      <link>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
+      <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
+      <description>We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.
+Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.</description>
     </item>
     
     <item>
@@ -915,6 +905,16 @@ response.sendRedirect() is generally called as Client side redirection as it iss
       <description>Last week I got to take interviews to hire senior java developers with around 5 years of experience. But after the interview process is over I felt like the frameworks makes developers life easier but at the same time  making them dumb.
 Everyone puts almost all the new frameworks on their resume claiming they have &amp;#8220;Strong, working experience on Spring, Hibernate, Web Services etc&amp;#8221;.
 Here is how the interviews went on.</description>
+    </item>
+    
+    <item>
+      <title>10 things to become an outstanding Java developer</title>
+      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
+      <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
+      <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
+1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
     </item>
     
     <item>

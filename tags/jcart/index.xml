@@ -6,19 +6,10 @@
     <description>Recent content in Jcart on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Nov 2015 14:18:35 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 Dec 2015 11:37:10 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/jcart/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
-      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
-      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
-      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
-    </item>
     
     <item>
       <title>JCart : Iteration-8</title>
@@ -419,6 +410,15 @@ If you are using Ubuntu based Linux Operating System then you can refer my artic
       <guid>https://sivalabs.github.io/2015/11/jcart-release-planning/</guid>
       <description>In our previous article JCart Requirements Analysis we have listed out all the requirements that we need to implement for JCart application. Now we need to come up with an implementation and release plan. As we are following iteration model, we will plan for N iterations where in each iteration we will implement some usecases.
 After listing out all the implementation tasks and based on the task dependencies, we came up with the following Iteration plan.</description>
+    </item>
+    
+    <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
     </item>
     
   </channel>

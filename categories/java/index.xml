@@ -6,38 +6,10 @@
     <description>Recent content in Java on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Nov 2015 14:18:35 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Aug 2017 12:30:43 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
-      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
-      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
-      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
-    </item>
-    
-    <item>
-      <title>My Life as a Software Developer in India</title>
-      <link>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</link>
-      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</guid>
-      <description>I am Siva, working as a Software Developer in Hyderabad, India. Working as a Software Developer is very exciting as you see new things coming in everyday. If there are no new things at least we put a new fancy name to some old concept and celebrate (#microservices) :-). But in my opinion working as a Software Developer in India is little bit different and hard too. Few things are good, and few things are bad.</description>
-    </item>
-    
-    <item>
-      <title>10 things to become an outstanding Java developer</title>
-      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
-      <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
-      <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
-1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
-    </item>
     
     <item>
       <title>Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</title>
@@ -481,6 +453,24 @@ One of my friend makes quilling toys and she sell them by advertising on Faceboo
     </item>
     
     <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
+    </item>
+    
+    <item>
+      <title>My Life as a Software Developer in India</title>
+      <link>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</link>
+      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</guid>
+      <description>I am Siva, working as a Software Developer in Hyderabad, India. Working as a Software Developer is very exciting as you see new things coming in everyday. If there are no new things at least we put a new fancy name to some old concept and celebrate (#microservices) :-). But in my opinion working as a Software Developer in India is little bit different and hard too. Few things are good, and few things are bad.</description>
+    </item>
+    
+    <item>
       <title>MyBatis Tutorial : Part4 – Spring Integration</title>
       <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part4-spring-integration/</link>
       <pubDate>Wed, 24 Oct 2012 00:40:00 +0000</pubDate>
@@ -537,6 +527,16 @@ MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
 MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
 Step1: Create a Maven project and configure MyBatis dependencies.
 &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+    </item>
+    
+    <item>
+      <title>10 things to become an outstanding Java developer</title>
+      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
+      <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
+      <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
+1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
     </item>
     
     <item>
