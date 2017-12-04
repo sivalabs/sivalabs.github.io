@@ -1,1 +1,1311 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hugo 0.30.2"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SivaLabs - SivaLabs</title><meta name="twitter:card" content="summary"><meta name="twitter:title" content="SivaLabs"><meta name="twitter:description" content=""><meta property="og:title" content="SivaLabs"><meta property="og:description" content=""><meta property="og:type" content="website"><meta property="og:url" content="https://sivalabs.github.io/"><meta property="og:updated_time" content="2015-12-30T14:20:00&#43;00:00"><meta itemprop="name" content="SivaLabs"><meta itemprop="description" content=""><link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"><link href="https://sivalabs.github.io/index.xml" rel="alternate" type="application/rss+xml" title="SivaLabs"><link href="https://sivalabs.github.io/index.xml" rel="feed" type="application/rss+xml" title="SivaLabs"></head><body class="home blog"><div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"><button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button><div id="logo"><h1 class="site-name"><a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a></h1></div></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/java">Java</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/spring">Spring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/javaee">Java EE</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/videos">Videos</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/mybooks">My Books</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact">Contact</a></li></ul></div></div></div></div></nav></header><div id="content" class="site-content"><div class="container main-content-area"><div class="row side-pull-left"><div class="main-content-inner col-sm-12 col-md-8"><div id="primary" class="content-area"><main id="main" class="site-main" role="main"><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" title="JCart : ShoppingCart Home Page"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" rel="bookmark">JCart : ShoppingCart Home Page</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-30T14:20:00">December 30, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>In our Home page we will show all the categories along with few of the products in each Category. Let us update HomeController with two methods to show all the categories and the selected category products. @Controller public class HomeController extends JCartSiteBaseController {	@Autowired protected CatalogService catalogService; @RequestMapping(&#34;/home&#34;) public String home(Model model) { List&lt;Category&gt; previewCategories = new ArrayList&lt;&gt;(); List&lt;Category&gt; categories = catalogService.getAllCategories(); for (Category category : categories) { Set&lt;Product&gt; products = category. [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" title="JCart : ShoppingCart Home Page">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20ShoppingCart%20Home%20Page-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f&title=JCart%20%3a%20ShoppingCart%20Home%20Page" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f&title=JCart%20%3a%20ShoppingCart%20Home%20Page" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" title="JCart : ShoppingCart UI Layout Setup"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" rel="bookmark">JCart : ShoppingCart UI Layout Setup</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-30T14:17:41">December 30, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>In this post we will setup the layout for our ShoppingCart UI using Thymeleaf templates. Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ and copy the following directories/files into jcart-site/src/main/resources/static/assets folder. css fonts img js style.css Create Site layout thymeleaf template jcart-site/src/main/resources/templates/layout/mainLayout.html as follows: &lt;!DOCTYPE html&gt; &lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34;/&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;/&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;/&gt; &lt;title layout:title-pattern=&#34;$DECORATOR_TITLE - $CONTENT_TITLE&#34;&gt;QuilCart&lt;/title&gt; &lt;!-- Google Fonts --&gt; &lt;link href=&#39;https://fonts. [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" title="JCart : ShoppingCart UI Layout Setup">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20ShoppingCart%20UI%20Layout%20Setup-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f&title=JCart%20%3a%20ShoppingCart%20UI%20Layout%20Setup" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f&title=JCart%20%3a%20ShoppingCart%20UI%20Layout%20Setup" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/" title="JCart : Initial code setup for ShoppingCart"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/" rel="bookmark">JCart : Initial code setup for ShoppingCart</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-30T14:15:54">December 30, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>First we will start with setting up the initial code using SpringBoot. We have already discussed in JCart: Initial Code SetUp article about creating a maven module jcart-site which will be our ShoppingCart application. In that article we have shown what springboot dependencies to add as well. Just to recap we will be using SpringBoot, SpringMVC, Thymeleaf, JPA for our ShoppingCart application. jcart-site/pom.xml &lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;&gt; &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt; &lt;parent&gt; &lt;groupId&gt;com. [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/" title="JCart : Initial code setup for ShoppingCart">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f&title=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f&title=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-4/" title="JCart : Iteration-4"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-4/" rel="bookmark">JCart : Iteration-4</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-30T14:14:40">December 30, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>In this Iteration-4 we will start building the consumer facing ShoppingCart website. Initial code setup for ShoppingCart webapp Configuring HTTPS/SSL/TLS ShoppingCart UI Layout setup Home Page Category Page Product Page Product Search Results [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/jcart-iteration-4/" title="JCart : Iteration-4">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Iteration-4-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f&title=JCart%20%3a%20Iteration-4" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f&title=JCart%20%3a%20Iteration-4" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-3-manage-categories-and-products/" title="JCart Iteration-3 : Manage Categories and Products"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-3-manage-categories-and-products/" rel="bookmark">JCart Iteration-3 : Manage Categories and Products</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-20T05:58:44">December 20, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>In this iteration we will start working on the key requirement of our JCart administration application, ie managing categories and products. We will create various categories like Birds, Flowers, Vehicles etc. While creating products we will assign it to one of the category. Managing Categories and Products also looks similar to Manage Roles and Users. But there are few new things we will learn like FileUploading etc. Create Spring Data JPA Repositories for Category and Product public interface CategoryRepository extends JpaRepository&lt;Category, Integer&gt; { Category getByName(String name); } public interface ProductRepository extends JpaRepository&lt;Product, Integer&gt; { Product findByName(String name); Product findBySku(String sku); @Query(&#34;select p from Product p where p. [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/jcart-iteration-3-manage-categories-and-products/" title="JCart Iteration-3 : Manage Categories and Products">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20Iteration-3%20%3a%20Manage%20Categories%20and%20Products-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f&title=JCart%20Iteration-3%20%3a%20Manage%20Categories%20and%20Products" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f&title=JCart%20Iteration-3%20%3a%20Manage%20Categories%20and%20Products" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/jcart-manage-users/" title="JCart: Manage Users"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-manage-users/" rel="bookmark">JCart: Manage Users</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-19T06:20:55">December 19, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>In our previous post JCart: Manage Roles we have seen how to list all roles, create new roles and update them. Implementation of Manage Users also follows the same approach and very similar to the Implementation of Manage Roles. So I am not posting details of the implementation here again. Instead you can simply refer the code on JCart github repository https://github.com/sivaprasadreddy/jcart. If you have any questions regarding the implementation of Manage Users please post a comment. [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/jcart-manage-users/" title="JCart: Manage Users">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%3a%20Manage%20Users-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f&title=JCart%3a%20Manage%20Users" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f&title=JCart%3a%20Manage%20Users" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/jcart-manage-roles/" title="JCart: Manage Roles"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-manage-roles/" rel="bookmark">JCart: Manage Roles</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-19T03:16:38">December 19, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>In our previous post Manage Privileges – List all privileges we have implemented the functionality to show list of permissions. In this post we will implement Role management such as listing all Roles, creating new Role, editing Role permissions etc. Basically a Role is nothing a but group of Permissions assigned so that giving access to a set of action to user will become easy by assigning Roles. In this post we are going to see lot of code snippets, so I would suggest to clone the repo https://github. [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/jcart-manage-roles/" title="JCart: Manage Roles">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%3a%20Manage%20Roles-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f&title=JCart%3a%20Manage%20Roles" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f&title=JCart%3a%20Manage%20Roles" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/jcart-manage-privileges/" title="JCart: Manage Privileges"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-manage-privileges/" rel="bookmark">JCart: Manage Privileges</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-18T14:32:52">December 18, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>This is the simplest usecase of entire JCart admin application :-). We need to show list of permissions configured in our system. In our system each permission is more like access to a particular screen. For example, If a user has MANAGE_CATEGORIES permission then only he can access &#8220;Categories&#8221; screen. So these set of permission are something like implemented features set, hence we don&#8217;t need any provision to add/update/delete permissions dynamically. [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/jcart-manage-privileges/" title="JCart: Manage Privileges">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%3a%20Manage%20Privileges-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f&title=JCart%3a%20Manage%20Privileges" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f&title=JCart%3a%20Manage%20Privileges" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" title="JCart : Iteration-2"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" rel="bookmark">JCart : Iteration-2</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-18T13:38:10">December 18, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>Now we have completed Iteration-1 tasks. Iteration-1 includes so many tasks to establish the foundation like configuring Spring Security, Thymeleaf settings, UI layout setup etc. I hope from now on we can put more focus on actual tasks implementation rather than infrastructure setup. Though majority of the infrastructure setup is in place now, we will implement Role Based Access Control (RBAC) security using User-Role-Permission model before jumping on to Category/Product management. [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" title="JCart : Iteration-2">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Iteration-2-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f&title=JCart%20%3a%20Iteration-2" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f&title=JCart%20%3a%20Iteration-2" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><article class="post type-post status-publish format-standard hentry"><div class="blog-item-wrap"><a href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" title="Setting up Jenkins/SonarQube"></a><div class="post-inner-content"><header class="entry-header page-header"><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" rel="bookmark">Setting up Jenkins/SonarQube</a></h2><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2015-12-16T14:42:29">December 16, 2015 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/java/">Java</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content"><p>In this post we will setup SonarQube and Jenkins to perform code quality check and continuous integration. &nbsp; Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality. Let us install and configure SonarQube for our JCart application. Download SonarQube from http://www.sonarqube.org/downloads/. Extract it run sonarqube-5.2/bin/windows-x86-64/StartSonar.bat. By default SonarQube uses in-memory H2 database to store all the metrics. [&hellip;]</p><p><a class="btn btn-default read-more" href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" title="Setting up Jenkins/SonarQube">Read More</a></p><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=Setting%20up%20Jenkins%2fSonarQube-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f&title=Setting%20up%20Jenkins%2fSonarQube" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f&title=Setting%20up%20Jenkins%2fSonarQube" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div></div></article><nav class="navigation pagination" role="navigation"><h2 class="screen-reader-text">Posts navigation</h2><div class="nav-links"><a class="prev page-numbers" href="/page/3/"><i class="fa fa-chevron-left"></i> Newer posts </a><a class="next page-numbers" href="/page/5/">Older posts <i class="fa fa-chevron-right"></i></a></div></nav></main></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="well"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Social Networks</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b" style="background-color:#221e1b;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee" style="background-color:#55acee;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998" style="background-color:#3b5998;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google" data-hover-rule="background-color" data-hover-color="#d93e2d" style="background-color:#d93e2d;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7" style="background-color:#3371b7;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20" style="background-color:#e02a20;font-size:18px;padding:8px"></span></a></li></ul></aside><aside id="widget_sp_image-4" class="widget widget_sp_image"><h3 class="widget-title">My Recent Books</h3><a href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304" target="_blank" class="widget_sp_image-image-link" title="My Recent Books"><img width="2100" height="3000" alt="My Recent Books" class="attachment-full" style="max-width:100%" src="/images/ApressSpringBootBook.jpg"></a></aside><aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent Posts</h3><ul><li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li><li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li><li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li><li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li><li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li></ul></aside><aside id="tag_cloud-5" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="android">android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="best-practices">best-practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="blogging">blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="e-commerce">e-commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="ide">ide</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="interviews">interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="it">it</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="java">java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="javaee">javaee</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="jsf">jsf</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="linux">linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="maven">maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="mybatis">mybatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="primefaces">primefaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="spring">spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="tips">tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="virtualbox">virtualbox</a></div></div></aside><aside class="widget widget_categories"><h3 class="widget-title">Categories</h3><ul><li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">Ide</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">Javaee</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside></div></div></div></div></div><div id="footer-area"><div class="container footer-inner"><div class="row"><div class="footer-widget-area"><div class="col-sm-4 footer-widget" role="complementary"><div id="sparkling_popular_posts-3" class="widget sparkling-popular-posts"><h3 class="widgettitle">Recent Posts</h3><div class="popular-posts-wrapper"><ul><li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li><li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li><li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li><li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li><li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li></ul></div></div></div><div class="col-sm-4 footer-widget" role="complementary"><div id="sparkling-cats-3" class="widget sparkling-cats"><h3 class="widgettitle">Categories</h3><div class="cats-widget"><ul><li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">Ide</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">Javaee</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></div></div></div><div class="col-sm-4 footer-widget" role="complementary"><div id="text-2" class="widget widget_text"><div class="textwidget"><p></p><h3 class="widgettitle">Tag Cloud</h3><p></p><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/android" title="android">android</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/best-practices" title="best-practices">best-practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/blogging" title="blogging">blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/e-commerce" title="e-commerce">e-commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/ide" title="ide">ide</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/interviews" title="interviews">interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/it" title="it">it</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/java" title="java">java</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/javaee" title="javaee">javaee</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/jsf" title="jsf">jsf</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/linux" title="linux">linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/maven" title="maven">maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/mybatis" title="mybatis">mybatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/primefaces" title="primefaces">primefaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/spring" title="spring">spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/tips" title="tips">tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/videos" title="videos">videos</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/virtualbox" title="virtualbox">virtualbox</a></div></div></div></div></div></div></div></div><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><nav role="navigation" class="col-md-3"></nav><div class="copyright col-md-6"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></div></div></div><div class="scroll-to-top"><i class="fa fa-angle-up"></i></div></footer></div></div><script type="text/javascript" src="/assets/js/vendor/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/vendor/modernizr.min.js"></script><script type="text/javascript" src="/assets/js/vendor/bootstrap.min.js"></script><script type="text/javascript" src="/assets/js/functions.min.js"></script><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><script id="mcjs">!function(e,t,c,s,a){s=e.createElement(t),a=e.getElementsByTagName(t)[0],s.async=1,s.src=c,a.parentNode.insertBefore(s,a)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/a244435ef0378fac204b5a2d4/5f76189934783143aeb496d1e.js")</script><script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"],function(d){d.start({baseUrl:"mc.us9.list-manage.com",uuid:"a244435ef0378fac204b5a2d4",lid:"bdded8d3db"})})</script></body></html>
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="generator" content="Hugo 0.30.2" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SivaLabs - SivaLabs</title>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SivaLabs"/>
+<meta name="twitter:description" content=""/>
+
+    <meta property="og:title" content="SivaLabs" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sivalabs.github.io/" />
+
+
+
+<meta property="og:updated_time" content="2015-12-30T14:20:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+<meta itemprop="name" content="SivaLabs">
+<meta itemprop="description" content="">
+
+
+    <link rel='stylesheet' href="/assets/css/bootstrap.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'  type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    
+    <link href="https://sivalabs.github.io/index.xml" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+    <link href="https://sivalabs.github.io/index.xml" rel="feed" type="application/rss+xml" title="SivaLabs" />
+    
+</head>
+
+</head>
+
+<body class="home blog">
+<div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+    <nav class="navbar navbar-default " role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="site-navigation-inner col-sm-12">
+                    <div class="navbar-header">
+                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div id="logo">
+                            <h1 class="site-name">
+                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul id="menu-home" class="nav navbar-nav">
+
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/java">Java</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="/tags/spring">Spring </a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/javaee">Java EE</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/videos">Videos</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/mybooks">My Books</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <div id="content" class="site-content">
+        <div class="container main-content-area">
+            <div class="row side-pull-left">
+                <div class="main-content-inner col-sm-12 col-md-8">
+
+                    <div id="primary" class="content-area">
+                        
+    
+<main id="main" class="site-main" role="main">
+
+    
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" title="JCart : ShoppingCart Home Page"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" rel="bookmark">JCart : ShoppingCart Home Page</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-30T14:20:00">
+            December 30, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>In our Home page we will show all the categories along with few of the products in each Category.
+Let us update HomeController with two methods to show all the categories and the selected category products.
+@Controller public class HomeController extends JCartSiteBaseController {	@Autowired protected CatalogService catalogService; @RequestMapping(&#34;/home&#34;) public String home(Model model) { List&lt;Category&gt; previewCategories = new ArrayList&lt;&gt;(); List&lt;Category&gt; categories = catalogService.getAllCategories(); for (Category category : categories) { Set&lt;Product&gt; products = category. [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/"
+                          title="JCart : ShoppingCart Home Page">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20ShoppingCart%20Home%20Page-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f&title=JCart%20%3a%20ShoppingCart%20Home%20Page" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-home-page%2f&title=JCart%20%3a%20ShoppingCart%20Home%20Page" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" title="JCart : ShoppingCart UI Layout Setup"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" rel="bookmark">JCart : ShoppingCart UI Layout Setup</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-30T14:17:41">
+            December 30, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>In this post we will setup the layout for our ShoppingCart UI using Thymeleaf templates.
+Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ and copy the following directories/files into jcart-site/src/main/resources/static/assets folder.
+ css fonts img js style.css  Create Site layout thymeleaf template jcart-site/src/main/resources/templates/layout/mainLayout.html as follows:
+&lt;!DOCTYPE html&gt; &lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34;/&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;/&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;/&gt; &lt;title layout:title-pattern=&#34;$DECORATOR_TITLE - $CONTENT_TITLE&#34;&gt;QuilCart&lt;/title&gt; &lt;!-- Google Fonts --&gt; &lt;link href=&#39;https://fonts. [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/"
+                          title="JCart : ShoppingCart UI Layout Setup">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20ShoppingCart%20UI%20Layout%20Setup-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f&title=JCart%20%3a%20ShoppingCart%20UI%20Layout%20Setup" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-shoppingcart-ui-layout-setup%2f&title=JCart%20%3a%20ShoppingCart%20UI%20Layout%20Setup" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/" title="JCart : Initial code setup for ShoppingCart"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/" rel="bookmark">JCart : Initial code setup for ShoppingCart</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-30T14:15:54">
+            December 30, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>First we will start with setting up the initial code using SpringBoot. We have already discussed in JCart: Initial Code SetUp article about creating a maven module jcart-site which will be our ShoppingCart application. In that article we have shown what springboot dependencies to add as well.
+Just to recap we will be using SpringBoot, SpringMVC, Thymeleaf, JPA for our ShoppingCart application.
+jcart-site/pom.xml
+&lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;&gt; &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt; &lt;parent&gt; &lt;groupId&gt;com. [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/"
+                          title="JCart : Initial code setup for ShoppingCart">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f&title=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-initial-code-setup-for-shoppingcart%2f&title=JCart%20%3a%20Initial%20code%20setup%20for%20ShoppingCart" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-4/" title="JCart : Iteration-4"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-iteration-4/" rel="bookmark">JCart : Iteration-4</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-30T14:14:40">
+            December 30, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>In this Iteration-4 we will start building the consumer facing ShoppingCart website.
+ Initial code setup for ShoppingCart webapp
+ Configuring HTTPS/SSL/TLS  ShoppingCart UI Layout setup Home Page Category Page Product Page Product Search Results   [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/jcart-iteration-4/"
+                          title="JCart : Iteration-4">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Iteration-4-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f&title=JCart%20%3a%20Iteration-4" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-4%2f&title=JCart%20%3a%20Iteration-4" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-3-manage-categories-and-products/" title="JCart Iteration-3 : Manage Categories and Products"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-iteration-3-manage-categories-and-products/" rel="bookmark">JCart Iteration-3 : Manage Categories and Products</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-20T05:58:44">
+            December 20, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>In this iteration we will start working on the key requirement of our JCart administration application, ie managing categories and products.
+We will create various categories like Birds, Flowers, Vehicles etc. While creating products we will assign it to one of the category.
+Managing Categories and Products also looks similar to Manage Roles and Users. But there are few new things we will learn like FileUploading etc.
+Create Spring Data JPA Repositories for Category and Product public interface CategoryRepository extends JpaRepository&lt;Category, Integer&gt; { Category getByName(String name); } public interface ProductRepository extends JpaRepository&lt;Product, Integer&gt; { Product findByName(String name); Product findBySku(String sku); @Query(&#34;select p from Product p where p. [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/jcart-iteration-3-manage-categories-and-products/"
+                          title="JCart Iteration-3 : Manage Categories and Products">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20Iteration-3%20%3a%20Manage%20Categories%20and%20Products-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f&title=JCart%20Iteration-3%20%3a%20Manage%20Categories%20and%20Products" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-3-manage-categories-and-products%2f&title=JCart%20Iteration-3%20%3a%20Manage%20Categories%20and%20Products" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/jcart-manage-users/" title="JCart: Manage Users"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-manage-users/" rel="bookmark">JCart: Manage Users</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-19T06:20:55">
+            December 19, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>In our previous post JCart: Manage Roles we have seen how to list all roles, create new roles and update them.
+Implementation of Manage Users also follows the same approach and very similar to the Implementation of Manage Roles. So I am not posting details of the implementation here again. Instead you can simply refer the code on JCart github repository https://github.com/sivaprasadreddy/jcart.
+If you have any questions regarding the implementation of Manage Users please post a comment. [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/jcart-manage-users/"
+                          title="JCart: Manage Users">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%3a%20Manage%20Users-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f&title=JCart%3a%20Manage%20Users" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-users%2f&title=JCart%3a%20Manage%20Users" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/jcart-manage-roles/" title="JCart: Manage Roles"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-manage-roles/" rel="bookmark">JCart: Manage Roles</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-19T03:16:38">
+            December 19, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>In our previous post Manage Privileges – List all privileges we have implemented the functionality to show list of permissions. In this post we will implement Role management such as listing all Roles, creating new Role, editing Role permissions etc.
+Basically a Role is nothing a but group of Permissions assigned so that giving access to a set of action to user will become easy by assigning Roles.
+In this post we are going to see lot of code snippets, so I would suggest to clone the repo https://github. [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/jcart-manage-roles/"
+                          title="JCart: Manage Roles">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%3a%20Manage%20Roles-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f&title=JCart%3a%20Manage%20Roles" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-roles%2f&title=JCart%3a%20Manage%20Roles" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/jcart-manage-privileges/" title="JCart: Manage Privileges"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-manage-privileges/" rel="bookmark">JCart: Manage Privileges</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-18T14:32:52">
+            December 18, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>This is the simplest usecase of entire JCart admin application :-). We need to show list of permissions configured in our system.
+In our system each permission is more like access to a particular screen. For example, If a user has MANAGE_CATEGORIES permission then only he can access &#8220;Categories&#8221; screen. So these set of permission are something like implemented features set, hence we don&#8217;t need any provision to add/update/delete permissions dynamically. [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/jcart-manage-privileges/"
+                          title="JCart: Manage Privileges">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%3a%20Manage%20Privileges-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f&title=JCart%3a%20Manage%20Privileges" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-manage-privileges%2f&title=JCart%3a%20Manage%20Privileges" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" title="JCart : Iteration-2"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" rel="bookmark">JCart : Iteration-2</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-18T13:38:10">
+            December 18, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>Now we have completed Iteration-1 tasks. Iteration-1 includes so many tasks to establish the foundation like configuring Spring Security, Thymeleaf settings, UI layout setup etc. I hope from now on we can put more focus on actual tasks implementation rather than infrastructure setup.
+Though majority of the infrastructure setup is in place now, we will implement Role Based Access Control (RBAC) security using User-Role-Permission model before jumping on to Category/Product management. [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/jcart-iteration-2/"
+                          title="JCart : Iteration-2">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20%3a%20Iteration-2-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f&title=JCart%20%3a%20Iteration-2" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fjcart-iteration-2%2f&title=JCart%20%3a%20Iteration-2" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+    <article class="post type-post status-publish format-standard hentry">
+        <div class="blog-item-wrap">
+            <a href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" title="Setting up Jenkins/SonarQube"></a>
+            <div class="post-inner-content">
+                <header class="entry-header page-header">
+                    <h2 class="entry-title">
+                        <a href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" rel="bookmark">Setting up Jenkins/SonarQube</a>
+                    </h2>
+                    <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2015-12-16T14:42:29">
+            December 16, 2015
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/java/">Java</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+                </header>
+
+                <div class="entry-content">
+                    <p>In this post we will setup SonarQube and Jenkins to perform code quality check and continuous integration.
+&nbsp;
+Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
+Let us install and configure SonarQube for our JCart application.
+Download SonarQube from http://www.sonarqube.org/downloads/.
+Extract it run sonarqube-5.2/bin/windows-x86-64/StartSonar.bat.
+By default SonarQube uses in-memory H2 database to store all the metrics. [&hellip;]</p>
+                    <p><a class="btn btn-default read-more"
+                          href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/"
+                          title="Setting up Jenkins/SonarQube">Read More</a>
+                    </p>
+
+                    <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=Setting%20up%20Jenkins%2fSonarQube-https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f&title=Setting%20up%20Jenkins%2fSonarQube" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f12%2fsetting-up-jenkinssonarqube%2f&title=Setting%20up%20Jenkins%2fSonarQube" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    
+
+    
+<nav class="navigation pagination" role="navigation">
+	<h2 class="screen-reader-text">Posts navigation</h2>
+	<div class="nav-links">
+		<a class="prev page-numbers" href="/page/3/">
+			<i class="fa fa-chevron-left"></i> Newer posts
+		</a>
+		
+		<a class="next page-numbers" href="/page/5/">
+			Older posts <i class="fa fa-chevron-right"></i>
+		</a>
+	</div>
+</nav>
+
+
+
+</main>
+
+
+                    </div>
+                </div>
+                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+                    <div class="well">
+
+    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Social Networks</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+                          style="background-color : #221e1b; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                          style="background-color : #55acee; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://facebook.com/sivaprasadreddy.k"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
+                          data-hover-rule="background-color" data-hover-color="#3b5998"
+                          style="background-color : #3b5998; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://plus.google.com/u/0/&#43;SivaPrasadReddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-google"
+                          data-hover-rule="background-color" data-hover-color="#d93e2d"
+                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                          style="background-color : #3371b7; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                          style="background-color : #e02a20; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+    <aside id="widget_sp_image-4" class="widget widget_sp_image">
+        <h3 class="widget-title">My Recent Books</h3><a
+            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
+            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
+            <img
+            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
+            style="max-width: 100%;"
+            src="/images/ApressSpringBootBook.jpg"/></a>
+    </aside>
+
+    <aside id="recent-posts-2" class="widget widget_recent_entries">
+        <h3 class="widget-title">Recent Posts</h3>
+        <ul>
+            <li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li>
+        </ul>
+    </aside>
+
+    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tagcloud">
+
+                <div class="widget__content">
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/android" title="android">android</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/best-practices" title="best-practices">best-practices</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/blogging" title="blogging">blogging</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/books" title="books">books</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/ide" title="ide">ide</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/interviews" title="interviews">interviews</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/it" title="it">it</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/java" title="java">java</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javaee" title="javaee">javaee</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jcart" title="jcart">jcart</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jooq" title="jooq">jooq</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jsf" title="jsf">jsf</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/linux" title="linux">linux</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/maven" title="maven">maven</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/mybatis" title="mybatis">mybatis</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/primefaces" title="primefaces">primefaces</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/spring" title="spring">spring</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springboot" title="springboot">springboot</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springcloud" title="springcloud">springcloud</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tips" title="tips">tips</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/videos" title="videos">videos</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                </div>
+
+        </div>
+    </aside>
+
+    <aside class="widget widget_categories">
+        <h3 class="widget-title">Categories</h3>
+        <ul>
+                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                    <li class="cat-item"><a href="/categories/books">Books</a></li>
+                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                    <li class="cat-item"><a href="/categories/java">Java</a></li>
+                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+                    <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+        </ul>
+    </aside>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer-area">
+        
+<div class="container footer-inner">
+    <div class="row">
+
+        <div class="footer-widget-area">
+
+
+            <div class="col-sm-4 footer-widget" role="complementary">
+                <div id="sparkling_popular_posts-3" class="widget sparkling-popular-posts">
+                    <h3 class="widgettitle">Recent Posts</h3>
+                    
+                    <div class="popular-posts-wrapper">
+
+                        <ul>
+                            <li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li>
+                        </ul>
+
+                    </div> 
+
+                </div>
+            </div>
+
+            <div class="col-sm-4 footer-widget" role="complementary">
+                <div id="sparkling-cats-3" class="widget sparkling-cats">
+                    <h3 class="widgettitle">Categories</h3>
+
+                    <div class="cats-widget">
+                        <ul>
+                            <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                            <li class="cat-item"><a href="/categories/books">Books</a></li>
+                            <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                            <li class="cat-item"><a href="/categories/java">Java</a></li>
+                            <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                            <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                            <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                            <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                            <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+                            <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-4 footer-widget" role="complementary">
+                <div id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <p>
+                        <h3 class="widgettitle">Tag Cloud</h3>
+                        </p>
+                        <div class="tagcloud">
+
+                            <div class="widget__content">
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/android" title="android">android</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/best-practices" title="best-practices">best-practices</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/blogging" title="blogging">blogging</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/books" title="books">books</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/ide" title="ide">ide</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/interviews" title="interviews">interviews</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/it" title="it">it</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/java" title="java">java</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/javaee" title="javaee">javaee</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/jcart" title="jcart">jcart</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/jooq" title="jooq">jooq</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/jsf" title="jsf">jsf</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/linux" title="linux">linux</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/maven" title="maven">maven</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/mybatis" title="mybatis">mybatis</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/primefaces" title="primefaces">primefaces</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/spring" title="spring">spring</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/springboot" title="springboot">springboot</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/springcloud" title="springcloud">springcloud</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/tips" title="tips">tips</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/videos" title="videos">videos</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info container">
+        <div class="row">
+            <nav role="navigation" class="col-md-3">
+            </nav>
+            <div class="copyright col-md-6">
+                <a href="/" target="_blank">SivaLabs</a> Powered by <a
+                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
+        </div>
+    </div>
+    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
+</footer>
+
+    </div>
+</div>
+
+<script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script type='text/javascript' src="/assets/js/vendor/modernizr.min.js"></script>
+<script type='text/javascript' src="/assets/js/vendor/bootstrap.min.js"></script>
+<script type='text/javascript' src="/assets/js/functions.min.js"></script>
+
+
+<div class="analytics">
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-71296890-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</div>
+
+
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/a244435ef0378fac204b5a2d4/5f76189934783143aeb496d1e.js");</script>
+<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"a244435ef0378fac204b5a2d4","lid":"bdded8d3db"}) })</script>
+</body>
+</html>

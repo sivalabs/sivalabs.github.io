@@ -1,21 +1,201 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SivaLabs - SpringBoot : Working with MyBatis</title><meta name="twitter:card" content="summary"><meta name="twitter:title" content="SpringBoot : Working with MyBatis"><meta name="twitter:description" content="MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SivaLabs - SpringBoot : Working with MyBatis</title>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SpringBoot : Working with MyBatis"/>
+<meta name="twitter:description" content="MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
 SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
-Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt; &lt;groupId&gt;org."><meta property="og:title" content="SpringBoot : Working with MyBatis"><meta property="og:description" content="MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt; &lt;groupId&gt;org."/>
+
+    <meta property="og:title" content="SpringBoot : Working with MyBatis" />
+<meta property="og:description" content="MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
 SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
-Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt; &lt;groupId&gt;org."><meta property="og:type" content="article"><meta property="og:url" content="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/"><meta property="article:published_time" content="2016-03-14T07:10:42&#43;00:00"><meta property="article:modified_time" content="2016-03-14T07:10:42&#43;00:00"><meta itemprop="name" content="SpringBoot : Working with MyBatis"><meta itemprop="description" content="MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt; &lt;groupId&gt;org." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/" />
+
+
+
+<meta property="article:published_time" content="2016-03-14T07:10:42&#43;00:00"/>
+
+<meta property="article:modified_time" content="2016-03-14T07:10:42&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+    
+<meta itemprop="name" content="SpringBoot : Working with MyBatis">
+<meta itemprop="description" content="MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
 SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
-Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt; &lt;groupId&gt;org."><meta itemprop="datePublished" content="2016-03-14T07:10:42&#43;00:00"><meta itemprop="dateModified" content="2016-03-14T07:10:42&#43;00:00"><meta itemprop="wordCount" content="516"><meta itemprop="keywords" content="SpringBoot,"><link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"></head><body class="home blog"><div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"><button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button><div id="logo"><h1 class="site-name"><a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a></h1></div></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/java">Java</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/spring">Spring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags/javaee">Java EE</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/videos">Videos</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/mybooks">My Books</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact">Contact</a></li></ul></div></div></div></div></nav></header><div id="content" class="site-content"><div class="container main-content-area"><div class="row side-pull-left"><div class="main-content-inner col-sm-12 col-md-8"><div id="primary" class="content-area"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">SpringBoot : Working with MyBatis</h1><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2016-03-14T07:10:42">March 14, 2016 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/spring/">Spring</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content"><p><strong>MyBatis</strong> is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.</p><blockquote class="tr_bq"><span style="color:red"><br>SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;</span></blockquote><p>You can read about the SpringBoot MyBatis Starter release announcement at <a href="http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html">http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html</a> and you can explore the source code on GitHub <a href="https://github.com/mybatis/mybatis-spring-boot">https://github.com/mybatis/mybatis-spring-boot</a>.</p><h3 id="create-a-springboot-maven-project-and-add-the-following-mybatis-starter-dependency">Create a SpringBoot Maven project and add the following MyBatis Starter dependency.</h3><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt; &lt;groupId&gt;org.">
+
+
+<meta itemprop="datePublished" content="2016-03-14T07:10:42&#43;00:00" />
+<meta itemprop="dateModified" content="2016-03-14T07:10:42&#43;00:00" />
+<meta itemprop="wordCount" content="516">
+
+
+
+<meta itemprop="keywords" content="SpringBoot," />
+
+    <link rel='stylesheet' href="/assets/css/bootstrap.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'  type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    
+</head>
+
+</head>
+
+<body class="home blog">
+<div id="page" class="hfeed site">
+    <header id="masthead" class="site-header" role="banner">
+    <nav class="navbar navbar-default " role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="site-navigation-inner col-sm-12">
+                    <div class="navbar-header">
+                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div id="logo">
+                            <h1 class="site-name">
+                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul id="menu-home" class="nav navbar-nav">
+
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/java">Java</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a href="/tags/spring">Spring </a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/tags/javaee">Java EE</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/videos">Videos</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/mybooks">My Books</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                    href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <div id="content" class="site-content">
+        <div class="container main-content-area">
+            <div class="row side-pull-left">
+                <div class="main-content-inner col-sm-12 col-md-8">
+
+                    <div id="primary" class="content-area">
+                        
+
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header page-header">
+            <h1 class="entry-title ">SpringBoot : Working with MyBatis</h1>
+            <div class="entry-meta">
+    <span>
+        <i class="fa fa-user"></i>
+        <span class="author vcard">Siva</span>
+    </span>
+    <span class="posted-on">
+        <i class="fa fa-calendar"></i>
+        <time class="entry-date published"
+              datetime="2016-03-14T07:10:42">
+            March 14, 2016
+        </time>
+    </span>
+    
+    
+    
+    <span>
+        <i class="fa fa-folder-open-o"></i>
+        
+        <a class="article-category-link" href="/categories/spring/">Spring</a>
+        
+        
+    </span>
+    
+    
+
+    
+    
+    
+    <span class="tagcloud" style="display: inline">
+        <i class="fa fa-tags"></i>
+        
+        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+        
+        
+    </span>
+    
+    
+
+</div>
+
+        </header>
+        <div class="entry-content">
+            
+
+<p><strong>MyBatis</strong> is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.</p>
+
+<blockquote class="tr_bq">
+    <span style="color: red;"><br />SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;</span>
+</blockquote>
+
+<p>You can read about the SpringBoot MyBatis Starter release announcement at <a href="http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html">http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html</a> and you can explore the source code on GitHub <a href="https://github.com/mybatis/mybatis-spring-boot">https://github.com/mybatis/mybatis-spring-boot</a>.</p>
+
+<h3 id="create-a-springboot-maven-project-and-add-the-following-mybatis-starter-dependency">Create a SpringBoot Maven project and add the following MyBatis Starter dependency.</h3>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.mybatis.spring.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>mybatis-spring-boot-starter<span style="color:#f92672">&lt;/artifactId&gt;</span>
     <span style="color:#f92672">&lt;version&gt;</span>1.0.0<span style="color:#f92672">&lt;/version&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div><p>We will be reusing <strong>User.java, schema.sql and data.sql</strong> files created in my previous article <a href="/2016/03/springboot-working-with-jdbctemplate/">SpringBoot : Working with JdbcTemplate</a></p><p>Create MyBatis SQL Mapper interface <strong>UserMapper.java</strong> with few database operations as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.demo.domain<span style="color:#f92672">;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
+
+<p>We will be reusing <strong>User.java, schema.sql and data.sql</strong> files created in my previous article <a href="/2016/03/springboot-working-with-jdbctemplate/">SpringBoot : Working with JdbcTemplate</a></p>
+
+<p>Create MyBatis SQL Mapper interface <strong>UserMapper.java</strong> with few database operations as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.demo.domain<span style="color:#f92672">;</span>
 
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserMapper</span>
 <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insertUser</span><span style="color:#f92672">(</span>User user<span style="color:#f92672">);</span>
     User <span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>Integer id<span style="color:#f92672">);</span>
     List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span></code></pre></div><p>We need to create Mapper XML files to define the queries for the mapped SQL statements for the corresponding Mapper interface methods.</p><p>Create <strong>UserMapper.xml</strong> file in <strong>src/main/resources/com/sivalabs/demo/mappers/</strong> directory as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!DOCTYPE mapper
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>We need to create Mapper XML files to define the queries for the mapped SQL statements for the corresponding Mapper interface methods.</p>
+
+<p>Create <strong>UserMapper.xml</strong> file in <strong>src/main/resources/com/sivalabs/demo/mappers/</strong> directory as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!DOCTYPE mapper
 </span><span style="color:#75715e">    PUBLIC &#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;
 </span><span style="color:#75715e">    &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>
 
@@ -38,7 +218,21 @@ Create a SpringBoot Maven project and add the following MyBatis Starter dependen
     <span style="color:#f92672">&lt;insert</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;insertUser&#34;</span> <span style="color:#a6e22e">parameterType=</span><span style="color:#e6db74">&#34;User&#34;</span> <span style="color:#a6e22e">useGeneratedKeys=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">keyProperty=</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">&gt;</span>
         insert into users(name,email) values(#{name},#{email})
     <span style="color:#f92672">&lt;/insert&gt;</span>
-<span style="color:#f92672">&lt;/mapper&gt;</span></code></pre></div><p>Few things to observe here are:</p><ul><li>Namespace in Mapper XML should be same as Fully Qualified Name (FQN) for Mapper Interface</li><li>Statement id values should be same as Mapper Interface method names.</li><li>If the query result column names are different from bean property names we can use<resultmap>configuration to provide mapping between column names and their corresponding bean property names.&nbsp;</resultmap></li></ul><p>MyBatis also provides annotation based query configurations without requiring Mapper XMLs.</p><p>We can create <strong>UserMapper.java</strong> interface and configure the mapped SQLs using annotations as follows:</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserMapper</span>
+<span style="color:#f92672">&lt;/mapper&gt;</span></code></pre></div>
+
+<p>Few things to observe here are:</p>
+
+<ul>
+<li>Namespace in Mapper XML should be same as Fully Qualified Name (FQN) for Mapper Interface</li>
+<li>Statement id values should be same as Mapper Interface method names.</li>
+<li>If the query result column names are different from bean property names we can use <resultMap> configuration to provide mapping between column names and their corresponding bean property names.&nbsp;</li>
+</ul>
+
+<p>MyBatis also provides annotation based query configurations without requiring Mapper XMLs.</p>
+
+<p>We can create <strong>UserMapper.java</strong> interface and configure the mapped SQLs using annotations as follows:</p>
+
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserMapper</span>
 <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Insert</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;insert into users(name,email) values(#{name},#{email})&#34;</span><span style="color:#f92672">)</span>
     <span style="color:#a6e22e">@SelectKey</span><span style="color:#f92672">(</span>statement<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;call identity()&#34;</span><span style="color:#f92672">,</span> keyProperty<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">,</span>
@@ -51,13 +245,25 @@ Create a SpringBoot Maven project and add the following MyBatis Starter dependen
     <span style="color:#a6e22e">@Select</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;select id, name, email from users&#34;</span><span style="color:#f92672">)</span>
     List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">();</span>
 
-<span style="color:#f92672">}</span></code></pre></div><p></p><p>SpringBoot MyBatis starter provides the following MyBatis configuration parameters which we can use to customize MyBatis settings.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> mybatis config file name
+<span style="color:#f92672">}</span></code></pre></div></p>
+
+<p>SpringBoot MyBatis starter provides the following MyBatis configuration parameters which we can use to customize MyBatis settings.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> mybatis config file name
 mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">mapperLocations</span> <span style="color:#f92672">=</span> mappers file locations
 mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">typeAliasesPackage</span> <span style="color:#f92672">=</span> domain object<span style="color:#960050;background-color:#1e0010">&#39;</span>s <span style="color:#f92672">package</span>
 mybatis.typeHandlersPackage <span style="color:#f92672">=</span> handler<span style="color:#960050;background-color:#1e0010">&#39;</span>s <span style="color:#f92672">package</span>
 mybatis.check<span style="color:#f92672">-</span>config<span style="color:#f92672">-</span>location <span style="color:#f92672">=</span> check the mybatis configuration exists
-mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">executorType</span> <span style="color:#f92672">=</span> mode of execution<span style="color:#f92672">.</span> Default is SIMPLE</code></pre></div><p>Configure the <strong>typeAliasesPackage</strong> and <strong>mapperLocations</strong> in <strong>application.properties</strong>.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">typeAliasesPackage</span><span style="color:#f92672">=</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">sivalabs</span><span style="color:#f92672">.</span><span style="color:#a6e22e">demo</span><span style="color:#f92672">.</span><span style="color:#a6e22e">domain</span>
-mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">mapperLocations</span><span style="color:#f92672">=</span>classpath<span style="color:#f92672">*:**/</span>mappers<span style="color:#f92672">/*.</span><span style="color:#a6e22e">xml</span></code></pre></div><p>Create the entry point class <strong>SpringbootMyBatisDemoApplication.java</strong>.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
+mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">executorType</span> <span style="color:#f92672">=</span> mode of execution<span style="color:#f92672">.</span> Default is SIMPLE</code></pre></div>
+
+<p>Configure the <strong>typeAliasesPackage</strong> and <strong>mapperLocations</strong> in <strong>application.properties</strong>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">typeAliasesPackage</span><span style="color:#f92672">=</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">sivalabs</span><span style="color:#f92672">.</span><span style="color:#a6e22e">demo</span><span style="color:#f92672">.</span><span style="color:#a6e22e">domain</span>
+mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">mapperLocations</span><span style="color:#f92672">=</span>classpath<span style="color:#f92672">*:**/</span>mappers<span style="color:#f92672">/*.</span><span style="color:#a6e22e">xml</span></code></pre></div>
+
+<p>Create the entry point class <strong>SpringbootMyBatisDemoApplication.java</strong>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
 <span style="color:#a6e22e">@MapperScan</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.sivalabs.demo.mappers&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringbootMyBatisDemoApplication</span>
 <span style="color:#f92672">{</span>
@@ -65,7 +271,13 @@ mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">mapperLoc
     <span style="color:#f92672">{</span>
         SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>SpringbootMyBatisDemoApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div><p>Observe that we have used <strong>@MapperScan(&#8220;com.sivalabs.demo.mappers&#8221;)</strong> annotation to specify where to look for Mapper interfaces.</p><p>Now create a JUnit test class and test our UserMapper methods.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringJUnit4ClassRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Observe that we have used <strong>@MapperScan(&#8220;com.sivalabs.demo.mappers&#8221;)</strong> annotation to specify where to look for Mapper interfaces.</p>
+
+<p>Now create a JUnit test class and test our UserMapper methods.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringJUnit4ClassRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@SpringApplicationConfiguration</span><span style="color:#f92672">(</span>SpringbootMyBatisDemoApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringbootMyBatisDemoApplicationTests</span>
 <span style="color:#f92672">{</span>
@@ -93,4 +305,433 @@ mybatis<span style="color:#f92672">.</span><span style="color:#a6e22e">mapperLoc
         assertEquals<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Siva&#34;</span><span style="color:#f92672">,</span> newUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
         assertEquals<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;siva@gmail.com&#34;</span><span style="color:#f92672">,</span> newUser<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">());</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div><p>You can find the source code of the article at my GitHub repo&nbsp;<a href="https://github.com/sivaprasadreddy/springboot-tutorials">https://github.com/sivaprasadreddy/springboot-tutorials</a></p><p>You can read more about MyBatis and Spring integration at <a href="http://blog.mybatis.org/p/products.html">http://blog.mybatis.org/p/products.html</a>&nbsp;and&nbsp;<a href="http://www.mybatis.org/spring/">http://www.mybatis.org/spring/</a>.</p></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=SpringBoot%20%3a%20Working%20with%20MyBatis-https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f&title=SpringBoot%20%3a%20Working%20with%20MyBatis" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f&title=SpringBoot%20%3a%20Working%20with%20MyBatis" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></article><div class="comments"><div id="disqus_thread"></div><script>var disqus_config=function(){};!function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1)return void(document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.");var e=document,t=e.createElement("script");t.async=!0,t.src="//sivalabs.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}()</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div><nav class="navigation post-navigation" role="navigation"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><div class="nav-previous"><a href="/2016/03/springboot-working-with-jooq/" rel="next"><i class="fa fa-chevron-left"></i> <span class="post-title">SpringBoot : Working with JOOQ</span></a></div><div class="nav-next"><a href="/2016/03/springboot-working-with-jdbctemplate/" rel="prev"><span class="post-title">SpringBoot : Working with JdbcTemplate <i class="fa fa-chevron-right"></i></span></a></div></div></nav></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="well"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Social Networks</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b" style="background-color:#221e1b;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee" style="background-color:#55acee;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998" style="background-color:#3b5998;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google" data-hover-rule="background-color" data-hover-color="#d93e2d" style="background-color:#d93e2d;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7" style="background-color:#3371b7;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20" style="background-color:#e02a20;font-size:18px;padding:8px"></span></a></li></ul></aside><aside id="widget_sp_image-4" class="widget widget_sp_image"><h3 class="widget-title">My Recent Books</h3><a href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304" target="_blank" class="widget_sp_image-image-link" title="My Recent Books"><img width="2100" height="3000" alt="My Recent Books" class="attachment-full" style="max-width:100%" src="/images/ApressSpringBootBook.jpg"></a></aside><aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent Posts</h3><ul><li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li><li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li><li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li><li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li><li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li></ul></aside><aside id="tag_cloud-5" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="android">android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="best-practices">best-practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="blogging">blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="e-commerce">e-commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="ide">ide</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="interviews">interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="it">it</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="java">java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="javaee">javaee</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="jsf">jsf</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="linux">linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="maven">maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="mybatis">mybatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="primefaces">primefaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="spring">spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="tips">tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="virtualbox">virtualbox</a></div></div></aside><aside class="widget widget_categories"><h3 class="widget-title">Categories</h3><ul><li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">Ide</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">Javaee</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside></div></div></div></div></div><div id="footer-area"><div class="container footer-inner"><div class="row"><div class="footer-widget-area"><div class="col-sm-4 footer-widget" role="complementary"><div id="sparkling_popular_posts-3" class="widget sparkling-popular-posts"><h3 class="widgettitle">Recent Posts</h3><div class="popular-posts-wrapper"><ul><li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li><li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li><li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li><li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li><li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li></ul></div></div></div><div class="col-sm-4 footer-widget" role="complementary"><div id="sparkling-cats-3" class="widget sparkling-cats"><h3 class="widgettitle">Categories</h3><div class="cats-widget"><ul><li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">Ide</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">Javaee</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></div></div></div><div class="col-sm-4 footer-widget" role="complementary"><div id="text-2" class="widget widget_text"><div class="textwidget"><p></p><h3 class="widgettitle">Tag Cloud</h3><p></p><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/android" title="android">android</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/best-practices" title="best-practices">best-practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/blogging" title="blogging">blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/e-commerce" title="e-commerce">e-commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/ide" title="ide">ide</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/interviews" title="interviews">interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/it" title="it">it</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/java" title="java">java</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/javaee" title="javaee">javaee</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/jsf" title="jsf">jsf</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/linux" title="linux">linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/maven" title="maven">maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/mybatis" title="mybatis">mybatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/primefaces" title="primefaces">primefaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/spring" title="spring">spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/tips" title="tips">tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/videos" title="videos">videos</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/virtualbox" title="virtualbox">virtualbox</a></div></div></div></div></div></div></div></div><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><nav role="navigation" class="col-md-3"></nav><div class="copyright col-md-6"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></div></div></div><div class="scroll-to-top"><i class="fa fa-angle-up"></i></div></footer></div></div><script type="text/javascript" src="/assets/js/vendor/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/vendor/modernizr.min.js"></script><script type="text/javascript" src="/assets/js/vendor/bootstrap.min.js"></script><script type="text/javascript" src="/assets/js/functions.min.js"></script><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><script id="mcjs">!function(e,t,c,s,a){s=e.createElement(t),a=e.getElementsByTagName(t)[0],s.async=1,s.src=c,a.parentNode.insertBefore(s,a)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/a244435ef0378fac204b5a2d4/5f76189934783143aeb496d1e.js")</script><script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"],function(d){d.start({baseUrl:"mc.us9.list-manage.com",uuid:"a244435ef0378fac204b5a2d4",lid:"bdded8d3db"})})</script></body></html>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>You can find the source code of the article at my GitHub repo&nbsp;<a href="https://github.com/sivaprasadreddy/springboot-tutorials">https://github.com/sivaprasadreddy/springboot-tutorials</a></p>
+
+<p>You can read more about MyBatis and Spring integration at <a href="http://blog.mybatis.org/p/products.html">http://blog.mybatis.org/p/products.html</a>&nbsp;and&nbsp;<a href="http://www.mybatis.org/spring/">http://www.mybatis.org/spring/</a>.</p>
+
+        </div>
+        <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=SpringBoot%20%3a%20Working%20with%20MyBatis-https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f&title=SpringBoot%20%3a%20Working%20with%20MyBatis" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fspringboot-working-with-mybatis%2f&title=SpringBoot%20%3a%20Working%20with%20MyBatis" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+</article>
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2016/03/springboot-working-with-jooq/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">SpringBoot : Working with JOOQ</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2016/03/springboot-working-with-jdbctemplate/" rel="prev">
+                <span class="post-title">SpringBoot : Working with JdbcTemplate
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+
+
+                    </div>
+                </div>
+                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+                    <div class="well">
+
+    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Social Networks</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+                          style="background-color : #221e1b; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                          style="background-color : #55acee; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://facebook.com/sivaprasadreddy.k"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
+                          data-hover-rule="background-color" data-hover-color="#3b5998"
+                          style="background-color : #3b5998; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://plus.google.com/u/0/&#43;SivaPrasadReddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-google"
+                          data-hover-rule="background-color" data-hover-color="#d93e2d"
+                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                          style="background-color : #3371b7; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                          style="background-color : #e02a20; font-size: 18px; padding:8px"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+    <aside id="widget_sp_image-4" class="widget widget_sp_image">
+        <h3 class="widget-title">My Recent Books</h3><a
+            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
+            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
+            <img
+            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
+            style="max-width: 100%;"
+            src="/images/ApressSpringBootBook.jpg"/></a>
+    </aside>
+
+    <aside id="recent-posts-2" class="widget widget_recent_entries">
+        <h3 class="widget-title">Recent Posts</h3>
+        <ul>
+            <li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li>
+            <li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li>
+        </ul>
+    </aside>
+
+    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tagcloud">
+
+                <div class="widget__content">
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/android" title="android">android</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/best-practices" title="best-practices">best-practices</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/blogging" title="blogging">blogging</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/books" title="books">books</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/ide" title="ide">ide</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/interviews" title="interviews">interviews</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/it" title="it">it</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/java" title="java">java</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/javaee" title="javaee">javaee</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jcart" title="jcart">jcart</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jooq" title="jooq">jooq</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/jsf" title="jsf">jsf</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/linux" title="linux">linux</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/maven" title="maven">maven</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/mybatis" title="mybatis">mybatis</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/primefaces" title="primefaces">primefaces</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/spring" title="spring">spring</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springboot" title="springboot">springboot</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/springcloud" title="springcloud">springcloud</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/tips" title="tips">tips</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/videos" title="videos">videos</a>
+                    <a class="tag-cloud-link widget__link widget__link--taglist"
+                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                </div>
+
+        </div>
+    </aside>
+
+    <aside class="widget widget_categories">
+        <h3 class="widget-title">Categories</h3>
+        <ul>
+                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                    <li class="cat-item"><a href="/categories/books">Books</a></li>
+                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                    <li class="cat-item"><a href="/categories/java">Java</a></li>
+                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+                    <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+        </ul>
+    </aside>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer-area">
+        
+<div class="container footer-inner">
+    <div class="row">
+
+        <div class="footer-widget-area">
+
+
+            <div class="col-sm-4 footer-widget" role="complementary">
+                <div id="sparkling_popular_posts-3" class="widget sparkling-popular-posts">
+                    <h3 class="widgettitle">Recent Posts</h3>
+                    
+                    <div class="popular-posts-wrapper">
+
+                        <ul>
+                            <li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li>
+                            <li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li>
+                        </ul>
+
+                    </div> 
+
+                </div>
+            </div>
+
+            <div class="col-sm-4 footer-widget" role="complementary">
+                <div id="sparkling-cats-3" class="widget sparkling-cats">
+                    <h3 class="widgettitle">Categories</h3>
+
+                    <div class="cats-widget">
+                        <ul>
+                            <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+                            <li class="cat-item"><a href="/categories/books">Books</a></li>
+                            <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+                            <li class="cat-item"><a href="/categories/java">Java</a></li>
+                            <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+                            <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+                            <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+                            <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+                            <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+                            <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-4 footer-widget" role="complementary">
+                <div id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <p>
+                        <h3 class="widgettitle">Tag Cloud</h3>
+                        </p>
+                        <div class="tagcloud">
+
+                            <div class="widget__content">
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/android" title="android">android</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/best-practices" title="best-practices">best-practices</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/blogging" title="blogging">blogging</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/books" title="books">books</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/ide" title="ide">ide</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/interviews" title="interviews">interviews</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/it" title="it">it</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/java" title="java">java</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/javaee" title="javaee">javaee</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/jcart" title="jcart">jcart</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/jooq" title="jooq">jooq</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/jsf" title="jsf">jsf</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/linux" title="linux">linux</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/maven" title="maven">maven</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/mybatis" title="mybatis">mybatis</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/primefaces" title="primefaces">primefaces</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/spring" title="spring">spring</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/springboot" title="springboot">springboot</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/springcloud" title="springcloud">springcloud</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/tips" title="tips">tips</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/videos" title="videos">videos</a>
+                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
+                                   href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info container">
+        <div class="row">
+            <nav role="navigation" class="col-md-3">
+            </nav>
+            <div class="copyright col-md-6">
+                <a href="/" target="_blank">SivaLabs</a> Powered by <a
+                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
+        </div>
+    </div>
+    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
+</footer>
+
+    </div>
+</div>
+
+<script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script type='text/javascript' src="/assets/js/vendor/modernizr.min.js"></script>
+<script type='text/javascript' src="/assets/js/vendor/bootstrap.min.js"></script>
+<script type='text/javascript' src="/assets/js/functions.min.js"></script>
+
+
+<div class="analytics">
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-71296890-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</div>
+
+
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/a244435ef0378fac204b5a2d4/5f76189934783143aeb496d1e.js");</script>
+<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"a244435ef0378fac204b5a2d4","lid":"bdded8d3db"}) })</script>
+</body>
+</html>
