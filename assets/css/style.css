@@ -1735,3 +1735,9 @@ button[type=submit],
 .post-tags {
   display: inline;
 }
+
+.recent-books-img {
+  width: 2100;
+  height: 3000;
+  max-width: 100%;
+}
