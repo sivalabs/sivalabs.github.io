@@ -1,203 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="" name="keywords">
-    <meta content="SivaLabs - How SpringBoot AutoConfiguration magic works?" property="og:title">
-    <title>SivaLabs - How SpringBoot AutoConfiguration magic works?</title>
-    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="How SpringBoot AutoConfiguration magic works?"/>
-<meta name="twitter:description" content="In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta content="" name="keywords"><meta content="SivaLabs - How SpringBoot AutoConfiguration magic works?" property="og:title"><title>SivaLabs - How SpringBoot AutoConfiguration magic works?</title><meta name="twitter:card" content="summary"><meta name="twitter:title" content="How SpringBoot AutoConfiguration magic works?"><meta name="twitter:description" content="In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
 But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
-Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally."/>
-
-    <meta property="og:title" content="How SpringBoot AutoConfiguration magic works?" />
-<meta property="og:description" content="In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally."><meta property="og:title" content="How SpringBoot AutoConfiguration magic works?"><meta property="og:description" content="In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
 But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
-Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/" />
-
-
-
-<meta property="article:published_time" content="2016-03-13T07:04:56&#43;00:00"/>
-
-<meta property="article:modified_time" content="2016-03-13T07:04:56&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
-    
-<meta itemprop="name" content="How SpringBoot AutoConfiguration magic works?">
-<meta itemprop="description" content="In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally."><meta property="og:type" content="article"><meta property="og:url" content="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/"><meta property="article:published_time" content="2016-03-13T07:04:56&#43;00:00"><meta property="article:modified_time" content="2016-03-13T07:04:56&#43;00:00"><meta itemprop="name" content="How SpringBoot AutoConfiguration magic works?"><meta itemprop="description" content="In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
 But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
-Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.">
-
-
-<meta itemprop="datePublished" content="2016-03-13T07:04:56&#43;00:00" />
-<meta itemprop="dateModified" content="2016-03-13T07:04:56&#43;00:00" />
-<meta itemprop="wordCount" content="1615">
-
-
-
-<meta itemprop="keywords" content="SpringBoot," />
-
-    <link rel='stylesheet' href="/assets/css/bootstrap.min.css" type='text/css' media='all'/>
-    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
-    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3'  type='text/css' media='all'/>
-    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
-    <link rel='stylesheet' href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css" type='text/css' media='all'/>
-    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
-    <link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all">
-    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
-    
-</head>
-
-</head>
-
-<body class="home blog">
-<div id="page" class="hfeed site">
-    <header id="masthead" class="site-header" role="banner">
-    <nav class="navbar navbar-default " role="navigation">
-        <div class="container">
-            <div class="row">
-                <div class="site-navigation-inner col-sm-12">
-                    <div class="navbar-header">
-                        <button type="button" class="btn navbar-toggle" data-toggle="collapse"
-                                data-target=".navbar-ex1-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <div id="logo">
-                            <h1 class="site-name">
-                                <a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul id="menu-home" class="nav navbar-nav">
-                            
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1774 dropdown">
-                                <a href="#">Tutorials </a><span class="caret sparkling-dropdown"></span>
-                                <ul role="menu" class=" dropdown-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                        <a href="/tutorials/java">&nbsp;Java</a>
-                                    </li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                        <a href="/tutorials/springboot">&nbsp;Spring Boot</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                <a href="/videos">Videos</a>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                    href="/mybooks">My Books</a></li>
-
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown">
-                                <a href="#">Trainings </a><span class="caret sparkling-dropdown"></span>
-                                <ul role="menu" class=" dropdown-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                        <a href="/trainings/corejava">&nbsp;Core Java</a>
-                                    </li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                        <a href="/trainings/springboot">&nbsp;Spring Boot</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                <a href="/contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
-
-    <div id="content" class="site-content">
-        <div class="container main-content-area">
-            <div class="row side-pull-left">
-                <div class="main-content-inner col-sm-12 col-md-8">
-
-                    <div id="primary" class="content-area">
-                        
-
-<article class="post type-post status-publish format-standard hentry">
-    <div class="post-inner-content">
-        <header class="entry-header page-header">
-            <h1 class="entry-title ">How SpringBoot AutoConfiguration magic works?</h1>
-            <div class="entry-meta">
-    <span>
-        <i class="fa fa-user"></i>
-        <span class="author vcard">Siva</span>
-    </span>
-    <span class="posted-on">
-        <i class="fa fa-calendar"></i>
-        <time class="entry-date published"
-              datetime="2016-03-13T07:04:56">
-            March 13, 2016
-        </time>
-    </span>
-    
-    
-    
-    <span>
-        <i class="fa fa-folder-open-o"></i>
-        
-        <a class="article-category-link" href="/categories/spring/">Spring</a>
-        
-        
-    </span>
-    
-    
-
-    
-    
-    
-    <span class="tagcloud" style="display: inline">
-        <i class="fa fa-tags"></i>
-        
-        <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
-        
-        
-    </span>
-    
-    
-
-</div>
-
-        </header>
-        <div class="entry-content">
-            
-
-<p>In my previous post <a href="/2016/03/why-springboot/">Why SpringBoot?</a> we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.</p>
-
-<p>But before that you should know about Spring’s <strong>@Conditional</strong> feature based on which all the SpringBoot’s AutoConfiguration magic depends.</p>
-
-<h2 id="exploring-the-power-of-conditional">Exploring the power of @Conditional</h2>
-
-<p>While developing Spring based applications we may come across of a need to register beans conditionally.</p>
-
-<p>For example, you may want to register a DataSource bean pointing to DEV Database while running application locally and point to a different PRODUCTION Database while running in production.&nbsp;</p>
-
-<p>You can externalize the database connection parameters into properties files and use the file appropriate for the environment. But you need to change the configuration whenever you need to point to a different environment and build the application.</p>
-
-<p>To address this problem Spring 3.1 introduced the concept of <strong>Profiles</strong>. You can register multiple beans of the same type and associate them to one or more profiles. When you run the application you can activate the desired profiles and beans associated with the activated profiles only will be registered.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally."><meta itemprop="datePublished" content="2016-03-13T07:04:56&#43;00:00"><meta itemprop="dateModified" content="2016-03-13T07:04:56&#43;00:00"><meta itemprop="wordCount" content="1615"><meta itemprop="keywords" content="SpringBoot,"><link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400italic%2C400%2C600%2C700%7CRoboto+Slab%3A400%2C300%2C700&#038;ver=4.8.3" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/js/vendor/social-icons-widget-by-wpzoom/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"></head><body class="home blog"><div id="page" class="hfeed site"><header id="masthead" class="site-header" role="banner"><nav class="navbar navbar-default" role="navigation"><div class="container"><div class="row"><div class="site-navigation-inner col-sm-12"><div class="navbar-header"><button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button><div id="logo"><h1 class="site-name"><a class="navbar-brand" href="/" title="SivaLabs" rel="home">SivaLabs</a></h1></div></div><div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-home" class="nav navbar-nav"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1774 dropdown"><a href="#">Tutorials </a><span class="caret sparkling-dropdown"></span><ul role="menu" class="dropdown-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tutorials/java">&nbsp;Java</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tutorials/springboot">&nbsp;Spring Boot</a></li></ul></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/videos">Videos</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/mybooks">My Books</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown"><a href="#">Trainings </a><span class="caret sparkling-dropdown"></span><ul role="menu" class="dropdown-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/trainings/corejava">&nbsp;Core Java</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/trainings/springboot">&nbsp;Spring Boot</a></li></ul></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact">Contact</a></li></ul></div></div></div></div></nav></header><div id="content" class="site-content"><div class="container main-content-area"><div class="row side-pull-left"><div class="main-content-inner col-sm-12 col-md-8"><div id="primary" class="content-area"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header page-header"><h1 class="entry-title">How SpringBoot AutoConfiguration magic works?</h1><div class="entry-meta"><span><i class="fa fa-user"></i> <span class="author vcard">Siva</span> </span><span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published" datetime="2016-03-13T07:04:56">March 13, 2016 </time></span><span><i class="fa fa-folder-open-o"></i> <a class="article-category-link" href="/categories/spring/">Spring</a> </span><span class="tagcloud" style="display:inline"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content"><p>In my previous post <a href="/2016/03/why-springboot/">Why SpringBoot?</a> we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.</p><p>But before that you should know about Spring’s <strong>@Conditional</strong> feature based on which all the SpringBoot’s AutoConfiguration magic depends.</p><h2 id="exploring-the-power-of-conditional">Exploring the power of @Conditional</h2><p>While developing Spring based applications we may come across of a need to register beans conditionally.</p><p>For example, you may want to register a DataSource bean pointing to DEV Database while running application locally and point to a different PRODUCTION Database while running in production.&nbsp;</p><p>You can externalize the database connection parameters into properties files and use the file appropriate for the environment. But you need to change the configuration whenever you need to point to a different environment and build the application.</p><p>To address this problem Spring 3.1 introduced the concept of <strong>Profiles</strong>. You can register multiple beans of the same type and associate them to one or more profiles. When you run the application you can activate the desired profiles and beans associated with the activated profiles only will be registered.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span>
 <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Bean</span>
@@ -211,37 +18,7 @@ Exploring the power of @Conditional While developing Spring based applications w
     <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">prodDataSource</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
         <span style="color:#f92672">...</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Then you can specify the active profile using System Property <strong>-Dspring.profiles.active=DEV</strong></p>
-
-<p>This approach works for simple cases like enable or disable bean registrations based on activated profiles. But if you want to register beans based on some conditional logic then the Profiles approach itself is not sufficient.</p>
-
-<p>To provide much more flexibility for registering Spring beans conditionally, Spring 4 introduced the concept of <strong>@Conditional</strong>. By using <strong>@Conditional</strong> approach you can register a bean conditionally based on any arbitrary condition.</p>
-
-<p>For example, you may want to register a bean when:</p>
-
-<ul>
-<li>A specific class is present in classpath&nbsp;</li>
-<li>A Spring bean of certain type doesn’t already registered in ApplicationContext&nbsp;</li>
-<li>A specific file exists on a location&nbsp;</li>
-<li>A specific property value is configured in a configuration file&nbsp;</li>
-<li>A specific system property is present/absent&nbsp;</li>
-</ul>
-
-<p>These are just a few examples only and you can have any condition you want.</p>
-
-<p>Let us take a look at how Spring’s @Conditional works.</p>
-
-<p>Suppose we have a <strong>UserDAO</strong> interface with methods to get data from a data store. We have two implements of <strong>UserDAO</strong> interface namely <strong>JdbcUserDAO</strong> which talks to <strong>MySQL</strong> database and <strong>MongoUserDAO</strong> which talks to <strong>MongoDB</strong>.</p>
-
-<p>We may want to enable only one of <strong>JdbcUserDAO</strong> and <strong>MongoUserDAO</strong> based on a System Property say <strong>dbType</strong>.</p>
-
-<p>If the application is started using <strong>java -jar myapp.jar -DdbType=MySQL</strong> then we want to enable <strong>JdbcUserDAO</strong>, otherwise if the application is started using <strong>java -jar myapp.jar -DdbType=MONGO</strong> we want to enable <strong>MongoUserDAO</strong>.</p>
-
-<p>Suppose we have <strong>UserDAO</strong> interface and <strong>JdbcUserDAO</strong>, <strong>MongoUserDAO</strong> implementations as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserDAO</span>
+<span style="color:#f92672">}</span></code></pre></div><p>Then you can specify the active profile using System Property <strong>-Dspring.profiles.active=DEV</strong></p><p>This approach works for simple cases like enable or disable bean registrations based on activated profiles. But if you want to register beans based on some conditional logic then the Profiles approach itself is not sufficient.</p><p>To provide much more flexibility for registering Spring beans conditionally, Spring 4 introduced the concept of <strong>@Conditional</strong>. By using <strong>@Conditional</strong> approach you can register a bean conditionally based on any arbitrary condition.</p><p>For example, you may want to register a bean when:</p><ul><li>A specific class is present in classpath&nbsp;</li><li>A Spring bean of certain type doesn’t already registered in ApplicationContext&nbsp;</li><li>A specific file exists on a location&nbsp;</li><li>A specific property value is configured in a configuration file&nbsp;</li><li>A specific system property is present/absent&nbsp;</li></ul><p>These are just a few examples only and you can have any condition you want.</p><p>Let us take a look at how Spring’s @Conditional works.</p><p>Suppose we have a <strong>UserDAO</strong> interface with methods to get data from a data store. We have two implements of <strong>UserDAO</strong> interface namely <strong>JdbcUserDAO</strong> which talks to <strong>MySQL</strong> database and <strong>MongoUserDAO</strong> which talks to <strong>MongoDB</strong>.</p><p>We may want to enable only one of <strong>JdbcUserDAO</strong> and <strong>MongoUserDAO</strong> based on a System Property say <strong>dbType</strong>.</p><p>If the application is started using <strong>java -jar myapp.jar -DdbType=MySQL</strong> then we want to enable <strong>JdbcUserDAO</strong>, otherwise if the application is started using <strong>java -jar myapp.jar -DdbType=MONGO</strong> we want to enable <strong>MongoUserDAO</strong>.</p><p>Suppose we have <strong>UserDAO</strong> interface and <strong>JdbcUserDAO</strong>, <strong>MongoUserDAO</strong> implementations as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserDAO</span>
 <span style="color:#f92672">{</span>
     List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllUserNames</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
@@ -264,11 +41,7 @@ Exploring the power of @Conditional While developing Spring based applications w
         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;**** Getting usernames from MongoDB *****&#34;</span><span style="color:#f92672">);</span>
         <span style="color:#66d9ef">return</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Bond&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;James&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Bond&#34;</span><span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>We can implement the Condition <strong>MySQLDatabaseTypeCondition</strong> to check whether the System Property <strong>dbType</strong> is <strong>&#8220;MYSQL&#8221;</strong> as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MySQLDatabaseTypeCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">}</span></code></pre></div><p>We can implement the Condition <strong>MySQLDatabaseTypeCondition</strong> to check whether the System Property <strong>dbType</strong> is <strong>&#8220;MYSQL&#8221;</strong> as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MySQLDatabaseTypeCondition</span> <span style="color:#66d9ef">implements</span> Condition
 <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Override</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span> AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
@@ -276,11 +49,7 @@ Exploring the power of @Conditional While developing Spring based applications w
         String enabledDBType <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dbType&#34;</span><span style="color:#f92672">);</span>
         <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>enabledDBType <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> enabledDBType<span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MYSQL&#34;</span><span style="color:#f92672">));</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>We can implement the Condition <strong>MongoDBDatabaseTypeCondition</strong> to check whether the System Property <strong>dbType</strong> is &#8220;<strong>MONGODB</strong>&#8221; as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDBDatabaseTypeCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">}</span></code></pre></div><p>We can implement the Condition <strong>MongoDBDatabaseTypeCondition</strong> to check whether the System Property <strong>dbType</strong> is &#8220;<strong>MONGODB</strong>&#8221; as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDBDatabaseTypeCondition</span> <span style="color:#66d9ef">implements</span> Condition
 <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Override</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span> AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
@@ -288,11 +57,7 @@ Exploring the power of @Conditional While developing Spring based applications w
         String enabledDBType <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dbType&#34;</span><span style="color:#f92672">);</span>
         <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>enabledDBType <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> enabledDBType<span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MONGODB&#34;</span><span style="color:#f92672">));</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Now we can configure both <strong>JdbcUserDAO</strong> and <strong>MongoUserDAO</strong> beans conditionally using <strong>@Conditional</strong> as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#f92672">}</span></code></pre></div><p>Now we can configure both <strong>JdbcUserDAO</strong> and <strong>MongoUserDAO</strong> beans conditionally using <strong>@Conditional</strong> as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span>
 <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Bean</span>
@@ -306,19 +71,7 @@ Exploring the power of @Conditional While developing Spring based applications w
     <span style="color:#66d9ef">public</span> UserDAO <span style="color:#a6e22e">mongoUserDAO</span><span style="color:#f92672">(){</span>
         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MongoUserDAO<span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>If we run the application like <strong>java -jar myapp.jar -DdbType=MYSQL</strong> then only <strong>JdbcUserDAO</strong> bean will be registered.</p>
-
-<p>But if you set the System property like <strong>-DdbType=MONGODB</strong> then only <strong>MongoUserDAO</strong> bean will be registered.</p>
-
-<p>Now that we have seen how to conditionally register a bean based on System Property.</p>
-
-<p>Suppose we want to register <strong>MongoUserDAO</strong> bean only when <strong>MongoDB</strong> java driver class <strong>&#8220;com.mongodb.Server&#8221;</strong> is available on classpath, if not we want to register <strong>JdbcUserDAO</strong> bean.&nbsp;</p>
-
-<p>To accomplish that we can create Conditions to check the presence or absence of MongoDB driver class <strong>&#8220;com.mongodb.Server&#8221;</strong> as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDriverPresentsCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">}</span></code></pre></div><p>If we run the application like <strong>java -jar myapp.jar -DdbType=MYSQL</strong> then only <strong>JdbcUserDAO</strong> bean will be registered.</p><p>But if you set the System property like <strong>-DdbType=MONGODB</strong> then only <strong>MongoUserDAO</strong> bean will be registered.</p><p>Now that we have seen how to conditionally register a bean based on System Property.</p><p>Suppose we want to register <strong>MongoUserDAO</strong> bean only when <strong>MongoDB</strong> java driver class <strong>&#8220;com.mongodb.Server&#8221;</strong> is available on classpath, if not we want to register <strong>JdbcUserDAO</strong> bean.&nbsp;</p><p>To accomplish that we can create Conditions to check the presence or absence of MongoDB driver class <strong>&#8220;com.mongodb.Server&#8221;</strong> as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDriverPresentsCondition</span> <span style="color:#66d9ef">implements</span> Condition
 <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Override</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span>AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
@@ -344,15 +97,7 @@ Exploring the power of @Conditional While developing Spring based applications w
             <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
         <span style="color:#f92672">}</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>We just have seen how to register beans conditionally based on presence/absence of a class in classpath.</p>
-
-<p>What if we want to register <strong>MongoUserDAO</strong> bean only if no other Spring bean of type <strong>UserDAO</strong> is already registered.</p>
-
-<p>We can create a Condition to check if there is any existing bean of a certain type as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDAOBeanNotPresentsCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">}</span></code></pre></div><p>We just have seen how to register beans conditionally based on presence/absence of a class in classpath.</p><p>What if we want to register <strong>MongoUserDAO</strong> bean only if no other Spring bean of type <strong>UserDAO</strong> is already registered.</p><p>We can create a Condition to check if there is any existing bean of a certain type as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDAOBeanNotPresentsCondition</span> <span style="color:#66d9ef">implements</span> Condition
 <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Override</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span> AnnotatedTypeMetadata metadata<span style="color:#f92672">)</span>
@@ -360,13 +105,7 @@ Exploring the power of @Conditional While developing Spring based applications w
         UserDAO userDAO <span style="color:#f92672">=</span> conditionContext<span style="color:#f92672">.</span><span style="color:#a6e22e">getBeanFactory</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span>UserDAO<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
         <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>userDAO <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>What if we want to register <strong>MongoUserDAO</strong> bean only if property <strong>app.dbType=MONGO</strong> is set in properties placeholder configuration file?</p>
-
-<p>We can implement that Condition as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDbTypePropertyCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">}</span></code></pre></div><p>What if we want to register <strong>MongoUserDAO</strong> bean only if property <strong>app.dbType=MONGO</strong> is set in properties placeholder configuration file?</p><p>We can implement that Condition as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MongoDbTypePropertyCondition</span> <span style="color:#66d9ef">implements</span> Condition
 <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Override</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span>
@@ -376,23 +115,13 @@ Exploring the power of @Conditional While developing Spring based applications w
                             <span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;app.dbType&#34;</span><span style="color:#f92672">);</span>
         <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;MONGO&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>dbType<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>We have just seen how to implement various types of Conditions.</p>
-
-<p>But there is even more elegant way to implement Conditions using Annotations. Instead of creating a Condition implementation for both MYSQL and MongoDB, we can create aDatabaseType annotation as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE</span><span style="color:#f92672">,</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span> <span style="color:#f92672">})</span>
+<span style="color:#f92672">}</span></code></pre></div><p>We have just seen how to implement various types of Conditions.</p><p>But there is even more elegant way to implement Conditions using Annotations. Instead of creating a Condition implementation for both MYSQL and MongoDB, we can create aDatabaseType annotation as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE</span><span style="color:#f92672">,</span> ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span> <span style="color:#f92672">})</span>
 <span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@Conditional</span><span style="color:#f92672">(</span>DatabaseTypeCondition<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> DatabaseType
 <span style="color:#f92672">{</span>
     String <span style="color:#a6e22e">value</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Then we can implement <strong>DatabaseTypeCondition</strong> to use the <strong>DatabaseType</strong> value to determine whether to enable or disable bean registration as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DatabaseTypeCondition</span> <span style="color:#66d9ef">implements</span> Condition
+<span style="color:#f92672">}</span></code></pre></div><p>Then we can implement <strong>DatabaseTypeCondition</strong> to use the <strong>DatabaseType</strong> value to determine whether to enable or disable bean registration as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DatabaseTypeCondition</span> <span style="color:#66d9ef">implements</span> Condition
 <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Override</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>ConditionContext conditionContext<span style="color:#f92672">,</span>
@@ -403,11 +132,7 @@ Exploring the power of @Conditional While developing Spring based applications w
         String enabledDBType <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dbType&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;MYSQL&#34;</span><span style="color:#f92672">);</span>
         <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>enabledDBType <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> type <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> enabledDBType<span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>type<span style="color:#f92672">));</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Now we can use the <strong>@DatabaseType</strong> annotation on our bean definitions as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#f92672">}</span></code></pre></div><p>Now we can use the <strong>@DatabaseType</strong> annotation on our bean definitions as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#a6e22e">@ComponentScan</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfig</span>
 <span style="color:#f92672">{</span>
@@ -421,45 +146,13 @@ Exploring the power of @Conditional While developing Spring based applications w
     <span style="color:#66d9ef">public</span> UserDAO <span style="color:#a6e22e">mongoUserDAO</span><span style="color:#f92672">(){</span>
         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MongoUserDAO<span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Here we are getting the metadata from <strong>DatabaseType</strong> annotation and checking against the System Property <strong>dbType</strong> value to determine whether to enable or disable the bean registration.</p>
-
-<p>We have seen good number of examples to understand how we can register beans conditionally using <strong>@Conditional</strong> annotation.</p>
-
-<p>SpringBoot extensively uses <strong>@Conditional</strong> feature to register beans conditionally based on various criteria.</p>
-
-<p>You can find various Condition implementations that SpringBoot uses in <strong>org.springframework.boot.autoconfigure</strong> package of <strong>spring-boot-autoconfigure-{version}.jar</strong>.&nbsp;</p>
-
-<p>Now that we come to know about how SpringBoot uses <strong>@Conditional</strong> feature to conditionally check whether to register a bean or not.</p>
-
-<p>But what exactly triggers the auto-configuration mechanism?</p>
-
-<p>This is what we are going to look at in next section.</p>
-
-<h3 id="springboot-autoconfiguration">SpringBoot AutoConfiguration</h3>
-
-<p>The key to the SpringBoot’s auto-configuration magic is <strong>@EnableAutoConfiguration</strong> annotation.
-Typically we annotate our Application entry point class with either <strong>@SpringBootApplication</strong> or
-if we want to customize the defaults we can use the following annotations:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#f92672">}</span></code></pre></div><p>Here we are getting the metadata from <strong>DatabaseType</strong> annotation and checking against the System Property <strong>dbType</strong> value to determine whether to enable or disable the bean registration.</p><p>We have seen good number of examples to understand how we can register beans conditionally using <strong>@Conditional</strong> annotation.</p><p>SpringBoot extensively uses <strong>@Conditional</strong> feature to register beans conditionally based on various criteria.</p><p>You can find various Condition implementations that SpringBoot uses in <strong>org.springframework.boot.autoconfigure</strong> package of <strong>spring-boot-autoconfigure-{version}.jar</strong>.&nbsp;</p><p>Now that we come to know about how SpringBoot uses <strong>@Conditional</strong> feature to conditionally check whether to register a bean or not.</p><p>But what exactly triggers the auto-configuration mechanism?</p><p>This is what we are going to look at in next section.</p><h3 id="springboot-autoconfiguration">SpringBoot AutoConfiguration</h3><p>The key to the SpringBoot’s auto-configuration magic is <strong>@EnableAutoConfiguration</strong> annotation. Typically we annotate our Application entry point class with either <strong>@SpringBootApplication</strong> or if we want to customize the defaults we can use the following annotations:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#a6e22e">@EnableAutoConfiguration</span>
 <span style="color:#a6e22e">@ComponentScan</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Application</span>
 <span style="color:#f92672">{</span>
 
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>The <strong>@EnableAutoConfiguration</strong> annotation enables the auto-configuration of Spring <strong>ApplicationContext</strong> by scanning the classpath components and registers the beans that are matching various Conditions.&nbsp;</p>
-
-<p>SpringBoot provides various <strong>AutoConfiguration</strong> classes in <strong>spring-boot-autoconfigure-{version}.jar</strong> which are responsible for registering various components.</p>
-
-<p>Typically <strong>AutoConfiguration</strong> classes are annotated with <strong>@Configuration</strong> to mark it as a Spring configuration class and annotated with <strong>@EnableConfigurationProperties</strong> to bind the customization properties and one or more Conditional bean registration methods.</p>
-
-<p>For example consider <strong>org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration</strong> class.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#f92672">}</span></code></pre></div><p>The <strong>@EnableAutoConfiguration</strong> annotation enables the auto-configuration of Spring <strong>ApplicationContext</strong> by scanning the classpath components and registers the beans that are matching various Conditions.&nbsp;</p><p>SpringBoot provides various <strong>AutoConfiguration</strong> classes in <strong>spring-boot-autoconfigure-{version}.jar</strong> which are responsible for registering various components.</p><p>Typically <strong>AutoConfiguration</strong> classes are annotated with <strong>@Configuration</strong> to mark it as a Spring configuration class and annotated with <strong>@EnableConfigurationProperties</strong> to bind the customization properties and one or more Conditional bean registration methods.</p><p>For example consider <strong>org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration</strong> class.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#a6e22e">@ConditionalOnClass</span><span style="color:#f92672">({</span> DataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> EmbeddedDatabaseType<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">})</span>
 <span style="color:#a6e22e">@EnableConfigurationProperties</span><span style="color:#f92672">(</span>DataSourceProperties<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
 <span style="color:#a6e22e">@Import</span><span style="color:#f92672">({</span> Registrar<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> DataSourcePoolMetadataProvidersConfiguration<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">})</span>
@@ -519,16 +212,7 @@ if we want to customize the defaults we can use the following annotations:</p>
     <span style="color:#f92672">}</span>
     <span style="color:#f92672">...</span>
     <span style="color:#f92672">...</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Here <strong>DataSourceAutoConfiguration</strong> is annotated with <strong>@ConditionalOnClass({ DataSource.class,EmbeddedDatabaseType.class })</strong>
-which means that Auto Configuration of beans within <strong>DataSourceAutoConfiguration</strong> will be considered only if <strong>DataSource.class</strong>
-and <strong>EmbeddedDatabaseType.class</strong> classes are available on classpath.</p>
-
-<p>The class is also annotated with <strong>@EnableConfigurationProperties(DataSourceProperties.class)</strong> which enables binding the properties
-in <strong>application.properties</strong> to the properties of <strong>DataSourceProperties</strong> class automatically.</p>
-
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@ConfigurationProperties</span><span style="color:#f92672">(</span>prefix <span style="color:#f92672">=</span> DataSourceProperties<span style="color:#f92672">.</span><span style="color:#a6e22e">PREFIX</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span></code></pre></div><p>Here <strong>DataSourceAutoConfiguration</strong> is annotated with <strong>@ConditionalOnClass({ DataSource.class,EmbeddedDatabaseType.class })</strong> which means that Auto Configuration of beans within <strong>DataSourceAutoConfiguration</strong> will be considered only if <strong>DataSource.class</strong> and <strong>EmbeddedDatabaseType.class</strong> classes are available on classpath.</p><p>The class is also annotated with <strong>@EnableConfigurationProperties(DataSourceProperties.class)</strong> which enables binding the properties in <strong>application.properties</strong> to the properties of <strong>DataSourceProperties</strong> class automatically.</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@ConfigurationProperties</span><span style="color:#f92672">(</span>prefix <span style="color:#f92672">=</span> DataSourceProperties<span style="color:#f92672">.</span><span style="color:#a6e22e">PREFIX</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DataSourceProperties</span> <span style="color:#66d9ef">implements</span> BeanClassLoaderAware<span style="color:#f92672">,</span> EnvironmentAware<span style="color:#f92672">,</span> InitializingBean <span style="color:#f92672">{</span>
 
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String PREFIX <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;spring.datasource&#34;</span><span style="color:#f92672">;</span>
@@ -540,456 +224,7 @@ in <strong>application.properties</strong> to the properties of <strong>DataSour
     <span style="color:#66d9ef">private</span> String password<span style="color:#f92672">;</span>
     <span style="color:#f92672">...</span>
     <span style="color:#75715e">//setters and getters
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span></code></pre></div></p>
-
-<p>With this configuration all the properties that starts with <strong>spring.datasource.</strong>* will be automatically binds to <strong>DataSourceProperties</strong> object.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">=</span>jdbc:mysql:<span style="color:#75715e">//localhost:3306/test
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span></code></pre></div><p></p><p>With this configuration all the properties that starts with <strong>spring.datasource.</strong>* will be automatically binds to <strong>DataSourceProperties</strong> object.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">=</span>jdbc:mysql:<span style="color:#75715e">//localhost:3306/test
 </span><span style="color:#75715e"></span>spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">username</span><span style="color:#f92672">=</span>root
 spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">password</span><span style="color:#f92672">=</span>secret
-spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">driver</span><span style="color:#f92672">-</span>class<span style="color:#f92672">-</span>name<span style="color:#f92672">=</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span></code></pre></div>
-
-<p>You can also see some inner classes and bean definition methods that are annotated with SpringBoot’s Conditional annotations
-such as <strong>@ConditionalOnMissingBean, @ConditionalOnClass and @ConditionalOnProperty</strong> etc.</p>
-
-<p>These bean definitions will be registered in <strong>ApplicationContext</strong> only if those conditions are matched.</p>
-
-<p>You can also explore many other AutoConfiguration classes in <strong>spring-boot-autoconfigure-{version}.jar</strong> such as</p>
-
-<ul>
-<li>org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration&nbsp;</li>
-<li>org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration&nbsp;</li>
-<li>org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration&nbsp;</li>
-
-<li><p>org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration</p>
-
-<p>etc etc.&nbsp;</p></li>
-</ul>
-
-<p>I hope now you have an understanding of how SpringBoot auto-configuration works by using various AutoConfiration classes
-along with <strong>@Conditional</strong> features.</p>
-
-        </div>
-        <div class="sharedaddy sd-sharing-enabled">
-    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
-        <h3 class="sd-title">Share this:</h3>
-        <div class="sd-content">
-            <ul>
-                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=How%20SpringBoot%20AutoConfiguration%20magic%20works%3f-https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
-                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
-                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
-                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f&title=How%20SpringBoot%20AutoConfiguration%20magic%20works%3f" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
-                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f&title=How%20SpringBoot%20AutoConfiguration%20magic%20works%3f" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
-                <li class="share-end"></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-    </div>
-</article>
-
-<div class="comments">
-	<div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-
-
-
-<nav class="navigation post-navigation" role="navigation">
-	<h2 class="screen-reader-text">Post navigation</h2>
-	<div class="nav-links">
-		<div class="nav-previous">
-			<a href="/2016/03/springboot-working-with-jdbctemplate/" rel="next">
-				<i class="fa fa-chevron-left"></i>
-				<span class="post-title">SpringBoot : Working with JdbcTemplate</span>
-			</a>
-		</div>
-		<div class="nav-next">
-			<a href="/2016/03/why-springboot/" rel="prev">
-                <span class="post-title">Why SpringBoot?
-                    <i class="fa fa-chevron-right"></i>
-                </span>
-			</a>
-		</div>
-	</div>
-</nav>
-
-
-
-                    </div>
-                </div>
-                <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
-                    <div class="well">
-
-    <aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
-    <h3 class="widget-title">Social Networks</h3>
-
-    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://github.com/sivaprasadreddy"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-github"
-                          data-hover-rule="background-color" data-hover-color="#221e1b"
-                          style="background-color : #221e1b; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://twitter.com/sivalabs"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
-                          data-hover-rule="background-color" data-hover-color="#55acee"
-                          style="background-color : #55acee; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://facebook.com/sivaprasadreddy.k"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-facebook"
-                          data-hover-rule="background-color" data-hover-color="#3b5998"
-                          style="background-color : #3b5998; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://plus.google.com/u/0/&#43;SivaPrasadReddy"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-google"
-                          data-hover-rule="background-color" data-hover-color="#d93e2d"
-                          style="background-color : #d93e2d; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
-                          data-hover-rule="background-color" data-hover-color="#3371b7"
-                          style="background-color : #3371b7; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-
-        
-
-        
-        <li class="zoom-social_icons-list__item">
-            <a class="zoom-social_icons-list__link"
-               href="http://www.youtube.com/c/SivaPrasadReddy%20"
-               target="_blank">
-                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
-                          data-hover-rule="background-color" data-hover-color="#e02a20"
-                          style="background-color : #e02a20; font-size: 18px; padding:8px"
-                    ></span>
-            </a>
-        </li>
-        
-    </ul>
-</aside>
-
-
-    <aside id="widget_sp_image-4" class="widget widget_sp_image">
-        <h3 class="widget-title">My Recent Books</h3><a
-            href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304"
-            target="_blank" class="widget_sp_image-image-link" title="My Recent Books">
-            <img
-            width="2100" height="3000" alt="My Recent Books" class="attachment-full"
-            style="max-width: 100%;"
-            src="/images/ApressSpringBootBook.jpg"/></a>
-    </aside>
-
-    <aside id="recent-posts-2" class="widget widget_recent_entries">
-        <h3 class="widget-title">Recent Posts</h3>
-        <ul>
-            <li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li>
-            <li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li>
-        </ul>
-    </aside>
-
-    <aside id="tag_cloud-5" class="widget widget_tag_cloud">
-        <h3 class="widget-title">Tags</h3>
-        <div class="tagcloud">
-
-                <div class="widget__content">
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/android" title="android">android</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/best-practices" title="best-practices">best-practices</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/blogging" title="blogging">blogging</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/books" title="books">books</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/e-commerce" title="e-commerce">e-commerce</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/ide" title="ide">ide</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/interviews" title="interviews">interviews</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/it" title="it">it</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/java" title="java">java</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/javaee" title="javaee">javaee</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/jcart" title="jcart">jcart</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/jooq" title="jooq">jooq</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/jsf" title="jsf">jsf</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/linux" title="linux">linux</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/maven" title="maven">maven</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/mybatis" title="mybatis">mybatis</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/primefaces" title="primefaces">primefaces</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/spring" title="spring">spring</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/springboot" title="springboot">springboot</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/springcloud" title="springcloud">springcloud</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/tips" title="tips">tips</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/videos" title="videos">videos</a>
-                    <a class="tag-cloud-link widget__link widget__link--taglist"
-                       href="/tags/virtualbox" title="virtualbox">virtualbox</a>
-                </div>
-
-        </div>
-    </aside>
-
-    <aside class="widget widget_categories">
-        <h3 class="widget-title">Categories</h3>
-        <ul>
-                    <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
-                    <li class="cat-item"><a href="/categories/books">Books</a></li>
-                    <li class="cat-item"><a href="/categories/ide">Ide</a></li>
-                    <li class="cat-item"><a href="/categories/java">Java</a></li>
-                    <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
-                    <li class="cat-item"><a href="/categories/linux">Linux</a></li>
-                    <li class="cat-item"><a href="/categories/misc">Misc</a></li>
-                    <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-                    <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-                    <li class="cat-item"><a href="/categories/videos">Videos</a></li>
-        </ul>
-    </aside>
-</div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="footer-area">
-        
-<div class="container footer-inner">
-    <div class="row">
-
-        <div class="footer-widget-area">
-
-
-            <div class="col-sm-4 footer-widget" role="complementary">
-                <div id="sparkling_popular_posts-3" class="widget sparkling-popular-posts">
-                    <h3 class="widgettitle">Recent Posts</h3>
-                    
-                    <div class="popular-posts-wrapper">
-
-                        <ul>
-                            <li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li>
-                            <li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li>
-                            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li>
-                            <li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li>
-                            <li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li>
-                            <li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li>
-                            <li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li>
-                            <li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li>
-                            <li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li>
-                            <li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li>
-                        </ul>
-
-                    </div> 
-
-                </div>
-            </div>
-
-            <div class="col-sm-4 footer-widget" role="complementary">
-                <div id="sparkling-cats-3" class="widget sparkling-cats">
-                    <h3 class="widgettitle">Categories</h3>
-
-                    <div class="cats-widget">
-                        <ul>
-                            <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
-                            <li class="cat-item"><a href="/categories/books">Books</a></li>
-                            <li class="cat-item"><a href="/categories/ide">Ide</a></li>
-                            <li class="cat-item"><a href="/categories/java">Java</a></li>
-                            <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
-                            <li class="cat-item"><a href="/categories/linux">Linux</a></li>
-                            <li class="cat-item"><a href="/categories/misc">Misc</a></li>
-                            <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-                            <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-                            <li class="cat-item"><a href="/categories/videos">Videos</a></li>
-                        </ul>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-sm-4 footer-widget" role="complementary">
-                <div id="text-2" class="widget widget_text">
-                    <div class="textwidget">
-                        <p>
-                        <h3 class="widgettitle">Tag Cloud</h3>
-                        </p>
-                        <div class="tagcloud">
-
-                            <div class="widget__content">
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/android" title="android">android</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/best-practices" title="best-practices">best-practices</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/blogging" title="blogging">blogging</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/books" title="books">books</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/e-commerce" title="e-commerce">e-commerce</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/ide" title="ide">ide</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/interviews" title="interviews">interviews</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/it" title="it">it</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/java" title="java">java</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/javaee" title="javaee">javaee</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/jcart" title="jcart">jcart</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/jooq" title="jooq">jooq</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/jsf" title="jsf">jsf</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/linux" title="linux">linux</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/maven" title="maven">maven</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/mybatis" title="mybatis">mybatis</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/primefaces" title="primefaces">primefaces</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/spring" title="spring">spring</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/springboot" title="springboot">springboot</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/springcloud" title="springcloud">springcloud</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/tips" title="tips">tips</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/videos" title="videos">videos</a>
-                                <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color: #989898"
-                                   href="/tags/virtualbox" title="virtualbox">virtualbox</a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<footer id="colophon" class="site-footer" role="contentinfo">
-    <div class="site-info container">
-        <div class="row">
-            <nav role="navigation" class="col-md-3">
-            </nav>
-            <div class="copyright col-md-6">
-                <a href="/" target="_blank">SivaLabs</a> Powered by <a
-                    href="https://gohugo.io/" target="_blank">Hugo</a></div>
-        </div>
-    </div>
-    <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
-</footer>
-
-    </div>
-</div>
-
-<script type='text/javascript' src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
-<script type='text/javascript' src="/assets/js/vendor/modernizr.min.js"></script>
-<script type='text/javascript' src="/assets/js/vendor/bootstrap.min.js"></script>
-<script type='text/javascript' src="/assets/js/functions.min.js"></script>
-
-
-<div class="analytics">
-    
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-71296890-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
-</div>
-
-
-<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/a244435ef0378fac204b5a2d4/5f76189934783143aeb496d1e.js");</script>
-<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us9.list-manage.com","uuid":"a244435ef0378fac204b5a2d4","lid":"bdded8d3db"}) })</script>
-</body>
-</html>
+spring<span style="color:#f92672">.</span><span style="color:#a6e22e">datasource</span><span style="color:#f92672">.</span><span style="color:#a6e22e">driver</span><span style="color:#f92672">-</span>class<span style="color:#f92672">-</span>name<span style="color:#f92672">=</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span></code></pre></div><p>You can also see some inner classes and bean definition methods that are annotated with SpringBoot’s Conditional annotations such as <strong>@ConditionalOnMissingBean, @ConditionalOnClass and @ConditionalOnProperty</strong> etc.</p><p>These bean definitions will be registered in <strong>ApplicationContext</strong> only if those conditions are matched.</p><p>You can also explore many other AutoConfiguration classes in <strong>spring-boot-autoconfigure-{version}.jar</strong> such as</p><ul><li>org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration&nbsp;</li><li>org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration&nbsp;</li><li>org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration&nbsp;</li><li><p>org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration</p><p>etc etc.&nbsp;</p></li></ul><p>I hope now you have an understanding of how SpringBoot auto-configuration works by using various AutoConfiration classes along with <strong>@Conditional</strong> features.</p></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=How%20SpringBoot%20AutoConfiguration%20magic%20works%3f-https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f&title=How%20SpringBoot%20AutoConfiguration%20magic%20works%3f" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2016%2f03%2fhow-springboot-autoconfiguration-magic%2f&title=How%20SpringBoot%20AutoConfiguration%20magic%20works%3f" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></article><div class="comments"><div id="disqus_thread"></div><script>var disqus_config=function(){};!function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1)return void(document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.");var e=document,t=e.createElement("script");t.async=!0,t.src="//sivalabs.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}()</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div><nav class="navigation post-navigation" role="navigation"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><div class="nav-previous"><a href="/2016/03/springboot-working-with-jdbctemplate/" rel="next"><i class="fa fa-chevron-left"></i> <span class="post-title">SpringBoot : Working with JdbcTemplate</span></a></div><div class="nav-next"><a href="/2016/03/why-springboot/" rel="prev"><span class="post-title">Why SpringBoot? <i class="fa fa-chevron-right"></i></span></a></div></div></nav></div></div><div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary"><div class="well"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Social Networks</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b" style="background-color:#221e1b;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee" style="background-color:#55acee;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998" style="background-color:#3b5998;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google" data-hover-rule="background-color" data-hover-color="#d93e2d" style="background-color:#d93e2d;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7" style="background-color:#3371b7;font-size:18px;padding:8px"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20" style="background-color:#e02a20;font-size:18px;padding:8px"></span></a></li></ul></aside><aside id="widget_sp_image-4" class="widget widget_sp_image"><h3 class="widget-title">My Recent Books</h3><a href="https://www.amazon.com/Beginning-Spring-Boot-Applications-Microservices/dp/1484229304" target="_blank" class="widget_sp_image-image-link" title="My Recent Books"><img width="2100" height="3000" alt="My Recent Books" class="attachment-full" style="max-width:100%" src="/images/ApressSpringBootBook.jpg"></a></aside><aside id="recent-posts-2" class="widget widget_recent_entries"><h3 class="widget-title">Recent Posts</h3><ul><li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li><li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li><li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li><li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li><li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li></ul></aside><aside id="tag_cloud-5" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="android">android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="best-practices">best-practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="blogging">blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="e-commerce">e-commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="ide">ide</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="interviews">interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="it">it</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="java">java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="javaee">javaee</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="jsf">jsf</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="linux">linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="maven">maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="mybatis">mybatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="primefaces">primefaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="spring">spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="tips">tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="virtualbox">virtualbox</a></div></div></aside><aside class="widget widget_categories"><h3 class="widget-title">Categories</h3><ul><li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">Ide</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">Javaee</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside></div></div></div></div></div><div id="footer-area"><div class="container footer-inner"><div class="row"><div class="footer-widget-area"><div class="col-sm-4 footer-widget" role="complementary"><div id="sparkling_popular_posts-3" class="widget sparkling-popular-posts"><h3 class="widgettitle">Recent Posts</h3><div class="popular-posts-wrapper"><ul><li class="widget__item"><a class="widget__link" href="/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/">My Review of Vlad Mihalcea’s High-Performance Java Persistence book</a></li><li class="widget__item"><a class="widget__link" href="/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/">Select ALL starters on Spring Initializer (http://start.spring.io)</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a></li><li class="widget__item"><a class="widget__link" href="/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/">Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</a></li><li class="widget__item"><a class="widget__link" href="/2016/09/getting-started-springboot-intellij-idea-community-edition/">Getting Started with SpringBoot in Intellij IDEA Community Edition</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/update-springboot-learn-example-book/">Update on SpringBoot : Learn By Example book</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/fix-vt-x-disabled-bios-error/">How to fix “vt-x is disabled in the bios” error?</a></li><li class="widget__item"><a class="widget__link" href="/2016/07/my-new-book-springboot-learn-by-example/">My New Book SpringBoot : Learn By Example Published Today</a></li><li class="widget__item"><a class="widget__link" href="/2016/06/my-review-of-sanjay-patels-spring-course/">My Review of Sanjay Patel’s Spring Course</a></li><li class="widget__item"><a class="widget__link" href="/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a></li></ul></div></div></div><div class="col-sm-4 footer-widget" role="complementary"><div id="sparkling-cats-3" class="widget sparkling-cats"><h3 class="widgettitle">Categories</h3><div class="cats-widget"><ul><li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">Ide</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">Javaee</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></div></div></div><div class="col-sm-4 footer-widget" role="complementary"><div id="text-2" class="widget widget_text"><div class="textwidget"><p></p><h3 class="widgettitle">Tag Cloud</h3><p></p><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/android" title="android">android</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/best-practices" title="best-practices">best-practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/blogging" title="blogging">blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/e-commerce" title="e-commerce">e-commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/ide" title="ide">ide</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/interviews" title="interviews">interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/it" title="it">it</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/java" title="java">java</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/javaee" title="javaee">javaee</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/jsf" title="jsf">jsf</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/linux" title="linux">linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/maven" title="maven">maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/mybatis" title="mybatis">mybatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/primefaces" title="primefaces">primefaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/spring" title="spring">spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/tips" title="tips">tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/videos" title="videos">videos</a> <a class="tag-cloud-link widget__link widget__link--taglist" style="background-color:#989898" href="/tags/virtualbox" title="virtualbox">virtualbox</a></div></div></div></div></div></div></div></div><footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info container"><div class="row"><nav role="navigation" class="col-md-3"></nav><div class="copyright col-md-6"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></div></div></div><div class="scroll-to-top"><i class="fa fa-angle-up"></i></div></footer></div></div><script type="text/javascript" src="/assets/js/vendor/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/vendor/modernizr.min.js"></script><script type="text/javascript" src="/assets/js/vendor/bootstrap.min.js"></script><script type="text/javascript" src="/assets/js/functions.min.js"></script><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><script id="mcjs">!function(e,t,c,s,a){s=e.createElement(t),a=e.getElementsByTagName(t)[0],s.async=1,s.src=c,a.parentNode.insertBefore(s,a)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/a244435ef0378fac204b5a2d4/5f76189934783143aeb496d1e.js")</script><script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"],function(d){d.start({baseUrl:"mc.us9.list-manage.com",uuid:"a244435ef0378fac204b5a2d4",lid:"bdded8d3db"})})</script></body></html>
