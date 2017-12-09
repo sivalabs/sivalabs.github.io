@@ -23,18 +23,6 @@ The High-Performance Java Persistence book is not just another Hibernate book sa
     </item>
     
     <item>
-      <title>My Books</title>
-      <link>https://sivalabs.github.io/mybooks/</link>
-      <pubDate>Mon, 05 Sep 2016 02:32:39 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/mybooks/</guid>
-      <description>Beginning Spring Boot 2 
-SpringBoot : Learn By Example 
-PrimeFaces Beginners Guide 
-Java Persistence with MyBatis3</description>
-    </item>
-    
-    <item>
       <title>Update on SpringBoot : Learn By Example book</title>
       <link>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</link>
       <pubDate>Sat, 30 Jul 2016 02:53:50 +0000</pubDate>

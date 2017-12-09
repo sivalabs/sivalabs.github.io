@@ -30,7 +30,16 @@
     </item>
     
     <item>
-      <title>Ide</title>
+      <title>Books</title>
+      <link>https://sivalabs.github.io/categories/books/</link>
+      <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IDE</title>
       <link>https://sivalabs.github.io/categories/ide/</link>
       <pubDate>Wed, 07 Sep 2016 09:53:35 +0000</pubDate>
       
@@ -48,7 +57,7 @@
     </item>
     
     <item>
-      <title>Javaee</title>
+      <title>JavaEE</title>
       <link>https://sivalabs.github.io/categories/javaee/</link>
       <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
       

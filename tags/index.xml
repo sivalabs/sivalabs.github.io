@@ -48,7 +48,16 @@
     </item>
     
     <item>
-      <title>E Commerce</title>
+      <title>Books</title>
+      <link>https://sivalabs.github.io/tags/books/</link>
+      <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>E-Commerce</title>
       <link>https://sivalabs.github.io/tags/e-commerce/</link>
       <pubDate>Tue, 24 Nov 2015 04:34:03 +0000</pubDate>
       
@@ -57,11 +66,20 @@
     </item>
     
     <item>
-      <title>Ide</title>
+      <title>IDE</title>
       <link>https://sivalabs.github.io/tags/ide/</link>
       <pubDate>Wed, 07 Sep 2016 09:53:35 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/ide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IT</title>
+      <link>https://sivalabs.github.io/tags/it/</link>
+      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/it/</guid>
       <description></description>
     </item>
     
@@ -75,11 +93,11 @@
     </item>
     
     <item>
-      <title>It</title>
-      <link>https://sivalabs.github.io/tags/it/</link>
-      <pubDate>Mon, 06 Jul 2015 16:17:00 +0000</pubDate>
+      <title>JSF</title>
+      <link>https://sivalabs.github.io/tags/jsf/</link>
+      <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/tags/it/</guid>
+      <guid>https://sivalabs.github.io/tags/jsf/</guid>
       <description></description>
     </item>
     
@@ -93,7 +111,7 @@
     </item>
     
     <item>
-      <title>Javaee</title>
+      <title>JavaEE</title>
       <link>https://sivalabs.github.io/tags/javaee/</link>
       <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
       
@@ -120,15 +138,6 @@
     </item>
     
     <item>
-      <title>Jsf</title>
-      <link>https://sivalabs.github.io/tags/jsf/</link>
-      <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/jsf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Linux</title>
       <link>https://sivalabs.github.io/tags/linux/</link>
       <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
@@ -147,7 +156,7 @@
     </item>
     
     <item>
-      <title>Mybatis</title>
+      <title>MyBatis</title>
       <link>https://sivalabs.github.io/tags/mybatis/</link>
       <pubDate>Tue, 16 Jul 2013 10:01:00 +0000</pubDate>
       
@@ -156,7 +165,7 @@
     </item>
     
     <item>
-      <title>Primefaces</title>
+      <title>PrimeFaces</title>
       <link>https://sivalabs.github.io/tags/primefaces/</link>
       <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
       
@@ -165,7 +174,7 @@
     </item>
     
     <item>
-      <title>Servlets Jsp</title>
+      <title>Servlets JSP</title>
       <link>https://sivalabs.github.io/tags/servlets-jsp/</link>
       <pubDate>Thu, 25 Aug 2011 00:35:00 +0000</pubDate>
       
@@ -183,7 +192,7 @@
     </item>
     
     <item>
-      <title>Springboot</title>
+      <title>SpringBoot</title>
       <link>https://sivalabs.github.io/tags/springboot/</link>
       <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
       
@@ -192,7 +201,7 @@
     </item>
     
     <item>
-      <title>Springcloud</title>
+      <title>SpringCloud</title>
       <link>https://sivalabs.github.io/tags/springcloud/</link>
       <pubDate>Mon, 14 Aug 2017 12:30:43 +0000</pubDate>
       
@@ -219,7 +228,7 @@
     </item>
     
     <item>
-      <title>Virtualbox</title>
+      <title>VirtualBox</title>
       <link>https://sivalabs.github.io/tags/virtualbox/</link>
       <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
       
