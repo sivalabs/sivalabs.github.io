@@ -6,10 +6,19 @@
     <description>Recent content in Pages on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Sep 2016 02:32:39 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Dec 2017 12:06:31 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/pages/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Projects</title>
+      <link>https://sivalabs.github.io/projects/</link>
+      <pubDate>Sat, 16 Dec 2017 12:06:31 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/projects/</guid>
+      <description> JCart - E-Commerce application using SpringBoot </description>
+    </item>
     
     <item>
       <title>My Books</title>
