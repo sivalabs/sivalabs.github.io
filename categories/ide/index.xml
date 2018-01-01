@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IDE on SivaLabs</title>
+    <link>https://sivalabs.github.io/categories/ide/</link>
+    <description>Recent content in IDE on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Sep 2016 09:53:35 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/categories/ide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started with SpringBoot in Intellij IDEA Community Edition</title>
+      <link>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</link>
+      <pubDate>Wed, 07 Sep 2016 09:53:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</guid>
+      <description>We can use Intellij IDEA Community Edition for working with SpringBoot applications as we don&amp;#8217;t need support for configuring servers like Tomcat, Wildlfy etc and can simply run the applications by running main() method.
+However, there is no provision in Intellij IDEA Community Edition to create SpringBoot application directly, the way it supports in Ultimate Edition.
+We can go to http://start.spring.io/ and generate the project and then import into our IDE.</description>
+    </item>
+    
+    <item>
+      <title>NetBeansIDE and IntellijIDEA From The Eyes of a Long Time Eclipse User</title>
+      <link>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</link>
+      <pubDate>Mon, 13 Oct 2014 07:15:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</guid>
+      <description>I have been using Eclipse IDE since 2006 and I liked it so much for various reasons. First it is open source and free to use. Eclipse looks pretty neat on Windows OS on which I work most of the time. Occasionally I tried to use NetBeansIDE (before 6.x version) and I didn&amp;rsquo;t like it because it&amp;rsquo;s too slow. And I never tried IntellijIDEA because it&amp;rsquo;s a commercial product and I am 100% sure that my employer is not going to pay $$$ for an IDE.</description>
+    </item>
+    
+  </channel>
+</rss>

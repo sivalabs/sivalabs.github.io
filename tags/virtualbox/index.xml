@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VirtualBox on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/virtualbox/</link>
+    <description>Recent content in VirtualBox on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Oct 2015 02:07:05 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Development Environment Setup on Linux</title>
+      <link>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</link>
+      <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</guid>
+      <description>As I mentioned in my previous post Thinking of moving from Windows to Linux? I am moving from Windows to Linux. Setting up my development environment is a bit tedious because I have to hunt down the applications and execute various commands to setup. So I thought of make a note of them in a post so that it will be easier for me next time.
+I am using Ubuntu/LinuxMint system so I am using apt-get to install, if you are using Fedora/CentOS you can use yum/dnf.</description>
+    </item>
+    
+    <item>
+      <title>How to SSH into VirtualBox Linux OS?</title>
+      <link>https://sivalabs.github.io/2015/10/how-to-ssh-into-virtualbox-linux-os/</link>
+      <pubDate>Tue, 13 Oct 2015 02:05:05 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/10/how-to-ssh-into-virtualbox-linux-os/</guid>
+      <description>While learning some of the Linux commands we may want to use SSH commands to login into a remote Linux system and we may not have a dedicated Linux system to play with.
+In this post I will explain how I am using my Linux OS installed on VirtualBox to SSH from Windows OS.
+1. Install openssh-server on Linux OS in VirtualBox sudo apt-get install openssh-server
+On some Linux distros (ex: Fedora) the openssh server won&amp;#8217;t start automatically.</description>
+    </item>
+    
+  </channel>
+</rss>

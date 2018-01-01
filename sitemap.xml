@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://sivalabs.github.io/2018/01/how-was-my-year-2017-and-plan-for-2018/</loc>
+    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tutorials/java/</loc>
+    <lastmod>2017-12-16T12:12:31+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/projects/</loc>
+    <lastmod>2017-12-16T12:06:31+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tutorials/springboot/</loc>
+    <lastmod>2017-12-03T11:06:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</loc>
+    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</loc>
+    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</loc>
+    <lastmod>2017-08-14T12:30:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/</loc>
+    <lastmod>2017-08-14T03:35:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</loc>
+    <lastmod>2016-09-07T09:53:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/mybooks/</loc>
+    <lastmod>2016-09-05T02:32:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</loc>
+    <lastmod>2016-07-30T02:53:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/07/fix-vt-x-disabled-bios-error/</loc>
+    <lastmod>2016-07-21T01:54:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</loc>
+    <lastmod>2016-07-20T06:05:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/06/my-review-of-sanjay-patels-spring-course/</loc>
+    <lastmod>2016-06-03T01:18:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/videos/</loc>
+    <lastmod>2016-04-10T04:03:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/</loc>
+    <lastmod>2016-04-08T06:57:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/03/springboot-working-with-jooq/</loc>
+    <lastmod>2016-03-15T07:13:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</loc>
+    <lastmod>2016-03-14T07:10:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</loc>
+    <lastmod>2016-03-14T07:08:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</loc>
+    <lastmod>2016-03-13T07:04:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/03/why-springboot/</loc>
+    <lastmod>2016-03-13T07:02:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/</loc>
+    <lastmod>2016-01-05T15:40:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-iteration-8/</loc>
+    <lastmod>2015-12-31T11:37:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-manage-customers/</loc>
+    <lastmod>2015-12-31T09:34:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-manage-orders/</loc>
+    <lastmod>2015-12-31T09:21:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-iteration-7/</loc>
+    <lastmod>2015-12-31T09:17:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/</loc>
+    <lastmod>2015-12-31T07:40:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-customer-registration/</loc>
+    <lastmod>2015-12-31T07:24:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-customer-login/</loc>
+    <lastmod>2015-12-31T07:20:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-iteration-6/</loc>
+    <lastmod>2015-12-31T07:16:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-view-cart/</loc>
+    <lastmod>2015-12-31T05:32:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/</loc>
+    <lastmod>2015-12-31T05:27:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-iteration-5/</loc>
+    <lastmod>2015-12-31T05:19:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/</loc>
+    <lastmod>2015-12-30T14:27:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/</loc>
+    <lastmod>2015-12-30T14:25:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/</loc>
+    <lastmod>2015-12-30T14:23:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/</loc>
+    <lastmod>2015-12-30T14:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/</loc>
+    <lastmod>2015-12-30T14:17:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/</loc>
+    <lastmod>2015-12-30T14:15:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-iteration-4/</loc>
+    <lastmod>2015-12-30T14:14:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-iteration-3-manage-categories-and-products/</loc>
+    <lastmod>2015-12-20T05:58:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-manage-users/</loc>
+    <lastmod>2015-12-19T06:20:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-manage-roles/</loc>
+    <lastmod>2015-12-19T03:16:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-manage-privileges/</loc>
+    <lastmod>2015-12-18T14:32:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-iteration-2/</loc>
+    <lastmod>2015-12-18T13:38:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/</loc>
+    <lastmod>2015-12-16T14:42:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-configuring-https-ssltls/</loc>
+    <lastmod>2015-12-07T13:17:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-admin-reset-password/</loc>
+    <lastmod>2015-12-06T10:41:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-admin-forgot-password/</loc>
+    <lastmod>2015-12-06T10:34:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-email-service-setup/</loc>
+    <lastmod>2015-12-06T10:23:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/</loc>
+    <lastmod>2015-12-01T05:27:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-admin-ui-layout-setup/</loc>
+    <lastmod>2015-12-01T04:38:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/</loc>
+    <lastmod>2015-12-01T04:26:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/</loc>
+    <lastmod>2015-12-01T04:22:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-initial-code-setup/</loc>
+    <lastmod>2015-12-01T04:14:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/12/jcart-iteration-1/</loc>
+    <lastmod>2015-12-01T04:10:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/</loc>
+    <lastmod>2015-11-24T04:34:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/11/jcart-release-planning/</loc>
+    <lastmod>2015-11-24T04:26:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</loc>
+    <lastmod>2015-11-22T05:17:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/11/jcart-requirements-analysis/</loc>
+    <lastmod>2015-11-21T11:29:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/11/introducing-the-application-jcart/</loc>
+    <lastmod>2015-11-21T02:28:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</loc>
+    <lastmod>2015-11-20T14:18:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</loc>
+    <lastmod>2015-10-13T02:07:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/10/how-to-ssh-into-virtualbox-linux-os/</loc>
+    <lastmod>2015-10-13T02:05:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/10/thinking-of-moving-from-windows-to-linux/</loc>
+    <lastmod>2015-10-13T02:02:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/07/my-life-as-software-developer-in-india/</loc>
+    <lastmod>2015-07-06T16:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/06/a-developers-perspective-on-spring-vs-javaee/</loc>
+    <lastmod>2015-06-15T13:04:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/trainings/corejava/</loc>
+    <lastmod>2015-05-31T13:07:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/trainings/springboot/</loc>
+    <lastmod>2015-05-31T13:07:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/contact/</loc>
+    <lastmod>2015-05-31T13:06:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/05/centos-7-installation-on-oracle-virtualbox/</loc>
+    <lastmod>2015-05-11T07:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2015/05/my-linux-journey-begins/</loc>
+    <lastmod>2015-05-11T06:58:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/</loc>
+    <lastmod>2014-11-30T01:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2014/10/netbeanside-and-intellijidea-from-eyes/</loc>
+    <lastmod>2014-10-13T07:15:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</loc>
+    <lastmod>2013-12-29T00:53:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</loc>
+    <lastmod>2013-11-28T04:02:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</loc>
+    <lastmod>2013-07-16T10:01:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2012/10/a-bunch-of-maven-archetypes-for-spring-based-projects/</loc>
+    <lastmod>2012-10-29T12:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2012/10/mybatis-tutorial-part4-spring-integration/</loc>
+    <lastmod>2012-10-24T00:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-3-mapping-relationships/</loc>
+    <lastmod>2012-10-21T14:07:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-2-crud-operations-using-annotations/</loc>
+    <lastmod>2012-10-21T11:49:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2012/10/mybatis-tutorial-part1-crud-operations/</loc>
+    <lastmod>2012-10-21T11:10:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2012/08/keep-code-clean-watchdog-spotthebug/</loc>
+    <lastmod>2012-08-28T04:55:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2011/08/when-to-use-requestdispatcherforward/</loc>
+    <lastmod>2011-08-25T00:35:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2011/08/frameworks-making-developers-dumb/</loc>
+    <lastmod>2011-08-22T01:16:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</loc>
+    <lastmod>2011-01-26T07:11:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2008/12/welcome-note/</loc>
+    <lastmod>2008-12-21T08:05:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/android/</loc>
+    <lastmod>2016-07-21T01:54:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/best-practices/</loc>
+    <lastmod>2013-12-29T00:53:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/best-practices/</loc>
+    <lastmod>2013-12-29T00:53:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/blog/</loc>
+    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/blog/</loc>
+    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/blogging/</loc>
+    <lastmod>2008-12-21T08:05:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/books/</loc>
+    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/books/</loc>
+    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/books/</loc>
+    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/books/</loc>
+    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/</loc>
+    <lastmod>2013-12-29T00:53:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/e-commerce/</loc>
+    <lastmod>2015-11-24T04:34:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/ide/</loc>
+    <lastmod>2016-09-07T09:53:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/ide/</loc>
+    <lastmod>2016-09-07T09:53:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/it/</loc>
+    <lastmod>2015-07-06T16:17:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/interviews/</loc>
+    <lastmod>2011-08-22T01:16:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/jsf/</loc>
+    <lastmod>2013-11-28T04:02:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/java/</loc>
+    <lastmod>2017-08-14T12:30:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/java/</loc>
+    <lastmod>2015-11-22T05:17:20+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/javaee/</loc>
+    <lastmod>2015-06-15T13:04:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/javaee/</loc>
+    <lastmod>2015-06-15T13:04:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/jcart/</loc>
+    <lastmod>2015-12-31T11:37:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/jooq/</loc>
+    <lastmod>2016-03-15T07:13:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/linux/</loc>
+    <lastmod>2015-10-13T02:07:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/linux/</loc>
+    <lastmod>2015-10-13T02:07:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/maven/</loc>
+    <lastmod>2012-10-29T12:18:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/misc/</loc>
+    <lastmod>2014-11-30T01:21:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/mybatis/</loc>
+    <lastmod>2013-07-16T10:01:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/pages/</loc>
+    <lastmod>2017-12-16T12:06:31+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/posts/</loc>
+    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/primefaces/</loc>
+    <lastmod>2013-11-28T04:02:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/servlets-jsp/</loc>
+    <lastmod>2011-08-25T00:35:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/</loc>
+    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/spring/</loc>
+    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/spring/</loc>
+    <lastmod>2017-08-14T12:30:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/springboot/</loc>
+    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/springcloud/</loc>
+    <lastmod>2017-08-14T12:30:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/</loc>
+    <lastmod>2016-07-21T01:54:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/tips/</loc>
+    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/tips/</loc>
+    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/trainings/</loc>
+    <lastmod>2015-05-31T13:07:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tutorials/</loc>
+    <lastmod>2017-12-16T12:12:31+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/videos/</loc>
+    <lastmod>2016-04-10T04:03:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/videos/</loc>
+    <lastmod>2016-04-10T04:03:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/virtualbox/</loc>
+    <lastmod>2015-10-13T02:07:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

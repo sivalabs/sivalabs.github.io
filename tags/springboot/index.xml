@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SpringBoot on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/springboot/</link>
+    <description>Recent content in SpringBoot on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Oct 2017 02:50:23 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Select ALL starters on Spring Initializer (http://start.spring.io)</title>
+      <link>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</link>
+      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</guid>
+      <description>If you are working on Spring Boot then you most probably aware of Spring Initializer (http://start.spring.io) which is an online spring boot application generator. You can select the starters that you want to use and then generate the application.
+If you notice that there is no SELECT ALL option to select all the starters. Who would do that insane thing of selecting all the starters for an application??!!???
+But, i would like to have the SELECT ALL option for one single reason:</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</title>
+      <link>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</link>
+      <pubDate>Mon, 14 Aug 2017 12:30:43 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/</guid>
+      <description>Problem In the previous article Introduction to Spring Cloud Config Server we have seen how to use Spring Cloud Config Server.
+But, the problem is to reload the config changes in Config Client applications we need to trigger /refresh endpoint manually. This is not practical and viable if you have large number of applications.
+Solution Spring Cloud Bus module can be used to link multiple applications with a message broker and we can broadcast configuration changes.</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Tutorials – Introduction to Spring Cloud Config Server</title>
+      <link>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/</link>
+      <pubDate>Mon, 14 Aug 2017 03:35:07 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/</guid>
+      <description>Problem SpringBoot provides lot of flexibility in externalizing configuration properties via properties or YAML files. We can also configure properties for each environment (dev, qa, prod etc) separately using profile specific configuration files such as application.properties, application-dev.properties, application-prod.properties etc. But once the application is started we can not update the properties at runtime. If we change the properties we need to restart the application to use the updated configuration properties.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with SpringBoot in Intellij IDEA Community Edition</title>
+      <link>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</link>
+      <pubDate>Wed, 07 Sep 2016 09:53:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</guid>
+      <description>We can use Intellij IDEA Community Edition for working with SpringBoot applications as we don&amp;#8217;t need support for configuring servers like Tomcat, Wildlfy etc and can simply run the applications by running main() method.
+However, there is no provision in Intellij IDEA Community Edition to create SpringBoot application directly, the way it supports in Ultimate Edition.
+We can go to http://start.spring.io/ and generate the project and then import into our IDE.</description>
+    </item>
+    
+    <item>
+      <title>Update on SpringBoot : Learn By Example book</title>
+      <link>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</link>
+      <pubDate>Sat, 30 Jul 2016 02:53:50 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</guid>
+      <description>I would like to let you know that I have updated/added the following sections to my SpringBoot : Learn By Example book.
+Additions to existing chapters:  Working with Multiple Databases Exposing JPA entities with bi-directional references through RESTful services  In some of our applications we need to work with multiple databases. For example, we may have a primary database and a reporting database where most the application uses primary database and the application reports will be generated out of reporting database data.</description>
+    </item>
+    
+    <item>
+      <title>My New Book SpringBoot : Learn By Example Published Today</title>
+      <link>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</link>
+      <pubDate>Wed, 20 Jul 2016 06:05:31 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</guid>
+      <description>I am happy to announce that my new book SpringBoot : Learn By Example got published today on Leanpub.
+SpringBoot : Learn By Example  &amp;nbsp;
+  What is SpringBoot?
+Spring is one of the most popular Java frameworks out there to build web and enterprise application.
+Spring supports variety of configuration approaches (XML, Annotations, JavaConfig etc) and properly configuring Spring applications become a bit tedious and repetitive process. To avoid these problems Spring team introduced SpringBoot to address the complexity of configuring Spring application.</description>
+    </item>
+    
+    <item>
+      <title>Creating Custom SpringBoot Starter for Twitter4j</title>
+      <link>https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/</link>
+      <pubDate>Fri, 08 Apr 2016 06:57:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/</guid>
+      <description>SpringBoot provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.
+In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.
+In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create twitter4j-spring-boot-starter which will auto-configure Twitter4J beans.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot : Working with JOOQ</title>
+      <link>https://sivalabs.github.io/2016/03/springboot-working-with-jooq/</link>
+      <pubDate>Tue, 15 Mar 2016 07:13:21 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jooq/</guid>
+      <description>In my previous article SpringBoot : Working with MyBatis we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
+JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL.
+JOOQ provides the following features:
+ Building Typesafe SQL using DSL API&amp;nbsp; Typesafe database object referencing using Code Generation&amp;nbsp; Easy to use API for Querying and Data fetching&amp;nbsp; SQL logging and debugging</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot : Working with MyBatis</title>
+      <link>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</link>
+      <pubDate>Mon, 14 Mar 2016 07:10:42 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</guid>
+      <description>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
+SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&amp;nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;amp;lt;dependency&amp;amp;gt; &amp;amp;lt;groupId&amp;amp;gt;org.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot : Working with JdbcTemplate</title>
+      <link>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</link>
+      <pubDate>Mon, 14 Mar 2016 07:08:22 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/</guid>
+      <description>Spring provides a nice abstraction on top of JDBC API using JdbcTemplate and also provides great transaction management capabilities using annotation based approach.
+First let’s take a quick look at how we generally use Spring’s JdbcTemplate (without SpringBoot) by registering DataSource, TransactionManager and JdbcTemplate beans and optionally we can register DataSourceInitializer bean to initialize our database.
+@Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { &amp;#34;classpath:application.properties&amp;#34; }) public class AppConfig { @Autowired private Environment env; @Value(&amp;#34;${init-db:false}&amp;#34;) private String initDatabase; @Bean public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() { return new PropertySourcesPlaceholderConfigurer(); } @Bean public JdbcTemplate jdbcTemplate(DataSource dataSource) { return new JdbcTemplate(dataSource); } @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { return new DataSourceTransactionManager(dataSource); } @Bean public DataSource dataSource() { BasicDataSource dataSource = new BasicDataSource(); dataSource.</description>
+    </item>
+    
+    <item>
+      <title>How SpringBoot AutoConfiguration magic works?</title>
+      <link>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</link>
+      <pubDate>Sun, 13 Mar 2016 07:04:56 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/</guid>
+      <description>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</description>
+    </item>
+    
+    <item>
+      <title>Why SpringBoot?</title>
+      <link>https://sivalabs.github.io/2016/03/why-springboot/</link>
+      <pubDate>Sun, 13 Mar 2016 07:02:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/03/why-springboot/</guid>
+      <description>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
+Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Configuring HTTPS SSL/TLS</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-configuring-https-ssltls/</link>
+      <pubDate>Mon, 07 Dec 2015 13:17:45 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-configuring-https-ssltls/</guid>
+      <description>So far our JCart application is running on Tomcat default port 8080 using HTTP protocol. In this article we will configure to use HTTPS by using Self Signed Certificate. For real projects you would have to buy certificate from a Trusted Authority.
+I would like to run ShoppingCart site on https://host:8443 and if anyone tries to access it from http://host:8080 it should redirect to https://host:8443.
+Similarly I would like to run Administration site on https://host:9443 and if anyone tries to access it from http://host:9090 it should redirect to https://host:9443.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Admin Reset Password</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-admin-reset-password/</link>
+      <pubDate>Sun, 06 Dec 2015 10:41:22 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-admin-reset-password/</guid>
+      <description>Once the Admin User clicked on Password Reset Link that we sent via Email, we will validate the Token and if is valid then we will show a form to enter New Password, otherwise shows an error.
+@Controller public class UserAuthController extends JCartAdminBaseController { ... @RequestMapping(value=&amp;#34;/resetPwd&amp;#34;, method=RequestMethod.GET) public String resetPwd(HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) { String email = request.getParameter(&amp;#34;email&amp;#34;); String token = request.getParameter(&amp;#34;token&amp;#34;); boolean valid = securityService.verifyPasswordResetToken(email, token); if(valid){ model.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Admin Forgot Password</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-admin-forgot-password/</link>
+      <pubDate>Sun, 06 Dec 2015 10:34:33 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-admin-forgot-password/</guid>
+      <description>We will provide a link to Forgot Password in Login page and create jcart-admin/src/main/resources/templates/public/forgotPwd.html template as follows:
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34; layout:decorator=&amp;#34;layout/guestLayout&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Forgot Password&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body &amp;gt; &amp;lt;div layout:fragment=&amp;#34;content&amp;#34;&amp;gt; &amp;lt;form action=&amp;#34;forgotPwd&amp;#34; th:action=&amp;#34;@{/forgotPwd}&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;email&amp;#34; class=&amp;#34;form-control&amp;#34; name=&amp;#34;email&amp;#34; placeholder=&amp;#34;Email&amp;#34;/&amp;gt; &amp;lt;button type=&amp;#34;submit&amp;#34; class=&amp;#34;btn btn-primary btn-block btn-flat&amp;#34; th:text=&amp;#34;#{label.submit}&amp;#34;&amp;gt;Submit&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; When Admin user enters the email address and submit we will generate a token, store it in our DB and generates a Reset Password Link and send it to their email.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Email Service SetUp</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-email-service-setup/</link>
+      <pubDate>Sun, 06 Dec 2015 10:23:36 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-email-service-setup/</guid>
+      <description>We are going to implement Admin User Forgot Password functionality where we need to send the Password Reset link to User email address. So let us look at how to configure Email server and send emails.
+Spring provides support for sending Emails using JavaMailSender. SpringBoot makes it even easier by providing a starter for emailing support.
+As we need Emailing feature in both Admin and ShoppingCart modules, we will implement the emailing functionality in jcart-core module.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Configuring Spring Security</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/</link>
+      <pubDate>Tue, 01 Dec 2015 05:27:15 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/</guid>
+      <description>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.
+Let us add the following spring-security dependencies to jcart-admin/pom.xml.
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-security&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf.extras&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf-extras-springsecurity4&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
+http .authorizeRequests() .antMatchers(&amp;#34;/login&amp;#34;,&amp;#34;/login/form**&amp;#34;,&amp;#34;/register&amp;#34;,&amp;#34;/logout&amp;#34;).permitAll() .antMatchers(&amp;#34;/admin&amp;#34;,&amp;#34;/admin/**&amp;#34;).hasRole(&amp;#34;ADMIN&amp;#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&amp;#8217;t statically define constraints using role names.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Admin UI Layout SetUp</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-admin-ui-layout-setup/</link>
+      <pubDate>Tue, 01 Dec 2015 04:38:56 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-admin-ui-layout-setup/</guid>
+      <description>As I am not really a good UI designer I searched for a free good looking UI website Admin templates and I found this fantastic template https://almsaeedstudio.com/preview. We will be using this template for our Administration web application.
+We are going to use Thymeleaf templates for our View layer. Thymeleaf offers facelets style templating mechanism. Basically we need 2 layout templates, one for unauthorized views like Login/ForgotPassword etc and another for authorized users.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Create JPA Entities</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/</link>
+      <pubDate>Tue, 01 Dec 2015 04:26:41 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/</guid>
+      <description>We are going to create the JPA Entities for the database tables we designed.
+@Entity @Table(name=&amp;#34;users&amp;#34;) public class User { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false) @NotEmpty() private String name; @Column(nullable=false, unique=true) @NotEmpty @Email(message=&amp;#34;{errors.invalid_email}&amp;#34;) private String email; @Column(nullable=false) @NotEmpty @Size(min=4) private String password; private String passwordResetToken; @ManyToMany(cascade=CascadeType.MERGE) @JoinTable( name=&amp;#34;user_role&amp;#34;, joinColumns={@JoinColumn(name=&amp;#34;USER_ID&amp;#34;, referencedColumnName=&amp;#34;ID&amp;#34;)}, inverseJoinColumns={@JoinColumn(name=&amp;#34;ROLE_ID&amp;#34;, referencedColumnName=&amp;#34;ID&amp;#34;)}) private List&amp;lt;Role&amp;gt; roles; //setters &amp;amp; getters } @Entity @Table(name=&amp;#34;roles&amp;#34;) public class Role { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false, unique=true) @NotEmpty private String name; @Column(length=1024) private String description; @ManyToMany(mappedBy=&amp;#34;roles&amp;#34;) private List&amp;lt;User&amp;gt; users; @ManyToMany @JoinTable( name=&amp;#34;role_permission&amp;#34;, joinColumns={@JoinColumn(name=&amp;#34;ROLE_ID&amp;#34;, referencedColumnName=&amp;#34;ID&amp;#34;)}, inverseJoinColumns={@JoinColumn(name=&amp;#34;PERM_ID&amp;#34;, referencedColumnName=&amp;#34;ID&amp;#34;)}) private List&amp;lt;Permission&amp;gt; permissions; //setters &amp;amp; getters }</description>
+    </item>
+    
+    <item>
+      <title>JCart: Domain Modelling and Database Designing</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/</link>
+      <pubDate>Tue, 01 Dec 2015 04:22:19 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/</guid>
+      <description>While developing database driven applications using some ORM framework, some people prefer Object first approach and others follow DB first approach. I prefer DB first approach.
+So, let us start listing down all the domain entities in our JCart application domain.
+ Product Category Customer Order OrderItem Cart Address User Role Permission  Let us create the database tables as follows:
+Though we identified Cart as a domain entity, we are not creating the table for holding the Cart details.</description>
+    </item>
+    
+    <item>
+      <title>JCart: Initial Code SetUp</title>
+      <link>https://sivalabs.github.io/2015/12/jcart-initial-code-setup/</link>
+      <pubDate>Tue, 01 Dec 2015 04:14:09 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/12/jcart-initial-code-setup/</guid>
+      <description>Let us create a root pom type maven project with 3 sub-modules jcart-core, jcart-admin and jcart-site.
+jcart-core module will contain all the core logic excluding web related stuff.
+jcart-admin module will contain all the administration related web functionality like Controllers, Security, Validators etc.
+jcart-site module will contain all the shoppingcart related web functionality like Controllers, Security, Validators etc.
+All these modules use SpringBoot, but as of now STS/IntellijIdea are not providing option to create multi-module SpringBoot application, we will be creating Maven modules and then configure SpringBoot dependencies manually.</description>
+    </item>
+    
+    <item>
+      <title>Selecting The Technology Stack for JCart</title>
+      <link>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</link>
+      <pubDate>Sun, 22 Nov 2015 05:17:20 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</guid>
+      <description>Selecting the right technology stack is very crucial and plays an important role in project success. Many of the architects (unknowingly??!!) try to make complex designs by trying to use all kinds of latest and greatest stuff. On the other hand some architects try to be in their comfort zone by limiting their technology stack to the technologies with which they are comfortable. Both approaches are dangerous. One should understand the business needs and pick the technologies that are necessary for project.</description>
+    </item>
+    
+    <item>
+      <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
+    </item>
+    
+  </channel>
+</rss>

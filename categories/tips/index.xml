@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tips on SivaLabs</title>
+    <link>https://sivalabs.github.io/categories/tips/</link>
+    <description>Recent content in Tips on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Oct 2017 02:50:23 +0000</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/categories/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Select ALL starters on Spring Initializer (http://start.spring.io)</title>
+      <link>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</link>
+      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</guid>
+      <description>If you are working on Spring Boot then you most probably aware of Spring Initializer (http://start.spring.io) which is an online spring boot application generator. You can select the starters that you want to use and then generate the application.
+If you notice that there is no SELECT ALL option to select all the starters. Who would do that insane thing of selecting all the starters for an application??!!???
+But, i would like to have the SELECT ALL option for one single reason:</description>
+    </item>
+    
+    <item>
+      <title>How to fix “vt-x is disabled in the bios” error?</title>
+      <link>https://sivalabs.github.io/2016/07/fix-vt-x-disabled-bios-error/</link>
+      <pubDate>Thu, 21 Jul 2016 01:54:29 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/2016/07/fix-vt-x-disabled-bios-error/</guid>
+      <description>If you face the &amp;#8220;vt-x is disabled in the bios&amp;#8221; error while trying to run Android emulator, here is the solution that worked for me.
+Step 1: Enable Virtualization Technology in BIOS Go to BIOS Setup and enable &amp;#8220;Virtualization Technology&amp;#8221; option.
+On my Lenovo laptop this option was already enabled, but still getting this error. I have disabled it and re-enabled it, then it is working.
+Step 2: Install HAXM Installer from Android SDK Manager Start the Android SDK Manager, select Extras -&amp;gt; Intel x86 Emulator Accelerator (HAXM Installer) and install it.</description>
+    </item>
+    
+  </channel>
+</rss>
