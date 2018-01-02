@@ -107,7 +107,7 @@ JOOQ provides the following features:
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</guid>
       <description>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
 SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&amp;nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
-Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;amp;lt;dependency&amp;amp;gt; &amp;amp;lt;groupId&amp;amp;gt;org.</description>
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
     
     <item>
