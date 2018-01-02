@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorials on SivaLabs</title>
-    <link>https://sivalabs.github.io/tutorials/</link>
+    <link>https://sivalabs.in/tutorials/</link>
     <description>Recent content in Tutorials on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 16 Dec 2017 12:12:31 +0530</lastBuildDate>
     
-	<atom:link href="https://sivalabs.github.io/tutorials/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.in/tutorials/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Java Tutorials</title>
-      <link>https://sivalabs.github.io/tutorials/java/</link>
+      <link>https://sivalabs.in/tutorials/java/</link>
       <pubDate>Sat, 16 Dec 2017 12:12:31 +0530</pubDate>
       
-      <guid>https://sivalabs.github.io/tutorials/java/</guid>
+      <guid>https://sivalabs.in/tutorials/java/</guid>
       <description> Java Tutorials  When to use RequestDispatcher.forward() and response.sendRedirect()?  MyBatis Tutorials  MyBatis Tutorial: Part1 – CRUD Operations MyBatis Tutorial: Part-2: CRUD operations Using Annotations MyBatis Tutorial: Part 3 – Mapping Relationships MyBatis Tutorial : Part4 – Spring Integration  </description>
     </item>
     
     <item>
       <title>Spring Boot Tutorials</title>
-      <link>https://sivalabs.github.io/tutorials/springboot/</link>
+      <link>https://sivalabs.in/tutorials/springboot/</link>
       <pubDate>Sun, 03 Dec 2017 11:06:31 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/tutorials/springboot/</guid>
+      <guid>https://sivalabs.in/tutorials/springboot/</guid>
       <description> Spring Boot Tutorials  Why SpringBoot? How SpringBoot AutoConfiguration magic works? Getting Started with SpringBoot in Intellij IDEA Community Edition SpringBoot : Working with JdbcTemplate SpringBoot : Working with MyBatis SpringBoot : Working with JOOQ Creating Custom SpringBoot Starter for Twitter4j  Spring Cloud Tutorials  Introduction to Spring Cloud Config Server Auto Refresh Config Changes using Spring Cloud Bus  </description>
     </item>
     

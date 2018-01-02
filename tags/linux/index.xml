@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on SivaLabs</title>
-    <link>https://sivalabs.github.io/tags/linux/</link>
+    <link>https://sivalabs.in/tags/linux/</link>
     <description>Recent content in Linux on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Oct 2015 02:07:05 +0000</lastBuildDate>
     
-	<atom:link href="https://sivalabs.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.in/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Development Environment Setup on Linux</title>
-      <link>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</link>
+      <link>https://sivalabs.in/2015/10/my-development-environment-setup-on-linux/</link>
       <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/</guid>
+      <guid>https://sivalabs.in/2015/10/my-development-environment-setup-on-linux/</guid>
       <description>As I mentioned in my previous post Thinking of moving from Windows to Linux? I am moving from Windows to Linux. Setting up my development environment is a bit tedious because I have to hunt down the applications and execute various commands to setup. So I thought of make a note of them in a post so that it will be easier for me next time.
 I am using Ubuntu/LinuxMint system so I am using apt-get to install, if you are using Fedora/CentOS you can use yum/dnf.</description>
     </item>
     
     <item>
       <title>How to SSH into VirtualBox Linux OS?</title>
-      <link>https://sivalabs.github.io/2015/10/how-to-ssh-into-virtualbox-linux-os/</link>
+      <link>https://sivalabs.in/2015/10/how-to-ssh-into-virtualbox-linux-os/</link>
       <pubDate>Tue, 13 Oct 2015 02:05:05 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2015/10/how-to-ssh-into-virtualbox-linux-os/</guid>
+      <guid>https://sivalabs.in/2015/10/how-to-ssh-into-virtualbox-linux-os/</guid>
       <description>While learning some of the Linux commands we may want to use SSH commands to login into a remote Linux system and we may not have a dedicated Linux system to play with.
 In this post I will explain how I am using my Linux OS installed on VirtualBox to SSH from Windows OS.
 1. Install openssh-server on Linux OS in VirtualBox sudo apt-get install openssh-server
@@ -35,20 +35,20 @@ On some Linux distros (ex: Fedora) the openssh server won&amp;#8217;t start auto
     
     <item>
       <title>Thinking of moving from Windows to Linux?</title>
-      <link>https://sivalabs.github.io/2015/10/thinking-of-moving-from-windows-to-linux/</link>
+      <link>https://sivalabs.in/2015/10/thinking-of-moving-from-windows-to-linux/</link>
       <pubDate>Tue, 13 Oct 2015 02:02:30 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2015/10/thinking-of-moving-from-windows-to-linux/</guid>
+      <guid>https://sivalabs.in/2015/10/thinking-of-moving-from-windows-to-linux/</guid>
       <description>I have been using Windows operating system from the beginning. When I first started using computer Windows XP was the latest operating system and it was amazing. After few years I started my career as a Java developer and in my office also I have been using Windows only.
 After few years Windows Vista got released and I suffered with it for few months and then Microsoft released Windows 7 which is the best Windows operating system IMO.</description>
     </item>
     
     <item>
       <title>CentOS 7 Installation on Oracle Virtualbox</title>
-      <link>https://sivalabs.github.io/2015/05/centos-7-installation-on-oracle-virtualbox/</link>
+      <link>https://sivalabs.in/2015/05/centos-7-installation-on-oracle-virtualbox/</link>
       <pubDate>Mon, 11 May 2015 07:36:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2015/05/centos-7-installation-on-oracle-virtualbox/</guid>
+      <guid>https://sivalabs.in/2015/05/centos-7-installation-on-oracle-virtualbox/</guid>
       <description>I wanted to explore CentOS 7 Linux, so I installed it on my Oracle VirtualBox. Installation went smoothly ,but I had a hard time to install Virtualbox Guest Additions to get full screen. I thought of sharing the steps I performed so that it may be helpful for others.
 After installing CentOS 7, before installing Virtualbox Guest Additions first thing we need to do is update system.
 sudo yum update</description>
@@ -56,10 +56,10 @@ sudo yum update</description>
     
     <item>
       <title>My Linux Journey Begins</title>
-      <link>https://sivalabs.github.io/2015/05/my-linux-journey-begins/</link>
+      <link>https://sivalabs.in/2015/05/my-linux-journey-begins/</link>
       <pubDate>Mon, 11 May 2015 06:58:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2015/05/my-linux-journey-begins/</guid>
+      <guid>https://sivalabs.in/2015/05/my-linux-journey-begins/</guid>
       <description>Like many people I started working with computers on Windows XP operating system. Even after starting my career as a Java developer I have been working on Windows for all my development activities.
 Initially I didn&amp;rsquo;t get a chance(need) to work on Unix/Linux because we didn&amp;rsquo;t have access to any of production systems which are using Linux. After few years we got a new client for whom we need to do deployment also in QA/UAT environments which are all Linux based.</description>
     </item>

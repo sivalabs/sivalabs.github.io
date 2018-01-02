@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Books on SivaLabs</title>
-    <link>https://sivalabs.github.io/categories/books/</link>
+    <link>https://sivalabs.in/categories/books/</link>
     <description>Recent content in Books on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 05 Nov 2017 04:59:17 +0000</lastBuildDate>
     
-	<atom:link href="https://sivalabs.github.io/categories/books/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.in/categories/books/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Review of Vlad Mihalcea’s High-Performance Java Persistence book</title>
-      <link>https://sivalabs.github.io/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</link>
+      <link>https://sivalabs.in/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</link>
       <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</guid>
+      <guid>https://sivalabs.in/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</guid>
       <description>In Java world, JPA/Hibernate is the most popular and widely used framework. When it comes to overall performance of a software system database persistence layer plays the crucial role. The tricky part with JPA/Hibernate is it is very easy to get started but very very hard to master. This is where Vlad Mihalcea&amp;#8216;s High-Performance Java Persistence book helps you a lot.
 
 The High-Performance Java Persistence book is not just another Hibernate book saying you put this annotation here and call that method there and you are done.</description>
@@ -24,20 +24,20 @@ The High-Performance Java Persistence book is not just another Hibernate book sa
     
     <item>
       <title>Update on SpringBoot : Learn By Example book</title>
-      <link>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</link>
+      <link>https://sivalabs.in/2016/07/update-springboot-learn-example-book/</link>
       <pubDate>Sat, 30 Jul 2016 02:53:50 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2016/07/update-springboot-learn-example-book/</guid>
+      <guid>https://sivalabs.in/2016/07/update-springboot-learn-example-book/</guid>
       <description>I would like to let you know that I have updated/added the following sections to my SpringBoot : Learn By Example book.
 Additions to existing chapters:  Working with Multiple Databases Exposing JPA entities with bi-directional references through RESTful services  In some of our applications we need to work with multiple databases. For example, we may have a primary database and a reporting database where most the application uses primary database and the application reports will be generated out of reporting database data.</description>
     </item>
     
     <item>
       <title>My New Book SpringBoot : Learn By Example Published Today</title>
-      <link>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</link>
+      <link>https://sivalabs.in/2016/07/my-new-book-springboot-learn-by-example/</link>
       <pubDate>Wed, 20 Jul 2016 06:05:31 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</guid>
+      <guid>https://sivalabs.in/2016/07/my-new-book-springboot-learn-by-example/</guid>
       <description>I am happy to announce that my new book SpringBoot : Learn By Example got published today on Leanpub.
 SpringBoot : Learn By Example  &amp;nbsp;
   What is SpringBoot?
@@ -47,10 +47,10 @@ Spring supports variety of configuration approaches (XML, Annotations, JavaConfi
     
     <item>
       <title>PrimeFaces Beginner’s Guide book published</title>
-      <link>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</link>
+      <link>https://sivalabs.in/2013/11/primefaces-beginners-guide-book-published/</link>
       <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</guid>
+      <guid>https://sivalabs.in/2013/11/primefaces-beginners-guide-book-published/</guid>
       <description>I am glad to announce that my second book PrimeFaces Beginner&amp;#8217;s Guide is published.
 As many of us know PrimeFaces is leading JSF component library for JSF based web applications. This PrimeFaces Beginner&amp;#8217;s Guide book targets the Java developers with basic knowledge on JSF and jQuery and covers most of the commonly used PrimeFaces components.
  Good news is that PrimeFaces Beginner&amp;#8217;s Guide book covers the latest PrimeFaces 4.0 version features such as Client Side Validations (CSV) framework, Dialog Framework, Search Expressions, Sticky Component and many other enhancement as well.</description>
@@ -58,10 +58,10 @@ As many of us know PrimeFaces is leading JSF component library for JSF based web
     
     <item>
       <title>Packt Publishing “Java Persistence With MyBatis3” published</title>
-      <link>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</link>
+      <link>https://sivalabs.in/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</link>
       <pubDate>Tue, 16 Jul 2013 10:01:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</guid>
+      <guid>https://sivalabs.in/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</guid>
       <description>Hurray&amp;#8230;My first book &amp;#8220;Java Persistence with MyBatis3&amp;#8221; is published. I would like to thank Packt Publishers for giving me this opportunity to write on my favorite framework MyBatis.
 For most of the software applications data persistence is a key and important aspect. In Java land we have many ways of implementing persistence layer starting from low level JDBC to fancy ORM frameworks.
 JDBC is too low level API and needs to write a lot of boilerplate code.</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on SivaLabs</title>
-    <link>https://sivalabs.github.io/tags/android/</link>
+    <link>https://sivalabs.in/tags/android/</link>
     <description>Recent content in Android on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 21 Jul 2016 01:54:29 +0000</lastBuildDate>
     
-	<atom:link href="https://sivalabs.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.in/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to fix “vt-x is disabled in the bios” error?</title>
-      <link>https://sivalabs.github.io/2016/07/fix-vt-x-disabled-bios-error/</link>
+      <link>https://sivalabs.in/2016/07/fix-vt-x-disabled-bios-error/</link>
       <pubDate>Thu, 21 Jul 2016 01:54:29 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2016/07/fix-vt-x-disabled-bios-error/</guid>
+      <guid>https://sivalabs.in/2016/07/fix-vt-x-disabled-bios-error/</guid>
       <description>If you face the &amp;#8220;vt-x is disabled in the bios&amp;#8221; error while trying to run Android emulator, here is the solution that worked for me.
 Step 1: Enable Virtualization Technology in BIOS Go to BIOS Setup and enable &amp;#8220;Virtualization Technology&amp;#8221; option.
 On my Lenovo laptop this option was already enabled, but still getting this error. I have disabled it and re-enabled it, then it is working.

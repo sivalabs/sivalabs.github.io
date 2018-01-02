@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Best Practices on SivaLabs</title>
-    <link>https://sivalabs.github.io/tags/best-practices/</link>
+    <link>https://sivalabs.in/tags/best-practices/</link>
     <description>Recent content in Best Practices on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 29 Dec 2013 00:53:00 +0000</lastBuildDate>
     
-	<atom:link href="https://sivalabs.github.io/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.in/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Clean Code: Don’t mix different levels of abstractions</title>
-      <link>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
+      <link>https://sivalabs.in/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
       <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
+      <guid>https://sivalabs.in/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
       <description>We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.
 Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.</description>
     </item>
     
     <item>
       <title>Keep The Code Clean: WatchDog &amp; SpotTheBug Approach</title>
-      <link>https://sivalabs.github.io/2012/08/keep-code-clean-watchdog-spotthebug/</link>
+      <link>https://sivalabs.in/2012/08/keep-code-clean-watchdog-spotthebug/</link>
       <pubDate>Tue, 28 Aug 2012 04:55:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2012/08/keep-code-clean-watchdog-spotthebug/</guid>
+      <guid>https://sivalabs.in/2012/08/keep-code-clean-watchdog-spotthebug/</guid>
       <description>Before going to discuss WatchDog &amp;amp; SpotTheBug Approach, let me give a brief context on what is the needs for this.
 Three months back I was asked to write core infrastructure code for our new application which uses all the latest and greatest technologies.
 I have written the infrastructure code and implemented 2 usecases to demonstrate which logic should go into which layer and the code looks good(atleast to me :-)).</description>
@@ -34,10 +34,10 @@ I have written the infrastructure code and implemented 2 usecases to demonstrate
     
     <item>
       <title>10 things to become an outstanding Java developer</title>
-      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
+      <link>https://sivalabs.in/2011/01/10-things-to-become-outstanding-java/</link>
       <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
+      <guid>https://sivalabs.in/2011/01/10-things-to-become-outstanding-java/</guid>
       <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
 1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
     </item>

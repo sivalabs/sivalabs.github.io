@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tips on SivaLabs</title>
-    <link>https://sivalabs.github.io/tags/tips/</link>
+    <link>https://sivalabs.in/tags/tips/</link>
     <description>Recent content in Tips on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 18 Oct 2017 02:50:23 +0000</lastBuildDate>
     
-	<atom:link href="https://sivalabs.github.io/tags/tips/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.in/tags/tips/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Select ALL starters on Spring Initializer (http://start.spring.io)</title>
-      <link>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</link>
+      <link>https://sivalabs.in/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</link>
       <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</guid>
+      <guid>https://sivalabs.in/2017/10/select-all-starters-on-spring-initializer-httpstart-spring-io/</guid>
       <description>If you are working on Spring Boot then you most probably aware of Spring Initializer (http://start.spring.io) which is an online spring boot application generator. You can select the starters that you want to use and then generate the application.
 If you notice that there is no SELECT ALL option to select all the starters. Who would do that insane thing of selecting all the starters for an application??!!???
 But, i would like to have the SELECT ALL option for one single reason:</description>
@@ -24,10 +24,10 @@ But, i would like to have the SELECT ALL option for one single reason:</descript
     
     <item>
       <title>When to use RequestDispatcher.forward() and response.sendRedirect()?</title>
-      <link>https://sivalabs.github.io/2011/08/when-to-use-requestdispatcherforward/</link>
+      <link>https://sivalabs.in/2011/08/when-to-use-requestdispatcherforward/</link>
       <pubDate>Thu, 25 Aug 2011 00:35:00 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/2011/08/when-to-use-requestdispatcherforward/</guid>
+      <guid>https://sivalabs.in/2011/08/when-to-use-requestdispatcherforward/</guid>
       <description>Many people know about how RequestDispatcher.forward() and response.sendRedirect() works.
 RequestDispatcher.forward() is generally called Server side redirection and is used to forward to a resource within the same application. That resource could be a JSP or another Servlet.
 response.sendRedirect() is generally called as Client side redirection as it issues a new request from the browser. This method is used to redirect to another resource within the same application or to the resource in some other application running in the same web container or can redirect to any other resource running in someother web container.</description>
