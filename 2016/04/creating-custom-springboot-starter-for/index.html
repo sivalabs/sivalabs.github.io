@@ -4,96 +4,96 @@ In this post we will look into how to create a custom SpringBoot starter. To dem
 In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.
 In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create twitter4j-spring-boot-starter which will auto-configure Twitter4J beans."><meta property="og:type" content="article"><meta property="og:url" content="https://sivalabs.in/2016/04/creating-custom-springboot-starter-for/"><meta property="article:published_time" content="2016-04-08T06:57:23&#43;00:00"><meta property="article:modified_time" content="2016-04-08T06:57:23&#43;00:00"><meta itemprop="name" content="Creating Custom SpringBoot Starter for Twitter4j"><meta itemprop="description" content="SpringBoot provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.
 In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.
-In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create twitter4j-spring-boot-starter which will auto-configure Twitter4J beans."><meta itemprop="datePublished" content="2016-04-08T06:57:23&#43;00:00"><meta itemprop="dateModified" content="2016-04-08T06:57:23&#43;00:00"><meta itemprop="wordCount" content="1094"><meta itemprop="keywords" content="SpringBoot,"><link rel="stylesheet" href="/assets/css/custom-fonts.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/genericons.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/custom-styles.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/html5shiv.min.js"></script><script type="text/javascript" src="/assets/js/navigation.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"></head><body class="home blog logged-in admin-bar no-customize-support post-layout-one-column"><div id="header-top" class="header-bar-wrap"></div><div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><header id="masthead" class="site-header clearfix" role="banner"><div class="header-main container clearfix"><div id="logo" class="site-branding clearfix"><h1 class="site-title"><a href="/" title="SivaLabs" rel="home">SivaLabs</a></h1><p class="site-description">My Experiments on Technology</p></div><div class="header-widgets clearfix"></div></div><div id="main-navigation-wrap" class="primary-navigation-wrap"><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation"><ul id="menu-home" class="main-navigation-menu"><li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145"><a href="/">Home</a></li><li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421"><a href="/categories/java">Java</a></li><li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423"><a href="/categories/spring">Spring</a><ul class="sub-menu"><li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424"><a href="/categories/springboot">Spring Boot</a></li><li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="/categories/springcloud">Spring Cloud</a></li></ul></li><li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422"><a href="/categories/microservices">MicroServices</a></li><li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="/videos">Videos</a></li><li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161"><a href="/mybooks">My Books</a></li><li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="/contact">Contact</a></li></ul></nav></div></header><div id="content" class="site-content container clearfix"><section id="primary" class="content-archive content-area"><main id="main" class="site-main" role="main"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.in/2016/04/creating-custom-springboot-starter-for/" rel="bookmark"><time class="entry-date published" datetime="2016-04-08T06:57:23">April 08, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.in/2016/04/creating-custom-springboot-starter-for/" rel="bookmark">Creating Custom SpringBoot Starter for Twitter4j</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content"><p><strong>SpringBoot</strong> provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.</p><p>In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.</p><p>In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create <strong>twitter4j-spring-boot-starter</strong> which will auto-configure Twitter4J beans.</p><p>To accomplish this, we are going to create:</p><ol><li>&nbsp;<strong>twitter4j-spring-boot-autoconfigure</strong> module which contains Twitter4J AutoConfiguration bean definitions&nbsp;</li><li><strong>twitter4j-spring-boot-starter</strong> module which pulls in <strong>twitter4j-spring-boot-autoconfigure</strong> and <strong>twitter4j-core</strong> dependencies&nbsp;</li><li>Sample application which uses <strong>twitter4j-spring-boot-starter</strong>&nbsp;</li></ol><h3 id="create-parent-module-spring-boot-starter-twitter4j">Create Parent Module spring-boot-starter-twitter4j</h3><p>First we are going to create a parent pom type module to define dependency versions and sub-modules.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&amp;gt;
-&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34;
-    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;
-    xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0
-                        http://maven.apache.org/maven-v4_0_0.xsd&#34;&amp;gt;
-    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create twitter4j-spring-boot-starter which will auto-configure Twitter4J beans."><meta itemprop="datePublished" content="2016-04-08T06:57:23&#43;00:00"><meta itemprop="dateModified" content="2016-04-08T06:57:23&#43;00:00"><meta itemprop="wordCount" content="1094"><meta itemprop="keywords" content="SpringBoot,"><link rel="stylesheet" href="/assets/css/custom-fonts.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/genericons.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/custom-styles.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/html5shiv.min.js"></script><script type="text/javascript" src="/assets/js/navigation.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"></head><body class="home blog logged-in admin-bar no-customize-support post-layout-one-column"><div id="header-top" class="header-bar-wrap"></div><div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><header id="masthead" class="site-header clearfix" role="banner"><div class="header-main container clearfix"><div id="logo" class="site-branding clearfix"><h1 class="site-title"><a href="/" title="SivaLabs" rel="home">SivaLabs</a></h1><p class="site-description">My Experiments on Technology</p></div><div class="header-widgets clearfix"></div></div><div id="main-navigation-wrap" class="primary-navigation-wrap"><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation"><ul id="menu-home" class="main-navigation-menu"><li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145"><a href="/">Home</a></li><li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421"><a href="/categories/java">Java</a></li><li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423"><a href="/categories/spring">Spring</a><ul class="sub-menu"><li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424"><a href="/categories/springboot">Spring Boot</a></li><li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="/categories/springcloud">Spring Cloud</a></li></ul></li><li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422"><a href="/categories/microservices">MicroServices</a></li><li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="/videos">Videos</a></li><li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161"><a href="/mybooks">My Books</a></li><li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="/contact">Contact</a></li></ul></nav></div></header><div id="content" class="site-content container clearfix"><section id="primary" class="content-archive content-area"><main id="main" class="site-main" role="main"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.in/2016/04/creating-custom-springboot-starter-for/" rel="bookmark"><time class="entry-date published" datetime="2016-04-08T06:57:23">April 08, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.in/2016/04/creating-custom-springboot-starter-for/" rel="bookmark">Creating Custom SpringBoot Starter for Twitter4j</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content"><p><strong>SpringBoot</strong> provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.</p><p>In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.</p><p>In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create <strong>twitter4j-spring-boot-starter</strong> which will auto-configure Twitter4J beans.</p><p>To accomplish this, we are going to create:</p><ol><li>&nbsp;<strong>twitter4j-spring-boot-autoconfigure</strong> module which contains Twitter4J AutoConfiguration bean definitions&nbsp;</li><li><strong>twitter4j-spring-boot-starter</strong> module which pulls in <strong>twitter4j-spring-boot-autoconfigure</strong> and <strong>twitter4j-core</strong> dependencies&nbsp;</li><li>Sample application which uses <strong>twitter4j-spring-boot-starter</strong>&nbsp;</li></ol><h3 id="create-parent-module-spring-boot-starter-twitter4j">Create Parent Module spring-boot-starter-twitter4j</h3><p>First we are going to create a parent pom type module to define dependency versions and sub-modules.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0
+</span><span style="color:#e6db74">                        http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
 
-    &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;spring-boot-starter-twitter4j&amp;lt;/artifactId&amp;gt;
-    &amp;lt;packaging&amp;gt;pom&amp;lt;/packaging&amp;gt;
-    &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
-    &amp;lt;name&amp;gt;spring-boot-starter-twitter4j&amp;lt;/name&amp;gt;
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-twitter4j<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;packaging&gt;</span>pom<span style="color:#f92672">&lt;/packaging&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span>spring-boot-starter-twitter4j<span style="color:#f92672">&lt;/name&gt;</span>
 
-    &amp;lt;properties&amp;gt;
-        &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
-        &amp;lt;twitter4j.version&amp;gt;4.0.3&amp;lt;/twitter4j.version&amp;gt;
-        &amp;lt;spring-boot.version&amp;gt;1.3.2.RELEASE&amp;lt;/spring-boot.version&amp;gt;
-    &amp;lt;/properties&amp;gt;
+    <span style="color:#f92672">&lt;properties&gt;</span>
+        <span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+        <span style="color:#f92672">&lt;twitter4j.version&gt;</span>4.0.3<span style="color:#f92672">&lt;/twitter4j.version&gt;</span>
+        <span style="color:#f92672">&lt;spring-boot.version&gt;</span>1.3.2.RELEASE<span style="color:#f92672">&lt;/spring-boot.version&gt;</span>
+    <span style="color:#f92672">&lt;/properties&gt;</span>
 
-    &amp;lt;modules&amp;gt;
-        &amp;lt;module&amp;gt;twitter4j-spring-boot-autoconfigure&amp;lt;/module&amp;gt;
-        &amp;lt;module&amp;gt;twitter4j-spring-boot-starter&amp;lt;/module&amp;gt;
-        &amp;lt;module&amp;gt;twitter4j-spring-boot-sample&amp;lt;/module&amp;gt;
-    &amp;lt;/modules&amp;gt;
+    <span style="color:#f92672">&lt;modules&gt;</span>
+        <span style="color:#f92672">&lt;module&gt;</span>twitter4j-spring-boot-autoconfigure<span style="color:#f92672">&lt;/module&gt;</span>
+        <span style="color:#f92672">&lt;module&gt;</span>twitter4j-spring-boot-starter<span style="color:#f92672">&lt;/module&gt;</span>
+        <span style="color:#f92672">&lt;module&gt;</span>twitter4j-spring-boot-sample<span style="color:#f92672">&lt;/module&gt;</span>
+    <span style="color:#f92672">&lt;/modules&gt;</span>
 
-    &amp;lt;dependencyManagement&amp;gt;
-        &amp;lt;dependencies&amp;gt;
-            &amp;lt;dependency&amp;gt;
-                &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;spring-boot-dependencies&amp;lt;/artifactId&amp;gt;
-                &amp;lt;version&amp;gt;${spring-boot.version}&amp;lt;/version&amp;gt;
-                &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;
-                &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;
-            &amp;lt;/dependency&amp;gt;
+    <span style="color:#f92672">&lt;dependencyManagement&gt;</span>
+        <span style="color:#f92672">&lt;dependencies&gt;</span>
+            <span style="color:#f92672">&lt;dependency&gt;</span>
+                <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+                <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-dependencies<span style="color:#f92672">&lt;/artifactId&gt;</span>
+                <span style="color:#f92672">&lt;version&gt;</span>${spring-boot.version}<span style="color:#f92672">&lt;/version&gt;</span>
+                <span style="color:#f92672">&lt;type&gt;</span>pom<span style="color:#f92672">&lt;/type&gt;</span>
+                <span style="color:#f92672">&lt;scope&gt;</span>import<span style="color:#f92672">&lt;/scope&gt;</span>
+            <span style="color:#f92672">&lt;/dependency&gt;</span>
 
-            &amp;lt;dependency&amp;gt;
-                &amp;lt;groupId&amp;gt;org.twitter4j&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;twitter4j-core&amp;lt;/artifactId&amp;gt;
-                &amp;lt;version&amp;gt;${twitter4j.version}&amp;lt;/version&amp;gt;
-            &amp;lt;/dependency&amp;gt;
-        &amp;lt;/dependencies&amp;gt;
-    &amp;lt;/dependencyManagement&amp;gt;
+            <span style="color:#f92672">&lt;dependency&gt;</span>
+                <span style="color:#f92672">&lt;groupId&gt;</span>org.twitter4j<span style="color:#f92672">&lt;/groupId&gt;</span>
+                <span style="color:#f92672">&lt;artifactId&gt;</span>twitter4j-core<span style="color:#f92672">&lt;/artifactId&gt;</span>
+                <span style="color:#f92672">&lt;version&gt;</span>${twitter4j.version}<span style="color:#f92672">&lt;/version&gt;</span>
+            <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;/dependencies&gt;</span>
+    <span style="color:#f92672">&lt;/dependencyManagement&gt;</span>
 
-&amp;lt;/project&amp;gt;</code></pre></div><p>In this <strong>pom.xml</strong> we are defining the SpringBoot and Twitter4j versions in<dependencymanagement>section so that we don’t need to specify versions all over the places.&nbsp;</dependencymanagement></p><h3 id="create-twitter4j-spring-boot-autoconfigure-module">Create twitter4j-spring-boot-autoconfigure module</h3><p>Create a child module with name <strong>twitter4j-spring-boot-autoconfigure</strong> in our parent maven module <strong>spring-boot-starter-twitter4j</strong>.&nbsp;</p><p>Add the maven dependencies such as spring-boot, <strong>spring-boot-autoconfigure</strong>, <strong>twitter4j-core</strong> and <strong>junit</strong> as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&amp;gt;
-&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; 
-    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;
-    xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0
-               http://maven.apache.org/maven-v4_0_0.xsd&#34;&amp;gt;
-    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
-    &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;twitter4j-spring-boot-autoconfigure&amp;lt;/artifactId&amp;gt;
-    &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
-    &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div><p>In this <strong>pom.xml</strong> we are defining the SpringBoot and Twitter4j versions in<dependencymanagement>section so that we don’t need to specify versions all over the places.&nbsp;</dependencymanagement></p><h3 id="create-twitter4j-spring-boot-autoconfigure-module">Create twitter4j-spring-boot-autoconfigure module</h3><p>Create a child module with name <strong>twitter4j-spring-boot-autoconfigure</strong> in our parent maven module <strong>spring-boot-starter-twitter4j</strong>.&nbsp;</p><p>Add the maven dependencies such as spring-boot, <strong>spring-boot-autoconfigure</strong>, <strong>twitter4j-core</strong> and <strong>junit</strong> as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> 
+    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0
+</span><span style="color:#e6db74">               http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>twitter4j-spring-boot-autoconfigure<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;packaging&gt;</span>jar<span style="color:#f92672">&lt;/packaging&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
 
-    &amp;lt;parent&amp;gt;
-        &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
-        &amp;lt;artifactId&amp;gt;spring-boot-starter-twitter4j&amp;lt;/artifactId&amp;gt;
-        &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
-    &amp;lt;/parent&amp;gt;
+    <span style="color:#f92672">&lt;parent&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-twitter4j<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/parent&gt;</span>
 
-    &amp;lt;properties&amp;gt;
-        &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
-    &amp;lt;/properties&amp;gt;
+    <span style="color:#f92672">&lt;properties&gt;</span>
+        <span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+    <span style="color:#f92672">&lt;/properties&gt;</span>
 
-    &amp;lt;dependencies&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;spring-boot&amp;lt;/artifactId&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;spring-boot-autoconfigure&amp;lt;/artifactId&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;spring-boot-configuration-processor&amp;lt;/artifactId&amp;gt;
-            &amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;
-            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.twitter4j&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;twitter4j-core&amp;lt;/artifactId&amp;gt;
-            &amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-    &amp;lt;/dependencies&amp;gt;
-&amp;lt;/project&amp;gt;</code></pre></div><p>Note that we have specified <strong>twitter4j-core</strong> as <strong>optional</strong> dependency because <strong>twitter4j-core</strong> should be added to the project only when <strong>twitter4j-spring-boot-starter</strong> is added to the project.</p><h3 id="create-twitter4jproperties-to-hold-the-twitter4j-config-parameters-nbsp">Create Twitter4jProperties to hold the Twitter4J config parameters&nbsp;</h3><p>Create <b>Twitter4jProperties.java </b>to hold the Twitter4J OAuth config parameters.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.spring.boot.autoconfigure<span style="color:#f92672">;</span>
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-autoconfigure<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-configuration-processor<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;optional&gt;</span>true<span style="color:#f92672">&lt;/optional&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>junit<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>junit<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.twitter4j<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>twitter4j-core<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;optional&gt;</span>true<span style="color:#f92672">&lt;/optional&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div><p>Note that we have specified <strong>twitter4j-core</strong> as <strong>optional</strong> dependency because <strong>twitter4j-core</strong> should be added to the project only when <strong>twitter4j-spring-boot-starter</strong> is added to the project.</p><h3 id="create-twitter4jproperties-to-hold-the-twitter4j-config-parameters-nbsp">Create Twitter4jProperties to hold the Twitter4J config parameters&nbsp;</h3><p>Create <b>Twitter4jProperties.java </b>to hold the Twitter4J OAuth config parameters.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.spring.boot.autoconfigure<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> org.springframework.boot.context.properties.ConfigurationProperties<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.boot.context.properties.NestedConfigurationProperty<span style="color:#f92672">;</span>
@@ -217,92 +217,92 @@ twitter4j<span style="color:#f92672">.</span><span style="color:#a6e22e">oauth</
         <span style="color:#66d9ef">return</span> twitterFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
 
-<span style="color:#f92672">}</span></code></pre></div><p>We have used <b>@ConditionalOnClass({ TwitterFactory.class, Twitter.class })</b> to specify that this auto configuration should take place only when <b>TwitterFactory.class, Twitter.class </b>classes are present.</p><p>We have also used <b>@ConditionalOnMissingBean</b> on bean definition methods to specify consider this bean definition only if <b>TwitterFactory</b>/<b>Twitter </b>beans are not already defined explicitly.&nbsp;</p><p>Also note that we have annotated with <b>@EnableConfigurationProperties(Twitter4jProperties.class)</b> to enable support for ConfigurationProperties and injected <b>Twitter4jProperties </b>bean.&nbsp;</p><p>Now we need to configure our custom <b>Twitter4jAutoConfiguration </b>in <b>src/main/resources/META-INF/spring.factories</b> file as follows:</p><p><b>org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.sivalabs.spring.boot.autoconfigure.Twitter4jAutoConfiguration</b>&nbsp;</p><h2 id="create-twitter4j-spring-boot-starter-module">Create twitter4j-spring-boot-starter module</h2><p>Create a child module with name twitter4j-spring-boot-starter in our parent maven module spring-boot-starter-twitter4j.</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&amp;gt;
-&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34;
-    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;
-    xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0
-                        http://maven.apache.org/maven-v4_0_0.xsd&#34;&amp;gt;
-    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
-    &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;twitter4j-spring-boot-starter&amp;lt;/artifactId&amp;gt;
-    &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
-    &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
+<span style="color:#f92672">}</span></code></pre></div><p>We have used <b>@ConditionalOnClass({ TwitterFactory.class, Twitter.class })</b> to specify that this auto configuration should take place only when <b>TwitterFactory.class, Twitter.class </b>classes are present.</p><p>We have also used <b>@ConditionalOnMissingBean</b> on bean definition methods to specify consider this bean definition only if <b>TwitterFactory</b>/<b>Twitter </b>beans are not already defined explicitly.&nbsp;</p><p>Also note that we have annotated with <b>@EnableConfigurationProperties(Twitter4jProperties.class)</b> to enable support for ConfigurationProperties and injected <b>Twitter4jProperties </b>bean.&nbsp;</p><p>Now we need to configure our custom <b>Twitter4jAutoConfiguration </b>in <b>src/main/resources/META-INF/spring.factories</b> file as follows:</p><p><b>org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.sivalabs.spring.boot.autoconfigure.Twitter4jAutoConfiguration</b>&nbsp;</p><h2 id="create-twitter4j-spring-boot-starter-module">Create twitter4j-spring-boot-starter module</h2><p>Create a child module with name twitter4j-spring-boot-starter in our parent maven module spring-boot-starter-twitter4j.</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0
+</span><span style="color:#e6db74">                        http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>twitter4j-spring-boot-starter<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;packaging&gt;</span>jar<span style="color:#f92672">&lt;/packaging&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
 
-    &amp;lt;parent&amp;gt;
-        &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
-        &amp;lt;artifactId&amp;gt;spring-boot-starter-twitter4j&amp;lt;/artifactId&amp;gt;
-        &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
-    &amp;lt;/parent&amp;gt;
+    <span style="color:#f92672">&lt;parent&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-twitter4j<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/parent&gt;</span>
 
-    &amp;lt;properties&amp;gt;
-        &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
-    &amp;lt;/properties&amp;gt;
+    <span style="color:#f92672">&lt;properties&gt;</span>
+        <span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+    <span style="color:#f92672">&lt;/properties&gt;</span>
 
 
-    &amp;lt;dependencies&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;spring-boot-starter&amp;lt;/artifactId&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;twitter4j-spring-boot-autoconfigure&amp;lt;/artifactId&amp;gt;
-            &amp;lt;version&amp;gt;${project.version}&amp;lt;/version&amp;gt;
-        &amp;lt;/dependency&amp;gt;
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>twitter4j-spring-boot-autoconfigure<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>${project.version}<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
 
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.twitter4j&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;twitter4j-core&amp;lt;/artifactId&amp;gt;
-        &amp;lt;/dependency&amp;gt;
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.twitter4j<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>twitter4j-core<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
 
-    &amp;lt;/dependencies&amp;gt;
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
 
-&amp;lt;/project&amp;gt;</code></pre></div><p></p><p>Note that in this maven module we are actually pulling in <b>twitter4j-core</b> dependency.</p><p>We don’t need to add any code in this module, but optionally we can specify what are the dependencies we are going to provide through this starter in <b>src/main/resources/META-INF/spring.provides</b> file as follows:</p><p><b>provides: twitter4j-core&nbsp;</b></p><p>That’s all for our starter.&nbsp;</p><p>Let us create a sample using our brand new starter <b>twitter4j-spring-boot-starter</b>.&nbsp;</p><h2 id="create-twitter4j-spring-boot-sample-sample-application">Create twitter4j-spring-boot-sample sample application</h2><p>Let us create a simple SpringBoot application and add our <b>twitter4j-spring-boot-starter</b> dependency.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&amp;gt;
-&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34;
-    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;
-    xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0
-                        http://maven.apache.org/maven-v4_0_0.xsd&#34;&amp;gt;
-    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
-    &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;twitter4j-spring-boot-sample&amp;lt;/artifactId&amp;gt;
-    &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
-    &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div><p></p><p>Note that in this maven module we are actually pulling in <b>twitter4j-core</b> dependency.</p><p>We don’t need to add any code in this module, but optionally we can specify what are the dependencies we are going to provide through this starter in <b>src/main/resources/META-INF/spring.provides</b> file as follows:</p><p><b>provides: twitter4j-core&nbsp;</b></p><p>That’s all for our starter.&nbsp;</p><p>Let us create a sample using our brand new starter <b>twitter4j-spring-boot-starter</b>.&nbsp;</p><h2 id="create-twitter4j-spring-boot-sample-sample-application">Create twitter4j-spring-boot-sample sample application</h2><p>Let us create a simple SpringBoot application and add our <b>twitter4j-spring-boot-starter</b> dependency.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0
+</span><span style="color:#e6db74">                        http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>twitter4j-spring-boot-sample<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;packaging&gt;</span>jar<span style="color:#f92672">&lt;/packaging&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
 
-    &amp;lt;parent&amp;gt;
-        &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-        &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;
-        &amp;lt;version&amp;gt;1.3.2.RELEASE&amp;lt;/version&amp;gt;
-    &amp;lt;/parent&amp;gt;
+    <span style="color:#f92672">&lt;parent&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;version&gt;</span>1.3.2.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/parent&gt;</span>
 
-    &amp;lt;properties&amp;gt;
-        &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
-        &amp;lt;java.version&amp;gt;1.8&amp;lt;/java.version&amp;gt;
-    &amp;lt;/properties&amp;gt;
+    <span style="color:#f92672">&lt;properties&gt;</span>
+        <span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+        <span style="color:#f92672">&lt;java.version&gt;</span>1.8<span style="color:#f92672">&lt;/java.version&gt;</span>
+    <span style="color:#f92672">&lt;/properties&gt;</span>
 
-    &amp;lt;build&amp;gt;
-        &amp;lt;plugins&amp;gt;
-            &amp;lt;plugin&amp;gt;
-                &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
-            &amp;lt;/plugin&amp;gt;
-        &amp;lt;/plugins&amp;gt;
-    &amp;lt;/build&amp;gt;
+    <span style="color:#f92672">&lt;build&gt;</span>
+        <span style="color:#f92672">&lt;plugins&gt;</span>
+            <span style="color:#f92672">&lt;plugin&gt;</span>
+                <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+                <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;/plugin&gt;</span>
+        <span style="color:#f92672">&lt;/plugins&gt;</span>
+    <span style="color:#f92672">&lt;/build&gt;</span>
 
-    &amp;lt;dependencies&amp;gt;
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
 
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;twitter4j-spring-boot-starter&amp;lt;/artifactId&amp;gt;
-            &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;spring-boot-starter-test&amp;lt;/artifactId&amp;gt;
-            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-    &amp;lt;/dependencies&amp;gt;
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>twitter4j-spring-boot-starter<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
 
-&amp;lt;/project&amp;gt;</code></pre></div><p>Create the entry-point class <b>SpringbootTwitter4jDemoApplication </b>as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.demo<span style="color:#f92672">;</span>
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div><p>Create the entry-point class <b>SpringbootTwitter4jDemoApplication </b>as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.demo<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication<span style="color:#f92672">;</span>
@@ -332,10 +332,10 @@ twitter4j<span style="color:#f92672">.</span><span style="color:#a6e22e">oauth</
     <span style="color:#a6e22e">@Autowired</span>
     <span style="color:#66d9ef">private</span> Twitter twitter<span style="color:#f92672">;</span>
 
-    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>String<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> getLatestTweets<span style="color:#f92672">(){</span>
-        List<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>String<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> tweets <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;&amp;</span>gt<span style="color:#f92672">;();</span>
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getLatestTweets</span><span style="color:#f92672">(){</span>
+        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> tweets <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
         <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-            ResponseList<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>Status<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> homeTimeline <span style="color:#f92672">=</span> twitter<span style="color:#f92672">.</span><span style="color:#a6e22e">getHomeTimeline</span><span style="color:#f92672">();</span>
+            ResponseList<span style="color:#f92672">&lt;</span>Status<span style="color:#f92672">&gt;</span> homeTimeline <span style="color:#f92672">=</span> twitter<span style="color:#f92672">.</span><span style="color:#a6e22e">getHomeTimeline</span><span style="color:#f92672">();</span>
             <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Status status <span style="color:#f92672">:</span> homeTimeline<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
                 tweets<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>status<span style="color:#f92672">.</span><span style="color:#a6e22e">getText</span><span style="color:#f92672">());</span>
             <span style="color:#f92672">}</span>
@@ -366,7 +366,7 @@ twitter4j<span style="color:#f92672">.</span><span style="color:#a6e22e">oauth</
 
     <span style="color:#a6e22e">@Test</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testGetTweets</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> TwitterException <span style="color:#f92672">{</span>
-        List<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>String<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> tweets <span style="color:#f92672">=</span> tweetService<span style="color:#f92672">.</span><span style="color:#a6e22e">getLatestTweets</span><span style="color:#f92672">();</span>
+        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> tweets <span style="color:#f92672">=</span> tweetService<span style="color:#f92672">.</span><span style="color:#a6e22e">getLatestTweets</span><span style="color:#f92672">();</span>
         <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String tweet <span style="color:#f92672">:</span> tweets<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
             System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>tweet<span style="color:#f92672">);</span>
         <span style="color:#f92672">}</span>

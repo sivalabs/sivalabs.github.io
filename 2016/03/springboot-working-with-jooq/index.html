@@ -7,57 +7,57 @@ JOOQ provides the following features:
  Building Typesafe SQL using DSL API&nbsp; Typesafe database object referencing using Code Generation&nbsp; Easy to use API for Querying and Data fetching&nbsp; SQL logging and debugging"><meta property="og:type" content="article"><meta property="og:url" content="https://sivalabs.in/2016/03/springboot-working-with-jooq/"><meta property="article:published_time" content="2016-03-15T07:13:21&#43;00:00"><meta property="article:modified_time" content="2016-03-15T07:13:21&#43;00:00"><meta itemprop="name" content="SpringBoot : Working with JOOQ"><meta itemprop="description" content="In my previous article SpringBoot : Working with MyBatis we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
 JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL.
 JOOQ provides the following features:
- Building Typesafe SQL using DSL API&nbsp; Typesafe database object referencing using Code Generation&nbsp; Easy to use API for Querying and Data fetching&nbsp; SQL logging and debugging"><meta itemprop="datePublished" content="2016-03-15T07:13:21&#43;00:00"><meta itemprop="dateModified" content="2016-03-15T07:13:21&#43;00:00"><meta itemprop="wordCount" content="1237"><meta itemprop="keywords" content="jooq,SpringBoot,"><link rel="stylesheet" href="/assets/css/custom-fonts.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/genericons.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/custom-styles.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/html5shiv.min.js"></script><script type="text/javascript" src="/assets/js/navigation.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"></head><body class="home blog logged-in admin-bar no-customize-support post-layout-one-column"><div id="header-top" class="header-bar-wrap"></div><div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><header id="masthead" class="site-header clearfix" role="banner"><div class="header-main container clearfix"><div id="logo" class="site-branding clearfix"><h1 class="site-title"><a href="/" title="SivaLabs" rel="home">SivaLabs</a></h1><p class="site-description">My Experiments on Technology</p></div><div class="header-widgets clearfix"></div></div><div id="main-navigation-wrap" class="primary-navigation-wrap"><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation"><ul id="menu-home" class="main-navigation-menu"><li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145"><a href="/">Home</a></li><li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421"><a href="/categories/java">Java</a></li><li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423"><a href="/categories/spring">Spring</a><ul class="sub-menu"><li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424"><a href="/categories/springboot">Spring Boot</a></li><li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="/categories/springcloud">Spring Cloud</a></li></ul></li><li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422"><a href="/categories/microservices">MicroServices</a></li><li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="/videos">Videos</a></li><li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161"><a href="/mybooks">My Books</a></li><li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="/contact">Contact</a></li></ul></nav></div></header><div id="content" class="site-content container clearfix"><section id="primary" class="content-archive content-area"><main id="main" class="site-main" role="main"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.in/2016/03/springboot-working-with-jooq/" rel="bookmark"><time class="entry-date published" datetime="2016-03-15T07:13:21">March 15, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.in/2016/03/springboot-working-with-jooq/" rel="bookmark">SpringBoot : Working with JOOQ</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq/">jooq</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content"><p>In my previous article <a href="/2016/03/springboot-working-with-mybatis/">SpringBoot : Working with MyBatis</a> we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.</p><p>JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL.</p><p>JOOQ provides the following features:</p><ul><li>Building Typesafe SQL using DSL API&nbsp;</li><li>Typesafe database object referencing using Code Generation&nbsp;</li><li>Easy to use API for Querying and Data fetching&nbsp;</li><li><p>SQL logging and debugging</p><p>etc etc&nbsp;</p></li></ul><p>SpringBoot provides a starter, <strong>spring-boot-starter-jooq</strong>, to be able to quickly integrate with JOOQ.&nbsp;</p><p>In this article we will see how to use <strong>spring-boot-starter-jooq</strong> using step by step approach.</p><h3 id="step-1-create-springboot-maven-project">Step 1: Create SpringBoot Maven Project</h3><p>Create a SpringBoot maven based project and configure <strong>spring-boot-starter-jooq</strong> dependency.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&amp;gt;
-&amp;lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34; 
-    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;
-    xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 
-                        http://maven.apache.org/maven-v4_0_0.xsd&#34;&amp;gt;
-    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
-    &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;springboot-jooq-demo&amp;lt;/artifactId&amp;gt;
-    &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
-    &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;
+ Building Typesafe SQL using DSL API&nbsp; Typesafe database object referencing using Code Generation&nbsp; Easy to use API for Querying and Data fetching&nbsp; SQL logging and debugging"><meta itemprop="datePublished" content="2016-03-15T07:13:21&#43;00:00"><meta itemprop="dateModified" content="2016-03-15T07:13:21&#43;00:00"><meta itemprop="wordCount" content="1237"><meta itemprop="keywords" content="jooq,SpringBoot,"><link rel="stylesheet" href="/assets/css/custom-fonts.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/genericons.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/custom-styles.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/html5shiv.min.js"></script><script type="text/javascript" src="/assets/js/navigation.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"></head><body class="home blog logged-in admin-bar no-customize-support post-layout-one-column"><div id="header-top" class="header-bar-wrap"></div><div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><header id="masthead" class="site-header clearfix" role="banner"><div class="header-main container clearfix"><div id="logo" class="site-branding clearfix"><h1 class="site-title"><a href="/" title="SivaLabs" rel="home">SivaLabs</a></h1><p class="site-description">My Experiments on Technology</p></div><div class="header-widgets clearfix"></div></div><div id="main-navigation-wrap" class="primary-navigation-wrap"><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation"><ul id="menu-home" class="main-navigation-menu"><li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145"><a href="/">Home</a></li><li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421"><a href="/categories/java">Java</a></li><li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423"><a href="/categories/spring">Spring</a><ul class="sub-menu"><li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424"><a href="/categories/springboot">Spring Boot</a></li><li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="/categories/springcloud">Spring Cloud</a></li></ul></li><li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422"><a href="/categories/microservices">MicroServices</a></li><li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="/videos">Videos</a></li><li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161"><a href="/mybooks">My Books</a></li><li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="/contact">Contact</a></li></ul></nav></div></header><div id="content" class="site-content container clearfix"><section id="primary" class="content-archive content-area"><main id="main" class="site-main" role="main"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.in/2016/03/springboot-working-with-jooq/" rel="bookmark"><time class="entry-date published" datetime="2016-03-15T07:13:21">March 15, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.in/2016/03/springboot-working-with-jooq/" rel="bookmark">SpringBoot : Working with JOOQ</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq/">jooq</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content"><p>In my previous article <a href="/2016/03/springboot-working-with-mybatis/">SpringBoot : Working with MyBatis</a> we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.</p><p>JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL.</p><p>JOOQ provides the following features:</p><ul><li>Building Typesafe SQL using DSL API&nbsp;</li><li>Typesafe database object referencing using Code Generation&nbsp;</li><li>Easy to use API for Querying and Data fetching&nbsp;</li><li><p>SQL logging and debugging</p><p>etc etc&nbsp;</p></li></ul><p>SpringBoot provides a starter, <strong>spring-boot-starter-jooq</strong>, to be able to quickly integrate with JOOQ.&nbsp;</p><p>In this article we will see how to use <strong>spring-boot-starter-jooq</strong> using step by step approach.</p><h3 id="step-1-create-springboot-maven-project">Step 1: Create SpringBoot Maven Project</h3><p>Create a SpringBoot maven based project and configure <strong>spring-boot-starter-jooq</strong> dependency.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> 
+    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 
+</span><span style="color:#e6db74">                        http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>springboot-jooq-demo<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;packaging&gt;</span>jar<span style="color:#f92672">&lt;/packaging&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
 
-    &amp;lt;parent&amp;gt;
-        &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-        &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;
-        &amp;lt;version&amp;gt;1.3.3.RELEASE&amp;lt;/version&amp;gt;
-    &amp;lt;/parent&amp;gt;
+    <span style="color:#f92672">&lt;parent&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;version&gt;</span>1.3.3.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/parent&gt;</span>
 
-    &amp;lt;properties&amp;gt;
-        &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
-        &amp;lt;java.version&amp;gt;1.8&amp;lt;/java.version&amp;gt;
-    &amp;lt;/properties&amp;gt;
+    <span style="color:#f92672">&lt;properties&gt;</span>
+        <span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+        <span style="color:#f92672">&lt;java.version&gt;</span>1.8<span style="color:#f92672">&lt;/java.version&gt;</span>
+    <span style="color:#f92672">&lt;/properties&gt;</span>
 
-    &amp;lt;build&amp;gt;
-        &amp;lt;plugins&amp;gt;
-            &amp;lt;plugin&amp;gt;
-                &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
-            &amp;lt;/plugin&amp;gt;
-        &amp;lt;/plugins&amp;gt;
-    &amp;lt;/build&amp;gt;
+    <span style="color:#f92672">&lt;build&gt;</span>
+        <span style="color:#f92672">&lt;plugins&gt;</span>
+            <span style="color:#f92672">&lt;plugin&gt;</span>
+                <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+                <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;/plugin&gt;</span>
+        <span style="color:#f92672">&lt;/plugins&gt;</span>
+    <span style="color:#f92672">&lt;/build&gt;</span>
 
-    &amp;lt;dependencies&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;spring-boot-starter-test&amp;lt;/artifactId&amp;gt;
-            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;spring-boot-starter-jooq&amp;lt;/artifactId&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;com.h2database&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;h2&amp;lt;/artifactId&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-    &amp;lt;/dependencies&amp;gt;
-&amp;lt;/project&amp;gt;</code></pre></div><p>We are going to use <strong>H2</strong> in-memory database first, later we will see how to use MySQL.</p><h3 id="step-2-create-the-database-initialization-scripts">Step 2: Create the database initialization scripts</h3><p>We are going to create a simple database with 2 tables.</p><p><strong>src/main/resources/schema.sql</strong></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> POSTS;
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-jooq<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>com.h2database<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>h2<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>mysql<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>mysql-connector-java<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div><p>We are going to use <strong>H2</strong> in-memory database first, later we will see how to use MySQL.</p><h3 id="step-2-create-the-database-initialization-scripts">Step 2: Create the database initialization scripts</h3><p>We are going to create a simple database with 2 tables.</p><p><strong>src/main/resources/schema.sql</strong></p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> POSTS;
 
 <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> POSTS (
   ID int(<span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
@@ -78,7 +78,7 @@ JOOQ provides the following features:
   CREATED_ON datetime <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
   <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (ID),
   <span style="color:#66d9ef">FOREIGN</span> <span style="color:#66d9ef">KEY</span> (POST_ID) <span style="color:#66d9ef">REFERENCES</span> POSTS(ID)
-);</code></pre></div><p>We will populate some sample data using <strong>data.sql</strong> script.</p><p><strong>src/main/resources/data.sql</strong></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> posts(id, title, content, created_on) 
+);</code></pre></div><p></p><p>We will populate some sample data using <strong>data.sql</strong> script.</p><p><strong>src/main/resources/data.sql</strong></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> posts(id, title, content, created_on) 
 <span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Post 1&#39;</span>, <span style="color:#e6db74">&#39;This is post 1&#39;</span>, <span style="color:#e6db74">&#39;2016-01-03&#39;</span>);
 
 <span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> posts(id, title, content, created_on) 
@@ -94,120 +94,120 @@ JOOQ provides the following features:
 <span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;User2&#39;</span>, <span style="color:#e6db74">&#39;user2@gmail.com&#39;</span>, <span style="color:#e6db74">&#39;This is comment 2 on post 1&#39;</span>, <span style="color:#e6db74">&#39;2016-01-07&#39;</span>);
 
 <span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> comments(id, post_id, name, email, content, created_on) 
-<span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;User1&#39;</span>, <span style="color:#e6db74">&#39;user1@gmail.com&#39;</span>, <span style="color:#e6db74">&#39;This is comment 1 on post 2&#39;</span>, <span style="color:#e6db74">&#39;2016-01-07&#39;</span>);</code></pre></div><h3 id="step-3-configure-jooq-maven-codegen-plugin-to-generate-database-artifacts">Step 3: Configure JOOQ Maven Codegen Plugin to generate database artifacts</h3><p>We will use Maven profiles to configure the <strong>jooq-codegen-maven</strong> configuration properties based on database type.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;profiles&amp;gt;
-    &amp;lt;profile&amp;gt;
-        &amp;lt;id&amp;gt;h2&amp;lt;/id&amp;gt;
-        &amp;lt;build&amp;gt;
-            &amp;lt;plugins&amp;gt;
-                &amp;lt;plugin&amp;gt;
-                    &amp;lt;groupId&amp;gt;org.jooq&amp;lt;/groupId&amp;gt;
-                    &amp;lt;artifactId&amp;gt;jooq-codegen-maven&amp;lt;/artifactId&amp;gt;
-                    &amp;lt;executions&amp;gt;
-                        &amp;lt;execution&amp;gt;
-                            &amp;lt;goals&amp;gt;
-                                &amp;lt;goal&amp;gt;generate&amp;lt;/goal&amp;gt;
-                            &amp;lt;/goals&amp;gt;
-                        &amp;lt;/execution&amp;gt;
-                    &amp;lt;/executions&amp;gt;
-                    &amp;lt;dependencies&amp;gt;
-                        &amp;lt;dependency&amp;gt;
-                            &amp;lt;groupId&amp;gt;com.h2database&amp;lt;/groupId&amp;gt;
-                            &amp;lt;artifactId&amp;gt;h2&amp;lt;/artifactId&amp;gt;
-                            &amp;lt;version&amp;gt;${h2.version}&amp;lt;/version&amp;gt;
-                        &amp;lt;/dependency&amp;gt;
-                    &amp;lt;/dependencies&amp;gt;
-                    &amp;lt;configuration&amp;gt;
-                        &amp;lt;jdbc&amp;gt;
-                            &amp;lt;driver&amp;gt;org.h2.Driver&amp;lt;/driver&amp;gt;
-                            &amp;lt;url&amp;gt;jdbc:h2:~/springbootjooq&amp;lt;/url&amp;gt;
-                        &amp;lt;/jdbc&amp;gt;
-                        &amp;lt;generator&amp;gt;
-                            &amp;lt;name&amp;gt;org.jooq.util.DefaultGenerator&amp;lt;/name&amp;gt;
-                            &amp;lt;database&amp;gt;
-                                &amp;lt;name&amp;gt;org.jooq.util.h2.H2Database&amp;lt;/name&amp;gt;
-                                &amp;lt;includes&amp;gt;.*&amp;lt;/includes&amp;gt;
-                                &amp;lt;excludes /&amp;gt;
-                                &amp;lt;inputSchema&amp;gt;PUBLIC&amp;lt;/inputSchema&amp;gt;
-                            &amp;lt;/database&amp;gt;
-                            &amp;lt;target&amp;gt;
-                                &amp;lt;packageName&amp;gt;com.sivalabs.demo.jooq.domain&amp;lt;/packageName&amp;gt;
-                                &amp;lt;directory&amp;gt;gensrc/main/java&amp;lt;/directory&amp;gt;
-                            &amp;lt;/target&amp;gt;
-                        &amp;lt;/generator&amp;gt;
-                    &amp;lt;/configuration&amp;gt;
-                &amp;lt;/plugin&amp;gt;
-            &amp;lt;/plugins&amp;gt;
-        &amp;lt;/build&amp;gt;
-    &amp;lt;/profile&amp;gt;
-    &amp;lt;profile&amp;gt;
-        &amp;lt;id&amp;gt;mysql&amp;lt;/id&amp;gt;
-        &amp;lt;build&amp;gt;
-            &amp;lt;plugins&amp;gt;
-                &amp;lt;plugin&amp;gt;
-                    &amp;lt;groupId&amp;gt;org.jooq&amp;lt;/groupId&amp;gt;
-                    &amp;lt;artifactId&amp;gt;jooq-codegen-maven&amp;lt;/artifactId&amp;gt;
-                    &amp;lt;executions&amp;gt;
-                        &amp;lt;execution&amp;gt;
-                            &amp;lt;goals&amp;gt;
-                                &amp;lt;goal&amp;gt;generate&amp;lt;/goal&amp;gt;
-                            &amp;lt;/goals&amp;gt;
-                        &amp;lt;/execution&amp;gt;
-                    &amp;lt;/executions&amp;gt;
-                    &amp;lt;dependencies&amp;gt;
-                        &amp;lt;dependency&amp;gt;
-                            &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;
-                            &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;
-                            &amp;lt;version&amp;gt;${mysql.version}&amp;lt;/version&amp;gt;
-                        &amp;lt;/dependency&amp;gt;
-                    &amp;lt;/dependencies&amp;gt;
-                    &amp;lt;configuration&amp;gt;
-                        &amp;lt;jdbc&amp;gt;
-                            &amp;lt;driver&amp;gt;com.mysql.jdbc.Driver&amp;lt;/driver&amp;gt;
-                            &amp;lt;url&amp;gt;jdbc:mysql://localhost:3306/test&amp;lt;/url&amp;gt;
-                            &amp;lt;user&amp;gt;root&amp;lt;/user&amp;gt;
-                            &amp;lt;password&amp;gt;admin&amp;lt;/password&amp;gt;
-                        &amp;lt;/jdbc&amp;gt;
-                        &amp;lt;generator&amp;gt;
-                            &amp;lt;name&amp;gt;org.jooq.util.DefaultGenerator&amp;lt;/name&amp;gt;
-                            &amp;lt;database&amp;gt;
-                                &amp;lt;name&amp;gt;org.jooq.util.mysql.MySQLDatabase&amp;lt;/name&amp;gt;
-                                &amp;lt;includes&amp;gt;.*&amp;lt;/includes&amp;gt;
-                                &amp;lt;excludes /&amp;gt;
-                                &amp;lt;inputSchema&amp;gt;test&amp;lt;/inputSchema&amp;gt;
-                            &amp;lt;/database&amp;gt;
-                            &amp;lt;target&amp;gt;
-                                &amp;lt;packageName&amp;gt;com.sivalabs.demo.jooq.domain&amp;lt;/packageName&amp;gt;
-                                &amp;lt;directory&amp;gt;gensrc/main/java&amp;lt;/directory&amp;gt;
-                            &amp;lt;/target&amp;gt;
-                        &amp;lt;/generator&amp;gt;
-                    &amp;lt;/configuration&amp;gt;
-                &amp;lt;/plugin&amp;gt;
-            &amp;lt;/plugins&amp;gt;
-        &amp;lt;/build&amp;gt;
-    &amp;lt;/profile&amp;gt;
-&amp;lt;/profiles&amp;gt;</code></pre></div><p>We have configured two profile (<strong>h2</strong> and <strong>mysql</strong>) with appropriate JDBC configuration parameters.</p><p>We have specified to generate the code artifacts and place it in <strong>com.sivalabs.demo.jooq.domain</strong> package within <strong>gensrc/main/java directory</strong>.</p><p>We can run the maven build activating <strong>h2</strong> or <strong>mysql</strong> profile as follows:</p><p><strong>mvn clean install -P h2</strong> (or) <strong>mvn clean install -P mysql</strong></p><h3 id="step-4-configure-maven-build-helper-maven-plugin-plugin-to-add-the-generated-source-as-sources-folder">Step 4: Configure Maven build-helper-maven-plugin Plugin to add the generated source as sources folder</h3><p>We will configure the <strong>build-helper-maven-plugin</strong> plugin such that maven will add the JOOQ generated code resides in <strong>gensrc/main/java</strong> directory as source folder.</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&amp;lt;plugin&amp;gt;
-    &amp;lt;groupId&amp;gt;org.codehaus.mojo&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;build-helper-maven-plugin&amp;lt;/artifactId&amp;gt;
-    &amp;lt;executions&amp;gt;
-        &amp;lt;execution&amp;gt;
-            &amp;lt;phase&amp;gt;generate-sources&amp;lt;/phase&amp;gt;
-            &amp;lt;goals&amp;gt;
-                &amp;lt;goal&amp;gt;add-source&amp;lt;/goal&amp;gt;
-            &amp;lt;/goals&amp;gt;
-            &amp;lt;configuration&amp;gt;
-                &amp;lt;sources&amp;gt;
-                    &amp;lt;source&amp;gt;gensrc/main/java&amp;lt;/source&amp;gt;
-                &amp;lt;/sources&amp;gt;
-            &amp;lt;/configuration&amp;gt;
-        &amp;lt;/execution&amp;gt;
-    &amp;lt;/executions&amp;gt;
-&amp;lt;/plugin&amp;gt;</code></pre></div><p></p><h3 id="step-5-create-domain-objects">Step 5: Create domain objects.</h3><p>We can use these domain object to pass data across the layer and JOOQ generated database artifacts to talk to database.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Post</span>
+<span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;User1&#39;</span>, <span style="color:#e6db74">&#39;user1@gmail.com&#39;</span>, <span style="color:#e6db74">&#39;This is comment 1 on post 2&#39;</span>, <span style="color:#e6db74">&#39;2016-01-07&#39;</span>);</code></pre></div><h3 id="step-3-configure-jooq-maven-codegen-plugin-to-generate-database-artifacts">Step 3: Configure JOOQ Maven Codegen Plugin to generate database artifacts</h3><p>We will use Maven profiles to configure the <strong>jooq-codegen-maven</strong> configuration properties based on database type.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;profiles&gt;</span>
+    <span style="color:#f92672">&lt;profile&gt;</span>
+        <span style="color:#f92672">&lt;id&gt;</span>h2<span style="color:#f92672">&lt;/id&gt;</span>
+        <span style="color:#f92672">&lt;build&gt;</span>
+            <span style="color:#f92672">&lt;plugins&gt;</span>
+                <span style="color:#f92672">&lt;plugin&gt;</span>
+                    <span style="color:#f92672">&lt;groupId&gt;</span>org.jooq<span style="color:#f92672">&lt;/groupId&gt;</span>
+                    <span style="color:#f92672">&lt;artifactId&gt;</span>jooq-codegen-maven<span style="color:#f92672">&lt;/artifactId&gt;</span>
+                    <span style="color:#f92672">&lt;executions&gt;</span>
+                        <span style="color:#f92672">&lt;execution&gt;</span>
+                            <span style="color:#f92672">&lt;goals&gt;</span>
+                                <span style="color:#f92672">&lt;goal&gt;</span>generate<span style="color:#f92672">&lt;/goal&gt;</span>
+                            <span style="color:#f92672">&lt;/goals&gt;</span>
+                        <span style="color:#f92672">&lt;/execution&gt;</span>
+                    <span style="color:#f92672">&lt;/executions&gt;</span>
+                    <span style="color:#f92672">&lt;dependencies&gt;</span>
+                        <span style="color:#f92672">&lt;dependency&gt;</span>
+                            <span style="color:#f92672">&lt;groupId&gt;</span>com.h2database<span style="color:#f92672">&lt;/groupId&gt;</span>
+                            <span style="color:#f92672">&lt;artifactId&gt;</span>h2<span style="color:#f92672">&lt;/artifactId&gt;</span>
+                            <span style="color:#f92672">&lt;version&gt;</span>${h2.version}<span style="color:#f92672">&lt;/version&gt;</span>
+                        <span style="color:#f92672">&lt;/dependency&gt;</span>
+                    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+                    <span style="color:#f92672">&lt;configuration&gt;</span>
+                        <span style="color:#f92672">&lt;jdbc&gt;</span>
+                            <span style="color:#f92672">&lt;driver&gt;</span>org.h2.Driver<span style="color:#f92672">&lt;/driver&gt;</span>
+                            <span style="color:#f92672">&lt;url&gt;</span>jdbc:h2:~/springbootjooq<span style="color:#f92672">&lt;/url&gt;</span>
+                        <span style="color:#f92672">&lt;/jdbc&gt;</span>
+                        <span style="color:#f92672">&lt;generator&gt;</span>
+                            <span style="color:#f92672">&lt;name&gt;</span>org.jooq.util.DefaultGenerator<span style="color:#f92672">&lt;/name&gt;</span>
+                            <span style="color:#f92672">&lt;database&gt;</span>
+                                <span style="color:#f92672">&lt;name&gt;</span>org.jooq.util.h2.H2Database<span style="color:#f92672">&lt;/name&gt;</span>
+                                <span style="color:#f92672">&lt;includes&gt;</span>.*<span style="color:#f92672">&lt;/includes&gt;</span>
+                                <span style="color:#f92672">&lt;excludes</span> <span style="color:#f92672">/&gt;</span>
+                                <span style="color:#f92672">&lt;inputSchema&gt;</span>PUBLIC<span style="color:#f92672">&lt;/inputSchema&gt;</span>
+                            <span style="color:#f92672">&lt;/database&gt;</span>
+                            <span style="color:#f92672">&lt;target&gt;</span>
+                                <span style="color:#f92672">&lt;packageName&gt;</span>com.sivalabs.demo.jooq.domain<span style="color:#f92672">&lt;/packageName&gt;</span>
+                                <span style="color:#f92672">&lt;directory&gt;</span>gensrc/main/java<span style="color:#f92672">&lt;/directory&gt;</span>
+                            <span style="color:#f92672">&lt;/target&gt;</span>
+                        <span style="color:#f92672">&lt;/generator&gt;</span>
+                    <span style="color:#f92672">&lt;/configuration&gt;</span>
+                <span style="color:#f92672">&lt;/plugin&gt;</span>
+            <span style="color:#f92672">&lt;/plugins&gt;</span>
+        <span style="color:#f92672">&lt;/build&gt;</span>
+    <span style="color:#f92672">&lt;/profile&gt;</span>
+    <span style="color:#f92672">&lt;profile&gt;</span>
+        <span style="color:#f92672">&lt;id&gt;</span>mysql<span style="color:#f92672">&lt;/id&gt;</span>
+        <span style="color:#f92672">&lt;build&gt;</span>
+            <span style="color:#f92672">&lt;plugins&gt;</span>
+                <span style="color:#f92672">&lt;plugin&gt;</span>
+                    <span style="color:#f92672">&lt;groupId&gt;</span>org.jooq<span style="color:#f92672">&lt;/groupId&gt;</span>
+                    <span style="color:#f92672">&lt;artifactId&gt;</span>jooq-codegen-maven<span style="color:#f92672">&lt;/artifactId&gt;</span>
+                    <span style="color:#f92672">&lt;executions&gt;</span>
+                        <span style="color:#f92672">&lt;execution&gt;</span>
+                            <span style="color:#f92672">&lt;goals&gt;</span>
+                                <span style="color:#f92672">&lt;goal&gt;</span>generate<span style="color:#f92672">&lt;/goal&gt;</span>
+                            <span style="color:#f92672">&lt;/goals&gt;</span>
+                        <span style="color:#f92672">&lt;/execution&gt;</span>
+                    <span style="color:#f92672">&lt;/executions&gt;</span>
+                    <span style="color:#f92672">&lt;dependencies&gt;</span>
+                        <span style="color:#f92672">&lt;dependency&gt;</span>
+                            <span style="color:#f92672">&lt;groupId&gt;</span>mysql<span style="color:#f92672">&lt;/groupId&gt;</span>
+                            <span style="color:#f92672">&lt;artifactId&gt;</span>mysql-connector-java<span style="color:#f92672">&lt;/artifactId&gt;</span>
+                            <span style="color:#f92672">&lt;version&gt;</span>${mysql.version}<span style="color:#f92672">&lt;/version&gt;</span>
+                        <span style="color:#f92672">&lt;/dependency&gt;</span>
+                    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+                    <span style="color:#f92672">&lt;configuration&gt;</span>
+                        <span style="color:#f92672">&lt;jdbc&gt;</span>
+                            <span style="color:#f92672">&lt;driver&gt;</span>com.mysql.jdbc.Driver<span style="color:#f92672">&lt;/driver&gt;</span>
+                            <span style="color:#f92672">&lt;url&gt;</span>jdbc:mysql://localhost:3306/test<span style="color:#f92672">&lt;/url&gt;</span>
+                            <span style="color:#f92672">&lt;user&gt;</span>root<span style="color:#f92672">&lt;/user&gt;</span>
+                            <span style="color:#f92672">&lt;password&gt;</span>admin<span style="color:#f92672">&lt;/password&gt;</span>
+                        <span style="color:#f92672">&lt;/jdbc&gt;</span>
+                        <span style="color:#f92672">&lt;generator&gt;</span>
+                            <span style="color:#f92672">&lt;name&gt;</span>org.jooq.util.DefaultGenerator<span style="color:#f92672">&lt;/name&gt;</span>
+                            <span style="color:#f92672">&lt;database&gt;</span>
+                                <span style="color:#f92672">&lt;name&gt;</span>org.jooq.util.mysql.MySQLDatabase<span style="color:#f92672">&lt;/name&gt;</span>
+                                <span style="color:#f92672">&lt;includes&gt;</span>.*<span style="color:#f92672">&lt;/includes&gt;</span>
+                                <span style="color:#f92672">&lt;excludes</span> <span style="color:#f92672">/&gt;</span>
+                                <span style="color:#f92672">&lt;inputSchema&gt;</span>test<span style="color:#f92672">&lt;/inputSchema&gt;</span>
+                            <span style="color:#f92672">&lt;/database&gt;</span>
+                            <span style="color:#f92672">&lt;target&gt;</span>
+                                <span style="color:#f92672">&lt;packageName&gt;</span>com.sivalabs.demo.jooq.domain<span style="color:#f92672">&lt;/packageName&gt;</span>
+                                <span style="color:#f92672">&lt;directory&gt;</span>gensrc/main/java<span style="color:#f92672">&lt;/directory&gt;</span>
+                            <span style="color:#f92672">&lt;/target&gt;</span>
+                        <span style="color:#f92672">&lt;/generator&gt;</span>
+                    <span style="color:#f92672">&lt;/configuration&gt;</span>
+                <span style="color:#f92672">&lt;/plugin&gt;</span>
+            <span style="color:#f92672">&lt;/plugins&gt;</span>
+        <span style="color:#f92672">&lt;/build&gt;</span>
+    <span style="color:#f92672">&lt;/profile&gt;</span>
+<span style="color:#f92672">&lt;/profiles&gt;</span></code></pre></div><p>We have configured two profile (<strong>h2</strong> and <strong>mysql</strong>) with appropriate JDBC configuration parameters.</p><p>We have specified to generate the code artifacts and place it in <strong>com.sivalabs.demo.jooq.domain</strong> package within <strong>gensrc/main/java directory</strong>.</p><p>We can run the maven build activating <strong>h2</strong> or <strong>mysql</strong> profile as follows:</p><p><strong>mvn clean install -P h2</strong> (or) <strong>mvn clean install -P mysql</strong></p><h3 id="step-4-configure-maven-build-helper-maven-plugin-plugin-to-add-the-generated-source-as-sources-folder">Step 4: Configure Maven build-helper-maven-plugin Plugin to add the generated source as sources folder</h3><p>We will configure the <strong>build-helper-maven-plugin</strong> plugin such that maven will add the JOOQ generated code resides in <strong>gensrc/main/java</strong> directory as source folder.</p><p></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;plugin&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.codehaus.mojo<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>build-helper-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;executions&gt;</span>
+        <span style="color:#f92672">&lt;execution&gt;</span>
+            <span style="color:#f92672">&lt;phase&gt;</span>generate-sources<span style="color:#f92672">&lt;/phase&gt;</span>
+            <span style="color:#f92672">&lt;goals&gt;</span>
+                <span style="color:#f92672">&lt;goal&gt;</span>add-source<span style="color:#f92672">&lt;/goal&gt;</span>
+            <span style="color:#f92672">&lt;/goals&gt;</span>
+            <span style="color:#f92672">&lt;configuration&gt;</span>
+                <span style="color:#f92672">&lt;sources&gt;</span>
+                    <span style="color:#f92672">&lt;source&gt;</span>gensrc/main/java<span style="color:#f92672">&lt;/source&gt;</span>
+                <span style="color:#f92672">&lt;/sources&gt;</span>
+            <span style="color:#f92672">&lt;/configuration&gt;</span>
+        <span style="color:#f92672">&lt;/execution&gt;</span>
+    <span style="color:#f92672">&lt;/executions&gt;</span>
+<span style="color:#f92672">&lt;/plugin&gt;</span></code></pre></div><p></p><h3 id="step-5-create-domain-objects">Step 5: Create domain objects.</h3><p>We can use these domain object to pass data across the layer and JOOQ generated database artifacts to talk to database.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Post</span>
 <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">private</span> Integer id<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> String title<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> String content<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> Timestamp createdOn<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>Comment<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> comments <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;&amp;</span>gt<span style="color:#f92672">;();</span>
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Comment<span style="color:#f92672">&gt;</span> comments <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
     <span style="color:#75715e">//setters &amp; getters
 </span><span style="color:#75715e"></span>
 <span style="color:#f92672">}</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Comment</span>
@@ -259,9 +259,9 @@ JOOQ provides the following features:
         <span style="color:#66d9ef">return</span> post<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
     
-    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>Post<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> getAllPosts<span style="color:#f92672">(){</span>        
-        List<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>Post<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> posts <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;&amp;</span>gt<span style="color:#f92672">;();</span>       
-        Result<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>Record<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> result <span style="color:#f92672">=</span> dsl<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">().</span><span style="color:#a6e22e">from</span><span style="color:#f92672">(</span>POSTS<span style="color:#f92672">).</span><span style="color:#a6e22e">fetch</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllPosts</span><span style="color:#f92672">(){</span>        
+        List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> posts <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>       
+        Result<span style="color:#f92672">&lt;</span>Record<span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> dsl<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">().</span><span style="color:#a6e22e">from</span><span style="color:#f92672">(</span>POSTS<span style="color:#f92672">).</span><span style="color:#a6e22e">fetch</span><span style="color:#f92672">();</span>
         <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Record r <span style="color:#f92672">:</span> result<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
             posts<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>getPostEntity<span style="color:#f92672">(</span>r<span style="color:#f92672">));</span>
         <span style="color:#f92672">}</span>
@@ -277,7 +277,7 @@ JOOQ provides the following features:
         <span style="color:#f92672">{</span>
             Post post <span style="color:#f92672">=</span> getPostEntity<span style="color:#f92672">(</span>record<span style="color:#f92672">);</span>
             
-            Result<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>Record<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> commentRecords <span style="color:#f92672">=</span> dsl<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">().</span>
+            Result<span style="color:#f92672">&lt;</span>Record<span style="color:#f92672">&gt;</span> commentRecords <span style="color:#f92672">=</span> dsl<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">().</span>
                                         from<span style="color:#f92672">(</span>COMMENTS<span style="color:#f92672">)</span>
                                         <span style="color:#f92672">.</span><span style="color:#a6e22e">where</span><span style="color:#f92672">(</span>COMMENTS<span style="color:#f92672">.</span><span style="color:#a6e22e">POST_ID</span><span style="color:#f92672">.</span><span style="color:#a6e22e">eq</span><span style="color:#f92672">(</span>postId<span style="color:#f92672">))</span>
                                         <span style="color:#f92672">.</span><span style="color:#a6e22e">fetch</span><span style="color:#f92672">();</span>
@@ -344,7 +344,7 @@ JOOQ provides the following features:
     
     <span style="color:#a6e22e">@Test</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">findAllPosts</span><span style="color:#f92672">()</span>  <span style="color:#f92672">{</span>
-        List<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>Post<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> posts <span style="color:#f92672">=</span> blogService<span style="color:#f92672">.</span><span style="color:#a6e22e">getAllPosts</span><span style="color:#f92672">();</span>
+        List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> posts <span style="color:#f92672">=</span> blogService<span style="color:#f92672">.</span><span style="color:#a6e22e">getAllPosts</span><span style="color:#f92672">();</span>
         assertNotNull<span style="color:#f92672">(</span>posts<span style="color:#f92672">);</span>
         assertTrue<span style="color:#f92672">(!</span>posts<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">());</span>
         <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Post post <span style="color:#f92672">:</span> posts<span style="color:#f92672">)</span>
@@ -358,7 +358,7 @@ JOOQ provides the following features:
         Post post <span style="color:#f92672">=</span> blogService<span style="color:#f92672">.</span><span style="color:#a6e22e">getPost</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
         assertNotNull<span style="color:#f92672">(</span>post<span style="color:#f92672">);</span>
         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>post<span style="color:#f92672">);</span>
-        List<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>Comment<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> comments <span style="color:#f92672">=</span> post<span style="color:#f92672">.</span><span style="color:#a6e22e">getComments</span><span style="color:#f92672">();</span>
+        List<span style="color:#f92672">&lt;</span>Comment<span style="color:#f92672">&gt;</span> comments <span style="color:#f92672">=</span> post<span style="color:#f92672">.</span><span style="color:#a6e22e">getComments</span><span style="color:#f92672">();</span>
         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>comments<span style="color:#f92672">);</span>
         
     <span style="color:#f92672">}</span>
@@ -382,7 +382,7 @@ JOOQ provides the following features:
                                 <span style="color:#66d9ef">new</span> Timestamp<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">()));</span>
         Comment savedComment <span style="color:#f92672">=</span> blogService<span style="color:#f92672">.</span><span style="color:#a6e22e">createComment</span><span style="color:#f92672">(</span>comment<span style="color:#f92672">);</span>
         Post post <span style="color:#f92672">=</span> blogService<span style="color:#f92672">.</span><span style="color:#a6e22e">getPost</span><span style="color:#f92672">(</span>postId<span style="color:#f92672">);</span>
-        List<span style="color:#f92672">&amp;</span>lt<span style="color:#f92672">;</span>Comment<span style="color:#f92672">&amp;</span>gt<span style="color:#f92672">;</span> comments <span style="color:#f92672">=</span> post<span style="color:#f92672">.</span><span style="color:#a6e22e">getComments</span><span style="color:#f92672">();</span>
+        List<span style="color:#f92672">&lt;</span>Comment<span style="color:#f92672">&gt;</span> comments <span style="color:#f92672">=</span> post<span style="color:#f92672">.</span><span style="color:#a6e22e">getComments</span><span style="color:#f92672">();</span>
         assertNotNull<span style="color:#f92672">(</span>comments<span style="color:#f92672">);</span>
         <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Comment comm <span style="color:#f92672">:</span> comments<span style="color:#f92672">)</span>
         <span style="color:#f92672">{</span>
