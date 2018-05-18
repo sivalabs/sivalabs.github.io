@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rabbitmq on SivaLabs</title>
-    <link>https://sivalabs.in/tags/rabbitmq/</link>
+    <link>https://sivalabs.github.io/tags/rabbitmq/</link>
     <description>Recent content in Rabbitmq on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 20 Feb 2018 07:59:17 +0530</lastBuildDate>
     
-	<atom:link href="https://sivalabs.in/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.github.io/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SpringBoot Messaging with RabbitMQ</title>
-      <link>https://sivalabs.in/2018/02/springboot-messaging-rabbitmq/</link>
+      <link>https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/</link>
       <pubDate>Tue, 20 Feb 2018 07:59:17 +0530</pubDate>
       
-      <guid>https://sivalabs.in/2018/02/springboot-messaging-rabbitmq/</guid>
+      <guid>https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/</guid>
       <description>RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ).</description>
     </item>
     

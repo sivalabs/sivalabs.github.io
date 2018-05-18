@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microservices on SivaLabs</title>
-    <link>https://sivalabs.in/categories/microservices/</link>
+    <link>https://sivalabs.github.io/categories/microservices/</link>
     <description>Recent content in Microservices on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 20 Mar 2018 07:59:17 +0530</lastBuildDate>
     
-	<atom:link href="https://sivalabs.in/categories/microservices/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.github.io/categories/microservices/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</title>
-      <link>https://sivalabs.in/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/</link>
+      <link>https://sivalabs.github.io/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/</link>
       <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
       
-      <guid>https://sivalabs.in/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/</guid>
+      <guid>https://sivalabs.github.io/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/</guid>
       <description>One of the challenges in microservices architecture is the ability to debug issues. A simple user action might trigger a chain of downstream microservice calls. It would be tedious to trace the logs related to a particular user action across microservices. In addition to that, we might want to track down why a certain microservice call is taking so much time. We can use Spring Cloud Sleuth to handle these kinds of issues.</description>
     </item>
     
     <item>
       <title>MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</title>
-      <link>https://sivalabs.in/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/</link>
+      <link>https://sivalabs.github.io/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/</link>
       <pubDate>Thu, 15 Mar 2018 07:59:17 +0530</pubDate>
       
-      <guid>https://sivalabs.in/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/</guid>
+      <guid>https://sivalabs.github.io/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/</guid>
       <description>In microservices architecture, there could be a number of API services and few UI components that are talking to APIs. As of now, many microservices based application still use monolithic front-ends where the entire UI is built as a single module. You may choose to go with micro-frontends where the UI is also decomposed into multiple microservice talking to APIs to get the relevant data. Instead of letting UI know about all our microservices details we can provide a unified proxy interface that will delegate the calls to various microservices based on URL pattern.</description>
     </item>
     
     <item>
       <title>MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</title>
-      <link>https://sivalabs.in/2018/03/spring-cloud-netflix-circuit-breaker/</link>
+      <link>https://sivalabs.github.io/2018/03/spring-cloud-netflix-circuit-breaker/</link>
       <pubDate>Mon, 12 Mar 2018 07:59:17 +0530</pubDate>
       
-      <guid>https://sivalabs.in/2018/03/spring-cloud-netflix-circuit-breaker/</guid>
+      <guid>https://sivalabs.github.io/2018/03/spring-cloud-netflix-circuit-breaker/</guid>
       <description>In the microservices world, to fulfill a client request one microservice may need to talk to other microservices. We should minimize this kind of direct dependencies on other microservices but in some cases it is unavoidable. If a microservice is down or not functioning properly then the issue may cascade up to the upstream services. Netflix created Hystrix library implementing Circuit Breaker pattern to address these kinds of issues. We can use Spring Cloud Netflix Hystrix Circuit Breaker to protect microservices from cascading failures.</description>
     </item>
     
     <item>
       <title>MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</title>
-      <link>https://sivalabs.in/2018/03/microservices-springcloud-eureka/</link>
+      <link>https://sivalabs.github.io/2018/03/microservices-springcloud-eureka/</link>
       <pubDate>Thu, 08 Mar 2018 07:59:17 +0530</pubDate>
       
-      <guid>https://sivalabs.in/2018/03/microservices-springcloud-eureka/</guid>
+      <guid>https://sivalabs.github.io/2018/03/microservices-springcloud-eureka/</guid>
       <description>In the microservices world, Service Registry and Discovery plays an important role because we most likely run multiple instances of services and we need a mechanism to call other services without hardcoding their hostnames or port numbers. In addition to that, in Cloud environments service instances may come up and go down anytime. So we need some automatic service registration and discovery mechanism. Spring Cloud provides Service Registry and Discovery features, as usual, with multiple options.</description>
     </item>
     
     <item>
       <title>MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</title>
-      <link>https://sivalabs.in/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/</link>
+      <link>https://sivalabs.github.io/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/</link>
       <pubDate>Mon, 05 Mar 2018 07:59:17 +0530</pubDate>
       
-      <guid>https://sivalabs.in/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/</guid>
+      <guid>https://sivalabs.github.io/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/</guid>
       <description>In MicroServices using Spring Boot &amp;amp; Spring Cloud – Part 1 : Overview, we took a brief look at what are micro-services and how we can use SpringBoot and SpringCloud to build micro-services.
 In this post, we are going to learn:
  What is the need for Spring Cloud Config and Vault? Create our first micro-service: catalog-service Create Spring Cloud Config Server Using Vault for storing sensitive data  MicroServices using Spring Boot &amp;amp; Spring Cloud</description>
@@ -60,10 +60,10 @@ In this post, we are going to learn:
     
     <item>
       <title>MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview</title>
-      <link>https://sivalabs.in/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/</link>
+      <link>https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/</link>
       <pubDate>Fri, 02 Mar 2018 07:59:17 +0530</pubDate>
       
-      <guid>https://sivalabs.in/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/</guid>
+      <guid>https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/</guid>
       <description>Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using SpringBoot and SpringCloud.
 In this article we are going to learn about following:
  Monoliths what are MicroServices? Advantages of MicroServices Challenges with MicroServices Why SpringBoot &amp;amp; SpringCloud are a good choice for MicroServices?</description>

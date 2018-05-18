@@ -2,49 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on SivaLabs</title>
-    <link>https://sivalabs.in/tags/java/</link>
+    <link>https://sivalabs.github.io/tags/java/</link>
     <description>Recent content in Java on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 22 Nov 2015 05:17:20 +0000</lastBuildDate>
     
-	<atom:link href="https://sivalabs.in/tags/java/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Selecting The Technology Stack for JCart</title>
-      <link>https://sivalabs.in/2015/11/selecting-the-technology-stack-for-jcart/</link>
+      <link>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</link>
       <pubDate>Sun, 22 Nov 2015 05:17:20 +0000</pubDate>
       
-      <guid>https://sivalabs.in/2015/11/selecting-the-technology-stack-for-jcart/</guid>
+      <guid>https://sivalabs.github.io/2015/11/selecting-the-technology-stack-for-jcart/</guid>
       <description>Selecting the right technology stack is very crucial and plays an important role in project success. Many of the architects (unknowingly??!!) try to make complex designs by trying to use all kinds of latest and greatest stuff. On the other hand some architects try to be in their comfort zone by limiting their technology stack to the technologies with which they are comfortable. Both approaches are dangerous. One should understand the business needs and pick the technologies that are necessary for project.</description>
     </item>
     
     <item>
       <title>Developing a simple e-commerce application from scratch to production using SpringBoot</title>
-      <link>https://sivalabs.in/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
+      <link>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</link>
       <pubDate>Fri, 20 Nov 2015 14:18:35 +0000</pubDate>
       
-      <guid>https://sivalabs.in/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
+      <guid>https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/</guid>
       <description>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</description>
     </item>
     
     <item>
       <title>Clean Code: Don’t mix different levels of abstractions</title>
-      <link>https://sivalabs.in/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
+      <link>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</link>
       <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
       
-      <guid>https://sivalabs.in/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
+      <guid>https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/</guid>
       <description>We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.
 Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.</description>
     </item>
     
     <item>
       <title>MyBatis Tutorial: Part1 – CRUD Operations</title>
-      <link>https://sivalabs.in/2012/10/mybatis-tutorial-part1-crud-operations/</link>
+      <link>https://sivalabs.github.io/2012/10/mybatis-tutorial-part1-crud-operations/</link>
       <pubDate>Sun, 21 Oct 2012 11:10:00 +0000</pubDate>
       
-      <guid>https://sivalabs.in/2012/10/mybatis-tutorial-part1-crud-operations/</guid>
+      <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part1-crud-operations/</guid>
       <description>MyBatis is an SQL Mapper tool which greatly simplifies the database programing when compared to using JDBC directly.
 MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
 MyBatis Tutorial: Part-2: CRUD operations Using Annotations
@@ -56,10 +56,10 @@ Step1: Create a Maven project and configure MyBatis dependencies.
     
     <item>
       <title>Keep The Code Clean: WatchDog &amp; SpotTheBug Approach</title>
-      <link>https://sivalabs.in/2012/08/keep-code-clean-watchdog-spotthebug/</link>
+      <link>https://sivalabs.github.io/2012/08/keep-code-clean-watchdog-spotthebug/</link>
       <pubDate>Tue, 28 Aug 2012 04:55:00 +0000</pubDate>
       
-      <guid>https://sivalabs.in/2012/08/keep-code-clean-watchdog-spotthebug/</guid>
+      <guid>https://sivalabs.github.io/2012/08/keep-code-clean-watchdog-spotthebug/</guid>
       <description>Before going to discuss WatchDog &amp;amp; SpotTheBug Approach, let me give a brief context on what is the needs for this.
 Three months back I was asked to write core infrastructure code for our new application which uses all the latest and greatest technologies.
 I have written the infrastructure code and implemented 2 usecases to demonstrate which logic should go into which layer and the code looks good(atleast to me :-)).</description>
@@ -67,10 +67,10 @@ I have written the infrastructure code and implemented 2 usecases to demonstrate
     
     <item>
       <title>Are frameworks making developers dumb?</title>
-      <link>https://sivalabs.in/2011/08/frameworks-making-developers-dumb/</link>
+      <link>https://sivalabs.github.io/2011/08/frameworks-making-developers-dumb/</link>
       <pubDate>Mon, 22 Aug 2011 01:16:00 +0000</pubDate>
       
-      <guid>https://sivalabs.in/2011/08/frameworks-making-developers-dumb/</guid>
+      <guid>https://sivalabs.github.io/2011/08/frameworks-making-developers-dumb/</guid>
       <description>Last week I got to take interviews to hire senior java developers with around 5 years of experience. But after the interview process is over I felt like the frameworks makes developers life easier but at the same time  making them dumb.
 Everyone puts almost all the new frameworks on their resume claiming they have &amp;#8220;Strong, working experience on Spring, Hibernate, Web Services etc&amp;#8221;.
 Here is how the interviews went on.</description>
@@ -78,10 +78,10 @@ Here is how the interviews went on.</description>
     
     <item>
       <title>10 things to become an outstanding Java developer</title>
-      <link>https://sivalabs.in/2011/01/10-things-to-become-outstanding-java/</link>
+      <link>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</link>
       <pubDate>Wed, 26 Jan 2011 07:11:00 +0000</pubDate>
       
-      <guid>https://sivalabs.in/2011/01/10-things-to-become-outstanding-java/</guid>
+      <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
       <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
 1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JSF on SivaLabs</title>
-    <link>https://sivalabs.in/tags/jsf/</link>
+    <link>https://sivalabs.github.io/tags/jsf/</link>
     <description>Recent content in JSF on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 28 Nov 2013 04:02:00 +0000</lastBuildDate>
     
-	<atom:link href="https://sivalabs.in/tags/jsf/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.github.io/tags/jsf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PrimeFaces Beginner’s Guide book published</title>
-      <link>https://sivalabs.in/2013/11/primefaces-beginners-guide-book-published/</link>
+      <link>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</link>
       <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
       
-      <guid>https://sivalabs.in/2013/11/primefaces-beginners-guide-book-published/</guid>
+      <guid>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</guid>
       <description>I am glad to announce that my second book PrimeFaces Beginner&amp;#8217;s Guide is published.
 As many of us know PrimeFaces is leading JSF component library for JSF based web applications. This PrimeFaces Beginner&amp;#8217;s Guide book targets the Java developers with basic knowledge on JSF and jQuery and covers most of the commonly used PrimeFaces components.
  Good news is that PrimeFaces Beginner&amp;#8217;s Guide book covers the latest PrimeFaces 4.0 version features such as Client Side Validations (CSV) framework, Dialog Framework, Search Expressions, Sticky Component and many other enhancement as well.</description>

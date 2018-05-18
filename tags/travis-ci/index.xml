@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Travis-ci on SivaLabs</title>
-    <link>https://sivalabs.in/tags/travis-ci/</link>
+    <link>https://sivalabs.github.io/tags/travis-ci/</link>
     <description>Recent content in Travis-ci on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 24 Jan 2018 07:59:17 +0530</lastBuildDate>
     
-	<atom:link href="https://sivalabs.in/tags/travis-ci/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sivalabs.github.io/tags/travis-ci/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CI/CD for SpringBoot applications using Travis-CI</title>
-      <link>https://sivalabs.in/2018/01/ci-cd-springboot-applications-using-travis-ci/</link>
+      <link>https://sivalabs.github.io/2018/01/ci-cd-springboot-applications-using-travis-ci/</link>
       <pubDate>Wed, 24 Jan 2018 07:59:17 +0530</pubDate>
       
-      <guid>https://sivalabs.in/2018/01/ci-cd-springboot-applications-using-travis-ci/</guid>
+      <guid>https://sivalabs.github.io/2018/01/ci-cd-springboot-applications-using-travis-ci/</guid>
       <description>In this article we are going to learn how we can use Travis CI for Continuous Integration and Continuous Deployment (CI/CD) of a SpringBoot application. We will learn how to run maven build goals, perform test coverage validation using JaCoCo plugin, Code Quality checks using SonarCloud, build Docker image and push it to DockerHub and finally deploy it to Heroku.
  The source code for this article is at https://github.</description>
     </item>
