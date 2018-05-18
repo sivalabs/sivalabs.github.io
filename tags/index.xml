@@ -165,6 +165,15 @@
     </item>
     
     <item>
+      <title>Microservices</title>
+      <link>https://sivalabs.in/tags/microservices/</link>
+      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.in/tags/microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>MyBatis</title>
       <link>https://sivalabs.in/tags/mybatis/</link>
       <pubDate>Tue, 16 Jul 2013 10:01:00 +0000</pubDate>
@@ -179,6 +188,15 @@
       <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
       
       <guid>https://sivalabs.in/tags/primefaces/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rabbitmq</title>
+      <link>https://sivalabs.in/tags/rabbitmq/</link>
+      <pubDate>Tue, 20 Feb 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.in/tags/rabbitmq/</guid>
       <description></description>
     </item>
     
@@ -219,11 +237,47 @@
     </item>
     
     <item>
+      <title>Springboot</title>
+      <link>https://sivalabs.in/tags/springboot/</link>
+      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.in/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Springcloud</title>
+      <link>https://sivalabs.in/tags/springcloud/</link>
+      <pubDate>Mon, 14 Aug 2017 12:30:43 +0000</pubDate>
+      
+      <guid>https://sivalabs.in/tags/springcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Springsession</title>
+      <link>https://sivalabs.in/tags/springsession/</link>
+      <pubDate>Wed, 07 Feb 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.in/tags/springsession/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Tips</title>
       <link>https://sivalabs.in/tags/tips/</link>
       <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
       
       <guid>https://sivalabs.in/tags/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Travis-ci</title>
+      <link>https://sivalabs.in/tags/travis-ci/</link>
+      <pubDate>Wed, 24 Jan 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.in/tags/travis-ci/</guid>
       <description></description>
     </item>
     

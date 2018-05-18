@@ -3,6 +3,56 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://sivalabs.in/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/</loc>
+    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/</loc>
+    <lastmod>2018-03-15T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/2018/03/spring-cloud-netflix-circuit-breaker/</loc>
+    <lastmod>2018-03-12T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/2018/03/microservices-springcloud-eureka/</loc>
+    <lastmod>2018-03-08T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/</loc>
+    <lastmod>2018-03-05T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/</loc>
+    <lastmod>2018-03-02T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/2018/02/why-springboot-so-popular-how-to-learn-springboot/</loc>
+    <lastmod>2018-02-22T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/2018/02/springboot-messaging-rabbitmq/</loc>
+    <lastmod>2018-02-20T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/2018/02/session-management-using-spring-session-jdbc-datastore/</loc>
+    <lastmod>2018-02-07T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/2018/01/ci-cd-springboot-applications-using-travis-ci/</loc>
+    <lastmod>2018-01-24T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://sivalabs.in/2018/01/how-was-my-year-2017-and-plan-for-2018/</loc>
     <lastmod>2018-01-01T07:59:17+05:30</lastmod>
   </url>
@@ -444,25 +494,25 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.in/tags/best-practices/</loc>
-    <lastmod>2013-12-29T00:53:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.in/categories/best-practices/</loc>
     <lastmod>2013-12-29T00:53:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.in/tags/blog/</loc>
-    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+    <loc>https://sivalabs.in/tags/best-practices/</loc>
+    <lastmod>2013-12-29T00:53:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.in/categories/blog/</loc>
+    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/blog/</loc>
     <lastmod>2018-01-01T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -474,18 +524,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.in/tags/books/</loc>
-    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.in/tags/books/</loc>
-    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.in/categories/books/</loc>
     <lastmod>2017-11-05T04:59:17+00:00</lastmod>
     <priority>0</priority>
@@ -493,6 +531,18 @@
   
   <url>
     <loc>https://sivalabs.in/categories/books/</loc>
+    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/books/</loc>
+    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/books/</loc>
     <lastmod>2017-11-05T04:59:17+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -510,13 +560,13 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.in/tags/ide/</loc>
+    <loc>https://sivalabs.in/categories/ide/</loc>
     <lastmod>2016-09-07T09:53:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.in/categories/ide/</loc>
+    <loc>https://sivalabs.in/tags/ide/</loc>
     <lastmod>2016-09-07T09:53:35+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -540,25 +590,25 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.in/tags/java/</loc>
-    <lastmod>2015-11-22T05:17:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.in/categories/java/</loc>
     <lastmod>2017-08-14T12:30:43+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.in/tags/javaee/</loc>
-    <lastmod>2015-06-15T13:04:00+00:00</lastmod>
+    <loc>https://sivalabs.in/tags/java/</loc>
+    <lastmod>2015-11-22T05:17:20+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.in/categories/javaee/</loc>
+    <lastmod>2015-06-15T13:04:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/javaee/</loc>
     <lastmod>2015-06-15T13:04:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -576,13 +626,13 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.in/tags/linux/</loc>
+    <loc>https://sivalabs.in/categories/linux/</loc>
     <lastmod>2015-10-13T02:07:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.in/categories/linux/</loc>
+    <loc>https://sivalabs.in/tags/linux/</loc>
     <lastmod>2015-10-13T02:07:05+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -590,6 +640,18 @@
   <url>
     <loc>https://sivalabs.in/tags/maven/</loc>
     <lastmod>2012-10-29T12:18:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/categories/microservices/</loc>
+    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/microservices/</loc>
+    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -613,13 +675,19 @@
   
   <url>
     <loc>https://sivalabs.in/posts/</loc>
-    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.in/tags/primefaces/</loc>
     <lastmod>2013-11-28T04:02:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/rabbitmq/</loc>
+    <lastmod>2018-02-20T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -631,19 +699,19 @@
   
   <url>
     <loc>https://sivalabs.in/</loc>
-    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.in/tags/spring/</loc>
-    <lastmod>2017-08-14T12:30:43+00:00</lastmod>
+    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.in/categories/spring/</loc>
     <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/spring/</loc>
+    <lastmod>2017-08-14T12:30:43+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -660,19 +728,49 @@
   </url>
   
   <url>
+    <loc>https://sivalabs.in/categories/springboot/</loc>
+    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/springboot/</loc>
+    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/categories/springcloud/</loc>
+    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/springcloud/</loc>
+    <lastmod>2017-08-14T12:30:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/springsession/</loc>
+    <lastmod>2018-02-07T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://sivalabs.in/tags/</loc>
     <lastmod>2016-07-21T01:54:29+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.in/tags/tips/</loc>
+    <loc>https://sivalabs.in/categories/tips/</loc>
     <lastmod>2017-10-18T02:50:23+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.in/categories/tips/</loc>
+    <loc>https://sivalabs.in/tags/tips/</loc>
     <lastmod>2017-10-18T02:50:23+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -684,19 +782,31 @@
   </url>
   
   <url>
+    <loc>https://sivalabs.in/categories/travis-ci/</loc>
+    <lastmod>2018-01-24T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.in/tags/travis-ci/</loc>
+    <lastmod>2018-01-24T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://sivalabs.in/tutorials/</loc>
     <lastmod>2017-12-16T12:12:31+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.in/tags/videos/</loc>
+    <loc>https://sivalabs.in/categories/videos/</loc>
     <lastmod>2016-04-10T04:03:33+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.in/categories/videos/</loc>
+    <loc>https://sivalabs.in/tags/videos/</loc>
     <lastmod>2016-04-10T04:03:33+00:00</lastmod>
     <priority>0</priority>
   </url>

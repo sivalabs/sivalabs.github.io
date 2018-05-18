@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Springsession on SivaLabs</title>
+    <link>https://sivalabs.in/tags/springsession/</link>
+    <description>Recent content in Springsession on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Feb 2018 07:59:17 +0530</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.in/tags/springsession/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Session Management using Spring Session with JDBC DataStore</title>
+      <link>https://sivalabs.in/2018/02/session-management-using-spring-session-jdbc-datastore/</link>
+      <pubDate>Wed, 07 Feb 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.in/2018/02/session-management-using-spring-session-jdbc-datastore/</guid>
+      <description>In web applications, user session management is very crucial for managing user state. In this article, we are going to learn about what are the approaches we have been following to manage user sessions in a clustered environment and how we can use Spring Session to implement it in a much simpler and more scalable way.
+Typically in production environments, we will have multiple server nodes with a load balancer in front of them and all the client traffic will be coming through the load balancer to one of the server nodes.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -84,6 +84,15 @@
     </item>
     
     <item>
+      <title>Microservices</title>
+      <link>https://sivalabs.in/categories/microservices/</link>
+      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.in/categories/microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Misc</title>
       <link>https://sivalabs.in/categories/misc/</link>
       <pubDate>Sun, 30 Nov 2014 01:21:00 +0000</pubDate>
@@ -102,11 +111,38 @@
     </item>
     
     <item>
+      <title>Springboot</title>
+      <link>https://sivalabs.in/categories/springboot/</link>
+      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.in/categories/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Springcloud</title>
+      <link>https://sivalabs.in/categories/springcloud/</link>
+      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.in/categories/springcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Tips</title>
       <link>https://sivalabs.in/categories/tips/</link>
       <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
       
       <guid>https://sivalabs.in/categories/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Travis-ci</title>
+      <link>https://sivalabs.in/categories/travis-ci/</link>
+      <pubDate>Wed, 24 Jan 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.in/categories/travis-ci/</guid>
       <description></description>
     </item>
     
