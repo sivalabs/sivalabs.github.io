@@ -1,7 +1,596 @@
-<!DOCTYPE html><html lang="en-US" prefix="og: http://ogp.me/ns#"><head><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="title" property="title" content="SivaLabs - MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview"><meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - "><title>SivaLabs - MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview</title><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sivalabs.github.io/images/e-learning.jpg"><meta name="twitter:title" content="MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview"><meta name="twitter:description" content="Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using SpringBoot and SpringCloud.
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview </title>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sivalabs.github.io/images/e-learning.jpg"/>
+
+<meta name="twitter:title" content="MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview"/>
+<meta name="twitter:description" content="Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using SpringBoot and SpringCloud.
 In this article we are going to learn about following:
- Monoliths what are MicroServices? Advantages of MicroServices Challenges with MicroServices Why SpringBoot &amp; SpringCloud are a good choice for MicroServices?"><meta name="twitter:site" content="@sivalabs"><meta name="twitter:creator" content="@sivalabs"><meta property="og:title" content="MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview"><meta property="og:description" content="Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using SpringBoot and SpringCloud.
+ Monoliths what are MicroServices? Advantages of MicroServices Challenges with MicroServices Why SpringBoot &amp; SpringCloud are a good choice for MicroServices?"/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview" />
+<meta property="og:description" content="Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using SpringBoot and SpringCloud.
 In this article we are going to learn about following:
- Monoliths what are MicroServices? Advantages of MicroServices Challenges with MicroServices Why SpringBoot &amp; SpringCloud are a good choice for MicroServices?"><meta property="og:type" content="article"><meta property="og:url" content="https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/"><meta property="og:image" content="https://sivalabs.github.io/images/e-learning.jpg"><meta property="article:published_time" content="2018-03-02T07:59:17&#43;05:30"><meta property="article:modified_time" content="2018-03-02T07:59:17&#43;05:30"><meta itemprop="name" content="MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview"><meta itemprop="description" content="Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using SpringBoot and SpringCloud.
+ Monoliths what are MicroServices? Advantages of MicroServices Challenges with MicroServices Why SpringBoot &amp; SpringCloud are a good choice for MicroServices?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/" />
+
+<meta property="og:image" content="https://sivalabs.github.io/images/e-learning.jpg" />
+<meta property="article:published_time" content="2018-03-02T07:59:17&#43;05:30"/>
+<meta property="article:modified_time" content="2018-03-02T07:59:17&#43;05:30"/>
+
+    
+<meta itemprop="name" content="MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview">
+<meta itemprop="description" content="Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using SpringBoot and SpringCloud.
 In this article we are going to learn about following:
- Monoliths what are MicroServices? Advantages of MicroServices Challenges with MicroServices Why SpringBoot &amp; SpringCloud are a good choice for MicroServices?"><meta itemprop="datePublished" content="2018-03-02T07:59:17&#43;05:30"><meta itemprop="dateModified" content="2018-03-02T07:59:17&#43;05:30"><meta itemprop="wordCount" content="1010"><meta itemprop="image" content="https://sivalabs.github.io/images/e-learning.jpg"><meta itemprop="keywords" content="microservices,springboot,springcloud,"><link rel="stylesheet" href="/assets/css/custom-fonts.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/genericons.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/custom-styles.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/html5shiv.min.js"></script><script type="text/javascript" src="/assets/js/navigation.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"></head><body class="home blog logged-in admin-bar no-customize-support post-layout-one-column"><div id="header-top" class="header-bar-wrap"></div><div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><header id="masthead" class="site-header clearfix" role="banner"><div class="header-main container clearfix"><div id="logo" class="site-branding clearfix"><h1 class="site-title"><a href="/" title="SivaLabs" rel="home">SivaLabs</a></h1><p class="site-description">My Experiments on Technology</p></div><div class="header-widgets clearfix"></div></div><div id="main-navigation-wrap" class="primary-navigation-wrap"><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation"><ul id="menu-home" class="main-navigation-menu"><li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145"><a href="/">Home</a></li><li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421"><a href="/categories/java">Java</a></li><li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423"><a href="/categories/spring">Spring</a><ul class="sub-menu"><li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424"><a href="/categories/springboot">Spring Boot</a></li><li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="/categories/springcloud">Spring Cloud</a></li></ul></li><li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422"><a href="/categories/microservices">MicroServices</a></li><li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="/videos">Videos</a></li><li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161"><a href="/mybooks">My Books</a></li><li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="/contact">Contact</a></li></ul></nav></div></header><div id="content" class="site-content container clearfix"><section id="primary" class="content-archive content-area"><main id="main" class="site-main" role="main"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/" rel="bookmark"><time class="entry-date published" datetime="2018-03-02T07:59:17">March 02, 2018 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/" rel="bookmark">MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/microservices/">microservices</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">springboot</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud/">springcloud</a></span></div></header><div class="entry-content"><p>Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using <a href="https://projects.spring.io/spring-boot/">SpringBoot</a> and <a href="https://projects.spring.io/spring-cloud/">SpringCloud</a>.</p><p>In this article we are going to learn about following:</p><ul><li>Monoliths</li><li>what are MicroServices?</li><li>Advantages of MicroServices</li><li>Challenges with MicroServices</li><li>Why SpringBoot &amp; SpringCloud are a good choice for MicroServices?</li><li>Introducing the application</li></ul><h1 id="monoliths">Monoliths</h1><p>Traditionally we are building large enterprise applications in modularised fashion (??!!??) but finally deploy them together as a single deployment unit (EAR or WAR). These are called Monolithic applications.</p><p>There are some issues with the monolithic architecture such as:</p><ul><li>Large codebases become mess over the time</li><li>Multiple teams working on single codebase become tedious</li><li>It is not possible to scale up only certain parts of the application</li><li>Technology updates/rewrites become complex and expensive tasks</li></ul><p>However, IMHO, it is relatively easy to deploy and monitor Monoliths compared to MicroServices.</p><h1 id="microservices">MicroServices</h1><p>A MicroService is a service built around a specific business capability which can be independently deployed. So, to build large enterprise applications we can identify the sub-domains of our main business domain and build each sub-domain as a MicroService using Domain Driven Design (DDD) techniques. But in the end, we need to make all these microservices work together to serve the end user as if it is a single application.</p><blockquote><p>You can read more about MicroServices on this famous Martin Fowler blog <a href="https://martinfowler.com/articles/microservices.html">https://martinfowler.com/articles/microservices.html</a></p></blockquote><h2 id="advantages-of-microservices">Advantages of MicroServices</h2><ul><li>Comprehending smaller codebase is easy</li><li>Can independently scale up highly used services</li><li>Each team can focus on one (or few) MicroService(s)</li><li>Technology updates/rewrites become simpler</li></ul><h2 id="challenges-with-microservices">Challenges with MicroServices</h2><ul><li>Getting correct sub-domain boundaries, in the beginning, is hard</li><li>Need more skilled developers to handle distributed application complexities</li><li>Managing MicroServices based applications without proper DevOps culture is next to impossible</li><li>Local developer environment setup might become complex to test cross-service communications. Though using Docker/Kubernetes this can be mitigated to some extent.</li></ul><h1 id="why-springboot-and-springcloud-are-a-good-choice-for-microservices">Why SpringBoot and SpringCloud are a good choice for MicroServices?</h1><p><strong>Spring Boot</strong> is the most popular and widely used Java framework for building MicroServices. These days many organizations prefer to deploy their applications in a Cloud environment instead of taking all the headache of maintaining a datacenter themselves. But we need to take good care of the various aspects to make our applications Cloud Native. There comes the beauty of Spring Cloud.</p><p><strong>Spring Cloud</strong> is essentially an implementation of various design patterns to be followed while building Cloud Native applications. Instead of reinventing the wheel, we can simply take advantage of various Spring Cloud modules and focus on our main business problem than worrying about infrastructural concerns.</p><p>Following are just a few of Spring Cloud modules that can be used to address distributed application concerns:</p><p><strong>Spring Cloud Config Server:</strong> To externalize configuration of applications in a central config server with the ability to update the configuration values without requiring to restart the applications. We can use Spring Cloud Config Server with git or Consul or ZooKeeper as config repository.</p><p><strong>Service Registry and Discovery:</strong> As there could be many services and we need the ability to scale up or down dynamically, we need Service Registry and Discovery mechanism so that service-to-service communication should not depend on hard-coded hostnames and port numbers. Spring Cloud provides Netflix Eureka-based Service Registry and Discovery support with just minimal configuration. We can also use Consul or ZooKeeper for Service Registry and Discovery.</p><p><strong>Circuit Breaker:</strong> In microservices based architecture, one service might depend on another service and if one service goes down then failures may cascade to other services as well. Spring Cloud provides Netflix Hystrix based Circuit Breaker to handle these kinds of issues.</p><p><strong>Spring Cloud Data Streams:</strong> These days we may need to work with huge volumes of data streams using Kafka or Spark etc. Spring Cloud Data Streams provides higher-level abstractions to use those frameworks in an easier manner.</p><p><strong>Spring Cloud Security:</strong> Some of the microservices needs to be accessible to authenticated users only and most likely we might want a Single Sign-On feature to propagate the authentication context across services. Spring Cloud Security provides authentication services using OAuth2.</p><p><strong>Distributed Tracing:</strong> One of the pain-point with microservices is the ability to debug issues. One simple end-user action might trigger a chain of microservice calls, there should be a mechanism to trace the related call chains. We can use Spring Cloud Sleuth with Zipkin to trace the cross-service invocations.</p><p><strong>Spring Cloud Contract:</strong> There is a high chance that separate teams work on different microservices. There should be a mechanism for teams to agree upon API endpoint contracts so that each team can develop their APIs independently. Spring Cloud Contract helps to create such contracts and validate them by both service provider and consumer.</p><p>These are just a few of Spring Cloud features. To explore more visit <a href="https://projects.spring.io/spring-cloud/">https://projects.spring.io/spring-cloud/</a>.</p><blockquote><p>You may also like to read about <a href="http://sivalabs.in/2018/02/why-springboot-so-popular-how-to-learn-springboot/">Why SpringBoot is so popular and how to learn SpringBoot effectively?</a></p></blockquote><h1 id="our-sample-application">Our Sample application</h1><p>I strongly believe in learning by example. So, let us learn how to build MicroServices using Spring Boot and Spring Cloud with a sample application. I will deliberately keep the application business logic very simple so that we focus on understanding the SpringBoot and SpringCloud features.</p><p>We are going to build a simple shopping cart application and assume we are going to start with the following microservices:</p><ul><li><strong>catalog-service:</strong> It provides REST API to provide catalog information like products.</li><li><strong>inventory-service:</strong> It provides REST API to manage product inventory.</li><li><strong>cart-service:</strong> It provides REST API to hold the customer cart details.</li><li><strong>order-service:</strong> It provides REST API to manage orders.</li><li><strong>customer-service:</strong> It provides REST API to manage customer information.</li><li><strong>shoppingcart-ui:</strong> It is customer facing front-end web application.</li></ul><p>We are going to build various services and REST endpoints as we go through various microservice concepts.</p><blockquote><p>Stay tuned for the next post where we are going to create catalog-service and use spring-cloud-config server to have centralized configuration for all our microservices.</p></blockquote></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=MicroServices%20using%20Spring%20Boot%20%26%20Spring%20Cloud%20%e2%80%93%20Part%201%20%3a%20Overview-https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f&title=MicroServices%20using%20Spring%20Boot%20%26%20Spring%20Cloud%20%e2%80%93%20Part%201%20%3a%20Overview" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f&title=MicroServices%20using%20Spring%20Boot%20%26%20Spring%20Cloud%20%e2%80%93%20Part%201%20%3a%20Overview" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></article><div class="comments"><div id="disqus_thread"></div><script>var disqus_config=function(){};!function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1)return void(document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.");var e=document,t=e.createElement("script");t.async=!0,t.src="//sivalabs.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}()</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div><nav class="navigation post-navigation" role="navigation"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><div class="nav-previous"><a href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/" rel="next"><i class="fa fa-chevron-left"></i> <span class="post-title">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</span></a></div><div class="nav-next"><a href="/2018/02/why-springboot-so-popular-how-to-learn-springboot/" rel="prev"><span class="post-title">Why SpringBoot is so popular and how to learn SpringBoot effectively? <i class="fa fa-chevron-right"></i></span></a></div></div></nav></main></section><section id="secondary" class="sidebar widget-area clearfix" role="complementary"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Follow Me</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20"></span></a></li></ul></aside><aside id="recent-posts-2" class="widget widget_recent_entries clearfix"><div class="widget-header"><h3 class="widget-title">Recent Posts</h3></div><ul><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li></ul></aside><aside id="top-posts-2" class="widget widget_top-posts clearfix"><div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div><ul><li><a href="/2016/03/why-springboot/" class="bump-view" data-bump-view="tp">Why SpringBoot?</a></li><li><a href="/2016/03/how-springboot-autoconfiguration-magic/" class="bump-view" data-bump-view="tp">How SpringBoot AutoConfiguration magic works?</a></li><li><a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" class="bump-view" data-bump-view="tp">Developing a simple e-commerce application from scratch to production using SpringBoot</a></li><li><a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/" class="bump-view" data-bump-view="tp">Clean Code: Don’t mix different levels of abstractions</a></li><li><a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/" class="bump-view" data-bump-view="tp">A Developers Perspective on Spring vs JavaEE</a></li><li><a href="/2015/07/my-life-as-software-developer-in-india/" class="bump-view" data-bump-view="tp">My Life as a Software Developer in India</a></li><li><a href="/2011/01/10-things-to-become-outstanding-java/" class="bump-view" data-bump-view="tp">10 things to become an outstanding Java developer</a></li></ul></aside><aside id="categories-2" class="widget widget_categories clearfix"><div class="widget-header"><h3 class="widget-title">Categories</h3></div><ul><li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li><li class="cat-item"><a href="/categories/blog">Blog</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">IDE</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">JavaEE</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/microservices">Microservices</a></li><li class="cat-item"><a href="/categories/springboot">Springboot</a></li><li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li><li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside><aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix"><div class="widget-header"><h3 class="widget-title">Tags</h3></div><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="Android">Android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="Best Practices">Best Practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blog" title="Blog">Blog</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="Blogging">Blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="Books">Books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="E-Commerce">E-Commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="IDE">IDE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="IT">IT</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="Interviews">Interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="JSF">JSF</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="Java">Java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="JavaEE">JavaEE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="Linux">Linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="Maven">Maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="MyBatis">MyBatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="Spring">Spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="SpringBoot">SpringBoot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="SpringCloud">SpringCloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="Tips">Tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="VirtualBox">VirtualBox</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/microservices" title="microservices">microservices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springsession" title="springsession">springsession</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/travis-ci" title="travis-ci">travis-ci</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a></div></div></aside></section></div><div id="footer" class="footer-wrap"><footer id="colophon" class="site-footer container clearfix" role="contentinfo"><div id="footer-text" class="site-info"><span class="credit-link"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span></div></footer></div></div></body></html>
+ Monoliths what are MicroServices? Advantages of MicroServices Challenges with MicroServices Why SpringBoot &amp; SpringCloud are a good choice for MicroServices?">
+
+
+<meta itemprop="datePublished" content="2018-03-02T07:59:17&#43;05:30" />
+<meta itemprop="dateModified" content="2018-03-02T07:59:17&#43;05:30" />
+<meta itemprop="wordCount" content="1010">
+
+  <meta itemprop="image" content="https://sivalabs.github.io/images/e-learning.jpg">
+
+
+
+<meta itemprop="keywords" content="microservices,springboot,springcloud," />
+
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+<main id="main" class="site-main" role="main">
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/" rel="bookmark">
+                <time class="entry-date published" datetime="2018-03-02T07:59:17">
+                March 02, 2018
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/" rel="bookmark">
+            MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/microservices/">microservices</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">springboot</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud/">springcloud</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+        <div class="entry-content">
+            
+
+<p>Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications
+using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices.
+I am planning to write a series of articles covering how to build microservices using <a href="https://projects.spring.io/spring-boot/">SpringBoot</a>
+and <a href="https://projects.spring.io/spring-cloud/">SpringCloud</a>.</p>
+
+<p>In this article we are going to learn about following:</p>
+
+<ul>
+<li>Monoliths</li>
+<li>what are MicroServices?</li>
+<li>Advantages of MicroServices</li>
+<li>Challenges with MicroServices</li>
+<li>Why SpringBoot &amp; SpringCloud are a good choice for MicroServices?</li>
+<li>Introducing the application</li>
+</ul>
+
+<h1 id="monoliths">Monoliths</h1>
+
+<p>Traditionally we are building large enterprise applications in modularised fashion (??!!??) but finally deploy them together as a single deployment unit (EAR or WAR). These are called Monolithic applications.</p>
+
+<p>There are some issues with the monolithic architecture such as:</p>
+
+<ul>
+<li>Large codebases become mess over the time</li>
+<li>Multiple teams working on single codebase become tedious</li>
+<li>It is not possible to scale up only certain parts of the application</li>
+<li>Technology updates/rewrites become complex and expensive tasks</li>
+</ul>
+
+<p>However, IMHO, it is relatively easy to deploy and monitor Monoliths compared to MicroServices.</p>
+
+<h1 id="microservices">MicroServices</h1>
+
+<p>A MicroService is a service built around a specific business capability which can be independently deployed. So, to build large enterprise applications we can identify the sub-domains of our main business domain and build each sub-domain as a MicroService using Domain Driven Design (DDD) techniques. But in the end, we need to make all these microservices work together to serve the end user as if it is a single application.</p>
+
+<blockquote>
+<p>You can read more about MicroServices on this famous Martin Fowler blog <a href="https://martinfowler.com/articles/microservices.html">https://martinfowler.com/articles/microservices.html</a></p>
+</blockquote>
+
+<h2 id="advantages-of-microservices">Advantages of MicroServices</h2>
+
+<ul>
+<li>Comprehending smaller codebase is easy</li>
+<li>Can independently scale up highly used services</li>
+<li>Each team can focus on one (or few) MicroService(s)</li>
+<li>Technology updates/rewrites become simpler</li>
+</ul>
+
+<h2 id="challenges-with-microservices">Challenges with MicroServices</h2>
+
+<ul>
+<li>Getting correct sub-domain boundaries, in the beginning, is hard</li>
+<li>Need more skilled developers to handle distributed application complexities</li>
+<li>Managing MicroServices based applications without proper DevOps culture is next to impossible</li>
+<li>Local developer environment setup might become complex to test cross-service communications. Though using Docker/Kubernetes this can be mitigated to some extent.</li>
+</ul>
+
+<h1 id="why-springboot-and-springcloud-are-a-good-choice-for-microservices">Why SpringBoot and SpringCloud are a good choice for MicroServices?</h1>
+
+<p><strong>Spring Boot</strong> is the most popular and widely used Java framework for building MicroServices. These days many organizations prefer to deploy their applications in a Cloud environment instead of taking all the headache of maintaining a datacenter themselves. But we need to take good care of the various aspects to make our applications Cloud Native. There comes the beauty of Spring Cloud.</p>
+
+<p><strong>Spring Cloud</strong> is essentially an implementation of various design patterns to be followed while building Cloud Native applications. Instead of reinventing the wheel, we can simply take advantage of various Spring Cloud modules and focus on our main business problem than worrying about infrastructural concerns.</p>
+
+<p>Following are just a few of Spring Cloud modules that can be used to address distributed application concerns:</p>
+
+<p><strong>Spring Cloud Config Server:</strong> To externalize configuration of applications in a central config server with the ability to update the configuration values without requiring to restart the applications. We can use Spring Cloud Config Server with git or Consul or ZooKeeper as config repository.</p>
+
+<p><strong>Service Registry and Discovery:</strong> As there could be many services and we need the ability to scale up or down dynamically, we need Service Registry and Discovery mechanism so that service-to-service communication should not depend on hard-coded hostnames and port numbers. Spring Cloud provides Netflix Eureka-based Service Registry and Discovery support with just minimal configuration. We can also use Consul or ZooKeeper for Service Registry and Discovery.</p>
+
+<p><strong>Circuit Breaker:</strong> In microservices based architecture, one service might depend on another service and if one service goes down then failures may cascade to other services as well. Spring Cloud provides Netflix Hystrix based Circuit Breaker to handle these kinds of issues.</p>
+
+<p><strong>Spring Cloud Data Streams:</strong> These days we may need to work with huge volumes of data streams using Kafka or Spark etc. Spring Cloud Data Streams provides higher-level abstractions to use those frameworks in an easier manner.</p>
+
+<p><strong>Spring Cloud Security:</strong> Some of the microservices needs to be accessible to authenticated users only and most likely we might want a Single Sign-On feature to propagate the authentication context across services. Spring Cloud Security provides authentication services using OAuth2.</p>
+
+<p><strong>Distributed Tracing:</strong> One of the pain-point with microservices is the ability to debug issues. One simple end-user action might trigger a chain of microservice calls, there should be a mechanism to trace the related call chains. We can use Spring Cloud Sleuth with Zipkin to trace the cross-service invocations.</p>
+
+<p><strong>Spring Cloud Contract:</strong> There is a high chance that separate teams work on different microservices. There should be a mechanism for teams to agree upon API endpoint contracts so that each team can develop their APIs independently. Spring Cloud Contract helps to create such contracts and validate them by both service provider and consumer.</p>
+
+<p>These are just a few of Spring Cloud features. To explore more visit <a href="https://projects.spring.io/spring-cloud/">https://projects.spring.io/spring-cloud/</a>.</p>
+
+<blockquote>
+<p>You may also like to read about <a href="http://sivalabs.in/2018/02/why-springboot-so-popular-how-to-learn-springboot/">Why SpringBoot is so popular and how to learn SpringBoot effectively?</a></p>
+</blockquote>
+
+<h1 id="our-sample-application">Our Sample application</h1>
+
+<p>I strongly believe in learning by example. So, let us learn how to build MicroServices using Spring Boot and Spring Cloud with a sample application. I will deliberately keep the application business logic very simple so that we focus on understanding the SpringBoot and SpringCloud features.</p>
+
+<p>We are going to build a simple shopping cart application and assume we are going to start with the following microservices:</p>
+
+<ul>
+<li><strong>catalog-service:</strong> It provides REST API to provide catalog information like products.</li>
+<li><strong>inventory-service:</strong> It provides REST API to manage product inventory.</li>
+<li><strong>cart-service:</strong> It provides REST API to hold the customer cart details.</li>
+<li><strong>order-service:</strong> It provides REST API to manage orders.</li>
+<li><strong>customer-service:</strong> It provides REST API to manage customer information.</li>
+<li><strong>shoppingcart-ui:</strong> It is customer facing front-end web application.</li>
+</ul>
+
+<p>We are going to build various services and REST endpoints as we go through various microservice concepts.</p>
+
+<blockquote>
+<p>Stay tuned for the next post where we are going to create catalog-service and use spring-cloud-config server to have centralized configuration for all our microservices.</p>
+</blockquote>
+
+        </div>
+        <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=MicroServices%20using%20Spring%20Boot%20%26%20Spring%20Cloud%20%e2%80%93%20Part%201%20%3a%20Overview-https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f&title=MicroServices%20using%20Spring%20Boot%20%26%20Spring%20Cloud%20%e2%80%93%20Part%201%20%3a%20Overview" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2018%2f03%2fmicroservices-using-springboot-spring-cloud-part-1-overview%2f&title=MicroServices%20using%20Spring%20Boot%20%26%20Spring%20Cloud%20%e2%80%93%20Part%201%20%3a%20Overview" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+</article>
+
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2018/02/why-springboot-so-popular-how-to-learn-springboot/" rel="prev">
+                <span class="post-title">Why SpringBoot is so popular and how to learn SpringBoot effectively?
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="Android">Android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="Blog">Blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="Blogging">Blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="Books">Books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="IDE">IDE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="IT">IT</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="Interviews">Interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="JSF">JSF</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="Java">Java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="JavaEE">JavaEE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="Linux">Linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="Maven">Maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="MyBatis">MyBatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="Spring">Spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="Tips">Tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>

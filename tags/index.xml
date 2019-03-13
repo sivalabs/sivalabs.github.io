@@ -57,15 +57,6 @@
     </item>
     
     <item>
-      <title>Books</title>
-      <link>https://sivalabs.github.io/tags/books/</link>
-      <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/books/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>E-Commerce</title>
       <link>https://sivalabs.github.io/tags/e-commerce/</link>
       <pubDate>Tue, 24 Nov 2015 04:34:03 +0000</pubDate>
@@ -129,24 +120,6 @@
     </item>
     
     <item>
-      <title>Jcart</title>
-      <link>https://sivalabs.github.io/tags/jcart/</link>
-      <pubDate>Thu, 31 Dec 2015 11:37:10 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/jcart/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jooq</title>
-      <link>https://sivalabs.github.io/tags/jooq/</link>
-      <pubDate>Tue, 15 Mar 2016 07:13:21 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/jooq/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Linux</title>
       <link>https://sivalabs.github.io/tags/linux/</link>
       <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
@@ -165,15 +138,6 @@
     </item>
     
     <item>
-      <title>Microservices</title>
-      <link>https://sivalabs.github.io/tags/microservices/</link>
-      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/microservices/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>MyBatis</title>
       <link>https://sivalabs.github.io/tags/mybatis/</link>
       <pubDate>Tue, 16 Jul 2013 10:01:00 +0000</pubDate>
@@ -188,15 +152,6 @@
       <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/primefaces/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rabbitmq</title>
-      <link>https://sivalabs.github.io/tags/rabbitmq/</link>
-      <pubDate>Tue, 20 Feb 2018 07:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/rabbitmq/</guid>
       <description></description>
     </item>
     
@@ -237,33 +192,6 @@
     </item>
     
     <item>
-      <title>Springboot</title>
-      <link>https://sivalabs.github.io/tags/springboot/</link>
-      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/springboot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Springcloud</title>
-      <link>https://sivalabs.github.io/tags/springcloud/</link>
-      <pubDate>Mon, 14 Aug 2017 12:30:43 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/springcloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Springsession</title>
-      <link>https://sivalabs.github.io/tags/springsession/</link>
-      <pubDate>Wed, 07 Feb 2018 07:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/springsession/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Tips</title>
       <link>https://sivalabs.github.io/tags/tips/</link>
       <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
@@ -273,7 +201,88 @@
     </item>
     
     <item>
-      <title>Travis-ci</title>
+      <title>VirtualBox</title>
+      <link>https://sivalabs.github.io/tags/virtualbox/</link>
+      <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/virtualbox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>books</title>
+      <link>https://sivalabs.github.io/tags/books/</link>
+      <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jcart</title>
+      <link>https://sivalabs.github.io/tags/jcart/</link>
+      <pubDate>Thu, 31 Dec 2015 11:37:10 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/jcart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jooq</title>
+      <link>https://sivalabs.github.io/tags/jooq/</link>
+      <pubDate>Tue, 15 Mar 2016 07:13:21 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/jooq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microservices</title>
+      <link>https://sivalabs.github.io/tags/microservices/</link>
+      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rabbitmq</title>
+      <link>https://sivalabs.github.io/tags/rabbitmq/</link>
+      <pubDate>Tue, 20 Feb 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/rabbitmq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>springboot</title>
+      <link>https://sivalabs.github.io/tags/springboot/</link>
+      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>springcloud</title>
+      <link>https://sivalabs.github.io/tags/springcloud/</link>
+      <pubDate>Mon, 14 Aug 2017 12:30:43 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/springcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>springsession</title>
+      <link>https://sivalabs.github.io/tags/springsession/</link>
+      <pubDate>Wed, 07 Feb 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/springsession/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>travis-ci</title>
       <link>https://sivalabs.github.io/tags/travis-ci/</link>
       <pubDate>Wed, 24 Jan 2018 07:59:17 +0530</pubDate>
       
@@ -282,20 +291,11 @@
     </item>
     
     <item>
-      <title>Videos</title>
+      <title>videos</title>
       <link>https://sivalabs.github.io/tags/videos/</link>
       <pubDate>Sun, 10 Apr 2016 04:03:33 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tags/videos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>VirtualBox</title>
-      <link>https://sivalabs.github.io/tags/virtualbox/</link>
-      <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/virtualbox/</guid>
       <description></description>
     </item>
     

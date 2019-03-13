@@ -1,4 +1,185 @@
-<!DOCTYPE html><html lang="en-US" prefix="og: http://ogp.me/ns#"><head><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="title" property="title" content="SivaLabs - SpringBoot Messaging with RabbitMQ"><meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - "><title>SivaLabs - SpringBoot Messaging with RabbitMQ</title><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sivalabs.github.io/images/RabbitMQ.png"><meta name="twitter:title" content="SpringBoot Messaging with RabbitMQ"><meta name="twitter:description" content="RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ)."><meta name="twitter:site" content="@sivalabs"><meta name="twitter:creator" content="@sivalabs"><meta property="og:title" content="SpringBoot Messaging with RabbitMQ"><meta property="og:description" content="RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ)."><meta property="og:type" content="article"><meta property="og:url" content="https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/"><meta property="og:image" content="https://sivalabs.github.io/images/RabbitMQ.png"><meta property="article:published_time" content="2018-02-20T07:59:17&#43;05:30"><meta property="article:modified_time" content="2018-02-20T07:59:17&#43;05:30"><meta itemprop="name" content="SpringBoot Messaging with RabbitMQ"><meta itemprop="description" content="RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ)."><meta itemprop="datePublished" content="2018-02-20T07:59:17&#43;05:30"><meta itemprop="dateModified" content="2018-02-20T07:59:17&#43;05:30"><meta itemprop="wordCount" content="1090"><meta itemprop="image" content="https://sivalabs.github.io/images/RabbitMQ.png"><meta itemprop="keywords" content="springboot,rabbitmq,"><link rel="stylesheet" href="/assets/css/custom-fonts.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/genericons.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/custom-styles.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/html5shiv.min.js"></script><script type="text/javascript" src="/assets/js/navigation.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"></head><body class="home blog logged-in admin-bar no-customize-support post-layout-one-column"><div id="header-top" class="header-bar-wrap"></div><div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><header id="masthead" class="site-header clearfix" role="banner"><div class="header-main container clearfix"><div id="logo" class="site-branding clearfix"><h1 class="site-title"><a href="/" title="SivaLabs" rel="home">SivaLabs</a></h1><p class="site-description">My Experiments on Technology</p></div><div class="header-widgets clearfix"></div></div><div id="main-navigation-wrap" class="primary-navigation-wrap"><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation"><ul id="menu-home" class="main-navigation-menu"><li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145"><a href="/">Home</a></li><li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421"><a href="/categories/java">Java</a></li><li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423"><a href="/categories/spring">Spring</a><ul class="sub-menu"><li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424"><a href="/categories/springboot">Spring Boot</a></li><li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="/categories/springcloud">Spring Cloud</a></li></ul></li><li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422"><a href="/categories/microservices">MicroServices</a></li><li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="/videos">Videos</a></li><li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161"><a href="/mybooks">My Books</a></li><li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="/contact">Contact</a></li></ul></nav></div></header><div id="content" class="site-content container clearfix"><section id="primary" class="content-archive content-area"><main id="main" class="site-main" role="main"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/" rel="bookmark"><time class="entry-date published" datetime="2018-02-20T07:59:17">February 20, 2018 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/" rel="bookmark">SpringBoot Messaging with RabbitMQ</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">springboot</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rabbitmq/">rabbitmq</a></span></div></header><div class="entry-content"><p><a href="https://www.rabbitmq.com/">RabbitMQ</a> is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ).</p><p>First, install RabbitMQ server on your local machine as documented here <a href="https://www.rabbitmq.com/download.html">https://www.rabbitmq.com/download.html</a> or run as a Docker image with the following <strong>docker-compose.yml</strong>.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">version: <span style="color:#e6db74">&#39;3&#39;</span>
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - SpringBoot Messaging with RabbitMQ">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - SpringBoot Messaging with RabbitMQ </title>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sivalabs.github.io/images/RabbitMQ.png"/>
+
+<meta name="twitter:title" content="SpringBoot Messaging with RabbitMQ"/>
+<meta name="twitter:description" content="RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ)."/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="SpringBoot Messaging with RabbitMQ" />
+<meta property="og:description" content="RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/" />
+
+<meta property="og:image" content="https://sivalabs.github.io/images/RabbitMQ.png" />
+<meta property="article:published_time" content="2018-02-20T07:59:17&#43;05:30"/>
+<meta property="article:modified_time" content="2018-02-20T07:59:17&#43;05:30"/>
+
+    
+<meta itemprop="name" content="SpringBoot Messaging with RabbitMQ">
+<meta itemprop="description" content="RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ).">
+
+
+<meta itemprop="datePublished" content="2018-02-20T07:59:17&#43;05:30" />
+<meta itemprop="dateModified" content="2018-02-20T07:59:17&#43;05:30" />
+<meta itemprop="wordCount" content="1090">
+
+  <meta itemprop="image" content="https://sivalabs.github.io/images/RabbitMQ.png">
+
+
+
+<meta itemprop="keywords" content="springboot,rabbitmq," />
+
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+<main id="main" class="site-main" role="main">
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/" rel="bookmark">
+                <time class="entry-date published" datetime="2018-02-20T07:59:17">
+                February 20, 2018
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/" rel="bookmark">
+            SpringBoot Messaging with RabbitMQ
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">springboot</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rabbitmq/">rabbitmq</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+        <div class="entry-content">
+            
+
+<p><a href="https://www.rabbitmq.com/">RabbitMQ</a> is one of the popular message broker solutions and provides client libraries to be used from various programming languages including
+Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages
+from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using
+Dead Letter Queues (DLQ).</p>
+
+<p>First, install RabbitMQ server on your local machine as documented here <a href="https://www.rabbitmq.com/download.html">https://www.rabbitmq.com/download.html</a> or
+run as a Docker image with the following <strong>docker-compose.yml</strong>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">version: <span style="color:#e6db74">&#39;3&#39;</span>
 services:
  
   rabbitmq:
@@ -6,7 +187,27 @@ services:
     image: <span style="color:#e6db74">&#39;rabbitmq:management&#39;</span>
     ports:
       - <span style="color:#e6db74">&#34;5672:5672&#34;</span>
-      - <span style="color:#e6db74">&#34;15672:15672&#34;</span></code></pre></div><p>Now you can start the RabbitMQ using docker-compose up and launch Administration UI at <a href="http://localhost:15672/">http://localhost:15672/</a>.</p><p>If you are familiar with other Messaging brokers like ActiveMQ, we usually use Queues and Topics to send one-to-one and pub-sub model of communication. In RabbitMQ we send messages to Exchange and depending on Routing Key that message will be forwarded to Queue(s).</p><p>You can read more about RabbitMQ concepts here <a href="https://www.rabbitmq.com/tutorials/amqp-concepts.html">https://www.rabbitmq.com/tutorials/amqp-concepts.html</a>.</p><blockquote><p>You can find the source code for this article at <a href="https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo">https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo</a></p></blockquote><h2 id="springboot-application-with-rabbitmq">SpringBoot application with RabbitMQ</h2><p>Now, let us create a SpringBoot application from <a href="http://start.spring.io/">http://start.spring.io/</a> selecting <strong>Web, Thymeleaf, and RabbitMQ</strong> starters.</p><p><strong>pom.xml</strong></p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+      - <span style="color:#e6db74">&#34;15672:15672&#34;</span></code></pre></div>
+
+<p>Now you can start the RabbitMQ using docker-compose up and launch Administration UI at <a href="http://localhost:15672/">http://localhost:15672/</a>.</p>
+
+<p>If you are familiar with other Messaging brokers like ActiveMQ, we usually use Queues and Topics to send one-to-one and
+pub-sub model of communication. In RabbitMQ we send messages to Exchange and depending on Routing Key that
+message will be forwarded to Queue(s).</p>
+
+<p>You can read more about RabbitMQ concepts here <a href="https://www.rabbitmq.com/tutorials/amqp-concepts.html">https://www.rabbitmq.com/tutorials/amqp-concepts.html</a>.</p>
+
+<blockquote>
+<p>You can find the source code for this article at <a href="https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo">https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo</a></p>
+</blockquote>
+
+<h2 id="springboot-application-with-rabbitmq">SpringBoot application with RabbitMQ</h2>
+
+<p>Now, let us create a SpringBoot application from <a href="http://start.spring.io/">http://start.spring.io/</a> selecting <strong>Web, Thymeleaf, and RabbitMQ</strong> starters.</p>
+
+<p><strong>pom.xml</strong></p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> 
     <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> 
     <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 
@@ -45,7 +246,12 @@ services:
         <span style="color:#f92672">&lt;/dependency&gt;</span>
     <span style="color:#f92672">&lt;/dependencies&gt;</span>
      
-<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div><p>Let us start with RabbitMQ configuration. Create RabbitConfig configuration class and define <strong>Queue, Exchange, and Binding</strong> beans as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.amqp.core.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
+
+<p>Let us start with RabbitMQ configuration. Create RabbitConfig configuration class and define <strong>Queue, Exchange,
+and Binding</strong> beans as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.amqp.core.*<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.context.annotation.Configuration<span style="color:#f92672">;</span>
  
@@ -74,16 +280,33 @@ services:
     Binding <span style="color:#a6e22e">binding</span><span style="color:#f92672">(</span>Queue ordersQueue<span style="color:#f92672">,</span> TopicExchange ordersExchange<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">return</span> BindingBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">(</span>ordersQueue<span style="color:#f92672">).</span><span style="color:#a6e22e">to</span><span style="color:#f92672">(</span>ordersExchange<span style="color:#f92672">).</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>QUEUE_ORDERS<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div><p>Here we are declaring a Queue with name <strong>orders-queue</strong> and an Exchange with name <strong>orders-exchange</strong>. We also defined the binding between <strong>orders-queue</strong> and <strong>orders-exchange</strong> so that any message sent to <strong>orders-exchange</strong> with <strong>routing-key</strong> as <strong>orders-queue</strong> will be sent to <strong>orders-queue</strong>.</p><p>We can configure the RabbitMQ server details in <strong>application.properties</strong> as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.rabbitmq.host=localhost
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Here we are declaring a Queue with name <strong>orders-queue</strong> and an Exchange with name <strong>orders-exchange</strong>.
+We also defined the binding between <strong>orders-queue</strong> and <strong>orders-exchange</strong> so that any message sent to <strong>orders-exchange</strong>
+with <strong>routing-key</strong> as <strong>orders-queue</strong> will be sent to <strong>orders-queue</strong>.</p>
+
+<p>We can configure the RabbitMQ server details in <strong>application.properties</strong> as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.rabbitmq.host=localhost
 spring.rabbitmq.port=5672
 spring.rabbitmq.username=guest
-spring.rabbitmq.password=guest</code></pre></div><p>Let us create a Spring bean <strong>OrderMessageSender</strong> to send a message to <strong>orders-exchange</strong>.</p><p>Spring Boot auto-configures the infrastructure beans required to send/receive messages to/from RabbitMQ broker. We can simply autowire <strong>RabbitTemplate</strong> and send a message by invoking <strong>rabbitTemplate.convertAndSend(&ldquo;routingKey&rdquo;, Object)</strong> method.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> <span style="color:#66d9ef">implements</span> Serializable <span style="color:#f92672">{</span>
+spring.rabbitmq.password=guest</code></pre></div>
+
+<p>Let us create a Spring bean <strong>OrderMessageSender</strong> to send a message to <strong>orders-exchange</strong>.</p>
+
+<p>Spring Boot auto-configures the infrastructure beans required to send/receive messages to/from RabbitMQ broker.
+We can simply autowire <strong>RabbitTemplate</strong> and send a message by invoking <strong>rabbitTemplate.convertAndSend(&ldquo;routingKey&rdquo;, Object)</strong> method.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> <span style="color:#66d9ef">implements</span> Serializable <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">private</span> String orderNumber<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> String productId<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">double</span> amount<span style="color:#f92672">;</span>
  
     <span style="color:#75715e">//setters &amp; getters
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>    </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.amqp.rabbit.core.RabbitTemplate<span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>    </code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.amqp.rabbit.core.RabbitTemplate<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.stereotype.Service<span style="color:#f92672">;</span>
  
@@ -99,7 +322,27 @@ spring.rabbitmq.password=guest</code></pre></div><p>Let us create a Spring bean 
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendOrder</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rabbitTemplate</span><span style="color:#f92672">.</span><span style="color:#a6e22e">convertAndSend</span><span style="color:#f92672">(</span>RabbitConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">QUEUE_ORDERS</span><span style="color:#f92672">,</span> order<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div><p>By default Spring Boot uses <strong>org.springframework.amqp.support.converter.SimpleMessageConverter</strong> and serialize the object into <strong>byte[]</strong>.</p><p>Now with this configuration in place, we can send a message to RabbitMQ <strong>orders-queue</strong> by invoking <strong>OrderMessageSender.sendOrder(Order)</strong> method.</p><p>After sending a message you can view the message from Administration UI application by logging in with guest/guest credentials. You can click on <strong>Exchanges/Queues</strong> tabs to see <strong>orders-exchange</strong> and <strong>orders-queue</strong> got created. You can also check the bindings for <strong>orders-exchange</strong> which looks like following:</p><p><img src="/images/RabbitMQ-exchange.png" alt="RabbitMQ Exchange Bindings" title="RabbitMQ Exchange Bindings"></p><p>Now go to Queues tab and click on orders-queue. Scroll down to <strong>Get Messages</strong> section and by clicking on <strong>Get Message(s)</strong> button you can view the contents of the message.</p><p>Now, let create a Listener to the orders-queue using <strong>@RabbitListener</strong>.</p><p>Create a Spring bean <strong>OrderMessageListener</strong> as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.slf4j.Logger<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>By default Spring Boot uses <strong>org.springframework.amqp.support.converter.SimpleMessageConverter</strong> and serialize the object into <strong>byte[]</strong>.</p>
+
+<p>Now with this configuration in place, we can send a message to RabbitMQ <strong>orders-queue</strong> by invoking <strong>OrderMessageSender.sendOrder(Order)</strong>
+method.</p>
+
+<p>After sending a message you can view the message from Administration UI application by logging in with guest/guest credentials.
+You can click on <strong>Exchanges/Queues</strong> tabs to see <strong>orders-exchange</strong> and <strong>orders-queue</strong> got created.
+You can also check the bindings for <strong>orders-exchange</strong> which looks like following:</p>
+
+<p><img src="/images/RabbitMQ-exchange.png" alt="RabbitMQ Exchange Bindings" title="RabbitMQ Exchange Bindings" /></p>
+
+<p>Now go to Queues tab and click on orders-queue. Scroll down to <strong>Get Messages</strong> section and by clicking on <strong>Get Message(s)</strong> button
+you can view the contents of the message.</p>
+
+<p>Now, let create a Listener to the orders-queue using <strong>@RabbitListener</strong>.</p>
+
+<p>Create a Spring bean <strong>OrderMessageListener</strong> as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.slf4j.Logger<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.slf4j.LoggerFactory<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.amqp.rabbit.annotation.RabbitListener<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.stereotype.Component<span style="color:#f92672">;</span>
@@ -113,7 +356,25 @@ spring.rabbitmq.password=guest</code></pre></div><p>Let us create a Spring bean 
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processOrder</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         logger<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Order Received: &#34;</span><span style="color:#f92672">+</span>order<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div><p>That’s it!! By simply adding <strong>@RabbitListener</strong> and defining which queue to listen to we can create a Listener.</p><p>Now if you send a message to orders-queue that should be consumed by OrderMessageListener.processOrder() method and you should see the log statement “Order Received: “.</p><h2 id="sending-and-receiving-messages-as-json-payloads">Sending and Receiving Messages as JSON Payloads</h2><p>As we have seen the default serialization mechanism converts the message object into <strong>byte[]</strong> using <strong>SimpleMessageConverter</strong> and on the receiving end, it will deserialize <strong>byte[]</strong> into the Object type (in our case Order) using <strong>GenericMessageConverter</strong>.</p><p>In order to change this behavior, we need to customize the Spring Boot RabbitMQ auto-configured beans.</p><h3 id="to-send-message-as-json">To send message as JSON</h3><p>One quick way to send a message as JSON payload is using <strong>ObjectMapper</strong> we can convert the <strong>Order</strong> object into JSON and send it.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Autowired</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>That’s it!! By simply adding <strong>@RabbitListener</strong> and defining which queue to listen to we can create a Listener.</p>
+
+<p>Now if you send a message to orders-queue that should be consumed by OrderMessageListener.processOrder() method and
+you should see the log statement “Order Received: “.</p>
+
+<h2 id="sending-and-receiving-messages-as-json-payloads">Sending and Receiving Messages as JSON Payloads</h2>
+
+<p>As we have seen the default serialization mechanism converts the message object into <strong>byte[]</strong> using <strong>SimpleMessageConverter</strong> and
+on the receiving end, it will deserialize <strong>byte[]</strong> into the Object type (in our case Order) using <strong>GenericMessageConverter</strong>.</p>
+
+<p>In order to change this behavior, we need to customize the Spring Boot RabbitMQ auto-configured beans.</p>
+
+<h3 id="to-send-message-as-json">To send message as JSON</h3>
+
+<p>One quick way to send a message as JSON payload is using <strong>ObjectMapper</strong> we can convert the <strong>Order</strong> object into JSON and send it.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Autowired</span>
 <span style="color:#66d9ef">private</span> ObjectMapper objectMapper<span style="color:#f92672">;</span>
  
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendOrder</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -127,7 +388,14 @@ spring.rabbitmq.password=guest</code></pre></div><p>Let us create a Spring bean 
     <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JsonProcessingException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div><p>But converting objects into JSON like this is a kind of boilerplate. Instead, we can follow the below approach.</p><p>We can configure <strong>org.springframework.amqp.support.converter.Jackson2JsonMessageConverter</strong> bean to be used by <strong>RabbitTemplate</strong> so that the message will be serialized as JSON instead of byte[].</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>But converting objects into JSON like this is a kind of boilerplate. Instead, we can follow the below approach.</p>
+
+<p>We can configure <strong>org.springframework.amqp.support.converter.Jackson2JsonMessageConverter</strong> bean to be used by <strong>RabbitTemplate</strong> so that
+the message will be serialized as JSON instead of byte[].</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RabbitConfig</span> 
 <span style="color:#f92672">{</span>
     <span style="color:#f92672">...</span>
@@ -144,7 +412,15 @@ spring.rabbitmq.password=guest</code></pre></div><p>Let us create a Spring bean 
     <span style="color:#66d9ef">public</span> Jackson2JsonMessageConverter <span style="color:#a6e22e">producerJackson2MessageConverter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Jackson2JsonMessageConverter<span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div><p>Now when you send a message it will be converted into JSON and send it to Queue.</p><h3 id="to-receive-message-as-json">To receive message as JSON</h3><p>In order to treat the message payload as JSON we should customize the RabbitMQ configuration by implementing <strong>RabbitListenerConfigurer</strong>.</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Now when you send a message it will be converted into JSON and send it to Queue.</p>
+
+<h3 id="to-receive-message-as-json">To receive message as JSON</h3>
+
+<p>In order to treat the message payload as JSON we should customize the RabbitMQ configuration by implementing <strong>RabbitListenerConfigurer</strong>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RabbitConfig</span> <span style="color:#66d9ef">implements</span> RabbitListenerConfigurer <span style="color:#f92672">{</span>
     <span style="color:#f92672">...</span>
     <span style="color:#f92672">...</span>
@@ -164,7 +440,16 @@ spring.rabbitmq.password=guest</code></pre></div><p>Let us create a Spring bean 
     <span style="color:#66d9ef">public</span> MappingJackson2MessageConverter <span style="color:#a6e22e">consumerJackson2MessageConverter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MappingJackson2MessageConverter<span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div><h2 id="handling-errors-and-invalid-messages-using-deadletterqueues-dlq">Handling Errors and Invalid Messages using DeadLetterQueues(DLQ)</h2><p>We may want to send invalid messages to a separate queue so that we can inspect and reprocess them later. We can use DLQ concept to automatically do it instead of we manually write the code to handle such scenarios.</p><p>We can declare the <strong>dead-letter-exchange</strong>, <strong>dead-letter-routing-key</strong> for a Queue while defining the Queue bean as follows:</p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<h2 id="handling-errors-and-invalid-messages-using-deadletterqueues-dlq">Handling Errors and Invalid Messages using DeadLetterQueues(DLQ)</h2>
+
+<p>We may want to send invalid messages to a separate queue so that we can inspect and reprocess them later.
+We can use DLQ concept to automatically do it instead of we manually write the code to handle such scenarios.</p>
+
+<p>We can declare the <strong>dead-letter-exchange</strong>, <strong>dead-letter-routing-key</strong> for a Queue while defining the Queue bean as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RabbitConfig</span> <span style="color:#66d9ef">implements</span> RabbitListenerConfigurer <span style="color:#f92672">{</span>
  
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String QUEUE_ORDERS <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;orders-queue&#34;</span><span style="color:#f92672">;</span>
@@ -188,4 +473,319 @@ spring.rabbitmq.password=guest</code></pre></div><p>Let us create a Spring bean 
  
     <span style="color:#f92672">...</span>
     <span style="color:#f92672">...</span>
-<span style="color:#f92672">}</span></code></pre></div><p>Now try to send an invalid JSON message to <strong>orders-queue</strong>, it will be sent to <strong>dead-orders-queue</strong>.</p><blockquote><p>You can find the source code for this article at <a href="https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo">https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo</a></p></blockquote></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=SpringBoot%20Messaging%20with%20RabbitMQ-https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f&title=SpringBoot%20Messaging%20with%20RabbitMQ" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f&title=SpringBoot%20Messaging%20with%20RabbitMQ" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></article><div class="comments"><div id="disqus_thread"></div><script>var disqus_config=function(){};!function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1)return void(document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.");var e=document,t=e.createElement("script");t.async=!0,t.src="//sivalabs.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}()</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div><nav class="navigation post-navigation" role="navigation"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><div class="nav-previous"><a href="/2018/02/why-springboot-so-popular-how-to-learn-springboot/" rel="next"><i class="fa fa-chevron-left"></i> <span class="post-title">Why SpringBoot is so popular and how to learn SpringBoot effectively?</span></a></div><div class="nav-next"><a href="/2018/02/session-management-using-spring-session-jdbc-datastore/" rel="prev"><span class="post-title">Session Management using Spring Session with JDBC DataStore <i class="fa fa-chevron-right"></i></span></a></div></div></nav></main></section><section id="secondary" class="sidebar widget-area clearfix" role="complementary"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Follow Me</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20"></span></a></li></ul></aside><aside id="recent-posts-2" class="widget widget_recent_entries clearfix"><div class="widget-header"><h3 class="widget-title">Recent Posts</h3></div><ul><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li></ul></aside><aside id="top-posts-2" class="widget widget_top-posts clearfix"><div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div><ul><li><a href="/2016/03/why-springboot/" class="bump-view" data-bump-view="tp">Why SpringBoot?</a></li><li><a href="/2016/03/how-springboot-autoconfiguration-magic/" class="bump-view" data-bump-view="tp">How SpringBoot AutoConfiguration magic works?</a></li><li><a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" class="bump-view" data-bump-view="tp">Developing a simple e-commerce application from scratch to production using SpringBoot</a></li><li><a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/" class="bump-view" data-bump-view="tp">Clean Code: Don’t mix different levels of abstractions</a></li><li><a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/" class="bump-view" data-bump-view="tp">A Developers Perspective on Spring vs JavaEE</a></li><li><a href="/2015/07/my-life-as-software-developer-in-india/" class="bump-view" data-bump-view="tp">My Life as a Software Developer in India</a></li><li><a href="/2011/01/10-things-to-become-outstanding-java/" class="bump-view" data-bump-view="tp">10 things to become an outstanding Java developer</a></li></ul></aside><aside id="categories-2" class="widget widget_categories clearfix"><div class="widget-header"><h3 class="widget-title">Categories</h3></div><ul><li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li><li class="cat-item"><a href="/categories/blog">Blog</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">IDE</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">JavaEE</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/microservices">Microservices</a></li><li class="cat-item"><a href="/categories/springboot">Springboot</a></li><li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li><li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside><aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix"><div class="widget-header"><h3 class="widget-title">Tags</h3></div><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="Android">Android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="Best Practices">Best Practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blog" title="Blog">Blog</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="Blogging">Blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="Books">Books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="E-Commerce">E-Commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="IDE">IDE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="IT">IT</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="Interviews">Interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="JSF">JSF</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="Java">Java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="JavaEE">JavaEE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="Linux">Linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="Maven">Maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="MyBatis">MyBatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="Spring">Spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="SpringBoot">SpringBoot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="SpringCloud">SpringCloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="Tips">Tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="VirtualBox">VirtualBox</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/microservices" title="microservices">microservices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springsession" title="springsession">springsession</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/travis-ci" title="travis-ci">travis-ci</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a></div></div></aside></section></div><div id="footer" class="footer-wrap"><footer id="colophon" class="site-footer container clearfix" role="contentinfo"><div id="footer-text" class="site-info"><span class="credit-link"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span></div></footer></div></div></body></html>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Now try to send an invalid JSON message to <strong>orders-queue</strong>, it will be sent to <strong>dead-orders-queue</strong>.</p>
+
+<blockquote>
+<p>You can find the source code for this article at <a href="https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo">https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo</a></p>
+</blockquote>
+
+        </div>
+        <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=SpringBoot%20Messaging%20with%20RabbitMQ-https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f&title=SpringBoot%20Messaging%20with%20RabbitMQ" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2018%2f02%2fspringboot-messaging-rabbitmq%2f&title=SpringBoot%20Messaging%20with%20RabbitMQ" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+</article>
+
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2018/02/why-springboot-so-popular-how-to-learn-springboot/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">Why SpringBoot is so popular and how to learn SpringBoot effectively?</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2018/02/session-management-using-spring-session-jdbc-datastore/" rel="prev">
+                <span class="post-title">Session Management using Spring Session with JDBC DataStore
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="Android">Android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="Blog">Blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="Blogging">Blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="Books">Books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="IDE">IDE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="IT">IT</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="Interviews">Interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="JSF">JSF</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="Java">Java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="JavaEE">JavaEE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="Linux">Linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="Maven">Maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="MyBatis">MyBatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="Spring">Spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="Tips">Tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>

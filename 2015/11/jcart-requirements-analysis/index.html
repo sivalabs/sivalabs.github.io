@@ -1,4 +1,556 @@
-<!DOCTYPE html><html lang="en-US" prefix="og: http://ogp.me/ns#"><head><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="title" property="title" content="SivaLabs - JCart Requirements Analysis"><meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - "><title>SivaLabs - JCart Requirements Analysis</title><meta name="twitter:card" content="summary"><meta name="twitter:title" content="JCart Requirements Analysis"><meta name="twitter:description" content="For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.
-ShoppingCart Site Requirements Home Page: This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart."><meta name="twitter:site" content="@sivalabs"><meta name="twitter:creator" content="@sivalabs"><meta property="og:title" content="JCart Requirements Analysis"><meta property="og:description" content="For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.
-ShoppingCart Site Requirements Home Page: This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart."><meta property="og:type" content="article"><meta property="og:url" content="https://sivalabs.github.io/2015/11/jcart-requirements-analysis/"><meta property="article:published_time" content="2015-11-21T11:29:54&#43;00:00"><meta property="article:modified_time" content="2015-11-21T11:29:54&#43;00:00"><meta itemprop="name" content="JCart Requirements Analysis"><meta itemprop="description" content="For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.
-ShoppingCart Site Requirements Home Page: This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart."><meta itemprop="datePublished" content="2015-11-21T11:29:54&#43;00:00"><meta itemprop="dateModified" content="2015-11-21T11:29:54&#43;00:00"><meta itemprop="wordCount" content="777"><meta itemprop="keywords" content="E-Commerce,"><link rel="stylesheet" href="/assets/css/custom-fonts.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/genericons.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/custom-styles.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/html5shiv.min.js"></script><script type="text/javascript" src="/assets/js/navigation.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"></head><body class="home blog logged-in admin-bar no-customize-support post-layout-one-column"><div id="header-top" class="header-bar-wrap"></div><div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><header id="masthead" class="site-header clearfix" role="banner"><div class="header-main container clearfix"><div id="logo" class="site-branding clearfix"><h1 class="site-title"><a href="/" title="SivaLabs" rel="home">SivaLabs</a></h1><p class="site-description">My Experiments on Technology</p></div><div class="header-widgets clearfix"></div></div><div id="main-navigation-wrap" class="primary-navigation-wrap"><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation"><ul id="menu-home" class="main-navigation-menu"><li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145"><a href="/">Home</a></li><li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421"><a href="/categories/java">Java</a></li><li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423"><a href="/categories/spring">Spring</a><ul class="sub-menu"><li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424"><a href="/categories/springboot">Spring Boot</a></li><li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="/categories/springcloud">Spring Cloud</a></li></ul></li><li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422"><a href="/categories/microservices">MicroServices</a></li><li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="/videos">Videos</a></li><li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161"><a href="/mybooks">My Books</a></li><li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="/contact">Contact</a></li></ul></nav></div></header><div id="content" class="site-content container clearfix"><section id="primary" class="content-archive content-area"><main id="main" class="site-main" role="main"><article class="post type-post status-publish format-standard hentry"><div class="post-inner-content"><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/11/jcart-requirements-analysis/" rel="bookmark"><time class="entry-date published" datetime="2015-11-21T11:29:54">November 21, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/11/jcart-requirements-analysis/" rel="bookmark">JCart Requirements Analysis</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a></span></div></header><div class="entry-content"><p>For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.</p><h3 id="span-style-color-800000-shoppingcart-site-requirements-span"><span style="color:maroon">ShoppingCart Site Requirements</span></h3><p><span style="color:#036"><strong>Home Page:</strong></span> This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart.</p><p><span style="color:#036"><strong>Category Page:</strong></span> This page displays all the products in the selected category with pagination. Each product will be displayed along with a Add To Cart button.</p><p><span style="color:#036"><strong>Product Page:</strong></span> This page displays detailed information of the product along with one or more images of the product and shows Add To Cart button.</p><p><span style="color:#036"><strong>Search Results Page:</strong></span> In the header section we will provide a search box where customers can search for products. The search results will be displayed with pagination. Each product will be displayed along with a Add To Cart button.</p><p><span style="color:#036"><strong>Login/Registration Pages:</strong></span> Customers should be able to login/register with our system so that they can view their profile and order history.</p><p><span style="color:#036"><strong>Cart:</strong></span> In header section there will be Cart Icon showing the no. of items currently added to cart. When Cart icon is clicked we need to show the cart page with all the Items details. Customers should be able to update product quantities or remove products and the cart totals should be updated automatically.</p><p><span style="color:#036"><strong>Billing &amp; Delivery Page:</strong></span> This page will be displayed once the customer clicked Checkout button in Cart page. If the customer is already registered with our system he should login otherwise a registration form will be displayed. Customer should register by providing Email and Password. After successfully login, customer should provide Delivery Address, Payment details like CreditCard number, CVV, Expiry Date etc.</p><p><span style="color:#036"><strong>Order Confirmation:</strong></span> Once the customer provided all the valid details and clicked on Submit button an Order should be placed and should display the Order Confirmation page with details including the Products, Delivery Address etc. An order confirmation email should be sent to customer with estimated delivery time.</p><p><span style="color:#036"><strong>My Account Page:</strong></span> Customer should be able to login into the system and see his profile details, order history, outstanding order details.</p><h3 id="span-style-color-800000-administration-site-requirements-span"><span style="color:maroon">Administration Site Requirements</span></h3><p><span style="color:#036"><strong>Security:</strong> </span>We should provide Roles and Permission based security for our Administration website.</p><p><span style="color:#036"><strong>Privilege Management:</strong></span> Ability to configure and manage all the privileges within the system. Each privilege represent the ability to perform an action.</p><p>For ex: <strong>MANAGE_CATEGORIES</strong> represents the ability to create new Categories, update existing categories.</p><p><span style="color:#036"><strong>Role Management:</strong> </span>Ability to create various roles with one or more assigned privileges.</p><p>For ex:</p><p><strong>ROLE_SUPER_ADMIN</strong> &#8211; Users with this role can do anything within the system.</p><p><strong>ROLE_ADMIN</strong> &#8211; Users with this role can create other users (except other SUPER_ADMIN or ADMIN), and can do Category Management, Product Management etc.</p><p><strong>ROLE_CMS_ADMIN</strong>: Users with this role can manage Categories, Products etc.</p><p><span style="color:#036"><strong>Category Management:</strong></span> A category represent a logical grouping of related products.</p><p>Category management includes:</p><ul><li>Create new categories</li><li>Update existing categories</li><li>Disable/enable categories</li></ul><p><span style="color:#036"><strong>Product Management: </strong></span>In our system product is a quilling toy.</p><p>Product management includes</p><ul><li>Create new products</li><li><span style="line-height:1.5">Update existing products</span></li><li>Delete products</li></ul><p><strong><span style="color:#036">Order Management:</span> </strong>Authorised users can see the list of order, update status or cancel orders.</p><p>If an order is cancelled then refund should be triggered and a cancellation email should be sent to customer.</p><p><span style="color:#036"><strong>Customer Management: </strong></span>Admin users should be able to view the customer details like their addresses, email ids etc for contacting them.</p><ul><li>List all the customers</li><li>Search customers by email or name</li><li>View customer profile</li><li>Customer order history</li></ul><p><span style="color:#036"><strong>Site Settings: </strong></span>We need to have some site level configurations like Currency and Locale.</p><p><strong><span style="color:#036">Locale &amp; Currency:</span> </strong>We should be able to use different locale and currencies for our e-commerce system. So the implementation should consider the I18N and dynamic currency change using live currency converter or using some conversion ratio.</p><p>By looking at the above mentioned features you might be thinking these are all very basic features of any e-commerce system and lot of features like Promotions/Offers Management, Fulfilment Systems, Inventory management etc are not being considered. YES, you are right. We are not considering many aspects of a typical e-commerce system because WE DON&#8217;T NEED THEM FOR OUR APPLICATION.</p><p>As I mentioned in the project requirement, we are enabling customers to place orders through online and the items will be delivered manually by the person who makes those quilling toys and the administrator will mark that order as fulfilled. If our application become famous and we are being flooded with orders then we can think of automating these manual tasks as well. As simple as that :-).</p></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20Requirements%20Analysis-https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f&title=JCart%20Requirements%20Analysis" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f&title=JCart%20Requirements%20Analysis" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></article><div class="comments"><div id="disqus_thread"></div><script>var disqus_config=function(){};!function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1)return void(document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.");var e=document,t=e.createElement("script");t.async=!0,t.src="//sivalabs.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}()</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div><nav class="navigation post-navigation" role="navigation"><h2 class="screen-reader-text">Post navigation</h2><div class="nav-links"><div class="nav-previous"><a href="/2015/11/selecting-the-technology-stack-for-jcart/" rel="next"><i class="fa fa-chevron-left"></i> <span class="post-title">Selecting The Technology Stack for JCart</span></a></div><div class="nav-next"><a href="/2015/11/introducing-the-application-jcart/" rel="prev"><span class="post-title">Introducing the application JCart <i class="fa fa-chevron-right"></i></span></a></div></div></nav></main></section><section id="secondary" class="sidebar widget-area clearfix" role="complementary"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Follow Me</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20"></span></a></li></ul></aside><aside id="recent-posts-2" class="widget widget_recent_entries clearfix"><div class="widget-header"><h3 class="widget-title">Recent Posts</h3></div><ul><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li></ul></aside><aside id="top-posts-2" class="widget widget_top-posts clearfix"><div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div><ul><li><a href="/2016/03/why-springboot/" class="bump-view" data-bump-view="tp">Why SpringBoot?</a></li><li><a href="/2016/03/how-springboot-autoconfiguration-magic/" class="bump-view" data-bump-view="tp">How SpringBoot AutoConfiguration magic works?</a></li><li><a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" class="bump-view" data-bump-view="tp">Developing a simple e-commerce application from scratch to production using SpringBoot</a></li><li><a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/" class="bump-view" data-bump-view="tp">Clean Code: Don’t mix different levels of abstractions</a></li><li><a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/" class="bump-view" data-bump-view="tp">A Developers Perspective on Spring vs JavaEE</a></li><li><a href="/2015/07/my-life-as-software-developer-in-india/" class="bump-view" data-bump-view="tp">My Life as a Software Developer in India</a></li><li><a href="/2011/01/10-things-to-become-outstanding-java/" class="bump-view" data-bump-view="tp">10 things to become an outstanding Java developer</a></li></ul></aside><aside id="categories-2" class="widget widget_categories clearfix"><div class="widget-header"><h3 class="widget-title">Categories</h3></div><ul><li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li><li class="cat-item"><a href="/categories/blog">Blog</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">IDE</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">JavaEE</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/microservices">Microservices</a></li><li class="cat-item"><a href="/categories/springboot">Springboot</a></li><li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li><li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside><aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix"><div class="widget-header"><h3 class="widget-title">Tags</h3></div><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="Android">Android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="Best Practices">Best Practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blog" title="Blog">Blog</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="Blogging">Blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="Books">Books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="E-Commerce">E-Commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="IDE">IDE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="IT">IT</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="Interviews">Interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="JSF">JSF</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="Java">Java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="JavaEE">JavaEE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="Linux">Linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="Maven">Maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="MyBatis">MyBatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="Spring">Spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="SpringBoot">SpringBoot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="SpringCloud">SpringCloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="Tips">Tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="VirtualBox">VirtualBox</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/microservices" title="microservices">microservices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springsession" title="springsession">springsession</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/travis-ci" title="travis-ci">travis-ci</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a></div></div></aside></section></div><div id="footer" class="footer-wrap"><footer id="colophon" class="site-footer container clearfix" role="contentinfo"><div id="footer-text" class="site-info"><span class="credit-link"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span></div></footer></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - JCart Requirements Analysis">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - JCart Requirements Analysis </title>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JCart Requirements Analysis"/>
+<meta name="twitter:description" content="For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.
+ShoppingCart Site Requirements Home Page: This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart."/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="JCart Requirements Analysis" />
+<meta property="og:description" content="For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.
+ShoppingCart Site Requirements Home Page: This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sivalabs.github.io/2015/11/jcart-requirements-analysis/" />
+<meta property="article:published_time" content="2015-11-21T11:29:54&#43;00:00"/>
+<meta property="article:modified_time" content="2015-11-21T11:29:54&#43;00:00"/>
+
+    
+<meta itemprop="name" content="JCart Requirements Analysis">
+<meta itemprop="description" content="For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.
+ShoppingCart Site Requirements Home Page: This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart.">
+
+
+<meta itemprop="datePublished" content="2015-11-21T11:29:54&#43;00:00" />
+<meta itemprop="dateModified" content="2015-11-21T11:29:54&#43;00:00" />
+<meta itemprop="wordCount" content="777">
+
+
+
+<meta itemprop="keywords" content="E-Commerce," />
+
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+<main id="main" class="site-main" role="main">
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/11/jcart-requirements-analysis/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-11-21T11:29:54">
+                November 21, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/11/jcart-requirements-analysis/" rel="bookmark">
+            JCart Requirements Analysis
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+        <div class="entry-content">
+            
+
+<p>For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.</p>
+
+<h3 id="span-style-color-800000-shoppingcart-site-requirements-span"><span style="color: #800000;">ShoppingCart Site Requirements</span></h3>
+
+<p><span style="color: #003366;"><strong>Home Page:</strong></span> This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart.</p>
+
+<p><span style="color: #003366;"><strong>Category Page:</strong></span> This page displays all the products in the selected category with pagination. Each product will be displayed along with a Add To Cart button.</p>
+
+<p><span style="color: #003366;"><strong>Product Page:</strong></span> This page displays detailed information of the product along with one or more images of the product and shows Add To Cart button.</p>
+
+<p><span style="color: #003366;"><strong>Search Results Page:</strong></span> In the header section we will provide a search box where customers can search for products. The search results will be displayed with pagination. Each product will be displayed along with a Add To Cart button.</p>
+
+<p><span style="color: #003366;"><strong>Login/Registration Pages:</strong></span> Customers should be able to login/register with our system so that they can view their profile and order history.</p>
+
+<p><span style="color: #003366;"><strong>Cart:</strong></span> In header section there will be Cart Icon showing the no. of items currently added to cart. When Cart icon is clicked we need to show the cart page with all the Items details. Customers should be able to update product quantities or remove products and the cart totals should be updated automatically.</p>
+
+<p><span style="color: #003366;"><strong>Billing &amp; Delivery Page:</strong></span> This page will be displayed once the customer clicked Checkout button in Cart page. If the customer is already registered with our system he should login otherwise a registration form will be displayed. Customer should register by providing Email and Password. After successfully login, customer should provide Delivery Address, Payment details like CreditCard number, CVV, Expiry Date etc.</p>
+
+<p><span style="color: #003366;"><strong>Order Confirmation:</strong></span> Once the customer provided all the valid details and clicked on Submit button an Order should be placed and should display the Order Confirmation page with details including the Products, Delivery Address etc. An order confirmation email should be sent to customer with estimated delivery time.</p>
+
+<p><span style="color: #003366;"><strong>My Account Page:</strong></span> Customer should be able to login into the system and see his profile details, order history, outstanding order details.</p>
+
+<h3 id="span-style-color-800000-administration-site-requirements-span"><span style="color: #800000;">Administration Site Requirements</span></h3>
+
+<p><span style="color: #003366;"><strong>Security:</strong> </span>We should provide Roles and Permission based security for our Administration website.</p>
+
+<p><span style="color: #003366;"><strong>Privilege Management:</strong></span> Ability to configure and manage all the privileges within the system. Each privilege represent the ability to perform an action.</p>
+
+<p>For ex: <strong>MANAGE_CATEGORIES</strong> represents the ability to create new Categories, update existing categories.</p>
+
+<p><span style="color: #003366;"><strong>Role Management:</strong> </span>Ability to create various roles with one or more assigned privileges.</p>
+
+<p>For ex:</p>
+
+<p><strong>     ROLE_SUPER_ADMIN</strong> &#8211; Users with this role can do anything within the system.</p>
+
+<p><strong>     ROLE_ADMIN</strong> &#8211; Users with this role can create other users (except other SUPER_ADMIN or ADMIN), and can do Category Management, Product Management etc.</p>
+
+<p><strong>     ROLE_CMS_ADMIN</strong>: Users with this role can manage Categories, Products etc.</p>
+
+<p><span style="color: #003366;"><strong>Category Management:</strong></span> A category represent a logical grouping of related products.</p>
+
+<p>Category management includes:</p>
+
+<ul>
+<li>Create new categories</li>
+<li>Update existing categories</li>
+<li>Disable/enable categories</li>
+</ul>
+
+<p><span style="color: #003366;"><strong>Product Management: </strong></span>In our system product is a quilling toy.</p>
+
+<p>Product management includes</p>
+
+<ul>
+<li>Create new products</li>
+<li><span style="line-height: 1.5;">Update existing products</span></li>
+<li>Delete products</li>
+</ul>
+
+<p><strong><span style="color: #003366;">Order Management:</span> </strong>Authorised users can see the list of order, update status or cancel orders.</p>
+
+<p>If an order is cancelled then refund should be triggered and a cancellation email should be sent to customer.</p>
+
+<p><span style="color: #003366;"><strong>Customer Management: </strong></span>Admin users should be able to view the customer details like their addresses, email ids etc for contacting them.</p>
+
+<ul>
+<li>List all the customers</li>
+<li>Search customers by email or name</li>
+<li>View customer profile</li>
+<li>Customer order history</li>
+</ul>
+
+<p><span style="color: #003366;"><strong>Site Settings: </strong></span>We need to have some site level configurations like Currency and Locale.</p>
+
+<p><strong><span style="color: #003366;">Locale &amp; Currency:</span> </strong>We should be able to use different locale and currencies for our e-commerce system. So the implementation should consider the I18N and dynamic currency change using live currency converter or using some conversion ratio.</p>
+
+<p>By looking at the above mentioned features you might be thinking these are all very basic features of any e-commerce system and lot of features like Promotions/Offers Management, Fulfilment Systems, Inventory management etc are not being considered. YES, you are right. We are not considering many aspects of a typical e-commerce system because WE DON&#8217;T NEED THEM FOR OUR APPLICATION.</p>
+
+<p>As I mentioned in the project requirement, we are enabling customers to place orders through online and the items will be delivered manually by the person who makes those quilling toys and the administrator will mark that order as fulfilled. If our application become famous and we are being flooded with orders then we can think of automating these manual tasks as well. As simple as that :-).</p>
+
+        </div>
+        <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=JCart%20Requirements%20Analysis-https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f&title=JCart%20Requirements%20Analysis" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2015%2f11%2fjcart-requirements-analysis%2f&title=JCart%20Requirements%20Analysis" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+</article>
+
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-previous">
+			<a href="/2015/11/selecting-the-technology-stack-for-jcart/" rel="next">
+				<i class="fa fa-chevron-left"></i>
+				<span class="post-title">Selecting The Technology Stack for JCart</span>
+			</a>
+		</div>
+		<div class="nav-next">
+			<a href="/2015/11/introducing-the-application-jcart/" rel="prev">
+                <span class="post-title">Introducing the application JCart
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="Android">Android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="Blog">Blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="Blogging">Blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="Books">Books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="IDE">IDE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="IT">IT</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="Interviews">Interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="JSF">JSF</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="Java">Java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="JavaEE">JavaEE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="Linux">Linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="Maven">Maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="MyBatis">MyBatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="Spring">Spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="Tips">Tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>

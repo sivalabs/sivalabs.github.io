@@ -530,18 +530,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/books/</loc>
-    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/books/</loc>
-    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/tags/books/</loc>
     <lastmod>2017-11-05T04:59:17+00:00</lastmod>
     <priority>0</priority>
@@ -614,18 +602,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/jcart/</loc>
-    <lastmod>2015-12-31T11:37:10+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/jooq/</loc>
-    <lastmod>2016-03-15T07:13:21+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/categories/linux/</loc>
     <lastmod>2015-10-13T02:07:05+00:00</lastmod>
     <priority>0</priority>
@@ -640,18 +616,6 @@
   <url>
     <loc>https://sivalabs.github.io/tags/maven/</loc>
     <lastmod>2012-10-29T12:18:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/categories/microservices/</loc>
-    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/microservices/</loc>
-    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -682,12 +646,6 @@
   <url>
     <loc>https://sivalabs.github.io/tags/primefaces/</loc>
     <lastmod>2013-11-28T04:02:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/rabbitmq/</loc>
-    <lastmod>2018-02-20T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -728,6 +686,84 @@
   </url>
   
   <url>
+    <loc>https://sivalabs.github.io/tags/</loc>
+    <lastmod>2016-07-21T01:54:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/tips/</loc>
+    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/tips/</loc>
+    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/trainings/</loc>
+    <lastmod>2015-05-31T13:07:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tutorials/</loc>
+    <lastmod>2017-12-16T12:12:31+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/virtualbox/</loc>
+    <lastmod>2015-10-13T02:07:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/books/</loc>
+    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/books/</loc>
+    <lastmod>2017-11-05T04:59:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/jcart/</loc>
+    <lastmod>2015-12-31T11:37:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/jooq/</loc>
+    <lastmod>2016-03-15T07:13:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/microservices/</loc>
+    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/microservices/</loc>
+    <lastmod>2018-03-20T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/rabbitmq/</loc>
+    <lastmod>2018-02-20T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://sivalabs.github.io/categories/springboot/</loc>
     <lastmod>2018-03-20T07:59:17+05:30</lastmod>
     <priority>0</priority>
@@ -758,30 +794,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/</loc>
-    <lastmod>2016-07-21T01:54:29+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/categories/tips/</loc>
-    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/tips/</loc>
-    <lastmod>2017-10-18T02:50:23+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/trainings/</loc>
-    <lastmod>2015-05-31T13:07:25+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/categories/travis-ci/</loc>
     <lastmod>2018-01-24T07:59:17+05:30</lastmod>
     <priority>0</priority>
@@ -794,12 +806,6 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tutorials/</loc>
-    <lastmod>2017-12-16T12:12:31+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/categories/videos/</loc>
     <lastmod>2016-04-10T04:03:33+00:00</lastmod>
     <priority>0</priority>
@@ -808,12 +814,6 @@
   <url>
     <loc>https://sivalabs.github.io/tags/videos/</loc>
     <lastmod>2016-04-10T04:03:33+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/virtualbox/</loc>
-    <lastmod>2015-10-13T02:07:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   

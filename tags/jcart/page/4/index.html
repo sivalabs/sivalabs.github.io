@@ -1,1 +1,730 @@
-<!DOCTYPE html><html lang="en-US" prefix="og: http://ogp.me/ns#"><head><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="title" property="title" content="SivaLabs - Jcart"><meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - "><title>SivaLabs - Jcart</title><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Jcart"><meta name="twitter:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials"><meta name="twitter:site" content="@sivalabs"><meta name="twitter:creator" content="@sivalabs"><meta property="og:title" content="Jcart"><meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials"><meta property="og:type" content="website"><meta property="og:url" content="https://sivalabs.github.io/tags/jcart/"><meta property="og:updated_time" content="2015-12-01T04:26:41&#43;00:00"><meta itemprop="name" content="Jcart"><meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials"><link rel="stylesheet" href="/assets/css/custom-fonts.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/genericons.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/custom-styles.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/html5shiv.min.js"></script><script type="text/javascript" src="/assets/js/navigation.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"><link href="https://sivalabs.github.io/tags/jcart/index.xml" rel="alternate" type="application/rss+xml" title="SivaLabs"><link href="https://sivalabs.github.io/tags/jcart/index.xml" rel="feed" type="application/rss+xml" title="SivaLabs"></head><body class="home blog logged-in admin-bar no-customize-support post-layout-one-column"><div id="header-top" class="header-bar-wrap"></div><div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><header id="masthead" class="site-header clearfix" role="banner"><div class="header-main container clearfix"><div id="logo" class="site-branding clearfix"><h1 class="site-title"><a href="/" title="SivaLabs" rel="home">SivaLabs</a></h1><p class="site-description">My Experiments on Technology</p></div><div class="header-widgets clearfix"></div></div><div id="main-navigation-wrap" class="primary-navigation-wrap"><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation"><ul id="menu-home" class="main-navigation-menu"><li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145"><a href="/">Home</a></li><li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421"><a href="/categories/java">Java</a></li><li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423"><a href="/categories/spring">Spring</a><ul class="sub-menu"><li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424"><a href="/categories/springboot">Spring Boot</a></li><li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="/categories/springcloud">Spring Cloud</a></li></ul></li><li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422"><a href="/categories/microservices">MicroServices</a></li><li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="/videos">Videos</a></li><li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161"><a href="/mybooks">My Books</a></li><li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="/contact">Contact</a></li></ul></nav></div></header><div id="content" class="site-content container clearfix"><section id="primary" class="content-archive content-area"><main id="main" class="site-main" role="main"><div id="post-wrapper" class="post-wrapper clearfix"><div class="post-column clearfix"><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" rel="bookmark"><time class="entry-date published" datetime="2015-12-01T04:26:41">December 01, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" rel="bookmark">JCart: Create JPA Entities</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>We are going to create the JPA Entities for the database tables we designed. @Entity @Table(name=&#34;users&#34;) public class User { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false) @NotEmpty() private String name; @Column(nullable=false, unique=true) @NotEmpty @Email(message=&#34;{errors.invalid_email}&#34;) private String email; @Column(nullable=false) @NotEmpty @Size(min=4) private String password; private String passwordResetToken; @ManyToMany(cascade=CascadeType.MERGE) @JoinTable( name=&#34;user_role&#34;, joinColumns={@JoinColumn(name=&#34;USER_ID&#34;, referencedColumnName=&#34;ID&#34;)}, inverseJoinColumns={@JoinColumn(name=&#34;ROLE_ID&#34;, referencedColumnName=&#34;ID&#34;)}) private List&lt;Role&gt; roles; //setters &amp; getters } @Entity @Table(name=&#34;roles&#34;) public class Role { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false, unique=true) @NotEmpty private String name; @Column(length=1024) private String description; @ManyToMany(mappedBy=&#34;roles&#34;) private List&lt;User&gt; users; @ManyToMany @JoinTable( name=&#34;role_permission&#34;, joinColumns={@JoinColumn(name=&#34;ROLE_ID&#34;, referencedColumnName=&#34;ID&#34;)}, inverseJoinColumns={@JoinColumn(name=&#34;PERM_ID&#34;, referencedColumnName=&#34;ID&#34;)}) private List&lt;Permission&gt; permissions; //setters &amp; getters }</p><a href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/" rel="bookmark"><time class="entry-date published" datetime="2015-12-01T04:22:19">December 01, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/" rel="bookmark">JCart: Domain Modelling and Database Designing</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>While developing database driven applications using some ORM framework, some people prefer Object first approach and others follow DB first approach. I prefer DB first approach. So, let us start listing down all the domain entities in our JCart application domain. Product Category Customer Order OrderItem Cart Address User Role Permission Let us create the database tables as follows: Though we identified Cart as a domain entity, we are not creating the table for holding the Cart details.</p><a href="https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup/" rel="bookmark"><time class="entry-date published" datetime="2015-12-01T04:14:09">December 01, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup/" rel="bookmark">JCart: Initial Code SetUp</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>Let us create a root pom type maven project with 3 sub-modules jcart-core, jcart-admin and jcart-site. jcart-core module will contain all the core logic excluding web related stuff. jcart-admin module will contain all the administration related web functionality like Controllers, Security, Validators etc. jcart-site module will contain all the shoppingcart related web functionality like Controllers, Security, Validators etc. All these modules use SpringBoot, but as of now STS/IntellijIdea are not providing option to create multi-module SpringBoot application, we will be creating Maven modules and then configure SpringBoot dependencies manually.</p><a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-iteration-1/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-1/" rel="bookmark"><time class="entry-date published" datetime="2015-12-01T04:10:08">December 01, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-1/" rel="bookmark">JCart : Iteration-1</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>Now that we have completed the most difficult part (writing Introduction to technical article series is much harder than you think!!), so let&#8217;s start the fun part. Coding!!! Note: It is going to be a fast paced tutorial. Obviously we can&rsquo;t cover every little bit of all the technologies used in our application. So I would suggest to explore more on individual technologies like Spring, Thymeleaf on your own.</p><a href="https://sivalabs.github.io/2015/12/jcart-iteration-1/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/" rel="bookmark"><time class="entry-date published" datetime="2015-11-24T04:34:03">November 24, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/" rel="bookmark">Setting up the Development Environment for JCart</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>For our JCart application development we will be using the following Softwares/Tools.  JDK 8 SpringSource Tool Suite (STS)  MySQL Git  Maven  Jenkins  SonarQube  Apache/Nginx WebServer I am not going to explain how to install JDK or MySQL because there are plenty of articles you can find on internet. If you are using Ubuntu based Linux Operating System then you can refer my article My Development Environment Setup on Linux to setup Java development tool chain.</p><a href="https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/11/jcart-release-planning/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/11/jcart-release-planning/" rel="bookmark"><time class="entry-date published" datetime="2015-11-24T04:26:20">November 24, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/11/jcart-release-planning/" rel="bookmark">JCart Release Planning</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>In our previous article JCart Requirements Analysis we have listed out all the requirements that we need to implement for JCart application. Now we need to come up with an implementation and release plan. As we are following iteration model, we will plan for N iterations where in each iteration we will implement some usecases. After listing out all the implementation tasks and based on the task dependencies, we came up with the following Iteration plan.</p><a href="https://sivalabs.github.io/2015/11/jcart-release-planning/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" rel="bookmark"><time class="entry-date published" datetime="2015-11-20T14:18:35">November 20, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" rel="bookmark">Developing a simple e-commerce application from scratch to production using SpringBoot</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java/">Java</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring/">Spring</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</p><a href="https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" class="more-link">Continue reading &raquo;</a></div></article></div></div><nav class="navigation pagination" role="navigation"><h2 class="screen-reader-text">Posts navigation</h2><div class="nav-links"><a class="prev page-numbers" href="/tags/jcart/page/3/"><i class="fa fa-chevron-left"></i> Newer posts</a></div></nav></main></section><section id="secondary" class="sidebar widget-area clearfix" role="complementary"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Follow Me</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20"></span></a></li></ul></aside><aside id="recent-posts-2" class="widget widget_recent_entries clearfix"><div class="widget-header"><h3 class="widget-title">Recent Posts</h3></div><ul><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li></ul></aside><aside id="top-posts-2" class="widget widget_top-posts clearfix"><div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div><ul><li><a href="/2016/03/why-springboot/" class="bump-view" data-bump-view="tp">Why SpringBoot?</a></li><li><a href="/2016/03/how-springboot-autoconfiguration-magic/" class="bump-view" data-bump-view="tp">How SpringBoot AutoConfiguration magic works?</a></li><li><a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" class="bump-view" data-bump-view="tp">Developing a simple e-commerce application from scratch to production using SpringBoot</a></li><li><a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/" class="bump-view" data-bump-view="tp">Clean Code: Don’t mix different levels of abstractions</a></li><li><a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/" class="bump-view" data-bump-view="tp">A Developers Perspective on Spring vs JavaEE</a></li><li><a href="/2015/07/my-life-as-software-developer-in-india/" class="bump-view" data-bump-view="tp">My Life as a Software Developer in India</a></li><li><a href="/2011/01/10-things-to-become-outstanding-java/" class="bump-view" data-bump-view="tp">10 things to become an outstanding Java developer</a></li></ul></aside><aside id="categories-2" class="widget widget_categories clearfix"><div class="widget-header"><h3 class="widget-title">Categories</h3></div><ul><li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li><li class="cat-item"><a href="/categories/blog">Blog</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">IDE</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">JavaEE</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/microservices">Microservices</a></li><li class="cat-item"><a href="/categories/springboot">Springboot</a></li><li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li><li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside><aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix"><div class="widget-header"><h3 class="widget-title">Tags</h3></div><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="Android">Android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="Best Practices">Best Practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blog" title="Blog">Blog</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="Blogging">Blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="Books">Books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="E-Commerce">E-Commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="IDE">IDE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="IT">IT</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="Interviews">Interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="JSF">JSF</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="Java">Java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="JavaEE">JavaEE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="Linux">Linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="Maven">Maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="MyBatis">MyBatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="Spring">Spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="SpringBoot">SpringBoot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="SpringCloud">SpringCloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="Tips">Tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="VirtualBox">VirtualBox</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/microservices" title="microservices">microservices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springsession" title="springsession">springsession</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/travis-ci" title="travis-ci">travis-ci</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a></div></div></aside></section></div><div id="footer" class="footer-wrap"><footer id="colophon" class="site-footer container clearfix" role="contentinfo"><div id="footer-text" class="site-info"><span class="credit-link"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span></div></footer></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - jcart">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - jcart </title>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="jcart"/>
+<meta name="twitter:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials"/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="jcart" />
+<meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sivalabs.github.io/tags/jcart/" />
+
+<meta property="og:updated_time" content="2015-12-01T04:26:41&#43;00:00"/>
+
+    
+<meta itemprop="name" content="jcart">
+<meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials">
+
+
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    
+    <link href="https://sivalabs.github.io/tags/jcart/index.xml" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+    <link href="https://sivalabs.github.io/tags/jcart/index.xml" rel="feed" type="application/rss+xml" title="SivaLabs" />
+    
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+    <main id="main" class="site-main" role="main">
+    <div id="post-wrapper" class="post-wrapper clearfix">
+        <div class="post-column clearfix">
+            
+
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-01T04:26:41">
+                December 01, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" rel="bookmark">
+            JCart: Create JPA Entities
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>We are going to create the JPA Entities for the database tables we designed.
+@Entity @Table(name=&#34;users&#34;) public class User { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false) @NotEmpty() private String name; @Column(nullable=false, unique=true) @NotEmpty @Email(message=&#34;{errors.invalid_email}&#34;) private String email; @Column(nullable=false) @NotEmpty @Size(min=4) private String password; private String passwordResetToken; @ManyToMany(cascade=CascadeType.MERGE) @JoinTable( name=&#34;user_role&#34;, joinColumns={@JoinColumn(name=&#34;USER_ID&#34;, referencedColumnName=&#34;ID&#34;)}, inverseJoinColumns={@JoinColumn(name=&#34;ROLE_ID&#34;, referencedColumnName=&#34;ID&#34;)}) private List&lt;Role&gt; roles; //setters &amp; getters } @Entity @Table(name=&#34;roles&#34;) public class Role { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false, unique=true) @NotEmpty private String name; @Column(length=1024) private String description; @ManyToMany(mappedBy=&#34;roles&#34;) private List&lt;User&gt; users; @ManyToMany @JoinTable( name=&#34;role_permission&#34;, joinColumns={@JoinColumn(name=&#34;ROLE_ID&#34;, referencedColumnName=&#34;ID&#34;)}, inverseJoinColumns={@JoinColumn(name=&#34;PERM_ID&#34;, referencedColumnName=&#34;ID&#34;)}) private List&lt;Permission&gt; permissions; //setters &amp; getters } @Entity @Table(name=&#34;permissions&#34;) public class Permission { @Id @GeneratedValue(strategy=GenerationType.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-01T04:22:19">
+                December 01, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/" rel="bookmark">
+            JCart: Domain Modelling and Database Designing
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>While developing database driven applications using some ORM framework, some people prefer Object first approach and others follow DB first approach. I prefer DB first approach.
+So, let us start listing down all the domain entities in our JCart application domain.
+ Product Category Customer Order OrderItem Cart Address User Role Permission  Let us create the database tables as follows:
+Though we identified Cart as a domain entity, we are not creating the table for holding the Cart details.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-domain-modelling-and-database-designing/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-01T04:14:09">
+                December 01, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup/" rel="bookmark">
+            JCart: Initial Code SetUp
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>Let us create a root pom type maven project with 3 sub-modules jcart-core, jcart-admin and jcart-site.
+jcart-core module will contain all the core logic excluding web related stuff.
+jcart-admin module will contain all the administration related web functionality like Controllers, Security, Validators etc.
+jcart-site module will contain all the shoppingcart related web functionality like Controllers, Security, Validators etc.
+All these modules use SpringBoot, but as of now STS/IntellijIdea are not providing option to create multi-module SpringBoot application, we will be creating Maven modules and then configure SpringBoot dependencies manually.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-iteration-1/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-1/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-01T04:10:08">
+                December 01, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-iteration-1/" rel="bookmark">
+            JCart : Iteration-1
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>Now that we have completed the most difficult part (writing Introduction to technical article series is much harder than you think!!), so let&#8217;s start the fun part. Coding!!!
+ Note: It is going to be a fast paced tutorial. Obviously we can&rsquo;t cover every little bit of all the technologies used in our application. So I would suggest to explore more on individual technologies like Spring, Thymeleaf on your own.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-iteration-1/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-11-24T04:34:03">
+                November 24, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/" rel="bookmark">
+            Setting up the Development Environment for JCart
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>For our JCart application development we will be using the following Softwares/Tools.
+  JDK 8 SpringSource Tool Suite (STS)  MySQL Git  Maven  Jenkins  SonarQube  Apache/Nginx WebServer  I am not going to explain how to install JDK or MySQL because there are plenty of articles you can find on internet.
+If you are using Ubuntu based Linux Operating System then you can refer my article My Development Environment Setup on Linux to setup Java development tool chain.</p>
+                    <a href="https://sivalabs.github.io/2015/11/setting-up-the-development-environment-for-jcart/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/11/jcart-release-planning/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/11/jcart-release-planning/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-11-24T04:26:20">
+                November 24, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/11/jcart-release-planning/" rel="bookmark">
+            JCart Release Planning
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>In our previous article JCart Requirements Analysis we have listed out all the requirements that we need to implement for JCart application. Now we need to come up with an implementation and release plan. As we are following iteration model, we will plan for N iterations where in each iteration we will implement some usecases.
+After listing out all the implementation tasks and based on the task dependencies, we came up with the following Iteration plan.</p>
+                    <a href="https://sivalabs.github.io/2015/11/jcart-release-planning/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-11-20T14:18:35">
+                November 20, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" rel="bookmark">
+            Developing a simple e-commerce application from scratch to production using SpringBoot
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java/">Java</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring/">Spring</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>We can find plenty of information on any technical topic, be it Java, .NET, Python or any frameworks like Spring, Hibernate, CDI, JSF etc. You can find hundreds of well written blogs on many of these topics. For example, you can find lot of tutorials on how to use SpringBoot or how to use various mappings in JPA/Hibernate or how to do form validations in JSF etc. Also, there are plenty of books published by well established publishers on most of the technologies.</p>
+                    <a href="https://sivalabs.github.io/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+        </div>
+
+    </div>
+    
+<nav class="navigation pagination" role="navigation">
+	<h2 class="screen-reader-text">Posts navigation</h2>
+	<div class="nav-links">
+		<a class="prev page-numbers" href="/tags/jcart/page/3/">
+			<i class="fa fa-chevron-left"></i> Newer posts
+		</a>
+		
+	</div>
+</nav>
+
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="Android">Android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="Blog">Blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="Blogging">Blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="Books">Books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="IDE">IDE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="IT">IT</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="Interviews">Interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="JSF">JSF</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="Java">Java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="JavaEE">JavaEE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="Linux">Linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="Maven">Maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="MyBatis">MyBatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="Spring">Spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="Tips">Tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>

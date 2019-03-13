@@ -1,1 +1,848 @@
-<!DOCTYPE html><html lang="en-US" prefix="og: http://ogp.me/ns#"><head><div class="analytics"><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-71296890-1","auto"),ga("send","pageview")</script><script async src="//www.google-analytics.com/analytics.js"></script></div><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="title" property="title" content="SivaLabs - Posts"><meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - "><title>SivaLabs - Posts</title><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Posts"><meta name="twitter:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials"><meta name="twitter:site" content="@sivalabs"><meta name="twitter:creator" content="@sivalabs"><meta property="og:title" content="Posts"><meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials"><meta property="og:type" content="website"><meta property="og:url" content="https://sivalabs.github.io/posts/"><meta property="og:updated_time" content="2016-04-08T06:57:23&#43;00:00"><meta itemprop="name" content="Posts"><meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials"><link rel="stylesheet" href="/assets/css/custom-fonts.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/genericons.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/socicon.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/jetpack.css" type="text/css" media="all"><link rel="stylesheet" href="/assets/css/custom-styles.css" type="text/css" media="all"><script type="text/javascript" src="/assets/js/jquery-1.12.4.min.js"></script><script type="text/javascript" src="/assets/js/html5shiv.min.js"></script><script type="text/javascript" src="/assets/js/navigation.js"></script><link rel="shortcut icon" href="/favicon.png" type="image/x-icon"><link href="https://sivalabs.github.io/posts/index.xml" rel="alternate" type="application/rss+xml" title="SivaLabs"><link href="https://sivalabs.github.io/posts/index.xml" rel="feed" type="application/rss+xml" title="SivaLabs"></head><body class="home blog logged-in admin-bar no-customize-support post-layout-one-column"><div id="header-top" class="header-bar-wrap"></div><div id="page" class="hfeed site"><a class="skip-link screen-reader-text" href="#content">Skip to content</a><header id="masthead" class="site-header clearfix" role="banner"><div class="header-main container clearfix"><div id="logo" class="site-branding clearfix"><h1 class="site-title"><a href="/" title="SivaLabs" rel="home">SivaLabs</a></h1><p class="site-description">My Experiments on Technology</p></div><div class="header-widgets clearfix"></div></div><div id="main-navigation-wrap" class="primary-navigation-wrap"><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation"><ul id="menu-home" class="main-navigation-menu"><li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145"><a href="/">Home</a></li><li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421"><a href="/categories/java">Java</a></li><li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423"><a href="/categories/spring">Spring</a><ul class="sub-menu"><li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424"><a href="/categories/springboot">Spring Boot</a></li><li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="/categories/springcloud">Spring Cloud</a></li></ul></li><li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422"><a href="/categories/microservices">MicroServices</a></li><li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="/videos">Videos</a></li><li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161"><a href="/mybooks">My Books</a></li><li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="/contact">Contact</a></li></ul></nav></div></header><div id="content" class="site-content container clearfix"><section id="primary" class="content-archive content-area"><main id="main" class="site-main" role="main"><div id="post-wrapper" class="post-wrapper clearfix"><div class="post-column clearfix"><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/" rel="bookmark"><time class="entry-date published" datetime="2016-04-08T06:57:23">April 08, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/" rel="bookmark">Creating Custom SpringBoot Starter for Twitter4j</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>SpringBoot provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria. In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules. In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create twitter4j-spring-boot-starter which will auto-configure Twitter4J beans.</p><a href="https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/springboot-working-with-jooq/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2016/03/springboot-working-with-jooq/" rel="bookmark"><time class="entry-date published" datetime="2016-03-15T07:13:21">March 15, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2016/03/springboot-working-with-jooq/" rel="bookmark">SpringBoot : Working with JOOQ</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq/">jooq</a> &nbsp; <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>In my previous article SpringBoot : Working with MyBatis we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter. JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL. JOOQ provides the following features: Building Typesafe SQL using DSL API&nbsp; Typesafe database object referencing using Code Generation&nbsp; Easy to use API for Querying and Data fetching&nbsp; SQL logging and debugging</p><a href="https://sivalabs.github.io/2016/03/springboot-working-with-jooq/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/" rel="bookmark"><time class="entry-date published" datetime="2016-03-14T07:10:42">March 14, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/" rel="bookmark">SpringBoot : Working with MyBatis</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings. SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp; You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot. Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt; &lt;groupId&gt;org.</p><a href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/" rel="bookmark"><time class="entry-date published" datetime="2016-03-14T07:08:22">March 14, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/" rel="bookmark">SpringBoot : Working with JdbcTemplate</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>Spring provides a nice abstraction on top of JDBC API using JdbcTemplate and also provides great transaction management capabilities using annotation based approach. First let’s take a quick look at how we generally use Spring’s JdbcTemplate (without SpringBoot) by registering DataSource, TransactionManager and JdbcTemplate beans and optionally we can register DataSourceInitializer bean to initialize our database. @Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { &#34;classpath:application.properties&#34; }) public class AppConfig { @Autowired private Environment env; @Value(&#34;${init-db:false}&#34;) private String initDatabase; @Bean public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() { return new PropertySourcesPlaceholderConfigurer(); } @Bean public JdbcTemplate jdbcTemplate(DataSource dataSource) { return new JdbcTemplate(dataSource); } @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { return new DataSourceTransactionManager(dataSource); } @Bean public DataSource dataSource() { BasicDataSource dataSource = new BasicDataSource(); dataSource.</p><a href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/" rel="bookmark"><time class="entry-date published" datetime="2016-03-13T07:04:56">March 13, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/" rel="bookmark">How SpringBoot AutoConfiguration magic works?</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration. But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends. Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</p><a href="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/why-springboot/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2016/03/why-springboot/" rel="bookmark"><time class="entry-date published" datetime="2016-03-13T07:02:10">March 13, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2016/03/why-springboot/" rel="bookmark">Why SpringBoot?</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects. Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</p><a href="https://sivalabs.github.io/2016/03/why-springboot/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" rel="bookmark"><time class="entry-date published" datetime="2016-01-05T15:40:36">January 05, 2016 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" rel="bookmark">Retrying Method Execution using Spring AOP</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring/">Spring</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>One of my blog follower sends an email asking me to show an example of &#8220;RealWorld Usage of Spring AOP&#8221;. He mentioned that in most of the examples the usage of Spring AOP is demonstrated for logging method entry/exit or Transaction management or Security checks. He wanted to know how Spring AOP is being used in &#8220;Real Project for Real Problems&#8221;. So I would like to show how I have used Spring AOP for one of my project to handle a real problem.</p><a href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-iteration-8/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-8/" rel="bookmark"><time class="entry-date published" datetime="2015-12-31T11:37:10">December 31, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-iteration-8/" rel="bookmark">JCart : Iteration-8</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>In this Iteration#8 we will implement showing the Customer Account and Order History functionality in our ShoppingCart application. Customer MyAccount Page Profile Order History Once the customer is logged in our system he can click on MyAccount link at the top of the header and view his profile details and order history. First let us write the Controller handler method in our CustomerController to show myAccount details.</p><a href="https://sivalabs.github.io/2015/12/jcart-iteration-8/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" rel="bookmark"><time class="entry-date published" datetime="2015-12-31T09:34:50">December 31, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" rel="bookmark">JCart : Manage Customers</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>For Managing Customers we need a provision to see all the list of customers and view any Customers details. Let us start with implementing the back-end Customer service. public interface CustomerRepository extends JpaRepository&lt;Customer, Integer&gt; { Customer findByEmail(String email); @Query(&#34;select o from Order o where o.customer.email=?1&#34;) List&lt;Order&gt; getCustomerOrders(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.</p><a href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" class="more-link">Continue reading &raquo;</a></div></article><article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry"><a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark"></a><header class="entry-header"><div class="entry-meta"><span class="meta-date"><a href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark"><time class="entry-date published" datetime="2015-12-31T09:21:17">December 31, 2015 </time></a></span><span class="meta-author"><span class="author vcard">Siva</span></span></div><h2 class="entry-title"><a href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark">JCart : Manage Orders</a></h2><div><span class="tagcloud post-tags"><i class="fa fa-tags"></i> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a></span></div></header><div class="entry-content entry-excerpt clearfix"><p>For Managing Orders we need a provision to see all the list of orders and view an order details and updating the order status. Let us start with implementing the back-end order service. @Service @Transactional public class OrderService { @Autowired EmailService emailService; @Autowired OrderRepository orderRepository; ... ... public Order getOrder(String orderNumber) { return orderRepository.findByOrderNumber(orderNumber); } public List&lt;Order&gt; getAllOrders() { Sort sort = new Sort(Direction.DESC, &#34;createdOn&#34;); return orderRepository.findAll(sort); } public Order updateOrder(Order order) { Order o = getOrder(order.</p><a href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" class="more-link">Continue reading &raquo;</a></div></article></div></div><nav class="navigation pagination" role="navigation"><h2 class="screen-reader-text">Posts navigation</h2><div class="nav-links"><a class="prev page-numbers" href="/posts/page/2/"><i class="fa fa-chevron-left"></i> Newer posts </a><a class="next page-numbers" href="/posts/page/4/">Older posts <i class="fa fa-chevron-right"></i></a></div></nav></main></section><section id="secondary" class="sidebar widget-area clearfix" role="complementary"><aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget"><h3 class="widget-title">Follow Me</h3><ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels"><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://github.com/sivaprasadreddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-github" data-hover-rule="background-color" data-hover-color="#221e1b"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://twitter.com/sivalabs" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-twitter" data-hover-rule="background-color" data-hover-color="#55acee"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://facebook.com/sivaprasadreddy.k" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-facebook" data-hover-rule="background-color" data-hover-color="#3b5998"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://plus.google.com/u/0/&#43;SivaPrasadReddy" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-google"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-linkedin" data-hover-rule="background-color" data-hover-color="#3371b7"></span></a></li><li class="zoom-social_icons-list__item"><a class="zoom-social_icons-list__link" href="http://www.youtube.com/c/SivaPrasadReddy%20" target="_blank"><span class="zoom-social_icons-list-span socicon socicon-youtube" data-hover-rule="background-color" data-hover-color="#e02a20"></span></a></li></ul></aside><aside id="recent-posts-2" class="widget widget_recent_entries clearfix"><div class="widget-header"><h3 class="widget-title">Recent Posts</h3></div><ul><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li><li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li></ul></aside><aside id="top-posts-2" class="widget widget_top-posts clearfix"><div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div><ul><li><a href="/2016/03/why-springboot/" class="bump-view" data-bump-view="tp">Why SpringBoot?</a></li><li><a href="/2016/03/how-springboot-autoconfiguration-magic/" class="bump-view" data-bump-view="tp">How SpringBoot AutoConfiguration magic works?</a></li><li><a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/" class="bump-view" data-bump-view="tp">Developing a simple e-commerce application from scratch to production using SpringBoot</a></li><li><a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/" class="bump-view" data-bump-view="tp">Clean Code: Don’t mix different levels of abstractions</a></li><li><a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/" class="bump-view" data-bump-view="tp">A Developers Perspective on Spring vs JavaEE</a></li><li><a href="/2015/07/my-life-as-software-developer-in-india/" class="bump-view" data-bump-view="tp">My Life as a Software Developer in India</a></li><li><a href="/2011/01/10-things-to-become-outstanding-java/" class="bump-view" data-bump-view="tp">10 things to become an outstanding Java developer</a></li></ul></aside><aside id="categories-2" class="widget widget_categories clearfix"><div class="widget-header"><h3 class="widget-title">Categories</h3></div><ul><li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li><li class="cat-item"><a href="/categories/blog">Blog</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/ide">IDE</a></li><li class="cat-item"><a href="/categories/java">Java</a></li><li class="cat-item"><a href="/categories/javaee">JavaEE</a></li><li class="cat-item"><a href="/categories/linux">Linux</a></li><li class="cat-item"><a href="/categories/misc">Misc</a></li><li class="cat-item"><a href="/categories/spring">Spring</a></li><li class="cat-item"><a href="/categories/tips">Tips</a></li><li class="cat-item"><a href="/categories/books">Books</a></li><li class="cat-item"><a href="/categories/microservices">Microservices</a></li><li class="cat-item"><a href="/categories/springboot">Springboot</a></li><li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li><li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li><li class="cat-item"><a href="/categories/videos">Videos</a></li></ul></aside><aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix"><div class="widget-header"><h3 class="widget-title">Tags</h3></div><div class="tagcloud"><div class="widget__content"><a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/android" title="Android">Android</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/best-practices" title="Best Practices">Best Practices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blog" title="Blog">Blog</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/blogging" title="Blogging">Blogging</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="Books">Books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce" title="E-Commerce">E-Commerce</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/ide" title="IDE">IDE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/it" title="IT">IT</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/interviews" title="Interviews">Interviews</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jsf" title="JSF">JSF</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java" title="Java">Java</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/javaee" title="JavaEE">JavaEE</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/linux" title="Linux">Linux</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/maven" title="Maven">Maven</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/mybatis" title="MyBatis">MyBatis</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring" title="Spring">Spring</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="SpringBoot">SpringBoot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="SpringCloud">SpringCloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/tips" title="Tips">Tips</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/virtualbox" title="VirtualBox">VirtualBox</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/books" title="books">books</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart" title="jcart">jcart</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq" title="jooq">jooq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/microservices" title="microservices">microservices</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot" title="springboot">springboot</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springcloud" title="springcloud">springcloud</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springsession" title="springsession">springsession</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/travis-ci" title="travis-ci">travis-ci</a> <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/videos" title="videos">videos</a></div></div></aside></section></div><div id="footer" class="footer-wrap"><footer id="colophon" class="site-footer container clearfix" role="contentinfo"><div id="footer-text" class="site-info"><span class="credit-link"><a href="/" target="_blank">SivaLabs</a> Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a></span></div></footer></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - Posts">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - Posts </title>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials"/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sivalabs.github.io/posts/" />
+
+<meta property="og:updated_time" content="2016-04-08T06:57:23&#43;00:00"/>
+
+    
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials">
+
+
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    
+    <link href="https://sivalabs.github.io/posts/index.xml" rel="alternate" type="application/rss+xml" title="SivaLabs" />
+    <link href="https://sivalabs.github.io/posts/index.xml" rel="feed" type="application/rss+xml" title="SivaLabs" />
+    
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+    <main id="main" class="site-main" role="main">
+    <div id="post-wrapper" class="post-wrapper clearfix">
+        <div class="post-column clearfix">
+            
+
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/" rel="bookmark">
+                <time class="entry-date published" datetime="2016-04-08T06:57:23">
+                April 08, 2016
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/" rel="bookmark">
+            Creating Custom SpringBoot Starter for Twitter4j
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>SpringBoot provides lot of starter modules to get up and running quickly. SpringBoot’s auto-configure mechanism takes care of configuring SpringBeans on our behalf based on various criteria.
+In addition to the springboot starters that comes out-of-the-box provided by Core Spring Team, we can also create our own starter modules.
+In this post we will look into how to create a custom SpringBoot starter. To demonstrate it we are going to create twitter4j-spring-boot-starter which will auto-configure Twitter4J beans.</p>
+                    <a href="https://sivalabs.github.io/2016/04/creating-custom-springboot-starter-for/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/springboot-working-with-jooq/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2016/03/springboot-working-with-jooq/" rel="bookmark">
+                <time class="entry-date published" datetime="2016-03-15T07:13:21">
+                March 15, 2016
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2016/03/springboot-working-with-jooq/" rel="bookmark">
+            SpringBoot : Working with JOOQ
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jooq/">jooq</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>In my previous article SpringBoot : Working with MyBatis we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
+JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL.
+JOOQ provides the following features:
+ Building Typesafe SQL using DSL API&nbsp; Typesafe database object referencing using Code Generation&nbsp; Easy to use API for Querying and Data fetching&nbsp; SQL logging and debugging</p>
+                    <a href="https://sivalabs.github.io/2016/03/springboot-working-with-jooq/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/" rel="bookmark">
+                <time class="entry-date published" datetime="2016-03-14T07:10:42">
+                March 14, 2016
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/" rel="bookmark">
+            SpringBoot : Working with MyBatis
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
+SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
+Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &lt;dependency&gt; &lt;groupId&gt;org.</p>
+                    <a href="https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/" rel="bookmark">
+                <time class="entry-date published" datetime="2016-03-14T07:08:22">
+                March 14, 2016
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/" rel="bookmark">
+            SpringBoot : Working with JdbcTemplate
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>Spring provides a nice abstraction on top of JDBC API using JdbcTemplate and also provides great transaction management capabilities using annotation based approach.
+First let’s take a quick look at how we generally use Spring’s JdbcTemplate (without SpringBoot) by registering DataSource, TransactionManager and JdbcTemplate beans and optionally we can register DataSourceInitializer bean to initialize our database.
+@Configuration @ComponentScan @EnableTransactionManagement @PropertySource(value = { &#34;classpath:application.properties&#34; }) public class AppConfig { @Autowired private Environment env; @Value(&#34;${init-db:false}&#34;) private String initDatabase; @Bean public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() { return new PropertySourcesPlaceholderConfigurer(); } @Bean public JdbcTemplate jdbcTemplate(DataSource dataSource) { return new JdbcTemplate(dataSource); } @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { return new DataSourceTransactionManager(dataSource); } @Bean public DataSource dataSource() { BasicDataSource dataSource = new BasicDataSource(); dataSource.</p>
+                    <a href="https://sivalabs.github.io/2016/03/springboot-working-with-jdbctemplate/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/" rel="bookmark">
+                <time class="entry-date published" datetime="2016-03-13T07:04:56">
+                March 13, 2016
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/" rel="bookmark">
+            How SpringBoot AutoConfiguration magic works?
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>In my previous post Why SpringBoot? we have looked at how to create a SpringBoot application. But you may or may not understand what is going on behind the scenes. You may want to understand the magic behind the SpringBoot’s AutoConfiguration.
+But before that you should know about Spring’s @Conditional feature based on which all the SpringBoot’s AutoConfiguration magic depends.
+Exploring the power of @Conditional While developing Spring based applications we may come across of a need to register beans conditionally.</p>
+                    <a href="https://sivalabs.github.io/2016/03/how-springboot-autoconfiguration-magic/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2016/03/why-springboot/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2016/03/why-springboot/" rel="bookmark">
+                <time class="entry-date published" datetime="2016-03-13T07:02:10">
+                March 13, 2016
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2016/03/why-springboot/" rel="bookmark">
+            Why SpringBoot?
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>Spring is a very popular Java based framework for building web and enterprise applications. Unlike many other frameworks which focuses on only one area, Spring framework provides a wide verity of features addressing the modern business needs via its portfolio projects.
+Spring framework provides flexibility to configure the beans in multiple ways such as XML, Annotations and JavaConfig. With the number of features increased the complexity also gets increased and configuring Spring applications becomes tedious and error-prone.</p>
+                    <a href="https://sivalabs.github.io/2016/03/why-springboot/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" rel="bookmark">
+                <time class="entry-date published" datetime="2016-01-05T15:40:36">
+                January 05, 2016
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" rel="bookmark">
+            Retrying Method Execution using Spring AOP
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring/">Spring</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>One of my blog follower sends an email asking me to show an example of &#8220;RealWorld Usage of Spring AOP&#8221;. He mentioned that in most of the examples the usage of Spring AOP is demonstrated for logging method entry/exit or Transaction management or Security checks. He wanted to know how Spring AOP is being used in &#8220;Real Project for Real Problems&#8221;.
+So I would like to show how I have used Spring AOP for one of my project to handle a real problem.</p>
+                    <a href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-iteration-8/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-8/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-31T11:37:10">
+                December 31, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-iteration-8/" rel="bookmark">
+            JCart : Iteration-8
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>In this Iteration#8 we will implement showing the Customer Account and Order History functionality in our ShoppingCart application.
+ Customer MyAccount Page  Profile Order History   Once the customer is logged in our system he can click on MyAccount link at the top of the header and view his profile details and order history.
+First let us write the Controller handler method in our CustomerController to show myAccount details.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-iteration-8/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-31T09:34:50">
+                December 31, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" rel="bookmark">
+            JCart : Manage Customers
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>For Managing Customers we need a provision to see all the list of customers and view any Customers details.
+Let us start with implementing the back-end Customer service.
+public interface CustomerRepository extends JpaRepository&lt;Customer, Integer&gt; { Customer findByEmail(String email); @Query(&#34;select o from Order o where o.customer.email=?1&#34;) List&lt;Order&gt; getCustomerOrders(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-31T09:21:17">
+                December 31, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark">
+            JCart : Manage Orders
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>For Managing Orders we need a provision to see all the list of orders and view an order details and updating the order status.
+Let us start with implementing the back-end order service.
+@Service @Transactional public class OrderService { @Autowired EmailService emailService; @Autowired OrderRepository orderRepository; ... ... public Order getOrder(String orderNumber) { return orderRepository.findByOrderNumber(orderNumber); } public List&lt;Order&gt; getAllOrders() { Sort sort = new Sort(Direction.DESC, &#34;createdOn&#34;); return orderRepository.findAll(sort); } public Order updateOrder(Order order) { Order o = getOrder(order.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+        </div>
+
+    </div>
+    
+<nav class="navigation pagination" role="navigation">
+	<h2 class="screen-reader-text">Posts navigation</h2>
+	<div class="nav-links">
+		<a class="prev page-numbers" href="/posts/page/2/">
+			<i class="fa fa-chevron-left"></i> Newer posts
+		</a>
+		
+		<a class="next page-numbers" href="/posts/page/4/">
+			Older posts <i class="fa fa-chevron-right"></i>
+		</a>
+	</div>
+</nav>
+
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="Android">Android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="Blog">Blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="Blogging">Blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="Books">Books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="IDE">IDE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="IT">IT</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="Interviews">Interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="JSF">JSF</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="Java">Java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="JavaEE">JavaEE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="Linux">Linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="Maven">Maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="MyBatis">MyBatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="Spring">Spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="Tips">Tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
