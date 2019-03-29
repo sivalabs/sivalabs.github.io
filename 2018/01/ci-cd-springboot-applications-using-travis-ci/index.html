@@ -179,7 +179,7 @@ of a <strong>SpringBoot</strong> application. We will learn how to run maven bui
 Code Quality checks using <strong>SonarCloud</strong>, build Docker image and push it to <strong>DockerHub</strong> and finally deploy it to <strong>Heroku</strong>.</p>
 
 <blockquote>
-<p>The source code for this article is at <a href="https://github.com/sivaprasadreddy/freelancer-kit">https://github.com/sivaprasadreddy/freelancer-kit</a></p>
+<p>The source code for this article is at <a href="https://github.com/sivaprasadreddy/jblogger">https://github.com/sivaprasadreddy/jblogger</a></p>
 </blockquote>
 
 <p>Last week I was talking to my friend about how easy it became to build a Java application and deploy it using SpringBoot. During the discussion one point came out about how much it cost to build a Java application and deploy it somewhere (cloud). So, I thought of exploring more about the free services that we can use to automate all the project development activities with minimal or no cost at all.</p>
@@ -255,8 +255,8 @@ If Travis finds mvnw wrapper then it will be used like <strong>./mvnw test -B</s
     <span style="color:#f92672">&lt;version&gt;</span>0.7.9<span style="color:#f92672">&lt;/version&gt;</span>
     <span style="color:#f92672">&lt;configuration&gt;</span>
         <span style="color:#f92672">&lt;excludes&gt;</span>
-            <span style="color:#f92672">&lt;exclude&gt;</span>in/sivalabs/freelancerkit/entities/*<span style="color:#f92672">&lt;/exclude&gt;</span>
-            <span style="color:#f92672">&lt;exclude&gt;</span>in/sivalabs/freelancerkit/*Application<span style="color:#f92672">&lt;/exclude&gt;</span>
+            <span style="color:#f92672">&lt;exclude&gt;</span>com/sivalabs/jblogger/entities/*<span style="color:#f92672">&lt;/exclude&gt;</span>
+            <span style="color:#f92672">&lt;exclude&gt;</span>com/sivalabs/jblogger/*Application<span style="color:#f92672">&lt;/exclude&gt;</span>
         <span style="color:#f92672">&lt;/excludes&gt;</span>
     <span style="color:#f92672">&lt;/configuration&gt;</span>
     <span style="color:#f92672">&lt;executions&gt;</span>
@@ -418,7 +418,7 @@ For more information read <a href="https://docs.travis-ci.com/user/docker/">http
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> frolvlad/alpine-oraclejdk8:slim</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">VOLUME</span><span style="color:#e6db74"> /tmp</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ADD</span><span style="color:#e6db74"> target/freelancer-kit-0.0.1-SNAPSHOT.jar app.jar</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ADD</span><span style="color:#e6db74"> target/jblogger-0.0.1-SNAPSHOT.jar app.jar</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> sh -c <span style="color:#e6db74">&#39;touch /app.jar&#39;</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span><span style="color:#e6db74"> JAVA_OPTS=&#34;-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n&#34;</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 8080 8787</span><span style="color:#960050;background-color:#1e0010">
@@ -448,7 +448,7 @@ travis encrypt DOCKER_PASS<span style="color:#f92672">=</span>”dockerhub-passw
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ <span style="color:#e6db74">&#34;$TRAVIS_BRANCH&#34;</span> == <span style="color:#e6db74">&#34;master&#34;</span> ]; then echo <span style="color:#e6db74">&#34;latest&#34;</span>; else echo $TRAVIS_BRANCH; fi`
-- export IMAGE_NAME=sivaprasadreddy/freelancerkit
+- export IMAGE_NAME=sivaprasadreddy/jblogger
 - docker build -t $IMAGE_NAME:$COMMIT .
 - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
 - docker push $IMAGE_NAME</code></pre></div>
@@ -462,7 +462,7 @@ Travis CI can automatically deploy your Heroku application after a successful bu
 
 <p>Now create <strong>Procfile</strong> in root folder of the project as follows:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">web java -Dserver.port<span style="color:#f92672">=</span>$PORT -Dspring.profiles.active<span style="color:#f92672">=</span>heroku $JAVA_OPTS -jar target/freelancer-kit-0.0.1-SNAPSHOT-exec.jar</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">web java -Dserver.port<span style="color:#f92672">=</span>$PORT -Dspring.profiles.active<span style="color:#f92672">=</span>heroku $JAVA_OPTS -jar target/jblogger-0.0.1-SNAPSHOT-exec.jar</code></pre></div>
 
 <p>First we need to get the Heroku API Key and add it as encrypted secret.</p>
 
@@ -473,7 +473,7 @@ Travis CI can automatically deploy your Heroku application after a successful bu
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
-  app: freelancerkit</code></pre></div>
+  app: jblogger</code></pre></div>
 
 <p>Now the complete .travis.yml file will look like follows:</p>
 
@@ -505,7 +505,7 @@ script:
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ <span style="color:#e6db74">&#34;$TRAVIS_BRANCH&#34;</span> == <span style="color:#e6db74">&#34;master&#34;</span> ]; then echo <span style="color:#e6db74">&#34;latest&#34;</span>; else echo $TRAVIS_BRANCH<span style="color:#75715e">&amp;amp;amp;amp;amp;amp;amp;amp;lt;span</span> data-mce-type=<span style="color:#e6db74">&#34;bookmark&#34;</span> style=<span style="color:#e6db74">&#34;display: inline-block; width: 0px; overflow: hidden; line-height: 0;&#34;</span> class=<span style="color:#e6db74">&#34;mce_SELRES_start&#34;</span><span style="color:#75715e">&amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;lt;/span&amp;amp;amp;amp;amp;amp;amp;amp;gt;;</span> fi`
-- export IMAGE_NAME=sivaprasadreddy/freelancer-kit
+- export IMAGE_NAME=sivaprasadreddy/jblogger
 - docker build -t $IMAGE_NAME:$COMMIT .
 - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
 - docker push $IMAGE_NAME
@@ -513,7 +513,7 @@ after_success:
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
-  app: freelancer-kit</code></pre></div>
+  app: jblogger</code></pre></div>
 
 <p>Once the build is successful and deployed on Heroku you should be able to access the application at <code>https://&lt;app&gt;.herokuapp.com/</code>.</p>
 
