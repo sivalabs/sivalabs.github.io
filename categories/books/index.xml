@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>books on SivaLabs</title>
+    <title>Books on SivaLabs</title>
     <link>https://sivalabs.github.io/categories/books/</link>
-    <description>Recent content in books on SivaLabs</description>
+    <description>Recent content in Books on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 05 Nov 2017 04:59:17 +0000</lastBuildDate>
@@ -20,6 +20,15 @@
       <description>In Java world, JPA/Hibernate is the most popular and widely used framework. When it comes to overall performance of a software system database persistence layer plays the crucial role. The tricky part with JPA/Hibernate is it is very easy to get started but very very hard to master. This is where Vlad Mihalcea&amp;#8216;s High-Performance Java Persistence book helps you a lot.
 
 The High-Performance Java Persistence book is not just another Hibernate book saying you put this annotation here and call that method there and you are done.</description>
+    </item>
+    
+    <item>
+      <title>My Books</title>
+      <link>https://sivalabs.github.io/mybooks/</link>
+      <pubDate>Mon, 05 Sep 2016 02:32:39 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/mybooks/</guid>
+      <description> Beginning Spring Boot 2 SpringBoot : Learn By Example PrimeFaces Beginners Guide Java Persistence with MyBatis3 </description>
     </item>
     
     <item>

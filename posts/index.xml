@@ -6,10 +6,20 @@
     <description>Recent content in Posts on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Mar 2018 07:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 14 May 2019 07:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SpringBoot Best Practices</title>
+      <link>https://sivalabs.github.io/2019/05/spring-boot-best-practices/</link>
+      <pubDate>Tue, 14 May 2019 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2019/05/spring-boot-best-practices/</guid>
+      <description>I have been working with SpringBoot for many years and over the time I worked with many SpringBoot based codebases. There are few common mistakes that I observe in the projects that use SpringBoot. So, I thought of writing down few good practices that can be followed while using SpringBoot.
+1. Understand SpringBoot Core Concepts I know, this sounds very obvious but I see many developers jumping onto using SpringBoot without having any prior knowledge on Spring, Dependency Injection.</description>
+    </item>
     
     <item>
       <title>MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</title>

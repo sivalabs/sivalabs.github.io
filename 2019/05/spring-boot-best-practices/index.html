@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - SpringBoot Best Practices">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - SpringBoot Best Practices </title>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sivalabs.github.io/images/spring-boot-1.png"/>
+
+<meta name="twitter:title" content="SpringBoot Best Practices"/>
+<meta name="twitter:description" content="I have been working with SpringBoot for many years and over the time I worked with many SpringBoot based codebases. There are few common mistakes that I observe in the projects that use SpringBoot. So, I thought of writing down few good practices that can be followed while using SpringBoot.
+1. Understand SpringBoot Core Concepts I know, this sounds very obvious but I see many developers jumping onto using SpringBoot without having any prior knowledge on Spring, Dependency Injection."/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="SpringBoot Best Practices" />
+<meta property="og:description" content="I have been working with SpringBoot for many years and over the time I worked with many SpringBoot based codebases. There are few common mistakes that I observe in the projects that use SpringBoot. So, I thought of writing down few good practices that can be followed while using SpringBoot.
+1. Understand SpringBoot Core Concepts I know, this sounds very obvious but I see many developers jumping onto using SpringBoot without having any prior knowledge on Spring, Dependency Injection." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sivalabs.github.io/2019/05/spring-boot-best-practices/" />
+
+<meta property="og:image" content="https://sivalabs.github.io/images/spring-boot-1.png" />
+<meta property="article:published_time" content="2019-05-14T07:59:17&#43;05:30"/>
+<meta property="article:modified_time" content="2019-05-14T07:59:17&#43;05:30"/>
+
+    
+<meta itemprop="name" content="SpringBoot Best Practices">
+<meta itemprop="description" content="I have been working with SpringBoot for many years and over the time I worked with many SpringBoot based codebases. There are few common mistakes that I observe in the projects that use SpringBoot. So, I thought of writing down few good practices that can be followed while using SpringBoot.
+1. Understand SpringBoot Core Concepts I know, this sounds very obvious but I see many developers jumping onto using SpringBoot without having any prior knowledge on Spring, Dependency Injection.">
+
+
+<meta itemprop="datePublished" content="2019-05-14T07:59:17&#43;05:30" />
+<meta itemprop="dateModified" content="2019-05-14T07:59:17&#43;05:30" />
+<meta itemprop="wordCount" content="1119">
+
+  <meta itemprop="image" content="https://sivalabs.github.io/images/spring-boot-1.png">
+
+
+
+<meta itemprop="keywords" content="Spring, SpringBoot, BestPractices," />
+
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+
+    
+
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+<main id="main" class="site-main" role="main">
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2019/05/spring-boot-best-practices/" rel="bookmark">
+                <time class="entry-date published" datetime="2019-05-14T07:59:17">
+                May 14, 2019
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2019/05/spring-boot-best-practices/" rel="bookmark">
+            SpringBoot Best Practices
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring-springboot-bestpractices/">Spring, SpringBoot, BestPractices</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+        <div class="entry-content">
+            
+
+<p>I have been working with <a href="https://spring.io/projects/spring-boot">SpringBoot</a> for many years and over the time I worked with many SpringBoot based codebases.
+There are few common mistakes that I observe in the projects that use SpringBoot. So, I thought of writing down few good practices that can be followed while using SpringBoot.</p>
+
+<h2 id="1-understand-springboot-core-concepts">1. Understand SpringBoot Core Concepts</h2>
+
+<p>I know, this sounds very obvious but I see many developers jumping onto using SpringBoot without having any prior knowledge on Spring, Dependency Injection. So they just keep adding annotations and <strong>@Bean</strong> definitions here and there until it works.</p>
+
+<p>SpringBoot is an opinionated framework with powerful <strong>auto-configuration</strong> mechanism based on <strong>convention-over-configuration</strong> philosophy.
+So, it is very important to understand the following things:</p>
+
+<ul>
+<li><p><strong>How to structure application code?</strong>
+A typical SpringBoot application has a main entry-point class which is annotated with <strong>@SpringBootApplication</strong> annotation. SpringBoot automatically scan for Spring components from the entry-point class&rsquo;s package and it&rsquo;s sub-packages.
+Make sure to read and understand the section <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-structuring-your-code">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-structuring-your-code</a>.</p></li>
+
+<li><p><strong>How AutoConfiguration works?</strong>
+The most important aspect of SpringBoot is it&rsquo;s AutoConfiguration mechanism. Without properly understanding how AutoConfiguration works it all looks like magic. You can read my blog post <a href="https://sivalabs.in/2016/03/how-springboot-autoconfiguration-magic/">How SpringBoot AutoConfiguration magic works?</a> to learn about how AutoConfiguration works.</p></li>
+</ul>
+
+<h2 id="2-leverage-springboot-s-built-in-customization-features">2. Leverage SpringBoot&rsquo;s built-in customization features</h2>
+
+<p>SpringBoot auto-configures many beans based on various criteria like existence of class in classpath, absence of a property and also provides the ability to customize the configuration using properties.</p>
+
+<p>I see sometimes people configuring the entire bean definition using <strong>@Bean</strong> just to customize one property of it where as they can simply customize it using a property in <strong>application.properties</strong> file.</p>
+
+<p>For example, if you want to customize the <strong>DataSource</strong> bean default values you can use <strong>spring.datasource.*</strong> properties instead of configuring the <strong>DataSource</strong> bean by yourself.</p>
+
+<p>You can see all the supported customization properties here
+<a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties</a></p>
+
+<h2 id="3-don-t-add-unnecessary-starters-and-turn-off-unnecessary-features">3. Don&rsquo;t add unnecessary starters and turn off unnecessary features</h2>
+
+<p>One of the primary reason for the popularity of SpringBoot is its getting started experience. You can simply goto <a href="https://start.spring.io/">https://start.spring.io/</a> and select the starters you want to add and run the application. SpringBoot creates lot of beans behind the scenes based on the starters we add and hence it may increase the memory footprint and also increase the startup time. So, just add the starters you absolutely need.</p>
+
+<p>SpringBoot automatically registers beans using AutoConfiguration. Sometimes we may not need all those features and we can turn them off.</p>
+
+<p>For example, if we are not planning to use JMX feature we can turn it off using <strong>spring.jmx.enabled=false</strong>.</p>
+
+<h2 id="4-prefer-constructor-based-dependency-injection">4. Prefer constructor based dependency injection</h2>
+
+<p>We can autowire the dependencies using <strong>constructor-injection</strong> or <strong>setter-injection</strong> or <strong>@Autowired</strong> on property itself.
+Personally I think Constructor injection is the better option. So, I try to always define the dependencies as <strong>final</strong> variables so that it will force to initialize in constructor.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
+<span style="color:#a6e22e">@Transactional</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomerService</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> CustomerRepository customerRepository<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CustomerService</span><span style="color:#f92672">(</span>CustomerRepository customerRepository<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">notNull</span><span style="color:#f92672">(</span>customerRepository<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;customerRepository mustn&#39;t be null&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">customerRepository</span> <span style="color:#f92672">=</span> customerRepository<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>This way it will be easier to instantiate <strong>CustomerService</strong> with necessary dependencies for testing if required.</p>
+
+<h2 id="5-use-testcontainers-to-test-with-real-dependencies">5. Use TestContainers to test with real dependencies</h2>
+
+<p>One common pattern that I observed in SpringBoot applications is using in-memory databases like H2 for testing and using other RDBMS like Postgres, Oracle etc for production. I think it is not a good practice for several reasons.</p>
+
+<p>First, the production database behavior might be different than in-memory database and hence some bugs might not be detected during testing. Second, some features (ex: JSONB) might not be supported by in-memory databases where as production database supports.</p>
+
+<p>These days most of the applications use Docker in some way or the other. So, we can use <a href="https://www.testcontainers.org/">TestContainers</a> which is a docker based library for testing with a real database similar to production database.</p>
+
+<p>You can refer the following to learn how to use TestContainers for Integration Testing with SpringBoot:</p>
+
+<ul>
+<li><a href="https://github.com/testcontainers/testcontainers-java/tree/master/examples/spring-boot">https://github.com/testcontainers/testcontainers-java/tree/master/examples/spring-boot</a></li>
+<li><a href="https://www.baeldung.com/spring-boot-testcontainers-integration-test">https://www.baeldung.com/spring-boot-testcontainers-integration-test</a></li>
+</ul>
+
+<h2 id="6-use-test-slice-annotations-to-speed-up-tests">6. Use Test Slice annotations to speed up tests</h2>
+
+<p>We write Unit tests to test the behavior of single class and Integration tests to test the behavior of a logical group of components. So, generally we don&rsquo;t need the Spring magic for unit tests. We should be able to create an instance of the class (probably with mock dependencies) and test the behavior.</p>
+
+<p>However, while unit testing Spring based components like <strong>Controllers</strong> or <strong>Spring Data Repositories</strong> we need Spring ApplicationContext to be created. SpringBoot provides <strong>@SpringBootTest</strong> to load ApplicationContext and we can test the components. But the <strong>@SpringBootTest</strong> annotation loads all components in the application which might take more time.</p>
+
+<p>For Unit tests we generally want to load only the component we want to test with mock dependencies without loading any other unnecessary dependencies.</p>
+
+<p>SpringBoot provides various other test annotations like <strong>@WebMvcTest</strong>, <strong>@DataJpaTest</strong> etc to only load a slice of the ApplicationContext components. So, it is better to unit test the Spring components by using slice specific annotations rather than <strong>@SpringBootTest</strong>.</p>
+
+<p>You can learn more about using SpringBoot Testing annotations with following articles:</p>
+
+<ul>
+<li><a href="https://pivotal.io/application-transformation-recipes/testing/spring-boot-testing-best-practices">https://pivotal.io/application-transformation-recipes/testing/spring-boot-testing-best-practices</a></li>
+<li><a href="https://spring.io/guides/gs/testing-web/">https://spring.io/guides/gs/testing-web/</a></li>
+<li><a href="https://reflectoring.io/spring-boot-web-controller-test/">https://reflectoring.io/spring-boot-web-controller-test/</a></li>
+</ul>
+
+<h2 id="7-use-database-migration-tools">7. Use database migration tools</h2>
+
+<p>While using a relational database with SpringBoot and JPA it is easier to get started with auto generation of database schema from entity definitions. However, for complex applications it is better to use Database Migration tools like <a href="https://flywaydb.org/">Flyway</a> or <a href="https://www.liquibase.org/">Liquibase</a>. These tools will help in maintaining versioned database migration scripts and keep track of the current state of the database and determine what migration scripts need to be run.</p>
+
+<h2 id="8-prefer-off-the-shelf-security-solutions-instead-of-rolling-your-own">8. Prefer Off the Shelf security solutions instead of rolling your own</h2>
+
+<p>Spring Security make it easy to implement security, but still implementing security properly with OAUTH, SAML etc integrations is still very complex. Security is a very complex subject and needs lot of expertise to properly implement it. If at all possible to use off the shelf security solutions like <a href="https://www.okta.com/">Okta</a> then use them instead of rolling your own security implementation.</p>
+
+<h2 id="9-use-dedicated-configuration-classes">9. Use dedicated configuration classes</h2>
+
+<p>In our project we may need to create several Spring Configuration classes to define or customize the beans. For example we want to configure <strong>Swagger</strong>, <strong>Jackson</strong>, <strong>AWS</strong>, <strong>ElasticSearch</strong>, <strong>Redis</strong> etc. Instead of configuring all of them in one configuration class it would be better to have a separate dedicated Configuration classes for each one of them.</p>
+
+<h2 id="10-avoid-boilerplate-code-with-custom-springboot-starter">10. Avoid boilerplate code with custom SpringBoot starter</h2>
+
+<p>In some organizations there will be some home-grown libraries to achieve some common functionality like security, secrets management, caching etc. We can create custom SpringBoot starter to auto-configure the library features so that we don&rsquo;t need to repeat the boilerplate code for every application.</p>
+
+<p>You can refer my post <a href="https://sivalabs.in/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a> on how to create a custom SpringBoot starter.</p>
+
+<p>For more info on creating our own SpringBoot starter see <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-custom-starter">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-custom-starter</a></p>
+
+        </div>
+        <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=SpringBoot%20Best%20Practices-https%3a%2f%2fsivalabs.github.io%2f2019%2f05%2fspring-boot-best-practices%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2019%2f05%2fspring-boot-best-practices%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2019%2f05%2fspring-boot-best-practices%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2019%2f05%2fspring-boot-best-practices%2f&title=SpringBoot%20Best%20Practices" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2019%2f05%2fspring-boot-best-practices%2f&title=SpringBoot%20Best%20Practices" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+</article>
+
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-next">
+			<a href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/" rel="prev">
+                <span class="post-title">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2019/05/spring-boot-best-practices/">SpringBoot Best Practices</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-springcloud-eureka/">MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="android">android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="best-practices">best-practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="blog">blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="blogging">blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
