@@ -6,10 +6,20 @@
     <description>Recent content on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 May 2019 07:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jun 2019 07:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kafka Tutorial - Java Producer and Consumer</title>
+      <link>https://sivalabs.github.io/2019/06/kafka-tutorial-java-producer-consumer/</link>
+      <pubDate>Fri, 21 Jun 2019 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2019/06/kafka-tutorial-java-producer-consumer/</guid>
+      <description>Kafka, depending on how you use it, can be seen as a Message Broker, Event Store or a Streaming Platform etc. Kafka became a preferred technology for many of the modern applications because of various reasons like:
+ Kafka can be used as an Event Store if you are using Event Driven Microservices architecture Kafka can be used as a Message Broker to enable communication across multiple applications Kafka can be used as Streaming platform for processing events in realtime etc etc.</description>
+    </item>
     
     <item>
       <title>SpringBoot Best Practices</title>
@@ -293,7 +303,7 @@ In this post we will look into how to create a custom SpringBoot starter. To dem
       
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-jooq/</guid>
       <description>In my previous article SpringBoot : Working with MyBatis we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
-JOOQ (Java Object Oriented Querying) is a persistence framework which embraces SQL.
+JOOQ (JOOQ Object Oriented Querying) is a persistence framework which embraces SQL.
 JOOQ provides the following features:
  Building Typesafe SQL using DSL API&amp;nbsp; Typesafe database object referencing using Code Generation&amp;nbsp; Easy to use API for Querying and Data fetching&amp;nbsp; SQL logging and debugging</description>
     </item>

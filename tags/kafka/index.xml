@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kafka on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/kafka/</link>
+    <description>Recent content in Kafka on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Jun 2019 07:59:17 +0530</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kafka Tutorial - Java Producer and Consumer</title>
+      <link>https://sivalabs.github.io/2019/06/kafka-tutorial-java-producer-consumer/</link>
+      <pubDate>Fri, 21 Jun 2019 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2019/06/kafka-tutorial-java-producer-consumer/</guid>
+      <description>Kafka, depending on how you use it, can be seen as a Message Broker, Event Store or a Streaming Platform etc. Kafka became a preferred technology for many of the modern applications because of various reasons like:
+ Kafka can be used as an Event Store if you are using Event Driven Microservices architecture Kafka can be used as a Message Broker to enable communication across multiple applications Kafka can be used as Streaming platform for processing events in realtime etc etc.</description>
+    </item>
+    
+  </channel>
+</rss>
