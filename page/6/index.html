@@ -36,7 +36,7 @@ if (!doNotTrack) {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/" />
 
-<meta property="og:updated_time" content="2019-06-21T07:59:17&#43;05:30"/>
+<meta property="og:updated_time" content="2019-06-24T07:59:17&#43;05:30"/>
 
     
 <meta itemprop="name" content="SivaLabs">
@@ -125,6 +125,52 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-manage-roles/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-manage-roles/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-19T03:16:38">
+                December 19, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-manage-roles/" rel="bookmark">
+            JCart: Manage Roles
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>In our previous post Manage Privileges – List all privileges we have implemented the functionality to show list of permissions. In this post we will implement Role management such as listing all Roles, creating new Role, editing Role permissions etc.
+Basically a Role is nothing a but group of Permissions assigned so that giving access to a set of action to user will become easy by assigning Roles.
+In this post we are going to see lot of code snippets, so I would suggest to clone the repo https://github.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-manage-roles/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-manage-privileges/" rel="bookmark">
@@ -558,54 +604,6 @@ We are going to use Thymeleaf templates for our View layer. Thymeleaf offers fac
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-01T04:26:41">
-                December 01, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" rel="bookmark">
-            JCart: Create JPA Entities
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            &nbsp;
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>We are going to create the JPA Entities for the database tables we designed.
-@Entity @Table(name=&#34;users&#34;) public class User { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false) @NotEmpty() private String name; @Column(nullable=false, unique=true) @NotEmpty @Email(message=&#34;{errors.invalid_email}&#34;) private String email; @Column(nullable=false) @NotEmpty @Size(min=4) private String password; private String passwordResetToken; @ManyToMany(cascade=CascadeType.MERGE) @JoinTable( name=&#34;user_role&#34;, joinColumns={@JoinColumn(name=&#34;USER_ID&#34;, referencedColumnName=&#34;ID&#34;)}, inverseJoinColumns={@JoinColumn(name=&#34;ROLE_ID&#34;, referencedColumnName=&#34;ID&#34;)}) private List&lt;Role&gt; roles; //setters &amp; getters } @Entity @Table(name=&#34;roles&#34;) public class Role { @Id @GeneratedValue(strategy=GenerationType.AUTO) private Integer id; @Column(nullable=false, unique=true) @NotEmpty private String name; @Column(length=1024) private String description; @ManyToMany(mappedBy=&#34;roles&#34;) private List&lt;User&gt; users; @ManyToMany @JoinTable( name=&#34;role_permission&#34;, joinColumns={@JoinColumn(name=&#34;ROLE_ID&#34;, referencedColumnName=&#34;ID&#34;)}, inverseJoinColumns={@JoinColumn(name=&#34;PERM_ID&#34;, referencedColumnName=&#34;ID&#34;)}) private List&lt;Permission&gt; permissions; //setters &amp; getters } @Entity @Table(name=&#34;permissions&#34;) public class Permission { @Id @GeneratedValue(strategy=GenerationType.</p>
-                    <a href="https://sivalabs.github.io/2015/12/jcart-create-jpa-entities/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -698,11 +696,11 @@ We are going to use Thymeleaf templates for our View layer. Thymeleaf offers fac
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/">Kafka Tutorial - Producer and Consumer using SpringBoot</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-java-producer-consumer/">Kafka Tutorial - Java Producer and Consumer</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/05/spring-boot-best-practices/">SpringBoot Best Practices</a></li>
         <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
         <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2018/03/spring-cloud-netflix-circuit-breaker/">MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</a></li>
     </ul>
 
 </aside>
@@ -813,6 +811,8 @@ We are going to use Thymeleaf templates for our View layer. Thymeleaf offers fac
                href="/tags/jsf" title="jsf">jsf</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/linux" title="linux">linux</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"

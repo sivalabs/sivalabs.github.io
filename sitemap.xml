@@ -4,13 +4,42 @@
   
   <url>
     <loc>https://sivalabs.github.io/categories/</loc>
-    <lastmod>2019-06-21T07:59:17+05:30</lastmod>
+    <lastmod>2019-06-24T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.github.io/categories/kafka/</loc>
-    <lastmod>2019-06-21T07:59:17+05:30</lastmod>
+    <lastmod>2019-06-24T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/</loc>
+    <lastmod>2019-06-24T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/kafka-springboot-spring/</loc>
+    <lastmod>2019-06-24T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/posts/</loc>
+    <lastmod>2019-06-24T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/</loc>
+    <lastmod>2019-06-24T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/tags/</loc>
+    <lastmod>2019-06-24T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -26,31 +55,7 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/posts/</loc>
-    <lastmod>2019-06-21T07:59:17+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/</loc>
-    <lastmod>2019-06-21T07:59:17+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/tags/</loc>
-    <lastmod>2019-06-21T07:59:17+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/tags/spring-springboot-bestpractices/</loc>
-    <lastmod>2019-05-14T07:59:17+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sivalabs.github.io/categories/springboot/</loc>
     <lastmod>2019-05-14T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -58,6 +63,12 @@
   <url>
     <loc>https://sivalabs.github.io/2019/05/spring-boot-best-practices/</loc>
     <lastmod>2019-05-14T07:59:17+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/springboot/</loc>
+    <lastmod>2019-05-14T07:59:17+05:30</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -72,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/springcloud/</loc>
+    <loc>https://sivalabs.github.io/tags/microservices/</loc>
     <lastmod>2018-03-20T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -84,7 +95,7 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/microservices/</loc>
+    <loc>https://sivalabs.github.io/tags/springcloud/</loc>
     <lastmod>2018-03-20T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -153,25 +164,25 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/travis-ci/</loc>
-    <lastmod>2018-01-24T07:59:17+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sivalabs.github.io/tags/travis-ci/</loc>
     <lastmod>2018-01-24T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/blog/</loc>
-    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+    <loc>https://sivalabs.github.io/categories/travis-ci/</loc>
+    <lastmod>2018-01-24T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sivalabs.github.io/tags/blog/</loc>
+    <lastmod>2018-01-01T07:59:17+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sivalabs.github.io/categories/blog/</loc>
     <lastmod>2018-01-01T07:59:17+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -209,13 +220,13 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/books/</loc>
+    <loc>https://sivalabs.github.io/tags/books/</loc>
     <lastmod>2017-11-05T04:59:17+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/books/</loc>
+    <loc>https://sivalabs.github.io/categories/books/</loc>
     <lastmod>2017-11-05T04:59:17+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -237,13 +248,13 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/tips/</loc>
+    <loc>https://sivalabs.github.io/tags/tips/</loc>
     <lastmod>2017-10-18T02:50:23+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/tips/</loc>
+    <loc>https://sivalabs.github.io/categories/tips/</loc>
     <lastmod>2017-10-18T02:50:23+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -276,13 +287,13 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/ide/</loc>
+    <loc>https://sivalabs.github.io/tags/ide/</loc>
     <lastmod>2016-09-07T09:53:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/ide/</loc>
+    <loc>https://sivalabs.github.io/categories/ide/</loc>
     <lastmod>2016-09-07T09:53:35+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -324,13 +335,13 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/videos/</loc>
+    <loc>https://sivalabs.github.io/tags/videos/</loc>
     <lastmod>2016-04-10T04:03:33+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/videos/</loc>
+    <loc>https://sivalabs.github.io/categories/videos/</loc>
     <lastmod>2016-04-10T04:03:33+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -595,13 +606,13 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/linux/</loc>
+    <loc>https://sivalabs.github.io/tags/linux/</loc>
     <lastmod>2015-10-13T02:07:05+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/linux/</loc>
+    <loc>https://sivalabs.github.io/categories/linux/</loc>
     <lastmod>2015-10-13T02:07:05+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -644,13 +655,13 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/javaee/</loc>
+    <loc>https://sivalabs.github.io/tags/javaee/</loc>
     <lastmod>2015-06-15T13:04:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/javaee/</loc>
+    <loc>https://sivalabs.github.io/categories/javaee/</loc>
     <lastmod>2015-06-15T13:04:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -703,13 +714,13 @@
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/categories/best-practices/</loc>
+    <loc>https://sivalabs.github.io/tags/best-practices/</loc>
     <lastmod>2013-12-29T00:53:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sivalabs.github.io/tags/best-practices/</loc>
+    <loc>https://sivalabs.github.io/categories/best-practices/</loc>
     <lastmod>2013-12-29T00:53:00+00:00</lastmod>
     <priority>0</priority>
   </url>

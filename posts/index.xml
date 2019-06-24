@@ -6,10 +6,21 @@
     <description>Recent content in Posts on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Jun 2019 07:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 07:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kafka Tutorial - Producer and Consumer using SpringBoot</title>
+      <link>https://sivalabs.github.io/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/</link>
+      <pubDate>Mon, 24 Jun 2019 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/</guid>
+      <description>In the previous post Kafka Tutorial - Java Producer and Consumer we have learned how to implement a Producer and Consumer for a Kafka topic using plain Java Client API.
+In this post we are going to look at how to use Spring for Kafka which provides high level abstraction over Kafka Java Client API to make it easier to work with Kafka.
+ You can find the source code for this article at https://github.</description>
+    </item>
     
     <item>
       <title>Kafka Tutorial - Java Producer and Consumer</title>
