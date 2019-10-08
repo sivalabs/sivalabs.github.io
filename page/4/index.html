@@ -36,7 +36,7 @@ if (!doNotTrack) {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/" />
 
-<meta property="og:updated_time" content="2019-06-24T07:59:17&#43;05:30"/>
+<meta property="og:updated_time" content="2019-10-07T07:59:17&#43;05:30"/>
 
     
 <meta itemprop="name" content="SivaLabs">
@@ -125,6 +125,51 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" rel="bookmark">
+                <time class="entry-date published" datetime="2016-01-05T15:40:36">
+                January 05, 2016
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" rel="bookmark">
+            Retrying Method Execution using Spring AOP
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring/">Spring</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>One of my blog follower sends an email asking me to show an example of &#8220;RealWorld Usage of Spring AOP&#8221;. He mentioned that in most of the examples the usage of Spring AOP is demonstrated for logging method entry/exit or Transaction management or Security checks. He wanted to know how Spring AOP is being used in &#8220;Real Project for Real Problems&#8221;.
+So I would like to show how I have used Spring AOP for one of my project to handle a real problem.</p>
+                    <a href="https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-iteration-8/" rel="bookmark">
@@ -539,53 +584,6 @@ In out mainLayout.html header we have ShoppingCart icon showing the cart item co
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-31T05:27:23">
-                December 31, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/" rel="bookmark">
-            JCart : ShoppingCart Add Item To Cart
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>In our HomePage/CategoryPage/ProductPage we have a button Add To Cart as follows:
-&lt;a class=&#34;add_to_cart_button&#34; data-quantity=&#34;1&#34; data-product_sku=&#34;&#34; data-product_id=&#34;70&#34; rel=&#34;nofollow&#34; href=&#34;#&#34; th:onclick=&#34;&#39;javascript:addItemToCart(\&#39;&#39; + ${product.sku} + &#39;\&#39;);&#39;&#34;&gt; Add to cart &lt;/a&gt; When customer clicks on Add To Cart button it will trigger addItemToCart(sku) JavaScript function passing the product SKU value.
-Now create jcart-site/src/main/resources/static/assets/js/app.js and implement addItemToCart(sku) function as follows:
-function addItemToCart(sku) { $.ajax ({ url: &#39;/cart/items&#39;, type: &#34;POST&#34;, dataType: &#34;json&#34;, contentType: &#34;application/json&#34;, data : &#39;{&#34;sku&#34;:&#34;&#39;+ sku +&#39;&#34;}&#34;&#39;, complete: function(responseData, status, xhttp){ updateCartItemCount();	} }); }  This function triggers an Ajax call to url &#8216;/cart/items&#8217; using jQuery and if it is successful we are calling another JavaScript function updateCartItemCount().</p>
-                    <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-add-item-to-cart/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -678,11 +676,11 @@ function addItemToCart(sku) { $.ajax ({ url: &#39;/cart/items&#39;, type: &#34;P
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2019/10/spring-boot-testing/">Testing SpringBoot Applications</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/">Kafka Tutorial - Producer and Consumer using SpringBoot</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-java-producer-consumer/">Kafka Tutorial - Java Producer and Consumer</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/05/spring-boot-best-practices/">SpringBoot Best Practices</a></li>
         <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</a></li>
     </ul>
 
 </aside>
@@ -813,6 +811,8 @@ function addItemToCart(sku) { $.ajax ({ url: &#39;/cart/items&#39;, type: &#34;P
                href="/tags/spring" title="spring">spring</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"

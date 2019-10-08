@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - Testing SpringBoot Applications">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - Testing SpringBoot Applications </title>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sivalabs.github.io/images/spring-boot-1.png"/>
+
+<meta name="twitter:title" content="Testing SpringBoot Applications"/>
+<meta name="twitter:description" content="SpringBoot is the most popular tech stack for building Java based REST APIs. In this tutorial we will learn how to write tests for SpringBoot applications.
+ Create SpringBoot Application Unit Testing using JUnit 5 and Mockito Integration Testing using TestContainers Testing MicroService Integrations using MockServer  As we all know, we write unit tests for testing single component (a class) behaviour where as we write integration tests for testing a feature which may involve interaction with multiple components."/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="Testing SpringBoot Applications" />
+<meta property="og:description" content="SpringBoot is the most popular tech stack for building Java based REST APIs. In this tutorial we will learn how to write tests for SpringBoot applications.
+ Create SpringBoot Application Unit Testing using JUnit 5 and Mockito Integration Testing using TestContainers Testing MicroService Integrations using MockServer  As we all know, we write unit tests for testing single component (a class) behaviour where as we write integration tests for testing a feature which may involve interaction with multiple components." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sivalabs.github.io/2019/10/spring-boot-testing/" />
+
+<meta property="og:image" content="https://sivalabs.github.io/images/spring-boot-1.png" />
+<meta property="article:published_time" content="2019-10-07T07:59:17&#43;05:30"/>
+<meta property="article:modified_time" content="2019-10-07T07:59:17&#43;05:30"/>
+
+    
+<meta itemprop="name" content="Testing SpringBoot Applications">
+<meta itemprop="description" content="SpringBoot is the most popular tech stack for building Java based REST APIs. In this tutorial we will learn how to write tests for SpringBoot applications.
+ Create SpringBoot Application Unit Testing using JUnit 5 and Mockito Integration Testing using TestContainers Testing MicroService Integrations using MockServer  As we all know, we write unit tests for testing single component (a class) behaviour where as we write integration tests for testing a feature which may involve interaction with multiple components.">
+
+
+<meta itemprop="datePublished" content="2019-10-07T07:59:17&#43;05:30" />
+<meta itemprop="dateModified" content="2019-10-07T07:59:17&#43;05:30" />
+<meta itemprop="wordCount" content="3396">
+
+  <meta itemprop="image" content="https://sivalabs.github.io/images/spring-boot-1.png">
+
+
+
+<meta itemprop="keywords" content="Spring, SpringBoot, Testing," />
+
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+
+    
+
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+<main id="main" class="site-main" role="main">
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2019/10/spring-boot-testing/" rel="bookmark">
+                <time class="entry-date published" datetime="2019-10-07T07:59:17">
+                October 07, 2019
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2019/10/spring-boot-testing/" rel="bookmark">
+            Testing SpringBoot Applications
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/spring-springboot-testing/">Spring, SpringBoot, Testing</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+        <div class="entry-content">
+            
+
+<p><strong>SpringBoot</strong> is the most popular tech stack for building Java based REST APIs.
+In this tutorial we will learn how to write tests for SpringBoot applications.</p>
+
+<ul>
+<li>Create SpringBoot Application</li>
+<li>Unit Testing using <a href="https://junit.org/junit5/docs/current/user-guide/">JUnit 5</a> and <a href="https://site.mockito.org/">Mockito</a></li>
+<li>Integration Testing using <a href="https://www.testcontainers.org/">TestContainers</a></li>
+<li>Testing MicroService Integrations using <a href="http://www.mock-server.com/">MockServer</a></li>
+</ul>
+
+<p>As we all know, we write unit tests for testing single component (a class) behaviour
+where as we write integration tests for testing a feature which may involve interaction with multiple components.</p>
+
+<p>Most of the times one component will depend on other component(s), so while implementing unit tests we should mock
+the dependencies with the desired behaviour using frameworks like <a href="https://site.mockito.org/">Mockito</a>.</p>
+
+<p>So, the question is how do we implement Unit Tests and Integration tests in SpringBoot application? Read on :-)</p>
+
+<blockquote>
+<p>Sample application Code for this article can be found at <a href="https://github.com/sivaprasadreddy/spring-boot-tutorials/tree/master/testing/springboot-testing-demo">https://github.com/sivaprasadreddy/spring-boot-tutorials/tree/master/testing/springboot-testing-demo</a></p>
+</blockquote>
+
+<h2 id="create-springboot-application">Create SpringBoot Application</h2>
+
+<p>Let us consider a scenario where we are building a REST API to manage users.
+If we follow typical 3-tier layered architecture we might have JPA entity <strong>User</strong>, Spring Data JPA Repository <strong>UserRepository</strong>,
+<strong>UserService</strong> and <strong>UserController</strong> implementing CRUD operations as follows:</p>
+
+<p>First of all, create a SpringBoot application with the following dependencies:</p>
+
+<h4 id="pom-xml">pom.xml</h4>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+		 <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+	<span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0
+</span><span style="color:#e6db74">	http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+	<span style="color:#f92672">&lt;groupId&gt;</span>com.sivalabs<span style="color:#f92672">&lt;/groupId&gt;</span>
+	<span style="color:#f92672">&lt;artifactId&gt;</span>springboot-testing-demo<span style="color:#f92672">&lt;/artifactId&gt;</span>
+	<span style="color:#f92672">&lt;packaging&gt;</span>jar<span style="color:#f92672">&lt;/packaging&gt;</span>
+	<span style="color:#f92672">&lt;version&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+	<span style="color:#f92672">&lt;name&gt;</span>springboot-testing-demo<span style="color:#f92672">&lt;/name&gt;</span>
+
+	<span style="color:#f92672">&lt;parent&gt;</span>
+		<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+		<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#f92672">&lt;/artifactId&gt;</span>
+		<span style="color:#f92672">&lt;version&gt;</span>2.1.8.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+		<span style="color:#f92672">&lt;relativePath/&gt;</span> <span style="color:#75715e">&lt;!-- lookup parent from repository --&gt;</span>
+	<span style="color:#f92672">&lt;/parent&gt;</span>
+    
+	<span style="color:#f92672">&lt;properties&gt;</span>
+		<span style="color:#f92672">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+		<span style="color:#f92672">&lt;java.version&gt;</span>1.8<span style="color:#f92672">&lt;/java.version&gt;</span>
+	<span style="color:#f92672">&lt;/properties&gt;</span>
+
+	<span style="color:#f92672">&lt;build&gt;</span>
+		<span style="color:#f92672">&lt;plugins&gt;</span>						
+			<span style="color:#f92672">&lt;plugin&gt;</span>
+                <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+                <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+			<span style="color:#f92672">&lt;/plugin&gt;</span>
+			<span style="color:#f92672">&lt;plugin&gt;</span>
+				<span style="color:#f92672">&lt;artifactId&gt;</span>maven-failsafe-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+			<span style="color:#f92672">&lt;/plugin&gt;</span>
+		<span style="color:#f92672">&lt;/plugins&gt;</span>
+	<span style="color:#f92672">&lt;/build&gt;</span>
+
+	<span style="color:#f92672">&lt;dependencies&gt;</span>
+		<span style="color:#f92672">&lt;dependency&gt;</span>
+			<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+			<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span style="color:#f92672">&lt;/artifactId&gt;</span>
+		<span style="color:#f92672">&lt;/dependency&gt;</span>
+		<span style="color:#f92672">&lt;dependency&gt;</span>
+			<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+			<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+		<span style="color:#f92672">&lt;/dependency&gt;</span>
+		<span style="color:#f92672">&lt;dependency&gt;</span>
+			<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+			<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span style="color:#f92672">&lt;/artifactId&gt;</span>
+		<span style="color:#f92672">&lt;/dependency&gt;</span>
+		<span style="color:#f92672">&lt;dependency&gt;</span>
+	        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+	        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-devtools<span style="color:#f92672">&lt;/artifactId&gt;</span>
+	        <span style="color:#f92672">&lt;optional&gt;</span>true<span style="color:#f92672">&lt;/optional&gt;</span>
+	    <span style="color:#f92672">&lt;/dependency&gt;</span>
+		<span style="color:#f92672">&lt;dependency&gt;</span>
+			<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+			<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#f92672">&lt;/artifactId&gt;</span>
+			<span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+		<span style="color:#f92672">&lt;/dependency&gt;</span>
+		<span style="color:#f92672">&lt;dependency&gt;</span>
+			<span style="color:#f92672">&lt;groupId&gt;</span>org.projectlombok<span style="color:#f92672">&lt;/groupId&gt;</span>
+			<span style="color:#f92672">&lt;artifactId&gt;</span>lombok<span style="color:#f92672">&lt;/artifactId&gt;</span>
+			<span style="color:#f92672">&lt;optional&gt;</span>true<span style="color:#f92672">&lt;/optional&gt;</span>
+		<span style="color:#f92672">&lt;/dependency&gt;</span>
+		<span style="color:#f92672">&lt;dependency&gt;</span>
+			<span style="color:#f92672">&lt;groupId&gt;</span>com.h2database<span style="color:#f92672">&lt;/groupId&gt;</span>
+			<span style="color:#f92672">&lt;artifactId&gt;</span>h2<span style="color:#f92672">&lt;/artifactId&gt;</span>
+			<span style="color:#f92672">&lt;scope&gt;</span>runtime<span style="color:#f92672">&lt;/scope&gt;</span>
+		<span style="color:#f92672">&lt;/dependency&gt;</span>
+		<span style="color:#f92672">&lt;dependency&gt;</span>
+			<span style="color:#f92672">&lt;groupId&gt;</span>org.postgresql<span style="color:#f92672">&lt;/groupId&gt;</span>
+			<span style="color:#f92672">&lt;artifactId&gt;</span>postgresql<span style="color:#f92672">&lt;/artifactId&gt;</span>
+			<span style="color:#f92672">&lt;scope&gt;</span>runtime<span style="color:#f92672">&lt;/scope&gt;</span>
+		<span style="color:#f92672">&lt;/dependency&gt;</span>
+	<span style="color:#f92672">&lt;/dependencies&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
+
+<p>By default <strong>spring-boot-starter-test</strong> comes with <strong>JUnit 4</strong> as testing framework.
+We can <strong>exclude JUnit4</strong> and <strong>add JUnit 5</strong> dependencies as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependencies&gt;</span>
+    <span style="color:#f92672">&lt;dependency&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+        <span style="color:#f92672">&lt;exclusions&gt;</span>
+            <span style="color:#f92672">&lt;exclusion&gt;</span>
+                <span style="color:#f92672">&lt;groupId&gt;</span>junit<span style="color:#f92672">&lt;/groupId&gt;</span>
+                <span style="color:#f92672">&lt;artifactId&gt;</span>junit<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;/exclusion&gt;</span>
+        <span style="color:#f92672">&lt;/exclusions&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.junit.jupiter<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>junit-jupiter-engine<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.junit.jupiter<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>junit-jupiter-params<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+<span style="color:#f92672">&lt;/dependencies&gt;</span></code></pre></div>
+
+<p>Let us create JPA entity, repository, service and controller for User as follows:</p>
+
+<h4 id="user-java">User.java</h4>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.entities<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> lombok.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.persistence.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.validation.constraints.NotEmpty<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.io.Serializable<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Entity</span>
+<span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;users&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Setter</span>
+<span style="color:#a6e22e">@Getter</span>
+<span style="color:#a6e22e">@NoArgsConstructor</span>
+<span style="color:#a6e22e">@AllArgsConstructor</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">implements</span> Serializable
+<span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Id</span>
+	<span style="color:#a6e22e">@GeneratedValue</span><span style="color:#f92672">(</span>strategy <span style="color:#f92672">=</span> GenerationType<span style="color:#f92672">.</span><span style="color:#a6e22e">IDENTITY</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
+
+	<span style="color:#a6e22e">@NotEmpty</span><span style="color:#f92672">(</span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Email should not be empty&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> unique <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> length <span style="color:#f92672">=</span> 100<span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String email<span style="color:#f92672">;</span>
+
+	<span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> length <span style="color:#f92672">=</span> 100<span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String password<span style="color:#f92672">;</span>
+
+	<span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> length <span style="color:#f92672">=</span> 100<span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span></code></pre></div>
+
+<h4 id="userrepository-java">UserRepository.java</h4>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.repositories<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.data.jpa.repository.JpaRepository<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.entities.User<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.data.jpa.repository.Query<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Optional<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserRepository</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">,</span> Long<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Query</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;select u from User u where u.email=?1 and u.password=?2&#34;</span><span style="color:#f92672">)</span>
+	Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">login</span><span style="color:#f92672">(</span>String email<span style="color:#f92672">,</span> String password<span style="color:#f92672">);</span>
+
+    Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByEmail</span><span style="color:#f92672">(</span>String email<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<h4 id="userservice-java">UserService.java</h4>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.services<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.sivalabs.myservice.exception.UserRegistrationException<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.repositories.UserRepository<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.stereotype.Service<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.transaction.annotation.Transactional<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.entities.User<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Optional<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Service</span>
+<span style="color:#a6e22e">@Transactional</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserService</span> 
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> UserRepository userRepository<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UserService</span><span style="color:#f92672">(</span>UserRepository userRepository<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userRepository</span> <span style="color:#f92672">=</span> userRepository<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#66d9ef">public</span> Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">login</span><span style="color:#f92672">(</span>String email<span style="color:#f92672">,</span> String password<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">login</span><span style="color:#f92672">(</span>email<span style="color:#f92672">,</span> password<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">createUser</span><span style="color:#f92672">(</span>User user<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> userOptional <span style="color:#f92672">=</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findByEmail</span><span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">());</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>userOptional<span style="color:#f92672">.</span><span style="color:#a6e22e">isPresent</span><span style="color:#f92672">()){</span>
+			<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UserRegistrationException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;User with email &#34;</span><span style="color:#f92672">+</span> user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">()+</span><span style="color:#e6db74">&#34; already exists&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">return</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">updateUser</span><span style="color:#f92672">(</span>User user<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    	<span style="color:#66d9ef">return</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#66d9ef">public</span> Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    	<span style="color:#66d9ef">return</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findById</span><span style="color:#f92672">(</span>id<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteUserById</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    	userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteById</span><span style="color:#f92672">(</span>id<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+	
+<span style="color:#f92672">}</span></code></pre></div>
+
+<h4 id="usercontroller-java">UserController.java</h4>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.sivalabs.myservice.entities.User<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.services.UserService<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> lombok.extern.slf4j.Slf4j<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.http.HttpStatus<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.http.ResponseEntity<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.validation.annotation.Validated<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@RestController</span>
+<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Slf4j</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserController</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> UserService userService<span style="color:#f92672">;</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UserController</span><span style="color:#f92672">(</span>UserService userService<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userService</span> <span style="color:#f92672">=</span> userService<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@GetMapping</span>
+	<span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllUsers</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/{id}&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getUserById</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span> Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>id<span style="color:#f92672">)</span>
+				<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>ResponseEntity:<span style="color:#f92672">:</span>ok<span style="color:#f92672">)</span>
+				<span style="color:#f92672">.</span><span style="color:#a6e22e">orElseGet</span><span style="color:#f92672">(()</span> <span style="color:#f92672">-&gt;</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">notFound</span><span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@PostMapping</span>
+	<span style="color:#a6e22e">@ResponseStatus</span><span style="color:#f92672">(</span>HttpStatus<span style="color:#f92672">.</span><span style="color:#a6e22e">CREATED</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">createUser</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestBody</span> <span style="color:#a6e22e">@Validated</span> User user<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> userService<span style="color:#f92672">.</span><span style="color:#a6e22e">createUser</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@PutMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/{id}&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">updateUser</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span> Long id<span style="color:#f92672">,</span> <span style="color:#a6e22e">@RequestBody</span> User user<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>id<span style="color:#f92672">)</span>
+				<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>userObj <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+					user<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>id<span style="color:#f92672">);</span>
+					<span style="color:#66d9ef">return</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">updateUser</span><span style="color:#f92672">(</span>user<span style="color:#f92672">));</span>
+				<span style="color:#f92672">})</span>
+				<span style="color:#f92672">.</span><span style="color:#a6e22e">orElseGet</span><span style="color:#f92672">(()</span> <span style="color:#f92672">-&gt;</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">notFound</span><span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
+
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@DeleteMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/{id}&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">deleteUser</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span> Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>id<span style="color:#f92672">)</span>
+				<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>user <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+					userService<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteUserById</span><span style="color:#f92672">(</span>id<span style="color:#f92672">);</span>
+					<span style="color:#66d9ef">return</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+				<span style="color:#f92672">})</span>
+				<span style="color:#f92672">.</span><span style="color:#a6e22e">orElseGet</span><span style="color:#f92672">(()</span> <span style="color:#f92672">-&gt;</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">notFound</span><span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Nothing too fancy here, typical CRUD operations in SpringBoot application.</p>
+
+<h3 id="exceptionhandling-using-zalando-problem-web">ExceptionHandling using Zalando Problem Web</h3>
+
+<p>We are going to use <a href="https://github.com/zalando/problem-spring-web">Zalando Problem Web</a> <a href="https://github.com/zalando/problem-spring-web/tree/master/problem-spring-web">SpringBoot starter</a> to handle
+Exceptions so that it will automatically convert the application errors into JSON responses.</p>
+
+<p>Just adding the following dependency is enough to start using Zalando Problem Web, and of course you can customize it if you want to.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;problem-spring-web.version&gt;</span>0.25.0<span style="color:#f92672">&lt;/problem-spring-web.version&gt;</span>
+...
+...
+<span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.zalando<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>problem-spring-web-starter<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>${problem-spring-web.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;type&gt;</span>pom<span style="color:#f92672">&lt;/type&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
+
+<p>Now let us see how we can write Unit Tests and Integration Tests for this functionality.</p>
+
+<h2 id="unit-testing-using-junit-5-and-mockito">Unit Testing using JUnit 5 and Mockito</h2>
+
+<p>Let us start writing unit tests for <strong>UserService</strong>.
+<em>We should be able to write unit tests for UserService WITHOUT using any Spring features</em>.</p>
+
+<p>We are going to create a mock <strong>UserRepository</strong> using <strong>Mockito.mock()</strong> and create UserService instance using the mock UserRepository instance.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.services<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.sivalabs.myservice.entities.User<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.exception.UserRegistrationException<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.repositories.UserRepository<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.jupiter.api.BeforeEach<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.jupiter.api.Test<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.Optional<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import static</span> org.assertj.core.api.Assertions.assertThat<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.junit.jupiter.api.Assertions.assertThrows<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.mockito.ArgumentMatchers.any<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.mockito.BDDMockito.given<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.mockito.Mockito.*<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserServiceTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> UserService userService<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> UserRepository userRepository<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@BeforeEach</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUp</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        userRepository <span style="color:#f92672">=</span> mock<span style="color:#f92672">(</span>UserRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        userService <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> UserService<span style="color:#f92672">(</span>userRepository<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldSavedUserSuccessfully</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;siva@gmail.com&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;siva&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Siva&#34;</span><span style="color:#f92672">);</span>
+        given<span style="color:#f92672">(</span>userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findByEmail</span><span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span>Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">());</span>
+        given<span style="color:#f92672">(</span>userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)).</span><span style="color:#a6e22e">willAnswer</span><span style="color:#f92672">(</span>invocation <span style="color:#f92672">-&gt;</span> invocation<span style="color:#f92672">.</span><span style="color:#a6e22e">getArgument</span><span style="color:#f92672">(</span>0<span style="color:#f92672">));</span>
+
+        User savedUser <span style="color:#f92672">=</span> userService<span style="color:#f92672">.</span><span style="color:#a6e22e">createUser</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+
+        assertThat<span style="color:#f92672">(</span>savedUser<span style="color:#f92672">).</span><span style="color:#a6e22e">isNotNull</span><span style="color:#f92672">();</span>
+
+        verify<span style="color:#f92672">(</span>userRepository<span style="color:#f92672">).</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>any<span style="color:#f92672">(</span>User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldThrowErrorWhenSaveUserWithExistingEmail</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>1L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;siva@gmail.com&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;siva&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Siva&#34;</span><span style="color:#f92672">);</span>
+        given<span style="color:#f92672">(</span>userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findByEmail</span><span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span>Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>user<span style="color:#f92672">));</span>
+
+        assertThrows<span style="color:#f92672">(</span>UserRegistrationException<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> <span style="color:#f92672">()</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+            userService<span style="color:#f92672">.</span><span style="color:#a6e22e">createUser</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+        <span style="color:#f92672">});</span>
+
+        verify<span style="color:#f92672">(</span>userRepository<span style="color:#f92672">,</span> never<span style="color:#f92672">()).</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>any<span style="color:#f92672">(</span>User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>I have created <strong>UserRepository</strong> mock object and <strong>UserService</strong> instance in <strong>@BeforeEach</strong> method so that every test has a clean setup.
+Here we are not using any Spring or SpringBoot testing features such as <strong>@SpringBootTest</strong> because we don&rsquo;t have to for testing the behaviour of UserService.</p>
+
+<p>I am not going to write tests for other methods because they are simply delegating the calls to <strong>UserRepository</strong>.</p>
+
+<p>If you prefer to use annotations magic to create mock <strong>UserRepository</strong> and inject that mock into <strong>UserService</strong>,
+you can use <strong>mockito-junit-jupiter</strong> as follows:</p>
+
+<p>Add <strong>mockito-junit-jupiter</strong> dependency</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.mockito<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>mockito-junit-jupiter<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
+
+<p>Use <strong>@Mock</strong> and <strong>@InjectMocks</strong> to create and inject mock objects as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.junit.jupiter.api.extension.ExtendWith<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.mockito.InjectMocks<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.mockito.Mock<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.mockito.junit.jupiter.MockitoExtension<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@ExtendWith</span><span style="color:#f92672">(</span>MockitoExtension<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserServiceAnnotatedTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Mock</span>
+    <span style="color:#66d9ef">private</span> UserRepository userRepository<span style="color:#f92672">;</span>
+        
+    <span style="color:#a6e22e">@InjectMocks</span>
+    <span style="color:#66d9ef">private</span> UserService userService<span style="color:#f92672">;</span>
+
+    <span style="color:#f92672">...</span>
+    <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<h3 id="now-shall-we-write-tests-for-userrepository-hmmmm">Now, shall we write tests for UserRepository? hmmmm&hellip;</h3>
+
+<p>The <strong>UserRepository</strong> is an interface extending <strong>JpaRepository</strong> and there is hardly any logic we implemented and
+we shouldn&rsquo;t be testing Spring Data JPA framework as I strongly believe Spring Data JPA team already tested it :-)</p>
+
+<p>However, we added a couple of custom methods, one leveraging Query naming convention <strong>findByEmail()</strong> and another with custom JPQL query <strong>login()</strong>.
+We should test these methods. If there are any syntactic errors Spring Data JPA throw errors on startup but we should test the logical errors by ourselves.</p>
+
+<p>We could implement tests for <strong>UserRepository</strong> using SpringBoot&rsquo;s <strong>@DataJpaTest</strong> annotation with <strong>In-memory database support</strong>.
+But running tests against in-memory database might give a false impression that it will also work on real production database as well.
+So, I prefer to run tests against the production database type, in our case Postgresql.</p>
+
+<p>We can use <a href="https://www.testcontainers.org/modules/databases/postgres/">TestContainers support to spin up a postgresql</a> docker container and run the tests pointing to that database.
+However I consider this as an Integration Test rather than Unit Test as we are talking to a real database.
+So, we will see how to write Integration tests for UserRepository later.</p>
+
+<h3 id="what-about-unit-tests-for-controller">What about unit tests for Controller?</h3>
+
+<p>Yes, I want to write unit tests for controller and I want to check whether the REST endpoint is giving the proper
+HTTP ResponseCode or not, returning the expected JSON or not etc.</p>
+
+<p>SpringBoot provides <strong>@WebMvcTest</strong> annotation to test Spring MVC Controllers.
+Also, <strong>@WebMvcTest</strong> based tests runs faster as it will load only the specified controller and its dependencies only without loading the entire application.</p>
+
+<p>While loading the Controller using <strong>@WebMvcTest</strong> SpringBoot won&rsquo;t automatically load Zalando Problem Web AutoConfiguration.
+So, we need to configure <strong>ControllerAdvice</strong> as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.common<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Profile<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.ControllerAdvice<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.zalando.problem.spring.web.advice.ProblemHandling<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Profile</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@ControllerAdvice</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExceptionHandling</span> <span style="color:#66d9ef">implements</span> ProblemHandling <span style="color:#f92672">{</span>
+
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Now we can write tests for <strong>UserController</strong> by injecting a Mock <strong>UserService</strong> bean and invoke API endpoints using <strong>MockMvc</strong>.</p>
+
+<p>As SpringBoot is creating the <strong>UserController</strong> instance we are creating mock <strong>UserService</strong> bean using Spring&rsquo;s <strong>@MockBean</strong> as opposed to plain Mockito&rsquo;s <strong>@Mock</strong>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.entities.User<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.services.UserService<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.jupiter.api.BeforeEach<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.jupiter.api.Test<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.mock.mockito.MockBean<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.http.MediaType<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.context.ActiveProfiles<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.web.servlet.MockMvc<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.zalando.problem.ProblemModule<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.zalando.problem.violations.ConstraintViolationProblemModule<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Optional<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import static</span> org.hamcrest.CoreMatchers.is<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.hamcrest.Matchers.hasSize<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.mockito.ArgumentMatchers.any<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.mockito.BDDMockito.given<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.mockito.Mockito.doNothing<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.*<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@WebMvcTest</span><span style="color:#f92672">(</span>controllers <span style="color:#f92672">=</span> UserController<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@ActiveProfiles</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserControllerTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> MockMvc mockMvc<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@MockBean</span>
+    <span style="color:#66d9ef">private</span> UserService userService<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> ObjectMapper objectMapper<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> userList<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@BeforeEach</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUp</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userList</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>1L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user1@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd1&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;User1&#34;</span><span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>2L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user2@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd2&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;User2&#34;</span><span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>3L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user3@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd3&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;User3&#34;</span><span style="color:#f92672">));</span>
+
+        objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">registerModule</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ProblemModule<span style="color:#f92672">());</span>
+        objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">registerModule</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ConstraintViolationProblemModule<span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldFetchAllUsers</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findAllUsers</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userList</span><span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users&#34;</span><span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.size()&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>userList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">())));</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldFindUserById</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        Long userId <span style="color:#f92672">=</span> 1L<span style="color:#f92672">;</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>userId<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;newuser1@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Name&#34;</span><span style="color:#f92672">);</span>
+        given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>userId<span style="color:#f92672">)).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span>Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>user<span style="color:#f92672">));</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users/{id}&#34;</span><span style="color:#f92672">,</span> userId<span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.email&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.password&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())))</span>
+        <span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldReturn404WhenFetchingNonExistingUser</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        Long userId <span style="color:#f92672">=</span> 1L<span style="color:#f92672">;</span>
+        given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>userId<span style="color:#f92672">)).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span>Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">());</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users/{id}&#34;</span><span style="color:#f92672">,</span> userId<span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isNotFound</span><span style="color:#f92672">());</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldCreateNewUser</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">createUser</span><span style="color:#f92672">(</span>any<span style="color:#f92672">(</span>User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">))).</span><span style="color:#a6e22e">willAnswer</span><span style="color:#f92672">((</span>invocation<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> invocation<span style="color:#f92672">.</span><span style="color:#a6e22e">getArgument</span><span style="color:#f92672">(</span>0<span style="color:#f92672">));</span>
+
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;newuser1@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Name&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON_UTF8</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span>objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isCreated</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.email&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.password&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">;</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldReturn400WhenCreateNewUserWithoutEmail</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Name&#34;</span><span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON_UTF8</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span>objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isBadRequest</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>header<span style="color:#f92672">().</span><span style="color:#a6e22e">string</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;application/problem+json&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://zalando.github.io/problem/constraint-violation&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.title&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Constraint Violation&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.status&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>400<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.violations&#34;</span><span style="color:#f92672">,</span> hasSize<span style="color:#f92672">(</span>1<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.violations[0].field&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;email&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.violations[0].message&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Email should not be empty&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">()</span>
+        <span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldUpdateUser</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        Long userId <span style="color:#f92672">=</span> 1L<span style="color:#f92672">;</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>userId<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user1@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Name&#34;</span><span style="color:#f92672">);</span>
+        given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>userId<span style="color:#f92672">)).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span>Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>user<span style="color:#f92672">));</span>
+        given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">updateUser</span><span style="color:#f92672">(</span>any<span style="color:#f92672">(</span>User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">))).</span><span style="color:#a6e22e">willAnswer</span><span style="color:#f92672">((</span>invocation<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> invocation<span style="color:#f92672">.</span><span style="color:#a6e22e">getArgument</span><span style="color:#f92672">(</span>0<span style="color:#f92672">));</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>put<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users/{id}&#34;</span><span style="color:#f92672">,</span> user<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON_UTF8</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span>objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.email&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.password&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())));</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldReturn404WhenUpdatingNonExistingUser</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        Long userId <span style="color:#f92672">=</span> 1L<span style="color:#f92672">;</span>
+        given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>userId<span style="color:#f92672">)).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span>Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">());</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>userId<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user1@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Name&#34;</span><span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>put<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users/{id}&#34;</span><span style="color:#f92672">,</span> userId<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON_UTF8</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span>objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isNotFound</span><span style="color:#f92672">());</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldDeleteUser</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        Long userId <span style="color:#f92672">=</span> 1L<span style="color:#f92672">;</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>userId<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user1@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Name&#34;</span><span style="color:#f92672">);</span>
+        given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>userId<span style="color:#f92672">)).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span>Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>user<span style="color:#f92672">));</span>
+        doNothing<span style="color:#f92672">().</span><span style="color:#a6e22e">when</span><span style="color:#f92672">(</span>userService<span style="color:#f92672">).</span><span style="color:#a6e22e">deleteUserById</span><span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>delete<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users/{id}&#34;</span><span style="color:#f92672">,</span> user<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">()))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.email&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.password&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())));</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldReturn404WhenDeletingNonExistingUser</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        Long userId <span style="color:#f92672">=</span> 1L<span style="color:#f92672">;</span>
+        given<span style="color:#f92672">(</span>userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>userId<span style="color:#f92672">)).</span><span style="color:#a6e22e">willReturn</span><span style="color:#f92672">(</span>Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">());</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>delete<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users/{id}&#34;</span><span style="color:#f92672">,</span> userId<span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isNotFound</span><span style="color:#f92672">());</span>
+
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Now we have good amount of unit tests testing various components of our application.
+But still there is a lot of chance for things to go wrong, may be we might have some property configuration issues,
+we might have some errors in our DB migration scripts etc etc.</p>
+
+<p>So, lets write Integration Tests to have more confidence that our application is running properly.</p>
+
+<h2 id="integration-testing-using-testcontainer">Integration Testing using TestContainer</h2>
+
+<p>SpringBoot provides excellent support for integration testing. We can use <strong>@SpringBootTest</strong> annotation
+to load the application context and test various components.</p>
+
+<p>Let us start with writing integration tests for <strong>UserController</strong>.
+As I mentioned earlier we want to test using postgres database instead of in-memory database.</p>
+
+<p>Add the following dependencies.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.testcontainers<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>postgresql<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.11.3<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+<span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.testcontainers<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>junit-jupiter<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.11.3<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
+
+<p>We can use TestContainers support for JUnit 5 as mentioned here <a href="https://www.testcontainers.org/test_framework_integration/junit_5/">https://www.testcontainers.org/test_framework_integration/junit_5/</a>.
+However, starting and stopping docker containers for every test or every test class might cause tests running slowly.
+So, we are going to use Singleton Containers approach mentioned at <a href="https://www.testcontainers.org/test_framework_integration/manual_lifecycle_control/#singleton-containers">https://www.testcontainers.org/test_framework_integration/manual_lifecycle_control/#singleton-containers</a></p>
+
+<p>Let us create a base class <strong>AbstractIntegrationTest</strong> so that all our integration tests can extend without repeating the common configuration.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.common<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> lombok.extern.slf4j.Slf4j<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.context.SpringBootTest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.util.TestPropertyValues<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.ApplicationContextInitializer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.ConfigurableApplicationContext<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.context.ActiveProfiles<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.context.ContextConfiguration<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.web.servlet.MockMvc<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testcontainers.containers.PostgreSQLContainer<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import static</span> org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Slf4j</span>
+<span style="color:#a6e22e">@ActiveProfiles</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@SpringBootTest</span><span style="color:#f92672">(</span>webEnvironment <span style="color:#f92672">=</span> RANDOM_PORT<span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@AutoConfigureMockMvc</span>
+<span style="color:#a6e22e">@ContextConfiguration</span><span style="color:#f92672">(</span>initializers <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>AbstractIntegrationTest<span style="color:#f92672">.</span><span style="color:#a6e22e">Initializer</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AbstractIntegrationTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">protected</span> MockMvc mockMvc<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">protected</span> ObjectMapper objectMapper<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> PostgreSQLContainer sqlContainer<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
+        sqlContainer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PostgreSQLContainer<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;postgres:10.7&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">withDatabaseName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;integration-tests-db&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">withUsername</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sa&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">withPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sa&#34;</span><span style="color:#f92672">);</span>
+        sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Initializer</span>
+            <span style="color:#66d9ef">implements</span> ApplicationContextInitializer<span style="color:#f92672">&lt;</span>ConfigurableApplicationContext<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initialize</span><span style="color:#f92672">(</span>ConfigurableApplicationContext configurableApplicationContext<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            TestPropertyValues<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>
+                    <span style="color:#e6db74">&#34;spring.datasource.url=&#34;</span> <span style="color:#f92672">+</span> sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getJdbcUrl</span><span style="color:#f92672">(),</span>
+                    <span style="color:#e6db74">&#34;spring.datasource.username=&#34;</span> <span style="color:#f92672">+</span> sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getUsername</span><span style="color:#f92672">(),</span>
+                    <span style="color:#e6db74">&#34;spring.datasource.password=&#34;</span> <span style="color:#f92672">+</span> sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">).</span><span style="color:#a6e22e">applyTo</span><span style="color:#f92672">(</span>configurableApplicationContext<span style="color:#f92672">.</span><span style="color:#a6e22e">getEnvironment</span><span style="color:#f92672">());</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>We have used <strong>@AutoConfigureMockMvc</strong> to auto-configure <strong>MockMvc</strong>,
+and <strong>@SpringBootTest(webEnvironment = RANDOM_PORT)</strong> to start the server on a random available port.</p>
+
+<p>We have started <strong>PostgreSQLContainer</strong> and used <strong>@ContextConfiguration(initializers={AbstractIntegrationTest.Initializer.class})</strong>
+to configure the dynamic database connection properties.</p>
+
+<p>Now we can implement Integration Test for <strong>UserController</strong> as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.sivalabs.myservice.common.AbstractIntegrationTest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.entities.User<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.repositories.UserRepository<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.jupiter.api.BeforeEach<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.jupiter.api.Test<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.http.MediaType<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import static</span> org.hamcrest.CoreMatchers.is<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.hamcrest.Matchers.hasSize<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.*<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserControllerIT</span> <span style="color:#66d9ef">extends</span> AbstractIntegrationTest <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> UserRepository userRepository<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> userList <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@BeforeEach</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUp</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteAll</span><span style="color:#f92672">();</span>
+
+        userList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>1L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user1@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd1&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;User1&#34;</span><span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>2L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user2@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd2&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;User2&#34;</span><span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span>3L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user3@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd3&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;User3&#34;</span><span style="color:#f92672">));</span>
+
+        userList <span style="color:#f92672">=</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">saveAll</span><span style="color:#f92672">(</span>userList<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldFetchAllUsers</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users&#34;</span><span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.size()&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>userList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">())));</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldFindUserById</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> userList<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+        Long userId <span style="color:#f92672">=</span> user<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users/{id}&#34;</span><span style="color:#f92672">,</span> userId<span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.email&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.password&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())))</span>
+        <span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldCreateNewUser</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;user@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON_UTF8</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span>objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isCreated</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.email&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.password&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())));</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldReturn400WhenCreateNewUserWithoutEmail</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;pwd&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Name&#34;</span><span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON_UTF8</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span>objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isBadRequest</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>header<span style="color:#f92672">().</span><span style="color:#a6e22e">string</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;application/problem+json&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.type&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://zalando.github.io/problem/constraint-violation&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.title&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Constraint Violation&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.status&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>400<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.violations&#34;</span><span style="color:#f92672">,</span> hasSize<span style="color:#f92672">(</span>1<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.violations[0].field&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;email&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.violations[0].message&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Email should not be empty&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">()</span>
+        <span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldUpdateUser</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> userList<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;newpwd&#34;</span><span style="color:#f92672">);</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;NewName&#34;</span><span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>put<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users/{id}&#34;</span><span style="color:#f92672">,</span> user<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON_UTF8</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span>objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.email&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.password&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())));</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldDeleteUser</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> userList<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>
+                delete<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/users/{id}&#34;</span><span style="color:#f92672">,</span> user<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">()))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.email&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.password&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">())))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">())));</span>
+
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>The <strong>UserControllerIT</strong> tests looks very similar to <strong>UserControllerTest</strong> with the difference being how we load the ApplicationContext.
+While using <strong>@SpringBootTest</strong> SpringBoot will actually start the application by loading the entire application
+so that tests will fail if there is any mis-configuration.</p>
+
+<p>Next, we are going to write test for <strong>UserRepository</strong> using <strong>@DataJpaTest</strong>.
+But we want to run tests against a real database not with in-memory database.
+We can use <strong>@AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)</strong> to turn-off using in-memory database and use the configured database.</p>
+
+<p>Let us create <strong>PostgreSQLContainerInitializer</strong> so that any repository tests can use this to configure dynamic postgres database properties.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.common<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> lombok.extern.slf4j.Slf4j<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.util.TestPropertyValues<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.ApplicationContextInitializer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.ConfigurableApplicationContext<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testcontainers.containers.PostgreSQLContainer<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Slf4j</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostgreSQLContainerInitializer</span>
+        <span style="color:#66d9ef">implements</span> ApplicationContextInitializer<span style="color:#f92672">&lt;</span>ConfigurableApplicationContext<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> PostgreSQLContainer sqlContainer<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
+        sqlContainer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PostgreSQLContainer<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;postgres:10.7&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">withDatabaseName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;integration-tests-db&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">withUsername</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sa&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">withPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sa&#34;</span><span style="color:#f92672">);</span>
+        sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initialize</span> <span style="color:#f92672">(</span>ConfigurableApplicationContext configurableApplicationContext<span style="color:#f92672">){</span>
+        TestPropertyValues<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>
+                <span style="color:#e6db74">&#34;spring.datasource.url=&#34;</span> <span style="color:#f92672">+</span> sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getJdbcUrl</span><span style="color:#f92672">(),</span>
+                <span style="color:#e6db74">&#34;spring.datasource.username=&#34;</span> <span style="color:#f92672">+</span> sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getUsername</span><span style="color:#f92672">(),</span>
+                <span style="color:#e6db74">&#34;spring.datasource.password=&#34;</span> <span style="color:#f92672">+</span> sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">()</span>
+        <span style="color:#f92672">).</span><span style="color:#a6e22e">applyTo</span><span style="color:#f92672">(</span>configurableApplicationContext<span style="color:#f92672">.</span><span style="color:#a6e22e">getEnvironment</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Now we can create <strong>UserRepositoryTest</strong> as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.repositories<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.sivalabs.myservice.common.PostgreSQLContainerInitializer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.entities.User<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> lombok.extern.slf4j.Slf4j<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.jupiter.api.Test<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.context.ContextConfiguration<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.persistence.EntityManager<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Optional<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.assertj.core.api.Assertions.assertThat<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Slf4j</span>
+<span style="color:#a6e22e">@DataJpaTest</span>
+<span style="color:#a6e22e">@AutoConfigureTestDatabase</span><span style="color:#f92672">(</span>replace<span style="color:#f92672">=</span> AutoConfigureTestDatabase<span style="color:#f92672">.</span><span style="color:#a6e22e">Replace</span><span style="color:#f92672">.</span><span style="color:#a6e22e">NONE</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@ContextConfiguration</span><span style="color:#f92672">(</span>initializers <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>PostgreSQLContainerInitializer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">})</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserRepositoryTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    EntityManager entityManager<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> UserRepository userRepository<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldReturnUserGivenValidCredentials</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;test@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Test&#34;</span><span style="color:#f92672">);</span>
+        entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">persist</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+        
+        Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> userOptional <span style="color:#f92672">=</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">login</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test@gmail.com&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">);</span>
+        
+        assertThat<span style="color:#f92672">(</span>userOptional<span style="color:#f92672">).</span><span style="color:#a6e22e">isNotEmpty</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Well, I guess we learned something about how to write unit tests and integration tests using various SpringBoot features.</p>
+
+<p>We are living in Microservices world and there is a high chance that our service might talk to other microservices.
+How are we going to test those integration points? How are we going to verify the timeout scenarios?
+Well, we can certainly use a Mock object and pray GOD that it will work fine in production :-)
+Or we can use libraries like <strong>MockServer</strong> to simulate the service-to-service communication.</p>
+
+<h2 id="testing-microservice-integrations-using-mockserver">Testing MicroService Integrations using MockServer</h2>
+
+<p>Assume from our application we want to fetch GitHub profile of a user. We can use GitHub REST API to fetch the user profile.
+Also, we want to timeout the call after 2 seconds and if we don&rsquo;t get response by that time we want to return a default user response.</p>
+
+<p>We can implement this using <strong>Hystrix</strong> as follows:</p>
+
+<h4 id="application-properties">application.properties</h4>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">githuub<span style="color:#f92672">.</span><span style="color:#a6e22e">api</span><span style="color:#f92672">.</span><span style="color:#a6e22e">base</span><span style="color:#f92672">-</span>url<span style="color:#f92672">=</span>https:<span style="color:#f92672">//</span>api<span style="color:#f92672">.</span><span style="color:#a6e22e">github</span><span style="color:#f92672">.</span><span style="color:#a6e22e">com</span></code></pre></div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.config<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> lombok.Data<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Value<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.stereotype.Component<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Component</span>
+<span style="color:#a6e22e">@Data</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ApplicationProperties</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${githuub.api.base-url}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String githubBaseUrl<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Register <strong>RestTemplate</strong> bean and enable Hystrix CircuitBreaker using <strong>@EnableCircuitBreaker</strong>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.client.RestTemplate<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#a6e22e">@EnableCircuitBreaker</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Application</span>
+<span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>Application<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Bean</span>
+	<span style="color:#66d9ef">public</span> RestTemplate <span style="color:#a6e22e">restTemplate</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> RestTemplate<span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Create <strong>GithubUser</strong> class which holds response from GitHub API.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.model<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.fasterxml.jackson.annotation.JsonProperty<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> lombok.Data<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Data</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GithubUser</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String login<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String url<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#a6e22e">@JsonProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;public_repos&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> publicRepos<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> followers<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> following<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Create <strong>GithubService</strong> which talks to GitHub REST API using <strong>RestTemplate</strong> as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.services<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.config.ApplicationProperties<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.model.GithubUser<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> lombok.extern.slf4j.Slf4j<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.stereotype.Service<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.client.RestTemplate<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Service</span>
+<span style="color:#a6e22e">@Slf4j</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GithubService</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> ApplicationProperties properties<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> RestTemplate restTemplate<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">GithubService</span><span style="color:#f92672">(</span>ApplicationProperties properties<span style="color:#f92672">,</span> RestTemplate restTemplate<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span> <span style="color:#f92672">=</span> properties<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">restTemplate</span> <span style="color:#f92672">=</span> restTemplate<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@HystrixCommand</span><span style="color:#f92672">(</span>fallbackMethod <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getDefaultUser&#34;</span><span style="color:#f92672">,</span> commandProperties <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@HystrixProperty</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;execution.isolation.thread.timeoutInMilliseconds&#34;</span><span style="color:#f92672">,</span> value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2000&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">public</span> GithubUser <span style="color:#a6e22e">getGithubUserProfile</span><span style="color:#f92672">(</span>String username<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GithubBaseUrl:&#34;</span><span style="color:#f92672">+</span>properties<span style="color:#f92672">.</span><span style="color:#a6e22e">getGithubBaseUrl</span><span style="color:#f92672">());</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">restTemplate</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getForObject</span><span style="color:#f92672">(</span>properties<span style="color:#f92672">.</span><span style="color:#a6e22e">getGithubBaseUrl</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/users/&#34;</span> <span style="color:#f92672">+</span> username<span style="color:#f92672">,</span> GithubUser<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    GithubUser <span style="color:#a6e22e">getDefaultUser</span><span style="color:#f92672">(</span>String username<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;---------getDefaultUser-----------&#34;</span><span style="color:#f92672">);</span>
+        GithubUser user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GithubUser<span style="color:#f92672">();</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(-</span>1L<span style="color:#f92672">);</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setLogin</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;guest&#34;</span><span style="color:#f92672">);</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Guest&#34;</span><span style="color:#f92672">);</span>
+        user<span style="color:#f92672">.</span><span style="color:#a6e22e">setPublicRepos</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> user<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Let us create a <strong>GithubController</strong> with an endpoint to return the users GitHub profile.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.sivalabs.myservice.model.GithubUser<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sivalabs.myservice.services.GithubService<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.GetMapping<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.PathVariable<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RequestMapping<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RestController<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@RestController</span>
+<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/github&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GithubController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> GithubService githubService<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">GithubController</span><span style="color:#f92672">(</span>GithubService githubService<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">githubService</span> <span style="color:#f92672">=</span> githubService<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/users/{username}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> GithubUser <span style="color:#a6e22e">getGithubUserProfile</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span> String username<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> githubService<span style="color:#f92672">.</span><span style="color:#a6e22e">getGithubUserProfile</span><span style="color:#f92672">(</span>username<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>We can use <strong>MockServer</strong> to simulate the dependent microservice responses so that we can verify our application behaviour in various scenarios.</p>
+
+<p>We can use <a href="https://www.testcontainers.org/modules/mockserver/">TestContainers support to spin up MockServer</a> docker container as follows:</p>
+
+<p>Add the following dependencies:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.testcontainers<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>mockserver<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>1.11.3<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+<span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.mock-server<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>mockserver-netty<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>5.5.1<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
+
+<p>In <strong>AbstractIntegrationTest</strong> add <strong>MockServerContainer</strong> configuration as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.mockserver.client.MockServerClient<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testcontainers.containers.MockServerContainer<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Slf4j</span>
+<span style="color:#a6e22e">@ActiveProfiles</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@SpringBootTest</span><span style="color:#f92672">(</span>webEnvironment <span style="color:#f92672">=</span> RANDOM_PORT<span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@AutoConfigureMockMvc</span>
+<span style="color:#a6e22e">@ContextConfiguration</span><span style="color:#f92672">(</span>initializers <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>AbstractIntegrationTest<span style="color:#f92672">.</span><span style="color:#a6e22e">Initializer</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AbstractIntegrationTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#f92672">...</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> MockServerContainer mockServerContainer<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
+        <span style="color:#f92672">....</span>
+        <span style="color:#f92672">....</span>
+        mockServerContainer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MockServerContainer<span style="color:#f92672">();</span>
+        mockServerContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">protected</span> MockServerClient mockServerClient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MockServerClient<span style="color:#f92672">(</span>
+            mockServerContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getContainerIpAddress</span><span style="color:#f92672">(),</span>
+            mockServerContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getServerPort</span><span style="color:#f92672">());</span>
+
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Initializer</span>
+            <span style="color:#66d9ef">implements</span> ApplicationContextInitializer<span style="color:#f92672">&lt;</span>ConfigurableApplicationContext<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initialize</span><span style="color:#f92672">(</span>ConfigurableApplicationContext configurableApplicationContext<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            TestPropertyValues<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>
+                    <span style="color:#e6db74">&#34;spring.datasource.url=&#34;</span> <span style="color:#f92672">+</span> sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getJdbcUrl</span><span style="color:#f92672">(),</span>
+                    <span style="color:#e6db74">&#34;spring.datasource.username=&#34;</span> <span style="color:#f92672">+</span> sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getUsername</span><span style="color:#f92672">(),</span>
+                    <span style="color:#e6db74">&#34;spring.datasource.password=&#34;</span> <span style="color:#f92672">+</span> sqlContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">(),</span>
+                    <span style="color:#e6db74">&#34;githuub.api.base-url=&#34;</span> <span style="color:#f92672">+</span> mockServerContainer<span style="color:#f92672">.</span><span style="color:#a6e22e">getEndpoint</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">).</span><span style="color:#a6e22e">applyTo</span><span style="color:#f92672">(</span>configurableApplicationContext<span style="color:#f92672">.</span><span style="color:#a6e22e">getEnvironment</span><span style="color:#f92672">());</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Note that we are stating <strong>MockServerContainer</strong> and injecting the endpoint URL with <strong>&ldquo;githuub.api.base-url=&rdquo;+mockServerContainer.getEndpoint()</strong>.
+Also, we have created <strong>MockServerClient</strong> which we are going to use for setting up expected responses.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.sivalabs.myservice.common.AbstractIntegrationTest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.jupiter.api.BeforeEach<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.jupiter.api.Test<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.mockserver.model.Header<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.mockserver.verify.VerificationTimes<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.concurrent.TimeUnit<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import static</span> org.hamcrest.CoreMatchers.is<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.mockserver.model.HttpRequest.request<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.mockserver.model.HttpResponse.response<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.mockserver.model.JsonBody.json<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.status<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GithubControllerIT</span> <span style="color:#66d9ef">extends</span> AbstractIntegrationTest <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@BeforeEach</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setup</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        mockServerClient<span style="color:#f92672">.</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldGetGithubUserProfile</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        String username <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sivaprasadreddy&#34;</span><span style="color:#f92672">;</span>
+        mockGetUserFromGithub<span style="color:#f92672">(</span>username<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/github/users/{username}&#34;</span><span style="color:#f92672">,</span> username<span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.login&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>username<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;K. Siva Prasad Reddy&#34;</span><span style="color:#f92672">)))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.public_repos&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>50<span style="color:#f92672">)))</span>
+                <span style="color:#f92672">;</span>
+        verifyMockServerRequest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/users/.*&#34;</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mockGetUserFromGithub</span><span style="color:#f92672">(</span>String username<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        mockServerClient<span style="color:#f92672">.</span><span style="color:#a6e22e">when</span><span style="color:#f92672">(</span>
+            request<span style="color:#f92672">().</span><span style="color:#a6e22e">withMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">withPath</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/users/.*&#34;</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">respond</span><span style="color:#f92672">(</span>
+                response<span style="color:#f92672">()</span>
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">withStatusCode</span><span style="color:#f92672">(</span>200<span style="color:#f92672">)</span>
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">withHeaders</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Header<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;application/json; charset=utf-8&#34;</span><span style="color:#f92672">))</span>
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">withBody</span><span style="color:#f92672">(</span>json<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;{ &#34;</span> <span style="color:#f92672">+</span>
+                            <span style="color:#e6db74">&#34;\&#34;login\&#34;: \&#34;&#34;</span><span style="color:#f92672">+</span>username<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;\&#34;, &#34;</span> <span style="color:#f92672">+</span>
+                            <span style="color:#e6db74">&#34;\&#34;name\&#34;: \&#34;K. Siva Prasad Reddy\&#34;, &#34;</span> <span style="color:#f92672">+</span>
+                            <span style="color:#e6db74">&#34;\&#34;public_repos\&#34;: 50 &#34;</span> <span style="color:#f92672">+</span>
+                            <span style="color:#e6db74">&#34;}&#34;</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">verifyMockServerRequest</span><span style="color:#f92672">(</span>String method<span style="color:#f92672">,</span> String path<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> times<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        mockServerClient<span style="color:#f92672">.</span><span style="color:#a6e22e">verify</span><span style="color:#f92672">(</span>
+                request<span style="color:#f92672">()</span>
+                        <span style="color:#f92672">.</span><span style="color:#a6e22e">withMethod</span><span style="color:#f92672">(</span>method<span style="color:#f92672">)</span>
+                        <span style="color:#f92672">.</span><span style="color:#a6e22e">withPath</span><span style="color:#f92672">(</span>path<span style="color:#f92672">),</span>
+                VerificationTimes<span style="color:#f92672">.</span><span style="color:#a6e22e">exactly</span><span style="color:#f92672">(</span>times<span style="color:#f92672">)</span>
+        <span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>Note that we are setting up expected JSON response for <strong>&lt;githuub.api.base-url&gt;/users/.*</strong> URL pattern on <strong>mockServerClient</strong>.
+So, when we make a call to <strong><a href="http://localhost:8080/api/github/users/{username">http://localhost:8080/api/github/users/{username</a>}</strong> GithubController will in-turn call GithubService which makes a call to
+<strong>&lt;githuub.api.base-url&gt;/users/{username}</strong> and return the mock JSON response that we set using <strong>mockServerClient</strong>.</p>
+
+<p>We can also simulate the failures and timeout scenarios as follows:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldGetDefaultUserProfileWhenFetchingFromGithubFails</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    mockGetUserFromGithubFailure<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/github/users/{username}&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;dummy&#34;</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.login&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;guest&#34;</span><span style="color:#f92672">)))</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Guest&#34;</span><span style="color:#f92672">)))</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.public_repos&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>0<span style="color:#f92672">)))</span>
+    <span style="color:#f92672">;</span>
+    verifyMockServerRequest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/users/.*&#34;</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldGetDefaultUserProfileWhenFetchingFromGithubTimeout</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    mockGetUserFromGithubDelayResponse<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/api/github/users/{username}&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;dummy&#34;</span><span style="color:#f92672">))</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">().</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">())</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.login&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;guest&#34;</span><span style="color:#f92672">)))</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.name&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Guest&#34;</span><span style="color:#f92672">)))</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>jsonPath<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;$.public_repos&#34;</span><span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>0<span style="color:#f92672">)))</span>
+    <span style="color:#f92672">;</span>
+    verifyMockServerRequest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/users/.*&#34;</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mockGetUserFromGithubDelayResponse</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    mockServerClient<span style="color:#f92672">.</span><span style="color:#a6e22e">when</span><span style="color:#f92672">(</span>
+        request<span style="color:#f92672">().</span><span style="color:#a6e22e">withMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">withPath</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/users/.*&#34;</span><span style="color:#f92672">))</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">respond</span><span style="color:#f92672">(</span>response<span style="color:#f92672">().</span><span style="color:#a6e22e">withStatusCode</span><span style="color:#f92672">(</span>200<span style="color:#f92672">).</span><span style="color:#a6e22e">withDelay</span><span style="color:#f92672">(</span>TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">,</span> 10<span style="color:#f92672">));</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mockGetUserFromGithubFailure</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    mockServerClient<span style="color:#f92672">.</span><span style="color:#a6e22e">when</span><span style="color:#f92672">(</span>
+        request<span style="color:#f92672">().</span><span style="color:#a6e22e">withMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">withPath</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/users/.*&#34;</span><span style="color:#f92672">))</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">respond</span><span style="color:#f92672">(</span>response<span style="color:#f92672">().</span><span style="color:#a6e22e">withStatusCode</span><span style="color:#f92672">(</span>404<span style="color:#f92672">));</span>
+<span style="color:#f92672">}</span></code></pre></div>
+
+<p>In <strong>shouldGetDefaultUserProfileWhenFetchingFromGithubFails()</strong> test we are setting up the mockServer to respond
+with <strong>404 error</strong> to verify <strong>Hystrix fallback</strong> method is working or not.</p>
+
+<p>Similarly, In shouldGetDefaultUserProfileWhenFetchingFromGithubTimeout() test we are setting up the mockServer to respond
+with <strong>delay of 10 SECONDS</strong> to verify whether <strong>Hystrix timeout</strong> is working or not.</p>
+
+<p>Make sure to reset <strong>mockServerClient</strong> using <strong>mockServerClient.reset()</strong> for every test in <strong>@BeforeEach</strong> method to reset any expectations set in previous test run.</p>
+
+<blockquote>
+<p>Sample application Code for this article can be found at <a href="https://github.com/sivaprasadreddy/spring-boot-tutorials/tree/master/testing/springboot-testing-demo">https://github.com/sivaprasadreddy/spring-boot-tutorials/tree/master/testing/springboot-testing-demo</a></p>
+</blockquote>
+
+<p>I hope we have covered many common testing scenarios in SpringBoot applications.</p>
+
+<p>Thank you reading the article, your feedback is welcome.
+If you find this article useful please share it on Twitter.</p>
+
+        </div>
+        <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=Testing%20SpringBoot%20Applications-https%3a%2f%2fsivalabs.github.io%2f2019%2f10%2fspring-boot-testing%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2019%2f10%2fspring-boot-testing%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2019%2f10%2fspring-boot-testing%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2019%2f10%2fspring-boot-testing%2f&title=Testing%20SpringBoot%20Applications" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2019%2f10%2fspring-boot-testing%2f&title=Testing%20SpringBoot%20Applications" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+</article>
+
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-next">
+			<a href="/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/" rel="prev">
+                <span class="post-title">Kafka Tutorial - Producer and Consumer using SpringBoot
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2019/10/spring-boot-testing/">Testing SpringBoot Applications</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/">Kafka Tutorial - Producer and Consumer using SpringBoot</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-java-producer-consumer/">Kafka Tutorial - Java Producer and Consumer</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2019/05/spring-boot-best-practices/">SpringBoot Best Practices</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+        <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="android">android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="best-practices">best-practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="blog">blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="blogging">blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>

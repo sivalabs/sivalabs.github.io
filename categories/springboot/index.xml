@@ -6,10 +6,20 @@
     <description>Recent content in SpringBoot on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 May 2019 07:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 07 Oct 2019 07:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/categories/springboot/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Testing SpringBoot Applications</title>
+      <link>https://sivalabs.github.io/2019/10/spring-boot-testing/</link>
+      <pubDate>Mon, 07 Oct 2019 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2019/10/spring-boot-testing/</guid>
+      <description>SpringBoot is the most popular tech stack for building Java based REST APIs. In this tutorial we will learn how to write tests for SpringBoot applications.
+ Create SpringBoot Application Unit Testing using JUnit 5 and Mockito Integration Testing using TestContainers Testing MicroService Integrations using MockServer  As we all know, we write unit tests for testing single component (a class) behaviour where as we write integration tests for testing a feature which may involve interaction with multiple components.</description>
+    </item>
     
     <item>
       <title>SpringBoot Best Practices</title>

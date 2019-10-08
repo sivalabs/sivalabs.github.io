@@ -6,10 +6,19 @@
     <description>Recent content in Categories on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jun 2019 07:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 07 Oct 2019 07:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SpringBoot</title>
+      <link>https://sivalabs.github.io/categories/springboot/</link>
+      <pubDate>Mon, 07 Oct 2019 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/springboot/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Kafka</title>
@@ -17,15 +26,6 @@
       <pubDate>Mon, 24 Jun 2019 07:59:17 +0530</pubDate>
       
       <guid>https://sivalabs.github.io/categories/kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SpringBoot</title>
-      <link>https://sivalabs.github.io/categories/springboot/</link>
-      <pubDate>Tue, 14 May 2019 07:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/springboot/</guid>
       <description></description>
     </item>
     
