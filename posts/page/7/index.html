@@ -35,7 +35,7 @@ if (!doNotTrack) {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/posts/" />
 
-<meta property="og:updated_time" content="2019-10-07T07:59:17&#43;05:30"/>
+<meta property="og:updated_time" content="2019-10-20T07:59:17&#43;05:30"/>
 
     
 <meta itemprop="name" content="Posts">
@@ -124,6 +124,56 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-01T05:27:15">
+                December 01, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/" rel="bookmark">
+            JCart: Configuring Spring Security
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.
+Let us add the following spring-security dependencies to jcart-admin/pom.xml.
+&lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.thymeleaf.extras&lt;/groupId&gt; &lt;artifactId&gt;thymeleaf-extras-springsecurity4&lt;/artifactId&gt; &lt;/dependency&gt; If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
+http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,&#34;/register&#34;,&#34;/logout&#34;).permitAll() .antMatchers(&#34;/admin&#34;,&#34;/admin/**&#34;).hasRole(&#34;ADMIN&#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&#8217;t statically define constraints using role names.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-admin-ui-layout-setup/" rel="bookmark">
@@ -562,51 +612,6 @@ ShoppingCart Site Requirements Home Page: This page shows list of categories and
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/11/introducing-the-application-jcart/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/11/introducing-the-application-jcart/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-11-21T02:28:23">
-                November 21, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/11/introducing-the-application-jcart/" rel="bookmark">
-            Introducing the application JCart
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>As I promised in my article Developing a simple e-commerce application from scratch to production using SpringBoot , I am starting first post by introducing the application JCart that we are going to build.
-One of my friend makes quilling toys and she sell them by advertising on Facebook or through word of mouth. Now she is getting more and more customers and she wants to expand her business by going online.</p>
-                    <a href="https://sivalabs.github.io/2015/11/introducing-the-application-jcart/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -699,11 +704,11 @@ One of my friend makes quilling toys and she sell them by advertising on Faceboo
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2019/10/testing-rest-apis-with-postman-newman/">Testing REST APIs using Postman and Newman</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/10/spring-boot-testing/">Testing SpringBoot Applications</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/">Kafka Tutorial - Producer and Consumer using SpringBoot</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-java-producer-consumer/">Kafka Tutorial - Java Producer and Consumer</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/05/spring-boot-best-practices/">SpringBoot Best Practices</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
     </ul>
 
 </aside>
@@ -772,6 +777,7 @@ One of my friend makes quilling toys and she sell them by advertising on Faceboo
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
         <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
@@ -824,6 +830,8 @@ One of my friend makes quilling toys and she sell them by advertising on Faceboo
                href="/tags/microservices" title="microservices">microservices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Postman, Newman, REST on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/postman-newman-rest/</link>
+    <description>Recent content in Postman, Newman, REST on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Oct 2019 07:59:17 +0530</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/postman-newman-rest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Testing REST APIs using Postman and Newman</title>
+      <link>https://sivalabs.github.io/2019/10/testing-rest-apis-with-postman-newman/</link>
+      <pubDate>Sun, 20 Oct 2019 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2019/10/testing-rest-apis-with-postman-newman/</guid>
+      <description>Postman is the most popular tool for testing REST APIs. I guess most of the developers are familiar with how to use Postman to send various types (GET, POST, PUT, DELETE etc) of HTTP requests with various types of payloads (form data, json etc).
+In addition to triggering one API request and verifying the response, I frequently come across some common needs like
+ Call an API and assert response Parameterize variables based on environment Trigger a series of API calls to simulate some user flow Trigger one API request with different inputs and assert expected response Load test by simulate load on server by firing a series of requests repeatedly with certain delay Run Postman collection to do Smoke Test from Build Pipeline  As I am already using Postman to test my REST APIs, I thought of exploring if I can do all these tasks using Postman itself and it turns out I can.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,19 @@
     <description>Recent content in Tags on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Oct 2019 07:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2019 07:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Postman, Newman, REST</title>
+      <link>https://sivalabs.github.io/tags/postman-newman-rest/</link>
+      <pubDate>Sun, 20 Oct 2019 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/postman-newman-rest/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Spring, SpringBoot, Testing</title>
