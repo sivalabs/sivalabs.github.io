@@ -17,7 +17,9 @@
       <pubDate>Sat, 16 Dec 2017 12:06:31 +0530</pubDate>
       
       <guid>https://sivalabs.github.io/projects/</guid>
-      <description> JCart - E-Commerce application using SpringBoot </description>
+      <description>1. generator-springboot A Yeoman generator for generating MicroServices with SpringBoot. We can use generator-springboot to generate a SpringBoot microservice, Spring Cloud Config Server or Service Registry based on Netflix Eureka.
+How to use? $ npm install -g yo $ npm install -g generator-springboot $ yo springboot For more information on features see https://github.com/sivaprasadreddy/generator-springboot
+2. TodoList A simple TodoList application written in Java using SpringBoot and ReactJS frontend. This is a playground application to try out new features, reference to blog articles.</description>
     </item>
     
     <item>
