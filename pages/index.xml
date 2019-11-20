@@ -48,12 +48,7 @@ How to use? $ npm install -g yo $ npm install -g generator-springboot $ yo sprin
       <guid>https://sivalabs.github.io/contact/</guid>
       <description>You can reach me at:
 Twitter: https://twitter.com/sivalabs
-GitHub: https://github.com/sivaprasadreddy
-Your Name (required)
- Your Email (required)
- Subject
- Your Message
-   </description>
+GitHub: https://github.com/sivaprasadreddy</description>
     </item>
     
   </channel>
