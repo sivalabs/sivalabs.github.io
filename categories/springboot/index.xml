@@ -6,10 +6,20 @@
     <description>Recent content in springboot on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Oct 2019 07:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jan 2020 04:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/categories/springboot/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Creating Yeoman based SpringBoot Generator</title>
+      <link>https://sivalabs.github.io/2020/01/creating-yeoman-based-springboot-generator/</link>
+      <pubDate>Wed, 29 Jan 2020 04:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2020/01/creating-yeoman-based-springboot-generator/</guid>
+      <description>I have been working with Spring and SpringBoot for many years and I needed to create lot of Spring(Boot) applications for various reasons like blog posts, sample apps, book sample code and for my personal learning as well. So, I needed some tool/mechanism to quickly create Spring(Boot) application with most commonly used configuration.
+I know we have the most popular SpringBoot Initializer to create SpringBoot applications. But, it generates the application with only selected starter dependencies added and nothing more.</description>
+    </item>
     
     <item>
       <title>Testing SpringBoot Applications</title>

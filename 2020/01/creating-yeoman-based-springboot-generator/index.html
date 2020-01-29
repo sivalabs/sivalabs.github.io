@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - Creating Yeoman based SpringBoot Generator">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - Creating Yeoman based SpringBoot Generator </title>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sivalabs.github.io/images/yeoman-logo.png"/>
+
+<meta name="twitter:title" content="Creating Yeoman based SpringBoot Generator"/>
+<meta name="twitter:description" content="I have been working with Spring and SpringBoot for many years and I needed to create lot of Spring(Boot) applications for various reasons like blog posts, sample apps, book sample code and for my personal learning as well. So, I needed some tool/mechanism to quickly create Spring(Boot) application with most commonly used configuration.
+I know we have the most popular SpringBoot Initializer to create SpringBoot applications. But, it generates the application with only selected starter dependencies added and nothing more."/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="Creating Yeoman based SpringBoot Generator" />
+<meta property="og:description" content="I have been working with Spring and SpringBoot for many years and I needed to create lot of Spring(Boot) applications for various reasons like blog posts, sample apps, book sample code and for my personal learning as well. So, I needed some tool/mechanism to quickly create Spring(Boot) application with most commonly used configuration.
+I know we have the most popular SpringBoot Initializer to create SpringBoot applications. But, it generates the application with only selected starter dependencies added and nothing more." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sivalabs.github.io/2020/01/creating-yeoman-based-springboot-generator/" />
+
+<meta property="og:image" content="https://sivalabs.github.io/images/yeoman-logo.png" />
+<meta property="article:published_time" content="2020-01-29T04:59:17&#43;05:30"/>
+<meta property="article:modified_time" content="2020-01-29T04:59:17&#43;05:30"/>
+
+    
+<meta itemprop="name" content="Creating Yeoman based SpringBoot Generator">
+<meta itemprop="description" content="I have been working with Spring and SpringBoot for many years and I needed to create lot of Spring(Boot) applications for various reasons like blog posts, sample apps, book sample code and for my personal learning as well. So, I needed some tool/mechanism to quickly create Spring(Boot) application with most commonly used configuration.
+I know we have the most popular SpringBoot Initializer to create SpringBoot applications. But, it generates the application with only selected starter dependencies added and nothing more.">
+
+
+<meta itemprop="datePublished" content="2020-01-29T04:59:17&#43;05:30" />
+<meta itemprop="dateModified" content="2020-01-29T04:59:17&#43;05:30" />
+<meta itemprop="wordCount" content="2311">
+
+  <meta itemprop="image" content="https://sivalabs.github.io/images/yeoman-logo.png">
+
+
+
+<meta itemprop="keywords" content="SpringBoot, Yeoman," />
+
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+
+    
+
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1171">
+                    <a href="/projects">My Projects</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+<main id="main" class="site-main" role="main">
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2020/01/creating-yeoman-based-springboot-generator/" rel="bookmark">
+                <time class="entry-date published" datetime="2020-01-29T04:59:17">
+                January 29, 2020
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2020/01/creating-yeoman-based-springboot-generator/" rel="bookmark">
+            Creating Yeoman based SpringBoot Generator
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot-yeoman/">SpringBoot, Yeoman</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+        <div class="entry-content">
+            
+
+<p>I have been working with Spring and <a href="https://spring.io/projects/spring-boot">SpringBoot</a> for many years and
+I needed to create lot of Spring(Boot) applications for various reasons like
+<a href="https://sivalabs.in/categories/springboot/">blog posts</a>, <a href="https://github.com/sivaprasadreddy/spring-boot-tutorials">sample apps</a>,
+<a href="https://github.com/sivaprasadreddy/beginning-spring-boot-2">book sample code</a> and for my personal learning as well.
+So, I needed some tool/mechanism to quickly create Spring(Boot) application with most commonly used configuration.</p>
+
+<p>I know we have the most popular <a href="http://start.spring.io/">SpringBoot Initializer</a> to create SpringBoot applications.
+But, it generates the application with only selected starter dependencies added and nothing more.</p>
+
+<p>Most of the times I needed to configure some common properties in <strong>application.properties</strong> file, additional libraries like
+<strong>Testcontainers</strong>, Zalando&rsquo;s <strong>Problem Spring Web</strong> etc. So, I thought of automating this repetitive work in some way.</p>
+
+<p>As a first attempt I tried to automate this by creating various <a href="https://github.com/sivaprasadreddy/maven-archetype-templates">Maven archetypes</a>
+with various combination of technologies. It helped me to some extent but I had to refactor few things after generating the application.
+Also, I couldn&rsquo;t find a way to include some dependencies/configuration conditionally based on user input.</p>
+
+<p>As a second attempt I tried to extend <a href="https://github.com/sivaprasadreddy/spring-initializr-extensions">SpringBoot Initializer</a>
+by adding new features. I felt it was okayish but not productive enough. In addition to that I need to host it somewhere and
+make sure it is running all the times.</p>
+
+<p>And then I thought of creating a <a href="https://yeoman.io/">Yeoman</a> based generator.
+First, I came to know about Yeoman when AngularJS 1.x was hot and there was an amazing Yeoman generator for
+creating AngularJS applications. Later I stumbled upon <a href="https://www.jhipster.tech/">JHipster</a> which blew my mind.
+JHipster is amazing and what you can build with JHipster in just 30 minutes is phenomenal.
+However, there are certain JHipster features that does not fit for my personal preferences such as:</p>
+
+<ul>
+<li>I like <strong>jar</strong> packaging</li>
+<li>I like to use <strong>spring-boot-starter-*</strong> than configuring individual libraries</li>
+<li>I like to have an option to generate application <strong>without spring-security</strong></li>
+<li>I prefer <strong>Flyway</strong> over <strong>Liquibase</strong></li>
+<li>I like to have only minimum and required configuration ie <strong>no AsyncConfiguration, LocaleConfiguration, CacheConfiguration, Logstash Logging</strong> etc.</li>
+<li>I like <strong>.properties</strong> over <strong>.yml</strong></li>
+</ul>
+
+<p>So, I decided to write my own SpringBoot Generator using Yeoman and
+I started creating <a href="https://github.com/sivaprasadreddy/generator-springboot">generator-springboot</a>.
+And, I have implemented the generator to generate a SpringBoot application with following features:</p>
+
+<ul>
+<li>SpringBoot REST API with jar type packaging</li>
+<li>Generate CRUD operations along with Unit and Integration Tests</li>
+<li>CORS configuration</li>
+<li>Swagger UI Integration</li>
+<li>Spring Data JPA integration with option to select databases like MySQL, Postgresql, MariaDB etc</li>
+<li>Flyway or Liquibase data migration support</li>
+<li>SpringBoot Actuator configuration</li>
+<li>Integration with Config Server, Service Registry, Sleuth, Zipkin</li>
+<li>TestContainers integration</li>
+<li>JUnit 5</li>
+<li>Docker configuration</li>
+<li>Jenkinsfile</li>
+</ul>
+
+<p>I thought of writing an article on how to create a Yeoman based generator so that others can also create their own generators if interested.</p>
+
+<p>First of all there is wonderfully written <a href="https://yeoman.io/authoring/">Official Documentation</a> on how to create our own Yeoman generator.
+I strongly recommend to go through it.</p>
+
+<h3 id="how-yeoman-generators-work">How Yeoman Generators work?</h3>
+
+<p>To put it simply, Yeoman generator works as follows:</p>
+
+<ul>
+<li>Create template file(s) with placeholders</li>
+<li>Prompt user for inputs</li>
+<li>Generate files by replacing the placeholders with user provided values</li>
+</ul>
+
+<p>Okay, enough talk. Let&rsquo;s get to the business.</p>
+
+<h2 id="create-springboot-yeoman-generator">Create SpringBoot Yeoman Generator</h2>
+
+<p>There are some fundamental concepts to be understood which explained clearly in the documentation and repeating it over here is redundant.
+So, once again I strongly recommend going through this official documentation to get some basic understanding of concepts <a href="https://yeoman.io/authoring/index.html">https://yeoman.io/authoring/index.html</a>.</p>
+
+<p>Create a directory called <strong>generator-springboot</strong> and create the following files and directories inside generator-springboot as follows:</p>
+
+<pre><code>+- generator-springboot/
+   +- package.json
+   +- generators/
+      +- app/
+         +- index.js
+</code></pre>
+
+<p><strong>package.json</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;generator-springboot&#34;</span>,
+  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.0.1&#34;</span>,
+  <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;A Yeoman generator for generating SpringBoot microservices&#34;</span>,
+  <span style="color:#f92672">&#34;files&#34;</span>: [<span style="color:#e6db74">&#34;generators&#34;</span>],
+  <span style="color:#f92672">&#34;main&#34;</span>: <span style="color:#e6db74">&#34;index.js&#34;</span>,
+  <span style="color:#f92672">&#34;keywords&#34;</span>: [
+    <span style="color:#e6db74">&#34;yeoman-generator&#34;</span>,
+    <span style="color:#e6db74">&#34;java&#34;</span>,
+    <span style="color:#e6db74">&#34;spring&#34;</span>,
+    <span style="color:#e6db74">&#34;spring-boot&#34;</span>,
+    <span style="color:#e6db74">&#34;microservice&#34;</span>
+  ],
+  <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+    <span style="color:#f92672">&#34;yeoman-generator&#34;</span>: <span style="color:#e6db74">&#34;^4.0.1&#34;</span>
+  }
+}</code></pre></div>
+<p><strong>generators/app/index.js</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#34;use strict&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Generator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;yeoman-generator&#34;</span>);
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Generator</span> {
+  <span style="color:#a6e22e">method1</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;method 1 just ran&#34;</span>);
+  }
+
+  <span style="color:#a6e22e">method2</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;method 2 just ran&#34;</span>);
+  }
+};
+</code></pre></div>
+<p>During the development we can symlink to the npm package to run the generator.
+From the root of your generator project (<strong>generator-springboot/</strong> folder), type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">generator-springboot&gt; npm link</code></pre></div>
+<p>And then run the generator as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">generator-springboot&gt; yo springboot</code></pre></div>
+<p>It will execute both method1() and method2() and print the log statements on console.</p>
+
+<p>As we have not explicitly mentioned any priority to the methods method1() and method2() ran with default priority as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#34;use strict&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Generator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;yeoman-generator&#34;</span>);
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Generator</span> {
+  <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">method1</span>() {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;method 1 just ran&#34;</span>);
+    }
+
+    <span style="color:#a6e22e">method2</span>() {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;method 2 just ran&#34;</span>);
+    }
+  }
+};
+</code></pre></div>
+<p>Yeoman defines the following priorities so that we can hook up our custom logic at appropriate priority executions.</p>
+
+<p>The available priorities are (in running order):</p>
+
+<ol>
+<li><strong>initializing</strong> - Your initialization methods (checking current project state, getting configs, etc)</li>
+<li><strong>prompting</strong> - Where you prompt users for options (where you’d call this.prompt())</li>
+<li><strong>configuring</strong> - Saving configurations and configure the project (creating .editorconfig files and other metadata files)</li>
+<li><strong>default</strong> - If the method name doesn’t match a priority, it will be pushed to this group.</li>
+<li><strong>writing</strong> - Where you write the generator specific files (routes, controllers, etc)</li>
+<li><strong>conflicts</strong> - Where conflicts are handled (used internally)</li>
+<li><strong>install</strong> - Where installations are run (npm, bower)</li>
+<li><strong>end</strong> - Called last, cleanup, say good bye, etc</li>
+</ol>
+
+<p>Now let&rsquo;s create <strong>pom.xml</strong> template <strong>pom.xml.tpl</strong> and <strong>src/main/java/com/mycompany/demo/Application.java</strong> file in <strong>generators/app/templates</strong> folder as follows:</p>
+
+<p><strong>generators/app/templates/pom.xml.tpl</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+         <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0
+</span><span style="color:#e6db74">         http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+    <span style="color:#f92672">&lt;parent&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;version&gt;</span>2.2.4.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;relativePath/&gt;</span> <span style="color:#75715e">&lt;!-- lookup parent from repository --&gt;</span>
+    <span style="color:#f92672">&lt;/parent&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.mycompany<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span><span style="color:#960050;background-color:#1e0010">&lt;</span>%= appName %&gt;<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>0.0.1-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span><span style="color:#960050;background-color:#1e0010">&lt;</span>%= appName %&gt;<span style="color:#f92672">&lt;/name&gt;</span>
+
+    <span style="color:#f92672">&lt;properties&gt;</span>
+        <span style="color:#f92672">&lt;java.version&gt;</span>1.8<span style="color:#f92672">&lt;/java.version&gt;</span>
+    <span style="color:#f92672">&lt;/properties&gt;</span>
+
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
+<p>Notice we have the placeholders with syntax <strong>&lt;%= variableName %&gt;</strong>.</p>
+
+<p><strong>generators/app/templates/src/main/java/com/mycompany/demo/Application.java</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.mycompany.demo<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Application</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>Application<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>Update <strong>generators/app/index.js</strong> as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#34;use strict&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Generator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;yeoman-generator&#34;</span>);
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Generator</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">opts</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">opts</span>);
+  }
+
+  <span style="color:#a6e22e">initializing</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Generating SpringBoot Application&#34;</span>);
+  }
+
+  <span style="color:#a6e22e">prompting</span>() {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">prompts</span> <span style="color:#f92672">=</span> [
+      {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span>,
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;appName&#34;</span>,
+        <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;What is the application name?&#34;</span>,
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;myservice&#34;</span>
+      }
+    ];
+
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">prompt</span>(<span style="color:#a6e22e">prompts</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">answers</span> =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">appName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">answers</span>.<span style="color:#a6e22e">appName</span>;
+    });
+  }
+
+  <span style="color:#a6e22e">writing</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">copyTpl</span>(
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">templatePath</span>(<span style="color:#e6db74">&#34;pom.xml.tpl&#34;</span>),
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">destinationPath</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">appName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/pom.xml&#34;</span>),
+      {
+        <span style="color:#a6e22e">appName</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">appName</span>
+      }
+    );
+
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">copy</span>(
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">templatePath</span>(<span style="color:#e6db74">&#34;src&#34;</span>),
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">destinationPath</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">appName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/src&#34;</span>)
+    );
+  }
+
+  <span style="color:#a6e22e">end</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Application </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">appName</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> generated successfully`</span>);
+  }
+};
+</code></pre></div>
+<p>As per the priorities order first <strong>initializing()</strong> block gets executed, then <strong>prompting()</strong> then <strong>writing()</strong> and finally <strong>end()</strong>.
+In <strong>prompting()</strong> we are asking user to provide application name and store it in <strong>appName</strong> variable for later use.</p>
+
+<p>In <strong>writing()</strong> we are generating <strong>pom.xml</strong> file using the <strong>pom.xml.tpl</strong> template by replacing the <strong>appName</strong> placeholder with the user provided value. Also, we are copying the entire <strong>src</strong> directory.</p>
+
+<p>Instead of storing each user input in separate variable and passing them explicitly to replace placeholders we can store all the user provided input values in a JSON object and pass it as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#34;use strict&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Generator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;yeoman-generator&#34;</span>);
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Generator</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">opts</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">opts</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">configOptions</span> <span style="color:#f92672">||</span> {};
+  }
+
+  <span style="color:#a6e22e">initializing</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Generating SpringBoot Application&#34;</span>);
+  }
+
+  <span style="color:#a6e22e">prompting</span>() {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">prompts</span> <span style="color:#f92672">=</span> [
+      {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span>,
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;appName&#34;</span>,
+        <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;What is the application name?&#34;</span>,
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;myservice&#34;</span>
+      },
+      {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;list&#34;</span>,
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;appType&#34;</span>,
+        <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Do you want to use WebMVC or WebFlux?&#34;</span>,
+        <span style="color:#a6e22e">choices</span><span style="color:#f92672">:</span> [
+          {
+            <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;webmvc&#34;</span>,
+            <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WebMVC&#34;</span>
+          },
+          {
+            <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;webflux&#34;</span>,
+            <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WebFlux&#34;</span>
+          }
+        ],
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;webmvc&#34;</span>
+      }
+    ];
+
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">prompt</span>(<span style="color:#a6e22e">prompts</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">answers</span> =&gt; {
+      Object.<span style="color:#a6e22e">assign</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span>, <span style="color:#a6e22e">answers</span>);
+    });
+  }
+
+  <span style="color:#a6e22e">writing</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">copyTpl</span>(
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">templatePath</span>(<span style="color:#e6db74">&#34;pomm.xml.tpl&#34;</span>),
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">destinationPath</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span>.<span style="color:#a6e22e">appName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/pom.xml&#34;</span>),
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span>
+    );
+
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">copy</span>(
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">templatePath</span>(<span style="color:#e6db74">&#34;src&#34;</span>),
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">destinationPath</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span>.<span style="color:#a6e22e">appName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/src&#34;</span>)
+    );
+  }
+
+  <span style="color:#a6e22e">end</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">log</span>(
+      <span style="color:#e6db74">`Application </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span>.<span style="color:#a6e22e">appName</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> generated successfully`</span>
+    );
+  }
+};
+</code></pre></div>
+<p>We have added one more prompt of type <strong>list</strong> to select the <strong>appType</strong>.</p>
+
+<p>Notice that we are initializing <strong>configOptions</strong> in the constructor and adding the user provided propmt answers into configOptions. Later we are simply passing the configOptions object which will contain all the placeholders.</p>
+
+<p>Now, we can conditionally include either <strong>webmvc</strong> and <strong>webflux</strong> starter in <strong>pom.xml.tpl</strong> based on the user selection as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+         <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0
+</span><span style="color:#e6db74">         http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+    <span style="color:#f92672">&lt;parent&gt;</span>
+        <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+        <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;version&gt;</span>2.2.4.RELEASE<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;relativePath/&gt;</span> <span style="color:#75715e">&lt;!-- lookup parent from repository --&gt;</span>
+    <span style="color:#f92672">&lt;/parent&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>com.mycompany<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span><span style="color:#960050;background-color:#1e0010">&lt;</span>%= appName %&gt;<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>0.0.1-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;name&gt;</span><span style="color:#960050;background-color:#1e0010">&lt;</span>%= appName %&gt;<span style="color:#f92672">&lt;/name&gt;</span>
+
+    <span style="color:#f92672">&lt;properties&gt;</span>
+        <span style="color:#f92672">&lt;java.version&gt;</span>1.8<span style="color:#f92672">&lt;/java.version&gt;</span>
+    <span style="color:#f92672">&lt;/properties&gt;</span>
+
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#960050;background-color:#1e0010">&lt;</span>%_ if (appType === &#39;webmvc&#39;) { _%&gt;
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#960050;background-color:#1e0010">&lt;</span>%_ } _%&gt;
+        <span style="color:#960050;background-color:#1e0010">&lt;</span>%_ if (appType === &#39;webflux&#39;) { _%&gt;
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-webflux<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#960050;background-color:#1e0010">&lt;</span>%_ } _%&gt;
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
+<p>Over the time the number of inputs we need from user may grow. Instead of adding prompt questions in the same <strong>index.js</strong> file we can create separate <strong>prompt.js</strong> file and add all prompts in that file.</p>
+
+<p>Create <strong>generators/app/prompt.js</strong> as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">prompting</span>
+};
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">prompting</span>() {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">done</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#66d9ef">async</span>();
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">prompts</span> <span style="color:#f92672">=</span> [
+    {
+      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span>,
+      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;appName&#34;</span>,
+      <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;What is the application name?&#34;</span>,
+      <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;myservice&#34;</span>
+    },
+    {
+      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;list&#34;</span>,
+      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;appType&#34;</span>,
+      <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Do you want to use WebMVC or WebFlux?&#34;</span>,
+      <span style="color:#a6e22e">choices</span><span style="color:#f92672">:</span> [
+        {
+          <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;webmvc&#34;</span>,
+          <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WebMVC&#34;</span>
+        },
+        {
+          <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;webflux&#34;</span>,
+          <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WebFlux&#34;</span>
+        }
+      ],
+      <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;webmvc&#34;</span>
+    }
+  ];
+
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">prompt</span>(<span style="color:#a6e22e">prompts</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">answers</span> =&gt; {
+    Object.<span style="color:#a6e22e">assign</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span>, <span style="color:#a6e22e">answers</span>);
+    <span style="color:#a6e22e">done</span>();
+  });
+}
+</code></pre></div>
+<p>Update <strong>generators/app/index.js</strong> as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">prompts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./prompts&#39;</span>);
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Generator</span> {
+
+    ...
+    ...
+    <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">prompting</span>() {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">prompts</span>.<span style="color:#a6e22e">prompting</span>;
+    }
+}
+</code></pre></div>
+<p>Sometimes we might want to ask more questions based on previous prompt answer.
+We can conditionally prompt user using <strong>when</strong> as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">prompts</span> <span style="color:#f92672">=</span> [
+    ...
+    ...
+    {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;confirm&#39;</span>,
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sql&#39;</span>,
+        <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Do you want to use Spring Data Jpa?&#39;</span>,
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+    },
+    {
+        <span style="color:#a6e22e">when</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">sql</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">true</span>,
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>,
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;databaseType&#39;</span>,
+        <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Which type of database you want to use?&#39;</span>,
+        <span style="color:#a6e22e">choices</span><span style="color:#f92672">:</span> [
+            {
+                <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;postgresql&#39;</span>,
+                <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Postgresql&#39;</span>
+            },
+            {
+                <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;mysql&#39;</span>,
+                <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;MySQL&#39;</span>
+            },
+            {
+                <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;mariadb&#39;</span>,
+                <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;MariaDB&#39;</span>
+            }
+        ],
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;postgresql&#39;</span>
+    }
+]
+</code></pre></div>
+<h3 id="composing-with-sub-generator">Composing with Sub-generator</h3>
+
+<p>We may want to add more and more features to our generator. Instead of adding all those features to a single generator we can create sub-generators and invoke them from main generator using <strong>this.composeWith(&hellip;)</strong>.</p>
+
+<p>Suppose we have main generator <strong>app</strong> and 3 other sub-generators <strong>microservice</strong>, <strong>config-server</strong> and <strong>service-registry</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">+- generator-springboot/
+   +- package.json
+   +- generators/
+      +- app/
+         +- index.js
+      +- microservice/
+         +- index.js
+      +- config-server/
+         +- index.js
+      +- service-registry/
+         +- index.js</code></pre></div>
+<p>Now from main app generator we can invoke sub-generators as follows:</p>
+
+<p><strong>generator-springboot/generators/app/index.js</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#34;use strict&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Generator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;yeoman-generator&#34;</span>);
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Generator</span> {
+  <span style="color:#a6e22e">prompting</span>() {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">prompts</span> <span style="color:#f92672">=</span> [
+      {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;list&#34;</span>,
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;appType&#34;</span>,
+        <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Which type of application you want to generate?&#34;</span>,
+        <span style="color:#a6e22e">choices</span><span style="color:#f92672">:</span> [
+          {
+            <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;microservice&#34;</span>,
+            <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;SpringBoot MicroService&#34;</span>
+          },
+          {
+            <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;config-server&#34;</span>,
+            <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Spring Cloud Config Server&#34;</span>
+          },
+          {
+            <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;service-registry&#34;</span>,
+            <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span>
+              <span style="color:#e6db74">&#34;Spring Cloud Eureka Server for Service Registry and Discovery&#34;</span>
+          }
+        ],
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;microservice&#34;</span>
+      }
+    ];
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">prompt</span>(<span style="color:#a6e22e">prompts</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">answers</span> =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">appType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">answers</span>.<span style="color:#a6e22e">appType</span>;
+    });
+  }
+
+  <span style="color:#66d9ef">default</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">composeWith</span>(<span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;../&#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">appType</span>));
+  }
+};
+</code></pre></div>
+<p>Now when you run the main generator and select the <strong>appType</strong>, it will invoke the respective sub-generator.</p>
+
+<h3 id="invoking-sub-generator-directly">Invoking sub-generator directly</h3>
+
+<p>We can create sub-generators to add more features to an existing yeoman generated application.
+For example, once we create a SpringBoot application we can use a entity sub-generator to generate a JPA entity.</p>
+
+<p>We can invoke sub-generator directly as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">myservice&gt; yo springboot:entity Product</code></pre></div>
+<h3 id="using-user-configuration">Using user configuration</h3>
+
+<p>We can save the user selected options so that we can use them later while running sub-generators.
+For example, if user selected to use FlywayDB migration tool then while running Entity generator we can check which DB migration option is selected and generate DB migration scripts accordingly.</p>
+
+<p>We can save the user configuration in main generator as follows:</p>
+
+<p><strong>generators/app/index.js</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Generator</span> {
+
+    ...
+    ...
+    <span style="color:#a6e22e">configuring</span>() {
+        Object.<span style="color:#a6e22e">assign</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span>, <span style="color:#a6e22e">constants</span>);
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">save</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span>);
+    }
+}
+</code></pre></div>
+<p><strong>this.config.save()</strong> method will store the user configuration in <strong>.yo-rc.json</strong> file.</p>
+
+<p><strong>.yo-rc.json</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;generator-springboot&#34;</span>: {
+    <span style="color:#f92672">&#34;appName&#34;</span>: <span style="color:#e6db74">&#34;myservice&#34;</span>,
+    <span style="color:#f92672">&#34;packageName&#34;</span>: <span style="color:#e6db74">&#34;com.mycompany.myservice&#34;</span>,
+    <span style="color:#f92672">&#34;sql&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;databaseType&#34;</span>: <span style="color:#e6db74">&#34;postgresql&#34;</span>,
+    <span style="color:#f92672">&#34;dbMigrationTool&#34;</span>: <span style="color:#e6db74">&#34;flywaydb&#34;</span>,
+    <span style="color:#f92672">&#34;features&#34;</span>: [],
+    <span style="color:#f92672">&#34;buildTool&#34;</span>: <span style="color:#e6db74">&#34;gradle&#34;</span>,
+    <span style="color:#f92672">&#34;packageFolder&#34;</span>: <span style="color:#e6db74">&#34;com/mycompany/myservice&#34;</span>,
+    <span style="color:#f92672">&#34;...&#34;</span>: <span style="color:#e6db74">&#34;...&#34;</span>,
+    <span style="color:#f92672">&#34;...&#34;</span>: <span style="color:#e6db74">&#34;...&#34;</span>
+  }
+}</code></pre></div>
+<p>We can also use <strong>this.config.set()</strong> to specify one key-value pair or an object of multiple keys/values.
+Note that <strong>save()</strong> method is automatically called whenever we call <strong>this.config.set()</strong>.</p>
+
+<p>Now we can use <strong>this.config.getAll()</strong> to load the configuration from <strong>.yo-rc.json</strong> file.</p>
+
+<p><strong>generators/entity/index.js</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Generator</span> {
+    ...
+    ...
+    <span style="color:#a6e22e">writing</span>() {
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userConfig</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">getAll</span>();
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">userConfig</span>.<span style="color:#a6e22e">dbMigrationTool</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;flywaydb&#34;</span>) {
+            <span style="color:#75715e">//do something
+</span><span style="color:#75715e"></span>        }
+    }
+}
+</code></pre></div>
+<p>We can also pass <strong>Arguments</strong> and <strong>Options</strong> to the generator. For example for entity sub-generator we want to pass mandatory <strong>entityName</strong> as an argument and optional <strong>table-name</strong> as an argument.</p>
+
+<p><strong>generators/entity/index.js</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Generator</span> {
+
+    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">opts</span>) {
+        <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">opts</span>);
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">configOptions</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">configOptions</span> <span style="color:#f92672">||</span> {};
+
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">argument</span>(<span style="color:#e6db74">&#34;entityName&#34;</span>, {
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+            <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+            <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Entity name&#34;</span>
+        });
+
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">option</span>(<span style="color:#e6db74">&#39;table-name&#39;</span>, {
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+            <span style="color:#a6e22e">desc</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Table name&#34;</span>
+        })
+    }
+
+    <span style="color:#a6e22e">writing</span>() {
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">entityName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">entityName</span>;
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tableName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">tableName</span>;
+        ....
+        ...
+    }
+}
+</code></pre></div>
+<p>Now we can invoke entity sub-generator from within the generated application directory as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">myservice&gt; yo springboot:entity Person --table-name persons</code></pre></div>
+<h3 id="testing-yeoman-generator">Testing Yeoman generator</h3>
+
+<p>We can also unit test yeoman generators by using <strong>mocha</strong>, <strong>yeoman-test</strong> and <strong>yeoman-assert</strong> packages.</p>
+
+<p><strong>package.json</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;generator-springboot&#34;</span>,
+  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.0.6&#34;</span>,
+  <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;A Yeoman generator for generating SpringBoot microservices&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">...</span>
+  <span style="color:#960050;background-color:#1e0010">...</span>
+  <span style="color:#f92672">&#34;scripts&#34;</span>: {
+    <span style="color:#f92672">&#34;test&#34;</span>: <span style="color:#e6db74">&#34;npm run test:unit -- test/**/*.spec.js test/*.spec.js --no-insight&#34;</span>,
+    <span style="color:#f92672">&#34;test:unit&#34;</span>: <span style="color:#e6db74">&#34;mocha --timeout 30000 --slow 0 --reporter spec&#34;</span>
+  },
+  <span style="color:#960050;background-color:#1e0010">...</span>
+  <span style="color:#960050;background-color:#1e0010">...</span>
+  <span style="color:#f92672">&#34;devDependencies&#34;</span>: {
+    <span style="color:#f92672">&#34;fs-extra&#34;</span>: <span style="color:#e6db74">&#34;7.0.1&#34;</span>,
+    <span style="color:#f92672">&#34;mocha&#34;</span>: <span style="color:#e6db74">&#34;6.1.4&#34;</span>,
+    <span style="color:#f92672">&#34;sinon&#34;</span>: <span style="color:#e6db74">&#34;7.2.5&#34;</span>,
+    <span style="color:#f92672">&#34;yeoman-assert&#34;</span>: <span style="color:#e6db74">&#34;3.1.1&#34;</span>,
+    <span style="color:#f92672">&#34;yeoman-test&#34;</span>: <span style="color:#e6db74">&#34;1.9.1&#34;</span>
+  }
+}</code></pre></div>
+<p>We can write unit test to invoke a generator using <strong>yeoman-test</strong> as follows:</p>
+
+<p><strong>generator-springboot/test/microservice.spec.js</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;path&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">assert</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;yeoman-assert&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">helpers</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;yeoman-test&#34;</span>);
+
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;SpringBoot Microservice Generator&#34;</span>, () =&gt; {
+  <span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;Generate minimal microservice with Maven&#34;</span>, () =&gt; {
+    <span style="color:#a6e22e">before</span>(<span style="color:#a6e22e">done</span> =&gt; {
+      <span style="color:#a6e22e">helpers</span>
+        .<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">__dirname</span>, <span style="color:#e6db74">&#34;../generators/microservice&#34;</span>))
+        .<span style="color:#a6e22e">withPrompts</span>({
+          <span style="color:#a6e22e">appName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;mymicroservice&#34;</span>,
+          <span style="color:#a6e22e">packageName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;com.mycompany.mymicroservice&#34;</span>,
+          <span style="color:#a6e22e">packageFolder</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;com/mycompany/mymicroservice&#34;</span>,
+          <span style="color:#a6e22e">sql</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+          <span style="color:#a6e22e">buildTool</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;maven&#34;</span>
+        })
+        .<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;end&#34;</span>, <span style="color:#a6e22e">done</span>);
+    });
+
+    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;creates expected default files for minimal microservice&#34;</span>, () =&gt; {
+      <span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">file</span>(<span style="color:#e6db74">&#34;pom.xml&#34;</span>);
+    });
+  });
+});
+</code></pre></div>
+<p>Of course here I am doing a simple sanity check of whether pom.xml is generated or not. We can test much more if we want to.</p>
+
+<p>Now we can run tests using <code>npm run test</code>.</p>
+
+<p>I think we have covered sufficient ground to start building a Yeoman generator.</p>
+
+<p>For reference please checkout my github repository <a href="https://github.com/sivaprasadreddy/generator-springboot">https://github.com/sivaprasadreddy/generator-springboot</a>.</p>
+
+        </div>
+        <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=Creating%20Yeoman%20based%20SpringBoot%20Generator-https%3a%2f%2fsivalabs.github.io%2f2020%2f01%2fcreating-yeoman-based-springboot-generator%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2020%2f01%2fcreating-yeoman-based-springboot-generator%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2020%2f01%2fcreating-yeoman-based-springboot-generator%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2020%2f01%2fcreating-yeoman-based-springboot-generator%2f&title=Creating%20Yeoman%20based%20SpringBoot%20Generator" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2020%2f01%2fcreating-yeoman-based-springboot-generator%2f&title=Creating%20Yeoman%20based%20SpringBoot%20Generator" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+</article>
+
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-next">
+			<a href="/2019/10/testing-rest-apis-with-postman-newman/" rel="prev">
+                <span class="post-title">Testing REST APIs using Postman and Newman
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/01/creating-yeoman-based-springboot-generator/">Creating Yeoman based SpringBoot Generator</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2019/10/testing-rest-apis-with-postman-newman/">Testing REST APIs using Postman and Newman</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2019/10/spring-boot-testing/">Testing SpringBoot Applications</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/">Kafka Tutorial - Producer and Consumer using SpringBoot</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-java-producer-consumer/">Kafka Tutorial - Java Producer and Consumer</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+        <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="android">android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="best-practices">best-practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="blog">blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="blogging">blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
