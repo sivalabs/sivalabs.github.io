@@ -6,10 +6,21 @@
     <description>Recent content in Posts on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jan 2020 04:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 04:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SpringBoot Integration Testing using TestContainers Starter</title>
+      <link>https://sivalabs.github.io/2020/02/spring-boot-integration-testing-using-testcontainers-starter/</link>
+      <pubDate>Mon, 03 Feb 2020 04:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2020/02/spring-boot-integration-testing-using-testcontainers-starter/</guid>
+      <description>One of the many reasons for huge popularity of Spring and SpringBoot is it&amp;rsquo;s great support for Testing. We can write unit tests using Mockito without requiring any Spring features. And, we can write Integration Tests using Spring testing support by creating Spring ApplicationContext.
+ Read Guide to Testing SpringBoot Applications
+ While running integration tests we might need to interact with external services like relational databases, NoSQL datastores, Kafka etc.</description>
+    </item>
     
     <item>
       <title>Creating Yeoman based SpringBoot Generator</title>
