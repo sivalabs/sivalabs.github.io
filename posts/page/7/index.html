@@ -35,7 +35,7 @@ if (!doNotTrack) {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/posts/" />
 
-<meta property="og:updated_time" content="2020-02-03T04:59:17&#43;05:30"/>
+<meta property="og:updated_time" content="2020-03-15T04:59:17&#43;05:30"/>
 
     
 <meta itemprop="name" content="Posts">
@@ -127,6 +127,54 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-admin-reset-password/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-admin-reset-password/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-06T10:41:22">
+                December 06, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-admin-reset-password/" rel="bookmark">
+            JCart: Admin Reset Password
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            &nbsp;
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>Once the Admin User clicked on Password Reset Link that we sent via Email, we will validate the Token and if is valid then we will show a form to enter New Password, otherwise shows an error.
+@Controller public class UserAuthController extends JCartAdminBaseController { ... @RequestMapping(value=&#34;/resetPwd&#34;, method=RequestMethod.GET) public String resetPwd(HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) { String email = request.getParameter(&#34;email&#34;); String token = request.getParameter(&#34;token&#34;); boolean valid = securityService.verifyPasswordResetToken(email, token); if(valid){ model.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-admin-reset-password/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-admin-forgot-password/" rel="bookmark">
@@ -566,54 +614,6 @@ If you are using Ubuntu based Linux Operating System then you can refer my artic
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/11/jcart-release-planning/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/11/jcart-release-planning/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-11-24T04:26:20">
-                November 24, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/11/jcart-release-planning/" rel="bookmark">
-            JCart Release Planning
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/e-commerce/">E-Commerce</a>
-            &nbsp;
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>In our previous article JCart Requirements Analysis we have listed out all the requirements that we need to implement for JCart application. Now we need to come up with an implementation and release plan. As we are following iteration model, we will plan for N iterations where in each iteration we will implement some usecases.
-After listing out all the implementation tasks and based on the task dependencies, we came up with the following Iteration plan.</p>
-                    <a href="https://sivalabs.github.io/2015/11/jcart-release-planning/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -706,11 +706,11 @@ After listing out all the implementation tasks and based on the task dependencie
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/03/what-i-learned-2020-week-11/">What I Learned in Week-11, 2020</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/02/spring-boot-integration-testing-using-testcontainers-starter/">SpringBoot Integration Testing using TestContainers Starter</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/01/creating-yeoman-based-springboot-generator/">Creating Yeoman based SpringBoot Generator</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/10/testing-rest-apis-with-postman-newman/">Testing REST APIs using Postman and Newman</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/10/spring-boot-testing/">Testing SpringBoot Applications</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/">Kafka Tutorial - Producer and Consumer using SpringBoot</a></li>
     </ul>
 
 </aside>
@@ -812,6 +812,8 @@ After listing out all the implementation tasks and based on the task dependencie
                href="/tags/it" title="it">it</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"

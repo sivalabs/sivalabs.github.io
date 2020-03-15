@@ -35,7 +35,7 @@ if (!doNotTrack) {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/posts/" />
 
-<meta property="og:updated_time" content="2020-02-03T04:59:17&#43;05:30"/>
+<meta property="og:updated_time" content="2020-03-15T04:59:17&#43;05:30"/>
 
     
 <meta itemprop="name" content="Posts">
@@ -127,6 +127,53 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-30T14:17:41">
+                December 30, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" rel="bookmark">
+            JCart : ShoppingCart UI Layout Setup
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>In this post we will setup the layout for our ShoppingCart UI using Thymeleaf templates.
+Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ and copy the following directories/files into jcart-site/src/main/resources/static/assets folder.
+ css fonts img js style.css  Create Site layout thymeleaf template jcart-site/src/main/resources/templates/layout/mainLayout.html as follows:
+&lt;!DOCTYPE html&gt; &lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34;/&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;/&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;/&gt; &lt;title layout:title-pattern=&#34;$DECORATOR_TITLE - $CONTENT_TITLE&#34;&gt;QuilCart&lt;/title&gt; &lt;!-- Google Fonts --&gt; &lt;link href=&#39;https://fonts.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-initial-code-setup-for-shoppingcart/" rel="bookmark">
@@ -549,54 +596,6 @@ Similarly I would like to run Administration site on https://host:9443 and if an
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-admin-reset-password/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/12/jcart-admin-reset-password/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-06T10:41:22">
-                December 06, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/12/jcart-admin-reset-password/" rel="bookmark">
-            JCart: Admin Reset Password
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            &nbsp;
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>Once the Admin User clicked on Password Reset Link that we sent via Email, we will validate the Token and if is valid then we will show a form to enter New Password, otherwise shows an error.
-@Controller public class UserAuthController extends JCartAdminBaseController { ... @RequestMapping(value=&#34;/resetPwd&#34;, method=RequestMethod.GET) public String resetPwd(HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) { String email = request.getParameter(&#34;email&#34;); String token = request.getParameter(&#34;token&#34;); boolean valid = securityService.verifyPasswordResetToken(email, token); if(valid){ model.</p>
-                    <a href="https://sivalabs.github.io/2015/12/jcart-admin-reset-password/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -689,11 +688,11 @@ Similarly I would like to run Administration site on https://host:9443 and if an
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/03/what-i-learned-2020-week-11/">What I Learned in Week-11, 2020</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/02/spring-boot-integration-testing-using-testcontainers-starter/">SpringBoot Integration Testing using TestContainers Starter</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/01/creating-yeoman-based-springboot-generator/">Creating Yeoman based SpringBoot Generator</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/10/testing-rest-apis-with-postman-newman/">Testing REST APIs using Postman and Newman</a></li>
         <li class="widget__item"><a class="widget__link" href="/2019/10/spring-boot-testing/">Testing SpringBoot Applications</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2019/06/kafka-tutorial-producer-consumer-using-spring-boot/">Kafka Tutorial - Producer and Consumer using SpringBoot</a></li>
     </ul>
 
 </aside>
@@ -795,6 +794,8 @@ Similarly I would like to run Administration site on https://host:9443 and if an
                href="/tags/it" title="it">it</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"

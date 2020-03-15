@@ -6,10 +6,19 @@
     <description>Recent content in Tags on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2020 04:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 04:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java, Blogging</title>
+      <link>https://sivalabs.github.io/tags/java-blogging/</link>
+      <pubDate>Sun, 15 Mar 2020 04:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/java-blogging/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SpringBoot, Testcontainers</title>
@@ -75,20 +84,20 @@
     </item>
     
     <item>
+      <title>SpringBoot</title>
+      <link>https://sivalabs.github.io/tags/springboot/</link>
+      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>microservices</title>
       <link>https://sivalabs.github.io/tags/microservices/</link>
       <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
       
       <guid>https://sivalabs.github.io/tags/microservices/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>springboot</title>
-      <link>https://sivalabs.github.io/tags/springboot/</link>
-      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/tags/springboot/</guid>
       <description></description>
     </item>
     
@@ -138,7 +147,7 @@
     </item>
     
     <item>
-      <title>books</title>
+      <title>Books</title>
       <link>https://sivalabs.github.io/tags/books/</link>
       <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
       

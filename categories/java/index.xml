@@ -6,10 +6,20 @@
     <description>Recent content in Java on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Aug 2017 12:30:43 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 04:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What I Learned in Week-11, 2020</title>
+      <link>https://sivalabs.github.io/2020/03/what-i-learned-2020-week-11/</link>
+      <pubDate>Sun, 15 Mar 2020 04:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2020/03/what-i-learned-2020-week-11/</guid>
+      <description>I come across many blog posts from various sources like Twitter, StackOverflow etc and some of them are very helpful. Also, in day to day work I learn few new things, explore some new tools. Usually I keep track of this information using Browser Bookmarks and Pocket.
+I thought may be this information could be useful for others too. So, I am going to share it weekly on my blog.</description>
+    </item>
     
     <item>
       <title>Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</title>
