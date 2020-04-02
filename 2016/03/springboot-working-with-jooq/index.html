@@ -337,7 +337,7 @@ JOOQ provides the following features:
                     <span style="color:#f92672">&lt;configuration&gt;</span>
                         <span style="color:#f92672">&lt;jdbc&gt;</span>
                             <span style="color:#f92672">&lt;driver&gt;</span>org.h2.Driver<span style="color:#f92672">&lt;/driver&gt;</span>
-                            <span style="color:#f92672">&lt;url&gt;</span>jdbc:h2:~/springbootjooq<span style="color:#f92672">&lt;/url&gt;</span>
+                            <span style="color:#f92672">&lt;url&gt;</span>jdbc~/springbootjooq<span style="color:#f92672">&lt;/url&gt;</span>
                         <span style="color:#f92672">&lt;/jdbc&gt;</span>
                         <span style="color:#f92672">&lt;generator&gt;</span>
                             <span style="color:#f92672">&lt;name&gt;</span>org.jooq.util.DefaultGenerator<span style="color:#f92672">&lt;/name&gt;</span>
@@ -381,7 +381,7 @@ JOOQ provides the following features:
                     <span style="color:#f92672">&lt;configuration&gt;</span>
                         <span style="color:#f92672">&lt;jdbc&gt;</span>
                             <span style="color:#f92672">&lt;driver&gt;</span>com.mysql.jdbc.Driver<span style="color:#f92672">&lt;/driver&gt;</span>
-                            <span style="color:#f92672">&lt;url&gt;</span>jdbc:mysql://localhost:3306/test<span style="color:#f92672">&lt;/url&gt;</span>
+                            <span style="color:#f92672">&lt;url&gt;</span>jdbc//localhost:3306/test<span style="color:#f92672">&lt;/url&gt;</span>
                             <span style="color:#f92672">&lt;user&gt;</span>root<span style="color:#f92672">&lt;/user&gt;</span>
                             <span style="color:#f92672">&lt;password&gt;</span>admin<span style="color:#f92672">&lt;/password&gt;</span>
                         <span style="color:#f92672">&lt;/jdbc&gt;</span>
@@ -654,7 +654,7 @@ JOOQ provides the following features:
 <p>But if you have generated code using <strong>mysql</strong> profile then you will have to configure the following properties in <strong>application.properties</strong>.</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/test
+spring.datasource.url=jdbc//localhost:3306/test
 spring.datasource.username=root
 spring.datasource.password=admin
 

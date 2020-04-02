@@ -205,7 +205,7 @@ Let us create configuration files <strong>catalogservice.properties</strong> and
 <p><strong>config-repo/catalogservice.properties</strong></p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/catalog
+spring.datasource.url=jdbc//localhost:3306/catalog
 spring.datasource.username=root
 spring.datasource.password=admin</code></pre></div>
 
@@ -221,7 +221,7 @@ spring.rabbitmq.password=guest</code></pre></div>
 <p><strong>config-repo/catalogservice-prod.properties</strong></p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc:mysql://appsrv1:3306/catalog
+spring.datasource.url=jdbc//appsrv1:3306/catalog
 spring.datasource.username=appuser46
 spring.datasource.password=T(iV&amp;#)X84@1!</code></pre></div>
 
@@ -357,7 +357,7 @@ management.security.enabled=false</code></pre></div>
                 <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;admin&#34;</span>,
-                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/catalog&#34;</span>
+                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/catalog&#34;</span>
             }
         }
     ]
@@ -380,7 +380,7 @@ management.security.enabled=false</code></pre></div>
                 <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;appuser46&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;T(iV&amp;#)X84@1!&#34;</span>,
-                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://appsrv1:3306/catalog&#34;</span>
+                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//appsrv1:3306/catalog&#34;</span>
             }
         },
         {
@@ -389,7 +389,7 @@ management.security.enabled=false</code></pre></div>
                 <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;admin&#34;</span>,
-                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/catalog&#34;</span>
+                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/catalog&#34;</span>
             }
         }
     ]
@@ -400,7 +400,7 @@ management.security.enabled=false</code></pre></div>
 <p>Suppose you have <strong>application.properties</strong> file in <strong>config-repo</strong> with the following properties:</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">message=helloworld
-jdbc.datasource.url=jdbc:mysql://localhost:3306/defapp</code></pre></div>
+jdbc.datasource.url=jdbc//localhost:3306/defapp</code></pre></div>
 
 <p>Now if you access <a href="http://localhost:8888/catalogservice/prod">http://localhost:8888/catalogservice/prod</a> then you will get the following response:</p>
 
@@ -419,7 +419,7 @@ jdbc.datasource.url=jdbc:mysql://localhost:3306/defapp</code></pre></div>
               <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;appuser46&#34;</span>,
               <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
               <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;T(iV&amp;#)X84@1!&#34;</span>,
-              <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://appsrv1:3306/catalog&#34;</span>
+              <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//appsrv1:3306/catalog&#34;</span>
             }
         },
         {
@@ -428,14 +428,14 @@ jdbc.datasource.url=jdbc:mysql://localhost:3306/defapp</code></pre></div>
                 <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;admin&#34;</span>,
-                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/catalog&#34;</span>
+                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/catalog&#34;</span>
             }
         },
         {
             <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;https://github.com/sivaprasadreddy/config-repo.git/application.properties&#34;</span>,
             <span style="color:#f92672">&#34;source&#34;</span>: {
                 <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;helloworld&#34;</span>,
-                <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/defapp&#34;</span>
+                <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/defapp&#34;</span>
             }
         }
     ]
@@ -465,7 +465,7 @@ jdbc.datasource.url=jdbc:mysql://localhost:3306/defapp</code></pre></div>
             <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;https://github.com/sivaprasadreddy/config-repo.git/application.properties&#34;</span>,
             <span style="color:#f92672">&#34;source&#34;</span>: {
                 <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;helloworld&#34;</span>,
-                <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/defapp&#34;</span>
+                <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/defapp&#34;</span>
             }
         }
     ]
@@ -590,15 +590,15 @@ management.security.enabled=false</code></pre></div>
     <span style="color:#f92672">&#34;configService:configClient&#34;</span>: {
         <span style="color:#f92672">&#34;config.client.version&#34;</span>: <span style="color:#e6db74">&#34;8a06f25aeb3f28a8f06b5634eae01858b2c6465d&#34;</span>
     },
-    <span style="color:#f92672">&#34;configService:https://github.com/sivaprasadreddy/config-repo.git/catalogservice.properties&#34;</span>: {
+    <span style="color:#f92672">&#34;configService//github.com/sivaprasadreddy/config-repo.git/catalogservice.properties&#34;</span>: {
         <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
         <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
         <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;******&#34;</span>,
-        <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/catalog&#34;</span>
+        <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/catalog&#34;</span>
     },
-    <span style="color:#f92672">&#34;configService:https://github.com/sivaprasadreddy/config-repo.git/application.properties&#34;</span>: {
+    <span style="color:#f92672">&#34;configService//github.com/sivaprasadreddy/config-repo.git/application.properties&#34;</span>: {
         <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;helloworld&#34;</span>,
-        <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/defapp&#34;</span>
+        <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/defapp&#34;</span>
     },
     <span style="color:#f92672">&#34;servletContextInitParams&#34;</span>: {},
     <span style="color:#f92672">&#34;systemProperties&#34;</span>: {
