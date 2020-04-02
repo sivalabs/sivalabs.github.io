@@ -1,56 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SpringBoot on SivaLabs</title>
+    <title>springboot on SivaLabs</title>
     <link>https://sivalabs.github.io/categories/springboot/</link>
-    <description>Recent content in SpringBoot on SivaLabs</description>
+    <description>Recent content in springboot on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2020 04:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 20 Mar 2018 07:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/categories/springboot/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>SpringBoot Integration Testing using TestContainers Starter</title>
-      <link>https://sivalabs.github.io/2020/02/spring-boot-integration-testing-using-testcontainers-starter/</link>
-      <pubDate>Mon, 03 Feb 2020 04:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/2020/02/spring-boot-integration-testing-using-testcontainers-starter/</guid>
-      <description>One of the many reasons for huge popularity of Spring and SpringBoot is it&amp;rsquo;s great support for Testing. We can write unit tests using Mockito without requiring any Spring features. And, we can write Integration Tests using Spring testing support by creating Spring ApplicationContext.
- Read Guide to Testing SpringBoot Applications
- While running integration tests we might need to interact with external services like relational databases, NoSQL datastores, Kafka etc.</description>
-    </item>
-    
-    <item>
-      <title>Creating Yeoman based SpringBoot Generator</title>
-      <link>https://sivalabs.github.io/2020/01/creating-yeoman-based-springboot-generator/</link>
-      <pubDate>Wed, 29 Jan 2020 04:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/2020/01/creating-yeoman-based-springboot-generator/</guid>
-      <description>I have been working with Spring and SpringBoot for many years and I needed to create lot of Spring(Boot) applications for various reasons like blog posts, sample apps, book sample code and for my personal learning as well. So, I needed some tool/mechanism to quickly create Spring(Boot) application with most commonly used configuration.
-I know we have the most popular SpringBoot Initializer to create SpringBoot applications. But, it generates the application with only selected starter dependencies added and nothing more.</description>
-    </item>
-    
-    <item>
-      <title>Testing SpringBoot Applications</title>
-      <link>https://sivalabs.github.io/2019/10/spring-boot-testing/</link>
-      <pubDate>Mon, 07 Oct 2019 07:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/2019/10/spring-boot-testing/</guid>
-      <description>SpringBoot is the most popular tech stack for building Java based REST APIs. In this tutorial we will learn how to write tests for SpringBoot applications.
- Create SpringBoot Application Unit Testing using JUnit 5 and Mockito Integration Testing using TestContainers Testing MicroService Integrations using MockServer  As we all know, we write unit tests for testing single component (a class) behaviour where as we write integration tests for testing a feature which may involve interaction with multiple components.</description>
-    </item>
-    
-    <item>
-      <title>SpringBoot Best Practices</title>
-      <link>https://sivalabs.github.io/2019/05/spring-boot-best-practices/</link>
-      <pubDate>Tue, 14 May 2019 07:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/2019/05/spring-boot-best-practices/</guid>
-      <description>I have been working with SpringBoot for many years and over the time I worked with many SpringBoot based codebases. There are few common mistakes that I observe in the projects that use SpringBoot. So, I thought of writing down few good practices that can be followed while using SpringBoot.
-1. Understand SpringBoot Core Concepts I know, this sounds very obvious but I see many developers jumping onto using SpringBoot without having any prior knowledge on Spring, Dependency Injection.</description>
-    </item>
     
     <item>
       <title>MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</title>
