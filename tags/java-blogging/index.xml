@@ -6,10 +6,20 @@
     <description>Recent content in Java, Blogging on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Mar 2020 04:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2020 04:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/java-blogging/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What I Learned in Week-14, 2020</title>
+      <link>https://sivalabs.github.io/2020/04/what-i-learned-2020-week-14/</link>
+      <pubDate>Mon, 06 Apr 2020 04:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2020/04/what-i-learned-2020-week-14/</guid>
+      <description>It&amp;rsquo;s been tough time for everyone due to the Corona virus situation. Staying at home for weeks and weeks is not easy, but it is very necessary thing to do so that we don&amp;rsquo;t spread the virus.
+However, if I look on the bright side I used to spend minimum 3 hours for office commute everyday. Now I am using that time for various other activities including learning some new things.</description>
+    </item>
     
     <item>
       <title>What I Learned in Week-11, 2020</title>
