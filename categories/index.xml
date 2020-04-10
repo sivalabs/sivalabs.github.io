@@ -6,10 +6,46 @@
     <description>Recent content in Categories on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Apr 2020 04:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 29 Dec 2013 00:53:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Best Practices</title>
+      <link>https://sivalabs.github.io/categories/best-practices/</link>
+      <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/best-practices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>https://sivalabs.github.io/categories/blog/</link>
+      <pubDate>Mon, 01 Jan 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Books</title>
+      <link>https://sivalabs.github.io/categories/books/</link>
+      <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IDE</title>
+      <link>https://sivalabs.github.io/categories/ide/</link>
+      <pubDate>Wed, 07 Sep 2016 09:53:35 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/ide/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Java</title>
@@ -21,7 +57,52 @@
     </item>
     
     <item>
-      <title>springboot</title>
+      <title>JavaEE</title>
+      <link>https://sivalabs.github.io/categories/javaee/</link>
+      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/javaee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kafka</title>
+      <link>https://sivalabs.github.io/categories/kafka/</link>
+      <pubDate>Mon, 24 Jun 2019 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://sivalabs.github.io/categories/linux/</link>
+      <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Misc</title>
+      <link>https://sivalabs.github.io/categories/misc/</link>
+      <pubDate>Sun, 30 Nov 2014 01:21:00 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/misc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>https://sivalabs.github.io/categories/spring/</link>
+      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpringBoot</title>
       <link>https://sivalabs.github.io/categories/springboot/</link>
       <pubDate>Mon, 03 Feb 2020 04:59:17 +0530</pubDate>
       
@@ -39,11 +120,20 @@
     </item>
     
     <item>
-      <title>Kafka</title>
-      <link>https://sivalabs.github.io/categories/kafka/</link>
-      <pubDate>Mon, 24 Jun 2019 07:59:17 +0530</pubDate>
+      <title>Tips</title>
+      <link>https://sivalabs.github.io/categories/tips/</link>
+      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
       
-      <guid>https://sivalabs.github.io/categories/kafka/</guid>
+      <guid>https://sivalabs.github.io/categories/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>books</title>
+      <link>https://sivalabs.github.io/categories/books/</link>
+      <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/books/</guid>
       <description></description>
     </item>
     
@@ -53,6 +143,15 @@
       <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
       
       <guid>https://sivalabs.github.io/categories/microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>springboot</title>
+      <link>https://sivalabs.github.io/categories/springboot/</link>
+      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/categories/springboot/</guid>
       <description></description>
     </item>
     
@@ -75,92 +174,11 @@
     </item>
     
     <item>
-      <title>Blog</title>
-      <link>https://sivalabs.github.io/categories/blog/</link>
-      <pubDate>Mon, 01 Jan 2018 07:59:17 +0530</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>books</title>
-      <link>https://sivalabs.github.io/categories/books/</link>
-      <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/books/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spring</title>
-      <link>https://sivalabs.github.io/categories/spring/</link>
-      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/spring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tips</title>
-      <link>https://sivalabs.github.io/categories/tips/</link>
-      <pubDate>Wed, 18 Oct 2017 02:50:23 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>IDE</title>
-      <link>https://sivalabs.github.io/categories/ide/</link>
-      <pubDate>Wed, 07 Sep 2016 09:53:35 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/ide/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>videos</title>
       <link>https://sivalabs.github.io/categories/videos/</link>
       <pubDate>Sun, 10 Apr 2016 04:03:33 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/categories/videos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://sivalabs.github.io/categories/linux/</link>
-      <pubDate>Tue, 13 Oct 2015 02:07:05 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaEE</title>
-      <link>https://sivalabs.github.io/categories/javaee/</link>
-      <pubDate>Mon, 15 Jun 2015 13:04:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/javaee/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Misc</title>
-      <link>https://sivalabs.github.io/categories/misc/</link>
-      <pubDate>Sun, 30 Nov 2014 01:21:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/misc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Best Practices</title>
-      <link>https://sivalabs.github.io/categories/best-practices/</link>
-      <pubDate>Sun, 29 Dec 2013 00:53:00 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/categories/best-practices/</guid>
       <description></description>
     </item>
     

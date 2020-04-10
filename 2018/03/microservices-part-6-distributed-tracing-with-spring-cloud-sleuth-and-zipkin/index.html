@@ -241,12 +241,12 @@ The logging frameworks include the information set in MDC with all log statement
 
 <p>Once you add <strong>Sleuth</strong> starter and start the services you can observe in logs something like this.</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">10</span>:19:15.512  INFO <span style="color:#f92672">[</span>inventory-service,,,<span style="color:#f92672">]</span> <span style="color:#ae81ff">53685</span> --- <span style="color:#f92672">[</span>trap-executor-0<span style="color:#f92672">]</span> c.n.d.s.r.aws.ConfigClusterResolver ...
-<span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">10</span>:24:15.507  INFO <span style="color:#f92672">[</span>inventory-service,,,<span style="color:#f92672">]</span> <span style="color:#ae81ff">53685</span> --- <span style="color:#f92672">[</span>trap-executor-0<span style="color:#f92672">]</span> c.n.d.s.r.aws.ConfigClusterResolver ...</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">1015</span>.512  INFO <span style="color:#f92672">[</span>inventory-service,,,<span style="color:#f92672">]</span> <span style="color:#ae81ff">53685</span> --- <span style="color:#f92672">[</span>trap-executor-0<span style="color:#f92672">]</span> c.n.d.s.r.aws.ConfigClusterResolver ...
+<span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">1015</span>.507  INFO <span style="color:#f92672">[</span>inventory-service,,,<span style="color:#f92672">]</span> <span style="color:#ae81ff">53685</span> --- <span style="color:#f92672">[</span>trap-executor-0<span style="color:#f92672">]</span> c.n.d.s.r.aws.ConfigClusterResolver ...</code></pre></div>
 
 <p>Now hit any inventory-service REST endpoint, say <a href="http://localhost:8282/api/inventory">http://localhost:8282/api/inventory</a>. Then you can observe <strong>TraceID, SpanID</strong> in the logs.</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">10</span>:15:38.466  INFO <span style="color:#f92672">[</span>inventory-service,683f8e4370413032,d8abe400c68a9a6b,false<span style="color:#f92672">]</span> <span style="color:#ae81ff">53685</span> --- <span style="color:#f92672">[</span>oryController-3<span style="color:#f92672">]</span> ... </code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">1038</span>.466  INFO <span style="color:#f92672">[</span>inventory-service,683f8e4370413032,d8abe400c68a9a6b,false<span style="color:#f92672">]</span> <span style="color:#ae81ff">53685</span> --- <span style="color:#f92672">[</span>oryController-3<span style="color:#f92672">]</span> ... </code></pre></div>
 
 <p>Sleuth includes the pattern <strong>[appname,traceId,spanId,exportable]</strong> in logs from the MDC.</p>
 
@@ -254,11 +254,11 @@ The logging frameworks include the information set in MDC with all log statement
 
 <p>In catalog-service logs you can find log statements something like:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">10</span>:54:29.625  INFO <span style="color:#f92672">[</span>catalog-service,0335da07260d3d6f,0335da07260d3d6f,false<span style="color:#f92672">]</span> <span style="color:#ae81ff">53617</span> --- <span style="color:#f92672">[</span>io-8181-exec-10<span style="color:#f92672">]</span> ...</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">1029</span>.625  INFO <span style="color:#f92672">[</span>catalog-service,0335da07260d3d6f,0335da07260d3d6f,false<span style="color:#f92672">]</span> <span style="color:#ae81ff">53617</span> --- <span style="color:#f92672">[</span>io-8181-exec-10<span style="color:#f92672">]</span> ...</code></pre></div>
 
 <p>And, check logs in inventory-service, you can find log statements something like:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">10</span>:54:29.662  INFO <span style="color:#f92672">[</span>inventory-service,0335da07260d3d6f,1af68249ac3a6902,false<span style="color:#f92672">]</span> <span style="color:#ae81ff">53685</span> --- <span style="color:#f92672">[</span>oryController-6<span style="color:#f92672">]</span> ...</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">1029</span>.662  INFO <span style="color:#f92672">[</span>inventory-service,0335da07260d3d6f,1af68249ac3a6902,false<span style="color:#f92672">]</span> <span style="color:#ae81ff">53685</span> --- <span style="color:#f92672">[</span>oryController-6<span style="color:#f92672">]</span> ...</code></pre></div>
 
 <p>Observe that TraceID <strong>0335da07260d3d6f</strong> is same in both catalog-service and inventory-service for the same REST API call. This way we can easily correlate the logs across services.</p>
 
@@ -442,7 +442,7 @@ spring.sleuth.sampler.probability=1</code></pre></div>
 <p>Now restart both inventory-service and catalog-service and invoke <a href="http://localhost:8181/api/products">http://localhost:8181/api/products</a> endpoint.
 You can observe that <strong>true</strong> is printed in logs meaning it is exported.</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">11</span>:41:02.241  INFO <span style="color:#f92672">[</span>catalog-service,7d0d44fe314d7758,7d0d44fe314d7758,true<span style="color:#f92672">]</span> <span style="color:#ae81ff">53617</span> --- <span style="color:#f92672">[</span>nio-8181-exec-5<span style="color:#f92672">]</span> c.s.c.services.ProductService</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">2018</span>-03-20 <span style="color:#ae81ff">1102</span>.241  INFO <span style="color:#f92672">[</span>catalog-service,7d0d44fe314d7758,7d0d44fe314d7758,true<span style="color:#f92672">]</span> <span style="color:#ae81ff">53617</span> --- <span style="color:#f92672">[</span>nio-8181-exec-5<span style="color:#f92672">]</span> c.s.c.services.ProductService</code></pre></div>
 
 <p>Now go to Zipkin UI Dashboard, you can see the service names populated in the first dropdown. Select the service you want to check or select all and then click on Find Traces button.</p>
 
@@ -659,21 +659,23 @@ You can observe that <strong>true</strong> is printed in logs meaning it is expo
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
-        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
         <li class="cat-item"><a href="/categories/testing">Testing</a></li>
         <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -686,81 +688,87 @@ You can observe that <strong>true</strong> is printed in logs meaning it is expo
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="android">android</a>
+               href="/tags/android" title="Android">Android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="best-practices">best-practices</a>
+               href="/tags/best-practices" title="Best Practices">Best Practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="blog">blog</a>
+               href="/tags/blog" title="Blog">Blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="blogging">blogging</a>
+               href="/tags/blogging" title="Blogging">Blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="Books">Books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="IDE">IDE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="IT">IT</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="Interviews">Interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="JSF">JSF</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="Java">Java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="JavaEE">JavaEE</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="Kafka">Kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="Linux">Linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="Maven">Maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="MyBatis">MyBatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="Spring">Spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="Tips">Tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="ide">ide</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="interviews">interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="it">it</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="java">java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="jsf">jsf</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="kafka">kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="linux">linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="maven">maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="mybatis">mybatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="spring">spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="tips">tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>
