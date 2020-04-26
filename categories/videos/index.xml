@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>videos on SivaLabs</title>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 10 Apr 2016 04:03:33 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/videos/</guid>
-      <description> My YouTube Channel  Part 1 : Introduction To SpringBoot   Part-2 : Using SpringBoot with Tomcat Jetty Undertow servers   </description>
+      <description>My YouTube Channel Part 1 : Introduction To SpringBoot   Part-2 : Using SpringBoot with Tomcat Jetty Undertow servers   </description>
     </item>
     
   </channel>

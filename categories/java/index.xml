@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on SivaLabs</title>
@@ -67,7 +67,7 @@ Solution Spring Cloud Bus module can be used to link multiple applications with 
       
       <guid>https://sivalabs.github.io/2015/12/jcart-iteration-8/</guid>
       <description>In this Iteration#8 we will implement showing the Customer Account and Order History functionality in our ShoppingCart application.
- Customer MyAccount Page  Profile Order History   Once the customer is logged in our system he can click on MyAccount link at the top of the header and view his profile details and order history.
+ Customer MyAccount Page  Profile Order History    Once the customer is logged in our system he can click on MyAccount link at the top of the header and view his profile details and order history.
 First let us write the Controller handler method in our CustomerController to show myAccount details.</description>
     </item>
     
@@ -101,7 +101,7 @@ Let us start with implementing the back-end order service.
       <guid>https://sivalabs.github.io/2015/12/jcart-iteration-7/</guid>
       <description>In Iteration#6 we have implemented features in ShoppingCart application to enable Customers place orders. In this Iteration#7 we will implement the features in Administration application to view and manage the Customers and Orders.
 As part of Iteration#7 we will implement the following usecases:
- Manage Orders  List all Orders View Order details Update Order status  Manage Customers  List all customers View customer details   </description>
+ Manage Orders  List all Orders View Order details Update Order status   Manage Customers  List all customers View customer details    </description>
     </item>
     
     <item>
@@ -144,7 +144,7 @@ But to checkout the cart the customer should login into the system. So if the cu
       <guid>https://sivalabs.github.io/2015/12/jcart-iteration-6/</guid>
       <description>In this Iteration-6 we will be implementing the Customer Login/Register and placing the orders.
 As per of this we will implement the following usecases:
- Customer Login Customer Registration Billing &amp;amp; Delivery Page  Create Order Order Confirmation Page Send Order Confirmation Email   </description>
+ Customer Login Customer Registration Billing &amp;amp; Delivery Page  Create Order Order Confirmation Page Send Order Confirmation Email    </description>
     </item>
     
     <item>
@@ -155,7 +155,7 @@ As per of this we will implement the following usecases:
       <guid>https://sivalabs.github.io/2015/12/jcart-view-cart/</guid>
       <description>In our earlier post we have implemented Add To Cart functionality. In this post we will implement showing the Cart Item details.
 In out mainLayout.html header we have ShoppingCart icon showing the cart item count as follows:
-&amp;lt;div class=&amp;#34;shopping-item&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;#&amp;#34; th:href=&amp;#34;@{/cart}&amp;#34;&amp;gt;Cart &amp;lt;i class=&amp;#34;fa fa-shopping-cart&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span id=&amp;#34;cart-item-count&amp;#34; class=&amp;#34;product-count&amp;#34;&amp;gt;(0)&amp;lt;/span&amp;gt; &amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; When customer clicks on Cart icon we will show the Cart details. Let us implement the &amp;#8220;/cart&amp;#8221; url handler method in CartController as follows:</description>
+&amp;lt;div class=&amp;#34;shopping-item&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;#&amp;#34; th:href=&amp;#34;@{/cart}&amp;#34;&amp;gt;Cart &amp;lt;i class=&amp;#34;fa fa-shopping-cart&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span id=&amp;#34;cart-item-count&amp;#34; class=&amp;#34;product-count&amp;#34;&amp;gt;(0)&amp;lt;/span&amp;gt; &amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; When customer clicks on Cart icon we will show the Cart details. Let us implement the “/cart” url handler method in CartController as follows:</description>
     </item>
     
     <item>
@@ -167,7 +167,7 @@ In out mainLayout.html header we have ShoppingCart icon showing the cart item co
       <description>In our HomePage/CategoryPage/ProductPage we have a button Add To Cart as follows:
 &amp;lt;a class=&amp;#34;add_to_cart_button&amp;#34; data-quantity=&amp;#34;1&amp;#34; data-product_sku=&amp;#34;&amp;#34; data-product_id=&amp;#34;70&amp;#34; rel=&amp;#34;nofollow&amp;#34; href=&amp;#34;#&amp;#34; th:onclick=&amp;#34;&amp;#39;javascript:addItemToCart(\&amp;#39;&amp;#39; + ${product.sku} + &amp;#39;\&amp;#39;);&amp;#39;&amp;#34;&amp;gt; Add to cart &amp;lt;/a&amp;gt; When customer clicks on Add To Cart button it will trigger addItemToCart(sku) JavaScript function passing the product SKU value.
 Now create jcart-site/src/main/resources/static/assets/js/app.js and implement addItemToCart(sku) function as follows:
-function addItemToCart(sku) { $.ajax ({ url: &amp;#39;/cart/items&amp;#39;, type: &amp;#34;POST&amp;#34;, dataType: &amp;#34;json&amp;#34;, contentType: &amp;#34;application/json&amp;#34;, data : &amp;#39;{&amp;#34;sku&amp;#34;:&amp;#34;&amp;#39;+ sku +&amp;#39;&amp;#34;}&amp;#34;&amp;#39;, complete: function(responseData, status, xhttp){ updateCartItemCount();	} }); }  This function triggers an Ajax call to url &amp;#8216;/cart/items&amp;#8217; using jQuery and if it is successful we are calling another JavaScript function updateCartItemCount().</description>
+function addItemToCart(sku) { $.ajax ({ url: &amp;#39;/cart/items&amp;#39;, type: &amp;#34;POST&amp;#34;, dataType: &amp;#34;json&amp;#34;, contentType: &amp;#34;application/json&amp;#34;, data : &amp;#39;{&amp;#34;sku&amp;#34;:&amp;#34;&amp;#39;+ sku +&amp;#39;&amp;#34;}&amp;#34;&amp;#39;, complete: function(responseData, status, xhttp){ updateCartItemCount();	} }); } This function triggers an Ajax call to url ‘/cart/items&amp;rsquo; using jQuery and if it is successful we are calling another JavaScript function updateCartItemCount().</description>
     </item>
     
     <item>
@@ -178,8 +178,7 @@ function addItemToCart(sku) { $.ajax ({ url: &amp;#39;/cart/items&amp;#39;, type
       <guid>https://sivalabs.github.io/2015/12/jcart-iteration-5/</guid>
       <description>In Iteration-5 we will be primarily working on Cart related functionality. As part of Iteration-4 we have implemented showing Home page, Category Page, Product Page and Product Search features.
 In this Iteration we will implement the following usecases:
- Add To Cart in HomePage/CategoryPage/ProductPage Cart Page
- View Cart Items Updates Quantity Remove Items   </description>
+ Add To Cart in HomePage/CategoryPage/ProductPage Cart Page  View Cart Items Updates Quantity Remove Items    </description>
     </item>
     
     <item>
@@ -234,7 +233,7 @@ Let us update HomeController with two methods to show all the categories and the
       
       <guid>https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/</guid>
       <description>In this post we will setup the layout for our ShoppingCart UI using Thymeleaf templates.
-Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ and copy the following directories/files into jcart-site/src/main/resources/static/assets folder.
+Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/and copy the following directories/files into jcart-site/src/main/resources/static/assets folder.
  css fonts img js style.css  Create Site layout thymeleaf template jcart-site/src/main/resources/templates/layout/mainLayout.html as follows:
 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html xmlns=&amp;#34;http://www.w3.org/1999/xhtml&amp;#34; xmlns:th=&amp;#34;http://www.thymeleaf.org&amp;#34; xmlns:sec=&amp;#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;/&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;/&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1&amp;#34;/&amp;gt; &amp;lt;title layout:title-pattern=&amp;#34;$DECORATOR_TITLE - $CONTENT_TITLE&amp;#34;&amp;gt;QuilCart&amp;lt;/title&amp;gt; &amp;lt;!-- Google Fonts --&amp;gt; &amp;lt;link href=&amp;#39;https://fonts.</description>
     </item>
@@ -258,8 +257,7 @@ jcart-site/pom.xml
       
       <guid>https://sivalabs.github.io/2015/12/jcart-iteration-4/</guid>
       <description>In this Iteration-4 we will start building the consumer facing ShoppingCart website.
- Initial code setup for ShoppingCart webapp
- Configuring HTTPS/SSL/TLS  ShoppingCart UI Layout setup Home Page Category Page Product Page Product Search Results  </description>
+ Initial code setup for ShoppingCart webapp  [Configuring HTTPS/SSL/TLS] (/2015/12/jcart-configuring-https-ssltls/)   ShoppingCart UI Layout setup Home Page Category Page Product Page Product Search Results  </description>
     </item>
     
     <item>
@@ -303,7 +301,7 @@ In this post we are going to see lot of code snippets, so I would suggest to clo
       
       <guid>https://sivalabs.github.io/2015/12/jcart-manage-privileges/</guid>
       <description>This is the simplest usecase of entire JCart admin application :-). We need to show list of permissions configured in our system.
-In our system each permission is more like access to a particular screen. For example, If a user has MANAGE_CATEGORIES permission then only he can access &amp;#8220;Categories&amp;#8221; screen. So these set of permission are something like implemented features set, hence we don&amp;#8217;t need any provision to add/update/delete permissions dynamically.</description>
+In our system each permission is more like access to a particular screen. For example, If a user has MANAGE_CATEGORIES permission then only he can access “Categories” screen. So these set of permission are something like implemented features set, hence we don&amp;rsquo;t need any provision to add/update/delete permissions dynamically.</description>
     </item>
     
     <item>
@@ -323,8 +321,7 @@ Though majority of the infrastructure setup is in place now, we will implement R
       
       <guid>https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/</guid>
       <description>In this post we will setup SonarQube and Jenkins to perform code quality check and continuous integration.
-&amp;nbsp;
-Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
+ Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
 Let us install and configure SonarQube for our JCart application.
 Download SonarQube from http://www.sonarqube.org/downloads/.
 Extract it run sonarqube-5.2/bin/windows-x86-64/StartSonar.bat.
@@ -382,7 +379,7 @@ As we need Emailing feature in both Admin and ShoppingCart modules, we will impl
       <description>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.
 Let us add the following spring-security dependencies to jcart-admin/pom.xml.
 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-security&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf.extras&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf-extras-springsecurity4&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
-http .authorizeRequests() .antMatchers(&amp;#34;/login&amp;#34;,&amp;#34;/login/form**&amp;#34;,&amp;#34;/register&amp;#34;,&amp;#34;/logout&amp;#34;).permitAll() .antMatchers(&amp;#34;/admin&amp;#34;,&amp;#34;/admin/**&amp;#34;).hasRole(&amp;#34;ADMIN&amp;#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&amp;#8217;t statically define constraints using role names.</description>
+http .authorizeRequests() .antMatchers(&amp;#34;/login&amp;#34;,&amp;#34;/login/form**&amp;#34;,&amp;#34;/register&amp;#34;,&amp;#34;/logout&amp;#34;).permitAll() .antMatchers(&amp;#34;/admin&amp;#34;,&amp;#34;/admin/**&amp;#34;).hasRole(&amp;#34;ADMIN&amp;#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&amp;rsquo;t statically define constraints using role names.</description>
     </item>
     
     <item>
@@ -436,7 +433,7 @@ All these modules use SpringBoot, but as of now STS/IntellijIdea are not providi
       <pubDate>Tue, 01 Dec 2015 04:10:08 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2015/12/jcart-iteration-1/</guid>
-      <description>Now that we have completed the most difficult part (writing Introduction to technical article series is much harder than you think!!), so let&amp;#8217;s start the fun part. Coding!!!
+      <description>Now that we have completed the most difficult part (writing Introduction to technical article series is much harder than you think!!), so let&amp;rsquo;s start the fun part. Coding!!!
  Note: It is going to be a fast paced tutorial. Obviously we can&amp;rsquo;t cover every little bit of all the technologies used in our application. So I would suggest to explore more on individual technologies like Spring, Thymeleaf on your own.</description>
     </item>
     
@@ -468,7 +465,7 @@ After listing out all the implementation tasks and based on the task dependencie
       
       <guid>https://sivalabs.github.io/2015/11/jcart-requirements-analysis/</guid>
       <description>For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.
-ShoppingCart Site Requirements Home Page: This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart.</description>
+ShoppingCart Site Requirements Home Page:This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart.</description>
     </item>
     
     <item>
@@ -505,11 +502,11 @@ One of my friend makes quilling toys and she sell them by advertising on Faceboo
       <pubDate>Wed, 24 Oct 2012 00:40:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part4-spring-integration/</guid>
-      <description>MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+      <description>MyBatis Tutorial: Part1 – CRUD Operations
 MyBatis Tutorial: Part-2: CRUD operations Using Annotations
-MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
-MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
-MyBatis-Spring is a sub-project of MyBatis and provides Spring integration support which drastically simplifies the MyBatis usage. For those who are familiar with Spring&amp;#8217;s way of Dependency Injection process, using MyBatis-Spring is a very simple.
+MyBatis Tutorial: Part 3 – Mapping Relationships
+MyBatis Tutorial : Part4 – Spring Integration
+MyBatis-Spring is a sub-project of MyBatis and provides Spring integration support which drastically simplifies the MyBatis usage. For those who are familiar with Spring&amp;rsquo;s way of Dependency Injection process, using MyBatis-Spring is a very simple.
 First let us see the process of using MyBatis without Spring.</description>
     </item>
     
@@ -520,10 +517,10 @@ First let us see the process of using MyBatis without Spring.</description>
       
       <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-3-mapping-relationships/</guid>
       <description>In this post let us see how to use MyBatis ResultMap configuration to map relationships.
-MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part1 – CRUD Operations
 MyBatis Tutorial: Part-2: CRUD operations Using Annotations
-MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
-MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+MyBatis Tutorial: Part 3 – Mapping Relationships
+MyBatis Tutorial : Part4 – Spring Integration
 To illustrate we are considering the following sample domain model:
 There will be Users and each User may have a Blog and each Blog can contain zero or more posts.</description>
     </item>
@@ -535,10 +532,10 @@ There will be Users and each User may have a Blog and each Blog can contain zero
       
       <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part-2-crud-operations-using-annotations/</guid>
       <description>In this post I will explain how to perform CRUD operations using MyBatis Annotation support without need of Queries configuration in XML mapper files.
-MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part1 – CRUD Operations
 MyBatis Tutorial: Part-2: CRUD operations Using Annotations
-MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
-MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+MyBatis Tutorial: Part 3 – Mapping Relationships
+MyBatis Tutorial : Part4 – Spring Integration
 Step#1: Create a table BLOG and a java domain Object Blog.
 CREATE TABLE blog ( blog_id int(10) unsigned NOT NULL auto_increment, blog_name varchar(45) NOT NULL, created_on datetime NOT NULL, PRIMARY KEY (blog_id) ) ENGINE=InnoDB DEFAULT CHARSET=latin1; package com.</description>
     </item>
@@ -550,10 +547,10 @@ CREATE TABLE blog ( blog_id int(10) unsigned NOT NULL auto_increment, blog_name 
       
       <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part1-crud-operations/</guid>
       <description>MyBatis is an SQL Mapper tool which greatly simplifies the database programing when compared to using JDBC directly.
-MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+MyBatis Tutorial: Part1 – CRUD Operations
 MyBatis Tutorial: Part-2: CRUD operations Using Annotations
-MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
-MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
+MyBatis Tutorial: Part 3 – Mapping Relationships
+MyBatis Tutorial : Part4 – Spring Integration
 Step1: Create a Maven project and configure MyBatis dependencies.
 &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.sivalabs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;mybatis-demo&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.apache.org&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
@@ -565,7 +562,7 @@ Step1: Create a Maven project and configure MyBatis dependencies.
       
       <guid>https://sivalabs.github.io/2011/01/10-things-to-become-outstanding-java/</guid>
       <description>If you are a java developer and passionate about technology, you can follow the below things which makes you an outstanding Java developer.
-1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;#8217;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;#8217;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
+1. Have strong foundation and understanding on OO Principles For a java developer having strong understanding on Object Oriented Programming is a must. Without having a strong foundation on OOPS, one can&amp;rsquo;t realize the beauty of an Object Oriented Programming language like Java. If you don&amp;rsquo;t have good idea on what OOPS is, eventhough you are using OOP language you may be still coding in procedural way.</description>
     </item>
     
     <item>

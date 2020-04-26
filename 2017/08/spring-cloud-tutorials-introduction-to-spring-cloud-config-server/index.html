@@ -34,22 +34,18 @@ if (!doNotTrack) {
 <meta property="og:description" content="Problem SpringBoot provides lot of flexibility in externalizing configuration properties via properties or YAML files. We can also configure properties for each environment (dev, qa, prod etc) separately using profile specific configuration files such as application.properties, application-dev.properties, application-prod.properties etc. But once the application is started we can not update the properties at runtime. If we change the properties we need to restart the application to use the updated configuration properties." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2017/08/spring-cloud-tutorials-introduction-to-spring-cloud-config-server/" />
-<meta property="article:published_time" content="2017-08-14T03:35:07&#43;00:00"/>
-<meta property="article:modified_time" content="2017-08-14T03:35:07&#43;00:00"/>
+<meta property="article:published_time" content="2017-08-14T03:35:07+00:00" />
+<meta property="article:modified_time" content="2017-08-14T03:35:07+00:00" />
 
-    
-<meta itemprop="name" content="Spring Cloud Tutorials – Introduction to Spring Cloud Config Server">
+    <meta itemprop="name" content="Spring Cloud Tutorials – Introduction to Spring Cloud Config Server">
 <meta itemprop="description" content="Problem SpringBoot provides lot of flexibility in externalizing configuration properties via properties or YAML files. We can also configure properties for each environment (dev, qa, prod etc) separately using profile specific configuration files such as application.properties, application-dev.properties, application-prod.properties etc. But once the application is started we can not update the properties at runtime. If we change the properties we need to restart the application to use the updated configuration properties.">
-
-
 <meta itemprop="datePublished" content="2017-08-14T03:35:07&#43;00:00" />
 <meta itemprop="dateModified" content="2017-08-14T03:35:07&#43;00:00" />
-<meta itemprop="wordCount" content="1478">
+<meta itemprop="wordCount" content="1477">
 
 
 
 <meta itemprop="keywords" content="Spring,SpringBoot,SpringCloud," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -171,76 +167,49 @@ if (!doNotTrack) {
 </header>
 
         <div class="entry-content">
-            
-
-<h1 id="problem">Problem</h1>
-
+            <h1 id="problem">Problem</h1>
 <p>SpringBoot provides lot of flexibility in externalizing configuration properties via properties or YAML files. We can also configure properties for each environment (dev, qa, prod etc) separately using profile specific configuration files such as <strong>application.properties</strong>, <strong>application-dev.properties</strong>, <strong>application-prod.properties</strong> etc. But once the application is started we can not update the properties at runtime. If we change the properties we need to restart the application to use the updated configuration properties.</p>
-
 <p>Also, in the context of large number of MicroService based applications, we want the ability to configure and manage the configuration properties of all MicroServices from a centralized place.</p>
-
 <h1 id="solution">Solution</h1>
-
 <p>We can use <strong>Spring Cloud Config Server</strong> (<a href="http://cloud.spring.io/spring-cloud-static/Dalston.SR2/#_spring_cloud_config">http://cloud.spring.io/spring-cloud-static/Dalston.SR2/#_spring_cloud_config</a>) to centralize all the applications configuration and use <strong>Spring Cloud Config Client</strong> module from the applications to consume configuration properties from Config Server. We can also update the configuration properties at runtime without requiring to restart the application.</p>
-
 <blockquote>
 <p>Many of the Spring Cloud modules can be used in SpringBoot applications even though you are not going to deploy your application in any Cloud platforms such as AWS, Pivotal CloudFoundry etc.</p>
 </blockquote>
-
 <h2 id="spring-cloud-config-server">Spring Cloud Config Server</h2>
-
 <p>Spring Cloud Config Server is nothing but a SpringBoot application with a configured configuration properties source. The configuration source can be a <strong>git</strong> repository, <strong>svn</strong> repository or Consul service (<a href="https://www.consul.io/">https://www.consul.io/</a>).</p>
-
-<p><img class="aligncenter size-full" src="/images/config.png" sizes="(max-width: 648px) 100vw, 648px" data-recalc-dims="1" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>In this post we are going to use a git repository as configuration properties source.</p>
-
 <h3 id="git-config-repository">Git Config Repository</h3>
-
 <p>Create a git repository to store properties files. I have created a repository <strong>config-repo</strong> in GitHub ie <a href="https://github.com/sivaprasadreddy/config-repo.git">https://github.com/sivaprasadreddy/config-repo.git</a>.</p>
-
 <p>Suppose we are going to develop two SpringBoot applications <strong>catalog-service</strong> and <strong>order-service</strong>.
 Let us create configuration files <strong>catalogservice.properties</strong> and <strong>orderservice.properties</strong> for <strong>catalog-service</strong> and <strong>order-service</strong> respectively.</p>
-
 <p><strong>config-repo/catalogservice.properties</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc//localhost:3306/catalog
+<pre><code class="language-properties" data-lang="properties">spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/catalog
 spring.datasource.username=root
-spring.datasource.password=admin</code></pre></div>
-
-<p><strong>config-repo/orderservice.properties</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.rabbitmq.host=localhost
+spring.datasource.password=admin
+</code></pre><p><strong>config-repo/orderservice.properties</strong></p>
+<pre><code class="language-properties" data-lang="properties">spring.rabbitmq.host=localhost
 spring.rabbitmq.port=5672
 spring.rabbitmq.username=guest
-spring.rabbitmq.password=guest</code></pre></div>
-
-<p>We can also create profile specific configuration files such as <strong>catalogservice-dev.properties</strong>, <strong>catalogservice-prod.properties</strong>, <strong>orderservice-dev.properties</strong>, <strong>orderservice-prod.properties</strong>.</p>
-
+spring.rabbitmq.password=guest
+</code></pre><p>We can also create profile specific configuration files such as <strong>catalogservice-dev.properties</strong>, <strong>catalogservice-prod.properties</strong>, <strong>orderservice-dev.properties</strong>, <strong>orderservice-prod.properties</strong>.</p>
 <p><strong>config-repo/catalogservice-prod.properties</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc//appsrv1:3306/catalog
+<pre><code class="language-properties" data-lang="properties">spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://appsrv1:3306/catalog
 spring.datasource.username=appuser46
-spring.datasource.password=T(iV&amp;#)X84@1!</code></pre></div>
-
-<p><strong>config-repo/orderservice-prod.properties</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.rabbitmq.host=srv245.ind.com
+spring.datasource.password=T(iV&amp;#)X84@1!
+</code></pre><p><strong>config-repo/orderservice-prod.properties</strong></p>
+<pre><code class="language-properties" data-lang="properties">spring.rabbitmq.host=srv245.ind.com
 spring.rabbitmq.port=5672
 spring.rabbitmq.username=admin23
-spring.rabbitmq.password=uY7&amp;%we@1!</code></pre></div>
-
-<p>Now commit all the configuration properties files in <strong>config-repo</strong> git repository.</p>
-
+spring.rabbitmq.password=uY7&amp;%we@1!
+</code></pre><p>Now commit all the configuration properties files in <strong>config-repo</strong> git repository.</p>
 <h4 id="spring-cloud-config-server-application">Spring Cloud Config Server Application</h4>
-
 <p>Let us create a SpringBoot application <strong>spring-cloud-config-server</strong> from <a href="http://start.spring.io">http://start.spring.io</a> or from your favorite IDE by selecting the starters <strong>Config Server</strong> and <strong>Actuator</strong>.</p>
-
 <p>This will generate the maven project with following <strong>pom.xml</strong>.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">
+<span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
   <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 	<span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0
@@ -303,10 +272,8 @@ spring.rabbitmq.password=uY7&amp;%we@1!</code></pre></div>
 			<span style="color:#f92672">&lt;/plugin&gt;</span>
 		<span style="color:#f92672">&lt;/plugins&gt;</span>
 	<span style="color:#f92672">&lt;/build&gt;</span>
-<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
-
-<p>To make our SpringBoot application as a SpringCloud Config Server, we just need to add <strong>@EnableConfigServer</strong> annotation to the main entry point class and configure <strong>spring.cloud.config.server.git.uri</strong> property pointing to the git repository.</p>
-
+<span style="color:#f92672">&lt;/project&gt;</span>
+</code></pre></div><p>To make our SpringBoot application as a SpringCloud Config Server, we just need to add <strong>@EnableConfigServer</strong> annotation to the main entry point class and configure <strong>spring.cloud.config.server.git.uri</strong> property pointing to the git repository.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.configserver<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
@@ -320,28 +287,20 @@ spring.rabbitmq.password=uY7&amp;%we@1!</code></pre></div>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ConfigServerApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p><strong>spring-cloud-config-server/src/main/resources/application.properties</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">server.port=8888
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>spring-cloud-config-server/src/main/resources/application.properties</strong></p>
+<pre><code class="language-properties" data-lang="properties">server.port=8888
 spring.cloud.config.server.git.uri=https://github.com/sivaprasadreddy/config-repo.git
-management.security.enabled=false</code></pre></div>
-
-<p>In addition to configuring git repo uri, we configured <strong>server.port</strong> to 8888 and <strong>disabled actuator security</strong>. Now you can start the application which will start on port 8888.</p>
-
+management.security.enabled=false
+</code></pre><p>In addition to configuring git repo uri, we configured <strong>server.port</strong> to 8888 and <strong>disabled actuator security</strong>. Now you can start the application which will start on port 8888.</p>
 <p>Spring Cloud Config Server exposes the following REST endpoints to get application specific configuration properties:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">/{application}/{profile}[/{label}]
+<pre><code class="language-properties" data-lang="properties">/{application}/{profile}[/{label}]
 /{application}-{profile}.yml
 /{label}/{application}-{profile}.yml
 /{application}-{profile}.properties
-/{label}/{application}-{profile}.properties</code></pre></div>
-
-<p>Here <strong>{application}</strong> refers to value of <strong>spring.config.name</strong> property, <strong>{profile}</strong> is an active profile and <strong>{label}</strong> is an optional git label (defaults to &#8220;master&#8221;).</p>
-
-<p>Now if you access the URL <a href="http://localhost:8888/catalogservice/default">http://localhost:8888/catalogservice/default</a> then you will get the following response with catalogservice <strong>default</strong> configuration details:</p>
-
+/{label}/{application}-{profile}.properties
+</code></pre><p>Here <strong>{application}</strong> refers to value of <strong>spring.config.name</strong> property, <strong>{profile}</strong> is an active profile and <strong>{label}</strong> is an optional git label (defaults to “master”).</p>
+<p>Now if you access the URL http://localhost:8888/catalogservice/default then you will get the following response with catalogservice <strong>default</strong> configuration details:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;catalogservice&#34;</span>,
     <span style="color:#f92672">&#34;profiles&#34;</span>: [
@@ -357,14 +316,12 @@ management.security.enabled=false</code></pre></div>
                 <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;admin&#34;</span>,
-                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/catalog&#34;</span>
+                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/catalog&#34;</span>
             }
         }
     ]
-}</code></pre></div>
-
-<p>If you access the URL <a href="http://localhost:8888/catalogservice/prod">http://localhost:8888/catalogservice/prod</a> then you will get the following response with catalogservice <strong>prod</strong> configuration details.</p>
-
+}
+</code></pre></div><p>If you access the URL http://localhost:8888/catalogservice/prod then you will get the following response with catalogservice <strong>prod</strong> configuration details.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;catalogservice&#34;</span>,
     <span style="color:#f92672">&#34;profiles&#34;</span>: [
@@ -380,7 +337,7 @@ management.security.enabled=false</code></pre></div>
                 <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;appuser46&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;T(iV&amp;#)X84@1!&#34;</span>,
-                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//appsrv1:3306/catalog&#34;</span>
+                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://appsrv1:3306/catalog&#34;</span>
             }
         },
         {
@@ -389,21 +346,16 @@ management.security.enabled=false</code></pre></div>
                 <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;admin&#34;</span>,
-                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/catalog&#34;</span>
+                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/catalog&#34;</span>
             }
         }
     ]
-}</code></pre></div>
-
-<p>In addition to the application specific configuration files like <strong>catalogservice.properties</strong>, <strong>orderservice.properties</strong>, you can create <strong>application.properties</strong> file to contain common configuration properties for all applications. As you might have guessed you can have profile specific files like <strong>application-dev.properties, application-prod.properties</strong>.</p>
-
+}
+</code></pre></div><p>In addition to the application specific configuration files like <strong>catalogservice.properties</strong>, <strong>orderservice.properties</strong>, you can create <strong>application.properties</strong> file to contain common configuration properties for all applications. As you might have guessed you can have profile specific files like <strong>application-dev.properties, application-prod.properties</strong>.</p>
 <p>Suppose you have <strong>application.properties</strong> file in <strong>config-repo</strong> with the following properties:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">message=helloworld
-jdbc.datasource.url=jdbc//localhost:3306/defapp</code></pre></div>
-
-<p>Now if you access <a href="http://localhost:8888/catalogservice/prod">http://localhost:8888/catalogservice/prod</a> then you will get the following response:</p>
-
+<pre><code class="language-properties" data-lang="properties">message=helloworld
+jdbc.datasource.url=jdbc:mysql://localhost:3306/defapp
+</code></pre><p>Now if you access http://localhost:8888/catalogservice/prod then you will get the following response:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;catalogservice&#34;</span>,
     <span style="color:#f92672">&#34;profiles&#34;</span>: [
@@ -419,7 +371,7 @@ jdbc.datasource.url=jdbc//localhost:3306/defapp</code></pre></div>
               <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;appuser46&#34;</span>,
               <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
               <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;T(iV&amp;#)X84@1!&#34;</span>,
-              <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//appsrv1:3306/catalog&#34;</span>
+              <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://appsrv1:3306/catalog&#34;</span>
             }
         },
         {
@@ -428,21 +380,19 @@ jdbc.datasource.url=jdbc//localhost:3306/defapp</code></pre></div>
                 <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
                 <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;admin&#34;</span>,
-                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/catalog&#34;</span>
+                <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/catalog&#34;</span>
             }
         },
         {
             <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;https://github.com/sivaprasadreddy/config-repo.git/application.properties&#34;</span>,
             <span style="color:#f92672">&#34;source&#34;</span>: {
                 <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;helloworld&#34;</span>,
-                <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/defapp&#34;</span>
+                <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/defapp&#34;</span>
             }
         }
     ]
-}</code></pre></div>
-
-<p>Similarly you can access <a href="http://localhost:8888/orderservice/default">http://localhost:8888/orderservice/default</a> to get the orderservice configuration details.</p>
-
+}
+</code></pre></div><p>Similarly you can access http://localhost:8888/orderservice/default to get the orderservice configuration details.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;orderservice&#34;</span>,
     <span style="color:#f92672">&#34;profiles&#34;</span>: [
@@ -465,20 +415,15 @@ jdbc.datasource.url=jdbc//localhost:3306/defapp</code></pre></div>
             <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;https://github.com/sivaprasadreddy/config-repo.git/application.properties&#34;</span>,
             <span style="color:#f92672">&#34;source&#34;</span>: {
                 <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;helloworld&#34;</span>,
-                <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/defapp&#34;</span>
+                <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/defapp&#34;</span>
             }
         }
     ]
-}</code></pre></div>
-
-<p>Now that we have seen how to create configuration server using Spring Cloud Config Server and how to fetch the application specific configuration properties using REST API.</p>
-
+}
+</code></pre></div><p>Now that we have seen how to create configuration server using Spring Cloud Config Server and how to fetch the application specific configuration properties using REST API.</p>
 <p>Let us see how we can create a SpringBoot application and use configuration properties from Config Server instead of putting them inside the application.</p>
-
 <h4 id="spring-cloud-config-client-catalog-service">Spring Cloud Config Client (catalog-service)</h4>
-
 <p>Create a SpringBoot application <strong>catalog-service</strong> with <strong>Config Client,</strong> <strong>Web</strong> and <strong>Actuator</strong> starters.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
   <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
@@ -548,25 +493,18 @@ jdbc.datasource.url=jdbc//localhost:3306/defapp</code></pre></div>
 		<span style="color:#f92672">&lt;/plugins&gt;</span>
 	<span style="color:#f92672">&lt;/build&gt;</span>
 
-<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
-
-<p>Usually in SpringBoot application we configure properties in <strong><em>application.properties</em></strong>. But while using Spring Cloud Config Server we use <strong><em>bootstrap.properties</em></strong> or <strong><em>bootstrap.yml</em></strong> file to configure the URL of Config Server and Spring Cloud Config Client module will take care of starting the application by fetching the application properties from Config Server.</p>
-
+<span style="color:#f92672">&lt;/project&gt;</span>
+</code></pre></div><p>Usually in SpringBoot application we configure properties in <strong><em>application.properties</em></strong>. But while using Spring Cloud Config Server we use <strong><em>bootstrap.properties</em></strong> or <strong><em>bootstrap.yml</em></strong> file to configure the URL of Config Server and Spring Cloud Config Client module will take care of starting the application by fetching the application properties from Config Server.</p>
 <p>Configure the following properties in <strong>src/main/resources/bootstrap.properties</strong>:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">server.port=8181
+<pre><code class="language-properties" data-lang="properties">server.port=8181
 spring.application.name=catalogservice
 spring.cloud.config.uri=http://localhost:8888
-management.security.enabled=false</code></pre></div>
-
-<p>We have configured the url of configuration server using <strong>spring.cloud.config.uri</strong> property. Also we have specified the application name using <strong>spring.application.name</strong> property.</p>
-
+management.security.enabled=false
+</code></pre><p>We have configured the url of configuration server using <strong>spring.cloud.config.uri</strong> property. Also we have specified the application name using <strong>spring.application.name</strong> property.</p>
 <blockquote>
 <p>Note that the value of <strong>spring.application.name</strong> property should match with base filename (catalogservice) in config-repo.</p>
 </blockquote>
-
 <p>Now run the following catalog-service main entry point class:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.catalogservice<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
@@ -578,10 +516,8 @@ management.security.enabled=false</code></pre></div>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>CatalogServiceApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>We can access the actuator endpoint <a href="http://localhost:8181/env">http://localhost:8181/env</a> to see all the configuration properties.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We can access the actuator endpoint http://localhost:8181/env to see all the configuration properties.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;profiles&#34;</span>: [],
     <span style="color:#f92672">&#34;server.ports&#34;</span>: {
@@ -590,15 +526,15 @@ management.security.enabled=false</code></pre></div>
     <span style="color:#f92672">&#34;configService:configClient&#34;</span>: {
         <span style="color:#f92672">&#34;config.client.version&#34;</span>: <span style="color:#e6db74">&#34;8a06f25aeb3f28a8f06b5634eae01858b2c6465d&#34;</span>
     },
-    <span style="color:#f92672">&#34;configService//github.com/sivaprasadreddy/config-repo.git/catalogservice.properties&#34;</span>: {
+    <span style="color:#f92672">&#34;configService:https://github.com/sivaprasadreddy/config-repo.git/catalogservice.properties&#34;</span>: {
         <span style="color:#f92672">&#34;spring.datasource.username&#34;</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
         <span style="color:#f92672">&#34;spring.datasource.driver-class-name&#34;</span>: <span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span>,
         <span style="color:#f92672">&#34;spring.datasource.password&#34;</span>: <span style="color:#e6db74">&#34;******&#34;</span>,
-        <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/catalog&#34;</span>
+        <span style="color:#f92672">&#34;spring.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/catalog&#34;</span>
     },
-    <span style="color:#f92672">&#34;configService//github.com/sivaprasadreddy/config-repo.git/application.properties&#34;</span>: {
+    <span style="color:#f92672">&#34;configService:https://github.com/sivaprasadreddy/config-repo.git/application.properties&#34;</span>: {
         <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;helloworld&#34;</span>,
-        <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc//localhost:3306/defapp&#34;</span>
+        <span style="color:#f92672">&#34;jdbc.datasource.url&#34;</span>: <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/defapp&#34;</span>
     },
     <span style="color:#f92672">&#34;servletContextInitParams&#34;</span>: {},
     <span style="color:#f92672">&#34;systemProperties&#34;</span>: {
@@ -619,36 +555,24 @@ management.security.enabled=false</code></pre></div>
         <span style="color:#f92672">&#34;spring.application.name&#34;</span>: <span style="color:#e6db74">&#34;catalogservice&#34;</span>
     },
     <span style="color:#f92672">&#34;defaultProperties&#34;</span>: {}
-}</code></pre></div>
-
-<p>You can see that catalog-service application fetches the catalogservice properties from Config Server during bootstrap time. You can bind these properties using <strong>@Value</strong> or <strong>@EnableConfigurationProperties</strong> just the way you bind if they are defined within the application itself.</p>
-
+}
+</code></pre></div><p>You can see that catalog-service application fetches the catalogservice properties from Config Server during bootstrap time. You can bind these properties using <strong>@Value</strong> or <strong>@EnableConfigurationProperties</strong> just the way you bind if they are defined within the application itself.</p>
 <h4 id="precedence-of-properties">Precedence of properties</h4>
-
 <p>Now that we know there are many ways to provide configuration properties in many files such as <strong>application.properties, bootstrap.properties</strong> and their profile variants inside application <strong>src/main/resources</strong> and <strong>{application-name}-{profile}.properties, application-{profile}.properties</strong> in config-repo.</p>
-
 <p>The following diagrams shows the precedence of configuration properties from various properties locations.</p>
-
-<p><img class="aligncenter size-full" src="/images/precedence.png" sizes="(max-width: 648px) 100vw, 648px" data-recalc-dims="1" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <h4 id="refresh-properties-at-runtime">Refresh properties at runtime</h4>
-
 <p>Let us see how we can update the configuration properties of catalog-service at runtime without requiring to restart the application.</p>
-
-<p>Update the <strong>catalogservice.properties</strong> in config-repo git repository and commit the changes. Now if you access <a href="http://localhost:8181/env">http://localhost:8181/env</a> you will still see the old properties.</p>
-
+<p>Update the <strong>catalogservice.properties</strong> in config-repo git repository and commit the changes. Now if you access http://localhost:8181/env you will still see the old properties.</p>
 <p>In order to reload the configuration properties we need to do the following:</p>
-
 <ul>
 <li>Mark Spring beans that you want to reload on config changes with @RefreshScope</li>
-<li>Issue <a href="http://localhost:8181/refresh">http://localhost:8181/refresh</a> request using <strong>POST</strong> method</li>
+<li>Issue http://localhost:8181/refresh request using <strong>POST</strong> method</li>
 </ul>
-
-<p>To test the reloading behaviour let&#8217;s add a property <strong>name=Siva</strong> in <strong>config-repo/catalogservice.properties</strong> and commit it.</p>
-
+<p>To test the reloading behaviour let&rsquo;s add a property <strong>name=Siva</strong> in <strong>config-repo/catalogservice.properties</strong> and commit it.</p>
 <p>Create a simple RestController to display <strong>name</strong> value as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RestController</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#a6e22e">@RestController</span>
 <span style="color:#a6e22e">@RefreshScope</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HomeController</span>
 <span style="color:#f92672">{</span>
@@ -660,19 +584,13 @@ management.security.enabled=false</code></pre></div>
 	<span style="color:#f92672">{</span>
 		<span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Now access <a href="http://localhost:8181/name">http://localhost:8181/name</a> which which will display <strong>Siva</strong>. Now change the property value to <strong>name=Prasad</strong> in <strong>config-repo/catalogservice.properties</strong> and commit it.</p>
-
-<p>In order to reload the config changes trigger <a href="http://localhost:8181/refresh">http://localhost:8181/refresh</a> request using <strong>POST</strong> method and again access <a href="http://localhost:8181/name">http://localhost:8181/name</a> which should display <strong>Prasad</strong>.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now access http://localhost:8181/name which which will display <strong>Siva</strong>. Now change the property value to <strong>name=Prasad</strong> in <strong>config-repo/catalogservice.properties</strong> and commit it.</p>
+<p>In order to reload the config changes trigger http://localhost:8181/refresh request using <strong>POST</strong> method and again access http://localhost:8181/name which should display <strong>Prasad</strong>.</p>
 <p>But issuing <strong>/refresh</strong> requests manually is tedious and impractical in case of large number of applications and multiple instances of same application. We will cover how to handle this problem using <strong>Spring Cloud Bus</strong> in next post</p>
-
 <p><a href="/2017/08/spring-cloud-tutorials-auto-refresh-config-changes-using-spring-cloud-bus/">Spring Cloud Tutorials – Auto Refresh Config Changes using Spring Cloud Bus</a>.</p>
-
-<p>The source code for this article is at <a href="https://github.com/sivaprasadreddy/spring-cloud-tutorial">https://github.com/sivaprasadreddy/spring-cloud-tutorial</a></p>
-
-<p>&nbsp;</p>
+<p>The source code for this article is at https://github.com/sivaprasadreddy/spring-cloud-tutorial</p>
+<p> </p>
 
         </div>
         <div class="sharedaddy sd-sharing-enabled">
@@ -873,23 +791,21 @@ management.security.enabled=false</code></pre></div>
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -902,87 +818,81 @@ management.security.enabled=false</code></pre></div>
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

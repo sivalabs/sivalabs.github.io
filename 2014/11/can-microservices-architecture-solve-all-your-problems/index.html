@@ -36,15 +36,12 @@ Before discussing what are good and bad sides of MicroServices approach, first l
 Before discussing what are good and bad sides of MicroServices approach, first let me say what I understood about MicroServices." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2014/11/can-microservices-architecture-solve-all-your-problems/" />
-<meta property="article:published_time" content="2014-11-30T01:21:00&#43;00:00"/>
-<meta property="article:modified_time" content="2014-11-30T01:21:00&#43;00:00"/>
+<meta property="article:published_time" content="2014-11-30T01:21:00+00:00" />
+<meta property="article:modified_time" content="2014-11-30T01:21:00+00:00" />
 
-    
-<meta itemprop="name" content="Can MicroServices Architecture Solve All Your Problems?">
+    <meta itemprop="name" content="Can MicroServices Architecture Solve All Your Problems?">
 <meta itemprop="description" content="IT is one field where you can find new things coming everyday. Theses days the whole developer community websites are flooded with MicroServices and Docker related stuff. Among them the idea of MicroServices is very exciting and encourages better way of building software systems. But as with any architectural style there will be pros and cons to every approach.
 Before discussing what are good and bad sides of MicroServices approach, first let me say what I understood about MicroServices.">
-
-
 <meta itemprop="datePublished" content="2014-11-30T01:21:00&#43;00:00" />
 <meta itemprop="dateModified" content="2014-11-30T01:21:00&#43;00:00" />
 <meta itemprop="wordCount" content="853">
@@ -52,7 +49,6 @@ Before discussing what are good and bad sides of MicroServices approach, first l
 
 
 <meta itemprop="keywords" content="IT," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -168,80 +164,55 @@ Before discussing what are good and bad sides of MicroServices approach, first l
 </header>
 
         <div class="entry-content">
-            
-
-<p>IT is one field where you can find new things coming everyday. Theses days the whole developer community websites are flooded with MicroServices and Docker related stuff. Among them the idea of MicroServices is very exciting and encourages better way of building software systems. But as with any architectural style there will be pros and cons to every approach.</p>
-
+            <p>IT is one field where you can find new things coming everyday. Theses days the whole developer community websites are flooded with MicroServices and Docker related stuff. Among them the idea of MicroServices is very exciting and encourages better way of building software systems. But as with any architectural style there will be pros and cons to every approach.</p>
 <p>Before discussing what are good and bad sides of MicroServices approach, first let me say what I understood about MicroServices.</p>
-
 <blockquote>
 <p>MicroServices architecture encourage to build small, focused subsystems which can be integrated into the whole system preferably using REST protocol.</p>
 </blockquote>
-
 <p>Now lets discuss on various aspects of MicroServices architecture.</p>
-
-<h2 id="the-dream-of-every-software-architect-developer">The dream of every software architect/developer</h2>
-
+<h2 id="the-dream-of-every-software-architectdeveloper">The dream of every software architect/developer</h2>
 <p>First of all the idea of MicroServices is not new at all. From the very beginning our elders suggest to write classes focusing on one Single Responsibility and write methods to do one particular thing and do it well. Also we were encouraged to build separate modules which can perform some functionally related tasks. Then we bundle all these separate modules together and build an application delegating the appropriate tasks to respective modules. This is what we try to do for many year.</p>
-
 <p>But the idea of MicroServices took this approach to next level where you can deploy each module as an individual deployable unit and each service can communicate with any other Service based on some agreed protocol (preferably REST, another trendy cool thing :-)).</p>
-
 <h3 id="so-what-are-the-advantages-of-this-microservices-architectures">So what are the advantages of this MicroServices architectures?</h3>
-
 <p>There are plenty.</p>
-
 <ul>
 <li>You will have many small services with manageable codebases which is easy to read and understand.</li>
-<li>You can confidently refactor or rewrite entire service because there won&#8217;t be any impact on other services.</li>
-<li>Each microservice can be deployed independently so that adding new features or upgrading any existing software/hardware platform won&#8217;t affect other services.</li>
+<li>You can confidently refactor or rewrite entire service because there won&rsquo;t be any impact on other services.</li>
+<li>Each microservice can be deployed independently so that adding new features or upgrading any existing software/hardware platform won&rsquo;t affect other services.</li>
 <li>You can easily adopt the next cool technology. If one of microservices is very critical service and performance is the highest priority then we can write that particular service using Scala in order to leverage your multi-core hardware support.</li>
 <li>If you are a service provider company you can sell each service separately possibly making better money compared to selling whole monolithic product.</li>
 <li>And most important factor is, the term MicroService is cool 🙂</li>
 </ul>
-
 <h2 id="what-is-the-other-side-of-microservices-architecture">What is the other side of MicroServices architecture?</h2>
-
 <p>As with any approach, MicroServices also has some down sides and associated cost.</p>
-
 <blockquote>
 <p>Great power comes with great responsibility. -Uncle Ben</p>
 </blockquote>
-
 <p>Let us see what are the challenges to implement a system using MicroServices architecture.</p>
-
-<p><strong>The idea of MicroServices is very simple but very complex to implement in reality.</strong><br />
+<p><strong>The idea of MicroServices is very simple but very complex to implement in reality.</strong><br>
 In a monolithic system, the communication between various subsystems are mostly direct object communication. But in MicroServices based system, in order to communicate with other services you may use REST services which means additional HTTP call overhead and its inherent issues like network latency, possible communication failures etc. So we need to consider various aspects while implementing inter-service communication logic such as retry, fail-over and service down scenarios etc.</p>
-
-<p><strong>How good is your DevOps infrastructure?</strong><br />
-In order to go with MicroServices architecture, organization should have a good DevOps team to properly maintain the dozens of MicroService applications.<br />
-Do your organization has DevOps culture? Or your organization has the problem of blame game between Devs and Ops? If your organization doesn&#8217;t have a good DevOps culture and software/hardware resources then MicroServices architecture will be much more difficult to adopt.</p>
-
+<p><strong>How good is your DevOps infrastructure?</strong><br>
+In order to go with MicroServices architecture, organization should have a good DevOps team to properly maintain the dozens of MicroService applications.<br>
+Do your organization has DevOps culture? Or your organization has the problem of blame game between Devs and Ops? If your organization doesn&rsquo;t have a good DevOps culture and software/hardware resources then MicroServices architecture will be much more difficult to adopt.</p>
 <h2 id="are-we-fixing-the-actual-problem-at-all">Are we fixing the actual problem at all?</h2>
-
-<p>Now many people are saying MicroServices architecture is better than Monolithic architecture. <span style="color: red;"><b>But is Monolithic architecture is the actual reason why many projects are failing? Will MicroServices architecture save the projects from failing? I guess NO.</b></span></p>
-
-<p>Think, what were the reasons for your previously failed projects. Are those projects failed because of technology issues or people issues?<br />
+<p>Now many people are saying MicroServices architecture is better than Monolithic architecture.
+<strong>But is Monolithic architecture is the actual reason why many projects are failing? Will MicroServices architecture save the projects from failing? I guess NO.</strong></p>
+<p>Think, what were the reasons for your previously failed projects. Are those projects failed because of technology issues or people issues?<br>
 I have never seen a project which is failed because of the wrong technology selection, or wrong architectural approach. But I have seen many projects failing just because of problems with people.</p>
-
 <p><em>I feel there are more severe issues than architecture issues which are causing projects to be failed such as:</em></p>
-
 <ul>
 <li>Having developers without sufficient skills</li>
-<li>Having developers who don&#8217;t want to learn anything new</li>
-<li>Having developers who don&#8217;t have courage to say &#8220;NO, we can&#8217;t do that in that time&#8221;</li>
+<li>Having developers who don&rsquo;t want to learn anything new</li>
+<li>Having developers who don&rsquo;t have courage to say “NO, we can&rsquo;t do that in that time”</li>
 <li>Having Architects who abandoned coding years ago</li>
-<li>Having Architects who think they know everything and don&#8217;t need to listen to their developers pain</li>
-<li>Having Managers who just blame the developers for not meeting the imposed deadlines without ever asking the&nbsp; developers for time-lines</li>
+<li>Having Architects who think they know everything and don&rsquo;t need to listen to their developers pain</li>
+<li>Having Managers who just blame the developers for not meeting the imposed deadlines without ever asking the  developers for time-lines</li>
 </ul>
-
 <p>These are the real problems which are really causing the project failures.</p>
-
 <p><strong>Now do you think just moving to MicroServices architecture saves the IT without fixing these problems?</strong></p>
-
-<p>Continuously innovating new ways of doing things is awesome and is required to move ahead. At the same time assuming &#8220;the next cool methodology/technology will fix all the problems is also wrong&#8221;.</p>
-
+<p>Continuously innovating new ways of doing things is awesome and is required to move ahead. At the same time assuming “the next cool methodology/technology will fix all the problems is also wrong”.</p>
 <blockquote>
-<p>So those of you who are just about to jump on MicroServices boat..THINK. FIX THE REAL PROBLEMS FIRST. You can&#8217;t fill a bottle which has a hole at it&#8217;s bottom.</p>
+<p>So those of you who are just about to jump on MicroServices boat..THINK. FIX THE REAL PROBLEMS FIRST. You can&rsquo;t fill a bottle which has a hole at it&rsquo;s bottom.</p>
 </blockquote>
 
         </div>
@@ -443,23 +414,21 @@ I have never seen a project which is failed because of the wrong technology sele
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -472,87 +441,81 @@ I have never seen a project which is failed because of the wrong technology sele
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

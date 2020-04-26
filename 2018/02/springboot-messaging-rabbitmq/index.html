@@ -36,26 +36,20 @@ if (!doNotTrack) {
 <meta property="og:description" content="RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/" />
-
 <meta property="og:image" content="https://sivalabs.github.io/images/RabbitMQ.png" />
-<meta property="article:published_time" content="2018-02-20T07:59:17&#43;05:30"/>
-<meta property="article:modified_time" content="2018-02-20T07:59:17&#43;05:30"/>
+<meta property="article:published_time" content="2018-02-20T07:59:17+05:30" />
+<meta property="article:modified_time" content="2018-02-20T07:59:17+05:30" />
 
-    
-<meta itemprop="name" content="SpringBoot Messaging with RabbitMQ">
+    <meta itemprop="name" content="SpringBoot Messaging with RabbitMQ">
 <meta itemprop="description" content="RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ).">
-
-
 <meta itemprop="datePublished" content="2018-02-20T07:59:17&#43;05:30" />
 <meta itemprop="dateModified" content="2018-02-20T07:59:17&#43;05:30" />
 <meta itemprop="wordCount" content="1090">
-
-  <meta itemprop="image" content="https://sivalabs.github.io/images/RabbitMQ.png">
+<meta itemprop="image" content="https://sivalabs.github.io/images/RabbitMQ.png">
 
 
 
 <meta itemprop="keywords" content="springboot,rabbitmq," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -174,44 +168,32 @@ if (!doNotTrack) {
 </header>
 
         <div class="entry-content">
-            
-
-<p><a href="https://www.rabbitmq.com/">RabbitMQ</a> is one of the popular message broker solutions and provides client libraries to be used from various programming languages including
+            <p><a href="https://www.rabbitmq.com/">RabbitMQ</a> is one of the popular message broker solutions and provides client libraries to be used from various programming languages including
 Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages
 from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using
 Dead Letter Queues (DLQ).</p>
-
 <p>First, install RabbitMQ server on your local machine as documented here <a href="https://www.rabbitmq.com/download.html">https://www.rabbitmq.com/download.html</a> or
 run as a Docker image with the following <strong>docker-compose.yml</strong>.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">version: <span style="color:#e6db74">&#39;3&#39;</span>
-services:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<span style="color:#66d9ef">services</span>:
  
-  rabbitmq:
-    container_name: rabbitmq
-    image: <span style="color:#e6db74">&#39;rabbitmq:management&#39;</span>
-    ports:
+  <span style="color:#66d9ef">rabbitmq</span>:
+    <span style="color:#66d9ef">container_name</span>: rabbitmq
+    <span style="color:#66d9ef">image</span>: <span style="color:#e6db74">&#39;rabbitmq:management&#39;</span>
+    <span style="color:#66d9ef">ports</span>:
       - <span style="color:#e6db74">&#34;5672:5672&#34;</span>
-      - <span style="color:#e6db74">&#34;15672:15672&#34;</span></code></pre></div>
-
-<p>Now you can start the RabbitMQ using docker-compose up and launch Administration UI at <a href="http://localhost:15672/">http://localhost:15672/</a>.</p>
-
+      - <span style="color:#e6db74">&#34;15672:15672&#34;</span>
+</code></pre></div><p>Now you can start the RabbitMQ using docker-compose up and launch Administration UI at http://localhost:15672/.</p>
 <p>If you are familiar with other Messaging brokers like ActiveMQ, we usually use Queues and Topics to send one-to-one and
 pub-sub model of communication. In RabbitMQ we send messages to Exchange and depending on Routing Key that
 message will be forwarded to Queue(s).</p>
-
 <p>You can read more about RabbitMQ concepts here <a href="https://www.rabbitmq.com/tutorials/amqp-concepts.html">https://www.rabbitmq.com/tutorials/amqp-concepts.html</a>.</p>
-
 <blockquote>
 <p>You can find the source code for this article at <a href="https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo">https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo</a></p>
 </blockquote>
-
 <h2 id="springboot-application-with-rabbitmq">SpringBoot application with RabbitMQ</h2>
-
 <p>Now, let us create a SpringBoot application from <a href="http://start.spring.io/">http://start.spring.io/</a> selecting <strong>Web, Thymeleaf, and RabbitMQ</strong> starters.</p>
-
 <p><strong>pom.xml</strong></p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> 
     <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> 
@@ -251,11 +233,9 @@ message will be forwarded to Queue(s).</p>
         <span style="color:#f92672">&lt;/dependency&gt;</span>
     <span style="color:#f92672">&lt;/dependencies&gt;</span>
      
-<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
-
-<p>Let us start with RabbitMQ configuration. Create RabbitConfig configuration class and define <strong>Queue, Exchange,
+<span style="color:#f92672">&lt;/project&gt;</span>
+</code></pre></div><p>Let us start with RabbitMQ configuration. Create RabbitConfig configuration class and define <strong>Queue, Exchange,
 and Binding</strong> beans as follows:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.amqp.core.*<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.context.annotation.Configuration<span style="color:#f92672">;</span>
@@ -285,33 +265,26 @@ and Binding</strong> beans as follows:</p>
     Binding <span style="color:#a6e22e">binding</span><span style="color:#f92672">(</span>Queue ordersQueue<span style="color:#f92672">,</span> TopicExchange ordersExchange<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">return</span> BindingBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">(</span>ordersQueue<span style="color:#f92672">).</span><span style="color:#a6e22e">to</span><span style="color:#f92672">(</span>ordersExchange<span style="color:#f92672">).</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>QUEUE_ORDERS<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Here we are declaring a Queue with name <strong>orders-queue</strong> and an Exchange with name <strong>orders-exchange</strong>.
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Here we are declaring a Queue with name <strong>orders-queue</strong> and an Exchange with name <strong>orders-exchange</strong>.
 We also defined the binding between <strong>orders-queue</strong> and <strong>orders-exchange</strong> so that any message sent to <strong>orders-exchange</strong>
 with <strong>routing-key</strong> as <strong>orders-queue</strong> will be sent to <strong>orders-queue</strong>.</p>
-
 <p>We can configure the RabbitMQ server details in <strong>application.properties</strong> as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.rabbitmq.host=localhost
+<pre><code class="language-properties" data-lang="properties">spring.rabbitmq.host=localhost
 spring.rabbitmq.port=5672
 spring.rabbitmq.username=guest
-spring.rabbitmq.password=guest</code></pre></div>
-
-<p>Let us create a Spring bean <strong>OrderMessageSender</strong> to send a message to <strong>orders-exchange</strong>.</p>
-
+spring.rabbitmq.password=guest
+</code></pre><p>Let us create a Spring bean <strong>OrderMessageSender</strong> to send a message to <strong>orders-exchange</strong>.</p>
 <p>Spring Boot auto-configures the infrastructure beans required to send/receive messages to/from RabbitMQ broker.
 We can simply autowire <strong>RabbitTemplate</strong> and send a message by invoking <strong>rabbitTemplate.convertAndSend(&ldquo;routingKey&rdquo;, Object)</strong> method.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> <span style="color:#66d9ef">implements</span> Serializable <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">private</span> String orderNumber<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> String productId<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">double</span> amount<span style="color:#f92672">;</span>
  
     <span style="color:#75715e">//setters &amp; getters
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>    </code></pre></div>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.amqp.rabbit.core.RabbitTemplate<span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>    
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.amqp.rabbit.core.RabbitTemplate<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.stereotype.Service<span style="color:#f92672">;</span>
  
@@ -327,26 +300,18 @@ We can simply autowire <strong>RabbitTemplate</strong> and send a message by inv
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendOrder</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rabbitTemplate</span><span style="color:#f92672">.</span><span style="color:#a6e22e">convertAndSend</span><span style="color:#f92672">(</span>RabbitConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">QUEUE_ORDERS</span><span style="color:#f92672">,</span> order<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>By default Spring Boot uses <strong>org.springframework.amqp.support.converter.SimpleMessageConverter</strong> and serialize the object into <strong>byte[]</strong>.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>By default Spring Boot uses <strong>org.springframework.amqp.support.converter.SimpleMessageConverter</strong> and serialize the object into <strong>byte[]</strong>.</p>
 <p>Now with this configuration in place, we can send a message to RabbitMQ <strong>orders-queue</strong> by invoking <strong>OrderMessageSender.sendOrder(Order)</strong>
 method.</p>
-
 <p>After sending a message you can view the message from Administration UI application by logging in with guest/guest credentials.
 You can click on <strong>Exchanges/Queues</strong> tabs to see <strong>orders-exchange</strong> and <strong>orders-queue</strong> got created.
 You can also check the bindings for <strong>orders-exchange</strong> which looks like following:</p>
-
-<p><img src="/images/RabbitMQ-exchange.png" alt="RabbitMQ Exchange Bindings" title="RabbitMQ Exchange Bindings" /></p>
-
+<p><img src="/images/RabbitMQ-exchange.png" alt="RabbitMQ Exchange Bindings" title="RabbitMQ Exchange Bindings"></p>
 <p>Now go to Queues tab and click on orders-queue. Scroll down to <strong>Get Messages</strong> section and by clicking on <strong>Get Message(s)</strong> button
 you can view the contents of the message.</p>
-
 <p>Now, let create a Listener to the orders-queue using <strong>@RabbitListener</strong>.</p>
-
 <p>Create a Spring bean <strong>OrderMessageListener</strong> as follows:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.slf4j.Logger<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.slf4j.LoggerFactory<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.amqp.rabbit.annotation.RabbitListener<span style="color:#f92672">;</span>
@@ -361,24 +326,16 @@ you can view the contents of the message.</p>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processOrder</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         logger<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Order Received: &#34;</span><span style="color:#f92672">+</span>order<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>That’s it!! By simply adding <strong>@RabbitListener</strong> and defining which queue to listen to we can create a Listener.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>That’s it!! By simply adding <strong>@RabbitListener</strong> and defining which queue to listen to we can create a Listener.</p>
 <p>Now if you send a message to orders-queue that should be consumed by OrderMessageListener.processOrder() method and
 you should see the log statement “Order Received: “.</p>
-
 <h2 id="sending-and-receiving-messages-as-json-payloads">Sending and Receiving Messages as JSON Payloads</h2>
-
 <p>As we have seen the default serialization mechanism converts the message object into <strong>byte[]</strong> using <strong>SimpleMessageConverter</strong> and
 on the receiving end, it will deserialize <strong>byte[]</strong> into the Object type (in our case Order) using <strong>GenericMessageConverter</strong>.</p>
-
 <p>In order to change this behavior, we need to customize the Spring Boot RabbitMQ auto-configured beans.</p>
-
 <h3 id="to-send-message-as-json">To send message as JSON</h3>
-
 <p>One quick way to send a message as JSON payload is using <strong>ObjectMapper</strong> we can convert the <strong>Order</strong> object into JSON and send it.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Autowired</span>
 <span style="color:#66d9ef">private</span> ObjectMapper objectMapper<span style="color:#f92672">;</span>
  
@@ -393,13 +350,10 @@ on the receiving end, it will deserialize <strong>byte[]</strong> into the Objec
     <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>JsonProcessingException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>But converting objects into JSON like this is a kind of boilerplate. Instead, we can follow the below approach.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>But converting objects into JSON like this is a kind of boilerplate. Instead, we can follow the below approach.</p>
 <p>We can configure <strong>org.springframework.amqp.support.converter.Jackson2JsonMessageConverter</strong> bean to be used by <strong>RabbitTemplate</strong> so that
 the message will be serialized as JSON instead of byte[].</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RabbitConfig</span> 
 <span style="color:#f92672">{</span>
@@ -417,14 +371,10 @@ the message will be serialized as JSON instead of byte[].</p>
     <span style="color:#66d9ef">public</span> Jackson2JsonMessageConverter <span style="color:#a6e22e">producerJackson2MessageConverter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Jackson2JsonMessageConverter<span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Now when you send a message it will be converted into JSON and send it to Queue.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now when you send a message it will be converted into JSON and send it to Queue.</p>
 <h3 id="to-receive-message-as-json">To receive message as JSON</h3>
-
 <p>In order to treat the message payload as JSON we should customize the RabbitMQ configuration by implementing <strong>RabbitListenerConfigurer</strong>.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RabbitConfig</span> <span style="color:#66d9ef">implements</span> RabbitListenerConfigurer <span style="color:#f92672">{</span>
     <span style="color:#f92672">...</span>
@@ -445,15 +395,11 @@ the message will be serialized as JSON instead of byte[].</p>
     <span style="color:#66d9ef">public</span> MappingJackson2MessageConverter <span style="color:#a6e22e">consumerJackson2MessageConverter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MappingJackson2MessageConverter<span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<h2 id="handling-errors-and-invalid-messages-using-deadletterqueues-dlq">Handling Errors and Invalid Messages using DeadLetterQueues(DLQ)</h2>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="handling-errors-and-invalid-messages-using-deadletterqueuesdlq">Handling Errors and Invalid Messages using DeadLetterQueues(DLQ)</h2>
 <p>We may want to send invalid messages to a separate queue so that we can inspect and reprocess them later.
 We can use DLQ concept to automatically do it instead of we manually write the code to handle such scenarios.</p>
-
 <p>We can declare the <strong>dead-letter-exchange</strong>, <strong>dead-letter-routing-key</strong> for a Queue while defining the Queue bean as follows:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RabbitConfig</span> <span style="color:#66d9ef">implements</span> RabbitListenerConfigurer <span style="color:#f92672">{</span>
  
@@ -478,10 +424,8 @@ We can use DLQ concept to automatically do it instead of we manually write the c
  
     <span style="color:#f92672">...</span>
     <span style="color:#f92672">...</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Now try to send an invalid JSON message to <strong>orders-queue</strong>, it will be sent to <strong>dead-orders-queue</strong>.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now try to send an invalid JSON message to <strong>orders-queue</strong>, it will be sent to <strong>dead-orders-queue</strong>.</p>
 <blockquote>
 <p>You can find the source code for this article at <a href="https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo">https://github.com/sivaprasadreddy/sivalabs-blog-samples-code/tree/master/springboot-rabbitmq-demo</a></p>
 </blockquote>
@@ -685,23 +629,21 @@ We can use DLQ concept to automatically do it instead of we manually write the c
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -714,87 +656,81 @@ We can use DLQ concept to automatically do it instead of we manually write the c
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

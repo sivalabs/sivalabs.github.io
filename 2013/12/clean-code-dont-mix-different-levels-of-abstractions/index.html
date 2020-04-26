@@ -36,15 +36,12 @@ Many people associate readability of code with coding conventions like following
 Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2013/12/clean-code-dont-mix-different-levels-of-abstractions/" />
-<meta property="article:published_time" content="2013-12-29T00:53:00&#43;00:00"/>
-<meta property="article:modified_time" content="2013-12-29T00:53:00&#43;00:00"/>
+<meta property="article:published_time" content="2013-12-29T00:53:00+00:00" />
+<meta property="article:modified_time" content="2013-12-29T00:53:00+00:00" />
 
-    
-<meta itemprop="name" content="Clean Code: Don’t mix different levels of abstractions">
+    <meta itemprop="name" content="Clean Code: Don’t mix different levels of abstractions">
 <meta itemprop="description" content="We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.
 Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.">
-
-
 <meta itemprop="datePublished" content="2013-12-29T00:53:00&#43;00:00" />
 <meta itemprop="dateModified" content="2013-12-29T00:53:00&#43;00:00" />
 <meta itemprop="wordCount" content="1117">
@@ -52,7 +49,6 @@ Many people associate readability of code with coding conventions like following
 
 
 <meta itemprop="keywords" content="Best Practices,Java," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -172,13 +168,9 @@ Many people associate readability of code with coding conventions like following
 
         <div class="entry-content">
             <p>We spend more time on reading code than writing. So if the code is more readable then obviously it will increase the developer productivity.</p>
-
 <p>Many people associate readability of code with coding conventions like following standard naming conventions, closing file, DB resources etc etc. When it comes to code reviews most of the people focus on these trivial things only, like checking for naming convention violations, properly releasing resources in finally block or not.</p>
-
-<p>Do we need &#8220;Senior Resources&#8221; in team (I hate to call a human being as a Resource) to do these things?Tools like Findbugs, PMD, Checkstyle, Sonar can do that for you. I agree that following a standard naming convention by all the team members is a good thing. But that doesn&#8217;t increase the readability of code.</p>
-
+<p>Do we need “Senior Resources” in team (I hate to call a human being as a Resource) to do these things?Tools like Findbugs, PMD, Checkstyle, Sonar can do that for you. I agree that following a standard naming convention by all the team members is a good thing. But that doesn&rsquo;t increase the readability of code.</p>
 <p>Let us take a simple example. I would like to implement Fund Transfer usecase and following are the rules to implement:</p>
-
 <ul>
 <li>Source and target accounts should be valid accounts</li>
 <li>Check whether source account has sufficient amount</li>
@@ -186,9 +178,7 @@ Many people associate readability of code with coding conventions like following
 <li>Check for duplicate transaction with last transaction. If source, target accounts and amount is same with last transaction consider it as a duplicate transaction</li>
 <li>If everything is fine then transfer amount to target account</li>
 </ul>
-
 <p>Assume we have the following implementation for the above usecase:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UglyMoneyTransferService</span> 
 <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">transferFunds</span><span style="color:#f92672">(</span>Account source<span style="color:#f92672">,</span> 
@@ -254,45 +244,35 @@ Many people associate readability of code with coding conventions like following
 </span><span style="color:#75715e"></span>		<span style="color:#f92672">}</span>
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>	
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>The above code is readable..right??&#8230;because:</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The above code is readable..right??…because:</p>
 <ol>
-<li><p>We have followed naming conventions like camel casing variable names</p></li>
-
-<li><p>We have all the open braces ({) on the method definition line</p></li>
-
-<li><p>We have closed DB Connection in finally block</p></li>
-
-<li><p>we have logged exception instead of using System.err.println()</p></li>
+<li>
+<p>We have followed naming conventions like camel casing variable names</p>
+</li>
+<li>
+<p>We have all the open braces ({) on the method definition line</p>
+</li>
+<li>
+<p>We have closed DB Connection in finally block</p>
+</li>
+<li>
+<p>we have logged exception instead of using System.err.println()</p>
+</li>
 </ol>
-
 <p>and most important, it is working as expected.</p>
-
 <p><em><strong>So is it readable and clean code?? In my opinion absolutely not. There are many issues in the above code from readability perspective.</strong></em></p>
-
 <p><strong>1. Mixing DB interaction code with business logic</strong></p>
-
 <p><strong>2. Throwing IllegalArgumentException, RuntimeException etc from business methods instead of Business specific exceptions</strong></p>
-
 <p><strong>3. Most importantly, the code is mixed with different levels of abstractions.</strong></p>
-
 <p>Let me explain what I mean by different levels of abstractions.</p>
-
 <p>Firstly, from business perspective fund transfer means validating source/target accounts, checking for sufficient balance, checking for overdraft limit, checking for duplicate transaction and making the fund transfer.</p>
-
 <p>From technical point of view there are various tasks like fetching Account details from DB, performing all the business related checks, throwing Exceptions if there are any violations, properly closing the resources etc.</p>
-
 <p>But in the above code everything is mixed together.</p>
-
-<p><em>While reading the code you start looking at JDBC code and your brain is working in Technical mode and after getting Account object from ResultSet you are checking for null and throwing Exception if it is null which is Business requirement. So immediately you need to switch your mind to Business mode and think &#8220;OK, if the account is invalid we want to abort the operation immediately&#8221;.</em></p>
-
-<p><em>Though you managed to switch between Technical and Business modes, what about making an enhancement to one particular subtask like &#8220;Fund transfer is considred duplicate only if it matches with the last transaction that happened with in an hour only&#8221;. To make that enhancement you have to go through the entire method because you haven&#8217;t modularised your sub-tasks and there is no separation of concerns.</em></p>
-
+<p><em>While reading the code you start looking at JDBC code and your brain is working in Technical mode and after getting Account object from ResultSet you are checking for null and throwing Exception if it is null which is Business requirement. So immediately you need to switch your mind to Business mode and think “OK, if the account is invalid we want to abort the operation immediately”.</em></p>
+<p><em>Though you managed to switch between Technical and Business modes, what about making an enhancement to one particular subtask like “Fund transfer is considred duplicate only if it matches with the last transaction that happened with in an hour only”. To make that enhancement you have to go through the entire method because you haven&rsquo;t modularised your sub-tasks and there is no separation of concerns.</em></p>
 <p>Lets rewrite the above method as follows:</p>
-
-<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FundTransferTxn</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FundTransferTxn</span>
 <span style="color:#f92672">{</span>
 	<span style="color:#66d9ef">private</span> Account sourceAccount<span style="color:#f92672">;</span> 
 	<span style="color:#66d9ef">private</span> Account targetAccount<span style="color:#f92672">;</span>
@@ -348,26 +328,19 @@ Many people associate readability of code with coding conventions like following
 		targetAccount<span style="color:#f92672">.</span><span style="color:#a6e22e">credit</span><span style="color:#f92672">(</span>amount<span style="color:#f92672">);</span>
 		TransactionService<span style="color:#f92672">.</span><span style="color:#a6e22e">saveTransaction</span><span style="color:#f92672">(</span>source<span style="color:#f92672">,</span> target<span style="color:#f92672">,</span>  amount<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>	
-<span style="color:#f92672">}</span></code></pre></div>
-The above improved method do exactly what the initial verson is doing but now it looks lot better than earlier version.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The above improved method do exactly what the initial verson is doing but now it looks lot better than earlier version.</p>
 <ul>
 <li>We have divided the entire task into sub-tasks and implemented each sub-task in a separate method.</li>
 <li>We have delegated DB interactions to DAOs</li>
 <li>We are throwing Business specific Exceptions instead of Java language Exceptions</li>
 <li>All in all we have separated the levels of abstractions.</li>
 </ul>
-
 <p><em>At the first level we have highest level of abstraction in transferFunds(FundTransferTxn txn) method. By looking at this method we can understand what we are doing as part of Fund Transfer operation without worrying much about implementation or technical details.</em></p>
-
 <p>_<em>At the second level we have business logic implementation methods checkForOverdraft, checkForDuplicateTransaction etc which performs business logic, again without worrying much about technical details.</em></p>
-
 <p>_<em>At the lowest level we have technical implementation details in AccountDAO and TransactionDAO which contains DB interaction logic.</em></p>
-
 <p>So the reader(future developer/maintainer) of your code can easily understand what you are doing at the high level and can dig into method which he is interested in.</p>
-
 <p>As I said earlier, if we have to make the change to consider the transaction as a duplicate transaction only if it happened with in an hour, we can easily understand that checkForDuplicateTransaction() is the one we have to look into and make change.</p>
-
 <p>Happy coding!!</p>
 
         </div>
@@ -569,23 +542,21 @@ The above improved method do exactly what the initial verson is doing but now it
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -598,87 +569,81 @@ The above improved method do exactly what the initial verson is doing but now it
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

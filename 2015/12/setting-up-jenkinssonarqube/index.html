@@ -27,8 +27,7 @@ if (!doNotTrack) {
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Setting up Jenkins/SonarQube"/>
 <meta name="twitter:description" content="In this post we will setup SonarQube and Jenkins to perform code quality check and continuous integration.
-&nbsp;
-Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
+ Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
 Let us install and configure SonarQube for our JCart application.
 Download SonarQube from http://www.sonarqube.org/downloads/.
 Extract it run sonarqube-5.2/bin/windows-x86-64/StartSonar.bat.
@@ -38,36 +37,30 @@ By default SonarQube uses in-memory H2 database to store all the metrics."/>
     <meta name="twitter:creator" content="@sivalabs"/>
     <meta property="og:title" content="Setting up Jenkins/SonarQube" />
 <meta property="og:description" content="In this post we will setup SonarQube and Jenkins to perform code quality check and continuous integration.
-&nbsp;
-Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
+ Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
 Let us install and configure SonarQube for our JCart application.
 Download SonarQube from http://www.sonarqube.org/downloads/.
 Extract it run sonarqube-5.2/bin/windows-x86-64/StartSonar.bat.
 By default SonarQube uses in-memory H2 database to store all the metrics." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" />
-<meta property="article:published_time" content="2015-12-16T14:42:29&#43;00:00"/>
-<meta property="article:modified_time" content="2015-12-16T14:42:29&#43;00:00"/>
+<meta property="article:published_time" content="2015-12-16T14:42:29+00:00" />
+<meta property="article:modified_time" content="2015-12-16T14:42:29+00:00" />
 
-    
-<meta itemprop="name" content="Setting up Jenkins/SonarQube">
+    <meta itemprop="name" content="Setting up Jenkins/SonarQube">
 <meta itemprop="description" content="In this post we will setup SonarQube and Jenkins to perform code quality check and continuous integration.
-&nbsp;
-Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
+ Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
 Let us install and configure SonarQube for our JCart application.
 Download SonarQube from http://www.sonarqube.org/downloads/.
 Extract it run sonarqube-5.2/bin/windows-x86-64/StartSonar.bat.
 By default SonarQube uses in-memory H2 database to store all the metrics.">
-
-
 <meta itemprop="datePublished" content="2015-12-16T14:42:29&#43;00:00" />
 <meta itemprop="dateModified" content="2015-12-16T14:42:29&#43;00:00" />
-<meta itemprop="wordCount" content="658">
+<meta itemprop="wordCount" content="653">
 
 
 
 <meta itemprop="keywords" content="jcart," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -183,39 +176,22 @@ By default SonarQube uses in-memory H2 database to store all the metrics.">
 </header>
 
         <div class="entry-content">
-            
-
-<p>In this post we will setup <strong>SonarQube</strong> and <strong>Jenkins</strong> to perform code quality check and continuous integration.</p>
-
-<p>&nbsp;</p>
-
-<p><img class="alignnone size-medium aligncenter" src="/images/jenkins_logo.png" alt="jenkins_logo" width="250" height="200" />
-<img class="alignnone size-full aligncenter" src="/images/sonar.png" alt="sonar"  /></p>
-
+            <p>In this post we will setup <strong>SonarQube</strong> and <strong>Jenkins</strong> to perform code quality check and continuous integration.</p>
+<p> </p>
+<p><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
 <h3 id="install-and-configure-sonarqube">Install and configure SonarQube</h3>
-
 <p>There are many code quality checking tools like <strong>PMD</strong>, <strong>Firebug</strong> but <strong>SonarQube</strong> brings them all under one roof and gives better view of code quality.</p>
-
 <p>Let us install and configure SonarQube for our JCart application.</p>
-
-<p>Download SonarQube from <a href="http://www.sonarqube.org/downloads/" target="_blank"><a href="http://www.sonarqube.org/downloads/">http://www.sonarqube.org/downloads/</a></a>.</p>
-
+<p>Download SonarQube from <!-- raw HTML omitted --><a href="http://www.sonarqube.org/downloads/">http://www.sonarqube.org/downloads/</a><!-- raw HTML omitted -->.</p>
 <p>Extract it run <strong>sonarqube-5.2/bin/windows-x86-64/StartSonar.bat</strong>.</p>
-
 <p>By default SonarQube uses in-memory <strong>H2</strong> database to store all the metrics.</p>
-
 <p>If we want to use MySQL we can configure <strong>MySQL</strong> jdbc parameters in <strong>sonarqube-5.2/conf/sonar.properties</strong></p>
-
 <p>sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar</p>
-
 <p>sonar.jdbc.username=root</p>
-
 <p>sonar.jdbc.password=admin</p>
-
 <h3 id="configure-sonarqube-maven-plugin">Configure SonarQube Maven Plugin</h3>
-
 <p>Let us configure sonarqube maven plugin in <strong>jcart/pom.xml</strong></p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">project</span> <span style="color:#a6e22e">xmlns</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> 
 	<span style="color:#a6e22e">xmlns:xsi</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 	<span style="color:#a6e22e">xsi:schemaLocation</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 
@@ -230,7 +206,7 @@ By default SonarQube uses in-memory H2 database to store all the metrics.">
 		&lt;<span style="color:#f92672">project.build.sourceEncoding</span>&gt;UTF-8&lt;/<span style="color:#f92672">project.build.sourceEncoding</span>&gt;
 		&lt;<span style="color:#f92672">maven.compiler.source</span>&gt;1.8&lt;/<span style="color:#f92672">maven.compiler.source</span>&gt;
 		&lt;<span style="color:#f92672">maven.compiler.target</span>&gt;1.8&lt;/<span style="color:#f92672">maven.compiler.target</span>&gt;		
-		&lt;<span style="color:#f92672">sonar.jdbc.url</span>&gt;jdbc//localhost:3306/sonar&lt;/<span style="color:#f92672">sonar.jdbc.url</span>&gt;
+		&lt;<span style="color:#f92672">sonar.jdbc.url</span>&gt;jdbc:mysql://localhost:3306/sonar&lt;/<span style="color:#f92672">sonar.jdbc.url</span>&gt;
       		&lt;<span style="color:#f92672">sonar.jdbc.username</span>&gt;root&lt;/<span style="color:#f92672">sonar.jdbc.username</span>&gt;
       		&lt;<span style="color:#f92672">sonar.jdbc.password</span>&gt;admin&lt;/<span style="color:#f92672">sonar.jdbc.password</span>&gt;
 	&lt;/<span style="color:#f92672">properties</span>&gt;
@@ -248,75 +224,42 @@ By default SonarQube uses in-memory H2 database to store all the metrics.">
 		&lt;/<span style="color:#f92672">plugins</span>&gt;
 	&lt;/<span style="color:#f92672">build</span>&gt;
 	
-&lt;/<span style="color:#f92672">project</span>&gt;</code></pre></div>
-
-<p>Now you can run maven goal <strong>mvn sonar:sonar</strong> which performs all the code quality checks and insert metrics into database.</p>
-
-<p>Now go to <a href="http://localhost:9000/">http://localhost:9000/</a> and click on jcart project. From there you can explore lot of metrics like coding issues, duplicate code etc. You can see code quality issue details and fix the problem.</p>
-
+&lt;/<span style="color:#f92672">project</span>&gt;
+</code></pre></div><p>Now you can run maven goal <strong>mvn sonar:sonar</strong> which performs all the code quality checks and insert metrics into database.</p>
+<p>Now go to http://localhost:9000/ and click on jcart project. From there you can explore lot of metrics like coding issues, duplicate code etc. You can see code quality issue details and fix the problem.</p>
 <p>There are lot of things we can configure like tweaking the Quality Profiles to meet our project needs.</p>
-
 <p>But we are not covering all that in this post now. May be a future post!</p>
-
 <h3 id="install-and-configure-jenkins">Install and configure Jenkins</h3>
-
 <p>We will use Jenkins as continuous integration server for JCart.</p>
-
-<p>Download Jenkins war from <a href="https://jenkins-ci.org/" target="_blank"><a href="https://jenkins-ci.org/">https://jenkins-ci.org/</a></a> and run Jenkins as follows:</p>
-
+<p>Download Jenkins war from <!-- raw HTML omitted --><a href="https://jenkins-ci.org/">https://jenkins-ci.org/</a><!-- raw HTML omitted --> and run Jenkins as follows:</p>
 <p><strong>java -jar jenkins.war</strong></p>
-
-<p>Now you can go to <a href="http://localhost:8080/">http://localhost:8080/</a> and click on Manage Plugins.</p>
-
-<p>Click on <strong>Available</strong> tab and search for <strong>Git</strong> in filter box then select &#8220;<strong>Git plugin</strong>&#8221; and &#8220;<strong>Github plugin</strong>&#8220;.</p>
-
+<p>Now you can go to http://localhost:8080/ and click on Manage Plugins.</p>
+<p>Click on <strong>Available</strong> tab and search for <strong>Git</strong> in filter box then select “<strong>Git plugin</strong>” and “<strong>Github plugin</strong>“.</p>
 <p>Click on <strong>Install without restart</strong>.</p>
-
 <p>Once the installation is completed, go back to <strong>Dashboard</strong> and click on <strong>Manage Jenkins</strong> and go to <strong>Configure System</strong>.</p>
-
 <p>In Configure System screen, configure <strong>JDK</strong>, <strong>Maven</strong> and <strong>Git</strong> path variables and click on <strong>Save</strong>.</p>
-
 <p>Now let us configure a maven project build to build our JCart application.</p>
-
 <p>First click on <strong>New Item</strong> menu, give <strong>jcart</strong> as Item name and select <strong>Maven project</strong> radio button.</p>
-
 <p>Select <strong>Git</strong> for <strong>Source Code Management</strong> and give <strong><a href="https://github.com/sivaprasadreddy/jcart.git">https://github.com/sivaprasadreddy/jcart.git</a></strong> for <strong>Repository URL</strong></p>
-
 <p>In <strong>Build Triggers</strong> section, select <strong>Poll SCM</strong> with <strong>schedule</strong> <em>H/15 * * * *</em> (every fifteen minutes)</p>
-
-<p>In <strong>Build</strong> section, enter <strong>pom.xml</strong> for <strong>Root POM</strong> and &#8220;<strong>clean install</strong>&#8221; for <strong>Goals</strong> <strong>and options.</strong></p>
-
+<p>In <strong>Build</strong> section, enter <strong>pom.xml</strong> for <strong>Root POM</strong> and “<strong>clean install</strong>” for <strong>Goals</strong> <strong>and options.</strong></p>
 <p>We can configure Jenkins to perform Sonar code quality checks if the build is successful.</p>
-
 <p>In <strong>Post Steps</strong> section, click on <strong>Add post-build step</strong> -&gt; <strong>Invoke top-level Maven targets</strong>.</p>
-
 <p>Select <strong>Run only if build succeeds</strong> and <strong>sonar:sonar</strong> as <strong>Goals</strong>.</p>
-
 <p>Now click on <strong>Save</strong> to save our Jcart project build configuration. To test drive our build configuration click on <strong>Build Now</strong> and see the <strong>console output</strong>.</p>
-
 <p>If we are hosting our code on <strong>Github</strong> we can configure Jenkins to trigger build whenever code change is pushed to repository instead of polling SCM periodically.</p>
-
 <p>In jcart project build configuration screen, select <strong>Github project</strong> checkbox and enter <strong><a href="https://github.com/sivaprasadreddy/jcart.git/">https://github.com/sivaprasadreddy/jcart.git/</a></strong> as <strong>Project url</strong>.</p>
-
 <p>In <strong>Build Triggers</strong> section, select <strong>Build when a change is pushed to GitHub</strong> checkbox.</p>
-
 <p>In order to trigger Jenkins build when code is pushed to Github repository we need to configure Webhook.</p>
-
-<p>Go to GitHub repository <strong>Settings</strong> tab, click on <strong>Webhooks &amp; services</strong> -&gt; <strong>Add service</strong> -&gt; <strong>Choose &#8220;Jenkins (GitHub plugin)</strong>&#8220;.</p>
-
-<p>Then fill in the Jenkins hook url with your jenkins url like this: <strong><a href="http://your_jenkins_url/github-webhook/">http://your_jenkins_url/github-webhook/</a></strong></p>
-
-<p><span style="color: #ff0000;">But giving jenkins url like <a href="http://localhost:8080/github-webhook/">http://localhost:8080/github-webhook/</a> won&#8217;t work (obviously!!) as it tries to resolve &#8220;localhost&#8221; from Github server.</span></p>
-
-<p>See <a href="http://stackoverflow.com/questions/30576881/jenkins-build-when-a-change-is-pushed-to-github-option-is-not-working?answertab=active#tab-top" target="_blank"><a href="http://stackoverflow.com/questions/30576881/jenkins-build-when-a-change-is-pushed-to-github-option-is-not-working?answertab=active#tab-top">http://stackoverflow.com/questions/30576881/jenkins-build-when-a-change-is-pushed-to-github-option-is-not-working?answertab=active#tab-top</a></a> for more details.</p>
-
-<p>To simulate the behaviour of automatically triggering the build when code is pushed to Github, access the URL <a href="http://localhost:8080/git/notifyCommit?url=https://github.com/sivaprasadreddy/jcart.git" target="_blank"><a href="http://localhost:8080/git/notifyCommit?url=https://github.com/sivaprasadreddy/jcart.git">http://localhost:8080/git/notifyCommit?url=https://github.com/sivaprasadreddy/jcart.git</a></a> from your browser. It should trigger the build process in Jenkins.</p>
-
+<p>Go to GitHub repository <strong>Settings</strong> tab, click on <strong>Webhooks &amp; services</strong> -&gt; <strong>Add service</strong> -&gt; <strong>Choose “Jenkins (GitHub plugin)</strong>“.</p>
+<p>Then fill in the Jenkins hook url with your jenkins url like this: <strong>http://your_jenkins_url/github-webhook/</strong></p>
+<p><!-- raw HTML omitted -->But giving jenkins url like http://localhost:8080/github-webhook/ won&rsquo;t work (obviously!!) as it tries to resolve “localhost” from Github server.<!-- raw HTML omitted --></p>
+<p>See <!-- raw HTML omitted --><a href="http://stackoverflow.com/questions/30576881/jenkins-build-when-a-change-is-pushed-to-github-option-is-not-working?answertab=active#tab-top">http://stackoverflow.com/questions/30576881/jenkins-build-when-a-change-is-pushed-to-github-option-is-not-working?answertab=active#tab-top</a><!-- raw HTML omitted --> for more details.</p>
+<p>To simulate the behaviour of automatically triggering the build when code is pushed to Github, access the URL <!-- raw HTML omitted -->http://localhost:8080/git/notifyCommit?url=https://github.com/sivaprasadreddy/jcart.git<!-- raw HTML omitted --> from your browser. It should trigger the build process in Jenkins.</p>
 <blockquote>
 <p>You can run Jenkins on OpenShift to fully automate the build process so that you can give OpneShift Jenkins URL in Github webhooks which GitHub can resolve.</p>
 </blockquote>
-
-<p>Now that we have completed <strong>Iteration-1</strong>. Let&#8217;s get ready for <strong>Iteration-2</strong> 🙂</p>
+<p>Now that we have completed <strong>Iteration-1</strong>. Let&rsquo;s get ready for <strong>Iteration-2</strong> 🙂</p>
 
         </div>
         <div class="sharedaddy sd-sharing-enabled">
@@ -517,23 +460,21 @@ By default SonarQube uses in-memory H2 database to store all the metrics.">
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -546,87 +487,81 @@ By default SonarQube uses in-memory H2 database to store all the metrics.">
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

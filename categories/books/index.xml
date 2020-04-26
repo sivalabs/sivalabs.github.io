@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>books on SivaLabs</title>
@@ -17,9 +17,18 @@
       <pubDate>Sun, 05 Nov 2017 04:59:17 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2017/11/my-review-of-vlad-mihalceas-high-performance-java-persistence-book/</guid>
-      <description>In Java world, JPA/Hibernate is the most popular and widely used framework. When it comes to overall performance of a software system database persistence layer plays the crucial role. The tricky part with JPA/Hibernate is it is very easy to get started but very very hard to master. This is where Vlad Mihalcea&amp;#8216;s High-Performance Java Persistence book helps you a lot.
+      <description>In Java world, JPA/Hibernate is the most popular and widely used framework. When it comes to overall performance of a software system database persistence layer plays the crucial role. The tricky part with JPA/Hibernate is it is very easy to get started but very very hard to master. This is where Vlad Mihalcea‘s High-Performance Java Persistence book helps you a lot.
 
 The High-Performance Java Persistence book is not just another Hibernate book saying you put this annotation here and call that method there and you are done.</description>
+    </item>
+    
+    <item>
+      <title>My Books</title>
+      <link>https://sivalabs.github.io/mybooks/</link>
+      <pubDate>Mon, 05 Sep 2016 02:32:39 +0000</pubDate>
+      
+      <guid>https://sivalabs.github.io/mybooks/</guid>
+      <description>Beginning Spring Boot 2  SpringBoot : Learn By Example   PrimeFaces Beginners Guide   Java Persistence with MyBatis3   </description>
     </item>
     
     <item>
@@ -39,9 +48,7 @@ Additions to existing chapters:  Working with Multiple Databases Exposing JPA en
       
       <guid>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</guid>
       <description>I am happy to announce that my new book SpringBoot : Learn By Example got published today on Leanpub.
-SpringBoot : Learn By Example  &amp;nbsp;
-  What is SpringBoot?
-Spring is one of the most popular Java frameworks out there to build web and enterprise application.
+  What is SpringBoot? Spring is one of the most popular Java frameworks out there to build web and enterprise application.
 Spring supports variety of configuration approaches (XML, Annotations, JavaConfig etc) and properly configuring Spring applications become a bit tedious and repetitive process. To avoid these problems Spring team introduced SpringBoot to address the complexity of configuring Spring application.</description>
     </item>
     
@@ -51,9 +58,9 @@ Spring supports variety of configuration approaches (XML, Annotations, JavaConfi
       <pubDate>Thu, 28 Nov 2013 04:02:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2013/11/primefaces-beginners-guide-book-published/</guid>
-      <description>I am glad to announce that my second book PrimeFaces Beginner&amp;#8217;s Guide is published.
-As many of us know PrimeFaces is leading JSF component library for JSF based web applications. This PrimeFaces Beginner&amp;#8217;s Guide book targets the Java developers with basic knowledge on JSF and jQuery and covers most of the commonly used PrimeFaces components.
- Good news is that PrimeFaces Beginner&amp;#8217;s Guide book covers the latest PrimeFaces 4.0 version features such as Client Side Validations (CSV) framework, Dialog Framework, Search Expressions, Sticky Component and many other enhancement as well.</description>
+      <description>I am glad to announce that my second book PrimeFaces Beginner&amp;rsquo;s Guide is published.
+As many of us know PrimeFaces is leading JSF component library for JSF based web applications. This PrimeFaces Beginner&amp;rsquo;s Guide book targets the Java developers with basic knowledge on JSF and jQuery and covers most of the commonly used PrimeFaces components.
+ Good news is that PrimeFaces Beginner&amp;rsquo;s Guide book covers the latest PrimeFaces 4.0 version features such as Client Side Validations (CSV) framework: Dialog Framework, Search Expressions, Sticky Component and many other enhancement as well.</description>
     </item>
     
     <item>
@@ -62,7 +69,7 @@ As many of us know PrimeFaces is leading JSF component library for JSF based web
       <pubDate>Tue, 16 Jul 2013 10:01:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2013/07/packt-publishing-java-persistence-with-mybatis3-published/</guid>
-      <description>Hurray&amp;#8230;My first book &amp;#8220;Java Persistence with MyBatis3&amp;#8221; is published. I would like to thank Packt Publishers for giving me this opportunity to write on my favorite framework MyBatis.
+      <description>Hurray…My first book Java Persistence with MyBatis3 is published. I would like to thank Packt Publishers for giving me this opportunity to write on my favorite framework MyBatis.
 For most of the software applications data persistence is a key and important aspect. In Java land we have many ways of implementing persistence layer starting from low level JDBC to fancy ORM frameworks.
 JDBC is too low level API and needs to write a lot of boilerplate code.</description>
     </item>

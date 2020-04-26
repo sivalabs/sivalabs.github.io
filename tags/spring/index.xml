@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spring on SivaLabs</title>
@@ -6,7 +6,7 @@
     <description>Recent content in Spring on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Aug 2017 12:30:43 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 04:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     
@@ -32,25 +32,12 @@ Solution Spring Cloud Bus module can be used to link multiple applications with 
     </item>
     
     <item>
-      <title>My Review of Sanjay Patel’s Spring Course</title>
-      <link>https://sivalabs.github.io/2016/06/my-review-of-sanjay-patels-spring-course/</link>
-      <pubDate>Fri, 03 Jun 2016 01:18:23 +0000</pubDate>
-      
-      <guid>https://sivalabs.github.io/2016/06/my-review-of-sanjay-patels-spring-course/</guid>
-      <description>Spring is the most popular Java framework for building web and enterprise applications. There are plenty of official documentation, books, and Training Courses available for Spring framework on web.
-I got an opportunity to review Sanjay Patel&amp;#8216;s Spring Course Material which is divided into 3 modules.
-http://www.naturalprogrammer.com/spring-tutorial/
-The total course is divided into 3 modules covering various aspects of web application development using Spring/SpringBoot framework.
- Module I : Spring Framework 4 And Dependency Injection For Beginners Module II : Spring Framework for the Real World Module III : Spring Framework REST API Development  Module I: Spring Framework 4 and Dependency Injection For Beginners</description>
-    </item>
-    
-    <item>
       <title>Retrying Method Execution using Spring AOP</title>
       <link>https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/</link>
       <pubDate>Tue, 05 Jan 2016 15:40:36 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2016/01/retrying-method-execution-using-spring-aop/</guid>
-      <description>One of my blog follower sends an email asking me to show an example of &amp;#8220;RealWorld Usage of Spring AOP&amp;#8221;. He mentioned that in most of the examples the usage of Spring AOP is demonstrated for logging method entry/exit or Transaction management or Security checks. He wanted to know how Spring AOP is being used in &amp;#8220;Real Project for Real Problems&amp;#8221;.
+      <description>One of my blog follower sends an email asking me to show an example of “RealWorld Usage of Spring AOP”. He mentioned that in most of the examples the usage of Spring AOP is demonstrated for logging method entry/exit or Transaction management or Security checks. He wanted to know how Spring AOP is being used in “Real Project for Real Problems”.
 So I would like to show how I have used Spring AOP for one of my project to handle a real problem.</description>
     </item>
     
@@ -88,7 +75,7 @@ I am a Java developer who uses both Spring and JavaEE and I am not part of Sprin
       <pubDate>Mon, 29 Oct 2012 12:18:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2012/10/a-bunch-of-maven-archetypes-for-spring-based-projects/</guid>
-      <description>Maven is a good project management tool which&amp;nbsp;greatly&amp;nbsp;reduces the amount of time we spend on creating java projects with proper structure.&amp;nbsp;With so many&amp;nbsp;predefined&amp;nbsp;maven archetypes it is even easier to create projects by simply selecting the archetype based on the technologies we need and type(jar/war/ear) of project we want to create.
+      <description>Maven is a good project management tool which greatly reduces the amount of time we spend on creating java projects with proper structure. With so many predefined maven archetypes it is even easier to create projects by simply selecting the archetype based on the technologies we need and type(jar/war/ear) of project we want to create.
 However sometimes those predefined archetypes structure may not suite well for our needs or we may need some more additions to the pre-configured dependencies/frameworks etc.</description>
     </item>
     
@@ -98,11 +85,11 @@ However sometimes those predefined archetypes structure may not suite well for o
       <pubDate>Wed, 24 Oct 2012 00:40:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2012/10/mybatis-tutorial-part4-spring-integration/</guid>
-      <description>MyBatis Tutorial: Part1 &amp;#8211; CRUD Operations
+      <description>MyBatis Tutorial: Part1 – CRUD Operations
 MyBatis Tutorial: Part-2: CRUD operations Using Annotations
-MyBatis Tutorial: Part 3 &amp;#8211; Mapping Relationships
-MyBatis Tutorial : Part4 &amp;#8211; Spring Integration
-MyBatis-Spring is a sub-project of MyBatis and provides Spring integration support which drastically simplifies the MyBatis usage. For those who are familiar with Spring&amp;#8217;s way of Dependency Injection process, using MyBatis-Spring is a very simple.
+MyBatis Tutorial: Part 3 – Mapping Relationships
+MyBatis Tutorial : Part4 – Spring Integration
+MyBatis-Spring is a sub-project of MyBatis and provides Spring integration support which drastically simplifies the MyBatis usage. For those who are familiar with Spring&amp;rsquo;s way of Dependency Injection process, using MyBatis-Spring is a very simple.
 First let us see the process of using MyBatis without Spring.</description>
     </item>
     

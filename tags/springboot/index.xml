@@ -1,15 +1,112 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>springboot on SivaLabs</title>
+    <title>SpringBoot on SivaLabs</title>
     <link>https://sivalabs.github.io/tags/springboot/</link>
-    <description>Recent content in springboot on SivaLabs</description>
+    <description>Recent content in SpringBoot on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Oct 2017 02:50:23 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 04:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MicroServices - Part 6 : Distributed Tracing with Spring Cloud Sleuth and Zipkin</title>
+      <link>https://sivalabs.github.io/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/</link>
+      <pubDate>Tue, 20 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/</guid>
+      <description>One of the challenges in microservices architecture is the ability to debug issues. A simple user action might trigger a chain of downstream microservice calls. It would be tedious to trace the logs related to a particular user action across microservices. In addition to that, we might want to track down why a certain microservice call is taking so much time. We can use Spring Cloud Sleuth to handle these kinds of issues.</description>
+    </item>
+    
+    <item>
+      <title>MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway</title>
+      <link>https://sivalabs.github.io/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/</link>
+      <pubDate>Thu, 15 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/</guid>
+      <description>In microservices architecture, there could be a number of API services and few UI components that are talking to APIs. As of now, many microservices based application still use monolithic front-ends where the entire UI is built as a single module. You may choose to go with micro-frontends where the UI is also decomposed into multiple microservice talking to APIs to get the relevant data. Instead of letting UI know about all our microservices details we can provide a unified proxy interface that will delegate the calls to various microservices based on URL pattern.</description>
+    </item>
+    
+    <item>
+      <title>MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix</title>
+      <link>https://sivalabs.github.io/2018/03/spring-cloud-netflix-circuit-breaker/</link>
+      <pubDate>Mon, 12 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/03/spring-cloud-netflix-circuit-breaker/</guid>
+      <description>In the microservices world, to fulfill a client request one microservice may need to talk to other microservices. We should minimize this kind of direct dependencies on other microservices but in some cases it is unavoidable. If a microservice is down or not functioning properly then the issue may cascade up to the upstream services. Netflix created Hystrix library implementing Circuit Breaker pattern to address these kinds of issues. We can use Spring Cloud Netflix Hystrix Circuit Breaker to protect microservices from cascading failures.</description>
+    </item>
+    
+    <item>
+      <title>MicroServices - Part 3 : Spring Cloud Service Registry and Discovery</title>
+      <link>https://sivalabs.github.io/2018/03/microservices-springcloud-eureka/</link>
+      <pubDate>Thu, 08 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/03/microservices-springcloud-eureka/</guid>
+      <description>In the microservices world, Service Registry and Discovery plays an important role because we most likely run multiple instances of services and we need a mechanism to call other services without hardcoding their hostnames or port numbers. In addition to that, in Cloud environments service instances may come up and go down anytime. So we need some automatic service registration and discovery mechanism. Spring Cloud provides Service Registry and Discovery features, as usual, with multiple options.</description>
+    </item>
+    
+    <item>
+      <title>MicroServices - Part 2 : Configuration Management with Spring Cloud Config and Vault</title>
+      <link>https://sivalabs.github.io/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/</link>
+      <pubDate>Mon, 05 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/</guid>
+      <description>In MicroServices using Spring Boot &amp;amp; Spring Cloud – Part 1 : Overview, we took a brief look at what are micro-services and how we can use SpringBoot and SpringCloud to build micro-services.
+In this post, we are going to learn:
+ What is the need for Spring Cloud Config and Vault? Create our first micro-service: catalog-service Create Spring Cloud Config Server Using Vault for storing sensitive data  MicroServices using Spring Boot &amp;amp; Spring Cloud</description>
+    </item>
+    
+    <item>
+      <title>MicroServices using Spring Boot &amp; Spring Cloud – Part 1 : Overview</title>
+      <link>https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/</link>
+      <pubDate>Fri, 02 Mar 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/</guid>
+      <description>Nowadays MicroServices is the hot buzzword in software development and many organizations prefer building their enterprise applications using MicroServices architecture. In Java community, SpringBoot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using SpringBoot and SpringCloud.
+In this article we are going to learn about following:
+ Monoliths what are MicroServices? Advantages of MicroServices Challenges with MicroServices Why SpringBoot &amp;amp; SpringCloud are a good choice for MicroServices?</description>
+    </item>
+    
+    <item>
+      <title>Why SpringBoot is so popular and how to learn SpringBoot effectively?</title>
+      <link>https://sivalabs.github.io/2018/02/why-springboot-so-popular-how-to-learn-springboot/</link>
+      <pubDate>Thu, 22 Feb 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/02/why-springboot-so-popular-how-to-learn-springboot/</guid>
+      <description>SpringBoot is the most popular and widely used Java framework. Occasionally this discussion of “Why is SpringBoot so popular?” come between me and my friends/colleagues. Also, I do get emails from various people asking “Spring is huge and how to learn it quickly?”. In this post, I will try to answer these 2 questions.
+Why is SpringBoot so popular? There could be many reasons why Spring and SpringBoot are very popular, but in my opinion following are the key reasons:</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot Messaging with RabbitMQ</title>
+      <link>https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/</link>
+      <pubDate>Tue, 20 Feb 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/02/springboot-messaging-rabbitmq/</guid>
+      <description>RabbitMQ is one of the popular message broker solutions and provides client libraries to be used from various programming languages including Java, Scala, .NET, Go, Python, Ruby, PHP etc. In this tutorial, we will learn how to use RabbitMQ message broker to send and receive messages from a SpringBoot application. We will also look at how to send messages as JSON payloads and how to deal with errors using Dead Letter Queues (DLQ).</description>
+    </item>
+    
+    <item>
+      <title>Session Management using Spring Session with JDBC DataStore</title>
+      <link>https://sivalabs.github.io/2018/02/session-management-using-spring-session-jdbc-datastore/</link>
+      <pubDate>Wed, 07 Feb 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/02/session-management-using-spring-session-jdbc-datastore/</guid>
+      <description>In web applications, user session management is very crucial for managing user state. In this article, we are going to learn about what are the approaches we have been following to manage user sessions in a clustered environment and how we can use Spring Session to implement it in a much simpler and more scalable way.
+Typically in production environments, we will have multiple server nodes with a load balancer in front of them and all the client traffic will be coming through the load balancer to one of the server nodes.</description>
+    </item>
+    
+    <item>
+      <title>CI/CD for SpringBoot applications using Travis-CI</title>
+      <link>https://sivalabs.github.io/2018/01/ci-cd-springboot-applications-using-travis-ci/</link>
+      <pubDate>Wed, 24 Jan 2018 07:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2018/01/ci-cd-springboot-applications-using-travis-ci/</guid>
+      <description>In this article we are going to learn how we can use Travis CI for Continuous Integration and Continuous Deployment (CI/CD) of a SpringBoot application. We will learn how to run maven build goals, perform test coverage validation using JaCoCo plugin, Code Quality checks using SonarCloud, build Docker image and push it to DockerHub and finally deploy it to Heroku.
+ The source code for this article is at https://github.com/sivaprasadreddy/jblogger</description>
+    </item>
     
     <item>
       <title>Select ALL starters on Spring Initializer (http://start.spring.io)</title>
@@ -48,7 +145,7 @@ Solution Spring Cloud Bus module can be used to link multiple applications with 
       <pubDate>Wed, 07 Sep 2016 09:53:35 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2016/09/getting-started-springboot-intellij-idea-community-edition/</guid>
-      <description>We can use Intellij IDEA Community Edition for working with SpringBoot applications as we don&amp;#8217;t need support for configuring servers like Tomcat, Wildlfy etc and can simply run the applications by running main() method.
+      <description>We can use Intellij IDEA Community Edition for working with SpringBoot applications as we don&amp;rsquo;t need support for configuring servers like Tomcat, Wildlfy etc and can simply run the applications by running main() method.
 However, there is no provision in Intellij IDEA Community Edition to create SpringBoot application directly, the way it supports in Ultimate Edition.
 We can go to http://start.spring.io/ and generate the project and then import into our IDE.</description>
     </item>
@@ -70,9 +167,7 @@ Additions to existing chapters:  Working with Multiple Databases Exposing JPA en
       
       <guid>https://sivalabs.github.io/2016/07/my-new-book-springboot-learn-by-example/</guid>
       <description>I am happy to announce that my new book SpringBoot : Learn By Example got published today on Leanpub.
-SpringBoot : Learn By Example  &amp;nbsp;
-  What is SpringBoot?
-Spring is one of the most popular Java frameworks out there to build web and enterprise application.
+  What is SpringBoot? Spring is one of the most popular Java frameworks out there to build web and enterprise application.
 Spring supports variety of configuration approaches (XML, Annotations, JavaConfig etc) and properly configuring Spring applications become a bit tedious and repetitive process. To avoid these problems Spring team introduced SpringBoot to address the complexity of configuring Spring application.</description>
     </item>
     
@@ -96,7 +191,7 @@ In this post we will look into how to create a custom SpringBoot starter. To dem
       <description>In my previous article SpringBoot : Working with MyBatis we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
 JOOQ (JOOQ Object Oriented Querying) is a persistence framework which embraces SQL.
 JOOQ provides the following features:
- Building Typesafe SQL using DSL API&amp;nbsp; Typesafe database object referencing using Code Generation&amp;nbsp; Easy to use API for Querying and Data fetching&amp;nbsp; SQL logging and debugging</description>
+  Building Typesafe SQL using DSL API   Typesafe database object referencing using Code Generation   Easy to use API for Querying and Data fetching   SQL logging and debugging</description>
     </item>
     
     <item>
@@ -106,7 +201,8 @@ JOOQ provides the following features:
       
       <guid>https://sivalabs.github.io/2016/03/springboot-working-with-mybatis/</guid>
       <description>MyBatis is a SQL Mapping framework with support for custom SQL, stored procedures and advanced mappings.
-SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.&amp;nbsp;  You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
+ SpringBoot doesn’t provide official support for MyBatis integration, but MyBatis community built a SpringBoot starter for MyBatis.
+ You can read about the SpringBoot MyBatis Starter release announcement at http://blog.mybatis.org/2015/11/mybatis-spring-boot-released.html and you can explore the source code on GitHub https://github.com/mybatis/mybatis-spring-boot.
 Create a SpringBoot Maven project and add the following MyBatis Starter dependency. &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
     
@@ -193,7 +289,7 @@ As we need Emailing feature in both Admin and ShoppingCart modules, we will impl
       <description>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.
 Let us add the following spring-security dependencies to jcart-admin/pom.xml.
 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-security&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.thymeleaf.extras&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;thymeleaf-extras-springsecurity4&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
-http .authorizeRequests() .antMatchers(&amp;#34;/login&amp;#34;,&amp;#34;/login/form**&amp;#34;,&amp;#34;/register&amp;#34;,&amp;#34;/logout&amp;#34;).permitAll() .antMatchers(&amp;#34;/admin&amp;#34;,&amp;#34;/admin/**&amp;#34;).hasRole(&amp;#34;ADMIN&amp;#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&amp;#8217;t statically define constraints using role names.</description>
+http .authorizeRequests() .antMatchers(&amp;#34;/login&amp;#34;,&amp;#34;/login/form**&amp;#34;,&amp;#34;/register&amp;#34;,&amp;#34;/logout&amp;#34;).permitAll() .antMatchers(&amp;#34;/admin&amp;#34;,&amp;#34;/admin/**&amp;#34;).hasRole(&amp;#34;ADMIN&amp;#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&amp;rsquo;t statically define constraints using role names.</description>
     </item>
     
     <item>

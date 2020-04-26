@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jooq on SivaLabs</title>
@@ -20,7 +20,7 @@
       <description>In my previous article SpringBoot : Working with MyBatis we have learned how to use SpringBoot MyBatis Starter to quickly get up and running with Spring and MyBatis. In this article we are going to learn about how to use SpringBoot JOOQ Starter.
 JOOQ (JOOQ Object Oriented Querying) is a persistence framework which embraces SQL.
 JOOQ provides the following features:
- Building Typesafe SQL using DSL API&amp;nbsp; Typesafe database object referencing using Code Generation&amp;nbsp; Easy to use API for Querying and Data fetching&amp;nbsp; SQL logging and debugging</description>
+  Building Typesafe SQL using DSL API   Typesafe database object referencing using Code Generation   Easy to use API for Querying and Data fetching   SQL logging and debugging</description>
     </item>
     
   </channel>

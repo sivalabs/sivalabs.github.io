@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on SivaLabs</title>
@@ -28,7 +28,7 @@ How to use? $ npm install -g yo $ npm install -g generator-springboot $ yo sprin
       <pubDate>Mon, 05 Sep 2016 02:32:39 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/mybooks/</guid>
-      <description> Beginning Spring Boot 2 SpringBoot : Learn By Example PrimeFaces Beginners Guide Java Persistence with MyBatis3 </description>
+      <description>Beginning Spring Boot 2  SpringBoot : Learn By Example   PrimeFaces Beginners Guide   Java Persistence with MyBatis3   </description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@ How to use? $ npm install -g yo $ npm install -g generator-springboot $ yo sprin
       <pubDate>Sun, 10 Apr 2016 04:03:33 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/videos/</guid>
-      <description> My YouTube Channel  Part 1 : Introduction To SpringBoot   Part-2 : Using SpringBoot with Tomcat Jetty Undertow servers   </description>
+      <description>My YouTube Channel Part 1 : Introduction To SpringBoot   Part-2 : Using SpringBoot with Tomcat Jetty Undertow servers   </description>
     </item>
     
     <item>

@@ -38,27 +38,21 @@ if (!doNotTrack) {
  Kafka can be used as an Event Store if you are using Event Driven Microservices architecture Kafka can be used as a Message Broker to enable communication across multiple applications Kafka can be used as Streaming platform for processing events in realtime etc etc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2019/06/kafka-tutorial-java-producer-consumer/" />
-
 <meta property="og:image" content="https://sivalabs.github.io/images/kafka.jpg" />
-<meta property="article:published_time" content="2019-06-21T07:59:17&#43;05:30"/>
-<meta property="article:modified_time" content="2019-06-21T07:59:17&#43;05:30"/>
+<meta property="article:published_time" content="2019-06-21T07:59:17+05:30" />
+<meta property="article:modified_time" content="2019-06-21T07:59:17+05:30" />
 
-    
-<meta itemprop="name" content="Kafka Tutorial - Java Producer and Consumer">
+    <meta itemprop="name" content="Kafka Tutorial - Java Producer and Consumer">
 <meta itemprop="description" content="Kafka, depending on how you use it, can be seen as a Message Broker, Event Store or a Streaming Platform etc. Kafka became a preferred technology for many of the modern applications because of various reasons like:
  Kafka can be used as an Event Store if you are using Event Driven Microservices architecture Kafka can be used as a Message Broker to enable communication across multiple applications Kafka can be used as Streaming platform for processing events in realtime etc etc.">
-
-
 <meta itemprop="datePublished" content="2019-06-21T07:59:17&#43;05:30" />
 <meta itemprop="dateModified" content="2019-06-21T07:59:17&#43;05:30" />
 <meta itemprop="wordCount" content="913">
-
-  <meta itemprop="image" content="https://sivalabs.github.io/images/kafka.jpg">
+<meta itemprop="image" content="https://sivalabs.github.io/images/kafka.jpg">
 
 
 
 <meta itemprop="keywords" content="Kafka," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -174,99 +168,75 @@ if (!doNotTrack) {
 </header>
 
         <div class="entry-content">
-            
-
-<p><a href="https://kafka.apache.org/">Kafka</a>, depending on how you use it, can be seen as a Message Broker, Event Store or a Streaming Platform etc. Kafka became a preferred technology for many of the modern applications because of various reasons like:</p>
-
+            <p><a href="https://kafka.apache.org/">Kafka</a>, depending on how you use it, can be seen as a Message Broker, Event Store or a Streaming Platform etc. Kafka became a preferred technology for many of the modern applications because of various reasons like:</p>
 <ul>
 <li>Kafka can be used as an Event Store if you are using Event Driven Microservices architecture</li>
 <li>Kafka can be used as a Message Broker to enable communication across multiple applications</li>
 <li>Kafka can be used as Streaming platform for processing events in realtime
 etc etc.</li>
 </ul>
-
 <p>You can learn more about Kafka from it&rsquo;s official documentation <a href="https://kafka.apache.org/documentation/">https://kafka.apache.org/documentation/</a>.</p>
-
 <blockquote>
 <p>If you like to learn from video tutorials I would suggest to watch <a href="https://www.learningjournal.guru/courses/kafka/kafka-foundation-training/">https://www.learningjournal.guru/courses/kafka/kafka-foundation-training/</a>.</p>
 </blockquote>
-
 <p>In this post, We are going to use Kafka as a Message Broker and learn how to send and receive messages to and from Kafka topics using Java Client API.</p>
-
 <h2 id="kafka-installation">Kafka Installation</h2>
-
 <p>You can download Kafka distribution from <a href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a> and start Kafka server as follows.</p>
-
 <p><a href="https://www.cloudkarafka.com/blog/2018-07-04-cloudkarafka_what_is_zookeeper.html">Kafka uses ZooKeeper</a> for Controller election, Configuration Of Topics, Membership of the cluster etc and is bundled with Kafka distribution. So, first we need to start ZooKeeper as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kafka_2.12-2.2.0&gt; bin/zookeeper-server-start.sh config/zookeeper.properties</code></pre></div>
-
-<p>Once the ZooKeeper started successfully, start Kafka server as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kafka_2.12-2.2.0&gt; bin/kafka-server-start.sh config/server.properties</code></pre></div>
-
-<p>Instead of installing Kafka as described above, if you prefer using Docker to spin up Kafka server you can use the following docker-compose configuration. You can also find various docker-compose configurations at <a href="https://github.com/confluentinc/cp-docker-images/tree/5.2.2-post/examples">https://github.com/confluentinc/cp-docker-images/tree/5.2.2-post/examples</a>.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kafka_2.12-2.2.0&gt; bin/zookeeper-server-start.sh config/zookeeper.properties
+</code></pre></div><p>Once the ZooKeeper started successfully, start Kafka server as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kafka_2.12-2.2.0&gt; bin/kafka-server-start.sh config/server.properties
+</code></pre></div><p>Instead of installing Kafka as described above, if you prefer using Docker to spin up Kafka server you can use the following docker-compose configuration. You can also find various docker-compose configurations at <a href="https://github.com/confluentinc/cp-docker-images/tree/5.2.2-post/examples">https://github.com/confluentinc/cp-docker-images/tree/5.2.2-post/examples</a>.</p>
 <p><strong>docker-compose.yml</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version: <span style="color:#e6db74">&#39;3.1&#39;</span>
-services:
-  zookeeper:
-    image: confluentinc/cp-zookeeper:<span style="color:#ae81ff">5.2</span>.<span style="color:#ae81ff">2</span>
-    hostname: zookeeper
-    container_name: zookeeper
-    ports:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3.1&#39;</span>
+<span style="color:#66d9ef">services</span>:
+  <span style="color:#66d9ef">zookeeper</span>:
+    <span style="color:#66d9ef">image</span>: confluentinc/cp-zookeeper:<span style="color:#ae81ff">5.2.2</span>
+    <span style="color:#66d9ef">hostname</span>: zookeeper
+    <span style="color:#66d9ef">container_name</span>: zookeeper
+    <span style="color:#66d9ef">ports</span>:
       - <span style="color:#e6db74">&#34;2181:2181&#34;</span>
-    environment:
-      ZOOKEEPER_CLIENT_PORT: <span style="color:#ae81ff">2181</span>
-      ZOOKEEPER_TICK_TIME: <span style="color:#ae81ff">2000</span>
+    <span style="color:#66d9ef">environment</span>:
+      <span style="color:#66d9ef">ZOOKEEPER_CLIENT_PORT</span>: <span style="color:#ae81ff">2181</span>
+      <span style="color:#66d9ef">ZOOKEEPER_TICK_TIME</span>: <span style="color:#ae81ff">2000</span>
 
-  broker:
-    image: confluentinc/cp-enterprise-kafka:<span style="color:#ae81ff">5.2</span>.<span style="color:#ae81ff">2</span>
-    hostname: broker
-    container_name: broker
-    depends_on:
+  <span style="color:#66d9ef">broker</span>:
+    <span style="color:#66d9ef">image</span>: confluentinc/cp-enterprise-kafka:<span style="color:#ae81ff">5.2.2</span>
+    <span style="color:#66d9ef">hostname</span>: broker
+    <span style="color:#66d9ef">container_name</span>: broker
+    <span style="color:#66d9ef">depends_on</span>:
       - zookeeper
-    ports:
+    <span style="color:#66d9ef">ports</span>:
       - <span style="color:#e6db74">&#34;29092:29092&#34;</span>
       - <span style="color:#e6db74">&#34;9092:9092&#34;</span>
-    environment:
-      KAFKA_BROKER_ID: <span style="color:#ae81ff">1</span>
-      KAFKA_ZOOKEEPER_CONNECT: <span style="color:#e6db74">&#39;zookeeper:2181&#39;</span>
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:<span style="color:#ae81ff">29092</span>,PLAINTEXT_HOST://localhost:<span style="color:#ae81ff">9092</span>
-      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: <span style="color:#ae81ff">1</span>
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: <span style="color:#ae81ff">0</span>
-      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: broker:<span style="color:#ae81ff">29092</span>
-      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: zookeeper:<span style="color:#ae81ff">2181</span>
-      CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: <span style="color:#ae81ff">1</span>
-      CONFLUENT_METRICS_ENABLE: <span style="color:#e6db74">&#39;true&#39;</span>
-      CONFLUENT_SUPPORT_CUSTOMER_ID: <span style="color:#e6db74">&#39;anonymous&#39;</span></code></pre></div>
-
-<p>You can start the Zookeeper and Kafka docker containers using <strong>docker-compose up</strong>.</p>
-
+    <span style="color:#66d9ef">environment</span>:
+      <span style="color:#66d9ef">KAFKA_BROKER_ID</span>: <span style="color:#ae81ff">1</span>
+      <span style="color:#66d9ef">KAFKA_ZOOKEEPER_CONNECT</span>: <span style="color:#e6db74">&#39;zookeeper:2181&#39;</span>
+      <span style="color:#66d9ef">KAFKA_LISTENER_SECURITY_PROTOCOL_MAP</span>: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      <span style="color:#66d9ef">KAFKA_ADVERTISED_LISTENERS</span>: PLAINTEXT://broker:<span style="color:#ae81ff">29092</span>,PLAINTEXT_HOST://localhost:<span style="color:#ae81ff">9092</span>
+      <span style="color:#66d9ef">KAFKA_METRIC_REPORTERS</span>: io.confluent.metrics.reporter.ConfluentMetricsReporter
+      <span style="color:#66d9ef">KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR</span>: <span style="color:#ae81ff">1</span>
+      <span style="color:#66d9ef">KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS</span>: <span style="color:#ae81ff">0</span>
+      <span style="color:#66d9ef">CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS</span>: broker:<span style="color:#ae81ff">29092</span>
+      <span style="color:#66d9ef">CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT</span>: zookeeper:<span style="color:#ae81ff">2181</span>
+      <span style="color:#66d9ef">CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS</span>: <span style="color:#ae81ff">1</span>
+      <span style="color:#66d9ef">CONFLUENT_METRICS_ENABLE</span>: <span style="color:#e6db74">&#39;true&#39;</span>
+      <span style="color:#66d9ef">CONFLUENT_SUPPORT_CUSTOMER_ID</span>: <span style="color:#e6db74">&#39;anonymous&#39;</span>
+</code></pre></div><p>You can start the Zookeeper and Kafka docker containers using <strong>docker-compose up</strong>.</p>
 <h2 id="working-with-kafka-java-client-api">Working with Kafka Java Client API</h2>
-
 <p>With the Kafka setup in place, let us create a Maven/Gradle project and add the following dependency.</p>
-
-<p><strong>Maven:</strong>
+<p><strong>Maven:</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.kafka<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>kafka-clients<span style="color:#f92672">&lt;/artifactId&gt;</span>
     <span style="color:#f92672">&lt;version&gt;</span>2.2.0<span style="color:#f92672">&lt;/version&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div></p>
-
-<p><strong>Gradle:</strong>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">compile group: &#39;org.apache.kafka&#39;, name: &#39;kafka-clients&#39;, version: &#39;2.2.0&#39;</code></pre></div></p>
-
-<h3 id="kafka-topic-producer">Kafka Topic Producer</h3>
-
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p><strong>Gradle:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">compile group: &#39;org.apache.kafka&#39;, name: &#39;kafka-clients&#39;, version: &#39;2.2.0&#39;
+</code></pre></div><h3 id="kafka-topic-producer">Kafka Topic Producer</h3>
 <p>A message to a Kafka topic typically contains a key, value and optionally a set of headers.
- While creating a producer we need to specify Key and Value Serializers so that the API knows how to serialize those values.</p>
-
+While creating a producer we need to specify Key and Value Serializers so that the API knows how to serialize those values.</p>
 <p>Let us create <strong>MessageProducer</strong> class as follows:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.kafkasample<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> org.apache.kafka.clients.producer.KafkaProducer<span style="color:#f92672">;</span>
@@ -313,16 +283,11 @@ services:
             producer<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
         <span style="color:#f92672">}</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>We have created an instance of Properties to populate producer configuration properties like bootstrap servers, key and value serializer types. We are planning to send <strong>Long/String</strong> key/value pair so we used <strong>LongSerializer</strong> and <strong>StringSerializer</strong> respectively. Then we created <strong>KafkaProducer</strong> instance using <strong>producerProperties</strong>. A message to be sent to a topic is represented as an instance of <strong>ProducerRecord</strong>. Finally we send the message using <strong>KafkaProducer.send()</strong> method.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We have created an instance of Properties to populate producer configuration properties like bootstrap servers, key and value serializer types. We are planning to send <strong>Long/String</strong> key/value pair so we used <strong>LongSerializer</strong> and <strong>StringSerializer</strong> respectively. Then we created <strong>KafkaProducer</strong> instance using <strong>producerProperties</strong>. A message to be sent to a topic is represented as an instance of <strong>ProducerRecord</strong>. Finally we send the message using <strong>KafkaProducer.send()</strong> method.</p>
 <p>We have configured <strong>ProducerConfig.ACKS_CONFIG</strong> to <strong>all</strong> so that the message is considered successfully written to Kafka topic only when the full set of in-sync replicas acknowledged.</p>
-
 <h3 id="kafka-topic-consumer">Kafka Topic Consumer</h3>
-
 <p>Let us create a Consumer to read from Kafka <strong>topic-1</strong> as follows:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.kafkasample<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> org.apache.kafka.clients.consumer.ConsumerConfig<span style="color:#f92672">;</span>
@@ -375,20 +340,13 @@ services:
             kafkaConsumer<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
         <span style="color:#f92672">}</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Similar to Producer, we have created a Properties instance with consumer configuration properties. We have created a <strong>KafkaConsumer</strong> and subscribed to a single topic <strong>test-topic</strong>.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Similar to Producer, we have created a Properties instance with consumer configuration properties. We have created a <strong>KafkaConsumer</strong> and subscribed to a single topic <strong>test-topic</strong>.</p>
 <p>We are polling for new message with a timeout value of 1000 milli seconds and printing each message key and value. Along with it we are also printing the headers of each message. When we poll if there are no new messages then it would return an empty list.</p>
-
 <p>We have configured <strong>ConsumerConfig.AUTO_OFFSET_RESET_CONFIG</strong> property to <strong>earliest</strong> so when we start the consumer it will start reading the messages from the last acknowledged offset.</p>
-
 <p>We have turned off the default automatic acknowledgement mechanism by setting <strong>ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG</strong> to <strong>false</strong> and as we read the message we are acknowledging with <strong>kafkaConsumer.commitSync()</strong>.</p>
-
 <p>Also we are limiting the max number of records to read per poll to 10 by configuring  <strong>ConsumerConfig.MAX_POLL_RECORDS_CONFIG</strong> property.</p>
-
 <h2 id="summary">Summary</h2>
-
 <p>In this post we have learned how to create a simple Producer and Consumer for a Kafka topic using Java Client API. In the next article we will learn how to implement a Kafka Producer and Consumer using <strong>Spring for Kafka</strong>.</p>
 
         </div>
@@ -590,23 +548,21 @@ services:
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -619,87 +575,81 @@ services:
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

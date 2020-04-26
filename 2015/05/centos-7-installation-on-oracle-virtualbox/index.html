@@ -38,24 +38,20 @@ After installing CentOS 7, before installing Virtualbox Guest Additions first th
 sudo yum update" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2015/05/centos-7-installation-on-oracle-virtualbox/" />
-<meta property="article:published_time" content="2015-05-11T07:36:00&#43;00:00"/>
-<meta property="article:modified_time" content="2015-05-11T07:36:00&#43;00:00"/>
+<meta property="article:published_time" content="2015-05-11T07:36:00+00:00" />
+<meta property="article:modified_time" content="2015-05-11T07:36:00+00:00" />
 
-    
-<meta itemprop="name" content="CentOS 7 Installation on Oracle Virtualbox">
+    <meta itemprop="name" content="CentOS 7 Installation on Oracle Virtualbox">
 <meta itemprop="description" content="I wanted to explore CentOS 7 Linux, so I installed it on my Oracle VirtualBox. Installation went smoothly ,but I had a hard time to install Virtualbox Guest Additions to get full screen. I thought of sharing the steps I performed so that it may be helpful for others.
 After installing CentOS 7, before installing Virtualbox Guest Additions first thing we need to do is update system.
 sudo yum update">
-
-
 <meta itemprop="datePublished" content="2015-05-11T07:36:00&#43;00:00" />
 <meta itemprop="dateModified" content="2015-05-11T07:36:00&#43;00:00" />
-<meta itemprop="wordCount" content="192">
+<meta itemprop="wordCount" content="189">
 
 
 
 <meta itemprop="keywords" content="Linux," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -172,39 +168,34 @@ sudo yum update">
 
         <div class="entry-content">
             <p>I wanted to explore CentOS 7 Linux, so I installed it on my Oracle VirtualBox. Installation went smoothly ,but I had a hard time to install Virtualbox Guest Additions to get full screen. I thought of sharing the steps I performed so that it may be helpful for others.</p>
-
 <p>After installing CentOS 7, before installing Virtualbox Guest Additions first thing we need to do is update system.</p>
-
 <p><code>sudo yum update</code></p>
-
-<p>When I run this command I got the error &#8220;<span style="color: red;"><b>cannot find a valid baseurl for repo</b></span>&#8220;</p>
-
-<p>After googling for sometime I figured that <strong>the network card is <span style="color: red;">not </span>enabled by default</strong> and I need to enable the baseUrl in some configuration file.</p>
-
-<p>1) Edit <strong><em>/etc/sysconfig/network-scripts/ifcfg-eth0</em></strong> file and change <strong>ONBOOT=no</strong> to <strong>ONBOOT=yes</strong><br />
-Instead of <strong>eth0</strong> you may have a different file name. To know the right one, run the command &#8220;<strong>ifconfig -a</strong>&#8220;</p>
-
-<p>2) Edited the file <strong><em>/etc/yum.repos.d/CentOS-Base.repo</em></strong> and uncomment <strong>baseurl</strong>.</p>
-
-<p>[base]<br />
-name=CentOS-$releasever &#8211; Base<br />
-mirrorlist=<a href="http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os">http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</a><br />
-<strong><em>baseurl=<a href="http://mirror.centos.org/centos/$releasever/os/$basearch/">http://mirror.centos.org/centos/$releasever/os/$basearch/</a></em></strong><br />
-gpgcheck=1<br />
+<p>When I run this command I got the error “<strong>cannot find a valid baseurl for repo</strong>“</p>
+<p>After googling for sometime I figured that <strong>the network card is not enabled by default</strong> and I need to enable the baseUrl in some configuration file.</p>
+<ol>
+<li>
+<p>Edit <strong><em>/etc/sysconfig/network-scripts/ifcfg-eth0</em></strong> file and change <strong>ONBOOT=no</strong> to <strong>ONBOOT=yes</strong><br>
+Instead of <strong>eth0</strong> you may have a different file name. To know the right one, run the command “<strong>ifconfig -a</strong>“</p>
+</li>
+<li>
+<p>Edited the file <strong><em>/etc/yum.repos.d/CentOS-Base.repo</em></strong> and uncomment <strong>baseurl</strong>.</p>
+</li>
+</ol>
+<p>[base]<br>
+name=CentOS-$releasever – Base<br>
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os<br>
+<strong><em>baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/</em></strong><br>
+gpgcheck=1<br>
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6</p>
-
 <p>Source: <a href="http://unix.stackexchange.com/questions/22924/how-can-i-fix-cannot-find-a-valid-baseurl-for-repo-errors-on-centos">http://unix.stackexchange.com/questions/22924/how-can-i-fix-cannot-find-a-valid-baseurl-for-repo-errors-on-centos</a></p>
-
-<p>3) Install VirtualBox Guest Additions</p>
-
+<ol start="3">
+<li>Install VirtualBox Guest Additions</li>
+</ol>
 <pre><code>sudo yum update  
 sudo yum groupinstall &quot;Development Tools&quot;  
 sudo yum install kernel-devel  
-</code></pre>
-
-<p>In Oracle Virtual Box menu, Devices -&gt; Insert Guest Additions CD Image -&gt; Run<br />
- <span style="white-space: pre;"></span><br />
-Source: <a href="http://itekblog.com/centos-7-virtualbox-guest-additions-installation-centos-minimal/">http://itekblog.com/centos-7-virtualbox-guest-additions-installation-centos-minimal/</a></p>
+</code></pre><p>In Oracle Virtual Box menu, Devices -&gt; Insert Guest Additions CD Image -&gt; Run</p>
+<p>Source: <a href="http://itekblog.com/centos-7-virtualbox-guest-additions-installation-centos-minimal/">http://itekblog.com/centos-7-virtualbox-guest-additions-installation-centos-minimal/</a></p>
 
         </div>
         <div class="sharedaddy sd-sharing-enabled">
@@ -405,23 +396,21 @@ Source: <a href="http://itekblog.com/centos-7-virtualbox-guest-additions-install
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -434,87 +423,81 @@ Source: <a href="http://itekblog.com/centos-7-virtualbox-guest-additions-install
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

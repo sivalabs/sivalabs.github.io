@@ -38,27 +38,21 @@ if (!doNotTrack) {
  Create SpringBoot Application Unit Testing using JUnit 5 and Mockito Integration Testing using TestContainers Testing MicroService Integrations using MockServer  As we all know, we write unit tests for testing single component (a class) behaviour where as we write integration tests for testing a feature which may involve interaction with multiple components." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2019/10/spring-boot-testing/" />
-
 <meta property="og:image" content="https://sivalabs.github.io/images/spring-boot-1.png" />
-<meta property="article:published_time" content="2019-10-07T07:59:17&#43;05:30"/>
-<meta property="article:modified_time" content="2019-10-07T07:59:17&#43;05:30"/>
+<meta property="article:published_time" content="2019-10-07T07:59:17+05:30" />
+<meta property="article:modified_time" content="2019-10-07T07:59:17+05:30" />
 
-    
-<meta itemprop="name" content="Testing SpringBoot Applications">
+    <meta itemprop="name" content="Testing SpringBoot Applications">
 <meta itemprop="description" content="SpringBoot is the most popular tech stack for building Java based REST APIs. In this tutorial we will learn how to write tests for SpringBoot applications.
  Create SpringBoot Application Unit Testing using JUnit 5 and Mockito Integration Testing using TestContainers Testing MicroService Integrations using MockServer  As we all know, we write unit tests for testing single component (a class) behaviour where as we write integration tests for testing a feature which may involve interaction with multiple components.">
-
-
 <meta itemprop="datePublished" content="2019-10-07T07:59:17&#43;05:30" />
 <meta itemprop="dateModified" content="2019-10-07T07:59:17&#43;05:30" />
-<meta itemprop="wordCount" content="3395">
-
-  <meta itemprop="image" content="https://sivalabs.github.io/images/spring-boot-1.png">
+<meta itemprop="wordCount" content="3396">
+<meta itemprop="image" content="https://sivalabs.github.io/images/spring-boot-1.png">
 
 
 
 <meta itemprop="keywords" content="Spring, SpringBoot, Testing," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -174,39 +168,28 @@ if (!doNotTrack) {
 </header>
 
         <div class="entry-content">
-            
-
-<p><strong>SpringBoot</strong> is the most popular tech stack for building Java based REST APIs.
+            <p><strong>SpringBoot</strong> is the most popular tech stack for building Java based REST APIs.
 In this tutorial we will learn how to write tests for SpringBoot applications.</p>
-
 <ul>
 <li>Create SpringBoot Application</li>
 <li>Unit Testing using <a href="https://junit.org/junit5/docs/current/user-guide/">JUnit 5</a> and <a href="https://site.mockito.org/">Mockito</a></li>
 <li>Integration Testing using <a href="https://www.testcontainers.org/">TestContainers</a></li>
 <li>Testing MicroService Integrations using <a href="http://www.mock-server.com/">MockServer</a></li>
 </ul>
-
 <p>As we all know, we write unit tests for testing single component (a class) behaviour
 where as we write integration tests for testing a feature which may involve interaction with multiple components.</p>
-
 <p>Most of the times one component will depend on other component(s), so while implementing unit tests we should mock
 the dependencies with the desired behaviour using frameworks like <a href="https://site.mockito.org/">Mockito</a>.</p>
-
 <p>So, the question is how do we implement Unit Tests and Integration tests in SpringBoot application? Read on :-)</p>
-
 <blockquote>
 <p>Sample application Code for this article can be found at <a href="https://github.com/sivaprasadreddy/spring-boot-tutorials/tree/master/testing/springboot-testing-demo">https://github.com/sivaprasadreddy/spring-boot-tutorials/tree/master/testing/springboot-testing-demo</a></p>
 </blockquote>
-
 <h2 id="create-springboot-application">Create SpringBoot Application</h2>
-
 <p>Let us consider a scenario where we are building a REST API to manage users.
 If we follow typical 3-tier layered architecture we might have JPA entity <strong>User</strong>, Spring Data JPA Repository <strong>UserRepository</strong>,
 <strong>UserService</strong> and <strong>UserController</strong> implementing CRUD operations as follows:</p>
-
 <p>First of all, create a SpringBoot application with the following dependencies:</p>
-
-<h4 id="pom-xml">pom.xml</h4>
+<h4 id="pomxml">pom.xml</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
 		 <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
@@ -282,8 +265,8 @@ If we follow typical 3-tier layered architecture we might have JPA entity <stron
 			<span style="color:#f92672">&lt;scope&gt;</span>runtime<span style="color:#f92672">&lt;/scope&gt;</span>
 		<span style="color:#f92672">&lt;/dependency&gt;</span>
 	<span style="color:#f92672">&lt;/dependencies&gt;</span>
-<span style="color:#f92672">&lt;/project&gt;</span></code></pre></div>
-<p>By default <strong>spring-boot-starter-test</strong> comes with <strong>JUnit 4</strong> as testing framework.
+<span style="color:#f92672">&lt;/project&gt;</span>
+</code></pre></div><p>By default <strong>spring-boot-starter-test</strong> comes with <strong>JUnit 4</strong> as testing framework.
 We can <strong>exclude JUnit4</strong> and <strong>add JUnit 5</strong> dependencies as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependencies&gt;</span>
     <span style="color:#f92672">&lt;dependency&gt;</span>
@@ -307,10 +290,9 @@ We can <strong>exclude JUnit4</strong> and <strong>add JUnit 5</strong> dependen
         <span style="color:#f92672">&lt;artifactId&gt;</span>junit-jupiter-params<span style="color:#f92672">&lt;/artifactId&gt;</span>
         <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
     <span style="color:#f92672">&lt;/dependency&gt;</span>
-<span style="color:#f92672">&lt;/dependencies&gt;</span></code></pre></div>
-<p>Let us create JPA entity, repository, service and controller for User as follows:</p>
-
-<h4 id="user-java">User.java</h4>
+<span style="color:#f92672">&lt;/dependencies&gt;</span>
+</code></pre></div><p>Let us create JPA entity, repository, service and controller for User as follows:</p>
+<h4 id="userjava">User.java</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.entities<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> lombok.*<span style="color:#f92672">;</span>
@@ -340,8 +322,8 @@ We can <strong>exclude JUnit4</strong> and <strong>add JUnit 5</strong> dependen
 	<span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> length <span style="color:#f92672">=</span> 100<span style="color:#f92672">)</span>
 	<span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
 
-<span style="color:#f92672">}</span></code></pre></div>
-<h4 id="userrepository-java">UserRepository.java</h4>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="userrepositoryjava">UserRepository.java</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.repositories<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> org.springframework.data.jpa.repository.JpaRepository<span style="color:#f92672">;</span>
@@ -355,8 +337,8 @@ We can <strong>exclude JUnit4</strong> and <strong>add JUnit 5</strong> dependen
 	Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">login</span><span style="color:#f92672">(</span>String email<span style="color:#f92672">,</span> String password<span style="color:#f92672">);</span>
 
     Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByEmail</span><span style="color:#f92672">(</span>String email<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<h4 id="userservice-java">UserService.java</h4>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="userservicejava">UserService.java</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.services<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> com.sivalabs.myservice.exception.UserRegistrationException<span style="color:#f92672">;</span>
@@ -410,8 +392,8 @@ We can <strong>exclude JUnit4</strong> and <strong>add JUnit 5</strong> dependen
     	userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteById</span><span style="color:#f92672">(</span>id<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>
 	
-<span style="color:#f92672">}</span></code></pre></div>
-<h4 id="usercontroller-java">UserController.java</h4>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="usercontrollerjava">UserController.java</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> com.sivalabs.myservice.entities.User<span style="color:#f92672">;</span>
@@ -442,7 +424,7 @@ We can <strong>exclude JUnit4</strong> and <strong>add JUnit 5</strong> dependen
 	<span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/{id}&#34;</span><span style="color:#f92672">)</span>
 	<span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getUserById</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span> Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 		<span style="color:#66d9ef">return</span> userService<span style="color:#f92672">.</span><span style="color:#a6e22e">findUserById</span><span style="color:#f92672">(</span>id<span style="color:#f92672">)</span>
-				<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>ResponseEntity:<span style="color:#f92672">:</span>ok<span style="color:#f92672">)</span>
+				<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>ResponseEntity<span style="color:#f92672">::</span>ok<span style="color:#f92672">)</span>
 				<span style="color:#f92672">.</span><span style="color:#a6e22e">orElseGet</span><span style="color:#f92672">(()</span> <span style="color:#f92672">-&gt;</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">notFound</span><span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
 	<span style="color:#f92672">}</span>
 
@@ -472,14 +454,11 @@ We can <strong>exclude JUnit4</strong> and <strong>add JUnit 5</strong> dependen
 				<span style="color:#f92672">})</span>
 				<span style="color:#f92672">.</span><span style="color:#a6e22e">orElseGet</span><span style="color:#f92672">(()</span> <span style="color:#f92672">-&gt;</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">notFound</span><span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Nothing too fancy here, typical CRUD operations in SpringBoot application.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Nothing too fancy here, typical CRUD operations in SpringBoot application.</p>
 <h3 id="exceptionhandling-using-zalando-problem-web">ExceptionHandling using Zalando Problem Web</h3>
-
 <p>We are going to use <a href="https://github.com/zalando/problem-spring-web">Zalando Problem Web</a> <a href="https://github.com/zalando/problem-spring-web/tree/master/problem-spring-web">SpringBoot starter</a> to handle
 Exceptions so that it will automatically convert the application errors into JSON responses.</p>
-
 <p>Just adding the following dependency is enough to start using Zalando Problem Web, and of course you can customize it if you want to.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;problem-spring-web.version&gt;</span>0.25.0<span style="color:#f92672">&lt;/problem-spring-web.version&gt;</span>
 ...
@@ -489,14 +468,11 @@ Exceptions so that it will automatically convert the application errors into JSO
     <span style="color:#f92672">&lt;artifactId&gt;</span>problem-spring-web-starter<span style="color:#f92672">&lt;/artifactId&gt;</span>
     <span style="color:#f92672">&lt;version&gt;</span>${problem-spring-web.version}<span style="color:#f92672">&lt;/version&gt;</span>
     <span style="color:#f92672">&lt;type&gt;</span>pom<span style="color:#f92672">&lt;/type&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
-<p>Now let us see how we can write Unit Tests and Integration Tests for this functionality.</p>
-
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p>Now let us see how we can write Unit Tests and Integration Tests for this functionality.</p>
 <h2 id="unit-testing-using-junit-5-and-mockito">Unit Testing using JUnit 5 and Mockito</h2>
-
 <p>Let us start writing unit tests for <strong>UserService</strong>.
 <em>We should be able to write unit tests for UserService WITHOUT using any Spring features</em>.</p>
-
 <p>We are going to create a mock <strong>UserRepository</strong> using <strong>Mockito.mock()</strong> and create UserService instance using the mock UserRepository instance.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.services<span style="color:#f92672">;</span>
 
@@ -549,22 +525,19 @@ Exceptions so that it will automatically convert the application errors into JSO
 
         verify<span style="color:#f92672">(</span>userRepository<span style="color:#f92672">,</span> never<span style="color:#f92672">()).</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>any<span style="color:#f92672">(</span>User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">));</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>I have created <strong>UserRepository</strong> mock object and <strong>UserService</strong> instance in <strong>@BeforeEach</strong> method so that every test has a clean setup.
+<span style="color:#f92672">}</span>
+</code></pre></div><p>I have created <strong>UserRepository</strong> mock object and <strong>UserService</strong> instance in <strong>@BeforeEach</strong> method so that every test has a clean setup.
 Here we are not using any Spring or SpringBoot testing features such as <strong>@SpringBootTest</strong> because we don&rsquo;t have to for testing the behaviour of UserService.</p>
-
 <p>I am not going to write tests for other methods because they are simply delegating the calls to <strong>UserRepository</strong>.</p>
-
 <p>If you prefer to use annotations magic to create mock <strong>UserRepository</strong> and inject that mock into <strong>UserService</strong>,
 you can use <strong>mockito-junit-jupiter</strong> as follows:</p>
-
 <p>Add <strong>mockito-junit-jupiter</strong> dependency</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.mockito<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>mockito-junit-jupiter<span style="color:#f92672">&lt;/artifactId&gt;</span>
     <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
-<p>Use <strong>@Mock</strong> and <strong>@InjectMocks</strong> to create and inject mock objects as follows:</p>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p>Use <strong>@Mock</strong> and <strong>@InjectMocks</strong> to create and inject mock objects as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.junit.jupiter.api.extension.ExtendWith<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.mockito.InjectMocks<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.mockito.Mock<span style="color:#f92672">;</span>
@@ -581,31 +554,23 @@ you can use <strong>mockito-junit-jupiter</strong> as follows:</p>
 
     <span style="color:#f92672">...</span>
     <span style="color:#f92672">...</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<h3 id="now-shall-we-write-tests-for-userrepository-hmmmm">Now, shall we write tests for UserRepository? hmmmm&hellip;</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="now-shall-we-write-tests-for-userrepository-hmmmm">Now, shall we write tests for UserRepository? hmmmm&hellip;</h3>
 <p>The <strong>UserRepository</strong> is an interface extending <strong>JpaRepository</strong> and there is hardly any logic we implemented and
 we shouldn&rsquo;t be testing Spring Data JPA framework as I strongly believe Spring Data JPA team already tested it :-)</p>
-
 <p>However, we added a couple of custom methods, one leveraging Query naming convention <strong>findByEmail()</strong> and another with custom JPQL query <strong>login()</strong>.
 We should test these methods. If there are any syntactic errors Spring Data JPA throw errors on startup but we should test the logical errors by ourselves.</p>
-
 <p>We could implement tests for <strong>UserRepository</strong> using SpringBoot&rsquo;s <strong>@DataJpaTest</strong> annotation with <strong>In-memory database support</strong>.
 But running tests against in-memory database might give a false impression that it will also work on real production database as well.
 So, I prefer to run tests against the production database type, in our case Postgresql.</p>
-
 <p>We can use <a href="https://www.testcontainers.org/modules/databases/postgres/">TestContainers support to spin up a postgresql</a> docker container and run the tests pointing to that database.
 However I consider this as an Integration Test rather than Unit Test as we are talking to a real database.
 So, we will see how to write Integration tests for UserRepository later.</p>
-
 <h3 id="what-about-unit-tests-for-controller">What about unit tests for Controller?</h3>
-
 <p>Yes, I want to write unit tests for controller and I want to check whether the REST endpoint is giving the proper
 HTTP ResponseCode or not, returning the expected JSON or not etc.</p>
-
 <p>SpringBoot provides <strong>@WebMvcTest</strong> annotation to test Spring MVC Controllers.
 Also, <strong>@WebMvcTest</strong> based tests runs faster as it will load only the specified controller and its dependencies only without loading the entire application.</p>
-
 <p>While loading the Controller using <strong>@WebMvcTest</strong> SpringBoot won&rsquo;t automatically load Zalando Problem Web AutoConfiguration.
 So, we need to configure <strong>ControllerAdvice</strong> as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.common<span style="color:#f92672">;</span>
@@ -618,9 +583,8 @@ So, we need to configure <strong>ControllerAdvice</strong> as follows:</p>
 <span style="color:#a6e22e">@ControllerAdvice</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExceptionHandling</span> <span style="color:#66d9ef">implements</span> ProblemHandling <span style="color:#f92672">{</span>
 
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Now we can write tests for <strong>UserController</strong> by injecting a Mock <strong>UserService</strong> bean and invoke API endpoints using <strong>MockMvc</strong>.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now we can write tests for <strong>UserController</strong> by injecting a Mock <strong>UserService</strong> bean and invoke API endpoints using <strong>MockMvc</strong>.</p>
 <p>As SpringBoot is creating the <strong>UserController</strong> instance we are creating mock <strong>UserService</strong> bean using Spring&rsquo;s <strong>@MockBean</strong> as opposed to plain Mockito&rsquo;s <strong>@Mock</strong>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
 
@@ -799,21 +763,16 @@ So, we need to configure <strong>ControllerAdvice</strong> as follows:</p>
 
     <span style="color:#f92672">}</span>
 
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Now we have good amount of unit tests testing various components of our application.
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now we have good amount of unit tests testing various components of our application.
 But still there is a lot of chance for things to go wrong, may be we might have some property configuration issues,
 we might have some errors in our DB migration scripts etc etc.</p>
-
 <p>So, lets write Integration Tests to have more confidence that our application is running properly.</p>
-
 <h2 id="integration-testing-using-testcontainer">Integration Testing using TestContainer</h2>
-
 <p>SpringBoot provides excellent support for integration testing. We can use <strong>@SpringBootTest</strong> annotation
 to load the application context and test various components.</p>
-
 <p>Let us start with writing integration tests for <strong>UserController</strong>.
 As I mentioned earlier we want to test using postgres database instead of in-memory database.</p>
-
 <p>Add the following dependencies.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.testcontainers<span style="color:#f92672">&lt;/groupId&gt;</span>
@@ -826,11 +785,10 @@ As I mentioned earlier we want to test using postgres database instead of in-mem
     <span style="color:#f92672">&lt;artifactId&gt;</span>junit-jupiter<span style="color:#f92672">&lt;/artifactId&gt;</span>
     <span style="color:#f92672">&lt;version&gt;</span>1.11.3<span style="color:#f92672">&lt;/version&gt;</span>
     <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
-<p>We can use TestContainers support for JUnit 5 as mentioned here <a href="https://www.testcontainers.org/test_framework_integration/junit_5/">https://www.testcontainers.org/test_framework_integration/junit_5/</a>.
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p>We can use TestContainers support for JUnit 5 as mentioned here <a href="https://www.testcontainers.org/test_framework_integration/junit_5/">https://www.testcontainers.org/test_framework_integration/junit_5/</a>.
 However, starting and stopping docker containers for every test or every test class might cause tests running slowly.
 So, we are going to use Singleton Containers approach mentioned at <a href="https://www.testcontainers.org/test_framework_integration/manual_lifecycle_control/#singleton-containers">https://www.testcontainers.org/test_framework_integration/manual_lifecycle_control/#singleton-containers</a></p>
-
 <p>Let us create a base class <strong>AbstractIntegrationTest</strong> so that all our integration tests can extend without repeating the common configuration.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.common<span style="color:#f92672">;</span>
 
@@ -883,13 +841,11 @@ So, we are going to use Singleton Containers approach mentioned at <a href="http
         <span style="color:#f92672">}</span>
     <span style="color:#f92672">}</span>
 
-<span style="color:#f92672">}</span></code></pre></div>
-<p>We have used <strong>@AutoConfigureMockMvc</strong> to auto-configure <strong>MockMvc</strong>,
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We have used <strong>@AutoConfigureMockMvc</strong> to auto-configure <strong>MockMvc</strong>,
 and <strong>@SpringBootTest(webEnvironment = RANDOM_PORT)</strong> to start the server on a random available port.</p>
-
 <p>We have started <strong>PostgreSQLContainer</strong> and used <strong>@ContextConfiguration(initializers={AbstractIntegrationTest.Initializer.class})</strong>
 to configure the dynamic database connection properties.</p>
-
 <p>Now we can implement Integration Test for <strong>UserController</strong> as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
 
@@ -1009,15 +965,13 @@ to configure the dynamic database connection properties.</p>
 
     <span style="color:#f92672">}</span>
 
-<span style="color:#f92672">}</span></code></pre></div>
-<p>The <strong>UserControllerIT</strong> tests looks very similar to <strong>UserControllerTest</strong> with the difference being how we load the ApplicationContext.
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The <strong>UserControllerIT</strong> tests looks very similar to <strong>UserControllerTest</strong> with the difference being how we load the ApplicationContext.
 While using <strong>@SpringBootTest</strong> SpringBoot will actually start the application by loading the entire application
 so that tests will fail if there is any mis-configuration.</p>
-
 <p>Next, we are going to write test for <strong>UserRepository</strong> using <strong>@DataJpaTest</strong>.
 But we want to run tests against a real database not with in-memory database.
 We can use <strong>@AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)</strong> to turn-off using in-memory database and use the configured database.</p>
-
 <p>Let us create <strong>PostgreSQLContainerInitializer</strong> so that any repository tests can use this to configure dynamic postgres database properties.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.common<span style="color:#f92672">;</span>
 
@@ -1049,8 +1003,8 @@ We can use <strong>@AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.
         <span style="color:#f92672">).</span><span style="color:#a6e22e">applyTo</span><span style="color:#f92672">(</span>configurableApplicationContext<span style="color:#f92672">.</span><span style="color:#a6e22e">getEnvironment</span><span style="color:#f92672">());</span>
     <span style="color:#f92672">}</span>
 
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Now we can create <strong>UserRepositoryTest</strong> as follows:</p>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now we can create <strong>UserRepositoryTest</strong> as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.repositories<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> com.sivalabs.myservice.common.PostgreSQLContainerInitializer<span style="color:#f92672">;</span>
@@ -1086,23 +1040,19 @@ We can use <strong>@AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.
         
         assertThat<span style="color:#f92672">(</span>userOptional<span style="color:#f92672">).</span><span style="color:#a6e22e">isNotEmpty</span><span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Well, I guess we learned something about how to write unit tests and integration tests using various SpringBoot features.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Well, I guess we learned something about how to write unit tests and integration tests using various SpringBoot features.</p>
 <p>We are living in Microservices world and there is a high chance that our service might talk to other microservices.
 How are we going to test those integration points? How are we going to verify the timeout scenarios?
 Well, we can certainly use a Mock object and pray GOD that it will work fine in production :-)
 Or we can use libraries like <strong>MockServer</strong> to simulate the service-to-service communication.</p>
-
 <h2 id="testing-microservice-integrations-using-mockserver">Testing MicroService Integrations using MockServer</h2>
-
 <p>Assume from our application we want to fetch GitHub profile of a user. We can use GitHub REST API to fetch the user profile.
 Also, we want to timeout the call after 2 seconds and if we don&rsquo;t get response by that time we want to return a default user response.</p>
-
 <p>We can implement this using <strong>Hystrix</strong> as follows:</p>
-
-<h4 id="application-properties">application.properties</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">githuub<span style="color:#f92672">.</span><span style="color:#a6e22e">api</span><span style="color:#f92672">.</span><span style="color:#a6e22e">base</span><span style="color:#f92672">-</span>url<span style="color:#f92672">=</span>https:<span style="color:#f92672">//</span>api<span style="color:#f92672">.</span><span style="color:#a6e22e">github</span><span style="color:#f92672">.</span><span style="color:#a6e22e">com</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.config<span style="color:#f92672">;</span>
+<h4 id="applicationproperties">application.properties</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">githuub<span style="color:#f92672">.</span><span style="color:#a6e22e">api</span><span style="color:#f92672">.</span><span style="color:#a6e22e">base</span><span style="color:#f92672">-</span>url<span style="color:#f92672">=</span>https<span style="color:#f92672">:</span><span style="color:#75715e">//api.github.com
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.config<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> lombok.Data<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Value<span style="color:#f92672">;</span>
@@ -1114,8 +1064,8 @@ Also, we want to timeout the call after 2 seconds and if we don&rsquo;t get resp
 
     <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${githuub.api.base-url}&#34;</span><span style="color:#f92672">)</span>
     <span style="color:#66d9ef">private</span> String githubBaseUrl<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Register <strong>RestTemplate</strong> bean and enable Hystrix CircuitBreaker using <strong>@EnableCircuitBreaker</strong>.</p>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Register <strong>RestTemplate</strong> bean and enable Hystrix CircuitBreaker using <strong>@EnableCircuitBreaker</strong>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
@@ -1136,8 +1086,8 @@ Also, we want to timeout the call after 2 seconds and if we don&rsquo;t get resp
 	<span style="color:#66d9ef">public</span> RestTemplate <span style="color:#a6e22e">restTemplate</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> RestTemplate<span style="color:#f92672">();</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Create <strong>GithubUser</strong> class which holds response from GitHub API.</p>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Create <strong>GithubUser</strong> class which holds response from GitHub API.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.model<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> com.fasterxml.jackson.annotation.JsonProperty<span style="color:#f92672">;</span>
@@ -1153,8 +1103,8 @@ Also, we want to timeout the call after 2 seconds and if we don&rsquo;t get resp
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> publicRepos<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> followers<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> following<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Create <strong>GithubService</strong> which talks to GitHub REST API using <strong>RestTemplate</strong> as follows:</p>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Create <strong>GithubService</strong> which talks to GitHub REST API using <strong>RestTemplate</strong> as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.services<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand<span style="color:#f92672">;</span>
@@ -1195,8 +1145,8 @@ Also, we want to timeout the call after 2 seconds and if we don&rsquo;t get resp
         user<span style="color:#f92672">.</span><span style="color:#a6e22e">setPublicRepos</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
         <span style="color:#66d9ef">return</span> user<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Let us create a <strong>GithubController</strong> with an endpoint to return the users GitHub profile.</p>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Let us create a <strong>GithubController</strong> with an endpoint to return the users GitHub profile.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> com.sivalabs.myservice.model.GithubUser<span style="color:#f92672">;</span>
@@ -1222,11 +1172,9 @@ Also, we want to timeout the call after 2 seconds and if we don&rsquo;t get resp
     <span style="color:#66d9ef">public</span> GithubUser <span style="color:#a6e22e">getGithubUserProfile</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span> String username<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">return</span> githubService<span style="color:#f92672">.</span><span style="color:#a6e22e">getGithubUserProfile</span><span style="color:#f92672">(</span>username<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>We can use <strong>MockServer</strong> to simulate the dependent microservice responses so that we can verify our application behaviour in various scenarios.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We can use <strong>MockServer</strong> to simulate the dependent microservice responses so that we can verify our application behaviour in various scenarios.</p>
 <p>We can use <a href="https://www.testcontainers.org/modules/mockserver/">TestContainers support to spin up MockServer</a> docker container as follows:</p>
-
 <p>Add the following dependencies:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.testcontainers<span style="color:#f92672">&lt;/groupId&gt;</span>
@@ -1239,8 +1187,8 @@ Also, we want to timeout the call after 2 seconds and if we don&rsquo;t get resp
     <span style="color:#f92672">&lt;artifactId&gt;</span>mockserver-netty<span style="color:#f92672">&lt;/artifactId&gt;</span>
     <span style="color:#f92672">&lt;version&gt;</span>5.5.1<span style="color:#f92672">&lt;/version&gt;</span>
     <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
-<p>In <strong>AbstractIntegrationTest</strong> add <strong>MockServerContainer</strong> configuration as follows:</p>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p>In <strong>AbstractIntegrationTest</strong> add <strong>MockServerContainer</strong> configuration as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.mockserver.client.MockServerClient<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.testcontainers.containers.MockServerContainer<span style="color:#f92672">;</span>
 
@@ -1278,8 +1226,8 @@ Also, we want to timeout the call after 2 seconds and if we don&rsquo;t get resp
         <span style="color:#f92672">}</span>
     <span style="color:#f92672">}</span>
 
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Note that we are stating <strong>MockServerContainer</strong> and injecting the endpoint URL with <strong>&ldquo;githuub.api.base-url=&rdquo;+mockServerContainer.getEndpoint()</strong>.
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Note that we are stating <strong>MockServerContainer</strong> and injecting the endpoint URL with <strong>&ldquo;githuub.api.base-url=&quot;+mockServerContainer.getEndpoint()</strong>.
 Also, we have created <strong>MockServerClient</strong> which we are going to use for setting up expected responses.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.sivalabs.myservice.web.controllers<span style="color:#f92672">;</span>
 
@@ -1342,11 +1290,10 @@ Also, we have created <strong>MockServerClient</strong> which we are going to us
                 VerificationTimes<span style="color:#f92672">.</span><span style="color:#a6e22e">exactly</span><span style="color:#f92672">(</span>times<span style="color:#f92672">)</span>
         <span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Note that we are setting up expected JSON response for <strong>&lt;githuub.api.base-url&gt;/users/.*</strong> URL pattern on <strong>mockServerClient</strong>.
-So, when we make a call to <strong><a href="http://localhost:8080/api/github/users/{username">http://localhost:8080/api/github/users/{username</a>}</strong> GithubController will in-turn call GithubService which makes a call to
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Note that we are setting up expected JSON response for <strong>&lt;githuub.api.base-url&gt;/users/.*</strong> URL pattern on <strong>mockServerClient</strong>.
+So, when we make a call to <strong>http://localhost:8080/api/github/users/{username}</strong> GithubController will in-turn call GithubService which makes a call to
 <strong>&lt;githuub.api.base-url&gt;/users/{username}</strong> and return the mock JSON response that we set using <strong>mockServerClient</strong>.</p>
-
 <p>We can also simulate the failures and timeout scenarios as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldGetDefaultUserProfileWhenFetchingFromGithubFails</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
@@ -1382,21 +1329,16 @@ So, when we make a call to <strong><a href="http://localhost:8080/api/github/use
     mockServerClient<span style="color:#f92672">.</span><span style="color:#a6e22e">when</span><span style="color:#f92672">(</span>
         request<span style="color:#f92672">().</span><span style="color:#a6e22e">withMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">withPath</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/users/.*&#34;</span><span style="color:#f92672">))</span>
         <span style="color:#f92672">.</span><span style="color:#a6e22e">respond</span><span style="color:#f92672">(</span>response<span style="color:#f92672">().</span><span style="color:#a6e22e">withStatusCode</span><span style="color:#f92672">(</span>404<span style="color:#f92672">));</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>In <strong>shouldGetDefaultUserProfileWhenFetchingFromGithubFails()</strong> test we are setting up the mockServer to respond
+<span style="color:#f92672">}</span>
+</code></pre></div><p>In <strong>shouldGetDefaultUserProfileWhenFetchingFromGithubFails()</strong> test we are setting up the mockServer to respond
 with <strong>404 error</strong> to verify <strong>Hystrix fallback</strong> method is working or not.</p>
-
 <p>Similarly, In shouldGetDefaultUserProfileWhenFetchingFromGithubTimeout() test we are setting up the mockServer to respond
 with <strong>delay of 10 SECONDS</strong> to verify whether <strong>Hystrix timeout</strong> is working or not.</p>
-
 <p>Make sure to reset <strong>mockServerClient</strong> using <strong>mockServerClient.reset()</strong> for every test in <strong>@BeforeEach</strong> method to reset any expectations set in previous test run.</p>
-
 <blockquote>
 <p>Sample application Code for this article can be found at <a href="https://github.com/sivaprasadreddy/spring-boot-tutorials/tree/master/testing/springboot-testing-demo">https://github.com/sivaprasadreddy/spring-boot-tutorials/tree/master/testing/springboot-testing-demo</a></p>
 </blockquote>
-
 <p>I hope we have covered many common testing scenarios in SpringBoot applications.</p>
-
 <p>Thank you reading the article, your feedback is welcome.
 If you find this article useful please share it on Twitter.</p>
 
@@ -1599,23 +1541,21 @@ If you find this article useful please share it on Twitter.</p>
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -1628,87 +1568,81 @@ If you find this article useful please share it on Twitter.</p>
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

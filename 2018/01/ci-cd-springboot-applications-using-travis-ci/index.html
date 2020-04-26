@@ -29,36 +29,30 @@ if (!doNotTrack) {
 
 <meta name="twitter:title" content="CI/CD for SpringBoot applications using Travis-CI"/>
 <meta name="twitter:description" content="In this article we are going to learn how we can use Travis CI for Continuous Integration and Continuous Deployment (CI/CD) of a SpringBoot application. We will learn how to run maven build goals, perform test coverage validation using JaCoCo plugin, Code Quality checks using SonarCloud, build Docker image and push it to DockerHub and finally deploy it to Heroku.
- The source code for this article is at https://github."/>
+ The source code for this article is at https://github.com/sivaprasadreddy/jblogger"/>
 <meta name="twitter:site" content="@sivalabs"/>
 
     <meta name="twitter:creator" content="@sivalabs"/>
     <meta property="og:title" content="CI/CD for SpringBoot applications using Travis-CI" />
 <meta property="og:description" content="In this article we are going to learn how we can use Travis CI for Continuous Integration and Continuous Deployment (CI/CD) of a SpringBoot application. We will learn how to run maven build goals, perform test coverage validation using JaCoCo plugin, Code Quality checks using SonarCloud, build Docker image and push it to DockerHub and finally deploy it to Heroku.
- The source code for this article is at https://github." />
+ The source code for this article is at https://github.com/sivaprasadreddy/jblogger" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2018/01/ci-cd-springboot-applications-using-travis-ci/" />
-
 <meta property="og:image" content="https://sivalabs.github.io/images/TravisCI-Mascot-1.png" />
-<meta property="article:published_time" content="2018-01-24T07:59:17&#43;05:30"/>
-<meta property="article:modified_time" content="2018-01-24T07:59:17&#43;05:30"/>
+<meta property="article:published_time" content="2018-01-24T07:59:17+05:30" />
+<meta property="article:modified_time" content="2018-01-24T07:59:17+05:30" />
 
-    
-<meta itemprop="name" content="CI/CD for SpringBoot applications using Travis-CI">
+    <meta itemprop="name" content="CI/CD for SpringBoot applications using Travis-CI">
 <meta itemprop="description" content="In this article we are going to learn how we can use Travis CI for Continuous Integration and Continuous Deployment (CI/CD) of a SpringBoot application. We will learn how to run maven build goals, perform test coverage validation using JaCoCo plugin, Code Quality checks using SonarCloud, build Docker image and push it to DockerHub and finally deploy it to Heroku.
- The source code for this article is at https://github.">
-
-
+ The source code for this article is at https://github.com/sivaprasadreddy/jblogger">
 <meta itemprop="datePublished" content="2018-01-24T07:59:17&#43;05:30" />
 <meta itemprop="dateModified" content="2018-01-24T07:59:17&#43;05:30" />
-<meta itemprop="wordCount" content="1544">
-
-  <meta itemprop="image" content="https://sivalabs.github.io/images/TravisCI-Mascot-1.png">
+<meta itemprop="wordCount" content="1546">
+<meta itemprop="image" content="https://sivalabs.github.io/images/TravisCI-Mascot-1.png">
 
 
 
 <meta itemprop="keywords" content="travis-ci,springboot," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -177,24 +171,16 @@ if (!doNotTrack) {
 </header>
 
         <div class="entry-content">
-            
-
-<p>In this article we are going to learn how we can use <strong>Travis CI</strong> for Continuous Integration and Continuous Deployment (CI/CD)
+            <p>In this article we are going to learn how we can use <strong>Travis CI</strong> for Continuous Integration and Continuous Deployment (CI/CD)
 of a <strong>SpringBoot</strong> application. We will learn how to run maven build goals, perform test coverage validation using JaCoCo plugin,
 Code Quality checks using <strong>SonarCloud</strong>, build Docker image and push it to <strong>DockerHub</strong> and finally deploy it to <strong>Heroku</strong>.</p>
-
 <blockquote>
 <p>The source code for this article is at <a href="https://github.com/sivaprasadreddy/jblogger">https://github.com/sivaprasadreddy/jblogger</a></p>
 </blockquote>
-
 <p>Last week I was talking to my friend about how easy it became to build a Java application and deploy it using SpringBoot. During the discussion one point came out about how much it cost to build a Java application and deploy it somewhere (cloud). So, I thought of exploring more about the free services that we can use to automate all the project development activities with minimal or no cost at all.</p>
-
 <p>Few years ago I used <strong>CloudBees</strong> and <strong>CloudFoundry</strong> to build and deploy my pet projects which were offering free hosting service, but they are not providing free services anymore.</p>
-
 <p>In the past I have used <strong>Travis CI</strong> for my java projects just for preliminary testing purpose, but looking at their documentation I realised they provide a lot more features.</p>
-
 <p>So I thought of checking can I use Travis CI for my projects to do all the usual tasks such as:</p>
-
 <ul>
 <li>Checkout the latest code</li>
 <li>Compile and run Unit and Integration Tests</li>
@@ -203,57 +189,36 @@ Code Quality checks using <strong>SonarCloud</strong>, build Docker image and pu
 <li>Optionally, built Docker image and publish it to Docker Hub</li>
 <li>Deploy application on some free cloud hosting service like Heroku or OpenShift</li>
 </ul>
-
 <p>After going through their documentation I realised that we can do all these tasks by using some of the free online services and Travis-CI integration with them.</p>
-
 <ul>
 <li><strong>GitHub</strong> for code repository</li>
 <li><strong>SonarCloud</strong> for free SonarQube service</li>
 <li><strong>Docker Hub</strong> for publishing Docker images</li>
 <li><strong>Heroku</strong> for deploying the application</li>
 </ul>
-
 <p>Let us see how we can do all the above mentioned tasks using Travis-CI for a SpringBoot project.</p>
-
 <h2 id="step-1-create-springboot-project">Step 1: Create SpringBoot project</h2>
-
 <p>Create a SpringBoot project either using <a href="http://start.spring.io">http://start.spring.io</a> or from your IDE. I am using Maven build tool, you can use Gradle also if you prefer. Now commit the project into your github repository.</p>
-
-<h2 id="step-2-create-travis-yml-file">Step 2: Create .travis.yml file</h2>
-
+<h2 id="step-2-create-travisyml-file">Step 2: Create .travis.yml file</h2>
 <p>In order to enable Travis-CI integration we need to create <strong>.travis.yml</strong> file in project root folder.
 As we are creating the Maven based java project create .travis.yml file with following content:</p>
-
 <p><strong>.travis.yml</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">language: java
-jdk: oraclejdk8</code></pre></div>
-
-<p>This minimal configuration is sufficient for Travis-CI to recognize our Maven based Java project and build it.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">language</span>: java
+<span style="color:#66d9ef">jdk</span>: oraclejdk8
+</code></pre></div><p>This minimal configuration is sufficient for Travis-CI to recognize our Maven based Java project and build it.
 If there is a build.gradle file in our project root folder Travis will treat it as Gradle project, or if there is pom.xml it will treat it as Maven project.  If both build.gradle and pom.xml are there then Gradle build script will take priority.</p>
-
 <p>By default Travis will run <strong>mvn test -B</strong> for building the project.
 If Travis finds mvnw wrapper then it will be used like <strong>./mvnw test -B</strong>.</p>
-
 <p>But if you want to run a different command or want to run multiple commands we can use script block to customize it.</p>
-
 <p>Now commit and push the .travis.yml file to GitHub.</p>
-
 <h2 id="step-3-enable-travis-ci-for-github-repository">Step 3: Enable Travis-CI for GitHub repository</h2>
-
 <p>Go to <a href="https://travis-ci.org/">https://travis-ci.org/</a> and <strong>Signin with GitHub</strong>.</p>
-
 <p>Now click on <strong>Add New Repository</strong> (+ symbol).</p>
-
 <p>Enable Travis for the repository. After enabling Travis click on that repository and you can trigger build by selecting
 <strong>More Options -&gt; Trigger build</strong>.</p>
-
 <p>Now you can see that build is running and tests are executed and an email notification will be sent to your email regarding the build status.</p>
-
 <h2 id="step-4-add-jacoco-code-coverage-check">Step 4: Add JaCoCo Code Coverage check</h2>
-
 <p>Add the Maven JaCoCo plugin to pom.xml with options like what is the desired code coverage percentage, packages/classes to ignore etc.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;plugin&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.jacoco<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>jacoco-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
@@ -313,17 +278,12 @@ If Travis finds mvnw wrapper then it will be used like <strong>./mvnw test -B</s
             <span style="color:#f92672">&lt;/configuration&gt;</span>
         <span style="color:#f92672">&lt;/execution&gt;</span>
     <span style="color:#f92672">&lt;/executions&gt;</span>
-<span style="color:#f92672">&lt;/plugin&gt;</span></code></pre></div>
-
-<h2 id="step-5-run-unit-and-integration-tests">Step 5: Run Unit and Integration Tests</h2>
-
+<span style="color:#f92672">&lt;/plugin&gt;</span>
+</code></pre></div><h2 id="step-5-run-unit-and-integration-tests">Step 5: Run Unit and Integration Tests</h2>
 <p>As I mentioned earlier, by default Travis run <strong>mvn test -B</strong> which will <strong>only run Unit tests</strong>.</p>
-
 <p>We want to run Unit tests and Integration tests separately by using <strong>maven-failsafe-plugin</strong>.
 We will follow the convention by naming <strong>Unit tests</strong> as <strong>*Test.java/*Tests.java</strong> and <strong>Integration tests</strong> as <strong>*IT.java</strong>.</p>
-
 <p>Add <strong>maven-failsafe-plugin</strong> as mentioned below:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;plugin&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.maven.plugins<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>maven-failsafe-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
@@ -341,173 +301,129 @@ We will follow the convention by naming <strong>Unit tests</strong> as <strong>*
             <span style="color:#f92672">&lt;/goals&gt;</span>
         <span style="color:#f92672">&lt;/execution&gt;</span>
     <span style="color:#f92672">&lt;/executions&gt;</span>
-<span style="color:#f92672">&lt;/plugin&gt;</span></code></pre></div>
-
-<p>While configuring the maven-failsafe-plugin for SpringBoot project I hit this issue <a href="https://github.com/spring-projects/spring-boot/issues/6254">https://github.com/spring-projects/spring-boot/issues/6254</a> .
+<span style="color:#f92672">&lt;/plugin&gt;</span>
+</code></pre></div><p>While configuring the maven-failsafe-plugin for SpringBoot project I hit this issue <a href="https://github.com/spring-projects/spring-boot/issues/6254">https://github.com/spring-projects/spring-boot/issues/6254</a> .
 To fix this issue I have added the <strong>classifier</strong> configuration to spring-boot-maven-plugin as follows:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;plugin&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
     <span style="color:#f92672">&lt;configuration&gt;</span>
         <span style="color:#f92672">&lt;classifier&gt;</span>exec<span style="color:#f92672">&lt;/classifier&gt;</span>
     <span style="color:#f92672">&lt;/configuration&gt;</span>
-<span style="color:#f92672">&lt;/plugin&gt;</span></code></pre></div>
-
-<p>Now we are going to use <strong>script</strong> block to specify our custom maven goal to run instead of default goal.</p>
-
+<span style="color:#f92672">&lt;/plugin&gt;</span>
+</code></pre></div><p>Now we are going to use <strong>script</strong> block to specify our custom maven goal to run instead of default goal.</p>
 <p><strong>.travis.yml</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">language: java
-jdk: oraclejdk8
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">language</span>: java
+<span style="color:#66d9ef">jdk</span>: oraclejdk8
  
-script:
-- ./mvnw clean install -B</code></pre></div>
-
-<h2 id="step-6-sonarqube-code-quality-checks-using-sonarcloud">Step 6: SonarQube code quality checks using SonarCloud</h2>
-
+<span style="color:#66d9ef">script</span>:
+- ./mvnw clean install -B
+</code></pre></div><h2 id="step-6-sonarqube-code-quality-checks-using-sonarcloud">Step 6: SonarQube code quality checks using SonarCloud</h2>
 <p>SonarCloud , which built on <strong>SonarQube</strong>, offers free code quality checks for Open Source projects.</p>
-
 <p><strong>Login with GitHub</strong> and go to <strong>My Account -&gt; Security</strong> and generate a new token for your project and save it somewhere.
 Now click on <strong>Organizations</strong> tab and create an Organization with some unique key.</p>
-
 <p>Travis-CI provides ability to encrypt sensitive data (<a href="https://docs.travis-ci.com/user/encryption-keys/">https://docs.travis-ci.com/user/encryption-keys/</a>) so that we can encrypt any keys, password and configure in .travis.yml file.</p>
-
 <p><code>&gt; sudo gem install travis</code></p>
-
 <p>From project root folder run the following command to encrypt data:</p>
-
-<p><strong>travis encrypt SOMEVAR=&ldquo;secretvalue&rdquo;</strong></p>
-
+<p><strong>travis encrypt SOMEVAR=&quot;secretvalue&rdquo;</strong></p>
 <p>This will generate output like</p>
-
-<p><strong>secure: &ldquo;…. encrypted data ….&rdquo;</strong></p>
-
+<p><strong>secure: &ldquo;…. encrypted data ….&quot;</strong></p>
 <p>We can add all the secrets as global environment variables as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">env:
-  global:
-  - secure: <span style="color:#e6db74">&#34;....encrypted data.....&#34;</span></code></pre></div>
-
-<p>Now let us encrypt SonarCloud Token as follows:</p>
-
-<p><strong>travis encrypt SONAR_TOKEN=&ldquo;my-sonar-token-here&rdquo;</strong></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">env</span>:
+  <span style="color:#66d9ef">global</span>:
+  - <span style="color:#66d9ef">secure</span>: <span style="color:#e6db74">&#34;....encrypted data.....&#34;</span>
+</code></pre></div><p>Now let us encrypt SonarCloud Token as follows:</p>
+<p><strong>travis encrypt SONAR_TOKEN=&quot;my-sonar-token-here&rdquo;</strong></p>
 <p>Finally, let us add SonarCloud support as an AddOn (<a href="https://docs.travis-ci.com/user/sonarcloud/">https://docs.travis-ci.com/user/sonarcloud/</a>) as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">language: java
-jdk: oraclejdk8
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">language</span>: java
+<span style="color:#66d9ef">jdk</span>: oraclejdk8
  
-env:
-  global:
-  - secure: <span style="color:#e6db74">&#34;....encrypted sonar token here.....&#34;</span>
+<span style="color:#66d9ef">env</span>:
+  <span style="color:#66d9ef">global</span>:
+  - <span style="color:#66d9ef">secure</span>: <span style="color:#e6db74">&#34;....encrypted sonar token here.....&#34;</span>
  
-addons:
-  sonarcloud:
-    organization: <span style="color:#e6db74">&#34;sivaprasadreddy-github&#34;</span>
-    token:
-      secure: $SONAR_TOKEN
+<span style="color:#66d9ef">addons</span>:
+  <span style="color:#66d9ef">sonarcloud</span>:
+    <span style="color:#66d9ef">organization</span>: <span style="color:#e6db74">&#34;sivaprasadreddy-github&#34;</span>
+    <span style="color:#66d9ef">token</span>:
+      <span style="color:#66d9ef">secure</span>: $SONAR_TOKEN
  
-script:
+<span style="color:#66d9ef">script</span>:
 - ./mvnw clean install -B
-- ./mvnw clean org.jacocoprepare-agent package sonar:sonar</code></pre></div>
-
-<p>Note that we used <strong>$SONAR_TOKEN</strong> to refer to encrypted token variable and added one more command to run in <strong>script</strong> block to run <strong>sonar:sonar</strong> goal.</p>
-
+- ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+</code></pre></div><p>Note that we used <strong>$SONAR_TOKEN</strong> to refer to encrypted token variable and added one more command to run in <strong>script</strong> block to run <strong>sonar:sonar</strong> goal.</p>
 <h2 id="step-7-build-docker-image-and-publish-to-dockerhub">Step 7: Build Docker image and publish to DockerHub</h2>
-
 <p>Travis CI builds can run and build Docker images, and can also push images to Docker repositories.
 For more information read <a href="https://docs.travis-ci.com/user/docker/">https://docs.travis-ci.com/user/docker/</a></p>
-
 <p>Create <strong>Dockerfile</strong> in project root folder for our SpringBoot application as follows:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> frolvlad/alpine-oraclejdk8:slim</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">VOLUME</span><span style="color:#e6db74"> /tmp</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ADD</span><span style="color:#e6db74"> target/jblogger-0.0.1-SNAPSHOT.jar app.jar</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ADD</span> target/jblogger-0.0.1-SNAPSHOT.jar app.jar<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> sh -c <span style="color:#e6db74">&#39;touch /app.jar&#39;</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span><span style="color:#e6db74"> JAVA_OPTS=&#34;-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> JAVA_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n&#34;</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 8080 8787</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span><span style="color:#e6db74"> [ &#34;sh&#34;, &#34;-c&#34;, &#34;java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=docker -jar /app.jar&#34; ]</span></code></pre></div>
-
-<p>To use Docker add the following settings to <strong>.travis.yml</strong>:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">sudo: required
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [ <span style="color:#e6db74">&#34;sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=docker -jar /app.jar&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>To use Docker add the following settings to <strong>.travis.yml</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">sudo</span>: required
  
-services:
-  - docker</code></pre></div>
-
-<p>Now we can run Docker commands in our build.</p>
-
+<span style="color:#66d9ef">services</span>:
+  - docker
+</code></pre></div><p>Now we can run Docker commands in our build.</p>
 <p>Once the build is successful we may want to build the Docker image and push it to Docker Hub.
 We can leverage <strong>after_success</strong> section to perform this action.</p>
-
 <p>We need to login into DockerHub before pushing the image, we are going to configure DockerHub credentials by encrypting them.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">travis encrypt DOCKER_USER<span style="color:#f92672">=</span>”dockerhub-username”
-travis encrypt DOCKER_PASS<span style="color:#f92672">=</span>”dockerhub-password”</code></pre></div>
-
-<p>Add these 2 secrets to <strong>env.global</strong> section of .travis.yml.</p>
-
+travis encrypt DOCKER_PASS<span style="color:#f92672">=</span>”dockerhub-password”
+</code></pre></div><p>Add these 2 secrets to <strong>env.global</strong> section of .travis.yml.</p>
 <p>Now we can add our docker commands to build image and publish to dockerhub in <strong>after_success</strong> section as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">after_success:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">after_success</span>:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ <span style="color:#e6db74">&#34;$TRAVIS_BRANCH&#34;</span> == <span style="color:#e6db74">&#34;master&#34;</span> ]; then echo <span style="color:#e6db74">&#34;latest&#34;</span>; else echo $TRAVIS_BRANCH; fi`
 - export IMAGE_NAME=sivaprasadreddy/jblogger
 - docker build -t $IMAGE_NAME:$COMMIT .
 - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
-- docker push $IMAGE_NAME</code></pre></div>
+- docker push $IMAGE_NAME
 
-<h2 id="step-8-deploy-to-heroku">Step 8: Deploy to Heroku</h2>
-
+</code></pre></div><h2 id="step-8-deploy-to-heroku">Step 8: Deploy to Heroku</h2>
 <p>Travis CI provides options to deploy on a wide range of platforms including Heroku, OpenShift, AWS, Azure etc.
 Travis CI can automatically deploy your Heroku application after a successful build.</p>
-
 <p>We are going to deploy our SpringBoot application on Heroku using Travis <a href="https://docs.travis-ci.com/user/deployment/heroku/">https://docs.travis-ci.com/user/deployment/heroku/</a>. Before deploying our application to Heroku first we need to login to <a href="https://www.heroku.com/">https://www.heroku.com/</a> and create an application from Dashboard.</p>
-
 <p>Now create <strong>Procfile</strong> in root folder of the project as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">web java -Dserver.port<span style="color:#f92672">=</span>$PORT -Dspring.profiles.active<span style="color:#f92672">=</span>heroku $JAVA_OPTS -jar target/jblogger-0.0.1-SNAPSHOT-exec.jar</code></pre></div>
-
-<p>First we need to get the Heroku API Key and add it as encrypted secret.</p>
-
-<p><strong>travis encrypt HEROKU_API_KEY=&ldquo;your-heroku-api-key-here&rdquo;</strong></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">web java -Dserver.port<span style="color:#f92672">=</span>$PORT -Dspring.profiles.active<span style="color:#f92672">=</span>heroku $JAVA_OPTS -jar target/jblogger-0.0.1-SNAPSHOT-exec.jar
+</code></pre></div><p>First we need to get the Heroku API Key and add it as encrypted secret.</p>
+<p><strong>travis encrypt HEROKU_API_KEY=&quot;your-heroku-api-key-here&rdquo;</strong></p>
 <p>We can deploy to Heroku from Travis by adding <strong>deploy</strong> section as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  app: jblogger</code></pre></div>
-
-<p>Now the complete .travis.yml file will look like follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">sudo: required
-language: java
-jdk: oraclejdk8
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">deploy</span>:
+  <span style="color:#66d9ef">provider</span>: heroku
+  <span style="color:#66d9ef">api_key</span>: $HEROKU_API_KEY
+  <span style="color:#66d9ef">app</span>: jblogger
+</code></pre></div><p>Now the complete .travis.yml file will look like follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">sudo</span>: required
+<span style="color:#66d9ef">language</span>: java
+<span style="color:#66d9ef">jdk</span>: oraclejdk8
  
-services:
+<span style="color:#66d9ef">services</span>:
 - docker
  
-env:
-  global:
-  - secure: <span style="color:#e6db74">&#34;encrypted-sonar-token&#34;</span>
-  - secure: <span style="color:#e6db74">&#34;encrypted-dockerhub-username&#34;</span>
-  - secure: <span style="color:#e6db74">&#34;encrypted-dockerhub-password&#34;</span>
-  - secure: <span style="color:#e6db74">&#34;encrypted-heroku-api-key&#34;</span>
+<span style="color:#66d9ef">env</span>:
+  <span style="color:#66d9ef">global</span>:
+  - <span style="color:#66d9ef">secure</span>: <span style="color:#e6db74">&#34;encrypted-sonar-token&#34;</span>
+  - <span style="color:#66d9ef">secure</span>: <span style="color:#e6db74">&#34;encrypted-dockerhub-username&#34;</span>
+  - <span style="color:#66d9ef">secure</span>: <span style="color:#e6db74">&#34;encrypted-dockerhub-password&#34;</span>
+  - <span style="color:#66d9ef">secure</span>: <span style="color:#e6db74">&#34;encrypted-heroku-api-key&#34;</span>
   - COMMIT=${TRAVIS_COMMIT::<span style="color:#ae81ff">7</span>}
  
-addons:
-  sonarcloud:
-    organization: <span style="color:#e6db74">&#34;sivaprasadreddy-github&#34;</span>
-    token:
-      secure: $SONAR_TOKEN
+<span style="color:#66d9ef">addons</span>:
+  <span style="color:#66d9ef">sonarcloud</span>:
+    <span style="color:#66d9ef">organization</span>: <span style="color:#e6db74">&#34;sivaprasadreddy-github&#34;</span>
+    <span style="color:#66d9ef">token</span>:
+      <span style="color:#66d9ef">secure</span>: $SONAR_TOKEN
  
-script:
+<span style="color:#66d9ef">script</span>:
 - ./mvnw clean install -B
-- ./mvnw clean org.jacocoprepare-agent package sonar:sonar
+- ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
  
-after_success:
+<span style="color:#66d9ef">after_success</span>:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 - export TAG=`if [ <span style="color:#e6db74">&#34;$TRAVIS_BRANCH&#34;</span> == <span style="color:#e6db74">&#34;master&#34;</span> ]; then echo <span style="color:#e6db74">&#34;latest&#34;</span>; else echo $TRAVIS_BRANCH<span style="color:#75715e">&amp;amp;amp;amp;amp;amp;amp;amp;lt;span</span> data-mce-type=<span style="color:#e6db74">&#34;bookmark&#34;</span> style=<span style="color:#e6db74">&#34;display: inline-block; width: 0px; overflow: hidden; line-height: 0;&#34;</span> class=<span style="color:#e6db74">&#34;mce_SELRES_start&#34;</span><span style="color:#75715e">&amp;amp;amp;amp;amp;amp;amp;amp;gt;&amp;amp;amp;amp;amp;amp;amp;amp;lt;/span&amp;amp;amp;amp;amp;amp;amp;amp;gt;;</span> fi`
 - export IMAGE_NAME=sivaprasadreddy/jblogger
@@ -515,13 +431,11 @@ after_success:
 - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
 - docker push $IMAGE_NAME
  
-deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  app: jblogger</code></pre></div>
-
-<p>Once the build is successful and deployed on Heroku you should be able to access the application at <code>https://&lt;app&gt;.herokuapp.com/</code>.</p>
-
+<span style="color:#66d9ef">deploy</span>:
+  <span style="color:#66d9ef">provider</span>: heroku
+  <span style="color:#66d9ef">api_key</span>: $HEROKU_API_KEY
+  <span style="color:#66d9ef">app</span>: jblogger
+</code></pre></div><p>Once the build is successful and deployed on Heroku you should be able to access the application at <code>https://&lt;app&gt;.herokuapp.com/</code>.</p>
 <p>I just covered the most commonly performed tasks in Java applications only, but Travis-CI can perform lot more.
 Checkout the TravisCI documentation at <a href="https://docs.travis-ci.com/">https://docs.travis-ci.com/</a>.</p>
 
@@ -724,23 +638,21 @@ Checkout the TravisCI documentation at <a href="https://docs.travis-ci.com/">htt
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -753,87 +665,81 @@ Checkout the TravisCI documentation at <a href="https://docs.travis-ci.com/">htt
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

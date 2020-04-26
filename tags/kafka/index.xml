@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kafka on SivaLabs</title>
@@ -6,7 +6,7 @@
     <description>Recent content in Kafka on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Jun 2019 07:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 07:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
     

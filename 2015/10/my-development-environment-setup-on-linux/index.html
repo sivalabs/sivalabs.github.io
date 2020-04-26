@@ -36,23 +36,19 @@ I am using Ubuntu/LinuxMint system so I am using apt-get to install, if you are 
 I am using Ubuntu/LinuxMint system so I am using apt-get to install, if you are using Fedora/CentOS you can use yum/dnf." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2015/10/my-development-environment-setup-on-linux/" />
-<meta property="article:published_time" content="2015-10-13T02:07:05&#43;00:00"/>
-<meta property="article:modified_time" content="2015-10-13T02:07:05&#43;00:00"/>
+<meta property="article:published_time" content="2015-10-13T02:07:05+00:00" />
+<meta property="article:modified_time" content="2015-10-13T02:07:05+00:00" />
 
-    
-<meta itemprop="name" content="My Development Environment Setup on Linux">
+    <meta itemprop="name" content="My Development Environment Setup on Linux">
 <meta itemprop="description" content="As I mentioned in my previous post Thinking of moving from Windows to Linux? I am moving from Windows to Linux. Setting up my development environment is a bit tedious because I have to hunt down the applications and execute various commands to setup. So I thought of make a note of them in a post so that it will be easier for me next time.
 I am using Ubuntu/LinuxMint system so I am using apt-get to install, if you are using Fedora/CentOS you can use yum/dnf.">
-
-
 <meta itemprop="datePublished" content="2015-10-13T02:07:05&#43;00:00" />
 <meta itemprop="dateModified" content="2015-10-13T02:07:05&#43;00:00" />
-<meta itemprop="wordCount" content="647">
+<meta itemprop="wordCount" content="637">
 
 
 
 <meta itemprop="keywords" content="Linux,VirtualBox," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -174,140 +170,80 @@ I am using Ubuntu/LinuxMint system so I am using apt-get to install, if you are 
             <p>As I mentioned in my previous post
 <a href="/2015/10/thinking-of-moving-from-windows-to-linux/">Thinking of moving from Windows to Linux?</a>
 I am moving from Windows to Linux. Setting up my development environment is a bit tedious because I have to hunt down the applications and execute various commands to setup. So I thought of make a note of them in a post so that it will be easier for me next time.</p>
-
 <p>I am using <strong>Ubuntu/LinuxMint</strong> system so I am using <strong>apt-get</strong> to install, if you are using <strong>Fedora/CentOS</strong> you can use <strong>yum/dnf</strong>.</p>
-
 <p>The very first thing I do after installing Linux is updating the system and in case I am working on VirtualBox VM installing VirtualBox Guest Additions.</p>
-
 <p><code>sudo apt-get update</code></p>
-
 <p><code>sudo apt-get install virtualbox-guest-dkms virtualbox-guest-x11</code></p>
-
 <p><strong>Setting up Java Development Environment</strong></p>
-
-<p><img class="size-full wp-image-558 aligncenter" src="/images/java.jpg?resize=120%2C90" alt="java" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>Some Linux distros come with OpenJDK by default. You may want to remove OpenJDK first and install Oracle JDK.</p>
-
 <p><code>sudo apt-get purge openjdk-*</code></p>
-
 <p><code>sudo add-apt-repository ppa:webupd8team/java</code></p>
-
 <p><code>sudo apt-get update</code></p>
-
 <p>To install Java 7 <code>sudo apt-get install oracle-java7-installer</code></p>
-
 <p>To install Java 8 <code>sudo apt-get install oracle-java8-installer</code></p>
-
 <p>If you want to set <strong>JAVA_HOME</strong> environment variable for a particular user then you can add JAVA_HOME in <strong>~/.bash_profile</strong> or if you want to setup for all the users globally then you can add it to <strong>/etc/profile</strong> file.</p>
-
 <p><code>&gt; vi ~/.bash_profile</code> or <code>vi /etc/profile</code></p>
-
 <p>Append the following to the file:</p>
-
 <p><code>export JAVA_HOME=/usr/lib/jvm/java-8-oracle</code></p>
-
 <p><code>export PATH=$PATH:$JAVA_HOME/bin</code></p>
-
 <p>Now run <code>source ~/.bash_profile</code> or <code>source /etc/profile</code></p>
-
 <p>After installing JDK you may want to download your favorite IDE from the following locations:</p>
-
-<p><img class="alignnone size-full" src="/images/netbeans0.png" alt="netbeans0" />
-<img class="alignnone size-full" src="/images/intellijidea.png" alt="intellijidea" />
-<img class="alignnone size-full" src="/images/STS.png" alt="STS" />
-<img class="alignnone size-full" src="/images/eclipse-800x188.png" alt="eclipse-800x188" /></p>
-
-<p><a href="http://www.eclipse.org/downloads/" target="_blank"><a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a></a></p>
-
-<p><a href="https://spring.io/tools/sts/all" target="_blank"><a href="https://spring.io/tools/sts/all">https://spring.io/tools/sts/all</a></a></p>
-
-<p><a href="http://tools.jboss.org/downloads/devstudio/index.html" target="_blank"><a href="http://tools.jboss.org/downloads/devstudio/index.html">http://tools.jboss.org/downloads/devstudio/index.html</a></a></p>
-
-<p><a href="https://netbeans.org/downloads/" target="_blank"><a href="https://netbeans.org/downloads/">https://netbeans.org/downloads/</a></a></p>
-
-<p><a href="https://www.jetbrains.com/idea/download/" target="_blank"><a href="https://www.jetbrains.com/idea/download/">https://www.jetbrains.com/idea/download/</a></a></p>
-
+<p><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="https://spring.io/tools/sts/all">https://spring.io/tools/sts/all</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="http://tools.jboss.org/downloads/devstudio/index.html">http://tools.jboss.org/downloads/devstudio/index.html</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="https://netbeans.org/downloads/">https://netbeans.org/downloads/</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="https://www.jetbrains.com/idea/download/">https://www.jetbrains.com/idea/download/</a><!-- raw HTML omitted --></p>
 <p>Most of the times I work with either <strong>Tomcat</strong> or <strong>JBoss/Wildfly</strong> servers.
 You can download them from the following locations:</p>
-
-<p><img class="alignnone size-medium " src="/images/Wildfly_logo.png" alt="Wildfly_logo" />
-<img class="alignnone size-full" src="/images/Tomcat-logo.png" alt="Tomcat-logo" /></p>
-
-<p><a href="https://tomcat.apache.org/download-80.cgi" target="_blank"><a href="https://tomcat.apache.org/download-80.cgi">https://tomcat.apache.org/download-80.cgi</a></a></p>
-
-<p><a href="http://wildfly.org/downloads/" target="_blank"><a href="http://wildfly.org/downloads/">http://wildfly.org/downloads/</a></a></p>
-
+<p><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="https://tomcat.apache.org/download-80.cgi">https://tomcat.apache.org/download-80.cgi</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="http://wildfly.org/downloads/">http://wildfly.org/downloads/</a><!-- raw HTML omitted --></p>
 <p>To install build tools like <strong>Ant</strong> or <strong>Maven</strong></p>
-
 <p><code>&gt; sudo apt-get install ant</code></p>
-
 <p><code>&gt; sudo apt-get install maven</code></p>
-
-<p>We can install various softwares like <strong>Groovy</strong>, <strong>Grails</strong>, <strong>Gradle</strong> etc you can use <strong>SDKMan</strong> (<a href="http://sdkman.io/" target="_blank"><a href="http://sdkman.io/">http://sdkman.io/</a></a>) which was previously known as <strong>GVM</strong>.</p>
-
-<p><img class="size-full aligncenter" src="/images/sdkman.png" alt="sdkman" /></p>
-
+<p>We can install various softwares like <strong>Groovy</strong>, <strong>Grails</strong>, <strong>Gradle</strong> etc you can use <strong>SDKMan</strong> (<!-- raw HTML omitted --><a href="http://sdkman.io/">http://sdkman.io/</a><!-- raw HTML omitted -->) which was previously known as <strong>GVM</strong>.</p>
+<p><!-- raw HTML omitted --></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -s http://get.sdkman.io | bash
 source <span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.sdkman/bin/sdkman-init.sh&#34;</span>
 sdk version
 sdk install groovy
 sdk install grails
-sdk install gradle</code></pre></div>
-
-<p><strong>Install MySQL server</strong></p>
-
+sdk install gradle
+</code></pre></div><p><strong>Install MySQL server</strong></p>
 <p>You can install MySQL server and MySQL Workbench from Ubuntu Software Center.</p>
-
-<p><img class="size-full aligncenter" src="/images/mysql.jpg" alt="mysql" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>But if you prefer commandline installation</p>
-
 <p><code>&gt; sudo apt-get install mysql-server</code></p>
-
 <p><code>&gt; sudo apt-get install mysql-workbench</code></p>
-
 <p><strong>Installing NodeJS</strong></p>
-
 <p>Installing NodeJS become a little bit complicated because it is going through some changes(nodejs, nodejs-legacy, io.js etc).</p>
-
-<p><img class="size-medium aligncenter" src="/images/nodejs-dark1.jpg" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>You can install latest NodeJS using following commands:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install curl
 curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
-sudo apt-get install nodejs</code></pre></div>
-
-<p>For further details refer <a href="https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager">https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager</a></p>
-
+sudo apt-get install nodejs
+</code></pre></div><p>For further details refer <a href="https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager">https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager</a></p>
 <p><strong>Install yeoman and generators</strong></p>
-
-<p>Yeoman (<a href="http://yeoman.io/" target="_blank"><a href="http://yeoman.io/">http://yeoman.io/</a></a>) makes it easy to develop front-end applications by automating various tasks using bower, grunt or gulp.</p>
-
-<p><img class="size-full aligncenter" src="/images/yeoman-logo.png" alt="yeoman-logo" /></p>
-
+<p>Yeoman (<!-- raw HTML omitted --><a href="http://yeoman.io/">http://yeoman.io/</a><!-- raw HTML omitted -->) makes it easy to develop front-end applications by automating various tasks using bower, grunt or gulp.</p>
+<p><!-- raw HTML omitted --></p>
 <p>Install yeoman <code>sudo npm install -g yo bower grunt-cli gulp</code></p>
-
 <p><strong>Install various generators</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  
-sudo npm install -g generator-webapp
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo npm install -g generator-webapp
 sudo npm install -g generator-angular
 sudo npm install -g generator-jhipster
 sudo npm install -g generator-meanjs
-sudo npm install -g cordova ionic</code></pre></div>
-
-<p><strong>Installing Ruby and RubyOnRails</strong></p>
-
+sudo npm install -g cordova ionic
+</code></pre></div><p><strong>Installing Ruby and RubyOnRails</strong></p>
 <p>You may be using <strong>Ruby</strong> or tools that depends on Ruby like <strong>OpenShift</strong> commandline tools, <strong>Jekyll</strong> etc.</p>
-
-<p><img class="size-full aligncenter" src="/images/ruby-on-rails.jpg?resize=149%2C149" alt="ruby-on-rails" /></p>
-
-<p>You can find the very detailed instructions on how to install Ruby/RubyOnRails at <a href="https://gorails.com/setup/ubuntu/15.04" target="_blank"><a href="https://gorails.com/setup/ubuntu/15.04">https://gorails.com/setup/ubuntu/15.04</a></a></p>
-
+<p><!-- raw HTML omitted --></p>
+<p>You can find the very detailed instructions on how to install Ruby/RubyOnRails at <!-- raw HTML omitted --><a href="https://gorails.com/setup/ubuntu/15.04">https://gorails.com/setup/ubuntu/15.04</a><!-- raw HTML omitted --></p>
 <p>Just for the sake of quick reference I am repeating the steps here:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get update
 sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev<span style="color:#e6db74">`</span>
 
@@ -323,31 +259,26 @@ exec $SHELL
 
 git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash<span style="color:#e6db74">`</span>
 
-rbenv install <span style="color:#ae81ff">2</span>.2.3
-rbenv global <span style="color:#ae81ff">2</span>.2.3
+rbenv install 2.2.3
+rbenv global 2.2.3
 ruby -v
 
 echo <span style="color:#e6db74">&#34;gem: --no-ri --no-rdoc&#34;</span> &gt; ~/.gemrc
 gem install bundler<span style="color:#e6db74">`</span>
 
-gem install rails -v <span style="color:#ae81ff">4</span>.2.4</code></pre></div>
+gem install rails -v 4.2.4
 
-<p><strong>Installing Jekyll</strong></p>
-
-<p>Jekyll (<a href="https://jekyllrb.com" target="_blank"><a href="https://jekyllrb.com">https://jekyllrb.com</a></a>) is a static site generator which you can use to generate your site and host it on github.</p>
-
-<p><img class="size-medium aligncenter" src="/images/jekyll.jpg" alt="jekyll" /></p>
-
+</code></pre></div><p><strong>Installing Jekyll</strong></p>
+<p>Jekyll (<!-- raw HTML omitted --><a href="https://jekyllrb.com">https://jekyllrb.com</a><!-- raw HTML omitted -->) is a static site generator which you can use to generate your site and host it on github.</p>
+<p><!-- raw HTML omitted --></p>
 <p><code>&gt; gem install jekyll</code></p>
-
 <p><strong>Test drive Jekyll</strong></p>
-
-<p><code>&gt; jekyll new myblog
-&gt; cd myblog
-&gt; jekyll serve</code></p>
-
+<p>`&gt; jekyll new myblog</p>
+<blockquote>
+<p>cd myblog
+jekyll serve`</p>
+</blockquote>
 <p>Hope these installation instructions helps!!</p>
-
 <p><em>Note: All the images belong to their respective owners.</em></p>
 
         </div>
@@ -549,23 +480,21 @@ gem install rails -v <span style="color:#ae81ff">4</span>.2.4</code></pre></div>
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -578,87 +507,81 @@ gem install rails -v <span style="color:#ae81ff">4</span>.2.4</code></pre></div>
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

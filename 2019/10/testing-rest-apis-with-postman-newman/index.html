@@ -40,28 +40,22 @@ In addition to triggering one API request and verifying the response, I frequent
  Call an API and assert response Parameterize variables based on the environment Trigger a series of API calls to simulate some user flow Trigger one API request with different inputs and assert expected response Load test by simulating load on the server by firing a series of requests repeatedly with a certain delay Run Postman collection to do Smoke Test from Build Pipeline  As I am already using Postman to test my REST APIs, I thought of exploring if I can do all these tasks using Postman itself and it turns out I can." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2019/10/testing-rest-apis-with-postman-newman/" />
-
 <meta property="og:image" content="https://sivalabs.github.io/images/postman.png" />
-<meta property="article:published_time" content="2019-10-20T07:59:17&#43;05:30"/>
-<meta property="article:modified_time" content="2019-10-20T07:59:17&#43;05:30"/>
+<meta property="article:published_time" content="2019-10-20T07:59:17+05:30" />
+<meta property="article:modified_time" content="2019-10-20T07:59:17+05:30" />
 
-    
-<meta itemprop="name" content="Testing REST APIs using Postman and Newman">
+    <meta itemprop="name" content="Testing REST APIs using Postman and Newman">
 <meta itemprop="description" content="Postman is the most popular tool for testing REST APIs. I guess most of the developers are familiar with how to use Postman to send various types (GET, POST, PUT, DELETE, etc) of HTTP requests with various types of payloads (form data, JSON etc).
 In addition to triggering one API request and verifying the response, I frequently come across some common needs like
  Call an API and assert response Parameterize variables based on the environment Trigger a series of API calls to simulate some user flow Trigger one API request with different inputs and assert expected response Load test by simulating load on the server by firing a series of requests repeatedly with a certain delay Run Postman collection to do Smoke Test from Build Pipeline  As I am already using Postman to test my REST APIs, I thought of exploring if I can do all these tasks using Postman itself and it turns out I can.">
-
-
 <meta itemprop="datePublished" content="2019-10-20T07:59:17&#43;05:30" />
 <meta itemprop="dateModified" content="2019-10-20T07:59:17&#43;05:30" />
 <meta itemprop="wordCount" content="1569">
-
-  <meta itemprop="image" content="https://sivalabs.github.io/images/postman.png">
+<meta itemprop="image" content="https://sivalabs.github.io/images/postman.png">
 
 
 
 <meta itemprop="keywords" content="Postman, Newman, REST," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -177,14 +171,10 @@ In addition to triggering one API request and verifying the response, I frequent
 </header>
 
         <div class="entry-content">
-            
-
-<p><a href="https://www.getpostman.com/"><strong>Postman</strong></a> is the most popular tool for testing REST APIs.
+            <p><a href="https://www.getpostman.com/"><strong>Postman</strong></a> is the most popular tool for testing REST APIs.
 I guess most of the developers are familiar with how to use Postman to send various types (GET, POST, PUT, DELETE, etc) of HTTP requests
 with various types of payloads (form data, JSON etc).</p>
-
 <p>In addition to triggering one API request and verifying the response, I frequently come across some common needs like</p>
-
 <ul>
 <li>Call an API and assert response</li>
 <li>Parameterize variables based on the environment</li>
@@ -193,90 +183,66 @@ with various types of payloads (form data, JSON etc).</p>
 <li>Load test by simulating load on the server by firing a series of requests repeatedly with a certain delay</li>
 <li>Run Postman collection to do Smoke Test from Build Pipeline</li>
 </ul>
-
 <p>As I am already using Postman to test my REST APIs, I thought of exploring if I can do all these tasks using Postman itself and it turns out I can.</p>
-
 <p>So, I wanted to share a few Postman tips I learned.</p>
-
 <blockquote>
 <p>I am using Postman to test my REST API implemented using <strong>SpringBoot</strong> and secured with <strong>Spring Security JWT based authentication</strong>.
 You can find the source code of this article at <a href="https://github.com/sivaprasadreddy/todo-list/tree/master/todo-api-spring-boot">https://github.com/sivaprasadreddy/todo-list/tree/master/todo-api-spring-boot</a>.</p>
-
 <p>The Postman collection files are at <a href="https://github.com/sivaprasadreddy/todo-list/tree/master/config/postman">https://github.com/sivaprasadreddy/todo-list/tree/master/config/postman</a></p>
 </blockquote>
-
 <p>While searching for is there a way to run postman collection programmatically
 I come across <a href="https://learning.getpostman.com/docs/postman/collection_runs/command_line_integration_with_newman/">Newman</a>
 which is a command-line Collection Runner for Postman. Newman is built on NodeJS and we can install it globally to use it.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm install -g newman
-$ newman run mycollection.json</code></pre></div>
-<p>Or we can use Newman npm package as a library as mentioned here <a href="https://www.npmjs.com/package/newman#using-newman-as-a-library">https://www.npmjs.com/package/newman#using-newman-as-a-library</a>.</p>
-
+$ newman run mycollection.json
+</code></pre></div><p>Or we can use Newman npm package as a library as mentioned here <a href="https://www.npmjs.com/package/newman#using-newman-as-a-library">https://www.npmjs.com/package/newman#using-newman-as-a-library</a>.</p>
 <p>Ok, enough talk. Lets get to the business.</p>
-
 <p>First, open Postman and create a new collection, say &ldquo;todolist-api&rdquo;.</p>
-
 <h2 id="1-call-an-api-and-assert-response">1. Call an API and assert response</h2>
-
 <p>We want to make a call to SpringBoot Actuator Health endpoint and verify the HTTP Status Code and assert <strong>status</strong> is <strong>UP</strong>.</p>
-
-<p>Add a new request with URL <a href="http://localhost:8080/actuator/health">http://localhost:8080/actuator/health</a> with GET method.
+<p>Add a new request with URL http://localhost:8080/actuator/health with GET method.
 In the <strong>Headers</strong> tab add <strong>Content-Type</strong> header with <strong>application/json</strong> value.</p>
-
 <p>In <strong>Tests</strong> tab add the following code:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;Check Application Health&#34;</span>, <span style="color:#66d9ef">function</span> () {
     <span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">have</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">200</span>);
     <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">jsonData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>();
     <span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">jsonData</span>.<span style="color:#a6e22e">status</span>).<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">eql</span>(<span style="color:#e6db74">&#34;UP&#34;</span>);
 });
-</code></pre></div>
-<p>Here we are using Postman API to retrieve the response and verify the HTTP status code to be 200.
+</code></pre></div><p>Here we are using Postman API to retrieve the response and verify the HTTP status code to be 200.
 Also, the expected JSON response from <strong>/actuator/health</strong> request is to have <strong>{&ldquo;status&rdquo;: &ldquo;UP&rdquo;}</strong>.
 So we are asserting whether the JSON response field <strong>status</strong> is equal to <strong>UP</strong>.</p>
-
 <p>We can just hit Send button and see the Response body and you can also see in <strong>Test Results</strong> tab that test is passed.</p>
-
 <p>We can also run all the Requests (I know we have only one right now) by clicking on the Play button next to Collection name and Run.
 It will open up the collection runner window and show all the tests available to run.
 We can Select/Deselect requests and click on Run button to run the tests.</p>
-
 <h4 id="running-postman-collection-using-newman">Running Postman collection using Newman</h4>
-
 <p>In Postman click on 3 dots next to Collection name and export the Collection as a json file.
 Let&rsquo;s say the collection json file name is <strong>todolist.postman_collection.json</strong>.</p>
-
 <p>We can run the collection using Newman as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json</code></pre></div>
-<p>You can see various options you can pass to newman
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json
+</code></pre></div><p>You can see various options you can pass to newman
 at <a href="https://learning.getpostman.com/docs/postman/collection_runs/command_line_integration_with_newman/#options">https://learning.getpostman.com/docs/postman/collection_runs/command_line_integration_with_newman/#options</a></p>
-
 <h2 id="2-trigger-a-series-of-api-calls-to-simulate-some-user-flow">2. Trigger a series of API calls to simulate some user flow</h2>
-
 <p>Next, my requirement is user should be able to create a new Todo, update the newly created Todo and finally delete that Todo.
 Even before doing all these users should be authenticated.
 As we are using JWT based authentication, upon successful login user will get an <strong>access_token</strong> and
 for each subsequent request user should send <strong>access_token</strong> as a Header.</p>
-
 <p>Also, we need to capture the ID of newly created Todo, which is Auto generated primary key in DB,
 and use that ID for update todo and delete todo requests.</p>
-
-<p>Now, add a new Request named <strong>login</strong> with URL <a href="http://localhost:8080/api/auth/login">http://localhost:8080/api/auth/login</a> and POST method with following JSON Payload:</p>
+<p>Now, add a new Request named <strong>login</strong> with URL http://localhost:8080/api/auth/login and POST method with following JSON Payload:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
 	<span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;admin@gmail.com&#34;</span>,
 	<span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;admin&#34;</span>
-}</code></pre></div>
-<p>If you hit Send button you can see the response as follows:</p>
+}
+</code></pre></div><p>If you hit Send button you can see the response as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;access_token&#34;</span>: <span style="color:#e6db74">&#34;some long sequence of alphanumeric chars&#34;</span>,
     <span style="color:#f92672">&#34;expires_in&#34;</span>: <span style="color:#ae81ff">604800</span>
-}</code></pre></div>
-<p><img src="/images/postman-collection.png" alt="Postman Collection" title="Postman Collection" /></p>
-
+}
+</code></pre></div><p><img src="/images/postman-collection.png" alt="Postman Collection" title="Postman Collection"></p>
 <p>We want to capture this <strong>access_token</strong> and pass it in the subsequent request.
 In order to do this, we need to run the requests in an environment so that we can set some variables in one request and reference them in further requests.</p>
-
 <p>In Postman on the top right corner there is Environment dropdown, click on the gear icon and add a new environment called <strong>todo-local-env</strong>.</p>
-
 <p>Now add the following code snippet in <strong>Tests</strong> tab of <strong>login</strong> request:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;Authenticate user&#34;</span>, <span style="color:#66d9ef">function</span> () {
     <span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">have</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">200</span>);
@@ -285,20 +251,15 @@ In order to do this, we need to run the requests in an environment so that we ca
     <span style="color:#a6e22e">postman</span>.<span style="color:#a6e22e">clearEnvironmentVariable</span>(<span style="color:#e6db74">&#34;TodoApiAccessToken&#34;</span>);
     <span style="color:#a6e22e">postman</span>.<span style="color:#a6e22e">setEnvironmentVariable</span>(<span style="color:#e6db74">&#34;TodoApiAccessToken&#34;</span>, <span style="color:#a6e22e">jsonData</span>.<span style="color:#a6e22e">access_token</span>);
 });
-</code></pre></div>
-<p>We are verifying whether the request is successful or not and setting the <strong>TodoApiAccessToken</strong> variable in the selected environment.</p>
-
+</code></pre></div><p>We are verifying whether the request is successful or not and setting the <strong>TodoApiAccessToken</strong> variable in the selected environment.</p>
 <p>Now if you trigger the login request and see <strong>todo-local-env</strong>, you can find <strong>TodoApiAccessToken</strong> variable with the <strong>access_token</strong> value.</p>
-
-<p><img src="/images/postman-env-vars.png" alt="Postman Environment Variables" title="Postman Environment Variables" /></p>
-
-<p>Now, create another request named <strong>create-todo</strong> with URL <a href="http://localhost:8080/api/todos">http://localhost:8080/api/todos</a> and POST method with following JSON payload:</p>
+<p><img src="/images/postman-env-vars.png" alt="Postman Environment Variables" title="Postman Environment Variables"></p>
+<p>Now, create another request named <strong>create-todo</strong> with URL http://localhost:8080/api/todos and POST method with following JSON payload:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
 	<span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Write a new blog post&#34;</span>
-}</code></pre></div>
-<p>In <strong>Headers</strong> tab add the Header with key <strong>Authorization</strong> and value as <strong>Bearer {{TodoApiAccessToken}}</strong>.
+}
+</code></pre></div><p>In <strong>Headers</strong> tab add the Header with key <strong>Authorization</strong> and value as <strong>Bearer {{TodoApiAccessToken}}</strong>.
 Here we are referring to the environment variable value using <strong>{{variable_name}}</strong> syntax.</p>
-
 <p>In <strong>Tests</strong> tab add the following snippet:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;Create New Todo&#34;</span>, <span style="color:#66d9ef">function</span> () {
     <span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">have</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">201</span>);
@@ -306,113 +267,84 @@ Here we are referring to the environment variable value using <strong>{{variable
     <span style="color:#a6e22e">postman</span>.<span style="color:#a6e22e">clearEnvironmentVariable</span>(<span style="color:#e6db74">&#34;todo_id&#34;</span>);
     <span style="color:#a6e22e">postman</span>.<span style="color:#a6e22e">setEnvironmentVariable</span>(<span style="color:#e6db74">&#34;todo_id&#34;</span>, <span style="color:#a6e22e">jsonData</span>.<span style="color:#a6e22e">id</span>);
 });
-</code></pre></div>
-<p>Here we are capturing the new Todo&rsquo;s <strong>id</strong> value and setting environment variable <strong>todo_id</strong>.</p>
-
-<p>Next, add the <strong>update-todo</strong> Request with URL <a href="http://localhost:8080/api/todos/{{todo_id}">http://localhost:8080/api/todos/{{todo_id}</a>} and PUT method with following JSON payload:</p>
+</code></pre></div><p>Here we are capturing the new Todo&rsquo;s <strong>id</strong> value and setting environment variable <strong>todo_id</strong>.</p>
+<p>Next, add the <strong>update-todo</strong> Request with URL http://localhost:8080/api/todos/{{todo_id}} and PUT method with following JSON payload:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
 	<span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Write a new blog post - updated&#34;</span>
-}</code></pre></div>
-<p>We can add following snippet in <strong>update-todo</strong> request <strong>Tests</strong> tab:</p>
+}
+</code></pre></div><p>We can add following snippet in <strong>update-todo</strong> request <strong>Tests</strong> tab:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;Update Existing Todo&#34;</span>, <span style="color:#66d9ef">function</span> () {
     <span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">have</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">200</span>);
 });
-</code></pre></div>
-<p>Finally, we can add <strong>delete-todo-by-id</strong> request with URL <a href="http://localhost:8080/api/todos/{{todo_id}">http://localhost:8080/api/todos/{{todo_id}</a>} and DELETE method.
+</code></pre></div><p>Finally, we can add <strong>delete-todo-by-id</strong> request with URL http://localhost:8080/api/todos/{{todo_id}} and DELETE method.
 add following snippet in <strong>delete-todo-by-id</strong> request <strong>Tests</strong> tab:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;Delete Todo by Id&#34;</span>, <span style="color:#66d9ef">function</span> () {
     <span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">have</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">200</span>);
     <span style="color:#a6e22e">postman</span>.<span style="color:#a6e22e">clearEnvironmentVariable</span>(<span style="color:#e6db74">&#34;todo_id&#34;</span>);
 });
-</code></pre></div>
-<p>Now we can run the entire collection as mentioned earlier which will
+</code></pre></div><p>Now we can run the entire collection as mentioned earlier which will
 <a href="https://learning.getpostman.com/docs/postman/collection_runs/starting_a_collection_run/">run all the requests in the order they appear in collection</a>.</p>
-
 <blockquote>
 <p>IMPORTANT: We should select the environment, <strong>todo-local-env</strong> in our case, to get the environment variables sharing to work.</p>
 </blockquote>
-
 <h4 id="running-collection-using-newman-with-environment">Running collection using Newman with environment</h4>
-
 <p>In order to run the collection using newman we need to export the collection and also our environment as well.</p>
-
 <p>Click on <strong>Manage Environments</strong> gear icon on the top right corner and click on <strong>Download Environment</strong> icon for <strong>todo-local-env</strong> which will be downloaded as a json file.</p>
-
 <p>Lets name it as <strong>todo-local-env.postman_environment.json</strong>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json -e todo-local-env.postman_environment.json</code></pre></div>
-<h3 id="organizing-user-flows">Organizing user flows</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json -e todo-local-env.postman_environment.json
+</code></pre></div><h3 id="organizing-user-flows">Organizing user flows</h3>
 <p>We have created multiple requests (login, create-todo, update-todo, delete-todo) and run the collection as a single flow.
 But in our real applications, there will be many different users flows with different behavior.</p>
-
 <p>We can create folders within our collection representing the logical user flow and place the appropriate requests in that folder.</p>
-
 <p>Then, we can run the requests of a specific directory using newman as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json -e todo-local-env.postman_environment.json --folder todo-crud</code></pre></div>
-<h2 id="3-parameterize-variables-based-on-the-environment">3. Parameterize variables based on the environment</h2>
-
-<p>So far I am running my application locally and is accessible at <a href="http://localhost:8080/">http://localhost:8080/</a>.
-I could run my application in a docker container which is accessible at <a href="http://localhost:18080/">http://localhost:18080/</a>.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json -e todo-local-env.postman_environment.json --folder todo-crud
+</code></pre></div><h2 id="3-parameterize-variables-based-on-the-environment">3. Parameterize variables based on the environment</h2>
+<p>So far I am running my application locally and is accessible at http://localhost:8080/.
+I could run my application in a docker container which is accessible at http://localhost:18080/.</p>
 <p>Now if want to run my postman collection against the docker container instance I need to change base URL for all requests.
 Instead of changing the URLs or any environment-specific parameters while switching between environments
 we can configure those values in different environments and use those values in request configurations.</p>
-
-<p>Now click on <strong>Manage Environments</strong>, select <strong>todo-local-env</strong> and add a variable <strong>base_url</strong> with value <strong><a href="http://localhost:8080">http://localhost:8080</a></strong>.</p>
-
-<p>Now change all the URLs from <strong><a href="http://localhost:8080/some-path">http://localhost:8080/some-path</a></strong> to <strong>{{base_url}}/some-path</strong>.</p>
-
-<p>Next create a new environment called <strong>todo-docker-env</strong> and add variable <strong>base_url</strong> with value <strong><a href="http://localhost:18080">http://localhost:18080</a></strong>.</p>
-
+<p>Now click on <strong>Manage Environments</strong>, select <strong>todo-local-env</strong> and add a variable <strong>base_url</strong> with value <strong>http://localhost:8080</strong>.</p>
+<p>Now change all the URLs from <strong>http://localhost:8080/some-path</strong> to <strong>{{base_url}}/some-path</strong>.</p>
+<p>Next create a new environment called <strong>todo-docker-env</strong> and add variable <strong>base_url</strong> with value <strong>http://localhost:18080</strong>.</p>
 <p>Now we can simply select the desired environment and run the collection.</p>
-
 <h2 id="4-trigger-api-request-with-different-inputs-and-assert-expected-responses">4. Trigger API request with different inputs and assert expected responses</h2>
-
 <p>We may also need to call an API endpoint with different inputs and verify responses such as perform login
 with valid and invalid credentials and assert the expected responses.</p>
-
 <p>We can use <strong>data files</strong> to pass different inputs so that we don&rsquo;t have to change the request configuration.
 We can pass data using JSON or CSV files.</p>
-
 <p>For example, we can pass credentials using CSV file as follows:</p>
-
 <p><strong>todo-credentials.csv</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csv" data-lang="csv">email,password,expected_http_code
+<pre><code class="language-csv" data-lang="csv">email,password,expected_http_code
 admin@gmail.com,admin.200
-dummy@gmail.com,secret,401</code></pre></div>
-<p>The first row is a header with variable names.
+dummy@gmail.com,secret,401
+</code></pre><p>The first row is a header with variable names.
 We can use the placeholders in URL path or in the body as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
 	<span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;{{email}}&#34;</span>,
 	<span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;{{password}}&#34;</span>
-}</code></pre></div>
-<p>In <strong>Tests</strong> tab we can refer data values using <strong>data.variableName</strong> as follows:</p>
+}
+</code></pre></div><p>In <strong>Tests</strong> tab we can refer data values using <strong>data.variableName</strong> as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;Authenticate user&#34;</span>, <span style="color:#66d9ef">function</span> () {
     <span style="color:#a6e22e">pm</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">to</span>.<span style="color:#a6e22e">have</span>.<span style="color:#a6e22e">status</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">expected_http_status_code</span>);
 }); 
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json -e local.postman_environment.json --folder authentication --data todo-credentials.csv</code></pre></div>
-<h2 id="5-load-testing">5. Load testing</h2>
-
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json -e local.postman_environment.json --folder authentication --data todo-credentials.csv
+</code></pre></div><h2 id="5-load-testing">5. Load testing</h2>
 <p>I was trying to do a simple load testing of my API and I know I can use <strong>Gatling</strong> to do it.
 But I just want a simple and quick solution. Turns out Postman provides that feature as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json -e local.postman_environment.json -n <span style="color:#ae81ff">100</span> --delay-request <span style="color:#ae81ff">500</span></code></pre></div>
-<ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ newman run todolist.postman_collection.json -e local.postman_environment.json -n <span style="color:#ae81ff">100</span> --delay-request <span style="color:#ae81ff">500</span>
+</code></pre></div><ul>
 <li>The <strong>-n</strong> flag represents the <strong>number of iterations to run</strong>.</li>
 <li>The <strong>&ndash;delay-request</strong> represents <strong>delay (in ms) between requests</strong>.</li>
 </ul>
-
 <h2 id="6-run-postman-collection-to-do-smoke-test-from-build-pipeline">6. Run Postman collection to do Smoke Test from Build Pipeline</h2>
-
 <p>We can create a Postman collection to perform smoke test after deploying the application.
 We can simply install newman npm package and run the collection in our build pipeline.</p>
-
 <p>You can checkout</p>
-
 <ul>
 <li><a href="https://learning.getpostman.com/docs/postman/collection_runs/integration_with_travis/">Integration with Travis CI</a></li>
 <li><a href="https://learning.getpostman.com/docs/postman/collection_runs/integration_with_jenkins/">Integration with Jenkins</a></li>
 </ul>
-
 <p>Thank you reading the article, your feedback is welcome.
 If you find this article useful please share it.</p>
 
@@ -615,23 +547,21 @@ If you find this article useful please share it.</p>
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -644,87 +574,81 @@ If you find this article useful please share it.</p>
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

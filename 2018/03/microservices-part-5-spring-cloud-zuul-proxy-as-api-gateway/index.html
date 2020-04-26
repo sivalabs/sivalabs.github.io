@@ -36,26 +36,20 @@ if (!doNotTrack) {
 <meta property="og:description" content="In microservices architecture, there could be a number of API services and few UI components that are talking to APIs. As of now, many microservices based application still use monolithic front-ends where the entire UI is built as a single module. You may choose to go with micro-frontends where the UI is also decomposed into multiple microservice talking to APIs to get the relevant data. Instead of letting UI know about all our microservices details we can provide a unified proxy interface that will delegate the calls to various microservices based on URL pattern." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/" />
-
 <meta property="og:image" content="https://sivalabs.github.io/images/proxy.jpg" />
-<meta property="article:published_time" content="2018-03-15T07:59:17&#43;05:30"/>
-<meta property="article:modified_time" content="2018-03-15T07:59:17&#43;05:30"/>
+<meta property="article:published_time" content="2018-03-15T07:59:17+05:30" />
+<meta property="article:modified_time" content="2018-03-15T07:59:17+05:30" />
 
-    
-<meta itemprop="name" content="MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway">
+    <meta itemprop="name" content="MicroServices - Part 5 : Spring Cloud Zuul Proxy as API Gateway">
 <meta itemprop="description" content="In microservices architecture, there could be a number of API services and few UI components that are talking to APIs. As of now, many microservices based application still use monolithic front-ends where the entire UI is built as a single module. You may choose to go with micro-frontends where the UI is also decomposed into multiple microservice talking to APIs to get the relevant data. Instead of letting UI know about all our microservices details we can provide a unified proxy interface that will delegate the calls to various microservices based on URL pattern.">
-
-
 <meta itemprop="datePublished" content="2018-03-15T07:59:17&#43;05:30" />
 <meta itemprop="dateModified" content="2018-03-15T07:59:17&#43;05:30" />
 <meta itemprop="wordCount" content="946">
-
-  <meta itemprop="image" content="https://sivalabs.github.io/images/proxy.jpg">
+<meta itemprop="image" content="https://sivalabs.github.io/images/proxy.jpg">
 
 
 
 <meta itemprop="keywords" content="microservices,springboot,springcloud," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -177,12 +171,8 @@ if (!doNotTrack) {
 </header>
 
         <div class="entry-content">
-            
-
-<p>In microservices architecture, there could be a number of API services and few UI components that are talking to APIs. As of now, many microservices based application still use monolithic front-ends where the entire UI is built as a single module. You may choose to go with micro-frontends where the UI is also decomposed into multiple microservice talking to APIs to get the relevant data. Instead of letting UI know about all our microservices details we can provide a unified proxy interface that will delegate the calls to various microservices based on URL pattern. In this post, we will learn how to create API Gateway using Spring Cloud Zuul Proxy.</p>
-
+            <p>In microservices architecture, there could be a number of API services and few UI components that are talking to APIs. As of now, many microservices based application still use monolithic front-ends where the entire UI is built as a single module. You may choose to go with micro-frontends where the UI is also decomposed into multiple microservice talking to APIs to get the relevant data. Instead of letting UI know about all our microservices details we can provide a unified proxy interface that will delegate the calls to various microservices based on URL pattern. In this post, we will learn how to create API Gateway using Spring Cloud Zuul Proxy.</p>
 <p><strong>MicroServices using Spring Boot &amp; Spring Cloud</strong></p>
-
 <ul>
 <li><a href="/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/">Part 1 : MicroServices : Spring Boot &amp; Spring Cloud Overview</a></li>
 <li><a href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">Part 2 : MicroServices : Configuration Management with Spring Cloud Config and Vault</a></li>
@@ -191,44 +181,31 @@ if (!doNotTrack) {
 <li><a href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">Part 5 : MicroServices : Spring Cloud Zuul Proxy as API Gateway</a></li>
 <li><a href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">Part 6 : MicroServices : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
 </ul>
-
 <p><strong>In this post we are going to learn:</strong></p>
-
 <ul>
 <li>Why do we need API Gateway?</li>
 <li>Implementing API Gateway using Spring Cloud Zuul Proxy</li>
 <li>Using Zuul Filters for cross-cutting concerns</li>
 </ul>
-
 <h1 id="why-do-we-need-api-gateway">Why do we need API Gateway?</h1>
-
 <p>API Gateway, aka Edge Service, provides a unified interface for a set of microservices so that clients no need to know about all the details of microservices internals. However, there are some pros and cons of using API Gateway pattern in microservices architecture.</p>
-
 <h2 id="pros">Pros:</h2>
-
 <ul>
 <li>Provides easier interface to clients</li>
 <li>Can be used to prevent exposing the internal microservices structure to clients</li>
 <li>Allows to refactor microservices without forcing the clients to refactor consuming logic</li>
 <li>Can centralize cross-cutting concerns like security, monitoring, rate limiting etc</li>
 </ul>
-
 <h2 id="cons">Cons:</h2>
-
 <ul>
 <li>It could become a single point of failure if proper measures are not taken to make it highly available</li>
 <li>Knowledge of various microservice API may creep into API Gateway</li>
 </ul>
-
 <h1 id="implementing-api-gateway-using-spring-cloud-zuul-proxy">Implementing API Gateway using Spring Cloud Zuul Proxy</h1>
-
 <p>Spring Cloud provides Zuul proxy, similar to <strong>Nginx</strong>, that can be used to create API Gateway.</p>
-
 <p>Let us create a front-end UI module <strong>shoppingcart-ui</strong> as a SpringBoot application which also acts as Zuul proxy.</p>
-
 <p>Create a SpringBoot project with <strong>Web, Config Client, Eureka Discovery, Zuul</strong> starters and annotate the main entry-point class with
 <strong>@EnableZuulProxy</strong>.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
@@ -244,10 +221,8 @@ if (!doNotTrack) {
 <span style="color:#f92672">&lt;dependency&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-starter-netflix-zuul<span style="color:#f92672">&lt;/artifactId&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
-
-<p><strong>ShoppingcartUiApplication.java</strong></p>
-
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p><strong>ShoppingcartUiApplication.java</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.cloud.netflix.zuul.EnableZuulProxy<span style="color:#f92672">;</span>
@@ -258,69 +233,47 @@ if (!doNotTrack) {
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ShoppingcartUiApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>As we are using Eureka Discovery also, requests from the proxy with the URL patterns <strong>/service-id/**</strong> will be routed to the service
+<span style="color:#f92672">}</span>
+</code></pre></div><p>As we are using Eureka Discovery also, requests from the proxy with the URL patterns <strong>/service-id/**</strong> will be routed to the service
 registered in Eureka Server with service id <strong>service-id</strong>.</p>
-
-<p>For, ex: From UI application if we make a request to <a href="http://localhost:8080/catalog-service/products">http://localhost:8080/catalog-service/products</a> then it will lookup in
+<p>For, ex: From UI application if we make a request to http://localhost:8080/catalog-service/products then it will lookup in
 Service Registry for ServiceID <strong>catalog-service</strong> and send the request with URL /products to one of the available catalog-service instances.</p>
-
 <p>To make it happen we need to register “shoppingcart-ui” with Eureka Service Registry.</p>
-
 <p><strong>bootstrap.properties</strong></p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">spring.application.name=shoppingcart-ui
+<pre><code class="language-properties" data-lang="properties">spring.application.name=shoppingcart-ui
 server.port=8080
-eureka.client.service-url.defaultZone=http://localhost:8761/eureka/</code></pre></div>
-
-<p>With this configuration now we can fetch product information from catalog-service using jQuery as follows:</p>
-
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+</code></pre><p>With this configuration now we can fetch product information from catalog-service using jQuery as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
     <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/catalog-service/products&#39;</span>
 })
 .<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">data</span>) {
     <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">products</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>;
 }.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">this</span>));
-</code></pre></div>
-
-<p>Here from our UI application, we are making a call to <a href="http://localhost:8080/catalog-service/products">http://localhost:8080/catalog-service/products</a>. Assuming catalog-service is registered with ServiceID “catalog-service” and running on port 8181, this request will be forwarded to <a href="http://host:8181/products">http://host:8181/products</a>. But UI is completely unaware of where is the actual catalog-service running, its hostname port number etc.</p>
-
+</code></pre></div><p>Here from our UI application, we are making a call to http://localhost:8080/catalog-service/products. Assuming catalog-service is registered with ServiceID “catalog-service” and running on port 8181, this request will be forwarded to http://host:8181/products. But UI is completely unaware of where is the actual catalog-service running, its hostname port number etc.</p>
 <p>We can also use a common prefix for URLs, like <strong>/api</strong>, for which we want Zuul to proxy by setting <strong>zuul.prefix</strong> property.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">zuul.prefix<span style="color:#f92672">=</span>/api</code></pre></div>
-
-<p>Now from UI we can make a request to fetch products at <a href="http://localhost:8080/api/catalog-service/products">http://localhost:8080/api/catalog-service/products</a>.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">zuul.prefix<span style="color:#f92672">=</span>/api
+</code></pre></div><p>Now from UI we can make a request to fetch products at http://localhost:8080/api/catalog-service/products.
 By default, Zuul will strip the prefix and forward the request.</p>
-
 <p>You can also customize the path mappings of a service as follows:</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">zuul.routes.catalogservice.path=/catalog/**
-zuul.routes.catalogservice.serviceId=catalog-service</code></pre></div>
-
-<p>With this configuration, you can use URL <a href="http://localhost:8080/api/catalog/products">http://localhost:8080/api/catalog/products</a> which will be forwarded to the service
+<pre><code class="language-properties" data-lang="properties">zuul.routes.catalogservice.path=/catalog/**
+zuul.routes.catalogservice.serviceId=catalog-service
+</code></pre><p>With this configuration, you can use URL http://localhost:8080/api/catalog/products which will be forwarded to the service
 with serviceId catalog-service.</p>
-
 <p>By default, all the services registered with Eureka Server will be exposed. You can use <strong>zuul.ignored-services</strong> property
 to disable this behavior and expose only the explicitly configured services.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">zuul.ignored-services=*
+<pre><code class="language-properties" data-lang="properties">zuul.ignored-services=*
  
 zuul.routes.catalogservice.path=/catalog/**
 zuul.routes.catalogservice.serviceId=catalog-service
  
 zuul.routes.orderservice.path=/orders/**
-zuul.routes.orderservice.serviceId=order-service</code></pre></div>
-
-<p>With this configuration only <strong>catalog-service, order-service</strong> is exposed through Zuul proxy but not <strong>inventory-service</strong>.</p>
-
+zuul.routes.orderservice.serviceId=order-service
+</code></pre><p>With this configuration only <strong>catalog-service, order-service</strong> is exposed through Zuul proxy but not <strong>inventory-service</strong>.</p>
 <h1 id="using-zuul-filters-for-cross-cutting-concerns">Using Zuul Filters for cross-cutting concerns</h1>
-
 <p>As Zuul act as a proxy to all our microservices, we can use Zuul service to implement some cross-cutting concerns like security, rate limiting etc. One common use-case is forwarding the Authentication headers to all the downstream services.</p>
-
 <p>Typically in microservices, we will use OAuth service for authentication and authorization.
 Once the client is authenticated OAuth service will generate a token which should be included in the requests making to other microservices so that client need not be authenticated for every service separately. We can use Zuul filter to implement features like this.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> com.netflix.zuul.ZuulFilter<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> com.netflix.zuul.context.RequestContext<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> com.netflix.zuul.exception.ZuulException<span style="color:#f92672">;</span>
@@ -357,17 +310,14 @@ Once the client is authenticated OAuth service will generate a token which shoul
         <span style="color:#f92672">}</span>
         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>We are adding <strong>AUTH_HEADER</strong> as a request header using <strong>RequestContext.addZuulRequestHeader()</strong> which will be
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We are adding <strong>AUTH_HEADER</strong> as a request header using <strong>RequestContext.addZuulRequestHeader()</strong> which will be
 forwarded to downstream services. We need to register it as a Spring bean.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Bean</span>
 AuthHeaderFilter <span style="color:#a6e22e">authHeaderFilter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AuthHeaderFilter<span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<blockquote>
+<span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
 <p>You can find the source code for this article at <a href="https://github.com/sivaprasadreddy/spring-boot-microservices-series">https://github.com/sivaprasadreddy/spring-boot-microservices-series</a></p>
 </blockquote>
 
@@ -570,23 +520,21 @@ AuthHeaderFilter <span style="color:#a6e22e">authHeaderFilter</span><span style=
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -599,87 +547,81 @@ AuthHeaderFilter <span style="color:#a6e22e">authHeaderFilter</span><span style=
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

@@ -34,14 +34,10 @@ if (!doNotTrack) {
 <meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/posts/" />
+<meta property="og:updated_time" content="2020-04-06T04:59:17+05:30" />
 
-<meta property="og:updated_time" content="2015-12-30T14:23:06&#43;00:00"/>
-
-    
-<meta itemprop="name" content="Posts">
+    <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials">
-
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -129,53 +125,6 @@ if (!doNotTrack) {
 
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-30T14:23:06">
-                December 30, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" rel="bookmark">
-            JCart : ShoppingCart Category Page
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>In our Home Page we displayed all the Categories along with few products per each category. When customer clicks on any Category Name we should display Category Page which shows all the products in that Category.
-We already have HomeController.category() method to handle the URL /categories/{name}.
-So let us create category.html thymeleaf template as follows:
-&lt;!DOCTYPE html&gt; &lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34; layout:decorator=&#34;layout/mainLayout&#34;&gt; &lt;head&gt; &lt;title&gt;Category&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;div layout:fragment=&#34;content&#34;&gt; &lt;div class=&#34;single-product-area&#34;&gt; &lt;div class=&#34;zigzag-bottom&#34;&gt;&lt;/div&gt; &lt;div class=&#34;container&#34;&gt; &lt;div class=&#34;row&#34;&gt; &lt;div class=&#34;woocommerce-info&#34;&gt; &lt;a href=&#34;&#34; th:href=&#34;@{/}&#34;&gt;Home&lt;/a&gt; / &lt;a href=&#34;&#34; th:href=&#34;@{/categories/{name}(name=${category.</p>
-                    <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" rel="bookmark">
                 </a>
                 <header class="entry-header">
@@ -261,7 +210,7 @@ Let us update HomeController with two methods to show all the categories and the
 
                 <div class="entry-content entry-excerpt clearfix">
                     <p>In this post we will setup the layout for our ShoppingCart UI using Thymeleaf templates.
-Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/ and copy the following directories/files into jcart-site/src/main/resources/static/assets folder.
+Download the ustore theme zip file from https://www.freshdesignweb.com/ustora/and copy the following directories/files into jcart-site/src/main/resources/static/assets folder.
  css fonts img js style.css  Create Site layout thymeleaf template jcart-site/src/main/resources/templates/layout/mainLayout.html as follows:
 &lt;!DOCTYPE html&gt; &lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34;/&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;/&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;/&gt; &lt;title layout:title-pattern=&#34;$DECORATOR_TITLE - $CONTENT_TITLE&#34;&gt;QuilCart&lt;/title&gt; &lt;!-- Google Fonts --&gt; &lt;link href=&#39;https://fonts.</p>
                     <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" class="more-link">Continue reading &raquo;</a>
@@ -355,8 +304,7 @@ jcart-site/pom.xml
 
                 <div class="entry-content entry-excerpt clearfix">
                     <p>In this Iteration-4 we will start building the consumer facing ShoppingCart website.
- Initial code setup for ShoppingCart webapp
- Configuring HTTPS/SSL/TLS  ShoppingCart UI Layout setup Home Page Category Page Product Page Product Search Results  </p>
+ Initial code setup for ShoppingCart webapp  [Configuring HTTPS/SSL/TLS] (/2015/12/jcart-configuring-https-ssltls/)   ShoppingCart UI Layout setup Home Page Category Page Product Page Product Search Results  </p>
                     <a href="https://sivalabs.github.io/2015/12/jcart-iteration-4/" class="more-link">Continue reading &raquo;</a>
                 </div>
             </article>
@@ -540,7 +488,7 @@ In this post we are going to see lot of code snippets, so I would suggest to clo
 
                 <div class="entry-content entry-excerpt clearfix">
                     <p>This is the simplest usecase of entire JCart admin application :-). We need to show list of permissions configured in our system.
-In our system each permission is more like access to a particular screen. For example, If a user has MANAGE_CATEGORIES permission then only he can access &#8220;Categories&#8221; screen. So these set of permission are something like implemented features set, hence we don&#8217;t need any provision to add/update/delete permissions dynamically.</p>
+In our system each permission is more like access to a particular screen. For example, If a user has MANAGE_CATEGORIES permission then only he can access “Categories” screen. So these set of permission are something like implemented features set, hence we don&rsquo;t need any provision to add/update/delete permissions dynamically.</p>
                     <a href="https://sivalabs.github.io/2015/12/jcart-manage-privileges/" class="more-link">Continue reading &raquo;</a>
                 </div>
             </article>
@@ -587,6 +535,55 @@ In our system each permission is more like access to a particular screen. For ex
                     <p>Now we have completed Iteration-1 tasks. Iteration-1 includes so many tasks to establish the foundation like configuring Spring Security, Thymeleaf settings, UI layout setup etc. I hope from now on we can put more focus on actual tasks implementation rather than infrastructure setup.
 Though majority of the infrastructure setup is in place now, we will implement Role Based Access Control (RBAC) security using User-Role-Permission model before jumping on to Category/Product management.</p>
                     <a href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-16T14:42:29">
+                December 16, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" rel="bookmark">
+            Setting up Jenkins/SonarQube
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>In this post we will setup SonarQube and Jenkins to perform code quality check and continuous integration.
+ Install and configure SonarQube There are many code quality checking tools like PMD, Firebug but SonarQube brings them all under one roof and gives better view of code quality.
+Let us install and configure SonarQube for our JCart application.
+Download SonarQube from http://www.sonarqube.org/downloads/.
+Extract it run sonarqube-5.2/bin/windows-x86-64/StartSonar.bat.
+By default SonarQube uses in-memory H2 database to store all the metrics.</p>
+                    <a href="https://sivalabs.github.io/2015/12/setting-up-jenkinssonarqube/" class="more-link">Continue reading &raquo;</a>
                 </div>
             </article>
             
@@ -742,23 +739,21 @@ Though majority of the infrastructure setup is in place now, we will implement R
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -771,87 +766,81 @@ Though majority of the infrastructure setup is in place now, we will implement R
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

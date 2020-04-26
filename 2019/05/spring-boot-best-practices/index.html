@@ -38,27 +38,21 @@ if (!doNotTrack) {
 1. Understand SpringBoot Core Concepts I know, this sounds very obvious but I see many developers jumping onto using SpringBoot without having any prior knowledge on Spring, Dependency Injection." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2019/05/spring-boot-best-practices/" />
-
 <meta property="og:image" content="https://sivalabs.github.io/images/spring-boot-1.png" />
-<meta property="article:published_time" content="2019-05-14T07:59:17&#43;05:30"/>
-<meta property="article:modified_time" content="2019-05-14T07:59:17&#43;05:30"/>
+<meta property="article:published_time" content="2019-05-14T07:59:17+05:30" />
+<meta property="article:modified_time" content="2019-05-14T07:59:17+05:30" />
 
-    
-<meta itemprop="name" content="SpringBoot Best Practices">
+    <meta itemprop="name" content="SpringBoot Best Practices">
 <meta itemprop="description" content="I have been working with SpringBoot for many years and over the time I worked with many SpringBoot based codebases. There are few common mistakes that I observe in the projects that use SpringBoot. So, I thought of writing down few good practices that can be followed while using SpringBoot.
 1. Understand SpringBoot Core Concepts I know, this sounds very obvious but I see many developers jumping onto using SpringBoot without having any prior knowledge on Spring, Dependency Injection.">
-
-
 <meta itemprop="datePublished" content="2019-05-14T07:59:17&#43;05:30" />
 <meta itemprop="dateModified" content="2019-05-14T07:59:17&#43;05:30" />
 <meta itemprop="wordCount" content="1119">
-
-  <meta itemprop="image" content="https://sivalabs.github.io/images/spring-boot-1.png">
+<meta itemprop="image" content="https://sivalabs.github.io/images/spring-boot-1.png">
 
 
 
 <meta itemprop="keywords" content="Spring, SpringBoot, BestPractices," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -174,51 +168,36 @@ if (!doNotTrack) {
 </header>
 
         <div class="entry-content">
-            
-
-<p>I have been working with <a href="https://spring.io/projects/spring-boot">SpringBoot</a> for many years and over the time I worked with many SpringBoot based codebases.
+            <p>I have been working with <a href="https://spring.io/projects/spring-boot">SpringBoot</a> for many years and over the time I worked with many SpringBoot based codebases.
 There are few common mistakes that I observe in the projects that use SpringBoot. So, I thought of writing down few good practices that can be followed while using SpringBoot.</p>
-
 <h2 id="1-understand-springboot-core-concepts">1. Understand SpringBoot Core Concepts</h2>
-
 <p>I know, this sounds very obvious but I see many developers jumping onto using SpringBoot without having any prior knowledge on Spring, Dependency Injection. So they just keep adding annotations and <strong>@Bean</strong> definitions here and there until it works.</p>
-
 <p>SpringBoot is an opinionated framework with powerful <strong>auto-configuration</strong> mechanism based on <strong>convention-over-configuration</strong> philosophy.
 So, it is very important to understand the following things:</p>
-
 <ul>
-<li><p><strong>How to structure application code?</strong>
+<li>
+<p><strong>How to structure application code?</strong>
 A typical SpringBoot application has a main entry-point class which is annotated with <strong>@SpringBootApplication</strong> annotation. SpringBoot automatically scan for Spring components from the entry-point class&rsquo;s package and it&rsquo;s sub-packages.
-Make sure to read and understand the section <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-structuring-your-code">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-structuring-your-code</a>.</p></li>
-
-<li><p><strong>How AutoConfiguration works?</strong>
-The most important aspect of SpringBoot is it&rsquo;s AutoConfiguration mechanism. Without properly understanding how AutoConfiguration works it all looks like magic. You can read my blog post <a href="https://sivalabs.in/2016/03/how-springboot-autoconfiguration-magic/">How SpringBoot AutoConfiguration magic works?</a> to learn about how AutoConfiguration works.</p></li>
+Make sure to read and understand the section <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-structuring-your-code">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-structuring-your-code</a>.</p>
+</li>
+<li>
+<p><strong>How AutoConfiguration works?</strong>
+The most important aspect of SpringBoot is it&rsquo;s AutoConfiguration mechanism. Without properly understanding how AutoConfiguration works it all looks like magic. You can read my blog post <a href="https://sivalabs.in/2016/03/how-springboot-autoconfiguration-magic/">How SpringBoot AutoConfiguration magic works?</a> to learn about how AutoConfiguration works.</p>
+</li>
 </ul>
-
-<h2 id="2-leverage-springboot-s-built-in-customization-features">2. Leverage SpringBoot&rsquo;s built-in customization features</h2>
-
+<h2 id="2-leverage-springboots-built-in-customization-features">2. Leverage SpringBoot&rsquo;s built-in customization features</h2>
 <p>SpringBoot auto-configures many beans based on various criteria like existence of class in classpath, absence of a property and also provides the ability to customize the configuration using properties.</p>
-
 <p>I see sometimes people configuring the entire bean definition using <strong>@Bean</strong> just to customize one property of it where as they can simply customize it using a property in <strong>application.properties</strong> file.</p>
-
 <p>For example, if you want to customize the <strong>DataSource</strong> bean default values you can use <strong>spring.datasource.*</strong> properties instead of configuring the <strong>DataSource</strong> bean by yourself.</p>
-
 <p>You can see all the supported customization properties here
 <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties</a></p>
-
-<h2 id="3-don-t-add-unnecessary-starters-and-turn-off-unnecessary-features">3. Don&rsquo;t add unnecessary starters and turn off unnecessary features</h2>
-
+<h2 id="3-dont-add-unnecessary-starters-and-turn-off-unnecessary-features">3. Don&rsquo;t add unnecessary starters and turn off unnecessary features</h2>
 <p>One of the primary reason for the popularity of SpringBoot is its getting started experience. You can simply goto <a href="https://start.spring.io/">https://start.spring.io/</a> and select the starters you want to add and run the application. SpringBoot creates lot of beans behind the scenes based on the starters we add and hence it may increase the memory footprint and also increase the startup time. So, just add the starters you absolutely need.</p>
-
 <p>SpringBoot automatically registers beans using AutoConfiguration. Sometimes we may not need all those features and we can turn them off.</p>
-
 <p>For example, if we are not planning to use JMX feature we can turn it off using <strong>spring.jmx.enabled=false</strong>.</p>
-
 <h2 id="4-prefer-constructor-based-dependency-injection">4. Prefer constructor based dependency injection</h2>
-
 <p>We can autowire the dependencies using <strong>constructor-injection</strong> or <strong>setter-injection</strong> or <strong>@Autowired</strong> on property itself.
 Personally I think Constructor injection is the better option. So, I try to always define the dependencies as <strong>final</strong> variables so that it will force to initialize in constructor.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
 <span style="color:#a6e22e">@Transactional</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomerService</span> <span style="color:#f92672">{</span>
@@ -228,61 +207,37 @@ Personally I think Constructor injection is the better option. So, I try to alwa
         Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">notNull</span><span style="color:#f92672">(</span>customerRepository<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;customerRepository mustn&#39;t be null&#34;</span><span style="color:#f92672">);</span>
         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">customerRepository</span> <span style="color:#f92672">=</span> customerRepository<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>This way it will be easier to instantiate <strong>CustomerService</strong> with necessary dependencies for testing if required.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>This way it will be easier to instantiate <strong>CustomerService</strong> with necessary dependencies for testing if required.</p>
 <h2 id="5-use-testcontainers-to-test-with-real-dependencies">5. Use TestContainers to test with real dependencies</h2>
-
 <p>One common pattern that I observed in SpringBoot applications is using in-memory databases like H2 for testing and using other RDBMS like Postgres, Oracle etc for production. I think it is not a good practice for several reasons.</p>
-
 <p>First, the production database behavior might be different than in-memory database and hence some bugs might not be detected during testing. Second, some features (ex: JSONB) might not be supported by in-memory databases where as production database supports.</p>
-
 <p>These days most of the applications use Docker in some way or the other. So, we can use <a href="https://www.testcontainers.org/">TestContainers</a> which is a docker based library for testing with a real database similar to production database.</p>
-
 <p>You can refer the following to learn how to use TestContainers for Integration Testing with SpringBoot:</p>
-
 <ul>
 <li><a href="https://github.com/testcontainers/testcontainers-java/tree/master/examples/spring-boot">https://github.com/testcontainers/testcontainers-java/tree/master/examples/spring-boot</a></li>
 <li><a href="https://www.baeldung.com/spring-boot-testcontainers-integration-test">https://www.baeldung.com/spring-boot-testcontainers-integration-test</a></li>
 </ul>
-
 <h2 id="6-use-test-slice-annotations-to-speed-up-tests">6. Use Test Slice annotations to speed up tests</h2>
-
 <p>We write Unit tests to test the behavior of single class and Integration tests to test the behavior of a logical group of components. So, generally we don&rsquo;t need the Spring magic for unit tests. We should be able to create an instance of the class (probably with mock dependencies) and test the behavior.</p>
-
 <p>However, while unit testing Spring based components like <strong>Controllers</strong> or <strong>Spring Data Repositories</strong> we need Spring ApplicationContext to be created. SpringBoot provides <strong>@SpringBootTest</strong> to load ApplicationContext and we can test the components. But the <strong>@SpringBootTest</strong> annotation loads all components in the application which might take more time.</p>
-
 <p>For Unit tests we generally want to load only the component we want to test with mock dependencies without loading any other unnecessary dependencies.</p>
-
 <p>SpringBoot provides various other test annotations like <strong>@WebMvcTest</strong>, <strong>@DataJpaTest</strong> etc to only load a slice of the ApplicationContext components. So, it is better to unit test the Spring components by using slice specific annotations rather than <strong>@SpringBootTest</strong>.</p>
-
 <p>You can learn more about using SpringBoot Testing annotations with following articles:</p>
-
 <ul>
 <li><a href="https://pivotal.io/application-transformation-recipes/testing/spring-boot-testing-best-practices">https://pivotal.io/application-transformation-recipes/testing/spring-boot-testing-best-practices</a></li>
 <li><a href="https://spring.io/guides/gs/testing-web/">https://spring.io/guides/gs/testing-web/</a></li>
 <li><a href="https://reflectoring.io/spring-boot-web-controller-test/">https://reflectoring.io/spring-boot-web-controller-test/</a></li>
 </ul>
-
 <h2 id="7-use-database-migration-tools">7. Use database migration tools</h2>
-
 <p>While using a relational database with SpringBoot and JPA it is easier to get started with auto generation of database schema from entity definitions. However, for complex applications it is better to use Database Migration tools like <a href="https://flywaydb.org/">Flyway</a> or <a href="https://www.liquibase.org/">Liquibase</a>. These tools will help in maintaining versioned database migration scripts and keep track of the current state of the database and determine what migration scripts need to be run.</p>
-
 <h2 id="8-prefer-off-the-shelf-security-solutions-instead-of-rolling-your-own">8. Prefer Off the Shelf security solutions instead of rolling your own</h2>
-
 <p>Spring Security make it easy to implement security, but still implementing security properly with OAUTH, SAML etc integrations is still very complex. Security is a very complex subject and needs lot of expertise to properly implement it. If at all possible to use off the shelf security solutions like <a href="https://www.okta.com/">Okta</a> then use them instead of rolling your own security implementation.</p>
-
 <h2 id="9-use-dedicated-configuration-classes">9. Use dedicated configuration classes</h2>
-
 <p>In our project we may need to create several Spring Configuration classes to define or customize the beans. For example we want to configure <strong>Swagger</strong>, <strong>Jackson</strong>, <strong>AWS</strong>, <strong>ElasticSearch</strong>, <strong>Redis</strong> etc. Instead of configuring all of them in one configuration class it would be better to have a separate dedicated Configuration classes for each one of them.</p>
-
 <h2 id="10-avoid-boilerplate-code-with-custom-springboot-starter">10. Avoid boilerplate code with custom SpringBoot starter</h2>
-
 <p>In some organizations there will be some home-grown libraries to achieve some common functionality like security, secrets management, caching etc. We can create custom SpringBoot starter to auto-configure the library features so that we don&rsquo;t need to repeat the boilerplate code for every application.</p>
-
 <p>You can refer my post <a href="https://sivalabs.in/2016/04/creating-custom-springboot-starter-for/">Creating Custom SpringBoot Starter for Twitter4j</a> on how to create a custom SpringBoot starter.</p>
-
 <p>For more info on creating our own SpringBoot starter see <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-custom-starter">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-custom-starter</a></p>
 
         </div>
@@ -484,23 +439,21 @@ Personally I think Constructor injection is the better option. So, I try to alwa
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -513,87 +466,81 @@ Personally I think Constructor injection is the better option. So, I try to alwa
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

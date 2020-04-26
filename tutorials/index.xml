@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorials on SivaLabs</title>
@@ -17,7 +17,7 @@
       <pubDate>Sat, 16 Dec 2017 12:12:31 +0530</pubDate>
       
       <guid>https://sivalabs.github.io/tutorials/java/</guid>
-      <description> Java Tutorials  When to use RequestDispatcher.forward() and response.sendRedirect()?  MyBatis Tutorials  MyBatis Tutorial: Part1 – CRUD Operations MyBatis Tutorial: Part-2: CRUD operations Using Annotations MyBatis Tutorial: Part 3 – Mapping Relationships MyBatis Tutorial : Part4 – Spring Integration  </description>
+      <description>Java Tutorials  [When to use RequestDispatcher.forward() and response.sendRedirect()?] (/2011/08/when-to-use-requestdispatcherforward/)  MyBatis Tutorials  [MyBatis Tutorial: Part1 – CRUD Operations] (/2012/10/mybatis-tutorial-part1-crud-operations/) [MyBatis Tutorial: Part-2: CRUD operations Using Annotations] (/2012/10/mybatis-tutorial-part-2-crud-operations-using-annotations/) [MyBatis Tutorial: Part 3 – Mapping Relationships] (/2012/10/mybatis-tutorial-part-3-mapping-relationships/) [MyBatis Tutorial : Part4 – Spring Integration] (/2012/10/mybatis-tutorial-part4-spring-integration/)  </description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Sun, 03 Dec 2017 11:06:31 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/tutorials/springboot/</guid>
-      <description> Spring Boot Tutorials  Why SpringBoot? How SpringBoot AutoConfiguration magic works? Getting Started with SpringBoot in Intellij IDEA Community Edition SpringBoot : Working with JdbcTemplate SpringBoot : Working with MyBatis SpringBoot : Working with JOOQ Creating Custom SpringBoot Starter for Twitter4j  Spring Cloud Tutorials  Introduction to Spring Cloud Config Server Auto Refresh Config Changes using Spring Cloud Bus  </description>
+      <description>Spring Boot Tutorials  [Why SpringBoot?] (/2016/03/why-springboot/) [How SpringBoot AutoConfiguration magic works?] (/2016/03/how-springboot-autoconfiguration-magic/) [Getting Started with SpringBoot in Intellij IDEA Community Edition] (/2016/09/getting-started-springboot-intellij-idea-community-edition/) [SpringBoot : Working with JdbcTemplate] (/2016/03/springboot-working-with-jdbctemplate/) [SpringBoot : Working with MyBatis] (/2016/03/springboot-working-with-mybatis/) [SpringBoot : Working with JOOQ] (/2016/03/springboot-working-with-jooq/) [Creating Custom SpringBoot Starter for Twitter4j] (/2016/04/creating-custom-springboot-starter-for/)  Spring Cloud Tutorials  Introduction to Spring Cloud Config Server Auto Refresh Config Changes using Spring Cloud Bus  </description>
     </item>
     
   </channel>

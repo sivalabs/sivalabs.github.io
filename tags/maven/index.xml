@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maven on SivaLabs</title>
@@ -17,7 +17,7 @@
       <pubDate>Mon, 29 Oct 2012 12:18:00 +0000</pubDate>
       
       <guid>https://sivalabs.github.io/2012/10/a-bunch-of-maven-archetypes-for-spring-based-projects/</guid>
-      <description>Maven is a good project management tool which&amp;nbsp;greatly&amp;nbsp;reduces the amount of time we spend on creating java projects with proper structure.&amp;nbsp;With so many&amp;nbsp;predefined&amp;nbsp;maven archetypes it is even easier to create projects by simply selecting the archetype based on the technologies we need and type(jar/war/ear) of project we want to create.
+      <description>Maven is a good project management tool which greatly reduces the amount of time we spend on creating java projects with proper structure. With so many predefined maven archetypes it is even easier to create projects by simply selecting the archetype based on the technologies we need and type(jar/war/ear) of project we want to create.
 However sometimes those predefined archetypes structure may not suite well for our needs or we may need some more additions to the pre-configured dependencies/frameworks etc.</description>
     </item>
     

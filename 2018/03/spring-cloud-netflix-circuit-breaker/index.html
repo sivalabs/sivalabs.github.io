@@ -36,26 +36,20 @@ if (!doNotTrack) {
 <meta property="og:description" content="In the microservices world, to fulfill a client request one microservice may need to talk to other microservices. We should minimize this kind of direct dependencies on other microservices but in some cases it is unavoidable. If a microservice is down or not functioning properly then the issue may cascade up to the upstream services. Netflix created Hystrix library implementing Circuit Breaker pattern to address these kinds of issues. We can use Spring Cloud Netflix Hystrix Circuit Breaker to protect microservices from cascading failures." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2018/03/spring-cloud-netflix-circuit-breaker/" />
-
 <meta property="og:image" content="https://sivalabs.github.io/images/hystrix-dashboard.png" />
-<meta property="article:published_time" content="2018-03-12T07:59:17&#43;05:30"/>
-<meta property="article:modified_time" content="2018-03-12T07:59:17&#43;05:30"/>
+<meta property="article:published_time" content="2018-03-12T07:59:17+05:30" />
+<meta property="article:modified_time" content="2018-03-12T07:59:17+05:30" />
 
-    
-<meta itemprop="name" content="MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix">
+    <meta itemprop="name" content="MicroServices - Part 4 : Spring Cloud Circuit Breaker using Netflix Hystrix">
 <meta itemprop="description" content="In the microservices world, to fulfill a client request one microservice may need to talk to other microservices. We should minimize this kind of direct dependencies on other microservices but in some cases it is unavoidable. If a microservice is down or not functioning properly then the issue may cascade up to the upstream services. Netflix created Hystrix library implementing Circuit Breaker pattern to address these kinds of issues. We can use Spring Cloud Netflix Hystrix Circuit Breaker to protect microservices from cascading failures.">
-
-
 <meta itemprop="datePublished" content="2018-03-12T07:59:17&#43;05:30" />
 <meta itemprop="dateModified" content="2018-03-12T07:59:17&#43;05:30" />
 <meta itemprop="wordCount" content="1187">
-
-  <meta itemprop="image" content="https://sivalabs.github.io/images/hystrix-dashboard.png">
+<meta itemprop="image" content="https://sivalabs.github.io/images/hystrix-dashboard.png">
 
 
 
 <meta itemprop="keywords" content="microservices,springboot,springcloud," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -177,16 +171,12 @@ if (!doNotTrack) {
 </header>
 
         <div class="entry-content">
-            
-
-<p>In the microservices world, to fulfill a client request one microservice may need to talk to other microservices.
+            <p>In the microservices world, to fulfill a client request one microservice may need to talk to other microservices.
 We should minimize this kind of direct dependencies on other microservices but in some cases it is unavoidable.
 If a microservice is down or not functioning properly then the issue may cascade up to the upstream services.
 Netflix created Hystrix library implementing <a href="https://martinfowler.com/bliki/CircuitBreaker.html">Circuit Breaker</a> pattern to address these kinds of issues.
 We can use <strong>Spring Cloud Netflix Hystrix Circuit Breaker</strong> to protect microservices from cascading failures.</p>
-
 <p><strong>MicroServices using Spring Boot &amp; Spring Cloud</strong></p>
-
 <ul>
 <li><a href="/2018/03/microservices-using-springboot-spring-cloud-part-1-overview/">Part 1 : MicroServices : Spring Boot &amp; Spring Cloud Overview</a></li>
 <li><a href="/2018/03/microservices-part-2-configuration-management-spring-cloud-config-vault/">Part 2 : MicroServices : Configuration Management with Spring Cloud Config and Vault</a></li>
@@ -195,30 +185,22 @@ We can use <strong>Spring Cloud Netflix Hystrix Circuit Breaker</strong> to prot
 <li><a href="/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway/">Part 5 : MicroServices : Spring Cloud Zuul Proxy as API Gateway</a></li>
 <li><a href="/2018/03/microservices-part-6-distributed-tracing-with-spring-cloud-sleuth-and-zipkin/">Part 6 : MicroServices : Distributed Tracing with Spring Cloud Sleuth and Zipkin</a></li>
 </ul>
-
 <p><strong>In this post we are going to learn:</strong></p>
-
 <ul>
 <li>Implementing Circuit Breaker pattern using @HystrixCommand</li>
 <li>How to propagate ThreadLocal variables</li>
 <li>Monitoring Circuit Breakers using Hystrix Dashboard</li>
 </ul>
-
 <h1 id="implementing-netflix-hystrix-circuit-breaker-pattern">Implementing Netflix Hystrix Circuit Breaker pattern</h1>
-
 <p>From <strong>catalog-service</strong> we are invoking REST endpoint on <strong>inventory-service</strong> to get the inventory level of a product.
 What if inventory-service is down? What if inventory-service is taking too long to respond thereby slowing down all the services depending on it?
 We would like to have some <strong>timeouts</strong> and implement some <strong>fallback mechanism</strong>.</p>
-
 <p>Add <strong>Hystrix</strong> starter to catalog-service.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-starter-netflix-hystrix<span style="color:#f92672">&lt;/artifactId&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
-
-<p>To enable Circuit Breaker add <strong>@EnableCircuitBreaker</strong> annotation on catalog-service entry-point class.</p>
-
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p>To enable Circuit Breaker add <strong>@EnableCircuitBreaker</strong> annotation on catalog-service entry-point class.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker<span style="color:#f92672">;</span>
@@ -239,13 +221,10 @@ We would like to have some <strong>timeouts</strong> and implement some <strong>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>CatalogServiceApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Now we can use <strong>@HystrixCommand</strong> annotation on any method we want to apply timeout and fallback method.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now we can use <strong>@HystrixCommand</strong> annotation on any method we want to apply timeout and fallback method.</p>
 <p>Let us create <strong>InventoryServiceClient.java</strong> which will invoke inventory-service REST endpoint and
 apply <strong>@HystrixCommand</strong> with a fallback implementation.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> com.sivalabs.catalogservice.web.models.ProductInventoryResponse<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> lombok.extern.slf4j.Slf4j<span style="color:#f92672">;</span>
@@ -290,24 +269,20 @@ apply <strong>@HystrixCommand</strong> with a fallback implementation.</p>
         response<span style="color:#f92672">.</span><span style="color:#a6e22e">setAvailableQuantity</span><span style="color:#f92672">(</span>50<span style="color:#f92672">);</span>
         <span style="color:#66d9ef">return</span> Optional<span style="color:#f92672">.</span><span style="color:#a6e22e">ofNullable</span><span style="color:#f92672">(</span>response<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> lombok.Data<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> lombok.Data<span style="color:#f92672">;</span>
  
 <span style="color:#a6e22e">@Data</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProductInventoryResponse</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">private</span> String productCode<span style="color:#f92672">;</span>
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> availableQuantity<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>We have annotated the method from where we are making a REST call with <strong>@HystrixCommand(fallbackMethod = “getDefaultProductInventoryByCode”)</strong>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We have annotated the method from where we are making a REST call with <strong>@HystrixCommand(fallbackMethod = “getDefaultProductInventoryByCode”)</strong>
 so that if it doesn’t receive the response within the certain time limit the call gets timed out and invoke the configured fallback method.
 The fallback method should be defined in the same class and should have the same signature.
 In the fallback method <strong>getDefaultProductInventoryByCode()</strong> we are setting the <strong>availableQuantity</strong> to 50, obviously,
 this behavior depends on what business wants.</p>
-
 <p>We can customize the <strong>@HystrixCommand</strong> default behavior by configuring properties using <strong>@HystrixProperty</strong> annotations.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@HystrixCommand</span><span style="color:#f92672">(</span>fallbackMethod <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getDefaultProductInventoryByCode&#34;</span><span style="color:#f92672">,</span>
     commandProperties <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
        <span style="color:#a6e22e">@HystrixProperty</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;execution.isolation.thread.timeoutInMilliseconds&#34;</span><span style="color:#f92672">,</span> value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;3000&#34;</span><span style="color:#f92672">),</span>
@@ -317,34 +292,24 @@ this behavior depends on what business wants.</p>
 <span style="color:#66d9ef">public</span> Optional<span style="color:#f92672">&lt;</span>ProductInventoryResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getProductInventoryByCode</span><span style="color:#f92672">(</span>String productCode<span style="color:#f92672">)</span>
 <span style="color:#f92672">{</span>
     <span style="color:#f92672">....</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Instead of configuring these parameter values in the code we can configure them in <strong>bootstrap.properties/yml</strong> files as follows.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">hystrix.command.getProductInventoryByCode.execution.isolation.thread.timeoutInMilliseconds=2000
-hystrix.command.getProductInventoryByCode.circuitBreaker.errorThresholdPercentage=60</code></pre></div>
-
-<p>Note that we are using the method name as the <strong>commandKey</strong> which is the default behavior. We can customize the <strong>commandKey</strong> name as follows:</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Instead of configuring these parameter values in the code we can configure them in <strong>bootstrap.properties/yml</strong> files as follows.</p>
+<pre><code class="language-properties" data-lang="properties">hystrix.command.getProductInventoryByCode.execution.isolation.thread.timeoutInMilliseconds=2000
+hystrix.command.getProductInventoryByCode.circuitBreaker.errorThresholdPercentage=60
+</code></pre><p>Note that we are using the method name as the <strong>commandKey</strong> which is the default behavior. We can customize the <strong>commandKey</strong> name as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@HystrixCommand</span><span style="color:#f92672">(</span>commandKey <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;inventory-by-productcode&#34;</span><span style="color:#f92672">,</span> fallbackMethod <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getDefaultProductInventoryByCode&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> Optional<span style="color:#f92672">&lt;</span>ProductInventoryResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getProductInventoryByCode</span><span style="color:#f92672">(</span>String productCode<span style="color:#f92672">)</span>
 <span style="color:#f92672">{</span>
     <span style="color:#f92672">...</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties">hystrix.command.inventory-by-productcode.execution.isolation.thread.timeoutInMilliseconds=2000
-hystrix.command.inventory-by-productcode.circuitBreaker.errorThresholdPercentage=60</code></pre></div>
-
-<p>You can find all the configuration options available here <a href="https://github.com/Netflix/Hystrix/wiki/Configuration">https://github.com/Netflix/Hystrix/wiki/Configuration</a>.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><pre><code class="language-properties" data-lang="properties">hystrix.command.inventory-by-productcode.execution.isolation.thread.timeoutInMilliseconds=2000
+hystrix.command.inventory-by-productcode.circuitBreaker.errorThresholdPercentage=60
+</code></pre><p>You can find all the configuration options available here <a href="https://github.com/Netflix/Hystrix/wiki/Configuration">https://github.com/Netflix/Hystrix/wiki/Configuration</a>.</p>
 <h1 id="how-to-propagate-threadlocal-variables">How to propagate ThreadLocal variables</h1>
-
 <p>By default, the methods with <strong>@HystrixCommand</strong> will be executed on a different thread because the default <strong>execution.isolation.strategy</strong>
 is <strong>ExecutionIsolationStrategy.THREAD</strong>. So, the <strong>ThreadLocal</strong> variables we set before invoking <strong>@HystrixCommand</strong> methods won’t be
 available within <strong>@HystrixCommand</strong> methods.</p>
-
 <p>One option to make the ThreadLocal variables available is using <strong>execution.isolation.strategy=SEMAPHORE</strong>.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@HystrixCommand</span><span style="color:#f92672">(</span>fallbackMethod <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getDefaultProductInventoryByCode&#34;</span><span style="color:#f92672">,</span>
     commandProperties <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
         <span style="color:#a6e22e">@HystrixProperty</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;execution.isolation.strategy&#34;</span><span style="color:#f92672">,</span> value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SEMAPHORE&#34;</span><span style="color:#f92672">)</span>
@@ -353,16 +318,12 @@ available within <strong>@HystrixCommand</strong> methods.</p>
 <span style="color:#66d9ef">public</span> Optional<span style="color:#f92672">&lt;</span>ProductInventoryResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getProductInventoryByCode</span><span style="color:#f92672">(</span>String productCode<span style="color:#f92672">)</span>
 <span style="color:#f92672">{</span>
     <span style="color:#f92672">...</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>If you set the property <strong>execution.isolation.strategy</strong> to <strong>SEMAPHORE</strong> then Hystrix will use semaphores instead of threads to limit
+<span style="color:#f92672">}</span>
+</code></pre></div><p>If you set the property <strong>execution.isolation.strategy</strong> to <strong>SEMAPHORE</strong> then Hystrix will use semaphores instead of threads to limit
 the number of concurrent parent threads that invoke the command.
 You can read more about How Isolation Works here <a href="https://github.com/Netflix/Hystrix/wiki/How-it-Works#isolation">https://github.com/Netflix/Hystrix/wiki/How-it-Works#isolation</a>.</p>
-
 <p>Another option to make ThreadLocal variables available within Hystrix command methods is implementing our own <strong>HystrixConcurrencyStrategy</strong>.</p>
-
 <p>Suppose you want to propagate some <strong>CorrelationId</strong> set as a ThreadLocal variable.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyThreadLocalsHolder</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> ThreadLocal<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> CORRELATION_ID <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadLocal<span style="color:#f92672">();</span>
  
@@ -373,10 +334,8 @@ You can read more about How Isolation Works here <a href="https://github.com/Net
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">getCorrelationId</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">return</span> CORRELATION_ID<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Let us implement our own <strong>HystrixConcurrencyStrategy</strong>.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Let us implement our own <strong>HystrixConcurrencyStrategy</strong>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Component</span>
 <span style="color:#a6e22e">@Slf4j</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ContextCopyHystrixConcurrencyStrategy</span> <span style="color:#66d9ef">extends</span> HystrixConcurrencyStrategy <span style="color:#f92672">{</span>
@@ -410,12 +369,9 @@ You can read more about How Isolation Works here <a href="https://github.com/Net
             <span style="color:#f92672">}</span>
         <span style="color:#f92672">}</span>
     <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Now you can set the <strong>CorrelationId</strong> before calling Hystrix command and access CorrelationId within Hystrix command.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now you can set the <strong>CorrelationId</strong> before calling Hystrix command and access CorrelationId within Hystrix command.</p>
 <p><strong>ProductService.java</strong></p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> Optional<span style="color:#f92672">&lt;</span>Product<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findProductByCode</span><span style="color:#f92672">(</span>String code<span style="color:#f92672">)</span> 
 <span style="color:#f92672">{</span>
     <span style="color:#f92672">....</span>
@@ -427,50 +383,35 @@ You can read more about How Isolation Works here <a href="https://github.com/Net
     log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;After CorrelationID: &#34;</span><span style="color:#f92672">+</span> MyThreadLocalsHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">getCorrelationId</span><span style="color:#f92672">());</span>
     <span style="color:#f92672">....</span>
      
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p><strong>InventoryServiceClient.java</strong></p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>InventoryServiceClient.java</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@HystrixCommand</span><span style="color:#f92672">(</span>fallbackMethod <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getDefaultProductInventoryByCode&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> Optional<span style="color:#f92672">&lt;</span>ProductInventoryResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getProductInventoryByCode</span><span style="color:#f92672">(</span>String productCode<span style="color:#f92672">)</span>
 <span style="color:#f92672">{</span>
     <span style="color:#f92672">...</span>
     log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CorrelationID: &#34;</span><span style="color:#f92672">+</span> MyThreadLocalsHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">getCorrelationId</span><span style="color:#f92672">());</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>This is just one example of how to propagate the data to the Hystrix command.
+<span style="color:#f92672">}</span>
+</code></pre></div><p>This is just one example of how to propagate the data to the Hystrix command.
 Similarly we can pass any data available in current HTTP Request, let’s say by using Spring components like <strong>RequestContextHolder</strong> etc.</p>
-
 <blockquote>
 <p>Jakub Narloch wrote a nice article on how to propagate Request Context and even created a Spring Boot starter too. Please look at his blog <a href="https://jmnarloch.wordpress.com/2016/07/06/spring-boot-hystrix-and-threadlocals/">https://jmnarloch.wordpress.com/2016/07/06/spring-boot-hystrix-and-threadlocals/</a> and GitHub Repo <a href="https://github.com/jmnarloch/hystrix-context-spring-boot-starter">https://github.com/jmnarloch/hystrix-context-spring-boot-starter</a>.</p>
 </blockquote>
-
 <h1 id="monitoring-circuit-breakers-using-hystrix-dashboard">Monitoring Circuit Breakers using Hystrix Dashboard</h1>
-
 <p>Once we add <strong>Hystrix</strong> starter to catalog-service we can get the circuits status as a stream of events using
-Actuator endpoint <a href="http://localhost:8181/actuator/hystrix.stream">http://localhost:8181/actuator/hystrix.stream</a>, assuming catalog-service is running on 8181 port.</p>
-
+Actuator endpoint http://localhost:8181/actuator/hystrix.stream, assuming catalog-service is running on 8181 port.</p>
 <p>Spring Cloud also provides a nice dashboard to monitor the status of Hystrix commands.
 Create a Spring Boot application with <strong>Hystrix Dashboard</strong> starter and annotate the main entry-point class with <strong>@EnableHystrixDashboard</strong>.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
     <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#f92672">&lt;/groupId&gt;</span>
     <span style="color:#f92672">&lt;artifactId&gt;</span>spring-cloud-starter-netflix-hystrix-dashboard<span style="color:#f92672">&lt;/artifactId&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
-
-<p>Let us say we are running Hystrix Dashboard on 8788 port, then go to <a href="http://localhost:8788/hystrix">http://localhost:8788/hystrix</a> to view the dashboard.</p>
-
-<p><img src="/images/hystrix-dashboard.png" alt="Hystrix Dashboard" title="Hystrix Dashboard" /></p>
-
-<p>Now in Hystrix Dashboard home page enter <strong><a href="http://localhost:8181/actuator/hystrix.stream">http://localhost:8181/actuator/hystrix.stream</a></strong> as stream URL and give Catalog Service as Title and click on Monitor Stream button.</p>
-
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p>Let us say we are running Hystrix Dashboard on 8788 port, then go to http://localhost:8788/hystrix to view the dashboard.</p>
+<p><img src="/images/hystrix-dashboard.png" alt="Hystrix Dashboard" title="Hystrix Dashboard"></p>
+<p>Now in Hystrix Dashboard home page enter <strong>http://localhost:8181/actuator/hystrix.stream</strong> as stream URL and give Catalog Service as Title and click on Monitor Stream button.</p>
 <p>Now invoke the catalog-service REST endpoint which internally invokes inventory-service REST endpoint and you can see the Circuit status along with how many calls succeed and how many failures occurred etc.</p>
-
-<p><img src="/images/catalog-service-hystrix.png" alt="Netflix Hystrix Circuit Breaker" title="Netflix Hystrix Circuit Breaker" /></p>
-
+<p><img src="/images/catalog-service-hystrix.png" alt="Netflix Hystrix Circuit Breaker" title="Netflix Hystrix Circuit Breaker"></p>
 <p>Instead of having a separate dashboard for every service we can use Turbine to provide a unified view of all services in a single dashboard.
 For more details see <a href="http://cloud.spring.io/spring-cloud-static/Finchley.M7/single/spring-cloud.html#_turbine">http://cloud.spring.io/spring-cloud-static/Finchley.M7/single/spring-cloud.html#_turbine</a>.</p>
-
 <blockquote>
 <p>You can find the source code for this article at <a href="https://github.com/sivaprasadreddy/spring-boot-microservices-series">https://github.com/sivaprasadreddy/spring-boot-microservices-series</a></p>
 </blockquote>
@@ -674,23 +615,21 @@ For more details see <a href="http://cloud.spring.io/spring-cloud-static/Finchle
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -703,87 +642,81 @@ For more details see <a href="http://cloud.spring.io/spring-cloud-static/Finchle
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

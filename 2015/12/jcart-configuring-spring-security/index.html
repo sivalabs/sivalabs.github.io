@@ -29,7 +29,7 @@ if (!doNotTrack) {
 <meta name="twitter:description" content="Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.
 Let us add the following spring-security dependencies to jcart-admin/pom.xml.
 &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.thymeleaf.extras&lt;/groupId&gt; &lt;artifactId&gt;thymeleaf-extras-springsecurity4&lt;/artifactId&gt; &lt;/dependency&gt; If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
-http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,&#34;/register&#34;,&#34;/logout&#34;).permitAll() .antMatchers(&#34;/admin&#34;,&#34;/admin/**&#34;).hasRole(&#34;ADMIN&#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&#8217;t statically define constraints using role names."/>
+http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,&#34;/register&#34;,&#34;/logout&#34;).permitAll() .antMatchers(&#34;/admin&#34;,&#34;/admin/**&#34;).hasRole(&#34;ADMIN&#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&rsquo;t statically define constraints using role names."/>
 <meta name="twitter:site" content="@sivalabs"/>
 
     <meta name="twitter:creator" content="@sivalabs"/>
@@ -37,28 +37,24 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 <meta property="og:description" content="Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.
 Let us add the following spring-security dependencies to jcart-admin/pom.xml.
 &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.thymeleaf.extras&lt;/groupId&gt; &lt;artifactId&gt;thymeleaf-extras-springsecurity4&lt;/artifactId&gt; &lt;/dependency&gt; If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
-http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,&#34;/register&#34;,&#34;/logout&#34;).permitAll() .antMatchers(&#34;/admin&#34;,&#34;/admin/**&#34;).hasRole(&#34;ADMIN&#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&#8217;t statically define constraints using role names." />
+http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,&#34;/register&#34;,&#34;/logout&#34;).permitAll() .antMatchers(&#34;/admin&#34;,&#34;/admin/**&#34;).hasRole(&#34;ADMIN&#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&rsquo;t statically define constraints using role names." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sivalabs.github.io/2015/12/jcart-configuring-spring-security/" />
-<meta property="article:published_time" content="2015-12-01T05:27:15&#43;00:00"/>
-<meta property="article:modified_time" content="2015-12-01T05:27:15&#43;00:00"/>
+<meta property="article:published_time" content="2015-12-01T05:27:15+00:00" />
+<meta property="article:modified_time" content="2015-12-01T05:27:15+00:00" />
 
-    
-<meta itemprop="name" content="JCart: Configuring Spring Security">
+    <meta itemprop="name" content="JCart: Configuring Spring Security">
 <meta itemprop="description" content="Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.
 Let us add the following spring-security dependencies to jcart-admin/pom.xml.
 &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.thymeleaf.extras&lt;/groupId&gt; &lt;artifactId&gt;thymeleaf-extras-springsecurity4&lt;/artifactId&gt; &lt;/dependency&gt; If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:
-http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,&#34;/register&#34;,&#34;/logout&#34;).permitAll() .antMatchers(&#34;/admin&#34;,&#34;/admin/**&#34;).hasRole(&#34;ADMIN&#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&#8217;t statically define constraints using role names.">
-
-
+http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,&#34;/register&#34;,&#34;/logout&#34;).permitAll() .antMatchers(&#34;/admin&#34;,&#34;/admin/**&#34;).hasRole(&#34;ADMIN&#34;) .anyRequest().authenticated() .and() But we need provision to dynamically create new roles as well, hence we can&rsquo;t statically define constraints using role names.">
 <meta itemprop="datePublished" content="2015-12-01T05:27:15&#43;00:00" />
 <meta itemprop="dateModified" content="2015-12-01T05:27:15&#43;00:00" />
-<meta itemprop="wordCount" content="932">
+<meta itemprop="wordCount" content="929">
 
 
 
 <meta itemprop="keywords" content="jcart,SpringBoot," />
-
 
     <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
 
@@ -177,12 +173,8 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 </header>
 
         <div class="entry-content">
-            
-
-<p>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.</p>
-
+            <p>Our JCart Administration site should only be accessible to authorized users only. So, we are going to use SpringSecurity to define the security constraints.</p>
 <p>Let us add the following spring-security dependencies to <strong>jcart-admin/pom.xml</strong>.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
 	<span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
 	<span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-security<span style="color:#f92672">&lt;/artifactId&gt;</span>
@@ -190,32 +182,23 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 <span style="color:#f92672">&lt;dependency&gt;</span>
 	<span style="color:#f92672">&lt;groupId&gt;</span>org.thymeleaf.extras<span style="color:#f92672">&lt;/groupId&gt;</span>
 	<span style="color:#f92672">&lt;artifactId&gt;</span>thymeleaf-extras-springsecurity4<span style="color:#f92672">&lt;/artifactId&gt;</span>
-<span style="color:#f92672">&lt;/dependency&gt;</span></code></pre></div>
-
-<p>If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:</p>
-
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p>If we have predefined set of Roles then we can specify the URL patterns and its required Roles something like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">http
 	<span style="color:#f92672">.</span><span style="color:#a6e22e">authorizeRequests</span><span style="color:#f92672">()</span>
 	    <span style="color:#f92672">.</span><span style="color:#a6e22e">antMatchers</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;/login/form**&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;/register&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;/logout&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">permitAll</span><span style="color:#f92672">()</span>
 	    <span style="color:#f92672">.</span><span style="color:#a6e22e">antMatchers</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/admin&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;/admin/**&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">hasRole</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ADMIN&#34;</span><span style="color:#f92672">)</span>
 	    <span style="color:#f92672">.</span><span style="color:#a6e22e">anyRequest</span><span style="color:#f92672">().</span><span style="color:#a6e22e">authenticated</span><span style="color:#f92672">()</span>
-	    <span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span></code></pre></div>
-
-<p>But we need provision to dynamically create new roles as well, hence we can&#8217;t statically define constraints using role names.</p>
-
+	    <span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
+</code></pre></div><p>But we need provision to dynamically create new roles as well, hence we can&rsquo;t statically define constraints using role names.</p>
 <p>But in our JCart application, we have fixed list of permissions and then grouped them as Roles. So we can configure SpringSecurity to use Method Level Security by checking the permissions.</p>
-
-<p>SpringSecurity don&#8217;t have the support for Permissions. So we will follow suggestion given here <a href="http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions" target="_blank"><a href="http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions">http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions</a></a> where we consider the Permissions as Roles.</p>
-
+<p>SpringSecurity don&rsquo;t have the support for Permissions. So we will follow suggestion given here <!-- raw HTML omitted --><a href="http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions">http://springinpractice.com/2010/10/27/quick-tip-spring-security-role-based-authorization-and-permissions</a><!-- raw HTML omitted --> where we consider the Permissions as Roles.</p>
 <h3 id="userrepository-to-get-user-by-email">UserRepository to get User by Email</h3>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserRepository</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span>
 <span style="color:#f92672">{</span>
 	User <span style="color:#a6e22e">findByEmail</span><span style="color:#f92672">(</span>String email<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<h3 id="securityservice-8211-facade-to-all-security-related-methods">SecurityService &#8211; Facade to all Security Related Methods</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="securityservice-8211-facade-to-all-security-related-methods">SecurityService – Facade to all Security Related Methods</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
 <span style="color:#a6e22e">@Transactional</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecurityService</span>
@@ -226,10 +209,8 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 	<span style="color:#f92672">{</span>
 	     <span style="color:#66d9ef">return</span> userRepository<span style="color:#f92672">.</span><span style="color:#a6e22e">findByEmail</span><span style="color:#f92672">(</span>email<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<h3 id="wrapper-for-springsecurity-user">Wrapper for SpringSecurity User</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="wrapper-for-springsecurity-user">Wrapper for SpringSecurity User</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuthenticatedUser</span> <span style="color:#66d9ef">extends</span> org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">security</span><span style="color:#f92672">.</span><span style="color:#a6e22e">core</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userdetails</span><span style="color:#f92672">.</span><span style="color:#a6e22e">User</span>
 <span style="color:#f92672">{</span>
 
@@ -265,10 +246,8 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 	Collection<span style="color:#f92672">&lt;</span>GrantedAuthority<span style="color:#f92672">&gt;</span> authorities <span style="color:#f92672">=</span> AuthorityUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">createAuthorityList</span><span style="color:#f92672">(</span>roleAndPermissions<span style="color:#f92672">.</span><span style="color:#a6e22e">toArray</span><span style="color:#f92672">(</span>roleNames<span style="color:#f92672">));</span>
 	<span style="color:#66d9ef">return</span> authorities<span style="color:#f92672">;</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<h3 id="custom-userdetailsservice-implementation">Custom UserDetailsService Implementation</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="custom-userdetailsservice-implementation">Custom UserDetailsService Implementation</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
 <span style="color:#a6e22e">@Transactional</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomUserDetailsService</span> <span style="color:#66d9ef">implements</span> UserDetailsService
@@ -286,10 +265,8 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AuthenticatedUser<span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>
 
-<span style="color:#f92672">}</span></code></pre></div>
-
-<h3 id="springsecurity-configuration">SpringSecurity Configuration</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="springsecurity-configuration">SpringSecurity Configuration</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#a6e22e">@EnableWebSecurity</span>
 <span style="color:#a6e22e">@EnableGlobalMethodSecurity</span><span style="color:#f92672">(</span>securedEnabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> proxyTargetClass <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
@@ -331,10 +308,8 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
                 <span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
             <span style="color:#f92672">.</span><span style="color:#a6e22e">exceptionHandling</span><span style="color:#f92672">().</span><span style="color:#a6e22e">accessDeniedPage</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/403&#34;</span><span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>    
-<span style="color:#f92672">}</span></code></pre></div>
-
-<h3 id="access-denied-exception-handler">Access Denied Exception Handler</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="access-denied-exception-handler">Access Denied Exception Handler</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ErrorController</span>
 <span style="color:#f92672">{</span>	
@@ -344,12 +319,9 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 	<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;error/accessDenied&#34;</span><span style="color:#f92672">;</span>
 	<span style="color:#f92672">}</span>
 	
-<span style="color:#f92672">}</span></code></pre></div>
-
-<h3 id="abstract-controller-with-common-methods">Abstract Controller with Common Methods</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="abstract-controller-with-common-methods">Abstract Controller with Common Methods</h3>
 <p>Let us create a base Abstract Controller to have the common methods by all controllers.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JCartAdminBaseController</span>
 <span style="color:#f92672">{</span>	
 	<span style="color:#a6e22e">@Autowired</span> <span style="color:#66d9ef">protected</span> MessageSource messageSource<span style="color:#f92672">;</span>
@@ -384,22 +356,16 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isLoggedIn</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 	    <span style="color:#66d9ef">return</span> getCurrentUser<span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>Observe how we injected Authenticated User object using <strong>@AuthenticationPrincipal</strong> and exposed as a ModelAttribute so that we can reference it in any of our templates. Also we have another method which return the AuthenticatedUser so that we can use it in any of our Controllers to access currently logged in user object, say to set CreatedBy/UpdatedBy objects on our JPA Entities.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Observe how we injected Authenticated User object using <strong>@AuthenticationPrincipal</strong> and exposed as a ModelAttribute so that we can reference it in any of our templates. Also we have another method which return the AuthenticatedUser so that we can use it in any of our Controllers to access currently logged in user object, say to set CreatedBy/UpdatedBy objects on our JPA Entities.</p>
 <p>Now our Controllers can extend the JCartAdminBaseController class as follows:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HomeController</span> <span style="color:#66d9ef">extends</span> JCartAdminBaseController
 <span style="color:#f92672">{</span>
 	<span style="color:#f92672">...</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<h3 id="registering-springsecuritydialect-with-thymeleaf">Registering SpringSecurityDialect with Thymeleaf</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="registering-springsecuritydialect-with-thymeleaf">Registering SpringSecurityDialect with Thymeleaf</h3>
 <p>In order to use SpringSecurity dialects features in Thymeleaf templates we need to register SpringSecurityDialect as an additional dialect. We can do this simply by registering a SpringSecurityDialect bean.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WebConfig</span> <span style="color:#66d9ef">extends</span> WebMvcConfigurerAdapter
 <span style="color:#f92672">{</span>   
@@ -409,14 +375,10 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 	<span style="color:#66d9ef">public</span> SpringSecurityDialect <span style="color:#a6e22e">securityDialect</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 	    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> SpringSecurityDialect<span style="color:#f92672">();</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>For more info read <a href="http://www.thymeleaf.org/doc/articles/springsecurity.html" target="_blank"><a href="http://www.thymeleaf.org/doc/articles/springsecurity.html">http://www.thymeleaf.org/doc/articles/springsecurity.html</a></a></p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>For more info read <!-- raw HTML omitted --><a href="http://www.thymeleaf.org/doc/articles/springsecurity.html">http://www.thymeleaf.org/doc/articles/springsecurity.html</a><!-- raw HTML omitted --></p>
 <h3 id="using-springsecurity-in-thymeleaf-templates">Using SpringSecurity in Thymeleaf Templates</h3>
-
 <p>Now we can show the Left Nav Menu options by checking whether the logged in user has the Permission or not.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">xmlns</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/xhtml&#34;</span> 
 	  <span style="color:#a6e22e">xmlns:th</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.thymeleaf.org&#34;</span>
 	  <span style="color:#a6e22e">xmlns:sec</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34;</span>&gt;
@@ -443,23 +405,17 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 &lt;/<span style="color:#f92672">li</span>&gt;
 	
    &lt;/<span style="color:#f92672">body</span>&gt;
-&lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div>
-
-<p>In our Controllers we can check for Permissions as follows:</p>
-
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>In our Controllers we can check for Permissions as follows:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
 <span style="color:#a6e22e">@Secured</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ROLE_MANAGE_CATEGORIES&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CategoryController</span> <span style="color:#66d9ef">extends</span> JCartAdminBaseController
 <span style="color:#f92672">{</span>
 	<span style="color:#f92672">...</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<h3 id="registering-a-filter-after-springsecurity-filter">Registering a Filter After SpringSecurity Filter</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="registering-a-filter-after-springsecurity-filter">Registering a Filter After SpringSecurity Filter</h3>
 <p>I would like to show the currently selected Left Nav Menu link as Active. For that I thought of keep tracking the clicked URL and store the ACTIVE_MENU value in model and then conditionally apply Active style in Thymeleaf template.</p>
-
-<p>For this I thought of registering a Filter filter after SpringSecurityFilter. But SpringSecurity Filter is registered with LOWEST_PRIORITY order automatically. So we need to get it done using the hack explained here <a href="http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot" target="_blank"><a href="http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot">http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot</a></a></p>
-
+<p>For this I thought of registering a Filter filter after SpringSecurityFilter. But SpringSecurity Filter is registered with LOWEST_PRIORITY order automatically. So we need to get it done using the hack explained here <!-- raw HTML omitted --><a href="http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot">http://stackoverflow.com/questions/25957879/filter-order-in-spring-boot</a><!-- raw HTML omitted --></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WebConfig</span> <span style="color:#66d9ef">extends</span> WebMvcConfigurerAdapter
 <span style="color:#f92672">{</span>  
@@ -484,9 +440,8 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 	    registrationBean<span style="color:#f92672">.</span><span style="color:#a6e22e">setOrder</span><span style="color:#f92672">(</span>Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span><span style="color:#f92672">);</span>
 	    <span style="color:#66d9ef">return</span> registrationBean<span style="color:#f92672">;</span>
 	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Component</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Component</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostAuthorizationFilter</span> <span style="color:#66d9ef">extends</span> OncePerRequestFilter
 <span style="color:#f92672">{</span>	
 	<span style="color:#a6e22e">@Override</span>
@@ -500,10 +455,8 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 	chain<span style="color:#f92672">.</span><span style="color:#a6e22e">doFilter</span><span style="color:#f92672">(</span>request<span style="color:#f92672">,</span> response<span style="color:#f92672">);</span>
 	<span style="color:#f92672">}</span>
 	
-<span style="color:#f92672">}</span></code></pre></div>
-
-<p>For complete PostAuthorizationFilter code, please check in github repository <a href="https://github.com/sivaprasadreddy/jcart" target="_blank"><a href="https://github.com/sivaprasadreddy/jcart">https://github.com/sivaprasadreddy/jcart</a></a>.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>For complete PostAuthorizationFilter code, please check in github repository <!-- raw HTML omitted --><a href="https://github.com/sivaprasadreddy/jcart">https://github.com/sivaprasadreddy/jcart</a><!-- raw HTML omitted -->.</p>
 <p>Now we have Spring Security configured for our application. In our next posts we will see how to protect Controller methods at class/method level.</p>
 
         </div>
@@ -705,23 +658,21 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 <aside id="categories-2" class="widget widget_categories clearfix">
     <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
     <ul>
-        <li class="cat-item"><a href="/categories/best-practices">Best Practices</a></li>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/ide">IDE</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
-        <li class="cat-item"><a href="/categories/javaee">JavaEE</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
         <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
         <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/misc">Misc</a></li>
         <li class="cat-item"><a href="/categories/spring">Spring</a></li>
-        <li class="cat-item"><a href="/categories/springboot">SpringBoot</a></li>
-        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
-        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
-        <li class="cat-item"><a href="/categories/books">Books</a></li>
-        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
         <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
         <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
         <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
         <li class="cat-item"><a href="/categories/videos">Videos</a></li>
     </ul>
@@ -734,87 +685,81 @@ http .authorizeRequests() .antMatchers(&#34;/login&#34;,&#34;/login/form**&#34;,
 
         <div class="widget__content">
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/android" title="Android">Android</a>
+               href="/tags/android" title="android">android</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/best-practices" title="Best Practices">Best Practices</a>
+               href="/tags/best-practices" title="best-practices">best-practices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blog" title="Blog">Blog</a>
+               href="/tags/blog" title="blog">blog</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/blogging" title="Blogging">Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/books" title="Books">Books</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/e-commerce" title="E-Commerce">E-Commerce</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/ide" title="IDE">IDE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/it" title="IT">IT</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/interviews" title="Interviews">Interviews</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/jsf" title="JSF">JSF</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java" title="Java">Java</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-bestpractices" title="Java, BestPractices">Java, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/java-blogging" title="Java, Blogging">Java, Blogging</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/javaee" title="JavaEE">JavaEE</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka" title="Kafka">Kafka</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/kafka-springboot-spring" title="Kafka, SpringBoot, Spring">Kafka, SpringBoot, Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/linux" title="Linux">Linux</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/maven" title="Maven">Maven</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/mybatis" title="MyBatis">MyBatis</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/postman-newman-rest" title="Postman, Newman, REST">Postman, Newman, REST</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/primefaces" title="PrimeFaces">PrimeFaces</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/servlets-jsp" title="Servlets JSP">Servlets JSP</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring" title="Spring">Spring</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-bestpractices" title="Spring, SpringBoot, BestPractices">Spring, SpringBoot, BestPractices</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/spring-springboot-testing" title="Spring, SpringBoot, Testing">Spring, SpringBoot, Testing</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot" title="SpringBoot">SpringBoot</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-testcontainers" title="SpringBoot, Testcontainers">SpringBoot, Testcontainers</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springboot-yeoman" title="SpringBoot, Yeoman">SpringBoot, Yeoman</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/springcloud" title="SpringCloud">SpringCloud</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/tips" title="Tips">Tips</a>
-            <a class="tag-cloud-link widget__link widget__link--taglist"
-               href="/tags/virtualbox" title="VirtualBox">VirtualBox</a>
+               href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jcart" title="jcart">jcart</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/jooq" title="jooq">jooq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springcloud" title="springcloud">springcloud</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/springsession" title="springsession">springsession</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/travis-ci" title="travis-ci">travis-ci</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
         </div>
     </div>
 </aside>

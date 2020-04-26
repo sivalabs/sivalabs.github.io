@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>E-Commerce on SivaLabs</title>
@@ -48,7 +48,7 @@ After listing out all the implementation tasks and based on the task dependencie
       
       <guid>https://sivalabs.github.io/2015/11/jcart-requirements-analysis/</guid>
       <description>For building our JCart e-commerce application we will develop two web applications, one for ShoppingCart and another one for Administration. Let us explore the requirements of both ShoppingCart and Administration websites in detail.
-ShoppingCart Site Requirements Home Page: This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart.</description>
+ShoppingCart Site Requirements Home Page:This page shows list of categories and few products in each category. From this screen customers can click on any Category name to see all the products in that particular category or can add a product to cart.</description>
     </item>
     
     <item>
