@@ -34,7 +34,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/posts/" />
-<meta property="og:updated_time" content="2020-04-06T04:59:17+05:30" />
+<meta property="og:updated_time" content="2020-05-31T04:59:17+05:30" />
 
     <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials">
@@ -123,6 +123,52 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-iteration-7/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-7/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-31T09:17:15">
+                December 31, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-iteration-7/" rel="bookmark">
+            JCart : Iteration-7
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>In Iteration#6 we have implemented features in ShoppingCart application to enable Customers place orders. In this Iteration#7 we will implement the features in Administration application to view and manage the Customers and Orders.
+As part of Iteration#7 we will implement the following usecases:
+ Manage Orders  List all Orders View Order details Update Order status   Manage Customers  List all customers View customer details    </p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-iteration-7/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-billing-and-delivery-page/" rel="bookmark">
@@ -538,53 +584,6 @@ Let us implement Controller method to show Product details as follows:
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-30T14:23:06">
-                December 30, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" rel="bookmark">
-            JCart : ShoppingCart Category Page
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>In our Home Page we displayed all the Categories along with few products per each category. When customer clicks on any Category Name we should display Category Page which shows all the products in that Category.
-We already have HomeController.category() method to handle the URL /categories/{name}.
-So let us create category.html thymeleaf template as follows:
-&lt;!DOCTYPE html&gt; &lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xmlns:th=&#34;http://www.thymeleaf.org&#34; xmlns:sec=&#34;http://www.thymeleaf.org/thymeleaf-extras-springsecurity3&#34; layout:decorator=&#34;layout/mainLayout&#34;&gt; &lt;head&gt; &lt;title&gt;Category&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;div layout:fragment=&#34;content&#34;&gt; &lt;div class=&#34;single-product-area&#34;&gt; &lt;div class=&#34;zigzag-bottom&#34;&gt;&lt;/div&gt; &lt;div class=&#34;container&#34;&gt; &lt;div class=&#34;row&#34;&gt; &lt;div class=&#34;woocommerce-info&#34;&gt; &lt;a href=&#34;&#34; th:href=&#34;@{/}&#34;&gt;Home&lt;/a&gt; / &lt;a href=&#34;&#34; th:href=&#34;@{/categories/{name}(name=${category.</p>
-                    <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -677,11 +676,11 @@ So let us create category.html thymeleaf template as follows:
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/05/remote-debugging-spring-boot-application/">Remote debugging springboot application</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/what-i-learned-2020-week-14/">What I Learned in Week-14, 2020</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/impose-architecture-guidelines-using-archunit/">Imposing Code Structure Guidelines using ArchUnit</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/03/what-i-learned-2020-week-11/">What I Learned in Week-11, 2020</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/02/spring-boot-integration-testing-using-testcontainers-starter/">SpringBoot Integration Testing using TestContainers Starter</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2020/01/creating-yeoman-based-springboot-generator/">Creating Yeoman based SpringBoot Generator</a></li>
     </ul>
 
 </aside>
@@ -787,6 +786,8 @@ So let us create category.html thymeleaf template as follows:
                href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-springboot" title="java-springboot">java-springboot</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"

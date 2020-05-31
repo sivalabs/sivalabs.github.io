@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - Remote debugging springboot application">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - Remote debugging springboot application </title>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sivalabs.github.io/images/remote-1.jpg"/>
+
+<meta name="twitter:title" content="Remote debugging springboot application"/>
+<meta name="twitter:description" content="We all know how to run SpringBoot application in debug mode from our favorite IDEs(Eclipse/IntellijIDEA etc) and debug the code. Recently I had to debug a SpringBoot application which is running on a remote server.
+There is already lot of information on the Internet on how to remote debug java applications, but some approaches didn&rsquo;t work for me. So, here I would like to share my findings.
+If application is running on localhost Suppose you are running your application on localhost only and remote debug from your IDE."/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="Remote debugging springboot application" />
+<meta property="og:description" content="We all know how to run SpringBoot application in debug mode from our favorite IDEs(Eclipse/IntellijIDEA etc) and debug the code. Recently I had to debug a SpringBoot application which is running on a remote server.
+There is already lot of information on the Internet on how to remote debug java applications, but some approaches didn&rsquo;t work for me. So, here I would like to share my findings.
+If application is running on localhost Suppose you are running your application on localhost only and remote debug from your IDE." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sivalabs.github.io/2020/05/remote-debugging-spring-boot-application/" />
+<meta property="og:image" content="https://sivalabs.github.io/images/remote-1.jpg" />
+<meta property="article:published_time" content="2020-05-31T04:59:17+05:30" />
+<meta property="article:modified_time" content="2020-05-31T04:59:17+05:30" />
+
+    <meta itemprop="name" content="Remote debugging springboot application">
+<meta itemprop="description" content="We all know how to run SpringBoot application in debug mode from our favorite IDEs(Eclipse/IntellijIDEA etc) and debug the code. Recently I had to debug a SpringBoot application which is running on a remote server.
+There is already lot of information on the Internet on how to remote debug java applications, but some approaches didn&rsquo;t work for me. So, here I would like to share my findings.
+If application is running on localhost Suppose you are running your application on localhost only and remote debug from your IDE.">
+<meta itemprop="datePublished" content="2020-05-31T04:59:17&#43;05:30" />
+<meta itemprop="dateModified" content="2020-05-31T04:59:17&#43;05:30" />
+<meta itemprop="wordCount" content="334">
+<meta itemprop="image" content="https://sivalabs.github.io/images/remote-1.jpg">
+
+
+
+<meta itemprop="keywords" content="Java, SpringBoot," />
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+
+    
+
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1171">
+                    <a href="/projects">My Projects</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+<main id="main" class="site-main" role="main">
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2020/05/remote-debugging-spring-boot-application/" rel="bookmark">
+                <time class="entry-date published" datetime="2020-05-31T04:59:17">
+                May 31, 2020
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2020/05/remote-debugging-spring-boot-application/" rel="bookmark">
+            Remote debugging springboot application
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/java-springboot/">Java, SpringBoot</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+        <div class="entry-content">
+            <p>We all know how to run SpringBoot application in debug mode from our favorite IDEs(Eclipse/IntellijIDEA etc) and debug the code.
+Recently I had to debug a SpringBoot application which is running on a remote server.</p>
+<p>There is already lot of information on the Internet on how to remote debug java applications, but some approaches didn&rsquo;t work for me.
+So, here I would like to share my findings.</p>
+<h2 id="if-application-is-running-on-localhost">If application is running on localhost</h2>
+<p>Suppose you are running your application on localhost only and remote debug from your IDE.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ export JAVA_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787&#39;</span>
+$ java $JAVA_OPTS -jar myapp.jar
+</code></pre></div><blockquote>
+<p>You might have seen debug options specified as &ldquo;-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787&rdquo;.
+But in the newer versions of Java the preferred approach is &ldquo;-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787&rdquo;</p>
+</blockquote>
+<p>Now from Intellij IDEA you can remote debug the application by creating remote debug configuration by
+<code>Run -&gt; Edit Configurations... -&gt; Add New Configuration (Command + N) -&gt; Enter Host and Port values</code></p>
+<p><img src="/images/java-remote-debug.png" alt="RemoteDebuggingIntellijIdea" title="RemoteDebuggingIntellijIdea"></p>
+<p>After creating debug configuration click on Debug, and you should see the following message:</p>
+<blockquote>
+<p><code>Connected to the target VM, address: 'localhost:8787', transport: 'socket'</code></p>
+</blockquote>
+<h2 id="if-application-is-running-on-remote-host">If application is running on remote host</h2>
+<p>Suppose you need to run the application on a remote host and debug from your localhost.</p>
+<p><strong>On Remote Server:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ export JAVA_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787&#39;</span>
+$ java $JAVA_OPTS -jar myapp.jar
+</code></pre></div><p>I followed the same approach as mentioned above and in debug configuration I gave the remote server&rsquo;s IP address instead of <code>localhost</code>.
+But, when I click on Debug I got the following error:</p>
+<blockquote>
+<p><code>unable to open debugger port (198.xxx.xxx.xx:8787): java.net.ConnectException &quot;Connection refused&quot;</code></p>
+</blockquote>
+<p>After a bit of googling I finally resolved the issue by starting the application on remote server as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ export JAVA_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:8787&#39;</span>
+$ java $JAVA_OPTS -jar myapp.jar
+</code></pre></div><p>Note we gave the address as <strong>address=0.0.0.0:8787</strong> instead of <strong>address=8787</strong>.</p>
+<p>With this I am able to remote debug the application in the same way I did when I run it on localhost.</p>
+<p>By the way, we can also run our SpringBoot application in debug mode as follows without creating jar file:</p>
+<blockquote>
+<p><code>mvn spring-boot:run -Dspring-boot.run.jvmArguments=&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787&quot;</code></p>
+</blockquote>
+<p>Happy debugging :-)</p>
+
+        </div>
+        <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=Remote%20debugging%20springboot%20application-https%3a%2f%2fsivalabs.github.io%2f2020%2f05%2fremote-debugging-spring-boot-application%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2020%2f05%2fremote-debugging-spring-boot-application%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2020%2f05%2fremote-debugging-spring-boot-application%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2020%2f05%2fremote-debugging-spring-boot-application%2f&title=Remote%20debugging%20springboot%20application" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2020%2f05%2fremote-debugging-spring-boot-application%2f&title=Remote%20debugging%20springboot%20application" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+</article>
+
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-next">
+			<a href="/2020/04/what-i-learned-2020-week-14/" rel="prev">
+                <span class="post-title">What I Learned in Week-14, 2020
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/05/remote-debugging-spring-boot-application/">Remote debugging springboot application</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2020/04/what-i-learned-2020-week-14/">What I Learned in Week-14, 2020</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2020/04/impose-architecture-guidelines-using-archunit/">Imposing Code Structure Guidelines using ArchUnit</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2020/03/what-i-learned-2020-week-11/">What I Learned in Week-11, 2020</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2020/02/spring-boot-integration-testing-using-testcontainers-starter/">SpringBoot Integration Testing using TestContainers Starter</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+        <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="android">android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="best-practices">best-practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="blog">blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="blogging">blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-springboot" title="java-springboot">java-springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>

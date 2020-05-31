@@ -34,7 +34,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/categories/java/" />
-<meta property="og:updated_time" content="2020-04-06T04:59:17+05:30" />
+<meta property="og:updated_time" content="2020-05-31T04:59:17+05:30" />
 
     <meta itemprop="name" content="Java">
 <meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials">
@@ -123,6 +123,52 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-30T14:20:00">
+                December 30, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" rel="bookmark">
+            JCart : ShoppingCart Home Page
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>In our Home page we will show all the categories along with few of the products in each Category.
+Let us update HomeController with two methods to show all the categories and the selected category products.
+@Controller public class HomeController extends JCartSiteBaseController {	@Autowired protected CatalogService catalogService; @RequestMapping(&#34;/home&#34;) public String home(Model model) { List&lt;Category&gt; previewCategories = new ArrayList&lt;&gt;(); List&lt;Category&gt; categories = catalogService.getAllCategories(); for (Category category : categories) { Set&lt;Product&gt; products = category.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-home-page/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-ui-layout-setup/" rel="bookmark">
@@ -541,55 +587,6 @@ By default SonarQube uses in-memory H2 database to store all the metrics.</p>
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-configuring-https-ssltls/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/12/jcart-configuring-https-ssltls/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-07T13:17:45">
-                December 07, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/12/jcart-configuring-https-ssltls/" rel="bookmark">
-            JCart: Configuring HTTPS SSL/TLS
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            &nbsp;
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/springboot/">SpringBoot</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>So far our JCart application is running on Tomcat default port 8080 using HTTP protocol. In this article we will configure to use HTTPS by using Self Signed Certificate. For real projects you would have to buy certificate from a Trusted Authority.
-I would like to run ShoppingCart site on https://host:8443 and if anyone tries to access it from http://host:8080 it should redirect to https://host:8443.
-Similarly I would like to run Administration site on https://host:9443 and if anyone tries to access it from http://host:9090 it should redirect to https://host:9443.</p>
-                    <a href="https://sivalabs.github.io/2015/12/jcart-configuring-https-ssltls/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -682,11 +679,11 @@ Similarly I would like to run Administration site on https://host:9443 and if an
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/05/remote-debugging-spring-boot-application/">Remote debugging springboot application</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/what-i-learned-2020-week-14/">What I Learned in Week-14, 2020</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/impose-architecture-guidelines-using-archunit/">Imposing Code Structure Guidelines using ArchUnit</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/03/what-i-learned-2020-week-11/">What I Learned in Week-11, 2020</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/02/spring-boot-integration-testing-using-testcontainers-starter/">SpringBoot Integration Testing using TestContainers Starter</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2020/01/creating-yeoman-based-springboot-generator/">Creating Yeoman based SpringBoot Generator</a></li>
     </ul>
 
 </aside>
@@ -792,6 +789,8 @@ Similarly I would like to run Administration site on https://host:9443 and if an
                href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-springboot" title="java-springboot">java-springboot</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/javaee" title="javaee">javaee</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
