@@ -35,7 +35,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/" />
-<meta property="og:updated_time" content="2020-05-31T04:59:17+05:30" />
+<meta property="og:updated_time" content="2020-06-08T04:59:17+05:30" />
 
     <meta itemprop="name" content="SivaLabs">
 <meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials">
@@ -124,6 +124,52 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-30T14:25:35">
+                December 30, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" rel="bookmark">
+            JCart : ShoppingCart Product Page
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>Customers can click on a product to view more details about the product either in Home Page or in Category Page.
+Let us implement Controller method to show Product details as follows:
+@Controller public class ProductController extends JCartSiteBaseController {	@Autowired protected CatalogService catalogService; .... .... @RequestMapping(&#34;/products/{sku}&#34;) public String product(@PathVariable String sku, Model model) { Product product = catalogService.getProductBySku(sku); model.addAttribute(&#34;product&#34;, product); return &#34;product&#34;; } } @Service @Transactional public class CatalogService { @Autowired ProductRepository productRepository; .</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-category-page/" rel="bookmark">
@@ -541,51 +587,6 @@ In our system each permission is more like access to a particular screen. For ex
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-18T13:38:10">
-                December 18, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" rel="bookmark">
-            JCart : Iteration-2
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>Now we have completed Iteration-1 tasks. Iteration-1 includes so many tasks to establish the foundation like configuring Spring Security, Thymeleaf settings, UI layout setup etc. I hope from now on we can put more focus on actual tasks implementation rather than infrastructure setup.
-Though majority of the infrastructure setup is in place now, we will implement Role Based Access Control (RBAC) security using User-Role-Permission model before jumping on to Category/Product management.</p>
-                    <a href="https://sivalabs.github.io/2015/12/jcart-iteration-2/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -678,11 +679,11 @@ Though majority of the infrastructure setup is in place now, we will implement R
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/06/my-proud-moment-as-a-mentor/">My proud moment as a mentor</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/05/remote-debugging-spring-boot-application/">Remote debugging springboot application</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/what-i-learned-2020-week-14/">What I Learned in Week-14, 2020</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/impose-architecture-guidelines-using-archunit/">Imposing Code Structure Guidelines using ArchUnit</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/03/what-i-learned-2020-week-11/">What I Learned in Week-11, 2020</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2020/02/spring-boot-integration-testing-using-testcontainers-starter/">SpringBoot Integration Testing using TestContainers Starter</a></li>
     </ul>
 
 </aside>
@@ -741,6 +742,7 @@ Though majority of the infrastructure setup is in place now, we will implement R
         <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/career">Career</a></li>
         <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
         <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
@@ -774,6 +776,8 @@ Though majority of the infrastructure setup is in place now, we will implement R
                href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/career-it" title="career-it">career-it</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/e-commerce" title="e-commerce">e-commerce</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"

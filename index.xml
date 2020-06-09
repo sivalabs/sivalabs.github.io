@@ -6,10 +6,20 @@
     <description>Recent content on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 May 2020 04:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2020 04:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My proud moment as a mentor</title>
+      <link>https://sivalabs.github.io/2020/06/my-proud-moment-as-a-mentor/</link>
+      <pubDate>Mon, 08 Jun 2020 04:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2020/06/my-proud-moment-as-a-mentor/</guid>
+      <description>As software developers, most of us implicitly assume gaining strong technical skills might make us successful. Many of us assume being good at cutting edge technologies, mastering keyboard shortcuts, being able to work on front-end, back-end and infrastructure etc etc will make us successful in our careers.
+Yes, the above mentioned skills definitely help, but just being good at tech skills might not make us successful. There is more to it.</description>
+    </item>
     
     <item>
       <title>Remote debugging springboot application</title>

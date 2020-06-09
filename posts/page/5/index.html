@@ -34,7 +34,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/posts/" />
-<meta property="og:updated_time" content="2020-05-31T04:59:17+05:30" />
+<meta property="og:updated_time" content="2020-06-08T04:59:17+05:30" />
 
     <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials">
@@ -123,6 +123,52 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-31T09:21:17">
+                December 31, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark">
+            JCart : Manage Orders
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>For Managing Orders we need a provision to see all the list of orders and view an order details and updating the order status.
+Let us start with implementing the back-end order service.
+@Service @Transactional public class OrderService { @Autowired EmailService emailService; @Autowired OrderRepository orderRepository; ... ... public Order getOrder(String orderNumber) { return orderRepository.findByOrderNumber(orderNumber); } public List&lt;Order&gt; getAllOrders() { Sort sort = new Sort(Direction.DESC, &#34;createdOn&#34;); return orderRepository.findAll(sort); } public Order updateOrder(Order order) { Order o = getOrder(order.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-iteration-7/" rel="bookmark">
@@ -538,52 +584,6 @@ Let us implement the search handler method in ProductController as follows:
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-30T14:25:35">
-                December 30, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" rel="bookmark">
-            JCart : ShoppingCart Product Page
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>Customers can click on a product to view more details about the product either in Home Page or in Category Page.
-Let us implement Controller method to show Product details as follows:
-@Controller public class ProductController extends JCartSiteBaseController {	@Autowired protected CatalogService catalogService; .... .... @RequestMapping(&#34;/products/{sku}&#34;) public String product(@PathVariable String sku, Model model) { Product product = catalogService.getProductBySku(sku); model.addAttribute(&#34;product&#34;, product); return &#34;product&#34;; } } @Service @Transactional public class CatalogService { @Autowired ProductRepository productRepository; .</p>
-                    <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-page/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -676,11 +676,11 @@ Let us implement Controller method to show Product details as follows:
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/06/my-proud-moment-as-a-mentor/">My proud moment as a mentor</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/05/remote-debugging-spring-boot-application/">Remote debugging springboot application</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/what-i-learned-2020-week-14/">What I Learned in Week-14, 2020</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/impose-architecture-guidelines-using-archunit/">Imposing Code Structure Guidelines using ArchUnit</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/03/what-i-learned-2020-week-11/">What I Learned in Week-11, 2020</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2020/02/spring-boot-integration-testing-using-testcontainers-starter/">SpringBoot Integration Testing using TestContainers Starter</a></li>
     </ul>
 
 </aside>
@@ -739,6 +739,7 @@ Let us implement Controller method to show Product details as follows:
         <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/career">Career</a></li>
         <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
         <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
@@ -772,6 +773,8 @@ Let us implement Controller method to show Product details as follows:
                href="/tags/blogging" title="blogging">blogging</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/career-it" title="career-it">career-it</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/e-commerce" title="e-commerce">e-commerce</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
