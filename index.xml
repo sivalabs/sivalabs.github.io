@@ -6,10 +6,20 @@
     <description>Recent content on SivaLabs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jun 2020 04:59:17 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2020 04:59:17 +0530</lastBuildDate>
     
 	<atom:link href="https://sivalabs.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GoLang from a Java developer perspective</title>
+      <link>https://sivalabs.github.io/2020/07/golang-from-a-java-developer-perspective/</link>
+      <pubDate>Thu, 02 Jul 2020 04:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2020/07/golang-from-a-java-developer-perspective/</guid>
+      <description>Gone are the days we can call ourselves as Java developer, .NET developer, Python developer etc. Nowadays we might need to work with multiple languages to some extent such as Python for scripting, Go for CLI utilities etc.
+Out of personal interest I started learning Go Language 3 months ago and I am using Go for our current application. In this article I would like to share my first impression on Go language.</description>
+    </item>
     
     <item>
       <title>My proud moment as a mentor</title>

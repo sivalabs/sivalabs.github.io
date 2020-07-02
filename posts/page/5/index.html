@@ -34,7 +34,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sivalabs.github.io/posts/" />
-<meta property="og:updated_time" content="2020-06-08T04:59:17+05:30" />
+<meta property="og:updated_time" content="2020-07-02T04:59:17+05:30" />
 
     <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials">
@@ -123,6 +123,52 @@ if (!doNotTrack) {
         <div class="post-column clearfix">
             
 
+            
+            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" rel="bookmark">
+                </a>
+                <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" rel="bookmark">
+                <time class="entry-date published" datetime="2015-12-31T09:34:50">
+                December 31, 2015
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" rel="bookmark">
+            JCart : Manage Customers
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+
+                <div class="entry-content entry-excerpt clearfix">
+                    <p>For Managing Customers we need a provision to see all the list of customers and view any Customers details.
+Let us start with implementing the back-end Customer service.
+public interface CustomerRepository extends JpaRepository&lt;Customer, Integer&gt; { Customer findByEmail(String email); @Query(&#34;select o from Order o where o.customer.email=?1&#34;) List&lt;Order&gt; getCustomerOrders(String email); } @Service @Transactional public class CustomerService { @Autowired CustomerRepository customerRepository; public Customer getCustomerByEmail(String email) { return customerRepository.findByEmail(email); } public Customer createCustomer(Customer customer) { return customerRepository.</p>
+                    <a href="https://sivalabs.github.io/2015/12/jcart-manage-customers/" class="more-link">Continue reading &raquo;</a>
+                </div>
+            </article>
             
             <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
                 <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-manage-orders/" rel="bookmark">
@@ -538,52 +584,6 @@ In this Iteration we will implement the following usecases:
                 </div>
             </article>
             
-            <article id="post-9753" class="post type-post status-publish format-standard has-post-thumbnail hentry">
-                <a class="wp-post-image-link" href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/" rel="bookmark">
-                </a>
-                <header class="entry-header">
-    <div class="entry-meta">
-        <span class="meta-date">
-            <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/" rel="bookmark">
-                <time class="entry-date published" datetime="2015-12-30T14:27:57">
-                December 30, 2015
-                </time>
-            </a>
-        </span>
-        <span class="meta-author">
-            <span class="author vcard">Siva</span>
-        </span>
-    </div>
-    <h2 class="entry-title">
-        <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/" rel="bookmark">
-            JCart : ShoppingCart Product Search Results
-        </a>
-    </h2>
-    <div>
-        
-        
-        
-        <span class="tagcloud post-tags">
-            <i class="fa fa-tags"></i>
-            
-            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/jcart/">jcart</a>
-            
-            
-        </span>
-        
-        
-    </div>
-</header>
-
-
-                <div class="entry-content entry-excerpt clearfix">
-                    <p>In our main template we have a Search box to search for products. In this post we will implement the Product Search functionality. When customer search for a product we will search products based on name or SKU or description.
-Let us implement the search handler method in ProductController as follows:
-@Controller public class ProductController extends JCartSiteBaseController {	@Autowired protected CatalogService catalogService; ... ... @RequestMapping(&#34;/products&#34;) public String searchProducts(@RequestParam(name=&#34;q&#34;, defaultValue=&#34;&#34;) String query, Model model) { List&lt;Product&gt; products = catalogService.</p>
-                    <a href="https://sivalabs.github.io/2015/12/jcart-shoppingcart-product-search-results/" class="more-link">Continue reading &raquo;</a>
-                </div>
-            </article>
-            
         </div>
 
     </div>
@@ -676,11 +676,11 @@ Let us implement the search handler method in ProductController as follows:
         <h3 class="widget-title">Recent Posts</h3>
     </div>
     <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/07/golang-from-a-java-developer-perspective/">GoLang from a Java developer perspective</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/06/my-proud-moment-as-a-mentor/">My proud moment as a mentor</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/05/remote-debugging-spring-boot-application/">Remote debugging springboot application</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/what-i-learned-2020-week-14/">What I Learned in Week-14, 2020</a></li>
         <li class="widget__item"><a class="widget__link" href="/2020/04/impose-architecture-guidelines-using-archunit/">Imposing Code Structure Guidelines using ArchUnit</a></li>
-        <li class="widget__item"><a class="widget__link" href="/2020/03/what-i-learned-2020-week-11/">What I Learned in Week-11, 2020</a></li>
     </ul>
 
 </aside>
@@ -740,6 +740,7 @@ Let us implement the search handler method in ProductController as follows:
         <li class="cat-item"><a href="/categories/blog">Blog</a></li>
         <li class="cat-item"><a href="/categories/books">Books</a></li>
         <li class="cat-item"><a href="/categories/career">Career</a></li>
+        <li class="cat-item"><a href="/categories/golang">Golang</a></li>
         <li class="cat-item"><a href="/categories/ide">Ide</a></li>
         <li class="cat-item"><a href="/categories/java">Java</a></li>
         <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
@@ -777,6 +778,8 @@ Let us implement the search handler method in ProductController as follows:
                href="/tags/career-it" title="career-it">career-it</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/golang-java" title="golang-java">golang-java</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"
                href="/tags/ide" title="ide">ide</a>
             <a class="tag-cloud-link widget__link widget__link--taglist"

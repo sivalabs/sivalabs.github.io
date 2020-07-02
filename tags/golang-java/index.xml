@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GoLang, Java on SivaLabs</title>
+    <link>https://sivalabs.github.io/tags/golang-java/</link>
+    <description>Recent content in GoLang, Java on SivaLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Jul 2020 04:59:17 +0530</lastBuildDate>
+    
+	<atom:link href="https://sivalabs.github.io/tags/golang-java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GoLang from a Java developer perspective</title>
+      <link>https://sivalabs.github.io/2020/07/golang-from-a-java-developer-perspective/</link>
+      <pubDate>Thu, 02 Jul 2020 04:59:17 +0530</pubDate>
+      
+      <guid>https://sivalabs.github.io/2020/07/golang-from-a-java-developer-perspective/</guid>
+      <description>Gone are the days we can call ourselves as Java developer, .NET developer, Python developer etc. Nowadays we might need to work with multiple languages to some extent such as Python for scripting, Go for CLI utilities etc.
+Out of personal interest I started learning Go Language 3 months ago and I am using Go for our current application. In this article I would like to share my first impression on Go language.</description>
+    </item>
+    
+  </channel>
+</rss>

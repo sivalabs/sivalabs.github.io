@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+    
+    
+    <div class="analytics">
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-71296890-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" property="title" content="SivaLabs - GoLang from a Java developer perspective">
+    <meta name="description" property="description" content="Java, Spring, SpringBoot, SpringCloud, JPA, Hibernate, DevOps, MicroServices, Docker tutorials - " >
+    <title>SivaLabs - GoLang from a Java developer perspective </title>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sivalabs.github.io/images/golang.png"/>
+
+<meta name="twitter:title" content="GoLang from a Java developer perspective"/>
+<meta name="twitter:description" content="Gone are the days we can call ourselves as Java developer, .NET developer, Python developer etc. Nowadays we might need to work with multiple languages to some extent such as Python for scripting, Go for CLI utilities etc.
+Out of personal interest I started learning Go Language 3 months ago and I am using Go for our current application. In this article I would like to share my first impression on Go language."/>
+<meta name="twitter:site" content="@sivalabs"/>
+
+    <meta name="twitter:creator" content="@sivalabs"/>
+    <meta property="og:title" content="GoLang from a Java developer perspective" />
+<meta property="og:description" content="Gone are the days we can call ourselves as Java developer, .NET developer, Python developer etc. Nowadays we might need to work with multiple languages to some extent such as Python for scripting, Go for CLI utilities etc.
+Out of personal interest I started learning Go Language 3 months ago and I am using Go for our current application. In this article I would like to share my first impression on Go language." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sivalabs.github.io/2020/07/golang-from-a-java-developer-perspective/" />
+<meta property="og:image" content="https://sivalabs.github.io/images/golang.png" />
+<meta property="article:published_time" content="2020-07-02T04:59:17+05:30" />
+<meta property="article:modified_time" content="2020-07-02T04:59:17+05:30" />
+
+    <meta itemprop="name" content="GoLang from a Java developer perspective">
+<meta itemprop="description" content="Gone are the days we can call ourselves as Java developer, .NET developer, Python developer etc. Nowadays we might need to work with multiple languages to some extent such as Python for scripting, Go for CLI utilities etc.
+Out of personal interest I started learning Go Language 3 months ago and I am using Go for our current application. In this article I would like to share my first impression on Go language.">
+<meta itemprop="datePublished" content="2020-07-02T04:59:17&#43;05:30" />
+<meta itemprop="dateModified" content="2020-07-02T04:59:17&#43;05:30" />
+<meta itemprop="wordCount" content="2236">
+<meta itemprop="image" content="https://sivalabs.github.io/images/golang.png">
+
+
+
+<meta itemprop="keywords" content="GoLang, Java," />
+
+    <link rel='stylesheet' href="/assets/css/custom-fonts.css" type='text/css' media='all'/>
+
+    <link rel='stylesheet' href="/assets/css/style.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/genericons.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/font-awesome.min.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/socicon.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="/assets/css/social-logos/social-logos.css" type="text/css" media="all">
+    <link rel='stylesheet' href="/assets/css/jetpack.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="/assets/css/custom-styles.css" type='text/css' media='all'/>
+
+    <script type='text/javascript' src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script type='text/javascript' src="/assets/js/html5shiv.min.js"></script>
+    <script type='text/javascript' src="/assets/js/navigation.js"></script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+
+    
+
+</head>
+<body class="home blog logged-in admin-bar no-customize-support post-layout-one-column">
+    <div id="header-top" class="header-bar-wrap"></div>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header clearfix" role="banner">
+    <div class="header-main container clearfix">
+        <div id="logo" class="site-branding clearfix">
+            <h1 class="site-title">
+                <a href="/" title="SivaLabs" rel="home">SivaLabs</a>
+            </h1>
+            <p class="site-description">My Experiments on Technology</p>
+        </div>
+        <div class="header-widgets clearfix">
+        </div>
+    </div>
+    <div id="main-navigation-wrap" class="primary-navigation-wrap">
+        <nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+            <ul id="menu-home" class="main-navigation-menu">
+                <li id="menu-item-1145" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1145">
+                    <a href="/">Home</a>
+                </li>
+                <li id="menu-item-1421" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1421">
+                    <a href="/categories/java">Java</a>
+                </li>
+                <li id="menu-item-1423" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1423">
+                    <a href="/categories/spring">Spring</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1424" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1424">
+                            <a href="/categories/springboot">Spring Boot</a>
+                        </li>
+                        <li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425">
+                            <a href="/categories/springcloud">Spring Cloud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-item-1422" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1422">
+                    <a href="/categories/microservices">MicroServices</a>
+                </li>
+                <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151">
+                    <a href="/videos">Videos</a>
+                </li>
+                <li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1161">
+                    <a href="/mybooks">My Books</a>
+                </li>
+                <li id="menu-item-1171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1171">
+                    <a href="/projects">My Projects</a>
+                </li>
+                <li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146">
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+        <div id="content" class="site-content container clearfix">
+            <section id="primary" class="content-archive content-area">
+                
+<main id="main" class="site-main" role="main">
+<article class="post type-post status-publish format-standard hentry">
+    <div class="post-inner-content">
+        <header class="entry-header">
+    <div class="entry-meta">
+        <span class="meta-date">
+            <a href="https://sivalabs.github.io/2020/07/golang-from-a-java-developer-perspective/" rel="bookmark">
+                <time class="entry-date published" datetime="2020-07-02T04:59:17">
+                July 02, 2020
+                </time>
+            </a>
+        </span>
+        <span class="meta-author">
+            <span class="author vcard">Siva</span>
+        </span>
+    </div>
+    <h2 class="entry-title">
+        <a href="https://sivalabs.github.io/2020/07/golang-from-a-java-developer-perspective/" rel="bookmark">
+            GoLang from a Java developer perspective
+        </a>
+    </h2>
+    <div>
+        
+        
+        
+        <span class="tagcloud post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a class="tag-cloud-link widget__link widget__link--taglist" href="/tags/golang-java/">GoLang, Java</a>
+            
+            
+        </span>
+        
+        
+    </div>
+</header>
+
+        <div class="entry-content">
+            <p>Gone are the days we can call ourselves as Java developer, .NET developer, Python developer etc.
+Nowadays we might need to work with multiple languages to some extent such as Python for scripting, Go for CLI utilities etc.</p>
+<p>Out of personal interest I started learning <a href="https://golang.org/">Go Language</a> 3 months ago and I am using Go for our current application. In this article I would like to share my first impression on Go language.</p>
+<h2 id="1-happy-beginning">1. Happy Beginning</h2>
+<p>Few years ago I thought of switching from WordPress to a static generator for my blog and tried <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://gohugo.io/">Hugo</a>.
+Hugo is really blazing fast and I learned that Hugo is built using GoLang. So, I already have a good opinion on Go.</p>
+<p>Also, I keep hearing lot of good things about Go and in the recent years many developers prefer Go over Java for MicroServices development. Although that hype seems to be settled down lately.</p>
+<h3 id="go-is-a-simple-language">Go is a simple language</h3>
+<p>Go is a very simple language to learn. Go doesn&rsquo;t include too many features, so it is easy to learn compared to other languages. I would say in a week you can be comfortably program in Go. You can learn about Go <strong>datatypes, control structures, collections, functions, error handling</strong> in a couple of days and get familiar with <strong>go modules, structs, interfaces, pointers</strong> and <strong>Go routines/channels</strong> in another 4 or 5 days.</p>
+<p>I find the following resources very helpful to get started with Go:</p>
+<ul>
+<li><a href="https://golangbot.com/learn-golang-series/">https://golangbot.com/learn-golang-series/</a></li>
+<li><a href="https://gobyexample.com/">https://gobyexample.com/</a></li>
+<li><a href="https://www.callicoder.com/categories/golang/">https://www.callicoder.com/categories/golang/</a></li>
+<li><a href="https://quii.gitbook.io/learn-go-with-tests/">https://quii.gitbook.io/learn-go-with-tests/</a></li>
+</ul>
+<h3 id="batteries-included">Batteries included</h3>
+<p>In a typical application development we do things like <strong>reading/writing files</strong>, <strong>parsing JSON data</strong>, <strong>work with databases</strong>, <strong>create HTTP REST APIs</strong> etc. Go language has built-in support for all of these. In addition to this, Go also includes support for unit testing, HTTP testing in the standard library itself.</p>
+<h3 id="out-of-the-box-tooling">Out of the box tooling</h3>
+<p>Go provides nice tooling support for code formatting, test code coverage checks, benchmarking etc.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=uBjoTxosSys">Go Tooling in Action</a></li>
+<li><a href="https://golang.org/cmd/gofmt/">gofmt</a></li>
+<li><a href="https://blog.golang.org/cover">Go Test Coverage</a></li>
+<li><a href="https://golang.org/pkg/testing/#hdr-Benchmarks">Go Test Benchmarks</a></li>
+</ul>
+<h2 id="2-wtf-moments">2. WTF Moments</h2>
+<p>Nowadays we have many wonderful programming languages like Java, Kotlin, Python, JavaScript, Go, Rust to name a few. If I have to select a programming language for a real application(not pet projects) I would at least expect some features that are available in most of the programming languages. So, I expected some of the commonly used features in Go and I am very surprised to know that Go doesn&rsquo;t have them.</p>
+<h3 id="very-very-limited-collections">Very very limited collections</h3>
+<ul>
+<li>
+<p>Storing a collection of unique values is such a very common requirement and most of the languages provides <strong>Set</strong> collection to support that. Go doesn&rsquo;t have any built-in support for <strong>Set</strong> type collection. As there is no <strong>Set</strong> datatype in Go, we mostly ended up using map to store the values as keys.</p>
+</li>
+<li>
+<p>Getting all the keys or values from a map is also a very common use-case. Go doesn&rsquo;t have any <strong>map.keys()</strong> or <strong>map.values()</strong> to support that. You have to iterate the map and collect the keys/values in a slice.</p>
+</li>
+<li>
+<p>Slices are similar to Lists, but not exactly Lists. If you think you can check whether a slice has an element by <strong>mySlice.contains(value)</strong>, think again. There is no <strong>.contains()</strong> method on slice, you have to loop over slice elements and check.</p>
+</li>
+<li>
+<p>The <strong>map</strong> datatype by definition stores key-value pairs, so you might think at least <strong>map</strong> might have <strong>.containsKey()</strong> method. Sorry. To check if a key exists in map you have to write the following code:</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">val</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mymap</span>[<span style="color:#e6db74">&#34;foo&#34;</span>]; <span style="color:#a6e22e">ok</span> {
+    <span style="color:#75715e">//do something here
+</span><span style="color:#75715e"></span>}
+</code></pre></div><figure>
+    <img src="/images/why-cat.jpg"
+         alt="But, Why?" width="350" height="300"/> 
+</figure>
+
+<h3 id="error-handling">Error handling</h3>
+<p>There is no concept of Exceptions in Go unlike in Java or Ruby etc. In Go, a function can return multiple values. A common pattern is to return a pair of (result, error) from a function.</p>
+<p>The following code demonstrate how errors are handled in idiomatic Go.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">doSomething</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) (<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">error</span>) {
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;Are you crazy?!!&#34;</span>)
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">n</span>, <span style="color:#66d9ef">nil</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">iWishIGetPaidByLinesOfCode</span>() {
+  <span style="color:#a6e22e">square</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">doSomething</span>(<span style="color:#ae81ff">3</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;You think each function returning a value and error is cool. &#34;</span><span style="color:#f92672">+</span> <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
+  }
+  <span style="color:#75715e">//do something useful with square
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Ok, instead of throwing Exceptions and handling them in Catch blocks we are returning the errors as first class values. After all the code doesn&rsquo;t look that bad, isn&rsquo;t.</p>
+<p>Let&rsquo;s take a little more complex example of reading a file line by line and insert the data into database.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">getDbConnection</span>()
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+  <span style="color:#66d9ef">return</span>
+}
+<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Close</span>()
+<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadFile</span>(<span style="color:#e6db74">&#34;test.txt&#34;</span>)
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;File reading error&#34;</span>, <span style="color:#a6e22e">err</span>)
+    <span style="color:#66d9ef">return</span>
+}
+<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">line</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">lines</span>() { <span style="color:#75715e">//just assume there is .lines() which returns slice of strings
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">stmt</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Prepare</span>(<span style="color:#e6db74">&#34;INSERT INTO users(name) VALUES(?)&#34;</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">err</span>)
+    <span style="color:#66d9ef">return</span>
+  }
+  <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stmt</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#a6e22e">line</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">err</span>)
+    <span style="color:#66d9ef">return</span>
+  }
+  <span style="color:#a6e22e">lastId</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">LastInsertId</span>()
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">err</span>)
+    <span style="color:#66d9ef">return</span>
+  }
+  <span style="color:#a6e22e">rowCnt</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">RowsAffected</span>()
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">err</span>)
+    <span style="color:#66d9ef">return</span>
+  }
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;ID = %d, affected = %d\n&#34;</span>, <span style="color:#a6e22e">lastId</span>, <span style="color:#a6e22e">rowCnt</span>)
+}
+</code></pre></div><p>When I take a glance at this code all I see is error checks with the actual business logic stuffed somewhere in between.</p>
+<p>Yes, you can argue that handling errors are part of actual workflow. But there must be a better way of dealing with the errors.</p>
+<p>I believe the language should give the developer a provision to define the scope of successful or failure of an operation and let the developer handle each error individually or as a whole as they seems fit.</p>
+<p>In the above example, suppose if I don&rsquo;t care whether the whole method failed due to reading file, talking to database or while getting LastInsertId I consider it as a failure and just log the error and return. Then I want to implement the same functionality as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">loadUsers</span>() {
+  <span style="color:#a6e22e">try</span> {
+    <span style="color:#a6e22e">db</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">getDbConnection</span>()
+    <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Close</span>()
+    <span style="color:#a6e22e">data</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadFile</span>(<span style="color:#e6db74">&#34;test.txt&#34;</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">line</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">lines</span>() {
+      <span style="color:#a6e22e">stmt</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Prepare</span>(<span style="color:#e6db74">&#34;INSERT INTO users(name) VALUES(?)&#34;</span>)
+      <span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stmt</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#a6e22e">line</span>)
+      <span style="color:#a6e22e">lastId</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">LastInsertId</span>()
+      <span style="color:#a6e22e">rowCnt</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">RowsAffected</span>()
+      <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;ID = %d, affected = %d\n&#34;</span>, <span style="color:#a6e22e">lastId</span>, <span style="color:#a6e22e">rowCnt</span>)
+    }
+  } <span style="color:#a6e22e">catch</span>(<span style="color:#a6e22e">err</span>) {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;Something terrible happened. Error: &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+  }
+}
+</code></pre></div><p>If I want to handle DB connection errors differently I would handled them as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">loadUsers</span>() {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>
+
+  <span style="color:#a6e22e">try</span> {
+    <span style="color:#a6e22e">db</span> = <span style="color:#a6e22e">getDbConnection</span>()
+    <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Close</span>()
+    }
+  } <span style="color:#a6e22e">catch</span>(<span style="color:#a6e22e">err</span>) {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;DB connection Error: &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+  }
+
+  <span style="color:#a6e22e">try</span> {
+    <span style="color:#a6e22e">data</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadFile</span>(<span style="color:#e6db74">&#34;test.txt&#34;</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">line</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">lines</span>() {
+      <span style="color:#a6e22e">stmt</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Prepare</span>(<span style="color:#e6db74">&#34;INSERT INTO users(name) VALUES(?)&#34;</span>)
+      <span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stmt</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#a6e22e">line</span>)
+      <span style="color:#a6e22e">lastId</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">LastInsertId</span>()
+      <span style="color:#a6e22e">rowCnt</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">RowsAffected</span>()
+      <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;ID = %d, affected = %d\n&#34;</span>, <span style="color:#a6e22e">lastId</span>, <span style="color:#a6e22e">rowCnt</span>)
+    }
+  } <span style="color:#a6e22e">catch</span>(<span style="color:#a6e22e">err</span>) {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;Something terrible happened. Error: &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+  }
+}
+</code></pre></div><p>In Go most of the standard library functions return a value and error and while writing idiomatic Go code your code is full of error checks. That might look perfectly fine for many, but for my personal taste that&rsquo;s terrible.</p>
+<h3 id="funky-date-formatting">Funky Date Formatting</h3>
+<p>Kidnap a software developer and put a gun to his/her head and tell them to format a date object to print <strong>year-month-day</strong> in only one try.</p>
+<figure>
+    <img src="/images/go-date-format.jpg"
+         alt="Go Date Formatting"/> 
+</figure>
+
+<p>I believe most of the developers will bet their life to <strong>dateObject.format(&ldquo;yyyy-mm-dd&rdquo;)</strong>. This notation is so common in many programming languages. But in Go, we need format date object (time.Time) using <strong>dateObject.Format(&ldquo;2006-01-02&rdquo;)</strong>.</p>
+<p>In Go we need to use the magical date <strong>Mon Jan 2 15:04:05 MST 2006</strong> for <a href="https://programming.guide/go/format-parse-string-time-date-example.html">formatting/parsing dates</a>.</p>
+<h3 id="go-feels-low-level-and-verbose">Go feels low-level and verbose</h3>
+<p>As of now Go doesn&rsquo;t have support for <strong>Generics</strong> or <strong>Streams</strong>. Lack of support for Generics and Streams combined with lack of decent collection types and operations result in writing lot of boilerplate code. Add error handling into this mix and voila&hellip;</p>
+<p>I really wish I get paid by number of lines of code while working on Go projects :-)</p>
+<figure>
+    <img src="/images/money-tears.gif" width="350" height="300"/> 
+</figure>
+
+<h2 id="3-retrospection-and-realization">3. Retrospection and Realization</h2>
+<p>After going through all these WTF moments, I started thinking how come Go is so popular!!?? A programming language simply doesn&rsquo;t become that popular without having some good reasons (of course the hipster developers want to work on something new for every six months&hellip;that&rsquo;s a different story). There must be something really good about Go which makes it so popular. So, I started thinking what I am missing??!!!.</p>
+<p>Sometimes people use programming languages/tools for totally different purposes than what their creators originally created for.
+So, I thought of hearing from the Go Lang creators and I found this wonderful talk by Rob Pike.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/rFejpH_tAHM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>After watching the talk I kind of got answers to some of my questions.</p>
+<h3 id="go-is-designed-to-be-simple">Go is designed to be simple</h3>
+<p>It seems Go is not created to compete with any existing popular languages. So, they(Go creators) are not in the race of providing all the features of popular languages plus some more. They want to create a simple programming language with minimal features. Sometimes the simplicity may result in verbosity.</p>
+<p>For example, lets take a look at the following Java/Spring code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Transactional</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">creteUser</span><span style="color:#f92672">(</span>User user<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">validateUser</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+  <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">userRepository</span><span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>user<span style="color:#f92672">);</span>
+  <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">addressRepository</span><span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>user<span style="color:#f92672">.</span><span style="color:#a6e22e">getAddress</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>This method looks simple, isn&rsquo;t it. But to fully understand this method&rsquo;s runtime behaviour one needs to know Spring&rsquo;s magic.
+First, the <strong>@Transactional</strong> annotation start a DB transaction if it is not already a part of an existing transaction. Then, if the method completes normally the DB transaction gets committed automatically, of if there is any <strong>RuntimeException</strong> occurs DB transaction gets rolled back automatically. Any of these details are not visible in the code.</p>
+<p>Lets look at Go version of the same method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">function</span> <span style="color:#a6e22e">createUser</span>(<span style="color:#a6e22e">user</span> <span style="color:#a6e22e">User</span>) {
+  <span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">getConnection</span>()
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+  }
+
+  <span style="color:#a6e22e">ctx</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()
+  <span style="color:#a6e22e">tx</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">BeginTx</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#66d9ef">nil</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+  }
+
+  <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">ExecContext</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;INSERT INTO users (name, gender) VALUES (...)&#34;</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">Rollback</span>()
+    <span style="color:#66d9ef">return</span>
+  }
+
+  <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">ExecContext</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;INSERT INTO addresses (street, city) VALUES (...)&#34;</span>)
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">Rollback</span>()
+    <span style="color:#66d9ef">return</span>
+  }
+
+  <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">Commit</span>()
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+  }
+}
+</code></pre></div><p>Anyone with little bit of programming background can understand (at least conceptually) what is going on in here.
+Yes, it is verbose, but clear. No background magic going on here. Sometimes a bit of verbosity is better than smart and clever code.</p>
+<h3 id="go-is-designed-to-solve-specific-problems">Go is designed to solve specific problems</h3>
+<p>I believe usually programming languages are created by its creator to solve a specific type of problems that they are facing. I don&rsquo;t think Rob Pike or other Go creators were writing any e-commerce web applications, or fancy REST API and they created Go to solve those web app development challenges. To my guess they might have been working on building low-latency, high-performance servers, low level protocol implementations etc using C++ or some other low level programming languages and they were not happy with C++. At least that&rsquo;s what I understood from their talks.</p>
+<p>So, comparing Go with Java or Ruby might be apples to oranges comparison. If I want to build a web application may be I am more productive with SpringBoot or Ruby On Rails than Go.</p>
+<p>When I try to learn a new language I looks for sample applications on Github to learn how people usually do something in that language. When I search for Go sample projects, most of the projects are like <strong>Docker, Kubernetes, CLI clients</strong> etc and I hardly find any typical web applications. That doesn&rsquo;t mean you can&rsquo;t use Go for web apps or REST API, but it may not be right tool for those type of applications especially if productivity is a key factor.</p>
+<h2 id="4-summary">4. Summary</h2>
+<p>While learning a new language we might unknowingly compare with our favourite programming language and keep comparing whether the new language is having all the features of our current favourite language. If we keep comparing everything then it is hard to see the beauty of the new language. We should explore the new language and learn its strengths and weaknesses.</p>
+<p>While learning Go, I keep comparing it with Java, SpringBoot combo which is the best tech stack in my opinion. I shouldn&rsquo;t have compared Go with Java + SpringBoot.</p>
+<p>Also, we shouldn&rsquo;t hang on to little things like <strong>Funky Date Formatting</strong> :-) How hard it is to remember <strong>01 is for month, 02 is for day, 03 is for hour</strong> etc. May be it is better than <strong>&ldquo;yyyy-mm-dd&rdquo;</strong> format. How many times we get confuse about does <strong>MM</strong> represents Month or Minutes??!! With Go&rsquo;s notation there is no such confusion.</p>
+<p>Java has vast collection library, generics, streams, huge ecosystem of frameworks and libraries. While using Java + SpringBoot I can simply add a bunch of starter which mostly take care of boilerplate code and start working on business logic.</p>
+<p>I really get surprised when people keep saying Java is old, java is verbose, Java is all about creating Factories, Builders etc etc. Yes, the frameworks(Spring) might have Factories, Builders etc but I don&rsquo;t even remember when was the last time I had to create Factory in my business application. If anyone think Java is same as it was in EJB 1.x days then please do yourself a favour and take another look at Java.</p>
+<p>To summarize, I like Go, but it&rsquo;s not in my top 3 favourites. I choose Java over Go for most of the applications. But if I ever want to create a CLI application then I don&rsquo;t even think for a second, I will just use Go with <a href="https://github.com/spf13/cobra">Cobra</a>.</p>
+
+        </div>
+        <div class="sharedaddy sd-sharing-enabled">
+    <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+        <h3 class="sd-title">Share this:</h3>
+        <div class="sd-content">
+            <ul>
+                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1144" class="share-twitter sd-button share-icon no-text" href="https://twitter.com/intent/tweet?status=GoLang%20from%20a%20Java%20developer%20perspective-https%3a%2f%2fsivalabs.github.io%2f2020%2f07%2fgolang-from-a-java-developer-perspective%2f" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li>
+                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1144" class="share-facebook sd-button share-icon no-text" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fsivalabs.github.io%2f2020%2f07%2fgolang-from-a-java-developer-perspective%2f" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li>
+                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1144" class="share-google-plus-1 sd-button share-icon no-text" href="https://plus.google.com/share?url=https%3a%2f%2fsivalabs.github.io%2f2020%2f07%2fgolang-from-a-java-developer-perspective%2f" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li>
+                <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.reddit.com/submit?url=https%3a%2f%2fsivalabs.github.io%2f2020%2f07%2fgolang-from-a-java-developer-perspective%2f&title=GoLang%20from%20a%20Java%20developer%20perspective" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li>
+                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-1144" class="share-linkedin sd-button share-icon no-text" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fsivalabs.github.io%2f2020%2f07%2fgolang-from-a-java-developer-perspective%2f&title=GoLang%20from%20a%20Java%20developer%20perspective" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li>
+                <li class="share-end"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    </div>
+</article>
+
+
+<div class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sivalabs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+
+<nav class="navigation post-navigation" role="navigation">
+	<h2 class="screen-reader-text">Post navigation</h2>
+	<div class="nav-links">
+		<div class="nav-next">
+			<a href="/2020/06/my-proud-moment-as-a-mentor/" rel="prev">
+                <span class="post-title">My proud moment as a mentor
+                    <i class="fa fa-chevron-right"></i>
+                </span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+</main>
+
+            </section>
+
+            <section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+                
+<aside id="zoom-social-icons-widget-2" class="widget zoom-social-icons-widget">
+    <h3 class="widget-title">Follow Me</h3>
+
+    <ul class="zoom-social-icons-list zoom-social-icons-list--with-canvas zoom-social-icons-list--rounded zoom-social-icons-list--no-labels">
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://github.com/sivaprasadreddy"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-github"
+                          data-hover-rule="background-color" data-hover-color="#221e1b"
+
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://twitter.com/sivalabs"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-twitter"
+                          data-hover-rule="background-color" data-hover-color="#55acee"
+                    ></span>
+            </a>
+        </li>
+        
+
+        
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="https://in.linkedin.com/in/siva-prasad-reddy-k-3a909172"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-linkedin"
+                          data-hover-rule="background-color" data-hover-color="#3371b7"
+                    ></span>
+            </a>
+        </li>
+
+        
+
+        
+        <li class="zoom-social_icons-list__item">
+            <a class="zoom-social_icons-list__link"
+               href="http://www.youtube.com/c/SivaPrasadReddy%20"
+               target="_blank">
+                    <span class="zoom-social_icons-list-span socicon socicon-youtube"
+                          data-hover-rule="background-color" data-hover-color="#e02a20"
+                    ></span>
+            </a>
+        </li>
+        
+    </ul>
+</aside>
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries clearfix">
+    <div class="widget-header">
+        <h3 class="widget-title">Recent Posts</h3>
+    </div>
+    <ul>
+        <li class="widget__item"><a class="widget__link" href="/2020/07/golang-from-a-java-developer-perspective/">GoLang from a Java developer perspective</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2020/06/my-proud-moment-as-a-mentor/">My proud moment as a mentor</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2020/05/remote-debugging-spring-boot-application/">Remote debugging springboot application</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2020/04/what-i-learned-2020-week-14/">What I Learned in Week-14, 2020</a></li>
+        <li class="widget__item"><a class="widget__link" href="/2020/04/impose-architecture-guidelines-using-archunit/">Imposing Code Structure Guidelines using ArchUnit</a></li>
+    </ul>
+
+</aside>
+
+<aside id="top-posts-2" class="widget widget_top-posts clearfix">
+    <div class="widget-header"><h3 class="widget-title">Top Posts &amp; Pages</h3></div>
+    <ul>
+
+        <li>
+            <a href="/2016/03/why-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Why SpringBoot?</a>
+        </li>
+
+        <li>
+            <a href="/2016/03/how-springboot-autoconfiguration-magic/"
+            class="bump-view" data-bump-view="tp">
+            How SpringBoot AutoConfiguration magic works?</a>
+        </li>
+
+        <li>
+            <a href="/2015/11/developing-a-simple-e-commerce-application-from-scratch-to-production-using-springboot/"
+            class="bump-view" data-bump-view="tp">
+            Developing a simple e-commerce application from scratch to production using SpringBoot</a>
+        </li>
+
+        <li>
+            <a href="/2013/12/clean-code-dont-mix-different-levels-of-abstractions/"
+            class="bump-view" data-bump-view="tp">
+            Clean Code: Don’t mix different levels of abstractions</a>
+        </li>
+
+        <li>
+            <a href="/2015/06/a-developers-perspective-on-spring-vs-javaee/"
+            class="bump-view" data-bump-view="tp">
+            A Developers Perspective on Spring vs JavaEE</a>
+        </li>
+
+        <li>
+            <a href="/2015/07/my-life-as-software-developer-in-india/"
+            class="bump-view" data-bump-view="tp">
+            My Life as a Software Developer in India</a>
+        </li>
+
+        <li>
+            <a href="/2011/01/10-things-to-become-outstanding-java/"
+            class="bump-view" data-bump-view="tp">
+            10 things to become an outstanding Java developer</a>
+        </li>
+</ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories clearfix">
+    <div class="widget-header"><h3 class="widget-title">Categories</h3></div>
+    <ul>
+        <li class="cat-item"><a href="/categories/best-practices">Best-Practices</a></li>
+        <li class="cat-item"><a href="/categories/blog">Blog</a></li>
+        <li class="cat-item"><a href="/categories/books">Books</a></li>
+        <li class="cat-item"><a href="/categories/career">Career</a></li>
+        <li class="cat-item"><a href="/categories/golang">Golang</a></li>
+        <li class="cat-item"><a href="/categories/ide">Ide</a></li>
+        <li class="cat-item"><a href="/categories/java">Java</a></li>
+        <li class="cat-item"><a href="/categories/javaee">Javaee</a></li>
+        <li class="cat-item"><a href="/categories/kafka">Kafka</a></li>
+        <li class="cat-item"><a href="/categories/linux">Linux</a></li>
+        <li class="cat-item"><a href="/categories/microservices">Microservices</a></li>
+        <li class="cat-item"><a href="/categories/misc">Misc</a></li>
+        <li class="cat-item"><a href="/categories/spring">Spring</a></li>
+        <li class="cat-item"><a href="/categories/springboot">Springboot</a></li>
+        <li class="cat-item"><a href="/categories/springcloud">Springcloud</a></li>
+        <li class="cat-item"><a href="/categories/testing">Testing</a></li>
+        <li class="cat-item"><a href="/categories/tips">Tips</a></li>
+        <li class="cat-item"><a href="/categories/travis-ci">Travis-Ci</a></li>
+        <li class="cat-item"><a href="/categories/videos">Videos</a></li>
+    </ul>
+</aside>
+
+
+<aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix">
+    <div class="widget-header"><h3 class="widget-title">Tags</h3></div>
+    <div class="tagcloud">
+
+        <div class="widget__content">
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/android" title="android">android</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/best-practices" title="best-practices">best-practices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blog" title="blog">blog</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/blogging" title="blogging">blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/books" title="books">books</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/career-it" title="career-it">career-it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/e-commerce" title="e-commerce">e-commerce</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/golang-java" title="golang-java">golang-java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/ide" title="ide">ide</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/interviews" title="interviews">interviews</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/it" title="it">it</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java" title="java">java</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-bestpractices" title="java-bestpractices">java-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-blogging" title="java-blogging">java-blogging</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/java-springboot" title="java-springboot">java-springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/javaee" title="javaee">javaee</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jcart" title="jcart">jcart</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jooq" title="jooq">jooq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/jsf" title="jsf">jsf</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka" title="kafka">kafka</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/kafka-springboot-spring" title="kafka-springboot-spring">kafka-springboot-spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/linux" title="linux">linux</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/maven" title="maven">maven</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/microservices" title="microservices">microservices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/mybatis" title="mybatis">mybatis</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/postman-newman-rest" title="postman-newman-rest">postman-newman-rest</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/primefaces" title="primefaces">primefaces</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/rabbitmq" title="rabbitmq">rabbitmq</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/servlets-jsp" title="servlets-jsp">servlets-jsp</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring" title="spring">spring</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-bestpractices" title="spring-springboot-bestpractices">spring-springboot-bestpractices</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/spring-springboot-testing" title="spring-springboot-testing">spring-springboot-testing</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot" title="springboot">springboot</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-testcontainers" title="springboot-testcontainers">springboot-testcontainers</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springboot-yeoman" title="springboot-yeoman">springboot-yeoman</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springcloud" title="springcloud">springcloud</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/springsession" title="springsession">springsession</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/tips" title="tips">tips</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/travis-ci" title="travis-ci">travis-ci</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/videos" title="videos">videos</a>
+            <a class="tag-cloud-link widget__link widget__link--taglist"
+               href="/tags/virtualbox" title="virtualbox">virtualbox</a>
+        </div>
+    </div>
+</aside>
+            </section>
+        </div>
+        <div id="footer" class="footer-wrap">
+            <footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+    <div id="footer-text" class="site-info">
+        <span class="credit-link">
+            <a href="/" target="_blank">SivaLabs</a>
+            Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
